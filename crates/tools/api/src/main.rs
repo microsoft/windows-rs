@@ -6,7 +6,7 @@ const EXCLUDE_NAMESPACES: [&str; 1] = ["Windows.Win32.Interop"];
 fn main() {
     let mut output = std::path::PathBuf::from(reader::workspace_dir());
     output.push("crates/libs/windows/src/Windows");
-    //let _ = std::fs::remove_dir_all(&output);
+    let _ = std::fs::remove_dir_all(&output);
     output.pop();
 
     let reader = reader::TypeReader::get_mut();
@@ -113,10 +113,6 @@ fn collect_trees<'a>(output: &std::path::Path, root: &'static str, tree: &'a rea
 }
 
 fn gen_tree(output: &std::path::Path, _root: &'static str, tree: &reader::TypeTree) {
-    // if !tree.namespace.starts_with("Windows.Win32.Foundation") {
-    //     return;
-    // }
-
     println!("{}", tree.namespace);
 
     let path = std::path::PathBuf::from(output).join(tree.namespace.replace('.', "/"));
