@@ -6555,7 +6555,7 @@ impl ID2D1CommandSink2 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn DrawGdiMetafile2<'a, Param0: ::windows::core::IntoParam<'a, ID2D1GdiMetafile>>(&self, gdimetafile: Param0, destinationrectangle: *const Common::D2D_RECT_F, sourcerectangle: *const Common::D2D_RECT_F) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).DrawGdiMetafile)(::core::mem::transmute_copy(self), gdimetafile.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(sourcerectangle)).ok()
+        (::windows::core::Interface::vtable(self).DrawGdiMetafile2)(::core::mem::transmute_copy(self), gdimetafile.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(sourcerectangle)).ok()
     }
 }
 impl ::core::convert::From<ID2D1CommandSink2> for ::windows::core::IUnknown {
@@ -6781,7 +6781,7 @@ impl ID2D1CommandSink3 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn DrawGdiMetafile2<'a, Param0: ::windows::core::IntoParam<'a, ID2D1GdiMetafile>>(&self, gdimetafile: Param0, destinationrectangle: *const Common::D2D_RECT_F, sourcerectangle: *const Common::D2D_RECT_F) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.DrawGdiMetafile)(::core::mem::transmute_copy(self), gdimetafile.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(sourcerectangle)).ok()
+        (::windows::core::Interface::vtable(self).base.DrawGdiMetafile2)(::core::mem::transmute_copy(self), gdimetafile.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(sourcerectangle)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn DrawSpriteBatch<'a, Param0: ::windows::core::IntoParam<'a, ID2D1SpriteBatch>, Param3: ::windows::core::IntoParam<'a, ID2D1Bitmap>>(&self, spritebatch: Param0, startindex: u32, spritecount: u32, bitmap: Param3, interpolationmode: D2D1_BITMAP_INTERPOLATION_MODE, spriteoptions: D2D1_SPRITE_OPTIONS) -> ::windows::core::Result<()> {
@@ -7026,7 +7026,7 @@ impl ID2D1CommandSink4 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn DrawGdiMetafile2<'a, Param0: ::windows::core::IntoParam<'a, ID2D1GdiMetafile>>(&self, gdimetafile: Param0, destinationrectangle: *const Common::D2D_RECT_F, sourcerectangle: *const Common::D2D_RECT_F) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.DrawGdiMetafile)(::core::mem::transmute_copy(self), gdimetafile.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(sourcerectangle)).ok()
+        (::windows::core::Interface::vtable(self).base.base.DrawGdiMetafile2)(::core::mem::transmute_copy(self), gdimetafile.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(sourcerectangle)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn DrawSpriteBatch<'a, Param0: ::windows::core::IntoParam<'a, ID2D1SpriteBatch>, Param3: ::windows::core::IntoParam<'a, ID2D1Bitmap>>(&self, spritebatch: Param0, startindex: u32, spritecount: u32, bitmap: Param3, interpolationmode: D2D1_BITMAP_INTERPOLATION_MODE, spriteoptions: D2D1_SPRITE_OPTIONS) -> ::windows::core::Result<()> {
@@ -7295,7 +7295,7 @@ impl ID2D1CommandSink5 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn DrawGdiMetafile2<'a, Param0: ::windows::core::IntoParam<'a, ID2D1GdiMetafile>>(&self, gdimetafile: Param0, destinationrectangle: *const Common::D2D_RECT_F, sourcerectangle: *const Common::D2D_RECT_F) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).base.base.base.DrawGdiMetafile)(::core::mem::transmute_copy(self), gdimetafile.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(sourcerectangle)).ok()
+        (::windows::core::Interface::vtable(self).base.base.base.DrawGdiMetafile2)(::core::mem::transmute_copy(self), gdimetafile.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(sourcerectangle)).ok()
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn DrawSpriteBatch<'a, Param0: ::windows::core::IntoParam<'a, ID2D1SpriteBatch>, Param3: ::windows::core::IntoParam<'a, ID2D1Bitmap>>(&self, spritebatch: Param0, startindex: u32, spritecount: u32, bitmap: Param3, interpolationmode: D2D1_BITMAP_INTERPOLATION_MODE, spriteoptions: D2D1_SPRITE_OPTIONS) -> ::windows::core::Result<()> {
@@ -8285,7 +8285,7 @@ impl ID2D1Device1 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateDeviceContext2(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> ::windows::core::Result<ID2D1DeviceContext1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDeviceContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DeviceContext1>(result__)
+        (::windows::core::Interface::vtable(self).CreateDeviceContext2)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DeviceContext1>(result__)
     }
 }
 impl ::core::convert::From<ID2D1Device1> for ::windows::core::IUnknown {
@@ -8418,12 +8418,12 @@ impl ID2D1Device2 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateDeviceContext2(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> ::windows::core::Result<ID2D1DeviceContext1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CreateDeviceContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DeviceContext1>(result__)
+        (::windows::core::Interface::vtable(self).base.CreateDeviceContext2)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DeviceContext1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateDeviceContext3(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> ::windows::core::Result<ID2D1DeviceContext2> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDeviceContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DeviceContext2>(result__)
+        (::windows::core::Interface::vtable(self).CreateDeviceContext3)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DeviceContext2>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn FlushDeviceContexts<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Bitmap>>(&self, bitmap: Param0) {
@@ -8589,12 +8589,12 @@ impl ID2D1Device3 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateDeviceContext2(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> ::windows::core::Result<ID2D1DeviceContext1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CreateDeviceContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DeviceContext1>(result__)
+        (::windows::core::Interface::vtable(self).base.base.CreateDeviceContext2)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DeviceContext1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateDeviceContext3(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> ::windows::core::Result<ID2D1DeviceContext2> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CreateDeviceContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DeviceContext2>(result__)
+        (::windows::core::Interface::vtable(self).base.CreateDeviceContext3)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DeviceContext2>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn FlushDeviceContexts<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Bitmap>>(&self, bitmap: Param0) {
@@ -8609,7 +8609,7 @@ impl ID2D1Device3 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateDeviceContext4(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> ::windows::core::Result<ID2D1DeviceContext3> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDeviceContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DeviceContext3>(result__)
+        (::windows::core::Interface::vtable(self).CreateDeviceContext4)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DeviceContext3>(result__)
     }
 }
 impl ::core::convert::From<ID2D1Device3> for ::windows::core::IUnknown {
@@ -8780,12 +8780,12 @@ impl ID2D1Device4 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateDeviceContext2(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> ::windows::core::Result<ID2D1DeviceContext1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.CreateDeviceContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DeviceContext1>(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.CreateDeviceContext2)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DeviceContext1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateDeviceContext3(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> ::windows::core::Result<ID2D1DeviceContext2> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CreateDeviceContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DeviceContext2>(result__)
+        (::windows::core::Interface::vtable(self).base.base.CreateDeviceContext3)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DeviceContext2>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn FlushDeviceContexts<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Bitmap>>(&self, bitmap: Param0) {
@@ -8800,12 +8800,12 @@ impl ID2D1Device4 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateDeviceContext4(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> ::windows::core::Result<ID2D1DeviceContext3> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CreateDeviceContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DeviceContext3>(result__)
+        (::windows::core::Interface::vtable(self).base.CreateDeviceContext4)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DeviceContext3>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateDeviceContext5(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> ::windows::core::Result<ID2D1DeviceContext4> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDeviceContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DeviceContext4>(result__)
+        (::windows::core::Interface::vtable(self).CreateDeviceContext5)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DeviceContext4>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn SetMaximumColorGlyphCacheMemory(&self, maximuminbytes: u64) {
@@ -9006,12 +9006,12 @@ impl ID2D1Device5 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateDeviceContext2(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> ::windows::core::Result<ID2D1DeviceContext1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.CreateDeviceContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DeviceContext1>(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.base.CreateDeviceContext2)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DeviceContext1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateDeviceContext3(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> ::windows::core::Result<ID2D1DeviceContext2> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.CreateDeviceContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DeviceContext2>(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.CreateDeviceContext3)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DeviceContext2>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn FlushDeviceContexts<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Bitmap>>(&self, bitmap: Param0) {
@@ -9026,12 +9026,12 @@ impl ID2D1Device5 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateDeviceContext4(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> ::windows::core::Result<ID2D1DeviceContext3> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CreateDeviceContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DeviceContext3>(result__)
+        (::windows::core::Interface::vtable(self).base.base.CreateDeviceContext4)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DeviceContext3>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateDeviceContext5(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> ::windows::core::Result<ID2D1DeviceContext4> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CreateDeviceContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DeviceContext4>(result__)
+        (::windows::core::Interface::vtable(self).base.CreateDeviceContext5)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DeviceContext4>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn SetMaximumColorGlyphCacheMemory(&self, maximuminbytes: u64) {
@@ -9044,7 +9044,7 @@ impl ID2D1Device5 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateDeviceContext6(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> ::windows::core::Result<ID2D1DeviceContext5> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDeviceContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DeviceContext5>(result__)
+        (::windows::core::Interface::vtable(self).CreateDeviceContext6)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DeviceContext5>(result__)
     }
 }
 impl ::core::convert::From<ID2D1Device5> for ::windows::core::IUnknown {
@@ -9255,12 +9255,12 @@ impl ID2D1Device6 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateDeviceContext2(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> ::windows::core::Result<ID2D1DeviceContext1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.CreateDeviceContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DeviceContext1>(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.CreateDeviceContext2)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DeviceContext1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateDeviceContext3(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> ::windows::core::Result<ID2D1DeviceContext2> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.CreateDeviceContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DeviceContext2>(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.base.CreateDeviceContext3)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DeviceContext2>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn FlushDeviceContexts<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Bitmap>>(&self, bitmap: Param0) {
@@ -9275,12 +9275,12 @@ impl ID2D1Device6 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateDeviceContext4(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> ::windows::core::Result<ID2D1DeviceContext3> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.CreateDeviceContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DeviceContext3>(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.CreateDeviceContext4)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DeviceContext3>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateDeviceContext5(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> ::windows::core::Result<ID2D1DeviceContext4> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CreateDeviceContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DeviceContext4>(result__)
+        (::windows::core::Interface::vtable(self).base.base.CreateDeviceContext5)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DeviceContext4>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn SetMaximumColorGlyphCacheMemory(&self, maximuminbytes: u64) {
@@ -9293,12 +9293,12 @@ impl ID2D1Device6 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateDeviceContext6(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> ::windows::core::Result<ID2D1DeviceContext5> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CreateDeviceContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DeviceContext5>(result__)
+        (::windows::core::Interface::vtable(self).base.CreateDeviceContext6)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DeviceContext5>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateDeviceContext7(&self, options: D2D1_DEVICE_CONTEXT_OPTIONS) -> ::windows::core::Result<ID2D1DeviceContext6> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDeviceContext)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DeviceContext6>(result__)
+        (::windows::core::Interface::vtable(self).CreateDeviceContext7)(::core::mem::transmute_copy(self), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DeviceContext6>(result__)
     }
 }
 impl ::core::convert::From<ID2D1Device6> for ::windows::core::IUnknown {
@@ -9760,13 +9760,13 @@ impl ID2D1DeviceContext {
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateBitmap2<'a, Param0: ::windows::core::IntoParam<'a, Common::D2D_SIZE_U>>(&self, size: Param0, sourcedata: *const ::core::ffi::c_void, pitch: u32, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1) -> ::windows::core::Result<ID2D1Bitmap1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateBitmap)(::core::mem::transmute_copy(self), size.into_param().abi(), ::core::mem::transmute(sourcedata), ::core::mem::transmute(pitch), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Bitmap1>(result__)
+        (::windows::core::Interface::vtable(self).CreateBitmap2)(::core::mem::transmute_copy(self), size.into_param().abi(), ::core::mem::transmute(sourcedata), ::core::mem::transmute(pitch), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Bitmap1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi_Common', 'Win32_Graphics_Imaging'*"]
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
     pub unsafe fn CreateBitmapFromWicBitmap2<'a, Param0: ::windows::core::IntoParam<'a, super::Imaging::IWICBitmapSource>>(&self, wicbitmapsource: Param0, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1) -> ::windows::core::Result<ID2D1Bitmap1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateBitmapFromWicBitmap)(::core::mem::transmute_copy(self), wicbitmapsource.into_param().abi(), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Bitmap1>(result__)
+        (::windows::core::Interface::vtable(self).CreateBitmapFromWicBitmap2)(::core::mem::transmute_copy(self), wicbitmapsource.into_param().abi(), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Bitmap1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateColorContext(&self, space: D2D1_COLOR_SPACE, profile: *const u8, profilesize: u32) -> ::windows::core::Result<ID2D1ColorContext> {
@@ -9800,7 +9800,7 @@ impl ID2D1DeviceContext {
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn CreateGradientStopCollection2(&self, straightalphagradientstops: *const D2D1_GRADIENT_STOP, straightalphagradientstopscount: u32, preinterpolationspace: D2D1_COLOR_SPACE, postinterpolationspace: D2D1_COLOR_SPACE, bufferprecision: D2D1_BUFFER_PRECISION, extendmode: D2D1_EXTEND_MODE, colorinterpolationmode: D2D1_COLOR_INTERPOLATION_MODE) -> ::windows::core::Result<ID2D1GradientStopCollection1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateGradientStopCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(straightalphagradientstops), ::core::mem::transmute(straightalphagradientstopscount), ::core::mem::transmute(preinterpolationspace), ::core::mem::transmute(postinterpolationspace), ::core::mem::transmute(bufferprecision), ::core::mem::transmute(extendmode), ::core::mem::transmute(colorinterpolationmode), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1GradientStopCollection1>(result__)
+        (::windows::core::Interface::vtable(self).CreateGradientStopCollection2)(::core::mem::transmute_copy(self), ::core::mem::transmute(straightalphagradientstops), ::core::mem::transmute(straightalphagradientstopscount), ::core::mem::transmute(preinterpolationspace), ::core::mem::transmute(postinterpolationspace), ::core::mem::transmute(bufferprecision), ::core::mem::transmute(extendmode), ::core::mem::transmute(colorinterpolationmode), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1GradientStopCollection1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Foundation_Numerics', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
@@ -9812,7 +9812,7 @@ impl ID2D1DeviceContext {
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn CreateBitmapBrush2<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Bitmap>>(&self, bitmap: Param0, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES1, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows::core::Result<ID2D1BitmapBrush1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateBitmapBrush)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(bitmapbrushproperties), ::core::mem::transmute(brushproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1BitmapBrush1>(result__)
+        (::windows::core::Interface::vtable(self).CreateBitmapBrush2)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(bitmapbrushproperties), ::core::mem::transmute(brushproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1BitmapBrush1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateCommandList(&self) -> ::windows::core::Result<ID2D1CommandList> {
@@ -9888,7 +9888,7 @@ impl ID2D1DeviceContext {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Foundation', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_DirectWrite'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
     pub unsafe fn DrawGlyphRun2<'a, Param0: ::windows::core::IntoParam<'a, Common::D2D_POINT_2F>, Param3: ::windows::core::IntoParam<'a, ID2D1Brush>>(&self, baselineorigin: Param0, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, glyphrundescription: *const super::DirectWrite::DWRITE_GLYPH_RUN_DESCRIPTION, foregroundbrush: Param3, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) {
-        (::windows::core::Interface::vtable(self).DrawGlyphRun)(::core::mem::transmute_copy(self), baselineorigin.into_param().abi(), ::core::mem::transmute(glyphrun), ::core::mem::transmute(glyphrundescription), foregroundbrush.into_param().abi(), ::core::mem::transmute(measuringmode))
+        (::windows::core::Interface::vtable(self).DrawGlyphRun2)(::core::mem::transmute_copy(self), baselineorigin.into_param().abi(), ::core::mem::transmute(glyphrun), ::core::mem::transmute(glyphrundescription), foregroundbrush.into_param().abi(), ::core::mem::transmute(measuringmode))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -9903,12 +9903,12 @@ impl ID2D1DeviceContext {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn DrawBitmap2<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Bitmap>>(&self, bitmap: Param0, destinationrectangle: *const Common::D2D_RECT_F, opacity: f32, interpolationmode: D2D1_INTERPOLATION_MODE, sourcerectangle: *const Common::D2D_RECT_F, perspectivetransform: *const Common::D2D_MATRIX_4X4_F) {
-        (::windows::core::Interface::vtable(self).DrawBitmap)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(opacity), ::core::mem::transmute(interpolationmode), ::core::mem::transmute(sourcerectangle), ::core::mem::transmute(perspectivetransform))
+        (::windows::core::Interface::vtable(self).DrawBitmap2)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(opacity), ::core::mem::transmute(interpolationmode), ::core::mem::transmute(sourcerectangle), ::core::mem::transmute(perspectivetransform))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Foundation_Numerics', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
     pub unsafe fn PushLayer2<'a, Param1: ::windows::core::IntoParam<'a, ID2D1Layer>>(&self, layerparameters: *const D2D1_LAYER_PARAMETERS1, layer: Param1) {
-        (::windows::core::Interface::vtable(self).PushLayer)(::core::mem::transmute_copy(self), ::core::mem::transmute(layerparameters), layer.into_param().abi())
+        (::windows::core::Interface::vtable(self).PushLayer2)(::core::mem::transmute_copy(self), ::core::mem::transmute(layerparameters), layer.into_param().abi())
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -9933,7 +9933,7 @@ impl ID2D1DeviceContext {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn FillOpacityMask2<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Bitmap>, Param1: ::windows::core::IntoParam<'a, ID2D1Brush>>(&self, opacitymask: Param0, brush: Param1, destinationrectangle: *const Common::D2D_RECT_F, sourcerectangle: *const Common::D2D_RECT_F) {
-        (::windows::core::Interface::vtable(self).FillOpacityMask)(::core::mem::transmute_copy(self), opacitymask.into_param().abi(), brush.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(sourcerectangle))
+        (::windows::core::Interface::vtable(self).FillOpacityMask2)(::core::mem::transmute_copy(self), opacitymask.into_param().abi(), brush.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(sourcerectangle))
     }
 }
 impl ::core::convert::From<ID2D1DeviceContext> for ::windows::core::IUnknown {
@@ -10401,13 +10401,13 @@ impl ID2D1DeviceContext1 {
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateBitmap2<'a, Param0: ::windows::core::IntoParam<'a, Common::D2D_SIZE_U>>(&self, size: Param0, sourcedata: *const ::core::ffi::c_void, pitch: u32, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1) -> ::windows::core::Result<ID2D1Bitmap1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CreateBitmap)(::core::mem::transmute_copy(self), size.into_param().abi(), ::core::mem::transmute(sourcedata), ::core::mem::transmute(pitch), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Bitmap1>(result__)
+        (::windows::core::Interface::vtable(self).base.CreateBitmap2)(::core::mem::transmute_copy(self), size.into_param().abi(), ::core::mem::transmute(sourcedata), ::core::mem::transmute(pitch), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Bitmap1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi_Common', 'Win32_Graphics_Imaging'*"]
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
     pub unsafe fn CreateBitmapFromWicBitmap2<'a, Param0: ::windows::core::IntoParam<'a, super::Imaging::IWICBitmapSource>>(&self, wicbitmapsource: Param0, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1) -> ::windows::core::Result<ID2D1Bitmap1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CreateBitmapFromWicBitmap)(::core::mem::transmute_copy(self), wicbitmapsource.into_param().abi(), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Bitmap1>(result__)
+        (::windows::core::Interface::vtable(self).base.CreateBitmapFromWicBitmap2)(::core::mem::transmute_copy(self), wicbitmapsource.into_param().abi(), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Bitmap1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateColorContext(&self, space: D2D1_COLOR_SPACE, profile: *const u8, profilesize: u32) -> ::windows::core::Result<ID2D1ColorContext> {
@@ -10441,7 +10441,7 @@ impl ID2D1DeviceContext1 {
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn CreateGradientStopCollection2(&self, straightalphagradientstops: *const D2D1_GRADIENT_STOP, straightalphagradientstopscount: u32, preinterpolationspace: D2D1_COLOR_SPACE, postinterpolationspace: D2D1_COLOR_SPACE, bufferprecision: D2D1_BUFFER_PRECISION, extendmode: D2D1_EXTEND_MODE, colorinterpolationmode: D2D1_COLOR_INTERPOLATION_MODE) -> ::windows::core::Result<ID2D1GradientStopCollection1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CreateGradientStopCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(straightalphagradientstops), ::core::mem::transmute(straightalphagradientstopscount), ::core::mem::transmute(preinterpolationspace), ::core::mem::transmute(postinterpolationspace), ::core::mem::transmute(bufferprecision), ::core::mem::transmute(extendmode), ::core::mem::transmute(colorinterpolationmode), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1GradientStopCollection1>(result__)
+        (::windows::core::Interface::vtable(self).base.CreateGradientStopCollection2)(::core::mem::transmute_copy(self), ::core::mem::transmute(straightalphagradientstops), ::core::mem::transmute(straightalphagradientstopscount), ::core::mem::transmute(preinterpolationspace), ::core::mem::transmute(postinterpolationspace), ::core::mem::transmute(bufferprecision), ::core::mem::transmute(extendmode), ::core::mem::transmute(colorinterpolationmode), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1GradientStopCollection1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Foundation_Numerics', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
@@ -10453,7 +10453,7 @@ impl ID2D1DeviceContext1 {
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn CreateBitmapBrush2<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Bitmap>>(&self, bitmap: Param0, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES1, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows::core::Result<ID2D1BitmapBrush1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CreateBitmapBrush)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(bitmapbrushproperties), ::core::mem::transmute(brushproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1BitmapBrush1>(result__)
+        (::windows::core::Interface::vtable(self).base.CreateBitmapBrush2)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(bitmapbrushproperties), ::core::mem::transmute(brushproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1BitmapBrush1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateCommandList(&self) -> ::windows::core::Result<ID2D1CommandList> {
@@ -10529,7 +10529,7 @@ impl ID2D1DeviceContext1 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Foundation', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_DirectWrite'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
     pub unsafe fn DrawGlyphRun2<'a, Param0: ::windows::core::IntoParam<'a, Common::D2D_POINT_2F>, Param3: ::windows::core::IntoParam<'a, ID2D1Brush>>(&self, baselineorigin: Param0, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, glyphrundescription: *const super::DirectWrite::DWRITE_GLYPH_RUN_DESCRIPTION, foregroundbrush: Param3, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) {
-        (::windows::core::Interface::vtable(self).base.DrawGlyphRun)(::core::mem::transmute_copy(self), baselineorigin.into_param().abi(), ::core::mem::transmute(glyphrun), ::core::mem::transmute(glyphrundescription), foregroundbrush.into_param().abi(), ::core::mem::transmute(measuringmode))
+        (::windows::core::Interface::vtable(self).base.DrawGlyphRun2)(::core::mem::transmute_copy(self), baselineorigin.into_param().abi(), ::core::mem::transmute(glyphrun), ::core::mem::transmute(glyphrundescription), foregroundbrush.into_param().abi(), ::core::mem::transmute(measuringmode))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -10544,12 +10544,12 @@ impl ID2D1DeviceContext1 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn DrawBitmap2<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Bitmap>>(&self, bitmap: Param0, destinationrectangle: *const Common::D2D_RECT_F, opacity: f32, interpolationmode: D2D1_INTERPOLATION_MODE, sourcerectangle: *const Common::D2D_RECT_F, perspectivetransform: *const Common::D2D_MATRIX_4X4_F) {
-        (::windows::core::Interface::vtable(self).base.DrawBitmap)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(opacity), ::core::mem::transmute(interpolationmode), ::core::mem::transmute(sourcerectangle), ::core::mem::transmute(perspectivetransform))
+        (::windows::core::Interface::vtable(self).base.DrawBitmap2)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(opacity), ::core::mem::transmute(interpolationmode), ::core::mem::transmute(sourcerectangle), ::core::mem::transmute(perspectivetransform))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Foundation_Numerics', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
     pub unsafe fn PushLayer2<'a, Param1: ::windows::core::IntoParam<'a, ID2D1Layer>>(&self, layerparameters: *const D2D1_LAYER_PARAMETERS1, layer: Param1) {
-        (::windows::core::Interface::vtable(self).base.PushLayer)(::core::mem::transmute_copy(self), ::core::mem::transmute(layerparameters), layer.into_param().abi())
+        (::windows::core::Interface::vtable(self).base.PushLayer2)(::core::mem::transmute_copy(self), ::core::mem::transmute(layerparameters), layer.into_param().abi())
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -10574,7 +10574,7 @@ impl ID2D1DeviceContext1 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn FillOpacityMask2<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Bitmap>, Param1: ::windows::core::IntoParam<'a, ID2D1Brush>>(&self, opacitymask: Param0, brush: Param1, destinationrectangle: *const Common::D2D_RECT_F, sourcerectangle: *const Common::D2D_RECT_F) {
-        (::windows::core::Interface::vtable(self).base.FillOpacityMask)(::core::mem::transmute_copy(self), opacitymask.into_param().abi(), brush.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(sourcerectangle))
+        (::windows::core::Interface::vtable(self).base.FillOpacityMask2)(::core::mem::transmute_copy(self), opacitymask.into_param().abi(), brush.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(sourcerectangle))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateFilledGeometryRealization<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Geometry>>(&self, geometry: Param0, flatteningtolerance: f32) -> ::windows::core::Result<ID2D1GeometryRealization> {
@@ -10972,13 +10972,13 @@ impl ID2D1DeviceContext2 {
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateBitmap2<'a, Param0: ::windows::core::IntoParam<'a, Common::D2D_SIZE_U>>(&self, size: Param0, sourcedata: *const ::core::ffi::c_void, pitch: u32, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1) -> ::windows::core::Result<ID2D1Bitmap1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CreateBitmap)(::core::mem::transmute_copy(self), size.into_param().abi(), ::core::mem::transmute(sourcedata), ::core::mem::transmute(pitch), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Bitmap1>(result__)
+        (::windows::core::Interface::vtable(self).base.base.CreateBitmap2)(::core::mem::transmute_copy(self), size.into_param().abi(), ::core::mem::transmute(sourcedata), ::core::mem::transmute(pitch), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Bitmap1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi_Common', 'Win32_Graphics_Imaging'*"]
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
     pub unsafe fn CreateBitmapFromWicBitmap2<'a, Param0: ::windows::core::IntoParam<'a, super::Imaging::IWICBitmapSource>>(&self, wicbitmapsource: Param0, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1) -> ::windows::core::Result<ID2D1Bitmap1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CreateBitmapFromWicBitmap)(::core::mem::transmute_copy(self), wicbitmapsource.into_param().abi(), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Bitmap1>(result__)
+        (::windows::core::Interface::vtable(self).base.base.CreateBitmapFromWicBitmap2)(::core::mem::transmute_copy(self), wicbitmapsource.into_param().abi(), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Bitmap1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateColorContext(&self, space: D2D1_COLOR_SPACE, profile: *const u8, profilesize: u32) -> ::windows::core::Result<ID2D1ColorContext> {
@@ -11012,7 +11012,7 @@ impl ID2D1DeviceContext2 {
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn CreateGradientStopCollection2(&self, straightalphagradientstops: *const D2D1_GRADIENT_STOP, straightalphagradientstopscount: u32, preinterpolationspace: D2D1_COLOR_SPACE, postinterpolationspace: D2D1_COLOR_SPACE, bufferprecision: D2D1_BUFFER_PRECISION, extendmode: D2D1_EXTEND_MODE, colorinterpolationmode: D2D1_COLOR_INTERPOLATION_MODE) -> ::windows::core::Result<ID2D1GradientStopCollection1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CreateGradientStopCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(straightalphagradientstops), ::core::mem::transmute(straightalphagradientstopscount), ::core::mem::transmute(preinterpolationspace), ::core::mem::transmute(postinterpolationspace), ::core::mem::transmute(bufferprecision), ::core::mem::transmute(extendmode), ::core::mem::transmute(colorinterpolationmode), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1GradientStopCollection1>(result__)
+        (::windows::core::Interface::vtable(self).base.base.CreateGradientStopCollection2)(::core::mem::transmute_copy(self), ::core::mem::transmute(straightalphagradientstops), ::core::mem::transmute(straightalphagradientstopscount), ::core::mem::transmute(preinterpolationspace), ::core::mem::transmute(postinterpolationspace), ::core::mem::transmute(bufferprecision), ::core::mem::transmute(extendmode), ::core::mem::transmute(colorinterpolationmode), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1GradientStopCollection1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Foundation_Numerics', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
@@ -11024,7 +11024,7 @@ impl ID2D1DeviceContext2 {
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn CreateBitmapBrush2<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Bitmap>>(&self, bitmap: Param0, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES1, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows::core::Result<ID2D1BitmapBrush1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CreateBitmapBrush)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(bitmapbrushproperties), ::core::mem::transmute(brushproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1BitmapBrush1>(result__)
+        (::windows::core::Interface::vtable(self).base.base.CreateBitmapBrush2)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(bitmapbrushproperties), ::core::mem::transmute(brushproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1BitmapBrush1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateCommandList(&self) -> ::windows::core::Result<ID2D1CommandList> {
@@ -11100,7 +11100,7 @@ impl ID2D1DeviceContext2 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Foundation', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_DirectWrite'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
     pub unsafe fn DrawGlyphRun2<'a, Param0: ::windows::core::IntoParam<'a, Common::D2D_POINT_2F>, Param3: ::windows::core::IntoParam<'a, ID2D1Brush>>(&self, baselineorigin: Param0, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, glyphrundescription: *const super::DirectWrite::DWRITE_GLYPH_RUN_DESCRIPTION, foregroundbrush: Param3, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) {
-        (::windows::core::Interface::vtable(self).base.base.DrawGlyphRun)(::core::mem::transmute_copy(self), baselineorigin.into_param().abi(), ::core::mem::transmute(glyphrun), ::core::mem::transmute(glyphrundescription), foregroundbrush.into_param().abi(), ::core::mem::transmute(measuringmode))
+        (::windows::core::Interface::vtable(self).base.base.DrawGlyphRun2)(::core::mem::transmute_copy(self), baselineorigin.into_param().abi(), ::core::mem::transmute(glyphrun), ::core::mem::transmute(glyphrundescription), foregroundbrush.into_param().abi(), ::core::mem::transmute(measuringmode))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -11115,12 +11115,12 @@ impl ID2D1DeviceContext2 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn DrawBitmap2<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Bitmap>>(&self, bitmap: Param0, destinationrectangle: *const Common::D2D_RECT_F, opacity: f32, interpolationmode: D2D1_INTERPOLATION_MODE, sourcerectangle: *const Common::D2D_RECT_F, perspectivetransform: *const Common::D2D_MATRIX_4X4_F) {
-        (::windows::core::Interface::vtable(self).base.base.DrawBitmap)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(opacity), ::core::mem::transmute(interpolationmode), ::core::mem::transmute(sourcerectangle), ::core::mem::transmute(perspectivetransform))
+        (::windows::core::Interface::vtable(self).base.base.DrawBitmap2)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(opacity), ::core::mem::transmute(interpolationmode), ::core::mem::transmute(sourcerectangle), ::core::mem::transmute(perspectivetransform))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Foundation_Numerics', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
     pub unsafe fn PushLayer2<'a, Param1: ::windows::core::IntoParam<'a, ID2D1Layer>>(&self, layerparameters: *const D2D1_LAYER_PARAMETERS1, layer: Param1) {
-        (::windows::core::Interface::vtable(self).base.base.PushLayer)(::core::mem::transmute_copy(self), ::core::mem::transmute(layerparameters), layer.into_param().abi())
+        (::windows::core::Interface::vtable(self).base.base.PushLayer2)(::core::mem::transmute_copy(self), ::core::mem::transmute(layerparameters), layer.into_param().abi())
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -11145,7 +11145,7 @@ impl ID2D1DeviceContext2 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn FillOpacityMask2<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Bitmap>, Param1: ::windows::core::IntoParam<'a, ID2D1Brush>>(&self, opacitymask: Param0, brush: Param1, destinationrectangle: *const Common::D2D_RECT_F, sourcerectangle: *const Common::D2D_RECT_F) {
-        (::windows::core::Interface::vtable(self).base.base.FillOpacityMask)(::core::mem::transmute_copy(self), opacitymask.into_param().abi(), brush.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(sourcerectangle))
+        (::windows::core::Interface::vtable(self).base.base.FillOpacityMask2)(::core::mem::transmute_copy(self), opacitymask.into_param().abi(), brush.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(sourcerectangle))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateFilledGeometryRealization<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Geometry>>(&self, geometry: Param0, flatteningtolerance: f32) -> ::windows::core::Result<ID2D1GeometryRealization> {
@@ -11212,7 +11212,7 @@ impl ID2D1DeviceContext2 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn DrawGdiMetafile2<'a, Param0: ::windows::core::IntoParam<'a, ID2D1GdiMetafile>>(&self, gdimetafile: Param0, destinationrectangle: *const Common::D2D_RECT_F, sourcerectangle: *const Common::D2D_RECT_F) {
-        (::windows::core::Interface::vtable(self).DrawGdiMetafile)(::core::mem::transmute_copy(self), gdimetafile.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(sourcerectangle))
+        (::windows::core::Interface::vtable(self).DrawGdiMetafile2)(::core::mem::transmute_copy(self), gdimetafile.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(sourcerectangle))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateTransformedImageSource<'a, Param0: ::windows::core::IntoParam<'a, ID2D1ImageSource>>(&self, imagesource: Param0, properties: *const D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES) -> ::windows::core::Result<ID2D1TransformedImageSource> {
@@ -11647,13 +11647,13 @@ impl ID2D1DeviceContext3 {
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateBitmap2<'a, Param0: ::windows::core::IntoParam<'a, Common::D2D_SIZE_U>>(&self, size: Param0, sourcedata: *const ::core::ffi::c_void, pitch: u32, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1) -> ::windows::core::Result<ID2D1Bitmap1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.CreateBitmap)(::core::mem::transmute_copy(self), size.into_param().abi(), ::core::mem::transmute(sourcedata), ::core::mem::transmute(pitch), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Bitmap1>(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.CreateBitmap2)(::core::mem::transmute_copy(self), size.into_param().abi(), ::core::mem::transmute(sourcedata), ::core::mem::transmute(pitch), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Bitmap1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi_Common', 'Win32_Graphics_Imaging'*"]
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
     pub unsafe fn CreateBitmapFromWicBitmap2<'a, Param0: ::windows::core::IntoParam<'a, super::Imaging::IWICBitmapSource>>(&self, wicbitmapsource: Param0, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1) -> ::windows::core::Result<ID2D1Bitmap1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.CreateBitmapFromWicBitmap)(::core::mem::transmute_copy(self), wicbitmapsource.into_param().abi(), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Bitmap1>(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.CreateBitmapFromWicBitmap2)(::core::mem::transmute_copy(self), wicbitmapsource.into_param().abi(), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Bitmap1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateColorContext(&self, space: D2D1_COLOR_SPACE, profile: *const u8, profilesize: u32) -> ::windows::core::Result<ID2D1ColorContext> {
@@ -11687,7 +11687,7 @@ impl ID2D1DeviceContext3 {
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn CreateGradientStopCollection2(&self, straightalphagradientstops: *const D2D1_GRADIENT_STOP, straightalphagradientstopscount: u32, preinterpolationspace: D2D1_COLOR_SPACE, postinterpolationspace: D2D1_COLOR_SPACE, bufferprecision: D2D1_BUFFER_PRECISION, extendmode: D2D1_EXTEND_MODE, colorinterpolationmode: D2D1_COLOR_INTERPOLATION_MODE) -> ::windows::core::Result<ID2D1GradientStopCollection1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.CreateGradientStopCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(straightalphagradientstops), ::core::mem::transmute(straightalphagradientstopscount), ::core::mem::transmute(preinterpolationspace), ::core::mem::transmute(postinterpolationspace), ::core::mem::transmute(bufferprecision), ::core::mem::transmute(extendmode), ::core::mem::transmute(colorinterpolationmode), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1GradientStopCollection1>(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.CreateGradientStopCollection2)(::core::mem::transmute_copy(self), ::core::mem::transmute(straightalphagradientstops), ::core::mem::transmute(straightalphagradientstopscount), ::core::mem::transmute(preinterpolationspace), ::core::mem::transmute(postinterpolationspace), ::core::mem::transmute(bufferprecision), ::core::mem::transmute(extendmode), ::core::mem::transmute(colorinterpolationmode), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1GradientStopCollection1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Foundation_Numerics', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
@@ -11699,7 +11699,7 @@ impl ID2D1DeviceContext3 {
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn CreateBitmapBrush2<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Bitmap>>(&self, bitmap: Param0, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES1, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows::core::Result<ID2D1BitmapBrush1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.CreateBitmapBrush)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(bitmapbrushproperties), ::core::mem::transmute(brushproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1BitmapBrush1>(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.CreateBitmapBrush2)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(bitmapbrushproperties), ::core::mem::transmute(brushproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1BitmapBrush1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateCommandList(&self) -> ::windows::core::Result<ID2D1CommandList> {
@@ -11775,7 +11775,7 @@ impl ID2D1DeviceContext3 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Foundation', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_DirectWrite'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
     pub unsafe fn DrawGlyphRun2<'a, Param0: ::windows::core::IntoParam<'a, Common::D2D_POINT_2F>, Param3: ::windows::core::IntoParam<'a, ID2D1Brush>>(&self, baselineorigin: Param0, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, glyphrundescription: *const super::DirectWrite::DWRITE_GLYPH_RUN_DESCRIPTION, foregroundbrush: Param3, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) {
-        (::windows::core::Interface::vtable(self).base.base.base.DrawGlyphRun)(::core::mem::transmute_copy(self), baselineorigin.into_param().abi(), ::core::mem::transmute(glyphrun), ::core::mem::transmute(glyphrundescription), foregroundbrush.into_param().abi(), ::core::mem::transmute(measuringmode))
+        (::windows::core::Interface::vtable(self).base.base.base.DrawGlyphRun2)(::core::mem::transmute_copy(self), baselineorigin.into_param().abi(), ::core::mem::transmute(glyphrun), ::core::mem::transmute(glyphrundescription), foregroundbrush.into_param().abi(), ::core::mem::transmute(measuringmode))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -11790,12 +11790,12 @@ impl ID2D1DeviceContext3 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn DrawBitmap2<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Bitmap>>(&self, bitmap: Param0, destinationrectangle: *const Common::D2D_RECT_F, opacity: f32, interpolationmode: D2D1_INTERPOLATION_MODE, sourcerectangle: *const Common::D2D_RECT_F, perspectivetransform: *const Common::D2D_MATRIX_4X4_F) {
-        (::windows::core::Interface::vtable(self).base.base.base.DrawBitmap)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(opacity), ::core::mem::transmute(interpolationmode), ::core::mem::transmute(sourcerectangle), ::core::mem::transmute(perspectivetransform))
+        (::windows::core::Interface::vtable(self).base.base.base.DrawBitmap2)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(opacity), ::core::mem::transmute(interpolationmode), ::core::mem::transmute(sourcerectangle), ::core::mem::transmute(perspectivetransform))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Foundation_Numerics', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
     pub unsafe fn PushLayer2<'a, Param1: ::windows::core::IntoParam<'a, ID2D1Layer>>(&self, layerparameters: *const D2D1_LAYER_PARAMETERS1, layer: Param1) {
-        (::windows::core::Interface::vtable(self).base.base.base.PushLayer)(::core::mem::transmute_copy(self), ::core::mem::transmute(layerparameters), layer.into_param().abi())
+        (::windows::core::Interface::vtable(self).base.base.base.PushLayer2)(::core::mem::transmute_copy(self), ::core::mem::transmute(layerparameters), layer.into_param().abi())
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -11820,7 +11820,7 @@ impl ID2D1DeviceContext3 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn FillOpacityMask2<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Bitmap>, Param1: ::windows::core::IntoParam<'a, ID2D1Brush>>(&self, opacitymask: Param0, brush: Param1, destinationrectangle: *const Common::D2D_RECT_F, sourcerectangle: *const Common::D2D_RECT_F) {
-        (::windows::core::Interface::vtable(self).base.base.base.FillOpacityMask)(::core::mem::transmute_copy(self), opacitymask.into_param().abi(), brush.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(sourcerectangle))
+        (::windows::core::Interface::vtable(self).base.base.base.FillOpacityMask2)(::core::mem::transmute_copy(self), opacitymask.into_param().abi(), brush.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(sourcerectangle))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateFilledGeometryRealization<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Geometry>>(&self, geometry: Param0, flatteningtolerance: f32) -> ::windows::core::Result<ID2D1GeometryRealization> {
@@ -11887,7 +11887,7 @@ impl ID2D1DeviceContext3 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn DrawGdiMetafile2<'a, Param0: ::windows::core::IntoParam<'a, ID2D1GdiMetafile>>(&self, gdimetafile: Param0, destinationrectangle: *const Common::D2D_RECT_F, sourcerectangle: *const Common::D2D_RECT_F) {
-        (::windows::core::Interface::vtable(self).base.DrawGdiMetafile)(::core::mem::transmute_copy(self), gdimetafile.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(sourcerectangle))
+        (::windows::core::Interface::vtable(self).base.DrawGdiMetafile2)(::core::mem::transmute_copy(self), gdimetafile.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(sourcerectangle))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateTransformedImageSource<'a, Param0: ::windows::core::IntoParam<'a, ID2D1ImageSource>>(&self, imagesource: Param0, properties: *const D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES) -> ::windows::core::Result<ID2D1TransformedImageSource> {
@@ -12324,13 +12324,13 @@ impl ID2D1DeviceContext4 {
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateBitmap2<'a, Param0: ::windows::core::IntoParam<'a, Common::D2D_SIZE_U>>(&self, size: Param0, sourcedata: *const ::core::ffi::c_void, pitch: u32, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1) -> ::windows::core::Result<ID2D1Bitmap1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.CreateBitmap)(::core::mem::transmute_copy(self), size.into_param().abi(), ::core::mem::transmute(sourcedata), ::core::mem::transmute(pitch), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Bitmap1>(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.base.CreateBitmap2)(::core::mem::transmute_copy(self), size.into_param().abi(), ::core::mem::transmute(sourcedata), ::core::mem::transmute(pitch), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Bitmap1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi_Common', 'Win32_Graphics_Imaging'*"]
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
     pub unsafe fn CreateBitmapFromWicBitmap2<'a, Param0: ::windows::core::IntoParam<'a, super::Imaging::IWICBitmapSource>>(&self, wicbitmapsource: Param0, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1) -> ::windows::core::Result<ID2D1Bitmap1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.CreateBitmapFromWicBitmap)(::core::mem::transmute_copy(self), wicbitmapsource.into_param().abi(), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Bitmap1>(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.base.CreateBitmapFromWicBitmap2)(::core::mem::transmute_copy(self), wicbitmapsource.into_param().abi(), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Bitmap1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateColorContext(&self, space: D2D1_COLOR_SPACE, profile: *const u8, profilesize: u32) -> ::windows::core::Result<ID2D1ColorContext> {
@@ -12364,7 +12364,7 @@ impl ID2D1DeviceContext4 {
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn CreateGradientStopCollection2(&self, straightalphagradientstops: *const D2D1_GRADIENT_STOP, straightalphagradientstopscount: u32, preinterpolationspace: D2D1_COLOR_SPACE, postinterpolationspace: D2D1_COLOR_SPACE, bufferprecision: D2D1_BUFFER_PRECISION, extendmode: D2D1_EXTEND_MODE, colorinterpolationmode: D2D1_COLOR_INTERPOLATION_MODE) -> ::windows::core::Result<ID2D1GradientStopCollection1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.CreateGradientStopCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(straightalphagradientstops), ::core::mem::transmute(straightalphagradientstopscount), ::core::mem::transmute(preinterpolationspace), ::core::mem::transmute(postinterpolationspace), ::core::mem::transmute(bufferprecision), ::core::mem::transmute(extendmode), ::core::mem::transmute(colorinterpolationmode), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1GradientStopCollection1>(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.base.CreateGradientStopCollection2)(::core::mem::transmute_copy(self), ::core::mem::transmute(straightalphagradientstops), ::core::mem::transmute(straightalphagradientstopscount), ::core::mem::transmute(preinterpolationspace), ::core::mem::transmute(postinterpolationspace), ::core::mem::transmute(bufferprecision), ::core::mem::transmute(extendmode), ::core::mem::transmute(colorinterpolationmode), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1GradientStopCollection1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Foundation_Numerics', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
@@ -12376,7 +12376,7 @@ impl ID2D1DeviceContext4 {
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn CreateBitmapBrush2<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Bitmap>>(&self, bitmap: Param0, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES1, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows::core::Result<ID2D1BitmapBrush1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.CreateBitmapBrush)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(bitmapbrushproperties), ::core::mem::transmute(brushproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1BitmapBrush1>(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.base.CreateBitmapBrush2)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(bitmapbrushproperties), ::core::mem::transmute(brushproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1BitmapBrush1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateCommandList(&self) -> ::windows::core::Result<ID2D1CommandList> {
@@ -12452,7 +12452,7 @@ impl ID2D1DeviceContext4 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Foundation', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_DirectWrite'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
     pub unsafe fn DrawGlyphRun2<'a, Param0: ::windows::core::IntoParam<'a, Common::D2D_POINT_2F>, Param3: ::windows::core::IntoParam<'a, ID2D1Brush>>(&self, baselineorigin: Param0, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, glyphrundescription: *const super::DirectWrite::DWRITE_GLYPH_RUN_DESCRIPTION, foregroundbrush: Param3, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) {
-        (::windows::core::Interface::vtable(self).base.base.base.base.DrawGlyphRun)(::core::mem::transmute_copy(self), baselineorigin.into_param().abi(), ::core::mem::transmute(glyphrun), ::core::mem::transmute(glyphrundescription), foregroundbrush.into_param().abi(), ::core::mem::transmute(measuringmode))
+        (::windows::core::Interface::vtable(self).base.base.base.base.DrawGlyphRun2)(::core::mem::transmute_copy(self), baselineorigin.into_param().abi(), ::core::mem::transmute(glyphrun), ::core::mem::transmute(glyphrundescription), foregroundbrush.into_param().abi(), ::core::mem::transmute(measuringmode))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -12467,12 +12467,12 @@ impl ID2D1DeviceContext4 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn DrawBitmap2<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Bitmap>>(&self, bitmap: Param0, destinationrectangle: *const Common::D2D_RECT_F, opacity: f32, interpolationmode: D2D1_INTERPOLATION_MODE, sourcerectangle: *const Common::D2D_RECT_F, perspectivetransform: *const Common::D2D_MATRIX_4X4_F) {
-        (::windows::core::Interface::vtable(self).base.base.base.base.DrawBitmap)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(opacity), ::core::mem::transmute(interpolationmode), ::core::mem::transmute(sourcerectangle), ::core::mem::transmute(perspectivetransform))
+        (::windows::core::Interface::vtable(self).base.base.base.base.DrawBitmap2)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(opacity), ::core::mem::transmute(interpolationmode), ::core::mem::transmute(sourcerectangle), ::core::mem::transmute(perspectivetransform))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Foundation_Numerics', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
     pub unsafe fn PushLayer2<'a, Param1: ::windows::core::IntoParam<'a, ID2D1Layer>>(&self, layerparameters: *const D2D1_LAYER_PARAMETERS1, layer: Param1) {
-        (::windows::core::Interface::vtable(self).base.base.base.base.PushLayer)(::core::mem::transmute_copy(self), ::core::mem::transmute(layerparameters), layer.into_param().abi())
+        (::windows::core::Interface::vtable(self).base.base.base.base.PushLayer2)(::core::mem::transmute_copy(self), ::core::mem::transmute(layerparameters), layer.into_param().abi())
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -12497,7 +12497,7 @@ impl ID2D1DeviceContext4 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn FillOpacityMask2<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Bitmap>, Param1: ::windows::core::IntoParam<'a, ID2D1Brush>>(&self, opacitymask: Param0, brush: Param1, destinationrectangle: *const Common::D2D_RECT_F, sourcerectangle: *const Common::D2D_RECT_F) {
-        (::windows::core::Interface::vtable(self).base.base.base.base.FillOpacityMask)(::core::mem::transmute_copy(self), opacitymask.into_param().abi(), brush.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(sourcerectangle))
+        (::windows::core::Interface::vtable(self).base.base.base.base.FillOpacityMask2)(::core::mem::transmute_copy(self), opacitymask.into_param().abi(), brush.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(sourcerectangle))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateFilledGeometryRealization<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Geometry>>(&self, geometry: Param0, flatteningtolerance: f32) -> ::windows::core::Result<ID2D1GeometryRealization> {
@@ -12564,7 +12564,7 @@ impl ID2D1DeviceContext4 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn DrawGdiMetafile2<'a, Param0: ::windows::core::IntoParam<'a, ID2D1GdiMetafile>>(&self, gdimetafile: Param0, destinationrectangle: *const Common::D2D_RECT_F, sourcerectangle: *const Common::D2D_RECT_F) {
-        (::windows::core::Interface::vtable(self).base.base.DrawGdiMetafile)(::core::mem::transmute_copy(self), gdimetafile.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(sourcerectangle))
+        (::windows::core::Interface::vtable(self).base.base.DrawGdiMetafile2)(::core::mem::transmute_copy(self), gdimetafile.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(sourcerectangle))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateTransformedImageSource<'a, Param0: ::windows::core::IntoParam<'a, ID2D1ImageSource>>(&self, imagesource: Param0, properties: *const D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES) -> ::windows::core::Result<ID2D1TransformedImageSource> {
@@ -12588,12 +12588,12 @@ impl ID2D1DeviceContext4 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Foundation', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_DirectWrite'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
     pub unsafe fn DrawText2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::DirectWrite::IDWriteTextFormat>, Param4: ::windows::core::IntoParam<'a, ID2D1Brush>, Param5: ::windows::core::IntoParam<'a, ID2D1SvgGlyphStyle>>(&self, string: Param0, stringlength: u32, textformat: Param2, layoutrect: *const Common::D2D_RECT_F, defaultfillbrush: Param4, svgglyphstyle: Param5, colorpaletteindex: u32, options: D2D1_DRAW_TEXT_OPTIONS, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) {
-        (::windows::core::Interface::vtable(self).DrawText)(::core::mem::transmute_copy(self), string.into_param().abi(), ::core::mem::transmute(stringlength), textformat.into_param().abi(), ::core::mem::transmute(layoutrect), defaultfillbrush.into_param().abi(), svgglyphstyle.into_param().abi(), ::core::mem::transmute(colorpaletteindex), ::core::mem::transmute(options), ::core::mem::transmute(measuringmode))
+        (::windows::core::Interface::vtable(self).DrawText2)(::core::mem::transmute_copy(self), string.into_param().abi(), ::core::mem::transmute(stringlength), textformat.into_param().abi(), ::core::mem::transmute(layoutrect), defaultfillbrush.into_param().abi(), svgglyphstyle.into_param().abi(), ::core::mem::transmute(colorpaletteindex), ::core::mem::transmute(options), ::core::mem::transmute(measuringmode))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_DirectWrite'*"]
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
     pub unsafe fn DrawTextLayout2<'a, Param0: ::windows::core::IntoParam<'a, Common::D2D_POINT_2F>, Param1: ::windows::core::IntoParam<'a, super::DirectWrite::IDWriteTextLayout>, Param2: ::windows::core::IntoParam<'a, ID2D1Brush>, Param3: ::windows::core::IntoParam<'a, ID2D1SvgGlyphStyle>>(&self, origin: Param0, textlayout: Param1, defaultfillbrush: Param2, svgglyphstyle: Param3, colorpaletteindex: u32, options: D2D1_DRAW_TEXT_OPTIONS) {
-        (::windows::core::Interface::vtable(self).DrawTextLayout)(::core::mem::transmute_copy(self), origin.into_param().abi(), textlayout.into_param().abi(), defaultfillbrush.into_param().abi(), svgglyphstyle.into_param().abi(), ::core::mem::transmute(colorpaletteindex), ::core::mem::transmute(options))
+        (::windows::core::Interface::vtable(self).DrawTextLayout2)(::core::mem::transmute_copy(self), origin.into_param().abi(), textlayout.into_param().abi(), defaultfillbrush.into_param().abi(), svgglyphstyle.into_param().abi(), ::core::mem::transmute(colorpaletteindex), ::core::mem::transmute(options))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Foundation', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_DirectWrite'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
@@ -13079,13 +13079,13 @@ impl ID2D1DeviceContext5 {
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateBitmap2<'a, Param0: ::windows::core::IntoParam<'a, Common::D2D_SIZE_U>>(&self, size: Param0, sourcedata: *const ::core::ffi::c_void, pitch: u32, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1) -> ::windows::core::Result<ID2D1Bitmap1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.CreateBitmap)(::core::mem::transmute_copy(self), size.into_param().abi(), ::core::mem::transmute(sourcedata), ::core::mem::transmute(pitch), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Bitmap1>(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.CreateBitmap2)(::core::mem::transmute_copy(self), size.into_param().abi(), ::core::mem::transmute(sourcedata), ::core::mem::transmute(pitch), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Bitmap1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi_Common', 'Win32_Graphics_Imaging'*"]
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
     pub unsafe fn CreateBitmapFromWicBitmap2<'a, Param0: ::windows::core::IntoParam<'a, super::Imaging::IWICBitmapSource>>(&self, wicbitmapsource: Param0, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1) -> ::windows::core::Result<ID2D1Bitmap1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.CreateBitmapFromWicBitmap)(::core::mem::transmute_copy(self), wicbitmapsource.into_param().abi(), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Bitmap1>(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.CreateBitmapFromWicBitmap2)(::core::mem::transmute_copy(self), wicbitmapsource.into_param().abi(), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Bitmap1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateColorContext(&self, space: D2D1_COLOR_SPACE, profile: *const u8, profilesize: u32) -> ::windows::core::Result<ID2D1ColorContext> {
@@ -13119,7 +13119,7 @@ impl ID2D1DeviceContext5 {
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn CreateGradientStopCollection2(&self, straightalphagradientstops: *const D2D1_GRADIENT_STOP, straightalphagradientstopscount: u32, preinterpolationspace: D2D1_COLOR_SPACE, postinterpolationspace: D2D1_COLOR_SPACE, bufferprecision: D2D1_BUFFER_PRECISION, extendmode: D2D1_EXTEND_MODE, colorinterpolationmode: D2D1_COLOR_INTERPOLATION_MODE) -> ::windows::core::Result<ID2D1GradientStopCollection1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.CreateGradientStopCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(straightalphagradientstops), ::core::mem::transmute(straightalphagradientstopscount), ::core::mem::transmute(preinterpolationspace), ::core::mem::transmute(postinterpolationspace), ::core::mem::transmute(bufferprecision), ::core::mem::transmute(extendmode), ::core::mem::transmute(colorinterpolationmode), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1GradientStopCollection1>(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.CreateGradientStopCollection2)(::core::mem::transmute_copy(self), ::core::mem::transmute(straightalphagradientstops), ::core::mem::transmute(straightalphagradientstopscount), ::core::mem::transmute(preinterpolationspace), ::core::mem::transmute(postinterpolationspace), ::core::mem::transmute(bufferprecision), ::core::mem::transmute(extendmode), ::core::mem::transmute(colorinterpolationmode), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1GradientStopCollection1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Foundation_Numerics', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
@@ -13131,7 +13131,7 @@ impl ID2D1DeviceContext5 {
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn CreateBitmapBrush2<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Bitmap>>(&self, bitmap: Param0, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES1, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows::core::Result<ID2D1BitmapBrush1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.CreateBitmapBrush)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(bitmapbrushproperties), ::core::mem::transmute(brushproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1BitmapBrush1>(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.CreateBitmapBrush2)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(bitmapbrushproperties), ::core::mem::transmute(brushproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1BitmapBrush1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateCommandList(&self) -> ::windows::core::Result<ID2D1CommandList> {
@@ -13207,7 +13207,7 @@ impl ID2D1DeviceContext5 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Foundation', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_DirectWrite'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
     pub unsafe fn DrawGlyphRun2<'a, Param0: ::windows::core::IntoParam<'a, Common::D2D_POINT_2F>, Param3: ::windows::core::IntoParam<'a, ID2D1Brush>>(&self, baselineorigin: Param0, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, glyphrundescription: *const super::DirectWrite::DWRITE_GLYPH_RUN_DESCRIPTION, foregroundbrush: Param3, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) {
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.DrawGlyphRun)(::core::mem::transmute_copy(self), baselineorigin.into_param().abi(), ::core::mem::transmute(glyphrun), ::core::mem::transmute(glyphrundescription), foregroundbrush.into_param().abi(), ::core::mem::transmute(measuringmode))
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.DrawGlyphRun2)(::core::mem::transmute_copy(self), baselineorigin.into_param().abi(), ::core::mem::transmute(glyphrun), ::core::mem::transmute(glyphrundescription), foregroundbrush.into_param().abi(), ::core::mem::transmute(measuringmode))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -13222,12 +13222,12 @@ impl ID2D1DeviceContext5 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn DrawBitmap2<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Bitmap>>(&self, bitmap: Param0, destinationrectangle: *const Common::D2D_RECT_F, opacity: f32, interpolationmode: D2D1_INTERPOLATION_MODE, sourcerectangle: *const Common::D2D_RECT_F, perspectivetransform: *const Common::D2D_MATRIX_4X4_F) {
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.DrawBitmap)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(opacity), ::core::mem::transmute(interpolationmode), ::core::mem::transmute(sourcerectangle), ::core::mem::transmute(perspectivetransform))
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.DrawBitmap2)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(opacity), ::core::mem::transmute(interpolationmode), ::core::mem::transmute(sourcerectangle), ::core::mem::transmute(perspectivetransform))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Foundation_Numerics', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
     pub unsafe fn PushLayer2<'a, Param1: ::windows::core::IntoParam<'a, ID2D1Layer>>(&self, layerparameters: *const D2D1_LAYER_PARAMETERS1, layer: Param1) {
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.PushLayer)(::core::mem::transmute_copy(self), ::core::mem::transmute(layerparameters), layer.into_param().abi())
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.PushLayer2)(::core::mem::transmute_copy(self), ::core::mem::transmute(layerparameters), layer.into_param().abi())
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -13252,7 +13252,7 @@ impl ID2D1DeviceContext5 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn FillOpacityMask2<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Bitmap>, Param1: ::windows::core::IntoParam<'a, ID2D1Brush>>(&self, opacitymask: Param0, brush: Param1, destinationrectangle: *const Common::D2D_RECT_F, sourcerectangle: *const Common::D2D_RECT_F) {
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.FillOpacityMask)(::core::mem::transmute_copy(self), opacitymask.into_param().abi(), brush.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(sourcerectangle))
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.FillOpacityMask2)(::core::mem::transmute_copy(self), opacitymask.into_param().abi(), brush.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(sourcerectangle))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateFilledGeometryRealization<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Geometry>>(&self, geometry: Param0, flatteningtolerance: f32) -> ::windows::core::Result<ID2D1GeometryRealization> {
@@ -13319,7 +13319,7 @@ impl ID2D1DeviceContext5 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn DrawGdiMetafile2<'a, Param0: ::windows::core::IntoParam<'a, ID2D1GdiMetafile>>(&self, gdimetafile: Param0, destinationrectangle: *const Common::D2D_RECT_F, sourcerectangle: *const Common::D2D_RECT_F) {
-        (::windows::core::Interface::vtable(self).base.base.base.DrawGdiMetafile)(::core::mem::transmute_copy(self), gdimetafile.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(sourcerectangle))
+        (::windows::core::Interface::vtable(self).base.base.base.DrawGdiMetafile2)(::core::mem::transmute_copy(self), gdimetafile.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(sourcerectangle))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateTransformedImageSource<'a, Param0: ::windows::core::IntoParam<'a, ID2D1ImageSource>>(&self, imagesource: Param0, properties: *const D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES) -> ::windows::core::Result<ID2D1TransformedImageSource> {
@@ -13343,12 +13343,12 @@ impl ID2D1DeviceContext5 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Foundation', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_DirectWrite'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
     pub unsafe fn DrawText2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::DirectWrite::IDWriteTextFormat>, Param4: ::windows::core::IntoParam<'a, ID2D1Brush>, Param5: ::windows::core::IntoParam<'a, ID2D1SvgGlyphStyle>>(&self, string: Param0, stringlength: u32, textformat: Param2, layoutrect: *const Common::D2D_RECT_F, defaultfillbrush: Param4, svgglyphstyle: Param5, colorpaletteindex: u32, options: D2D1_DRAW_TEXT_OPTIONS, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) {
-        (::windows::core::Interface::vtable(self).base.DrawText)(::core::mem::transmute_copy(self), string.into_param().abi(), ::core::mem::transmute(stringlength), textformat.into_param().abi(), ::core::mem::transmute(layoutrect), defaultfillbrush.into_param().abi(), svgglyphstyle.into_param().abi(), ::core::mem::transmute(colorpaletteindex), ::core::mem::transmute(options), ::core::mem::transmute(measuringmode))
+        (::windows::core::Interface::vtable(self).base.DrawText2)(::core::mem::transmute_copy(self), string.into_param().abi(), ::core::mem::transmute(stringlength), textformat.into_param().abi(), ::core::mem::transmute(layoutrect), defaultfillbrush.into_param().abi(), svgglyphstyle.into_param().abi(), ::core::mem::transmute(colorpaletteindex), ::core::mem::transmute(options), ::core::mem::transmute(measuringmode))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_DirectWrite'*"]
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
     pub unsafe fn DrawTextLayout2<'a, Param0: ::windows::core::IntoParam<'a, Common::D2D_POINT_2F>, Param1: ::windows::core::IntoParam<'a, super::DirectWrite::IDWriteTextLayout>, Param2: ::windows::core::IntoParam<'a, ID2D1Brush>, Param3: ::windows::core::IntoParam<'a, ID2D1SvgGlyphStyle>>(&self, origin: Param0, textlayout: Param1, defaultfillbrush: Param2, svgglyphstyle: Param3, colorpaletteindex: u32, options: D2D1_DRAW_TEXT_OPTIONS) {
-        (::windows::core::Interface::vtable(self).base.DrawTextLayout)(::core::mem::transmute_copy(self), origin.into_param().abi(), textlayout.into_param().abi(), defaultfillbrush.into_param().abi(), svgglyphstyle.into_param().abi(), ::core::mem::transmute(colorpaletteindex), ::core::mem::transmute(options))
+        (::windows::core::Interface::vtable(self).base.DrawTextLayout2)(::core::mem::transmute_copy(self), origin.into_param().abi(), textlayout.into_param().abi(), defaultfillbrush.into_param().abi(), svgglyphstyle.into_param().abi(), ::core::mem::transmute(colorpaletteindex), ::core::mem::transmute(options))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Foundation', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_DirectWrite'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
@@ -13864,13 +13864,13 @@ impl ID2D1DeviceContext6 {
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn CreateBitmap2<'a, Param0: ::windows::core::IntoParam<'a, Common::D2D_SIZE_U>>(&self, size: Param0, sourcedata: *const ::core::ffi::c_void, pitch: u32, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1) -> ::windows::core::Result<ID2D1Bitmap1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.CreateBitmap)(::core::mem::transmute_copy(self), size.into_param().abi(), ::core::mem::transmute(sourcedata), ::core::mem::transmute(pitch), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Bitmap1>(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.CreateBitmap2)(::core::mem::transmute_copy(self), size.into_param().abi(), ::core::mem::transmute(sourcedata), ::core::mem::transmute(pitch), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Bitmap1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi_Common', 'Win32_Graphics_Imaging'*"]
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
     pub unsafe fn CreateBitmapFromWicBitmap2<'a, Param0: ::windows::core::IntoParam<'a, super::Imaging::IWICBitmapSource>>(&self, wicbitmapsource: Param0, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1) -> ::windows::core::Result<ID2D1Bitmap1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.CreateBitmapFromWicBitmap)(::core::mem::transmute_copy(self), wicbitmapsource.into_param().abi(), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Bitmap1>(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.CreateBitmapFromWicBitmap2)(::core::mem::transmute_copy(self), wicbitmapsource.into_param().abi(), ::core::mem::transmute(bitmapproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Bitmap1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateColorContext(&self, space: D2D1_COLOR_SPACE, profile: *const u8, profilesize: u32) -> ::windows::core::Result<ID2D1ColorContext> {
@@ -13904,7 +13904,7 @@ impl ID2D1DeviceContext6 {
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn CreateGradientStopCollection2(&self, straightalphagradientstops: *const D2D1_GRADIENT_STOP, straightalphagradientstopscount: u32, preinterpolationspace: D2D1_COLOR_SPACE, postinterpolationspace: D2D1_COLOR_SPACE, bufferprecision: D2D1_BUFFER_PRECISION, extendmode: D2D1_EXTEND_MODE, colorinterpolationmode: D2D1_COLOR_INTERPOLATION_MODE) -> ::windows::core::Result<ID2D1GradientStopCollection1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.CreateGradientStopCollection)(::core::mem::transmute_copy(self), ::core::mem::transmute(straightalphagradientstops), ::core::mem::transmute(straightalphagradientstopscount), ::core::mem::transmute(preinterpolationspace), ::core::mem::transmute(postinterpolationspace), ::core::mem::transmute(bufferprecision), ::core::mem::transmute(extendmode), ::core::mem::transmute(colorinterpolationmode), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1GradientStopCollection1>(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.CreateGradientStopCollection2)(::core::mem::transmute_copy(self), ::core::mem::transmute(straightalphagradientstops), ::core::mem::transmute(straightalphagradientstopscount), ::core::mem::transmute(preinterpolationspace), ::core::mem::transmute(postinterpolationspace), ::core::mem::transmute(bufferprecision), ::core::mem::transmute(extendmode), ::core::mem::transmute(colorinterpolationmode), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1GradientStopCollection1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Foundation_Numerics', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
@@ -13916,7 +13916,7 @@ impl ID2D1DeviceContext6 {
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn CreateBitmapBrush2<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Bitmap>>(&self, bitmap: Param0, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES1, brushproperties: *const D2D1_BRUSH_PROPERTIES) -> ::windows::core::Result<ID2D1BitmapBrush1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.CreateBitmapBrush)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(bitmapbrushproperties), ::core::mem::transmute(brushproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1BitmapBrush1>(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.CreateBitmapBrush2)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(bitmapbrushproperties), ::core::mem::transmute(brushproperties), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1BitmapBrush1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateCommandList(&self) -> ::windows::core::Result<ID2D1CommandList> {
@@ -13992,7 +13992,7 @@ impl ID2D1DeviceContext6 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Foundation', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_DirectWrite'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
     pub unsafe fn DrawGlyphRun2<'a, Param0: ::windows::core::IntoParam<'a, Common::D2D_POINT_2F>, Param3: ::windows::core::IntoParam<'a, ID2D1Brush>>(&self, baselineorigin: Param0, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, glyphrundescription: *const super::DirectWrite::DWRITE_GLYPH_RUN_DESCRIPTION, foregroundbrush: Param3, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) {
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.DrawGlyphRun)(::core::mem::transmute_copy(self), baselineorigin.into_param().abi(), ::core::mem::transmute(glyphrun), ::core::mem::transmute(glyphrundescription), foregroundbrush.into_param().abi(), ::core::mem::transmute(measuringmode))
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.DrawGlyphRun2)(::core::mem::transmute_copy(self), baselineorigin.into_param().abi(), ::core::mem::transmute(glyphrun), ::core::mem::transmute(glyphrundescription), foregroundbrush.into_param().abi(), ::core::mem::transmute(measuringmode))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -14007,12 +14007,12 @@ impl ID2D1DeviceContext6 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn DrawBitmap2<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Bitmap>>(&self, bitmap: Param0, destinationrectangle: *const Common::D2D_RECT_F, opacity: f32, interpolationmode: D2D1_INTERPOLATION_MODE, sourcerectangle: *const Common::D2D_RECT_F, perspectivetransform: *const Common::D2D_MATRIX_4X4_F) {
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.DrawBitmap)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(opacity), ::core::mem::transmute(interpolationmode), ::core::mem::transmute(sourcerectangle), ::core::mem::transmute(perspectivetransform))
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.DrawBitmap2)(::core::mem::transmute_copy(self), bitmap.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(opacity), ::core::mem::transmute(interpolationmode), ::core::mem::transmute(sourcerectangle), ::core::mem::transmute(perspectivetransform))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Foundation_Numerics', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
     pub unsafe fn PushLayer2<'a, Param1: ::windows::core::IntoParam<'a, ID2D1Layer>>(&self, layerparameters: *const D2D1_LAYER_PARAMETERS1, layer: Param1) {
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.PushLayer)(::core::mem::transmute_copy(self), ::core::mem::transmute(layerparameters), layer.into_param().abi())
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.PushLayer2)(::core::mem::transmute_copy(self), ::core::mem::transmute(layerparameters), layer.into_param().abi())
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -14037,7 +14037,7 @@ impl ID2D1DeviceContext6 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn FillOpacityMask2<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Bitmap>, Param1: ::windows::core::IntoParam<'a, ID2D1Brush>>(&self, opacitymask: Param0, brush: Param1, destinationrectangle: *const Common::D2D_RECT_F, sourcerectangle: *const Common::D2D_RECT_F) {
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.FillOpacityMask)(::core::mem::transmute_copy(self), opacitymask.into_param().abi(), brush.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(sourcerectangle))
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.FillOpacityMask2)(::core::mem::transmute_copy(self), opacitymask.into_param().abi(), brush.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(sourcerectangle))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateFilledGeometryRealization<'a, Param0: ::windows::core::IntoParam<'a, ID2D1Geometry>>(&self, geometry: Param0, flatteningtolerance: f32) -> ::windows::core::Result<ID2D1GeometryRealization> {
@@ -14104,7 +14104,7 @@ impl ID2D1DeviceContext6 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub unsafe fn DrawGdiMetafile2<'a, Param0: ::windows::core::IntoParam<'a, ID2D1GdiMetafile>>(&self, gdimetafile: Param0, destinationrectangle: *const Common::D2D_RECT_F, sourcerectangle: *const Common::D2D_RECT_F) {
-        (::windows::core::Interface::vtable(self).base.base.base.base.DrawGdiMetafile)(::core::mem::transmute_copy(self), gdimetafile.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(sourcerectangle))
+        (::windows::core::Interface::vtable(self).base.base.base.base.DrawGdiMetafile2)(::core::mem::transmute_copy(self), gdimetafile.into_param().abi(), ::core::mem::transmute(destinationrectangle), ::core::mem::transmute(sourcerectangle))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateTransformedImageSource<'a, Param0: ::windows::core::IntoParam<'a, ID2D1ImageSource>>(&self, imagesource: Param0, properties: *const D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES) -> ::windows::core::Result<ID2D1TransformedImageSource> {
@@ -14128,12 +14128,12 @@ impl ID2D1DeviceContext6 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Foundation', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_DirectWrite'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
     pub unsafe fn DrawText2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::DirectWrite::IDWriteTextFormat>, Param4: ::windows::core::IntoParam<'a, ID2D1Brush>, Param5: ::windows::core::IntoParam<'a, ID2D1SvgGlyphStyle>>(&self, string: Param0, stringlength: u32, textformat: Param2, layoutrect: *const Common::D2D_RECT_F, defaultfillbrush: Param4, svgglyphstyle: Param5, colorpaletteindex: u32, options: D2D1_DRAW_TEXT_OPTIONS, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE) {
-        (::windows::core::Interface::vtable(self).base.base.DrawText)(::core::mem::transmute_copy(self), string.into_param().abi(), ::core::mem::transmute(stringlength), textformat.into_param().abi(), ::core::mem::transmute(layoutrect), defaultfillbrush.into_param().abi(), svgglyphstyle.into_param().abi(), ::core::mem::transmute(colorpaletteindex), ::core::mem::transmute(options), ::core::mem::transmute(measuringmode))
+        (::windows::core::Interface::vtable(self).base.base.DrawText2)(::core::mem::transmute_copy(self), string.into_param().abi(), ::core::mem::transmute(stringlength), textformat.into_param().abi(), ::core::mem::transmute(layoutrect), defaultfillbrush.into_param().abi(), svgglyphstyle.into_param().abi(), ::core::mem::transmute(colorpaletteindex), ::core::mem::transmute(options), ::core::mem::transmute(measuringmode))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_DirectWrite'*"]
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
     pub unsafe fn DrawTextLayout2<'a, Param0: ::windows::core::IntoParam<'a, Common::D2D_POINT_2F>, Param1: ::windows::core::IntoParam<'a, super::DirectWrite::IDWriteTextLayout>, Param2: ::windows::core::IntoParam<'a, ID2D1Brush>, Param3: ::windows::core::IntoParam<'a, ID2D1SvgGlyphStyle>>(&self, origin: Param0, textlayout: Param1, defaultfillbrush: Param2, svgglyphstyle: Param3, colorpaletteindex: u32, options: D2D1_DRAW_TEXT_OPTIONS) {
-        (::windows::core::Interface::vtable(self).base.base.DrawTextLayout)(::core::mem::transmute_copy(self), origin.into_param().abi(), textlayout.into_param().abi(), defaultfillbrush.into_param().abi(), svgglyphstyle.into_param().abi(), ::core::mem::transmute(colorpaletteindex), ::core::mem::transmute(options))
+        (::windows::core::Interface::vtable(self).base.base.DrawTextLayout2)(::core::mem::transmute_copy(self), origin.into_param().abi(), textlayout.into_param().abi(), defaultfillbrush.into_param().abi(), svgglyphstyle.into_param().abi(), ::core::mem::transmute(colorpaletteindex), ::core::mem::transmute(options))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Foundation', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_DirectWrite'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
@@ -14760,12 +14760,12 @@ impl ID2D1DrawingStateBlock1 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Foundation_Numerics'*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn GetDescription2(&self, statedescription: *mut D2D1_DRAWING_STATE_DESCRIPTION1) {
-        (::windows::core::Interface::vtable(self).GetDescription)(::core::mem::transmute_copy(self), ::core::mem::transmute(statedescription))
+        (::windows::core::Interface::vtable(self).GetDescription2)(::core::mem::transmute_copy(self), ::core::mem::transmute(statedescription))
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Foundation_Numerics'*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub unsafe fn SetDescription2(&self, statedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1) {
-        (::windows::core::Interface::vtable(self).SetDescription)(::core::mem::transmute_copy(self), ::core::mem::transmute(statedescription))
+        (::windows::core::Interface::vtable(self).SetDescription2)(::core::mem::transmute_copy(self), ::core::mem::transmute(statedescription))
     }
 }
 impl ::core::convert::From<ID2D1DrawingStateBlock1> for ::windows::core::IUnknown {
@@ -16116,18 +16116,18 @@ impl ID2D1Factory1 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateStrokeStyle2(&self, strokestyleproperties: *const D2D1_STROKE_STYLE_PROPERTIES1, dashes: *const f32, dashescount: u32) -> ::windows::core::Result<ID2D1StrokeStyle1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateStrokeStyle)(::core::mem::transmute_copy(self), ::core::mem::transmute(strokestyleproperties), ::core::mem::transmute(dashes), ::core::mem::transmute(dashescount), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1StrokeStyle1>(result__)
+        (::windows::core::Interface::vtable(self).CreateStrokeStyle2)(::core::mem::transmute_copy(self), ::core::mem::transmute(strokestyleproperties), ::core::mem::transmute(dashes), ::core::mem::transmute(dashescount), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1StrokeStyle1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreatePathGeometry2(&self) -> ::windows::core::Result<ID2D1PathGeometry1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreatePathGeometry)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1PathGeometry1>(result__)
+        (::windows::core::Interface::vtable(self).CreatePathGeometry2)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1PathGeometry1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Foundation_Numerics', 'Win32_Graphics_DirectWrite'*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
     pub unsafe fn CreateDrawingStateBlock2<'a, Param1: ::windows::core::IntoParam<'a, super::DirectWrite::IDWriteRenderingParams>>(&self, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1, textrenderingparams: Param1) -> ::windows::core::Result<ID2D1DrawingStateBlock1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDrawingStateBlock)(::core::mem::transmute_copy(self), ::core::mem::transmute(drawingstatedescription), textrenderingparams.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DrawingStateBlock1>(result__)
+        (::windows::core::Interface::vtable(self).CreateDrawingStateBlock2)(::core::mem::transmute_copy(self), ::core::mem::transmute(drawingstatedescription), textrenderingparams.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DrawingStateBlock1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -16340,18 +16340,18 @@ impl ID2D1Factory2 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateStrokeStyle2(&self, strokestyleproperties: *const D2D1_STROKE_STYLE_PROPERTIES1, dashes: *const f32, dashescount: u32) -> ::windows::core::Result<ID2D1StrokeStyle1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CreateStrokeStyle)(::core::mem::transmute_copy(self), ::core::mem::transmute(strokestyleproperties), ::core::mem::transmute(dashes), ::core::mem::transmute(dashescount), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1StrokeStyle1>(result__)
+        (::windows::core::Interface::vtable(self).base.CreateStrokeStyle2)(::core::mem::transmute_copy(self), ::core::mem::transmute(strokestyleproperties), ::core::mem::transmute(dashes), ::core::mem::transmute(dashescount), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1StrokeStyle1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreatePathGeometry2(&self) -> ::windows::core::Result<ID2D1PathGeometry1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CreatePathGeometry)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1PathGeometry1>(result__)
+        (::windows::core::Interface::vtable(self).base.CreatePathGeometry2)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1PathGeometry1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Foundation_Numerics', 'Win32_Graphics_DirectWrite'*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
     pub unsafe fn CreateDrawingStateBlock2<'a, Param1: ::windows::core::IntoParam<'a, super::DirectWrite::IDWriteRenderingParams>>(&self, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1, textrenderingparams: Param1) -> ::windows::core::Result<ID2D1DrawingStateBlock1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CreateDrawingStateBlock)(::core::mem::transmute_copy(self), ::core::mem::transmute(drawingstatedescription), textrenderingparams.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DrawingStateBlock1>(result__)
+        (::windows::core::Interface::vtable(self).base.CreateDrawingStateBlock2)(::core::mem::transmute_copy(self), ::core::mem::transmute(drawingstatedescription), textrenderingparams.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DrawingStateBlock1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -16386,7 +16386,7 @@ impl ID2D1Factory2 {
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub unsafe fn CreateDevice2<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGIDevice>>(&self, dxgidevice: Param0) -> ::windows::core::Result<ID2D1Device1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDevice)(::core::mem::transmute_copy(self), dxgidevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Device1>(result__)
+        (::windows::core::Interface::vtable(self).CreateDevice2)(::core::mem::transmute_copy(self), dxgidevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Device1>(result__)
     }
 }
 impl ::core::convert::From<ID2D1Factory2> for ::windows::core::IUnknown {
@@ -16569,18 +16569,18 @@ impl ID2D1Factory3 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateStrokeStyle2(&self, strokestyleproperties: *const D2D1_STROKE_STYLE_PROPERTIES1, dashes: *const f32, dashescount: u32) -> ::windows::core::Result<ID2D1StrokeStyle1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CreateStrokeStyle)(::core::mem::transmute_copy(self), ::core::mem::transmute(strokestyleproperties), ::core::mem::transmute(dashes), ::core::mem::transmute(dashescount), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1StrokeStyle1>(result__)
+        (::windows::core::Interface::vtable(self).base.base.CreateStrokeStyle2)(::core::mem::transmute_copy(self), ::core::mem::transmute(strokestyleproperties), ::core::mem::transmute(dashes), ::core::mem::transmute(dashescount), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1StrokeStyle1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreatePathGeometry2(&self) -> ::windows::core::Result<ID2D1PathGeometry1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CreatePathGeometry)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1PathGeometry1>(result__)
+        (::windows::core::Interface::vtable(self).base.base.CreatePathGeometry2)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1PathGeometry1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Foundation_Numerics', 'Win32_Graphics_DirectWrite'*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
     pub unsafe fn CreateDrawingStateBlock2<'a, Param1: ::windows::core::IntoParam<'a, super::DirectWrite::IDWriteRenderingParams>>(&self, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1, textrenderingparams: Param1) -> ::windows::core::Result<ID2D1DrawingStateBlock1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CreateDrawingStateBlock)(::core::mem::transmute_copy(self), ::core::mem::transmute(drawingstatedescription), textrenderingparams.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DrawingStateBlock1>(result__)
+        (::windows::core::Interface::vtable(self).base.base.CreateDrawingStateBlock2)(::core::mem::transmute_copy(self), ::core::mem::transmute(drawingstatedescription), textrenderingparams.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DrawingStateBlock1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -16615,13 +16615,13 @@ impl ID2D1Factory3 {
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub unsafe fn CreateDevice2<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGIDevice>>(&self, dxgidevice: Param0) -> ::windows::core::Result<ID2D1Device1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CreateDevice)(::core::mem::transmute_copy(self), dxgidevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Device1>(result__)
+        (::windows::core::Interface::vtable(self).base.CreateDevice2)(::core::mem::transmute_copy(self), dxgidevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Device1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Dxgi'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub unsafe fn CreateDevice3<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGIDevice>>(&self, dxgidevice: Param0) -> ::windows::core::Result<ID2D1Device2> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDevice)(::core::mem::transmute_copy(self), dxgidevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Device2>(result__)
+        (::windows::core::Interface::vtable(self).CreateDevice3)(::core::mem::transmute_copy(self), dxgidevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Device2>(result__)
     }
 }
 impl ::core::convert::From<ID2D1Factory3> for ::windows::core::IUnknown {
@@ -16824,18 +16824,18 @@ impl ID2D1Factory4 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateStrokeStyle2(&self, strokestyleproperties: *const D2D1_STROKE_STYLE_PROPERTIES1, dashes: *const f32, dashescount: u32) -> ::windows::core::Result<ID2D1StrokeStyle1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.CreateStrokeStyle)(::core::mem::transmute_copy(self), ::core::mem::transmute(strokestyleproperties), ::core::mem::transmute(dashes), ::core::mem::transmute(dashescount), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1StrokeStyle1>(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.CreateStrokeStyle2)(::core::mem::transmute_copy(self), ::core::mem::transmute(strokestyleproperties), ::core::mem::transmute(dashes), ::core::mem::transmute(dashescount), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1StrokeStyle1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreatePathGeometry2(&self) -> ::windows::core::Result<ID2D1PathGeometry1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.CreatePathGeometry)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1PathGeometry1>(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.CreatePathGeometry2)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1PathGeometry1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Foundation_Numerics', 'Win32_Graphics_DirectWrite'*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
     pub unsafe fn CreateDrawingStateBlock2<'a, Param1: ::windows::core::IntoParam<'a, super::DirectWrite::IDWriteRenderingParams>>(&self, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1, textrenderingparams: Param1) -> ::windows::core::Result<ID2D1DrawingStateBlock1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.CreateDrawingStateBlock)(::core::mem::transmute_copy(self), ::core::mem::transmute(drawingstatedescription), textrenderingparams.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DrawingStateBlock1>(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.CreateDrawingStateBlock2)(::core::mem::transmute_copy(self), ::core::mem::transmute(drawingstatedescription), textrenderingparams.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DrawingStateBlock1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -16870,19 +16870,19 @@ impl ID2D1Factory4 {
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub unsafe fn CreateDevice2<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGIDevice>>(&self, dxgidevice: Param0) -> ::windows::core::Result<ID2D1Device1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CreateDevice)(::core::mem::transmute_copy(self), dxgidevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Device1>(result__)
+        (::windows::core::Interface::vtable(self).base.base.CreateDevice2)(::core::mem::transmute_copy(self), dxgidevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Device1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Dxgi'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub unsafe fn CreateDevice3<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGIDevice>>(&self, dxgidevice: Param0) -> ::windows::core::Result<ID2D1Device2> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CreateDevice)(::core::mem::transmute_copy(self), dxgidevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Device2>(result__)
+        (::windows::core::Interface::vtable(self).base.CreateDevice3)(::core::mem::transmute_copy(self), dxgidevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Device2>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Dxgi'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub unsafe fn CreateDevice4<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGIDevice>>(&self, dxgidevice: Param0) -> ::windows::core::Result<ID2D1Device3> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDevice)(::core::mem::transmute_copy(self), dxgidevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Device3>(result__)
+        (::windows::core::Interface::vtable(self).CreateDevice4)(::core::mem::transmute_copy(self), dxgidevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Device3>(result__)
     }
 }
 impl ::core::convert::From<ID2D1Factory4> for ::windows::core::IUnknown {
@@ -17105,18 +17105,18 @@ impl ID2D1Factory5 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateStrokeStyle2(&self, strokestyleproperties: *const D2D1_STROKE_STYLE_PROPERTIES1, dashes: *const f32, dashescount: u32) -> ::windows::core::Result<ID2D1StrokeStyle1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.CreateStrokeStyle)(::core::mem::transmute_copy(self), ::core::mem::transmute(strokestyleproperties), ::core::mem::transmute(dashes), ::core::mem::transmute(dashescount), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1StrokeStyle1>(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.base.CreateStrokeStyle2)(::core::mem::transmute_copy(self), ::core::mem::transmute(strokestyleproperties), ::core::mem::transmute(dashes), ::core::mem::transmute(dashescount), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1StrokeStyle1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreatePathGeometry2(&self) -> ::windows::core::Result<ID2D1PathGeometry1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.CreatePathGeometry)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1PathGeometry1>(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.base.CreatePathGeometry2)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1PathGeometry1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Foundation_Numerics', 'Win32_Graphics_DirectWrite'*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
     pub unsafe fn CreateDrawingStateBlock2<'a, Param1: ::windows::core::IntoParam<'a, super::DirectWrite::IDWriteRenderingParams>>(&self, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1, textrenderingparams: Param1) -> ::windows::core::Result<ID2D1DrawingStateBlock1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.CreateDrawingStateBlock)(::core::mem::transmute_copy(self), ::core::mem::transmute(drawingstatedescription), textrenderingparams.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DrawingStateBlock1>(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.base.CreateDrawingStateBlock2)(::core::mem::transmute_copy(self), ::core::mem::transmute(drawingstatedescription), textrenderingparams.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DrawingStateBlock1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -17151,25 +17151,25 @@ impl ID2D1Factory5 {
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub unsafe fn CreateDevice2<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGIDevice>>(&self, dxgidevice: Param0) -> ::windows::core::Result<ID2D1Device1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.CreateDevice)(::core::mem::transmute_copy(self), dxgidevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Device1>(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.CreateDevice2)(::core::mem::transmute_copy(self), dxgidevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Device1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Dxgi'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub unsafe fn CreateDevice3<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGIDevice>>(&self, dxgidevice: Param0) -> ::windows::core::Result<ID2D1Device2> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CreateDevice)(::core::mem::transmute_copy(self), dxgidevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Device2>(result__)
+        (::windows::core::Interface::vtable(self).base.base.CreateDevice3)(::core::mem::transmute_copy(self), dxgidevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Device2>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Dxgi'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub unsafe fn CreateDevice4<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGIDevice>>(&self, dxgidevice: Param0) -> ::windows::core::Result<ID2D1Device3> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CreateDevice)(::core::mem::transmute_copy(self), dxgidevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Device3>(result__)
+        (::windows::core::Interface::vtable(self).base.CreateDevice4)(::core::mem::transmute_copy(self), dxgidevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Device3>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Dxgi'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub unsafe fn CreateDevice5<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGIDevice>>(&self, dxgidevice: Param0) -> ::windows::core::Result<ID2D1Device4> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDevice)(::core::mem::transmute_copy(self), dxgidevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Device4>(result__)
+        (::windows::core::Interface::vtable(self).CreateDevice5)(::core::mem::transmute_copy(self), dxgidevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Device4>(result__)
     }
 }
 impl ::core::convert::From<ID2D1Factory5> for ::windows::core::IUnknown {
@@ -17412,18 +17412,18 @@ impl ID2D1Factory6 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateStrokeStyle2(&self, strokestyleproperties: *const D2D1_STROKE_STYLE_PROPERTIES1, dashes: *const f32, dashescount: u32) -> ::windows::core::Result<ID2D1StrokeStyle1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.CreateStrokeStyle)(::core::mem::transmute_copy(self), ::core::mem::transmute(strokestyleproperties), ::core::mem::transmute(dashes), ::core::mem::transmute(dashescount), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1StrokeStyle1>(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.CreateStrokeStyle2)(::core::mem::transmute_copy(self), ::core::mem::transmute(strokestyleproperties), ::core::mem::transmute(dashes), ::core::mem::transmute(dashescount), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1StrokeStyle1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreatePathGeometry2(&self) -> ::windows::core::Result<ID2D1PathGeometry1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.CreatePathGeometry)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1PathGeometry1>(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.CreatePathGeometry2)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1PathGeometry1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Foundation_Numerics', 'Win32_Graphics_DirectWrite'*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
     pub unsafe fn CreateDrawingStateBlock2<'a, Param1: ::windows::core::IntoParam<'a, super::DirectWrite::IDWriteRenderingParams>>(&self, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1, textrenderingparams: Param1) -> ::windows::core::Result<ID2D1DrawingStateBlock1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.CreateDrawingStateBlock)(::core::mem::transmute_copy(self), ::core::mem::transmute(drawingstatedescription), textrenderingparams.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DrawingStateBlock1>(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.CreateDrawingStateBlock2)(::core::mem::transmute_copy(self), ::core::mem::transmute(drawingstatedescription), textrenderingparams.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DrawingStateBlock1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -17458,31 +17458,31 @@ impl ID2D1Factory6 {
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub unsafe fn CreateDevice2<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGIDevice>>(&self, dxgidevice: Param0) -> ::windows::core::Result<ID2D1Device1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.CreateDevice)(::core::mem::transmute_copy(self), dxgidevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Device1>(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.base.CreateDevice2)(::core::mem::transmute_copy(self), dxgidevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Device1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Dxgi'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub unsafe fn CreateDevice3<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGIDevice>>(&self, dxgidevice: Param0) -> ::windows::core::Result<ID2D1Device2> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.CreateDevice)(::core::mem::transmute_copy(self), dxgidevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Device2>(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.CreateDevice3)(::core::mem::transmute_copy(self), dxgidevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Device2>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Dxgi'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub unsafe fn CreateDevice4<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGIDevice>>(&self, dxgidevice: Param0) -> ::windows::core::Result<ID2D1Device3> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CreateDevice)(::core::mem::transmute_copy(self), dxgidevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Device3>(result__)
+        (::windows::core::Interface::vtable(self).base.base.CreateDevice4)(::core::mem::transmute_copy(self), dxgidevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Device3>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Dxgi'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub unsafe fn CreateDevice5<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGIDevice>>(&self, dxgidevice: Param0) -> ::windows::core::Result<ID2D1Device4> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CreateDevice)(::core::mem::transmute_copy(self), dxgidevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Device4>(result__)
+        (::windows::core::Interface::vtable(self).base.CreateDevice5)(::core::mem::transmute_copy(self), dxgidevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Device4>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Dxgi'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub unsafe fn CreateDevice6<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGIDevice>>(&self, dxgidevice: Param0) -> ::windows::core::Result<ID2D1Device5> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDevice)(::core::mem::transmute_copy(self), dxgidevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Device5>(result__)
+        (::windows::core::Interface::vtable(self).CreateDevice6)(::core::mem::transmute_copy(self), dxgidevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Device5>(result__)
     }
 }
 impl ::core::convert::From<ID2D1Factory6> for ::windows::core::IUnknown {
@@ -17745,18 +17745,18 @@ impl ID2D1Factory7 {
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreateStrokeStyle2(&self, strokestyleproperties: *const D2D1_STROKE_STYLE_PROPERTIES1, dashes: *const f32, dashescount: u32) -> ::windows::core::Result<ID2D1StrokeStyle1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.CreateStrokeStyle)(::core::mem::transmute_copy(self), ::core::mem::transmute(strokestyleproperties), ::core::mem::transmute(dashes), ::core::mem::transmute(dashescount), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1StrokeStyle1>(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.CreateStrokeStyle2)(::core::mem::transmute_copy(self), ::core::mem::transmute(strokestyleproperties), ::core::mem::transmute(dashes), ::core::mem::transmute(dashescount), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1StrokeStyle1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn CreatePathGeometry2(&self) -> ::windows::core::Result<ID2D1PathGeometry1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.CreatePathGeometry)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1PathGeometry1>(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.CreatePathGeometry2)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1PathGeometry1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Foundation_Numerics', 'Win32_Graphics_DirectWrite'*"]
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
     pub unsafe fn CreateDrawingStateBlock2<'a, Param1: ::windows::core::IntoParam<'a, super::DirectWrite::IDWriteRenderingParams>>(&self, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1, textrenderingparams: Param1) -> ::windows::core::Result<ID2D1DrawingStateBlock1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.CreateDrawingStateBlock)(::core::mem::transmute_copy(self), ::core::mem::transmute(drawingstatedescription), textrenderingparams.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DrawingStateBlock1>(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.base.CreateDrawingStateBlock2)(::core::mem::transmute_copy(self), ::core::mem::transmute(drawingstatedescription), textrenderingparams.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1DrawingStateBlock1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
@@ -17791,37 +17791,37 @@ impl ID2D1Factory7 {
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub unsafe fn CreateDevice2<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGIDevice>>(&self, dxgidevice: Param0) -> ::windows::core::Result<ID2D1Device1> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.base.CreateDevice)(::core::mem::transmute_copy(self), dxgidevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Device1>(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.base.base.CreateDevice2)(::core::mem::transmute_copy(self), dxgidevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Device1>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Dxgi'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub unsafe fn CreateDevice3<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGIDevice>>(&self, dxgidevice: Param0) -> ::windows::core::Result<ID2D1Device2> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.base.CreateDevice)(::core::mem::transmute_copy(self), dxgidevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Device2>(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.base.CreateDevice3)(::core::mem::transmute_copy(self), dxgidevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Device2>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Dxgi'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub unsafe fn CreateDevice4<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGIDevice>>(&self, dxgidevice: Param0) -> ::windows::core::Result<ID2D1Device3> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.base.CreateDevice)(::core::mem::transmute_copy(self), dxgidevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Device3>(result__)
+        (::windows::core::Interface::vtable(self).base.base.base.CreateDevice4)(::core::mem::transmute_copy(self), dxgidevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Device3>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Dxgi'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub unsafe fn CreateDevice5<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGIDevice>>(&self, dxgidevice: Param0) -> ::windows::core::Result<ID2D1Device4> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.base.CreateDevice)(::core::mem::transmute_copy(self), dxgidevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Device4>(result__)
+        (::windows::core::Interface::vtable(self).base.base.CreateDevice5)(::core::mem::transmute_copy(self), dxgidevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Device4>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Dxgi'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub unsafe fn CreateDevice6<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGIDevice>>(&self, dxgidevice: Param0) -> ::windows::core::Result<ID2D1Device5> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).base.CreateDevice)(::core::mem::transmute_copy(self), dxgidevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Device5>(result__)
+        (::windows::core::Interface::vtable(self).base.CreateDevice6)(::core::mem::transmute_copy(self), dxgidevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Device5>(result__)
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Dxgi'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub unsafe fn CreateDevice7<'a, Param0: ::windows::core::IntoParam<'a, super::Dxgi::IDXGIDevice>>(&self, dxgidevice: Param0) -> ::windows::core::Result<ID2D1Device6> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).CreateDevice)(::core::mem::transmute_copy(self), dxgidevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Device6>(result__)
+        (::windows::core::Interface::vtable(self).CreateDevice7)(::core::mem::transmute_copy(self), dxgidevice.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<ID2D1Device6>(result__)
     }
 }
 impl ::core::convert::From<ID2D1Factory7> for ::windows::core::IUnknown {
@@ -18355,7 +18355,7 @@ impl ID2D1GdiMetafileSink1 {
     }
     #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
     pub unsafe fn ProcessRecord2(&self, recordtype: u32, recorddata: *const ::core::ffi::c_void, recorddatasize: u32, flags: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).ProcessRecord)(::core::mem::transmute_copy(self), ::core::mem::transmute(recordtype), ::core::mem::transmute(recorddata), ::core::mem::transmute(recorddatasize), ::core::mem::transmute(flags)).ok()
+        (::windows::core::Interface::vtable(self).ProcessRecord2)(::core::mem::transmute_copy(self), ::core::mem::transmute(recordtype), ::core::mem::transmute(recorddata), ::core::mem::transmute(recorddatasize), ::core::mem::transmute(flags)).ok()
     }
 }
 impl ::core::convert::From<ID2D1GdiMetafileSink1> for ::windows::core::IUnknown {

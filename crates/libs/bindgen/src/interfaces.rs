@@ -65,6 +65,7 @@ fn gen_methods(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
     let mut methods = quote! {};
     let is_winrt = def.is_winrt();
     let mut method_names = MethodNames::new();
+    let mut virtual_names = MethodNames::new();
     let cfg = cfg.gen(gen);
     let vtable_types = def.vtable_types();
     let mut bases = vtable_types.len();
@@ -73,7 +74,7 @@ fn gen_methods(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
         match def {
             ElementType::IUnknown | ElementType::IInspectable => {},
             ElementType::TypeDef(def) => {
-                methods.combine(&gen_methods_impl(&def, InterfaceKind::Default, &mut method_names, bases, gen));
+                methods.combine(&gen_methods_impl(&def, InterfaceKind::Default, &mut method_names, &mut virtual_names, bases, gen));
             }
             _ => unimplemented!(),
         }
@@ -82,11 +83,11 @@ fn gen_methods(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
     }
 
     // Methods for vtable bases are added first (above) so that any overloads are renamed accordingly.
-    methods.combine(&gen_methods_impl(&def, InterfaceKind::Default, &mut method_names, 0, gen));
+    methods.combine(&gen_methods_impl(&def, InterfaceKind::Default, &mut method_names, &mut virtual_names, 0, gen));
 
     if is_winrt && !gen.min_inherit {
         for def in def.required_interfaces() {
-            methods.combine(&gen_methods_impl(&def, InterfaceKind::NonDefault, &mut method_names, 0, gen));
+            methods.combine(&gen_methods_impl(&def, InterfaceKind::NonDefault, &mut method_names, &mut virtual_names, 0, gen));
         }
     }
 
@@ -98,16 +99,15 @@ fn gen_methods(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
     }
 }
 
-fn gen_methods_impl(def: &TypeDef, kind: InterfaceKind, method_names: &mut MethodNames, bases: usize, gen: &Gen) -> TokenStream {
+fn gen_methods_impl(def: &TypeDef, kind: InterfaceKind, method_names: &mut MethodNames, virtual_names: &mut MethodNames, bases: usize, gen: &Gen) -> TokenStream {
     let mut methods = quote! {};
-    let mut virtual_names = MethodNames::new();
     let is_winrt = def.is_winrt();
 
     for method in def.methods() {
         if is_winrt {
-            methods.combine(&gen_winrt_method(&def, kind, &method, method_names, &mut virtual_names, gen));
+            methods.combine(&gen_winrt_method(&def, kind, &method, method_names, virtual_names, gen));
         } else {
-            methods.combine(&gen_com_method(&def, &method,  method_names, &mut virtual_names, bases, gen));
+            methods.combine(&gen_com_method(&def, &method,  method_names, virtual_names, bases, gen));
         }
     }
 
