@@ -6645,9 +6645,9 @@ pub struct ID2D1CommandSink2_Vtbl {
     pub DrawInk: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ink: ::windows::core::RawPtr, brush: ::windows::core::RawPtr, inkstyle: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub DrawGradientMesh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gradientmesh: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub DrawGdiMetafile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gdimetafile: ::windows::core::RawPtr, destinationrectangle: *const Common::D2D_RECT_F, sourcerectangle: *const Common::D2D_RECT_F) -> ::windows::core::HRESULT,
+    pub DrawGdiMetafile2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gdimetafile: ::windows::core::RawPtr, destinationrectangle: *const Common::D2D_RECT_F, sourcerectangle: *const Common::D2D_RECT_F) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
-    DrawGdiMetafile: usize,
+    DrawGdiMetafile2: usize,
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
@@ -8374,7 +8374,7 @@ pub struct ID2D1Device1_Vtbl {
     pub base: ID2D1Device_Vtbl,
     pub GetRenderingPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> D2D1_RENDERING_PRIORITY,
     pub SetRenderingPriority: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, renderingpriority: D2D1_RENDERING_PRIORITY),
-    pub CreateDeviceContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: D2D1_DEVICE_CONTEXT_OPTIONS, devicecontext1: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateDeviceContext2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: D2D1_DEVICE_CONTEXT_OPTIONS, devicecontext1: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
@@ -8540,7 +8540,7 @@ unsafe impl ::windows::core::Interface for ID2D1Device2 {
 #[doc(hidden)]
 pub struct ID2D1Device2_Vtbl {
     pub base: ID2D1Device1_Vtbl,
-    pub CreateDeviceContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: D2D1_DEVICE_CONTEXT_OPTIONS, devicecontext2: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateDeviceContext3: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: D2D1_DEVICE_CONTEXT_OPTIONS, devicecontext2: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub FlushDeviceContexts: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr),
     #[cfg(feature = "Win32_Graphics_Dxgi")]
     pub GetDxgiDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dxgidevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -8736,7 +8736,7 @@ unsafe impl ::windows::core::Interface for ID2D1Device3 {
 #[doc(hidden)]
 pub struct ID2D1Device3_Vtbl {
     pub base: ID2D1Device2_Vtbl,
-    pub CreateDeviceContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: D2D1_DEVICE_CONTEXT_OPTIONS, devicecontext3: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateDeviceContext4: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: D2D1_DEVICE_CONTEXT_OPTIONS, devicecontext3: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
@@ -8960,7 +8960,7 @@ unsafe impl ::windows::core::Interface for ID2D1Device4 {
 #[doc(hidden)]
 pub struct ID2D1Device4_Vtbl {
     pub base: ID2D1Device3_Vtbl,
-    pub CreateDeviceContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: D2D1_DEVICE_CONTEXT_OPTIONS, devicecontext4: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateDeviceContext5: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: D2D1_DEVICE_CONTEXT_OPTIONS, devicecontext4: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub SetMaximumColorGlyphCacheMemory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maximuminbytes: u64),
     pub GetMaximumColorGlyphCacheMemory: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u64,
 }
@@ -9211,7 +9211,7 @@ unsafe impl ::windows::core::Interface for ID2D1Device5 {
 #[doc(hidden)]
 pub struct ID2D1Device5_Vtbl {
     pub base: ID2D1Device4_Vtbl,
-    pub CreateDeviceContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: D2D1_DEVICE_CONTEXT_OPTIONS, devicecontext5: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateDeviceContext6: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: D2D1_DEVICE_CONTEXT_OPTIONS, devicecontext5: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
@@ -9485,7 +9485,7 @@ unsafe impl ::windows::core::Interface for ID2D1Device6 {
 #[doc(hidden)]
 pub struct ID2D1Device6_Vtbl {
     pub base: ID2D1Device5_Vtbl,
-    pub CreateDeviceContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: D2D1_DEVICE_CONTEXT_OPTIONS, devicecontext6: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateDeviceContext7: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, options: D2D1_DEVICE_CONTEXT_OPTIONS, devicecontext6: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
@@ -10021,13 +10021,13 @@ unsafe impl ::windows::core::Interface for ID2D1DeviceContext {
 pub struct ID2D1DeviceContext_Vtbl {
     pub base: ID2D1RenderTarget_Vtbl,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub CreateBitmap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, size: Common::D2D_SIZE_U, sourcedata: *const ::core::ffi::c_void, pitch: u32, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1, bitmap: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateBitmap2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, size: Common::D2D_SIZE_U, sourcedata: *const ::core::ffi::c_void, pitch: u32, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1, bitmap: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common")))]
-    CreateBitmap: usize,
+    CreateBitmap2: usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging"))]
-    pub CreateBitmapFromWicBitmap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wicbitmapsource: ::windows::core::RawPtr, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1, bitmap: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateBitmapFromWicBitmap2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wicbitmapsource: ::windows::core::RawPtr, bitmapproperties: *const D2D1_BITMAP_PROPERTIES1, bitmap: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Graphics_Imaging")))]
-    CreateBitmapFromWicBitmap: usize,
+    CreateBitmapFromWicBitmap2: usize,
     pub CreateColorContext: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, space: D2D1_COLOR_SPACE, profile: *const u8, profilesize: u32, colorcontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")]
     pub CreateColorContextFromFilename: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: super::super::Foundation::PWSTR, colorcontext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -10043,17 +10043,17 @@ pub struct ID2D1DeviceContext_Vtbl {
     CreateBitmapFromDxgiSurface: usize,
     pub CreateEffect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, effectid: *const ::windows::core::GUID, effect: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub CreateGradientStopCollection: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, straightalphagradientstops: *const D2D1_GRADIENT_STOP, straightalphagradientstopscount: u32, preinterpolationspace: D2D1_COLOR_SPACE, postinterpolationspace: D2D1_COLOR_SPACE, bufferprecision: D2D1_BUFFER_PRECISION, extendmode: D2D1_EXTEND_MODE, colorinterpolationmode: D2D1_COLOR_INTERPOLATION_MODE, gradientstopcollection1: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateGradientStopCollection2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, straightalphagradientstops: *const D2D1_GRADIENT_STOP, straightalphagradientstopscount: u32, preinterpolationspace: D2D1_COLOR_SPACE, postinterpolationspace: D2D1_COLOR_SPACE, bufferprecision: D2D1_BUFFER_PRECISION, extendmode: D2D1_EXTEND_MODE, colorinterpolationmode: D2D1_COLOR_INTERPOLATION_MODE, gradientstopcollection1: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
-    CreateGradientStopCollection: usize,
+    CreateGradientStopCollection2: usize,
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
     pub CreateImageBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, image: ::windows::core::RawPtr, imagebrushproperties: *const D2D1_IMAGE_BRUSH_PROPERTIES, brushproperties: *const D2D1_BRUSH_PROPERTIES, imagebrush: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))]
     CreateImageBrush: usize,
     #[cfg(feature = "Foundation_Numerics")]
-    pub CreateBitmapBrush: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES1, brushproperties: *const D2D1_BRUSH_PROPERTIES, bitmapbrush: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateBitmapBrush2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, bitmapbrushproperties: *const D2D1_BITMAP_BRUSH_PROPERTIES1, brushproperties: *const D2D1_BRUSH_PROPERTIES, bitmapbrush: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))]
-    CreateBitmapBrush: usize,
+    CreateBitmapBrush2: usize,
     pub CreateCommandList: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, commandlist: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub IsDxgiFormatSupported: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, format: super::Dxgi::Common::DXGI_FORMAT) -> super::super::Foundation::BOOL,
@@ -10091,9 +10091,9 @@ pub struct ID2D1DeviceContext_Vtbl {
     pub SetUnitMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unitmode: D2D1_UNIT_MODE),
     pub GetUnitMode: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> D2D1_UNIT_MODE,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    pub DrawGlyphRun: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, glyphrundescription: *const super::DirectWrite::DWRITE_GLYPH_RUN_DESCRIPTION, foregroundbrush: ::windows::core::RawPtr, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE),
+    pub DrawGlyphRun2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, glyphrundescription: *const super::DirectWrite::DWRITE_GLYPH_RUN_DESCRIPTION, foregroundbrush: ::windows::core::RawPtr, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE),
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))]
-    DrawGlyphRun: usize,
+    DrawGlyphRun2: usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub DrawImage: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, image: ::windows::core::RawPtr, targetoffset: *const Common::D2D_POINT_2F, imagerectangle: *const Common::D2D_RECT_F, interpolationmode: D2D1_INTERPOLATION_MODE, compositemode: Common::D2D1_COMPOSITE_MODE),
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
@@ -10103,13 +10103,13 @@ pub struct ID2D1DeviceContext_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
     DrawGdiMetafile: usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub DrawBitmap: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, destinationrectangle: *const Common::D2D_RECT_F, opacity: f32, interpolationmode: D2D1_INTERPOLATION_MODE, sourcerectangle: *const Common::D2D_RECT_F, perspectivetransform: *const Common::D2D_MATRIX_4X4_F),
+    pub DrawBitmap2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, destinationrectangle: *const Common::D2D_RECT_F, opacity: f32, interpolationmode: D2D1_INTERPOLATION_MODE, sourcerectangle: *const Common::D2D_RECT_F, perspectivetransform: *const Common::D2D_MATRIX_4X4_F),
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
-    DrawBitmap: usize,
+    DrawBitmap2: usize,
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
-    pub PushLayer: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, layerparameters: *const D2D1_LAYER_PARAMETERS1, layer: ::windows::core::RawPtr),
+    pub PushLayer2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, layerparameters: *const D2D1_LAYER_PARAMETERS1, layer: ::windows::core::RawPtr),
     #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common")))]
-    PushLayer: usize,
+    PushLayer2: usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
     pub InvalidateEffectInputRectangle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, effect: ::windows::core::RawPtr, input: u32, inputrectangle: *const Common::D2D_RECT_F) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
@@ -10124,9 +10124,9 @@ pub struct ID2D1DeviceContext_Vtbl {
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
     GetEffectRequiredInputRectangles: usize,
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub FillOpacityMask: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, opacitymask: ::windows::core::RawPtr, brush: ::windows::core::RawPtr, destinationrectangle: *const Common::D2D_RECT_F, sourcerectangle: *const Common::D2D_RECT_F),
+    pub FillOpacityMask2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, opacitymask: ::windows::core::RawPtr, brush: ::windows::core::RawPtr, destinationrectangle: *const Common::D2D_RECT_F, sourcerectangle: *const Common::D2D_RECT_F),
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
-    FillOpacityMask: usize,
+    FillOpacityMask2: usize,
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
@@ -11369,9 +11369,9 @@ pub struct ID2D1DeviceContext2_Vtbl {
     pub DrawInk: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ink: ::windows::core::RawPtr, brush: ::windows::core::RawPtr, inkstyle: ::windows::core::RawPtr),
     pub DrawGradientMesh: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gradientmesh: ::windows::core::RawPtr),
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub DrawGdiMetafile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gdimetafile: ::windows::core::RawPtr, destinationrectangle: *const Common::D2D_RECT_F, sourcerectangle: *const Common::D2D_RECT_F),
+    pub DrawGdiMetafile2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, gdimetafile: ::windows::core::RawPtr, destinationrectangle: *const Common::D2D_RECT_F, sourcerectangle: *const Common::D2D_RECT_F),
     #[cfg(not(feature = "Win32_Graphics_Direct2D_Common"))]
-    DrawGdiMetafile: usize,
+    DrawGdiMetafile2: usize,
     pub CreateTransformedImageSource: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, imagesource: ::windows::core::RawPtr, properties: *const D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES, transformedimagesource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
@@ -12782,13 +12782,13 @@ pub struct ID2D1DeviceContext4_Vtbl {
     pub base: ID2D1DeviceContext3_Vtbl,
     pub CreateSvgGlyphStyle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, svgglyphstyle: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    pub DrawText: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, string: super::super::Foundation::PWSTR, stringlength: u32, textformat: ::windows::core::RawPtr, layoutrect: *const Common::D2D_RECT_F, defaultfillbrush: ::windows::core::RawPtr, svgglyphstyle: ::windows::core::RawPtr, colorpaletteindex: u32, options: D2D1_DRAW_TEXT_OPTIONS, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE),
+    pub DrawText2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, string: super::super::Foundation::PWSTR, stringlength: u32, textformat: ::windows::core::RawPtr, layoutrect: *const Common::D2D_RECT_F, defaultfillbrush: ::windows::core::RawPtr, svgglyphstyle: ::windows::core::RawPtr, colorpaletteindex: u32, options: D2D1_DRAW_TEXT_OPTIONS, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE),
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))]
-    DrawText: usize,
+    DrawText2: usize,
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
-    pub DrawTextLayout: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, origin: Common::D2D_POINT_2F, textlayout: ::windows::core::RawPtr, defaultfillbrush: ::windows::core::RawPtr, svgglyphstyle: ::windows::core::RawPtr, colorpaletteindex: u32, options: D2D1_DRAW_TEXT_OPTIONS),
+    pub DrawTextLayout2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, origin: Common::D2D_POINT_2F, textlayout: ::windows::core::RawPtr, defaultfillbrush: ::windows::core::RawPtr, svgglyphstyle: ::windows::core::RawPtr, colorpaletteindex: u32, options: D2D1_DRAW_TEXT_OPTIONS),
     #[cfg(not(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))]
-    DrawTextLayout: usize,
+    DrawTextLayout2: usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite"))]
     pub DrawColorBitmapGlyphRun: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, glyphimageformat: super::DirectWrite::DWRITE_GLYPH_IMAGE_FORMATS, baselineorigin: Common::D2D_POINT_2F, glyphrun: *const super::DirectWrite::DWRITE_GLYPH_RUN, measuringmode: super::DirectWrite::DWRITE_MEASURING_MODE, bitmapsnapoption: D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION),
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_DirectWrite")))]
@@ -14853,13 +14853,13 @@ unsafe impl ::windows::core::Interface for ID2D1DrawingStateBlock1 {
 pub struct ID2D1DrawingStateBlock1_Vtbl {
     pub base: ID2D1DrawingStateBlock_Vtbl,
     #[cfg(feature = "Foundation_Numerics")]
-    pub GetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, statedescription: *mut D2D1_DRAWING_STATE_DESCRIPTION1),
+    pub GetDescription2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, statedescription: *mut D2D1_DRAWING_STATE_DESCRIPTION1),
     #[cfg(not(feature = "Foundation_Numerics"))]
-    GetDescription: usize,
+    GetDescription2: usize,
     #[cfg(feature = "Foundation_Numerics")]
-    pub SetDescription: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, statedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1),
+    pub SetDescription2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, statedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1),
     #[cfg(not(feature = "Foundation_Numerics"))]
-    SetDescription: usize,
+    SetDescription2: usize,
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
@@ -16227,12 +16227,12 @@ pub struct ID2D1Factory1_Vtbl {
     pub CreateDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dxgidevice: ::windows::core::RawPtr, d2ddevice: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))]
     CreateDevice: usize,
-    pub CreateStrokeStyle: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokestyleproperties: *const D2D1_STROKE_STYLE_PROPERTIES1, dashes: *const f32, dashescount: u32, strokestyle: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub CreatePathGeometry: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pathgeometry: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateStrokeStyle2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, strokestyleproperties: *const D2D1_STROKE_STYLE_PROPERTIES1, dashes: *const f32, dashescount: u32, strokestyle: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreatePathGeometry2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pathgeometry: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite"))]
-    pub CreateDrawingStateBlock: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1, textrenderingparams: ::windows::core::RawPtr, drawingstateblock: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateDrawingStateBlock2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, drawingstatedescription: *const D2D1_DRAWING_STATE_DESCRIPTION1, textrenderingparams: ::windows::core::RawPtr, drawingstateblock: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_DirectWrite")))]
-    CreateDrawingStateBlock: usize,
+    CreateDrawingStateBlock2: usize,
     #[cfg(feature = "Win32_System_Com")]
     pub CreateGdiMetafile: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, metafilestream: ::windows::core::RawPtr, metafile: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))]
@@ -16474,9 +16474,9 @@ unsafe impl ::windows::core::Interface for ID2D1Factory2 {
 pub struct ID2D1Factory2_Vtbl {
     pub base: ID2D1Factory1_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi")]
-    pub CreateDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dxgidevice: ::windows::core::RawPtr, d2ddevice1: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateDevice2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dxgidevice: ::windows::core::RawPtr, d2ddevice1: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))]
-    CreateDevice: usize,
+    CreateDevice2: usize,
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
@@ -16729,9 +16729,9 @@ unsafe impl ::windows::core::Interface for ID2D1Factory3 {
 pub struct ID2D1Factory3_Vtbl {
     pub base: ID2D1Factory2_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi")]
-    pub CreateDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dxgidevice: ::windows::core::RawPtr, d2ddevice2: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateDevice3: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dxgidevice: ::windows::core::RawPtr, d2ddevice2: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))]
-    CreateDevice: usize,
+    CreateDevice3: usize,
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
@@ -17010,9 +17010,9 @@ unsafe impl ::windows::core::Interface for ID2D1Factory4 {
 pub struct ID2D1Factory4_Vtbl {
     pub base: ID2D1Factory3_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi")]
-    pub CreateDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dxgidevice: ::windows::core::RawPtr, d2ddevice3: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateDevice4: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dxgidevice: ::windows::core::RawPtr, d2ddevice3: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))]
-    CreateDevice: usize,
+    CreateDevice4: usize,
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
@@ -17317,9 +17317,9 @@ unsafe impl ::windows::core::Interface for ID2D1Factory5 {
 pub struct ID2D1Factory5_Vtbl {
     pub base: ID2D1Factory4_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi")]
-    pub CreateDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dxgidevice: ::windows::core::RawPtr, d2ddevice4: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateDevice5: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dxgidevice: ::windows::core::RawPtr, d2ddevice4: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))]
-    CreateDevice: usize,
+    CreateDevice5: usize,
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
@@ -17650,9 +17650,9 @@ unsafe impl ::windows::core::Interface for ID2D1Factory6 {
 pub struct ID2D1Factory6_Vtbl {
     pub base: ID2D1Factory5_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi")]
-    pub CreateDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dxgidevice: ::windows::core::RawPtr, d2ddevice5: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateDevice6: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dxgidevice: ::windows::core::RawPtr, d2ddevice5: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))]
-    CreateDevice: usize,
+    CreateDevice6: usize,
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
@@ -18009,9 +18009,9 @@ unsafe impl ::windows::core::Interface for ID2D1Factory7 {
 pub struct ID2D1Factory7_Vtbl {
     pub base: ID2D1Factory6_Vtbl,
     #[cfg(feature = "Win32_Graphics_Dxgi")]
-    pub CreateDevice: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dxgidevice: ::windows::core::RawPtr, d2ddevice6: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub CreateDevice7: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dxgidevice: ::windows::core::RawPtr, d2ddevice6: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi"))]
-    CreateDevice: usize,
+    CreateDevice7: usize,
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]
@@ -18422,7 +18422,7 @@ unsafe impl ::windows::core::Interface for ID2D1GdiMetafileSink1 {
 #[doc(hidden)]
 pub struct ID2D1GdiMetafileSink1_Vtbl {
     pub base: ID2D1GdiMetafileSink_Vtbl,
-    pub ProcessRecord: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, recordtype: u32, recorddata: *const ::core::ffi::c_void, recorddatasize: u32, flags: u32) -> ::windows::core::HRESULT,
+    pub ProcessRecord2: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, recordtype: u32, recorddata: *const ::core::ffi::c_void, recorddatasize: u32, flags: u32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 #[repr(transparent)]

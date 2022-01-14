@@ -46,6 +46,7 @@ fn gen_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
     let method_traits = def.methods().map(|method| {
         let name = method_names.add(&method);
         let signature = gen_impl_signature(def, &method, gen);
+        // TODO: if this is an override then provide a default impl?
         quote! { fn #name #signature; }
     });
 

@@ -154,6 +154,7 @@ pub fn gen_vtbl(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
     let constraints = gen_type_constraints(def, gen);
     let mut methods = quote! {};
     let mut method_names = MethodNames::new();
+    method_names.add_vtable_types(def);
 
     match def.vtable_types().last() {
         Some(ElementType::IUnknown) => methods.combine(&quote! { pub base: ::windows::core::IUnknownVtbl, }),
