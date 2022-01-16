@@ -78,7 +78,6 @@ default = []
 deprecated = []
 alloc = []
 implement = ["windows_macros"]
-implement_exclusive = []
 build = ["windows_gen", "windows_macros", "windows_reader"]
 "#
         .as_bytes(),

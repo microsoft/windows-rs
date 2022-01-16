@@ -1,14 +1,10 @@
 use super::*;
 
 pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
-    match def.kind() {
-        TypeKind::Interface => gen_interface(def,gen),
-        TypeKind::Class => gen_class(def, gen),
-        _ => quote! {}
+    if def.kind() != TypeKind::Interface || !def.can_implement() {
+        return quote! {};
     }
-}
 
-fn gen_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
     let type_ident = gen_ident(def.name());
     let impl_ident = type_ident.join("_Impl");
     let vtbl_ident = type_ident.join("_Vtbl");
@@ -125,11 +121,4 @@ fn gen_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
             }
         }
     }
-}
-
-fn gen_class(_def: &TypeDef, _gen: &Gen) -> TokenStream {
-    // TODO: gen trait for classes and cfg based on all interfaces being featured 
-    // and only provide implement trait if "implement_exclusive" is featured.
-    // Also cfg should include all method cfgs.
-    quote!{}
 }

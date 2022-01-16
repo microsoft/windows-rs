@@ -69,10 +69,6 @@ impl Gen<'_> {
         let mut keys = HashSet::new();
         self.type_and_method_requirements(def, &mut features, &mut keys);
 
-        if def.is_exclusive() {
-            features.insert("implement_exclusive");
-        }
-
         for def in def.vtable_types() {
             if let ElementType::TypeDef(def) = def {
                 self.type_and_method_requirements(&def, &mut features, &mut keys);

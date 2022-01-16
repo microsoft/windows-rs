@@ -489,82 +489,6 @@ impl ICommandLineActivatedEventArgs_Vtbl {
         iid == &<ICommandLineActivatedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ICommandLineActivationOperation_Impl: Sized {
-    fn Arguments(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn CurrentDirectoryPath(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetExitCode(&mut self, value: i32) -> ::windows::core::Result<()>;
-    fn ExitCode(&mut self) -> ::windows::core::Result<i32>;
-    fn GetDeferral(&mut self) -> ::windows::core::Result<super::super::Foundation::Deferral>;
-}
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ::windows::core::RuntimeName for ICommandLineActivationOperation {
-    const NAME: &'static str = "Windows.ApplicationModel.Activation.ICommandLineActivationOperation";
-}
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ICommandLineActivationOperation_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ICommandLineActivationOperation_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ICommandLineActivationOperation_Vtbl {
-        unsafe extern "system" fn Arguments<Impl: ICommandLineActivationOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            match (*this).Arguments() {
-                ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
-                    ::core::mem::forget(ok__);
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
-        }
-        unsafe extern "system" fn CurrentDirectoryPath<Impl: ICommandLineActivationOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            match (*this).CurrentDirectoryPath() {
-                ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
-                    ::core::mem::forget(ok__);
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
-        }
-        unsafe extern "system" fn SetExitCode<Impl: ICommandLineActivationOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, value: i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).SetExitCode(value).into()
-        }
-        unsafe extern "system" fn ExitCode<Impl: ICommandLineActivationOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            match (*this).ExitCode() {
-                ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
-                    ::core::mem::forget(ok__);
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
-        }
-        unsafe extern "system" fn GetDeferral<Impl: ICommandLineActivationOperation_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            match (*this).GetDeferral() {
-                ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
-                    ::core::mem::forget(ok__);
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
-        }
-        Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ICommandLineActivationOperation, BASE_OFFSET>(),
-            Arguments: Arguments::<Impl, IMPL_OFFSET>,
-            CurrentDirectoryPath: CurrentDirectoryPath::<Impl, IMPL_OFFSET>,
-            SetExitCode: SetExitCode::<Impl, IMPL_OFFSET>,
-            ExitCode: ExitCode::<Impl, IMPL_OFFSET>,
-            GetDeferral: GetDeferral::<Impl, IMPL_OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ICommandLineActivationOperation as ::windows::core::Interface>::IID
-    }
-}
 pub trait IContactActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
     fn Verb(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
@@ -1907,56 +1831,6 @@ impl IShareTargetActivatedEventArgs_Vtbl {
         iid == &<IShareTargetActivatedEventArgs as ::windows::core::Interface>::IID
     }
 }
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-pub trait ISplashScreen_Impl: Sized {
-    fn ImageLocation(&mut self) -> ::windows::core::Result<super::super::Foundation::Rect>;
-    fn Dismissed(&mut self, handler: &::core::option::Option<super::super::Foundation::TypedEventHandler<SplashScreen, ::windows::core::IInspectable>>) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken>;
-    fn RemoveDismissed(&mut self, cookie: &super::super::Foundation::EventRegistrationToken) -> ::windows::core::Result<()>;
-}
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ::windows::core::RuntimeName for ISplashScreen {
-    const NAME: &'static str = "Windows.ApplicationModel.Activation.ISplashScreen";
-}
-#[cfg(all(feature = "Foundation", feature = "implement_exclusive"))]
-impl ISplashScreen_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ISplashScreen_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ISplashScreen_Vtbl {
-        unsafe extern "system" fn ImageLocation<Impl: ISplashScreen_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            match (*this).ImageLocation() {
-                ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
-                    ::core::mem::forget(ok__);
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
-        }
-        unsafe extern "system" fn Dismissed<Impl: ISplashScreen_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            match (*this).Dismissed(&*(&handler as *const <super::super::Foundation::TypedEventHandler<SplashScreen, ::windows::core::IInspectable> as ::windows::core::Abi>::Abi as *const <super::super::Foundation::TypedEventHandler<SplashScreen, ::windows::core::IInspectable> as ::windows::core::DefaultType>::DefaultType)) {
-                ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
-                    ::core::mem::forget(ok__);
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
-        }
-        unsafe extern "system" fn RemoveDismissed<Impl: ISplashScreen_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            (*this).RemoveDismissed(&*(&cookie as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::Abi>::Abi as *const <super::super::Foundation::EventRegistrationToken as ::windows::core::DefaultType>::DefaultType)).into()
-        }
-        Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ISplashScreen, BASE_OFFSET>(),
-            ImageLocation: ImageLocation::<Impl, IMPL_OFFSET>,
-            Dismissed: Dismissed::<Impl, IMPL_OFFSET>,
-            RemoveDismissed: RemoveDismissed::<Impl, IMPL_OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ISplashScreen as ::windows::core::Interface>::IID
-    }
-}
 pub trait IStartupTaskActivatedEventArgs_Impl: Sized + IActivatedEventArgs_Impl {
     fn TaskId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
 }
@@ -1980,37 +1854,6 @@ impl IStartupTaskActivatedEventArgs_Vtbl {
     }
     pub fn matches(iid: &windows::core::GUID) -> bool {
         iid == &<IStartupTaskActivatedEventArgs as ::windows::core::Interface>::IID
-    }
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "UI_Notifications", feature = "implement_exclusive"))]
-pub trait ITileActivatedInfo_Impl: Sized {
-    fn RecentlyShownNotifications(&mut self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::UI::Notifications::ShownTileNotification>>;
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "UI_Notifications", feature = "implement_exclusive"))]
-impl ::windows::core::RuntimeName for ITileActivatedInfo {
-    const NAME: &'static str = "Windows.ApplicationModel.Activation.ITileActivatedInfo";
-}
-#[cfg(all(feature = "Foundation_Collections", feature = "UI_Notifications", feature = "implement_exclusive"))]
-impl ITileActivatedInfo_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: ITileActivatedInfo_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> ITileActivatedInfo_Vtbl {
-        unsafe extern "system" fn RecentlyShownNotifications<Impl: ITileActivatedInfo_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            match (*this).RecentlyShownNotifications() {
-                ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
-                    ::core::mem::forget(ok__);
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
-        }
-        Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, ITileActivatedInfo, BASE_OFFSET>(),
-            RecentlyShownNotifications: RecentlyShownNotifications::<Impl, IMPL_OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<ITileActivatedInfo as ::windows::core::Interface>::IID
     }
 }
 #[cfg(feature = "Foundation_Collections")]

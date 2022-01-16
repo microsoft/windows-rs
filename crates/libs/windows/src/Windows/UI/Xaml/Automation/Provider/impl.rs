@@ -428,21 +428,6 @@ impl IGridProvider_Vtbl {
         iid == &<IGridProvider as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IIRawElementProviderSimple_Impl: Sized {}
-#[cfg(feature = "implement_exclusive")]
-impl ::windows::core::RuntimeName for IIRawElementProviderSimple {
-    const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.IIRawElementProviderSimple";
-}
-#[cfg(feature = "implement_exclusive")]
-impl IIRawElementProviderSimple_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IIRawElementProviderSimple_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IIRawElementProviderSimple_Vtbl {
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IIRawElementProviderSimple, BASE_OFFSET>() }
-    }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IIRawElementProviderSimple as ::windows::core::Interface>::IID
-    }
-}
 pub trait IInvokeProvider_Impl: Sized {
     fn Invoke(&mut self) -> ::windows::core::Result<()>;
 }

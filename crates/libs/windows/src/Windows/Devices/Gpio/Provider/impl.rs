@@ -172,65 +172,6 @@ impl IGpioPinProvider_Vtbl {
         iid == &<IGpioPinProvider as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "implement_exclusive")]
-pub trait IGpioPinProviderValueChangedEventArgs_Impl: Sized {
-    fn Edge(&mut self) -> ::windows::core::Result<ProviderGpioPinEdge>;
-}
-#[cfg(feature = "implement_exclusive")]
-impl ::windows::core::RuntimeName for IGpioPinProviderValueChangedEventArgs {
-    const NAME: &'static str = "Windows.Devices.Gpio.Provider.IGpioPinProviderValueChangedEventArgs";
-}
-#[cfg(feature = "implement_exclusive")]
-impl IGpioPinProviderValueChangedEventArgs_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGpioPinProviderValueChangedEventArgs_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGpioPinProviderValueChangedEventArgs_Vtbl {
-        unsafe extern "system" fn Edge<Impl: IGpioPinProviderValueChangedEventArgs_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ProviderGpioPinEdge) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            match (*this).Edge() {
-                ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
-                    ::core::mem::forget(ok__);
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
-        }
-        Self { base: ::windows::core::IInspectableVtbl::new::<Identity, IGpioPinProviderValueChangedEventArgs, BASE_OFFSET>(), Edge: Edge::<Impl, IMPL_OFFSET> }
-    }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IGpioPinProviderValueChangedEventArgs as ::windows::core::Interface>::IID
-    }
-}
-#[cfg(feature = "implement_exclusive")]
-pub trait IGpioPinProviderValueChangedEventArgsFactory_Impl: Sized {
-    fn Create(&mut self, edge: ProviderGpioPinEdge) -> ::windows::core::Result<GpioPinProviderValueChangedEventArgs>;
-}
-#[cfg(feature = "implement_exclusive")]
-impl ::windows::core::RuntimeName for IGpioPinProviderValueChangedEventArgsFactory {
-    const NAME: &'static str = "Windows.Devices.Gpio.Provider.IGpioPinProviderValueChangedEventArgsFactory";
-}
-#[cfg(feature = "implement_exclusive")]
-impl IGpioPinProviderValueChangedEventArgsFactory_Vtbl {
-    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IGpioPinProviderValueChangedEventArgsFactory_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IGpioPinProviderValueChangedEventArgsFactory_Vtbl {
-        unsafe extern "system" fn Create<Impl: IGpioPinProviderValueChangedEventArgsFactory_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, edge: ProviderGpioPinEdge, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
-            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
-            match (*this).Create(edge) {
-                ::core::result::Result::Ok(ok__) => {
-                    *result__ = ::core::mem::transmute_copy(&ok__);
-                    ::core::mem::forget(ok__);
-                    ::windows::core::HRESULT(0)
-                }
-                ::core::result::Result::Err(err) => err.into(),
-            }
-        }
-        Self {
-            base: ::windows::core::IInspectableVtbl::new::<Identity, IGpioPinProviderValueChangedEventArgsFactory, BASE_OFFSET>(),
-            Create: Create::<Impl, IMPL_OFFSET>,
-        }
-    }
-    pub fn matches(iid: &windows::core::GUID) -> bool {
-        iid == &<IGpioPinProviderValueChangedEventArgsFactory as ::windows::core::Interface>::IID
-    }
-}
 #[cfg(feature = "Foundation_Collections")]
 pub trait IGpioProvider_Impl: Sized {
     fn GetControllers(&mut self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<IGpioControllerProvider>>;
