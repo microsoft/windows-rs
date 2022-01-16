@@ -71,6 +71,34 @@ impl IDataTemplateComponent_Vtbl {
         iid == &<IDataTemplateComponent as ::windows::core::Interface>::IID
     }
 }
+pub trait IMarkupExtensionOverrides_Impl: Sized {
+    fn ProvideValue(&mut self) -> ::windows::core::Result<::windows::core::IInspectable>;
+}
+impl ::windows::core::RuntimeName for IMarkupExtensionOverrides {
+    const NAME: &'static str = "Windows.UI.Xaml.Markup.IMarkupExtensionOverrides";
+}
+impl IMarkupExtensionOverrides_Vtbl {
+    pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IMarkupExtensionOverrides_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IMarkupExtensionOverrides_Vtbl {
+        unsafe extern "system" fn ProvideValue<Impl: IMarkupExtensionOverrides_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT {
+            let this = (this as *mut ::windows::core::RawPtr).offset(OFFSET) as *mut Impl;
+            match (*this).ProvideValue() {
+                ::core::result::Result::Ok(ok__) => {
+                    *result__ = ::core::mem::transmute_copy(&ok__);
+                    ::core::mem::forget(ok__);
+                    ::windows::core::HRESULT(0)
+                }
+                ::core::result::Result::Err(err) => err.into(),
+            }
+        }
+        Self {
+            base: ::windows::core::IInspectableVtbl::new::<Identity, IMarkupExtensionOverrides, BASE_OFFSET>(),
+            ProvideValue: ProvideValue::<Impl, IMPL_OFFSET>,
+        }
+    }
+    pub fn matches(iid: &windows::core::GUID) -> bool {
+        iid == &<IMarkupExtensionOverrides as ::windows::core::Interface>::IID
+    }
+}
 pub trait IXamlBindScopeDiagnostics_Impl: Sized {
     fn Disable(&mut self, linenumber: i32, columnnumber: i32) -> ::windows::core::Result<()>;
 }

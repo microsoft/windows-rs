@@ -604,20 +604,21 @@ impl TypeDef {
     pub fn can_implement(&self) -> bool {
         for attribute in self.attributes() {
             if attribute.name() == "ExclusiveToAttribute" {
+                for (_, arg) in attribute.args() {
+                    if let ConstantValue::TypeDef(def) = arg {
+                        for child in def.interface_impls() {
+                            if child.is_overridable() {
+                               if let ElementType::TypeDef(def) = child.generic_interface(&def.generics) {
+                                    if def.name() == self.name() {
+                                        return true;
+                                    }
+                                }      
+                            }
+                        }                              
+                    }
+                }
+
                 return false;
-                // for (_, arg) in attribute.args() {
-                //     if let ConstantValue::TypeDef(def) = arg {
-                //         for child in def.interface_impls() {
-                //             if child.has_attribute("OverridableAttribute") {
-                //                if let ElementType::TypeDef(def) = child.generic_interface(&def.generics) {
-                //                     if def.name() == self.name() {
-                //                         return false;
-                //                     }
-                //                 }      
-                //             }
-                //         }                              
-                //     }
-                // }
             }
         }
 
