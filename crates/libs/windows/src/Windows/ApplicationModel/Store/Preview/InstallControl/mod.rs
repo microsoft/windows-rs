@@ -1115,6 +1115,7 @@ unsafe impl ::core::marker::Send for AppInstallOptions {}
 unsafe impl ::core::marker::Sync for AppInstallOptions {}
 #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppInstallState(pub i32);
 impl AppInstallState {
     pub const Pending: Self = Self(0i32);
@@ -1141,12 +1142,6 @@ impl ::core::clone::Clone for AppInstallState {
 unsafe impl ::windows::core::Abi for AppInstallState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppInstallState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppInstallState {}
 impl ::core::fmt::Debug for AppInstallState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppInstallState").field(&self.0).finish()
@@ -1298,6 +1293,7 @@ unsafe impl ::core::marker::Send for AppInstallStatus {}
 unsafe impl ::core::marker::Sync for AppInstallStatus {}
 #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppInstallType(pub i32);
 impl AppInstallType {
     pub const Install: Self = Self(0i32);
@@ -1313,12 +1309,6 @@ impl ::core::clone::Clone for AppInstallType {
 unsafe impl ::windows::core::Abi for AppInstallType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppInstallType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppInstallType {}
 impl ::core::fmt::Debug for AppInstallType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppInstallType").field(&self.0).finish()
@@ -1332,6 +1322,7 @@ impl ::windows::core::DefaultType for AppInstallType {
 }
 #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppInstallationToastNotificationMode(pub i32);
 impl AppInstallationToastNotificationMode {
     pub const Default: Self = Self(0i32);
@@ -1348,12 +1339,6 @@ impl ::core::clone::Clone for AppInstallationToastNotificationMode {
 unsafe impl ::windows::core::Abi for AppInstallationToastNotificationMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppInstallationToastNotificationMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppInstallationToastNotificationMode {}
 impl ::core::fmt::Debug for AppInstallationToastNotificationMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppInstallationToastNotificationMode").field(&self.0).finish()
@@ -1486,6 +1471,7 @@ unsafe impl ::core::marker::Send for AppUpdateOptions {}
 unsafe impl ::core::marker::Sync for AppUpdateOptions {}
 #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AutoUpdateSetting(pub i32);
 impl AutoUpdateSetting {
     pub const Disabled: Self = Self(0i32);
@@ -1502,12 +1488,6 @@ impl ::core::clone::Clone for AutoUpdateSetting {
 unsafe impl ::windows::core::Abi for AutoUpdateSetting {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AutoUpdateSetting {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AutoUpdateSetting {}
 impl ::core::fmt::Debug for AutoUpdateSetting {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AutoUpdateSetting").field(&self.0).finish()
@@ -1602,6 +1582,7 @@ unsafe impl ::core::marker::Send for GetEntitlementResult {}
 unsafe impl ::core::marker::Sync for GetEntitlementResult {}
 #[doc = "*Required features: 'ApplicationModel_Store_Preview_InstallControl'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GetEntitlementStatus(pub i32);
 impl GetEntitlementStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -1618,12 +1599,6 @@ impl ::core::clone::Clone for GetEntitlementStatus {
 unsafe impl ::windows::core::Abi for GetEntitlementStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GetEntitlementStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GetEntitlementStatus {}
 impl ::core::fmt::Debug for GetEntitlementStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GetEntitlementStatus").field(&self.0).finish()

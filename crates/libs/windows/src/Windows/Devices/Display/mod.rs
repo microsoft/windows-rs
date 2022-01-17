@@ -279,6 +279,7 @@ unsafe impl ::core::marker::Send for DisplayMonitor {}
 unsafe impl ::core::marker::Sync for DisplayMonitor {}
 #[doc = "*Required features: 'Devices_Display'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DisplayMonitorConnectionKind(pub i32);
 impl DisplayMonitorConnectionKind {
     pub const Internal: Self = Self(0i32);
@@ -295,12 +296,6 @@ impl ::core::clone::Clone for DisplayMonitorConnectionKind {
 unsafe impl ::windows::core::Abi for DisplayMonitorConnectionKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DisplayMonitorConnectionKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DisplayMonitorConnectionKind {}
 impl ::core::fmt::Debug for DisplayMonitorConnectionKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DisplayMonitorConnectionKind").field(&self.0).finish()
@@ -314,6 +309,7 @@ impl ::windows::core::DefaultType for DisplayMonitorConnectionKind {
 }
 #[doc = "*Required features: 'Devices_Display'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DisplayMonitorDescriptorKind(pub i32);
 impl DisplayMonitorDescriptorKind {
     pub const Edid: Self = Self(0i32);
@@ -328,12 +324,6 @@ impl ::core::clone::Clone for DisplayMonitorDescriptorKind {
 unsafe impl ::windows::core::Abi for DisplayMonitorDescriptorKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DisplayMonitorDescriptorKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DisplayMonitorDescriptorKind {}
 impl ::core::fmt::Debug for DisplayMonitorDescriptorKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DisplayMonitorDescriptorKind").field(&self.0).finish()
@@ -347,6 +337,7 @@ impl ::windows::core::DefaultType for DisplayMonitorDescriptorKind {
 }
 #[doc = "*Required features: 'Devices_Display'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DisplayMonitorPhysicalConnectorKind(pub i32);
 impl DisplayMonitorPhysicalConnectorKind {
     pub const Unknown: Self = Self(0i32);
@@ -367,12 +358,6 @@ impl ::core::clone::Clone for DisplayMonitorPhysicalConnectorKind {
 unsafe impl ::windows::core::Abi for DisplayMonitorPhysicalConnectorKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DisplayMonitorPhysicalConnectorKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DisplayMonitorPhysicalConnectorKind {}
 impl ::core::fmt::Debug for DisplayMonitorPhysicalConnectorKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DisplayMonitorPhysicalConnectorKind").field(&self.0).finish()
@@ -386,6 +371,7 @@ impl ::windows::core::DefaultType for DisplayMonitorPhysicalConnectorKind {
 }
 #[doc = "*Required features: 'Devices_Display'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DisplayMonitorUsageKind(pub i32);
 impl DisplayMonitorUsageKind {
     pub const Standard: Self = Self(0i32);
@@ -401,12 +387,6 @@ impl ::core::clone::Clone for DisplayMonitorUsageKind {
 unsafe impl ::windows::core::Abi for DisplayMonitorUsageKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DisplayMonitorUsageKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DisplayMonitorUsageKind {}
 impl ::core::fmt::Debug for DisplayMonitorUsageKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DisplayMonitorUsageKind").field(&self.0).finish()

@@ -507,6 +507,7 @@ unsafe impl ::core::marker::Send for SimpleHapticsControllerFeedback {}
 unsafe impl ::core::marker::Sync for SimpleHapticsControllerFeedback {}
 #[doc = "*Required features: 'Devices_Haptics'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct VibrationAccessStatus(pub i32);
 impl VibrationAccessStatus {
     pub const Allowed: Self = Self(0i32);
@@ -523,12 +524,6 @@ impl ::core::clone::Clone for VibrationAccessStatus {
 unsafe impl ::windows::core::Abi for VibrationAccessStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VibrationAccessStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VibrationAccessStatus {}
 impl ::core::fmt::Debug for VibrationAccessStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VibrationAccessStatus").field(&self.0).finish()

@@ -71,6 +71,7 @@ pub struct IPlatformDiagnosticTraceRuntimeInfoVtbl(
 );
 #[doc = "*Required features: 'System_Diagnostics_TraceReporting'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PlatformDiagnosticActionState(pub i32);
 impl PlatformDiagnosticActionState {
     pub const Success: Self = Self(0i32);
@@ -86,12 +87,6 @@ impl ::core::clone::Clone for PlatformDiagnosticActionState {
 unsafe impl ::windows::core::Abi for PlatformDiagnosticActionState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PlatformDiagnosticActionState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PlatformDiagnosticActionState {}
 impl ::core::fmt::Debug for PlatformDiagnosticActionState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PlatformDiagnosticActionState").field(&self.0).finish()
@@ -176,6 +171,7 @@ impl ::windows::core::RuntimeName for PlatformDiagnosticActions {
 }
 #[doc = "*Required features: 'System_Diagnostics_TraceReporting'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PlatformDiagnosticEscalationType(pub i32);
 impl PlatformDiagnosticEscalationType {
     pub const OnCompletion: Self = Self(0i32);
@@ -190,12 +186,6 @@ impl ::core::clone::Clone for PlatformDiagnosticEscalationType {
 unsafe impl ::windows::core::Abi for PlatformDiagnosticEscalationType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PlatformDiagnosticEscalationType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PlatformDiagnosticEscalationType {}
 impl ::core::fmt::Debug for PlatformDiagnosticEscalationType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PlatformDiagnosticEscalationType").field(&self.0).finish()
@@ -209,6 +199,7 @@ impl ::windows::core::DefaultType for PlatformDiagnosticEscalationType {
 }
 #[doc = "*Required features: 'System_Diagnostics_TraceReporting'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PlatformDiagnosticEventBufferLatencies(pub u32);
 impl PlatformDiagnosticEventBufferLatencies {
     pub const Normal: Self = Self(1u32);
@@ -224,12 +215,6 @@ impl ::core::clone::Clone for PlatformDiagnosticEventBufferLatencies {
 unsafe impl ::windows::core::Abi for PlatformDiagnosticEventBufferLatencies {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PlatformDiagnosticEventBufferLatencies {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PlatformDiagnosticEventBufferLatencies {}
 impl ::core::fmt::Debug for PlatformDiagnosticEventBufferLatencies {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PlatformDiagnosticEventBufferLatencies").field(&self.0).finish()
@@ -392,6 +377,7 @@ unsafe impl ::core::marker::Send for PlatformDiagnosticTraceInfo {}
 unsafe impl ::core::marker::Sync for PlatformDiagnosticTraceInfo {}
 #[doc = "*Required features: 'System_Diagnostics_TraceReporting'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PlatformDiagnosticTracePriority(pub i32);
 impl PlatformDiagnosticTracePriority {
     pub const Normal: Self = Self(0i32);
@@ -406,12 +392,6 @@ impl ::core::clone::Clone for PlatformDiagnosticTracePriority {
 unsafe impl ::windows::core::Abi for PlatformDiagnosticTracePriority {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PlatformDiagnosticTracePriority {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PlatformDiagnosticTracePriority {}
 impl ::core::fmt::Debug for PlatformDiagnosticTracePriority {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PlatformDiagnosticTracePriority").field(&self.0).finish()
@@ -514,6 +494,7 @@ unsafe impl ::core::marker::Send for PlatformDiagnosticTraceRuntimeInfo {}
 unsafe impl ::core::marker::Sync for PlatformDiagnosticTraceRuntimeInfo {}
 #[doc = "*Required features: 'System_Diagnostics_TraceReporting'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PlatformDiagnosticTraceSlotState(pub i32);
 impl PlatformDiagnosticTraceSlotState {
     pub const NotRunning: Self = Self(0i32);
@@ -529,12 +510,6 @@ impl ::core::clone::Clone for PlatformDiagnosticTraceSlotState {
 unsafe impl ::windows::core::Abi for PlatformDiagnosticTraceSlotState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PlatformDiagnosticTraceSlotState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PlatformDiagnosticTraceSlotState {}
 impl ::core::fmt::Debug for PlatformDiagnosticTraceSlotState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PlatformDiagnosticTraceSlotState").field(&self.0).finish()
@@ -548,6 +523,7 @@ impl ::windows::core::DefaultType for PlatformDiagnosticTraceSlotState {
 }
 #[doc = "*Required features: 'System_Diagnostics_TraceReporting'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PlatformDiagnosticTraceSlotType(pub i32);
 impl PlatformDiagnosticTraceSlotType {
     pub const Alternative: Self = Self(0i32);
@@ -563,12 +539,6 @@ impl ::core::clone::Clone for PlatformDiagnosticTraceSlotType {
 unsafe impl ::windows::core::Abi for PlatformDiagnosticTraceSlotType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PlatformDiagnosticTraceSlotType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PlatformDiagnosticTraceSlotType {}
 impl ::core::fmt::Debug for PlatformDiagnosticTraceSlotType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PlatformDiagnosticTraceSlotType").field(&self.0).finish()

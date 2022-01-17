@@ -67,6 +67,7 @@ pub struct IWalletManagerSystemStaticsVtbl(
 );
 #[doc = "*Required features: 'ApplicationModel_Wallet_System'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WalletItemAppAssociation(pub i32);
 impl WalletItemAppAssociation {
     pub const None: Self = Self(0i32);
@@ -82,12 +83,6 @@ impl ::core::clone::Clone for WalletItemAppAssociation {
 unsafe impl ::windows::core::Abi for WalletItemAppAssociation {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WalletItemAppAssociation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WalletItemAppAssociation {}
 impl ::core::fmt::Debug for WalletItemAppAssociation {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WalletItemAppAssociation").field(&self.0).finish()

@@ -354,6 +354,7 @@ unsafe impl ::core::marker::Send for HidCollection {}
 unsafe impl ::core::marker::Sync for HidCollection {}
 #[doc = "*Required features: 'Devices_HumanInterfaceDevice'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HidCollectionType(pub i32);
 impl HidCollectionType {
     pub const Physical: Self = Self(0i32);
@@ -374,12 +375,6 @@ impl ::core::clone::Clone for HidCollectionType {
 unsafe impl ::windows::core::Abi for HidCollectionType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for HidCollectionType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HidCollectionType {}
 impl ::core::fmt::Debug for HidCollectionType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HidCollectionType").field(&self.0).finish()
@@ -1502,6 +1497,7 @@ unsafe impl ::core::marker::Send for HidOutputReport {}
 unsafe impl ::core::marker::Sync for HidOutputReport {}
 #[doc = "*Required features: 'Devices_HumanInterfaceDevice'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HidReportType(pub i32);
 impl HidReportType {
     pub const Input: Self = Self(0i32);
@@ -1517,12 +1513,6 @@ impl ::core::clone::Clone for HidReportType {
 unsafe impl ::windows::core::Abi for HidReportType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for HidReportType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HidReportType {}
 impl ::core::fmt::Debug for HidReportType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HidReportType").field(&self.0).finish()

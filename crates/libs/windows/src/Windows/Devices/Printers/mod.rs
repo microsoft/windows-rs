@@ -475,6 +475,7 @@ unsafe impl ::core::marker::Send for IppAttributeError {}
 unsafe impl ::core::marker::Sync for IppAttributeError {}
 #[doc = "*Required features: 'Devices_Printers'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct IppAttributeErrorReason(pub i32);
 impl IppAttributeErrorReason {
     pub const RequestEntityTooLarge: Self = Self(0i32);
@@ -492,12 +493,6 @@ impl ::core::clone::Clone for IppAttributeErrorReason {
 unsafe impl ::windows::core::Abi for IppAttributeErrorReason {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for IppAttributeErrorReason {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IppAttributeErrorReason {}
 impl ::core::fmt::Debug for IppAttributeErrorReason {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IppAttributeErrorReason").field(&self.0).finish()
@@ -1054,6 +1049,7 @@ unsafe impl ::core::marker::Send for IppAttributeValue {}
 unsafe impl ::core::marker::Sync for IppAttributeValue {}
 #[doc = "*Required features: 'Devices_Printers'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct IppAttributeValueKind(pub i32);
 impl IppAttributeValueKind {
     pub const Unsupported: Self = Self(0i32);
@@ -1087,12 +1083,6 @@ impl ::core::clone::Clone for IppAttributeValueKind {
 unsafe impl ::windows::core::Abi for IppAttributeValueKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for IppAttributeValueKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IppAttributeValueKind {}
 impl ::core::fmt::Debug for IppAttributeValueKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IppAttributeValueKind").field(&self.0).finish()
@@ -1442,6 +1432,7 @@ unsafe impl ::core::marker::Send for IppResolution {}
 unsafe impl ::core::marker::Sync for IppResolution {}
 #[doc = "*Required features: 'Devices_Printers'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct IppResolutionUnit(pub i32);
 impl IppResolutionUnit {
     pub const DotsPerInch: Self = Self(0i32);
@@ -1456,12 +1447,6 @@ impl ::core::clone::Clone for IppResolutionUnit {
 unsafe impl ::windows::core::Abi for IppResolutionUnit {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for IppResolutionUnit {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IppResolutionUnit {}
 impl ::core::fmt::Debug for IppResolutionUnit {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IppResolutionUnit").field(&self.0).finish()

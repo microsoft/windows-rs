@@ -231,6 +231,7 @@ unsafe impl ::core::marker::Send for AppCapabilityAccessChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppCapabilityAccessChangedEventArgs {}
 #[doc = "*Required features: 'Security_Authorization_AppCapabilityAccess'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppCapabilityAccessStatus(pub i32);
 impl AppCapabilityAccessStatus {
     pub const DeniedBySystem: Self = Self(0i32);
@@ -248,12 +249,6 @@ impl ::core::clone::Clone for AppCapabilityAccessStatus {
 unsafe impl ::windows::core::Abi for AppCapabilityAccessStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppCapabilityAccessStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppCapabilityAccessStatus {}
 impl ::core::fmt::Debug for AppCapabilityAccessStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppCapabilityAccessStatus").field(&self.0).finish()

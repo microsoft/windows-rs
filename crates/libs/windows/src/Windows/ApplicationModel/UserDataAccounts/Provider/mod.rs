@@ -389,6 +389,7 @@ unsafe impl ::core::marker::Send for UserDataAccountProviderAddAccountOperation 
 unsafe impl ::core::marker::Sync for UserDataAccountProviderAddAccountOperation {}
 #[doc = "*Required features: 'ApplicationModel_UserDataAccounts_Provider'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserDataAccountProviderOperationKind(pub i32);
 impl UserDataAccountProviderOperationKind {
     pub const AddAccount: Self = Self(0i32);
@@ -404,12 +405,6 @@ impl ::core::clone::Clone for UserDataAccountProviderOperationKind {
 unsafe impl ::windows::core::Abi for UserDataAccountProviderOperationKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UserDataAccountProviderOperationKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataAccountProviderOperationKind {}
 impl ::core::fmt::Debug for UserDataAccountProviderOperationKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserDataAccountProviderOperationKind").field(&self.0).finish()
@@ -423,6 +418,7 @@ impl ::windows::core::DefaultType for UserDataAccountProviderOperationKind {
 }
 #[doc = "*Required features: 'ApplicationModel_UserDataAccounts_Provider'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserDataAccountProviderPartnerAccountKind(pub i32);
 impl UserDataAccountProviderPartnerAccountKind {
     pub const Exchange: Self = Self(0i32);
@@ -437,12 +433,6 @@ impl ::core::clone::Clone for UserDataAccountProviderPartnerAccountKind {
 unsafe impl ::windows::core::Abi for UserDataAccountProviderPartnerAccountKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UserDataAccountProviderPartnerAccountKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataAccountProviderPartnerAccountKind {}
 impl ::core::fmt::Debug for UserDataAccountProviderPartnerAccountKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserDataAccountProviderPartnerAccountKind").field(&self.0).finish()

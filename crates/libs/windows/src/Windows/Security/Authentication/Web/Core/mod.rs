@@ -99,6 +99,7 @@ unsafe impl ::core::marker::Send for FindAllAccountsResult {}
 unsafe impl ::core::marker::Sync for FindAllAccountsResult {}
 #[doc = "*Required features: 'Security_Authentication_Web_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FindAllWebAccountsStatus(pub i32);
 impl FindAllWebAccountsStatus {
     pub const Success: Self = Self(0i32);
@@ -115,12 +116,6 @@ impl ::core::clone::Clone for FindAllWebAccountsStatus {
 unsafe impl ::windows::core::Abi for FindAllWebAccountsStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for FindAllWebAccountsStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FindAllWebAccountsStatus {}
 impl ::core::fmt::Debug for FindAllWebAccountsStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FindAllWebAccountsStatus").field(&self.0).finish()
@@ -1152,6 +1147,7 @@ unsafe impl ::core::marker::Send for WebTokenRequest {}
 unsafe impl ::core::marker::Sync for WebTokenRequest {}
 #[doc = "*Required features: 'Security_Authentication_Web_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WebTokenRequestPromptType(pub i32);
 impl WebTokenRequestPromptType {
     pub const Default: Self = Self(0i32);
@@ -1166,12 +1162,6 @@ impl ::core::clone::Clone for WebTokenRequestPromptType {
 unsafe impl ::windows::core::Abi for WebTokenRequestPromptType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WebTokenRequestPromptType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebTokenRequestPromptType {}
 impl ::core::fmt::Debug for WebTokenRequestPromptType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WebTokenRequestPromptType").field(&self.0).finish()
@@ -1292,6 +1282,7 @@ unsafe impl ::core::marker::Send for WebTokenRequestResult {}
 unsafe impl ::core::marker::Sync for WebTokenRequestResult {}
 #[doc = "*Required features: 'Security_Authentication_Web_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WebTokenRequestStatus(pub i32);
 impl WebTokenRequestStatus {
     pub const Success: Self = Self(0i32);
@@ -1310,12 +1301,6 @@ impl ::core::clone::Clone for WebTokenRequestStatus {
 unsafe impl ::windows::core::Abi for WebTokenRequestStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WebTokenRequestStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebTokenRequestStatus {}
 impl ::core::fmt::Debug for WebTokenRequestStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WebTokenRequestStatus").field(&self.0).finish()

@@ -146,6 +146,7 @@ unsafe impl ::core::marker::Send for AcceleratorKeyEventArgs {}
 unsafe impl ::core::marker::Sync for AcceleratorKeyEventArgs {}
 #[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppViewBackButtonVisibility(pub i32);
 impl AppViewBackButtonVisibility {
     pub const Visible: Self = Self(0i32);
@@ -161,12 +162,6 @@ impl ::core::clone::Clone for AppViewBackButtonVisibility {
 unsafe impl ::windows::core::Abi for AppViewBackButtonVisibility {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppViewBackButtonVisibility {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppViewBackButtonVisibility {}
 impl ::core::fmt::Debug for AppViewBackButtonVisibility {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppViewBackButtonVisibility").field(&self.0).finish()
@@ -611,6 +606,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Clos
 }
 #[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CoreAcceleratorKeyEventType(pub i32);
 impl CoreAcceleratorKeyEventType {
     pub const Character: Self = Self(2i32);
@@ -632,12 +628,6 @@ impl ::core::clone::Clone for CoreAcceleratorKeyEventType {
 unsafe impl ::windows::core::Abi for CoreAcceleratorKeyEventType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CoreAcceleratorKeyEventType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreAcceleratorKeyEventType {}
 impl ::core::fmt::Debug for CoreAcceleratorKeyEventType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CoreAcceleratorKeyEventType").field(&self.0).finish()
@@ -1321,6 +1311,7 @@ unsafe impl ::core::marker::Send for CoreCursor {}
 unsafe impl ::core::marker::Sync for CoreCursor {}
 #[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CoreCursorType(pub i32);
 impl CoreCursorType {
     pub const Arrow: Self = Self(0i32);
@@ -1349,12 +1340,6 @@ impl ::core::clone::Clone for CoreCursorType {
 unsafe impl ::windows::core::Abi for CoreCursorType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CoreCursorType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreCursorType {}
 impl ::core::fmt::Debug for CoreCursorType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CoreCursorType").field(&self.0).finish()
@@ -1561,6 +1546,7 @@ unsafe impl ::core::marker::Send for CoreDispatcher {}
 unsafe impl ::core::marker::Sync for CoreDispatcher {}
 #[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CoreDispatcherPriority(pub i32);
 impl CoreDispatcherPriority {
     pub const Idle: Self = Self(-2i32);
@@ -1577,12 +1563,6 @@ impl ::core::clone::Clone for CoreDispatcherPriority {
 unsafe impl ::windows::core::Abi for CoreDispatcherPriority {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CoreDispatcherPriority {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreDispatcherPriority {}
 impl ::core::fmt::Debug for CoreDispatcherPriority {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CoreDispatcherPriority").field(&self.0).finish()
@@ -1596,6 +1576,7 @@ impl ::windows::core::DefaultType for CoreDispatcherPriority {
 }
 #[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CoreIndependentInputFilters(pub u32);
 impl CoreIndependentInputFilters {
     pub const None: Self = Self(0u32);
@@ -1614,12 +1595,6 @@ impl ::core::clone::Clone for CoreIndependentInputFilters {
 unsafe impl ::windows::core::Abi for CoreIndependentInputFilters {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CoreIndependentInputFilters {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreIndependentInputFilters {}
 impl ::core::fmt::Debug for CoreIndependentInputFilters {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CoreIndependentInputFilters").field(&self.0).finish()
@@ -2227,6 +2202,7 @@ unsafe impl ::core::marker::Send for CoreIndependentInputSourceController {}
 unsafe impl ::core::marker::Sync for CoreIndependentInputSourceController {}
 #[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CoreInputDeviceTypes(pub u32);
 impl CoreInputDeviceTypes {
     pub const None: Self = Self(0u32);
@@ -2243,12 +2219,6 @@ impl ::core::clone::Clone for CoreInputDeviceTypes {
 unsafe impl ::windows::core::Abi for CoreInputDeviceTypes {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CoreInputDeviceTypes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreInputDeviceTypes {}
 impl ::core::fmt::Debug for CoreInputDeviceTypes {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CoreInputDeviceTypes").field(&self.0).finish()
@@ -2331,6 +2301,7 @@ impl ::core::default::Default for CorePhysicalKeyStatus {
 }
 #[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CoreProcessEventsOption(pub i32);
 impl CoreProcessEventsOption {
     pub const ProcessOneAndAllPending: Self = Self(0i32);
@@ -2347,12 +2318,6 @@ impl ::core::clone::Clone for CoreProcessEventsOption {
 unsafe impl ::windows::core::Abi for CoreProcessEventsOption {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CoreProcessEventsOption {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreProcessEventsOption {}
 impl ::core::fmt::Debug for CoreProcessEventsOption {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CoreProcessEventsOption").field(&self.0).finish()
@@ -2413,6 +2378,7 @@ impl ::core::default::Default for CoreProximityEvaluation {
 }
 #[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CoreProximityEvaluationScore(pub i32);
 impl CoreProximityEvaluationScore {
     pub const Closest: Self = Self(0i32);
@@ -2427,12 +2393,6 @@ impl ::core::clone::Clone for CoreProximityEvaluationScore {
 unsafe impl ::windows::core::Abi for CoreProximityEvaluationScore {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CoreProximityEvaluationScore {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreProximityEvaluationScore {}
 impl ::core::fmt::Debug for CoreProximityEvaluationScore {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CoreProximityEvaluationScore").field(&self.0).finish()
@@ -2446,6 +2406,7 @@ impl ::windows::core::DefaultType for CoreProximityEvaluationScore {
 }
 #[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CoreVirtualKeyStates(pub u32);
 impl CoreVirtualKeyStates {
     pub const None: Self = Self(0u32);
@@ -2461,12 +2422,6 @@ impl ::core::clone::Clone for CoreVirtualKeyStates {
 unsafe impl ::windows::core::Abi for CoreVirtualKeyStates {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CoreVirtualKeyStates {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreVirtualKeyStates {}
 impl ::core::fmt::Debug for CoreVirtualKeyStates {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CoreVirtualKeyStates").field(&self.0).finish()
@@ -3147,6 +3102,7 @@ impl<'a> ::windows::core::IntoParam<'a, ICoreWindow> for &CoreWindow {
 }
 #[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CoreWindowActivationMode(pub i32);
 impl CoreWindowActivationMode {
     pub const None: Self = Self(0i32);
@@ -3163,12 +3119,6 @@ impl ::core::clone::Clone for CoreWindowActivationMode {
 unsafe impl ::windows::core::Abi for CoreWindowActivationMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CoreWindowActivationMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreWindowActivationMode {}
 impl ::core::fmt::Debug for CoreWindowActivationMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CoreWindowActivationMode").field(&self.0).finish()
@@ -3182,6 +3132,7 @@ impl ::windows::core::DefaultType for CoreWindowActivationMode {
 }
 #[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CoreWindowActivationState(pub i32);
 impl CoreWindowActivationState {
     pub const CodeActivated: Self = Self(0i32);
@@ -3197,12 +3148,6 @@ impl ::core::clone::Clone for CoreWindowActivationState {
 unsafe impl ::windows::core::Abi for CoreWindowActivationState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CoreWindowActivationState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreWindowActivationState {}
 impl ::core::fmt::Debug for CoreWindowActivationState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CoreWindowActivationState").field(&self.0).finish()
@@ -3530,6 +3475,7 @@ impl<'a> ::windows::core::IntoParam<'a, ICoreWindowEventArgs> for &CoreWindowEve
 }
 #[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CoreWindowFlowDirection(pub i32);
 impl CoreWindowFlowDirection {
     pub const LeftToRight: Self = Self(0i32);
@@ -3544,12 +3490,6 @@ impl ::core::clone::Clone for CoreWindowFlowDirection {
 unsafe impl ::windows::core::Abi for CoreWindowFlowDirection {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CoreWindowFlowDirection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreWindowFlowDirection {}
 impl ::core::fmt::Debug for CoreWindowFlowDirection {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CoreWindowFlowDirection").field(&self.0).finish()

@@ -803,6 +803,7 @@ unsafe impl ::core::marker::Send for ContactAddress {}
 unsafe impl ::core::marker::Sync for ContactAddress {}
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ContactAddressKind(pub i32);
 impl ContactAddressKind {
     pub const Home: Self = Self(0i32);
@@ -818,12 +819,6 @@ impl ::core::clone::Clone for ContactAddressKind {
 unsafe impl ::windows::core::Abi for ContactAddressKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ContactAddressKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactAddressKind {}
 impl ::core::fmt::Debug for ContactAddressKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ContactAddressKind").field(&self.0).finish()
@@ -1153,6 +1148,7 @@ unsafe impl ::core::marker::Send for ContactAnnotationList {}
 unsafe impl ::core::marker::Sync for ContactAnnotationList {}
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ContactAnnotationOperations(pub u32);
 impl ContactAnnotationOperations {
     pub const None: Self = Self(0u32);
@@ -1172,12 +1168,6 @@ impl ::core::clone::Clone for ContactAnnotationOperations {
 unsafe impl ::windows::core::Abi for ContactAnnotationOperations {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ContactAnnotationOperations {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactAnnotationOperations {}
 impl ::core::fmt::Debug for ContactAnnotationOperations {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ContactAnnotationOperations").field(&self.0).finish()
@@ -1373,6 +1363,7 @@ unsafe impl ::core::marker::Send for ContactAnnotationStore {}
 unsafe impl ::core::marker::Sync for ContactAnnotationStore {}
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ContactAnnotationStoreAccessType(pub i32);
 impl ContactAnnotationStoreAccessType {
     pub const AppAnnotationsReadWrite: Self = Self(0i32);
@@ -1387,12 +1378,6 @@ impl ::core::clone::Clone for ContactAnnotationStoreAccessType {
 unsafe impl ::windows::core::Abi for ContactAnnotationStoreAccessType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ContactAnnotationStoreAccessType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactAnnotationStoreAccessType {}
 impl ::core::fmt::Debug for ContactAnnotationStoreAccessType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ContactAnnotationStoreAccessType").field(&self.0).finish()
@@ -1496,6 +1481,7 @@ unsafe impl ::core::marker::Send for ContactBatch {}
 unsafe impl ::core::marker::Sync for ContactBatch {}
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ContactBatchStatus(pub i32);
 impl ContactBatchStatus {
     pub const Success: Self = Self(0i32);
@@ -1511,12 +1497,6 @@ impl ::core::clone::Clone for ContactBatchStatus {
 unsafe impl ::windows::core::Abi for ContactBatchStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ContactBatchStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactBatchStatus {}
 impl ::core::fmt::Debug for ContactBatchStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ContactBatchStatus").field(&self.0).finish()
@@ -1640,6 +1620,7 @@ unsafe impl ::core::marker::Send for ContactCardDelayedDataLoader {}
 unsafe impl ::core::marker::Sync for ContactCardDelayedDataLoader {}
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ContactCardHeaderKind(pub i32);
 impl ContactCardHeaderKind {
     pub const Default: Self = Self(0i32);
@@ -1655,12 +1636,6 @@ impl ::core::clone::Clone for ContactCardHeaderKind {
 unsafe impl ::windows::core::Abi for ContactCardHeaderKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ContactCardHeaderKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactCardHeaderKind {}
 impl ::core::fmt::Debug for ContactCardHeaderKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ContactCardHeaderKind").field(&self.0).finish()
@@ -1789,6 +1764,7 @@ unsafe impl ::core::marker::Send for ContactCardOptions {}
 unsafe impl ::core::marker::Sync for ContactCardOptions {}
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ContactCardTabKind(pub i32);
 impl ContactCardTabKind {
     pub const Default: Self = Self(0i32);
@@ -1807,12 +1783,6 @@ impl ::core::clone::Clone for ContactCardTabKind {
 unsafe impl ::windows::core::Abi for ContactCardTabKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ContactCardTabKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactCardTabKind {}
 impl ::core::fmt::Debug for ContactCardTabKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ContactCardTabKind").field(&self.0).finish()
@@ -2106,6 +2076,7 @@ unsafe impl ::core::marker::Send for ContactChangeTracker {}
 unsafe impl ::core::marker::Sync for ContactChangeTracker {}
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ContactChangeType(pub i32);
 impl ContactChangeType {
     pub const Created: Self = Self(0i32);
@@ -2122,12 +2093,6 @@ impl ::core::clone::Clone for ContactChangeType {
 unsafe impl ::windows::core::Abi for ContactChangeType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ContactChangeType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactChangeType {}
 impl ::core::fmt::Debug for ContactChangeType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ContactChangeType").field(&self.0).finish()
@@ -2557,6 +2522,7 @@ unsafe impl ::core::marker::Send for ContactDate {}
 unsafe impl ::core::marker::Sync for ContactDate {}
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ContactDateKind(pub i32);
 impl ContactDateKind {
     pub const Birthday: Self = Self(0i32);
@@ -2572,12 +2538,6 @@ impl ::core::clone::Clone for ContactDateKind {
 unsafe impl ::windows::core::Abi for ContactDateKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ContactDateKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactDateKind {}
 impl ::core::fmt::Debug for ContactDateKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ContactDateKind").field(&self.0).finish()
@@ -2710,6 +2670,7 @@ unsafe impl ::core::marker::Send for ContactEmail {}
 unsafe impl ::core::marker::Sync for ContactEmail {}
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ContactEmailKind(pub i32);
 impl ContactEmailKind {
     pub const Personal: Self = Self(0i32);
@@ -2725,12 +2686,6 @@ impl ::core::clone::Clone for ContactEmailKind {
 unsafe impl ::windows::core::Abi for ContactEmailKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ContactEmailKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactEmailKind {}
 impl ::core::fmt::Debug for ContactEmailKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ContactEmailKind").field(&self.0).finish()
@@ -2897,6 +2852,7 @@ unsafe impl ::core::marker::Send for ContactField {}
 unsafe impl ::core::marker::Sync for ContactField {}
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ContactFieldCategory(pub i32);
 impl ContactFieldCategory {
     pub const None: Self = Self(0i32);
@@ -2914,12 +2870,6 @@ impl ::core::clone::Clone for ContactFieldCategory {
 unsafe impl ::windows::core::Abi for ContactFieldCategory {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ContactFieldCategory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactFieldCategory {}
 impl ::core::fmt::Debug for ContactFieldCategory {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ContactFieldCategory").field(&self.0).finish()
@@ -3152,6 +3102,7 @@ unsafe impl ::core::marker::Send for ContactFieldFactory {}
 unsafe impl ::core::marker::Sync for ContactFieldFactory {}
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ContactFieldType(pub i32);
 impl ContactFieldType {
     pub const Email: Self = Self(0i32);
@@ -3176,12 +3127,6 @@ impl ::core::clone::Clone for ContactFieldType {
 unsafe impl ::windows::core::Abi for ContactFieldType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ContactFieldType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactFieldType {}
 impl ::core::fmt::Debug for ContactFieldType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ContactFieldType").field(&self.0).finish()
@@ -4223,6 +4168,7 @@ unsafe impl ::core::marker::Send for ContactListLimitedWriteOperations {}
 unsafe impl ::core::marker::Sync for ContactListLimitedWriteOperations {}
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ContactListOtherAppReadAccess(pub i32);
 impl ContactListOtherAppReadAccess {
     pub const SystemOnly: Self = Self(0i32);
@@ -4239,12 +4185,6 @@ impl ::core::clone::Clone for ContactListOtherAppReadAccess {
 unsafe impl ::windows::core::Abi for ContactListOtherAppReadAccess {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ContactListOtherAppReadAccess {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactListOtherAppReadAccess {}
 impl ::core::fmt::Debug for ContactListOtherAppReadAccess {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ContactListOtherAppReadAccess").field(&self.0).finish()
@@ -4258,6 +4198,7 @@ impl ::windows::core::DefaultType for ContactListOtherAppReadAccess {
 }
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ContactListOtherAppWriteAccess(pub i32);
 impl ContactListOtherAppWriteAccess {
     pub const None: Self = Self(0i32);
@@ -4273,12 +4214,6 @@ impl ::core::clone::Clone for ContactListOtherAppWriteAccess {
 unsafe impl ::windows::core::Abi for ContactListOtherAppWriteAccess {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ContactListOtherAppWriteAccess {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactListOtherAppWriteAccess {}
 impl ::core::fmt::Debug for ContactListOtherAppWriteAccess {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ContactListOtherAppWriteAccess").field(&self.0).finish()
@@ -4923,6 +4858,7 @@ unsafe impl ::core::marker::Send for ContactListSyncManager {}
 unsafe impl ::core::marker::Sync for ContactListSyncManager {}
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ContactListSyncStatus(pub i32);
 impl ContactListSyncStatus {
     pub const Idle: Self = Self(0i32);
@@ -4942,12 +4878,6 @@ impl ::core::clone::Clone for ContactListSyncStatus {
 unsafe impl ::windows::core::Abi for ContactListSyncStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ContactListSyncStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactListSyncStatus {}
 impl ::core::fmt::Debug for ContactListSyncStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ContactListSyncStatus").field(&self.0).finish()
@@ -5596,6 +5526,7 @@ unsafe impl ::core::marker::Send for ContactMatchReason {}
 unsafe impl ::core::marker::Sync for ContactMatchReason {}
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ContactMatchReasonKind(pub i32);
 impl ContactMatchReasonKind {
     pub const Name: Self = Self(0i32);
@@ -5614,12 +5545,6 @@ impl ::core::clone::Clone for ContactMatchReasonKind {
 unsafe impl ::windows::core::Abi for ContactMatchReasonKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ContactMatchReasonKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactMatchReasonKind {}
 impl ::core::fmt::Debug for ContactMatchReasonKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ContactMatchReasonKind").field(&self.0).finish()
@@ -5633,6 +5558,7 @@ impl ::windows::core::DefaultType for ContactMatchReasonKind {
 }
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ContactNameOrder(pub i32);
 impl ContactNameOrder {
     pub const FirstNameLastName: Self = Self(0i32);
@@ -5647,12 +5573,6 @@ impl ::core::clone::Clone for ContactNameOrder {
 unsafe impl ::windows::core::Abi for ContactNameOrder {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ContactNameOrder {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactNameOrder {}
 impl ::core::fmt::Debug for ContactNameOrder {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ContactNameOrder").field(&self.0).finish()
@@ -6076,6 +5996,7 @@ unsafe impl ::core::marker::Send for ContactPhone {}
 unsafe impl ::core::marker::Sync for ContactPhone {}
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ContactPhoneKind(pub i32);
 impl ContactPhoneKind {
     pub const Home: Self = Self(0i32);
@@ -6098,12 +6019,6 @@ impl ::core::clone::Clone for ContactPhoneKind {
 unsafe impl ::windows::core::Abi for ContactPhoneKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ContactPhoneKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactPhoneKind {}
 impl ::core::fmt::Debug for ContactPhoneKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ContactPhoneKind").field(&self.0).finish()
@@ -6305,6 +6220,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ContactQueryDesiredFields(pub u32);
 impl ContactQueryDesiredFields {
     pub const None: Self = Self(0u32);
@@ -6321,12 +6237,6 @@ impl ::core::clone::Clone for ContactQueryDesiredFields {
 unsafe impl ::windows::core::Abi for ContactQueryDesiredFields {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ContactQueryDesiredFields {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactQueryDesiredFields {}
 impl ::core::fmt::Debug for ContactQueryDesiredFields {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ContactQueryDesiredFields").field(&self.0).finish()
@@ -6532,6 +6442,7 @@ unsafe impl ::core::marker::Send for ContactQueryOptions {}
 unsafe impl ::core::marker::Sync for ContactQueryOptions {}
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ContactQuerySearchFields(pub u32);
 impl ContactQuerySearchFields {
     pub const None: Self = Self(0u32);
@@ -6549,12 +6460,6 @@ impl ::core::clone::Clone for ContactQuerySearchFields {
 unsafe impl ::windows::core::Abi for ContactQuerySearchFields {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ContactQuerySearchFields {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactQuerySearchFields {}
 impl ::core::fmt::Debug for ContactQuerySearchFields {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ContactQuerySearchFields").field(&self.0).finish()
@@ -6596,6 +6501,7 @@ impl ::windows::core::DefaultType for ContactQuerySearchFields {
 }
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ContactQuerySearchScope(pub i32);
 impl ContactQuerySearchScope {
     pub const Local: Self = Self(0i32);
@@ -6610,12 +6516,6 @@ impl ::core::clone::Clone for ContactQuerySearchScope {
 unsafe impl ::windows::core::Abi for ContactQuerySearchScope {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ContactQuerySearchScope {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactQuerySearchScope {}
 impl ::core::fmt::Debug for ContactQuerySearchScope {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ContactQuerySearchScope").field(&self.0).finish()
@@ -6832,6 +6732,7 @@ unsafe impl ::core::marker::Send for ContactReader {}
 unsafe impl ::core::marker::Sync for ContactReader {}
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ContactRelationship(pub i32);
 impl ContactRelationship {
     pub const Other: Self = Self(0i32);
@@ -6850,12 +6751,6 @@ impl ::core::clone::Clone for ContactRelationship {
 unsafe impl ::windows::core::Abi for ContactRelationship {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ContactRelationship {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactRelationship {}
 impl ::core::fmt::Debug for ContactRelationship {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ContactRelationship").field(&self.0).finish()
@@ -6869,6 +6764,7 @@ impl ::windows::core::DefaultType for ContactRelationship {
 }
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ContactSelectionMode(pub i32);
 impl ContactSelectionMode {
     pub const Contacts: Self = Self(0i32);
@@ -6883,12 +6779,6 @@ impl ::core::clone::Clone for ContactSelectionMode {
 unsafe impl ::windows::core::Abi for ContactSelectionMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ContactSelectionMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactSelectionMode {}
 impl ::core::fmt::Debug for ContactSelectionMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ContactSelectionMode").field(&self.0).finish()
@@ -7221,6 +7111,7 @@ unsafe impl ::core::marker::Send for ContactStore {}
 unsafe impl ::core::marker::Sync for ContactStore {}
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ContactStoreAccessType(pub i32);
 impl ContactStoreAccessType {
     pub const AppContactsReadWrite: Self = Self(0i32);
@@ -7236,12 +7127,6 @@ impl ::core::clone::Clone for ContactStoreAccessType {
 unsafe impl ::windows::core::Abi for ContactStoreAccessType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ContactStoreAccessType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContactStoreAccessType {}
 impl ::core::fmt::Debug for ContactStoreAccessType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ContactStoreAccessType").field(&self.0).finish()
@@ -10106,6 +9991,7 @@ unsafe impl ::core::marker::Send for PinnedContactManager {}
 unsafe impl ::core::marker::Sync for PinnedContactManager {}
 #[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PinnedContactSurface(pub i32);
 impl PinnedContactSurface {
     pub const StartMenu: Self = Self(0i32);
@@ -10120,12 +10006,6 @@ impl ::core::clone::Clone for PinnedContactSurface {
 unsafe impl ::windows::core::Abi for PinnedContactSurface {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PinnedContactSurface {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PinnedContactSurface {}
 impl ::core::fmt::Debug for PinnedContactSurface {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PinnedContactSurface").field(&self.0).finish()

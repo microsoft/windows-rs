@@ -909,6 +909,7 @@ unsafe impl ::core::marker::Send for ImageScannerAutoConfiguration {}
 unsafe impl ::core::marker::Sync for ImageScannerAutoConfiguration {}
 #[doc = "*Required features: 'Devices_Scanners'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ImageScannerAutoCroppingMode(pub i32);
 impl ImageScannerAutoCroppingMode {
     pub const Disabled: Self = Self(0i32);
@@ -924,12 +925,6 @@ impl ::core::clone::Clone for ImageScannerAutoCroppingMode {
 unsafe impl ::windows::core::Abi for ImageScannerAutoCroppingMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ImageScannerAutoCroppingMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ImageScannerAutoCroppingMode {}
 impl ::core::fmt::Debug for ImageScannerAutoCroppingMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ImageScannerAutoCroppingMode").field(&self.0).finish()
@@ -943,6 +938,7 @@ impl ::windows::core::DefaultType for ImageScannerAutoCroppingMode {
 }
 #[doc = "*Required features: 'Devices_Scanners'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ImageScannerColorMode(pub i32);
 impl ImageScannerColorMode {
     pub const Color: Self = Self(0i32);
@@ -959,12 +955,6 @@ impl ::core::clone::Clone for ImageScannerColorMode {
 unsafe impl ::windows::core::Abi for ImageScannerColorMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ImageScannerColorMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ImageScannerColorMode {}
 impl ::core::fmt::Debug for ImageScannerColorMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ImageScannerColorMode").field(&self.0).finish()
@@ -1830,6 +1820,7 @@ unsafe impl ::core::marker::Send for ImageScannerFlatbedConfiguration {}
 unsafe impl ::core::marker::Sync for ImageScannerFlatbedConfiguration {}
 #[doc = "*Required features: 'Devices_Scanners'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ImageScannerFormat(pub i32);
 impl ImageScannerFormat {
     pub const Jpeg: Self = Self(0i32);
@@ -1849,12 +1840,6 @@ impl ::core::clone::Clone for ImageScannerFormat {
 unsafe impl ::windows::core::Abi for ImageScannerFormat {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ImageScannerFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ImageScannerFormat {}
 impl ::core::fmt::Debug for ImageScannerFormat {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ImageScannerFormat").field(&self.0).finish()
@@ -2076,6 +2061,7 @@ unsafe impl ::core::marker::Send for ImageScannerScanResult {}
 unsafe impl ::core::marker::Sync for ImageScannerScanResult {}
 #[doc = "*Required features: 'Devices_Scanners'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ImageScannerScanSource(pub i32);
 impl ImageScannerScanSource {
     pub const Default: Self = Self(0i32);
@@ -2092,12 +2078,6 @@ impl ::core::clone::Clone for ImageScannerScanSource {
 unsafe impl ::windows::core::Abi for ImageScannerScanSource {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ImageScannerScanSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ImageScannerScanSource {}
 impl ::core::fmt::Debug for ImageScannerScanSource {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ImageScannerScanSource").field(&self.0).finish()

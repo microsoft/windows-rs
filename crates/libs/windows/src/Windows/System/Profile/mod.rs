@@ -841,6 +841,7 @@ impl ::windows::core::RuntimeName for KnownRetailInfoProperties {
 }
 #[doc = "*Required features: 'System_Profile'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PlatformDataCollectionLevel(pub i32);
 impl PlatformDataCollectionLevel {
     pub const Security: Self = Self(0i32);
@@ -857,12 +858,6 @@ impl ::core::clone::Clone for PlatformDataCollectionLevel {
 unsafe impl ::windows::core::Abi for PlatformDataCollectionLevel {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PlatformDataCollectionLevel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PlatformDataCollectionLevel {}
 impl ::core::fmt::Debug for PlatformDataCollectionLevel {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PlatformDataCollectionLevel").field(&self.0).finish()
@@ -1089,6 +1084,7 @@ unsafe impl ::core::marker::Send for SystemIdentificationInfo {}
 unsafe impl ::core::marker::Sync for SystemIdentificationInfo {}
 #[doc = "*Required features: 'System_Profile'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SystemIdentificationSource(pub i32);
 impl SystemIdentificationSource {
     pub const None: Self = Self(0i32);
@@ -1105,12 +1101,6 @@ impl ::core::clone::Clone for SystemIdentificationSource {
 unsafe impl ::windows::core::Abi for SystemIdentificationSource {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SystemIdentificationSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SystemIdentificationSource {}
 impl ::core::fmt::Debug for SystemIdentificationSource {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SystemIdentificationSource").field(&self.0).finish()
@@ -1124,6 +1114,7 @@ impl ::windows::core::DefaultType for SystemIdentificationSource {
 }
 #[doc = "*Required features: 'System_Profile'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SystemOutOfBoxExperienceState(pub i32);
 impl SystemOutOfBoxExperienceState {
     pub const NotStarted: Self = Self(0i32);
@@ -1139,12 +1130,6 @@ impl ::core::clone::Clone for SystemOutOfBoxExperienceState {
 unsafe impl ::windows::core::Abi for SystemOutOfBoxExperienceState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SystemOutOfBoxExperienceState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SystemOutOfBoxExperienceState {}
 impl ::core::fmt::Debug for SystemOutOfBoxExperienceState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SystemOutOfBoxExperienceState").field(&self.0).finish()
@@ -1279,6 +1264,7 @@ unsafe impl ::core::marker::Send for UnsupportedAppRequirement {}
 unsafe impl ::core::marker::Sync for UnsupportedAppRequirement {}
 #[doc = "*Required features: 'System_Profile'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UnsupportedAppRequirementReasons(pub u32);
 impl UnsupportedAppRequirementReasons {
     pub const Unknown: Self = Self(0u32);
@@ -1293,12 +1279,6 @@ impl ::core::clone::Clone for UnsupportedAppRequirementReasons {
 unsafe impl ::windows::core::Abi for UnsupportedAppRequirementReasons {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UnsupportedAppRequirementReasons {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UnsupportedAppRequirementReasons {}
 impl ::core::fmt::Debug for UnsupportedAppRequirementReasons {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UnsupportedAppRequirementReasons").field(&self.0).finish()

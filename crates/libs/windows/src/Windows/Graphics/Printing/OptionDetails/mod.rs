@@ -4013,6 +4013,7 @@ unsafe impl ::core::marker::Send for PrintMediaTypeOptionDetails {}
 unsafe impl ::core::marker::Sync for PrintMediaTypeOptionDetails {}
 #[doc = "*Required features: 'Graphics_Printing_OptionDetails'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PrintOptionStates(pub u32);
 impl PrintOptionStates {
     pub const None: Self = Self(0u32);
@@ -4028,12 +4029,6 @@ impl ::core::clone::Clone for PrintOptionStates {
 unsafe impl ::windows::core::Abi for PrintOptionStates {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PrintOptionStates {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintOptionStates {}
 impl ::core::fmt::Debug for PrintOptionStates {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PrintOptionStates").field(&self.0).finish()
@@ -4075,6 +4070,7 @@ impl ::windows::core::DefaultType for PrintOptionStates {
 }
 #[doc = "*Required features: 'Graphics_Printing_OptionDetails'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PrintOptionType(pub i32);
 impl PrintOptionType {
     pub const Unknown: Self = Self(0i32);
@@ -4092,12 +4088,6 @@ impl ::core::clone::Clone for PrintOptionType {
 unsafe impl ::windows::core::Abi for PrintOptionType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PrintOptionType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintOptionType {}
 impl ::core::fmt::Debug for PrintOptionType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PrintOptionType").field(&self.0).finish()

@@ -119,6 +119,7 @@ unsafe impl ::core::marker::Send for EyesPose {}
 unsafe impl ::core::marker::Sync for EyesPose {}
 #[doc = "*Required features: 'Perception_People'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HandJointKind(pub i32);
 impl HandJointKind {
     pub const Palm: Self = Self(0i32);
@@ -157,12 +158,6 @@ impl ::core::clone::Clone for HandJointKind {
 unsafe impl ::windows::core::Abi for HandJointKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for HandJointKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HandJointKind {}
 impl ::core::fmt::Debug for HandJointKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HandJointKind").field(&self.0).finish()
@@ -846,6 +841,7 @@ impl ::core::default::Default for JointPose {
 }
 #[doc = "*Required features: 'Perception_People'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct JointPoseAccuracy(pub i32);
 impl JointPoseAccuracy {
     pub const High: Self = Self(0i32);
@@ -860,12 +856,6 @@ impl ::core::clone::Clone for JointPoseAccuracy {
 unsafe impl ::windows::core::Abi for JointPoseAccuracy {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for JointPoseAccuracy {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for JointPoseAccuracy {}
 impl ::core::fmt::Debug for JointPoseAccuracy {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("JointPoseAccuracy").field(&self.0).finish()

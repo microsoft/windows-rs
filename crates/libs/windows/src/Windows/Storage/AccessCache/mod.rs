@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'Storage_AccessCache'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AccessCacheOptions(pub u32);
 impl AccessCacheOptions {
     pub const None: Self = Self(0u32);
@@ -18,12 +19,6 @@ impl ::core::clone::Clone for AccessCacheOptions {
 unsafe impl ::windows::core::Abi for AccessCacheOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AccessCacheOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AccessCacheOptions {}
 impl ::core::fmt::Debug for AccessCacheOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AccessCacheOptions").field(&self.0).finish()
@@ -703,6 +698,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Item
 }
 #[doc = "*Required features: 'Storage_AccessCache'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct RecentStorageItemVisibility(pub i32);
 impl RecentStorageItemVisibility {
     pub const AppOnly: Self = Self(0i32);
@@ -717,12 +713,6 @@ impl ::core::clone::Clone for RecentStorageItemVisibility {
 unsafe impl ::windows::core::Abi for RecentStorageItemVisibility {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RecentStorageItemVisibility {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RecentStorageItemVisibility {}
 impl ::core::fmt::Debug for RecentStorageItemVisibility {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RecentStorageItemVisibility").field(&self.0).finish()

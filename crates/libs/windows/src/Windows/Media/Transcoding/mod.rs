@@ -286,6 +286,7 @@ unsafe impl ::core::marker::Send for MediaTranscoder {}
 unsafe impl ::core::marker::Sync for MediaTranscoder {}
 #[doc = "*Required features: 'Media_Transcoding'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MediaVideoProcessingAlgorithm(pub i32);
 impl MediaVideoProcessingAlgorithm {
     pub const Default: Self = Self(0i32);
@@ -300,12 +301,6 @@ impl ::core::clone::Clone for MediaVideoProcessingAlgorithm {
 unsafe impl ::windows::core::Abi for MediaVideoProcessingAlgorithm {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MediaVideoProcessingAlgorithm {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaVideoProcessingAlgorithm {}
 impl ::core::fmt::Debug for MediaVideoProcessingAlgorithm {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MediaVideoProcessingAlgorithm").field(&self.0).finish()
@@ -417,6 +412,7 @@ unsafe impl ::core::marker::Send for PrepareTranscodeResult {}
 unsafe impl ::core::marker::Sync for PrepareTranscodeResult {}
 #[doc = "*Required features: 'Media_Transcoding'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TranscodeFailureReason(pub i32);
 impl TranscodeFailureReason {
     pub const None: Self = Self(0i32);
@@ -433,12 +429,6 @@ impl ::core::clone::Clone for TranscodeFailureReason {
 unsafe impl ::windows::core::Abi for TranscodeFailureReason {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TranscodeFailureReason {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TranscodeFailureReason {}
 impl ::core::fmt::Debug for TranscodeFailureReason {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TranscodeFailureReason").field(&self.0).finish()

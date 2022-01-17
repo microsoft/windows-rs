@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'Storage_Pickers_Provider'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AddFileResult(pub i32);
 impl AddFileResult {
     pub const Added: Self = Self(0i32);
@@ -17,12 +18,6 @@ impl ::core::clone::Clone for AddFileResult {
 unsafe impl ::windows::core::Abi for AddFileResult {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AddFileResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AddFileResult {}
 impl ::core::fmt::Debug for AddFileResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AddFileResult").field(&self.0).finish()
@@ -448,6 +443,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &File
 }
 #[doc = "*Required features: 'Storage_Pickers_Provider'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FileSelectionMode(pub i32);
 impl FileSelectionMode {
     pub const Single: Self = Self(0i32);
@@ -462,12 +458,6 @@ impl ::core::clone::Clone for FileSelectionMode {
 unsafe impl ::windows::core::Abi for FileSelectionMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for FileSelectionMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FileSelectionMode {}
 impl ::core::fmt::Debug for FileSelectionMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FileSelectionMode").field(&self.0).finish()
@@ -934,6 +924,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pick
 }
 #[doc = "*Required features: 'Storage_Pickers_Provider'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SetFileNameResult(pub i32);
 impl SetFileNameResult {
     pub const Succeeded: Self = Self(0i32);
@@ -949,12 +940,6 @@ impl ::core::clone::Clone for SetFileNameResult {
 unsafe impl ::windows::core::Abi for SetFileNameResult {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SetFileNameResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SetFileNameResult {}
 impl ::core::fmt::Debug for SetFileNameResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SetFileNameResult").field(&self.0).finish()

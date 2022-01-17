@@ -932,6 +932,7 @@ unsafe impl ::core::marker::Send for ManeuverWarning {}
 unsafe impl ::core::marker::Sync for ManeuverWarning {}
 #[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ManeuverWarningKind(pub i32);
 impl ManeuverWarningKind {
     pub const None: Self = Self(0i32);
@@ -980,12 +981,6 @@ impl ::core::clone::Clone for ManeuverWarningKind {
 unsafe impl ::windows::core::Abi for ManeuverWarningKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ManeuverWarningKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ManeuverWarningKind {}
 impl ::core::fmt::Debug for ManeuverWarningKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ManeuverWarningKind").field(&self.0).finish()
@@ -999,6 +994,7 @@ impl ::windows::core::DefaultType for ManeuverWarningKind {
 }
 #[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ManeuverWarningSeverity(pub i32);
 impl ManeuverWarningSeverity {
     pub const None: Self = Self(0i32);
@@ -1016,12 +1012,6 @@ impl ::core::clone::Clone for ManeuverWarningSeverity {
 unsafe impl ::windows::core::Abi for ManeuverWarningSeverity {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ManeuverWarningSeverity {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ManeuverWarningSeverity {}
 impl ::core::fmt::Debug for ManeuverWarningSeverity {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ManeuverWarningSeverity").field(&self.0).finish()
@@ -1342,6 +1332,7 @@ unsafe impl ::core::marker::Send for MapLocation {}
 unsafe impl ::core::marker::Sync for MapLocation {}
 #[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MapLocationDesiredAccuracy(pub i32);
 impl MapLocationDesiredAccuracy {
     pub const High: Self = Self(0i32);
@@ -1356,12 +1347,6 @@ impl ::core::clone::Clone for MapLocationDesiredAccuracy {
 unsafe impl ::windows::core::Abi for MapLocationDesiredAccuracy {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MapLocationDesiredAccuracy {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MapLocationDesiredAccuracy {}
 impl ::core::fmt::Debug for MapLocationDesiredAccuracy {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MapLocationDesiredAccuracy").field(&self.0).finish()
@@ -1514,6 +1499,7 @@ unsafe impl ::core::marker::Send for MapLocationFinderResult {}
 unsafe impl ::core::marker::Sync for MapLocationFinderResult {}
 #[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MapLocationFinderStatus(pub i32);
 impl MapLocationFinderStatus {
     pub const Success: Self = Self(0i32);
@@ -1533,12 +1519,6 @@ impl ::core::clone::Clone for MapLocationFinderStatus {
 unsafe impl ::windows::core::Abi for MapLocationFinderStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MapLocationFinderStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MapLocationFinderStatus {}
 impl ::core::fmt::Debug for MapLocationFinderStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MapLocationFinderStatus").field(&self.0).finish()
@@ -1572,6 +1552,7 @@ impl ::windows::core::RuntimeName for MapManager {
 }
 #[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MapManeuverNotices(pub u32);
 impl MapManeuverNotices {
     pub const None: Self = Self(0u32);
@@ -1587,12 +1568,6 @@ impl ::core::clone::Clone for MapManeuverNotices {
 unsafe impl ::windows::core::Abi for MapManeuverNotices {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MapManeuverNotices {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MapManeuverNotices {}
 impl ::core::fmt::Debug for MapManeuverNotices {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MapManeuverNotices").field(&self.0).finish()
@@ -2173,6 +2148,7 @@ unsafe impl ::core::marker::Send for MapRouteFinderResult {}
 unsafe impl ::core::marker::Sync for MapRouteFinderResult {}
 #[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MapRouteFinderStatus(pub i32);
 impl MapRouteFinderStatus {
     pub const Success: Self = Self(0i32);
@@ -2195,12 +2171,6 @@ impl ::core::clone::Clone for MapRouteFinderStatus {
 unsafe impl ::windows::core::Abi for MapRouteFinderStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MapRouteFinderStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MapRouteFinderStatus {}
 impl ::core::fmt::Debug for MapRouteFinderStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MapRouteFinderStatus").field(&self.0).finish()
@@ -2503,6 +2473,7 @@ unsafe impl ::core::marker::Send for MapRouteManeuver {}
 unsafe impl ::core::marker::Sync for MapRouteManeuver {}
 #[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MapRouteManeuverKind(pub i32);
 impl MapRouteManeuverKind {
     pub const None: Self = Self(0i32);
@@ -2540,12 +2511,6 @@ impl ::core::clone::Clone for MapRouteManeuverKind {
 unsafe impl ::windows::core::Abi for MapRouteManeuverKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MapRouteManeuverKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MapRouteManeuverKind {}
 impl ::core::fmt::Debug for MapRouteManeuverKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MapRouteManeuverKind").field(&self.0).finish()
@@ -2559,6 +2524,7 @@ impl ::windows::core::DefaultType for MapRouteManeuverKind {
 }
 #[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MapRouteOptimization(pub i32);
 impl MapRouteOptimization {
     pub const Time: Self = Self(0i32);
@@ -2575,12 +2541,6 @@ impl ::core::clone::Clone for MapRouteOptimization {
 unsafe impl ::windows::core::Abi for MapRouteOptimization {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MapRouteOptimization {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MapRouteOptimization {}
 impl ::core::fmt::Debug for MapRouteOptimization {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MapRouteOptimization").field(&self.0).finish()
@@ -2594,6 +2554,7 @@ impl ::windows::core::DefaultType for MapRouteOptimization {
 }
 #[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MapRouteRestrictions(pub u32);
 impl MapRouteRestrictions {
     pub const None: Self = Self(0u32);
@@ -2613,12 +2574,6 @@ impl ::core::clone::Clone for MapRouteRestrictions {
 unsafe impl ::windows::core::Abi for MapRouteRestrictions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MapRouteRestrictions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MapRouteRestrictions {}
 impl ::core::fmt::Debug for MapRouteRestrictions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MapRouteRestrictions").field(&self.0).finish()
@@ -2723,6 +2678,7 @@ impl ::windows::core::RuntimeName for MapService {
 }
 #[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MapServiceDataUsagePreference(pub i32);
 impl MapServiceDataUsagePreference {
     pub const Default: Self = Self(0i32);
@@ -2737,12 +2693,6 @@ impl ::core::clone::Clone for MapServiceDataUsagePreference {
 unsafe impl ::windows::core::Abi for MapServiceDataUsagePreference {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MapServiceDataUsagePreference {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MapServiceDataUsagePreference {}
 impl ::core::fmt::Debug for MapServiceDataUsagePreference {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MapServiceDataUsagePreference").field(&self.0).finish()
@@ -3049,6 +2999,7 @@ unsafe impl ::core::marker::Send for PlaceInfoCreateOptions {}
 unsafe impl ::core::marker::Sync for PlaceInfoCreateOptions {}
 #[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TrafficCongestion(pub i32);
 impl TrafficCongestion {
     pub const Unknown: Self = Self(0i32);
@@ -3066,12 +3017,6 @@ impl ::core::clone::Clone for TrafficCongestion {
 unsafe impl ::windows::core::Abi for TrafficCongestion {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TrafficCongestion {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TrafficCongestion {}
 impl ::core::fmt::Debug for TrafficCongestion {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TrafficCongestion").field(&self.0).finish()
@@ -3085,6 +3030,7 @@ impl ::windows::core::DefaultType for TrafficCongestion {
 }
 #[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WaypointKind(pub i32);
 impl WaypointKind {
     pub const Stop: Self = Self(0i32);
@@ -3099,12 +3045,6 @@ impl ::core::clone::Clone for WaypointKind {
 unsafe impl ::windows::core::Abi for WaypointKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WaypointKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WaypointKind {}
 impl ::core::fmt::Debug for WaypointKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WaypointKind").field(&self.0).finish()

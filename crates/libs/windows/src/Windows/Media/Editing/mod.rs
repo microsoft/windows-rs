@@ -1414,6 +1414,7 @@ unsafe impl ::core::marker::Send for MediaOverlayLayer {}
 unsafe impl ::core::marker::Sync for MediaOverlayLayer {}
 #[doc = "*Required features: 'Media_Editing'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MediaTrimmingPreference(pub i32);
 impl MediaTrimmingPreference {
     pub const Fast: Self = Self(0i32);
@@ -1428,12 +1429,6 @@ impl ::core::clone::Clone for MediaTrimmingPreference {
 unsafe impl ::windows::core::Abi for MediaTrimmingPreference {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MediaTrimmingPreference {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaTrimmingPreference {}
 impl ::core::fmt::Debug for MediaTrimmingPreference {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MediaTrimmingPreference").field(&self.0).finish()
@@ -1447,6 +1442,7 @@ impl ::windows::core::DefaultType for MediaTrimmingPreference {
 }
 #[doc = "*Required features: 'Media_Editing'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct VideoFramePrecision(pub i32);
 impl VideoFramePrecision {
     pub const NearestFrame: Self = Self(0i32);
@@ -1461,12 +1457,6 @@ impl ::core::clone::Clone for VideoFramePrecision {
 unsafe impl ::windows::core::Abi for VideoFramePrecision {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VideoFramePrecision {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VideoFramePrecision {}
 impl ::core::fmt::Debug for VideoFramePrecision {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VideoFramePrecision").field(&self.0).finish()

@@ -109,6 +109,7 @@ impl ::windows::core::RuntimeName for BackgroundEnergyManager {
 }
 #[doc = "*Required features: 'System_Power'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct BatteryStatus(pub i32);
 impl BatteryStatus {
     pub const NotPresent: Self = Self(0i32);
@@ -125,12 +126,6 @@ impl ::core::clone::Clone for BatteryStatus {
 unsafe impl ::windows::core::Abi for BatteryStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BatteryStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BatteryStatus {}
 impl ::core::fmt::Debug for BatteryStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BatteryStatus").field(&self.0).finish()
@@ -144,6 +139,7 @@ impl ::windows::core::DefaultType for BatteryStatus {
 }
 #[doc = "*Required features: 'System_Power'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EnergySaverStatus(pub i32);
 impl EnergySaverStatus {
     pub const Disabled: Self = Self(0i32);
@@ -159,12 +155,6 @@ impl ::core::clone::Clone for EnergySaverStatus {
 unsafe impl ::windows::core::Abi for EnergySaverStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EnergySaverStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EnergySaverStatus {}
 impl ::core::fmt::Debug for EnergySaverStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EnergySaverStatus").field(&self.0).finish()
@@ -508,6 +498,7 @@ impl ::windows::core::RuntimeName for PowerManager {
 }
 #[doc = "*Required features: 'System_Power'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PowerSupplyStatus(pub i32);
 impl PowerSupplyStatus {
     pub const NotPresent: Self = Self(0i32);
@@ -523,12 +514,6 @@ impl ::core::clone::Clone for PowerSupplyStatus {
 unsafe impl ::windows::core::Abi for PowerSupplyStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PowerSupplyStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PowerSupplyStatus {}
 impl ::core::fmt::Debug for PowerSupplyStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PowerSupplyStatus").field(&self.0).finish()

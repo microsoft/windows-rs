@@ -2,6 +2,7 @@
 #[doc = "*Required features: 'AI_MachineLearning_Preview', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FeatureElementKindPreview(pub i32);
 #[cfg(feature = "deprecated")]
 impl FeatureElementKindPreview {
@@ -34,14 +35,6 @@ impl ::core::clone::Clone for FeatureElementKindPreview {
 unsafe impl ::windows::core::Abi for FeatureElementKindPreview {
     type Abi = Self;
 }
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for FeatureElementKindPreview {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for FeatureElementKindPreview {}
 #[cfg(feature = "deprecated")]
 impl ::core::fmt::Debug for FeatureElementKindPreview {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1230,6 +1223,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lear
 #[doc = "*Required features: 'AI_MachineLearning_Preview', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct LearningModelDeviceKindPreview(pub i32);
 #[cfg(feature = "deprecated")]
 impl LearningModelDeviceKindPreview {
@@ -1252,14 +1246,6 @@ impl ::core::clone::Clone for LearningModelDeviceKindPreview {
 unsafe impl ::windows::core::Abi for LearningModelDeviceKindPreview {
     type Abi = Self;
 }
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for LearningModelDeviceKindPreview {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for LearningModelDeviceKindPreview {}
 #[cfg(feature = "deprecated")]
 impl ::core::fmt::Debug for LearningModelDeviceKindPreview {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1383,6 +1369,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Lear
 #[doc = "*Required features: 'AI_MachineLearning_Preview', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct LearningModelFeatureKindPreview(pub i32);
 #[cfg(feature = "deprecated")]
 impl LearningModelFeatureKindPreview {
@@ -1404,14 +1391,6 @@ impl ::core::clone::Clone for LearningModelFeatureKindPreview {
 unsafe impl ::windows::core::Abi for LearningModelFeatureKindPreview {
     type Abi = Self;
 }
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for LearningModelFeatureKindPreview {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for LearningModelFeatureKindPreview {}
 #[cfg(feature = "deprecated")]
 impl ::core::fmt::Debug for LearningModelFeatureKindPreview {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {

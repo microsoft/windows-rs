@@ -1,4 +1,4 @@
-use windows::{Win32::Foundation::*, Win32::Graphics::Gdi::*};
+use windows::{Win32::Foundation::*, Win32::Graphics::Gdi::*, Win32::System::Registry::*};
 
 #[test]
 fn boolean() {
@@ -28,5 +28,13 @@ fn hfont() {
 
         assert!(!DeleteObject(font).as_bool());
         assert!(!DeleteObject(object).as_bool());
+    }
+}
+
+#[test]
+fn const_pattern() {
+    match HKEY_CLASSES_ROOT {
+        HKEY_CLASSES_ROOT => assert!(true),
+        _ => assert!(false),
     }
 }

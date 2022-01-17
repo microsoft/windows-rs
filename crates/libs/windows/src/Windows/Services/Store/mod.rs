@@ -1424,6 +1424,7 @@ unsafe impl ::core::marker::Send for StoreCanAcquireLicenseResult {}
 unsafe impl ::core::marker::Sync for StoreCanAcquireLicenseResult {}
 #[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct StoreCanLicenseStatus(pub i32);
 impl StoreCanLicenseStatus {
     pub const NotLicensableToUser: Self = Self(0i32);
@@ -1441,12 +1442,6 @@ impl ::core::clone::Clone for StoreCanLicenseStatus {
 unsafe impl ::windows::core::Abi for StoreCanLicenseStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for StoreCanLicenseStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StoreCanLicenseStatus {}
 impl ::core::fmt::Debug for StoreCanLicenseStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("StoreCanLicenseStatus").field(&self.0).finish()
@@ -1706,6 +1701,7 @@ unsafe impl ::core::marker::Send for StoreConsumableResult {}
 unsafe impl ::core::marker::Sync for StoreConsumableResult {}
 #[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct StoreConsumableStatus(pub i32);
 impl StoreConsumableStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -1722,12 +1718,6 @@ impl ::core::clone::Clone for StoreConsumableStatus {
 unsafe impl ::windows::core::Abi for StoreConsumableStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for StoreConsumableStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StoreConsumableStatus {}
 impl ::core::fmt::Debug for StoreConsumableStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("StoreConsumableStatus").field(&self.0).finish()
@@ -2172,6 +2162,7 @@ unsafe impl ::core::marker::Send for StoreContext {}
 unsafe impl ::core::marker::Sync for StoreContext {}
 #[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct StoreDurationUnit(pub i32);
 impl StoreDurationUnit {
     pub const Minute: Self = Self(0i32);
@@ -2190,12 +2181,6 @@ impl ::core::clone::Clone for StoreDurationUnit {
 unsafe impl ::windows::core::Abi for StoreDurationUnit {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for StoreDurationUnit {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StoreDurationUnit {}
 impl ::core::fmt::Debug for StoreDurationUnit {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("StoreDurationUnit").field(&self.0).finish()
@@ -2861,6 +2846,7 @@ unsafe impl ::core::marker::Send for StorePackageUpdateResult {}
 unsafe impl ::core::marker::Sync for StorePackageUpdateResult {}
 #[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct StorePackageUpdateState(pub i32);
 impl StorePackageUpdateState {
     pub const Pending: Self = Self(0i32);
@@ -2882,12 +2868,6 @@ impl ::core::clone::Clone for StorePackageUpdateState {
 unsafe impl ::windows::core::Abi for StorePackageUpdateState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for StorePackageUpdateState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorePackageUpdateState {}
 impl ::core::fmt::Debug for StorePackageUpdateState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("StorePackageUpdateState").field(&self.0).finish()
@@ -3877,6 +3857,7 @@ unsafe impl ::core::marker::Send for StorePurchaseResult {}
 unsafe impl ::core::marker::Sync for StorePurchaseResult {}
 #[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct StorePurchaseStatus(pub i32);
 impl StorePurchaseStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -3894,12 +3875,6 @@ impl ::core::clone::Clone for StorePurchaseStatus {
 unsafe impl ::windows::core::Abi for StorePurchaseStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for StorePurchaseStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorePurchaseStatus {}
 impl ::core::fmt::Debug for StorePurchaseStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("StorePurchaseStatus").field(&self.0).finish()
@@ -4156,6 +4131,7 @@ unsafe impl ::core::marker::Send for StoreQueueItemCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for StoreQueueItemCompletedEventArgs {}
 #[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct StoreQueueItemExtendedState(pub i32);
 impl StoreQueueItemExtendedState {
     pub const ActivePending: Self = Self(0i32);
@@ -4183,12 +4159,6 @@ impl ::core::clone::Clone for StoreQueueItemExtendedState {
 unsafe impl ::windows::core::Abi for StoreQueueItemExtendedState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for StoreQueueItemExtendedState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StoreQueueItemExtendedState {}
 impl ::core::fmt::Debug for StoreQueueItemExtendedState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("StoreQueueItemExtendedState").field(&self.0).finish()
@@ -4202,6 +4172,7 @@ impl ::windows::core::DefaultType for StoreQueueItemExtendedState {
 }
 #[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct StoreQueueItemKind(pub i32);
 impl StoreQueueItemKind {
     pub const Install: Self = Self(0i32);
@@ -4217,12 +4188,6 @@ impl ::core::clone::Clone for StoreQueueItemKind {
 unsafe impl ::windows::core::Abi for StoreQueueItemKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for StoreQueueItemKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StoreQueueItemKind {}
 impl ::core::fmt::Debug for StoreQueueItemKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("StoreQueueItemKind").field(&self.0).finish()
@@ -4236,6 +4201,7 @@ impl ::windows::core::DefaultType for StoreQueueItemKind {
 }
 #[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct StoreQueueItemState(pub i32);
 impl StoreQueueItemState {
     pub const Active: Self = Self(0i32);
@@ -4253,12 +4219,6 @@ impl ::core::clone::Clone for StoreQueueItemState {
 unsafe impl ::windows::core::Abi for StoreQueueItemState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for StoreQueueItemState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StoreQueueItemState {}
 impl ::core::fmt::Debug for StoreQueueItemState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("StoreQueueItemState").field(&self.0).finish()
@@ -4482,6 +4442,7 @@ unsafe impl ::core::marker::Send for StoreRateAndReviewResult {}
 unsafe impl ::core::marker::Sync for StoreRateAndReviewResult {}
 #[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct StoreRateAndReviewStatus(pub i32);
 impl StoreRateAndReviewStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -4498,12 +4459,6 @@ impl ::core::clone::Clone for StoreRateAndReviewStatus {
 unsafe impl ::windows::core::Abi for StoreRateAndReviewStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for StoreRateAndReviewStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StoreRateAndReviewStatus {}
 impl ::core::fmt::Debug for StoreRateAndReviewStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("StoreRateAndReviewStatus").field(&self.0).finish()
@@ -5069,6 +5024,7 @@ unsafe impl ::core::marker::Send for StoreUninstallStorePackageResult {}
 unsafe impl ::core::marker::Sync for StoreUninstallStorePackageResult {}
 #[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct StoreUninstallStorePackageStatus(pub i32);
 impl StoreUninstallStorePackageStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -5086,12 +5042,6 @@ impl ::core::clone::Clone for StoreUninstallStorePackageStatus {
 unsafe impl ::windows::core::Abi for StoreUninstallStorePackageStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for StoreUninstallStorePackageStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StoreUninstallStorePackageStatus {}
 impl ::core::fmt::Debug for StoreUninstallStorePackageStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("StoreUninstallStorePackageStatus").field(&self.0).finish()

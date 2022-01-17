@@ -66,6 +66,7 @@ impl ::windows::core::RuntimeName for ServiceDevice {
 }
 #[doc = "*Required features: 'Devices_Portable'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ServiceDeviceType(pub i32);
 impl ServiceDeviceType {
     pub const CalendarService: Self = Self(0i32);
@@ -85,12 +86,6 @@ impl ::core::clone::Clone for ServiceDeviceType {
 unsafe impl ::windows::core::Abi for ServiceDeviceType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ServiceDeviceType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ServiceDeviceType {}
 impl ::core::fmt::Debug for ServiceDeviceType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ServiceDeviceType").field(&self.0).finish()

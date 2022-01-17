@@ -19,6 +19,7 @@ pub mod Vpn;
 pub mod XboxLive;
 #[doc = "*Required features: 'Networking'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DomainNameType(pub i32);
 impl DomainNameType {
     pub const Suffix: Self = Self(0i32);
@@ -33,12 +34,6 @@ impl ::core::clone::Clone for DomainNameType {
 unsafe impl ::windows::core::Abi for DomainNameType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DomainNameType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DomainNameType {}
 impl ::core::fmt::Debug for DomainNameType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DomainNameType").field(&self.0).finish()
@@ -370,6 +365,7 @@ unsafe impl ::core::marker::Send for HostName {}
 unsafe impl ::core::marker::Sync for HostName {}
 #[doc = "*Required features: 'Networking'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HostNameSortOptions(pub u32);
 impl HostNameSortOptions {
     pub const None: Self = Self(0u32);
@@ -384,12 +380,6 @@ impl ::core::clone::Clone for HostNameSortOptions {
 unsafe impl ::windows::core::Abi for HostNameSortOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for HostNameSortOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HostNameSortOptions {}
 impl ::core::fmt::Debug for HostNameSortOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HostNameSortOptions").field(&self.0).finish()
@@ -431,6 +421,7 @@ impl ::windows::core::DefaultType for HostNameSortOptions {
 }
 #[doc = "*Required features: 'Networking'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HostNameType(pub i32);
 impl HostNameType {
     pub const DomainName: Self = Self(0i32);
@@ -447,12 +438,6 @@ impl ::core::clone::Clone for HostNameType {
 unsafe impl ::windows::core::Abi for HostNameType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for HostNameType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HostNameType {}
 impl ::core::fmt::Debug for HostNameType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HostNameType").field(&self.0).finish()

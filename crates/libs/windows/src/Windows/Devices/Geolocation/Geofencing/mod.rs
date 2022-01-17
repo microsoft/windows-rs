@@ -317,6 +317,7 @@ unsafe impl ::core::marker::Send for GeofenceMonitor {}
 unsafe impl ::core::marker::Sync for GeofenceMonitor {}
 #[doc = "*Required features: 'Devices_Geolocation_Geofencing'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GeofenceMonitorStatus(pub i32);
 impl GeofenceMonitorStatus {
     pub const Ready: Self = Self(0i32);
@@ -335,12 +336,6 @@ impl ::core::clone::Clone for GeofenceMonitorStatus {
 unsafe impl ::windows::core::Abi for GeofenceMonitorStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GeofenceMonitorStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GeofenceMonitorStatus {}
 impl ::core::fmt::Debug for GeofenceMonitorStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GeofenceMonitorStatus").field(&self.0).finish()
@@ -354,6 +349,7 @@ impl ::windows::core::DefaultType for GeofenceMonitorStatus {
 }
 #[doc = "*Required features: 'Devices_Geolocation_Geofencing'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GeofenceRemovalReason(pub i32);
 impl GeofenceRemovalReason {
     pub const Used: Self = Self(0i32);
@@ -368,12 +364,6 @@ impl ::core::clone::Clone for GeofenceRemovalReason {
 unsafe impl ::windows::core::Abi for GeofenceRemovalReason {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GeofenceRemovalReason {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GeofenceRemovalReason {}
 impl ::core::fmt::Debug for GeofenceRemovalReason {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GeofenceRemovalReason").field(&self.0).finish()
@@ -387,6 +377,7 @@ impl ::windows::core::DefaultType for GeofenceRemovalReason {
 }
 #[doc = "*Required features: 'Devices_Geolocation_Geofencing'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GeofenceState(pub u32);
 impl GeofenceState {
     pub const None: Self = Self(0u32);
@@ -403,12 +394,6 @@ impl ::core::clone::Clone for GeofenceState {
 unsafe impl ::windows::core::Abi for GeofenceState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GeofenceState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GeofenceState {}
 impl ::core::fmt::Debug for GeofenceState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GeofenceState").field(&self.0).finish()
@@ -675,6 +660,7 @@ pub struct IGeofenceStateChangeReportVtbl(
 );
 #[doc = "*Required features: 'Devices_Geolocation_Geofencing'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MonitoredGeofenceStates(pub u32);
 impl MonitoredGeofenceStates {
     pub const None: Self = Self(0u32);
@@ -691,12 +677,6 @@ impl ::core::clone::Clone for MonitoredGeofenceStates {
 unsafe impl ::windows::core::Abi for MonitoredGeofenceStates {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MonitoredGeofenceStates {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MonitoredGeofenceStates {}
 impl ::core::fmt::Debug for MonitoredGeofenceStates {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MonitoredGeofenceStates").field(&self.0).finish()

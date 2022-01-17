@@ -187,6 +187,7 @@ pub struct IVoiceInformationVtbl(
 );
 #[doc = "*Required features: 'Media_SpeechSynthesis'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechAppendedSilence(pub i32);
 impl SpeechAppendedSilence {
     pub const Default: Self = Self(0i32);
@@ -201,12 +202,6 @@ impl ::core::clone::Clone for SpeechAppendedSilence {
 unsafe impl ::windows::core::Abi for SpeechAppendedSilence {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SpeechAppendedSilence {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpeechAppendedSilence {}
 impl ::core::fmt::Debug for SpeechAppendedSilence {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SpeechAppendedSilence").field(&self.0).finish()
@@ -220,6 +215,7 @@ impl ::windows::core::DefaultType for SpeechAppendedSilence {
 }
 #[doc = "*Required features: 'Media_SpeechSynthesis'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechPunctuationSilence(pub i32);
 impl SpeechPunctuationSilence {
     pub const Default: Self = Self(0i32);
@@ -234,12 +230,6 @@ impl ::core::clone::Clone for SpeechPunctuationSilence {
 unsafe impl ::windows::core::Abi for SpeechPunctuationSilence {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SpeechPunctuationSilence {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpeechPunctuationSilence {}
 impl ::core::fmt::Debug for SpeechPunctuationSilence {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SpeechPunctuationSilence").field(&self.0).finish()
@@ -991,6 +981,7 @@ unsafe impl ::core::marker::Send for SpeechSynthesizerOptions {}
 unsafe impl ::core::marker::Sync for SpeechSynthesizerOptions {}
 #[doc = "*Required features: 'Media_SpeechSynthesis'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct VoiceGender(pub i32);
 impl VoiceGender {
     pub const Male: Self = Self(0i32);
@@ -1005,12 +996,6 @@ impl ::core::clone::Clone for VoiceGender {
 unsafe impl ::windows::core::Abi for VoiceGender {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VoiceGender {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VoiceGender {}
 impl ::core::fmt::Debug for VoiceGender {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VoiceGender").field(&self.0).finish()

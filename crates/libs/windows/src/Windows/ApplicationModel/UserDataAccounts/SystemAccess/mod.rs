@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'ApplicationModel_UserDataAccounts_SystemAccess'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DeviceAccountAuthenticationType(pub i32);
 impl DeviceAccountAuthenticationType {
     pub const Basic: Self = Self(0i32);
@@ -16,12 +17,6 @@ impl ::core::clone::Clone for DeviceAccountAuthenticationType {
 unsafe impl ::windows::core::Abi for DeviceAccountAuthenticationType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DeviceAccountAuthenticationType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeviceAccountAuthenticationType {}
 impl ::core::fmt::Debug for DeviceAccountAuthenticationType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DeviceAccountAuthenticationType").field(&self.0).finish()
@@ -698,6 +693,7 @@ unsafe impl ::core::marker::Send for DeviceAccountConfiguration {}
 unsafe impl ::core::marker::Sync for DeviceAccountConfiguration {}
 #[doc = "*Required features: 'ApplicationModel_UserDataAccounts_SystemAccess'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DeviceAccountIconId(pub i32);
 impl DeviceAccountIconId {
     pub const Exchange: Self = Self(0i32);
@@ -714,12 +710,6 @@ impl ::core::clone::Clone for DeviceAccountIconId {
 unsafe impl ::windows::core::Abi for DeviceAccountIconId {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DeviceAccountIconId {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeviceAccountIconId {}
 impl ::core::fmt::Debug for DeviceAccountIconId {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DeviceAccountIconId").field(&self.0).finish()
@@ -733,6 +723,7 @@ impl ::windows::core::DefaultType for DeviceAccountIconId {
 }
 #[doc = "*Required features: 'ApplicationModel_UserDataAccounts_SystemAccess'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DeviceAccountMailAgeFilter(pub i32);
 impl DeviceAccountMailAgeFilter {
     pub const All: Self = Self(0i32);
@@ -752,12 +743,6 @@ impl ::core::clone::Clone for DeviceAccountMailAgeFilter {
 unsafe impl ::windows::core::Abi for DeviceAccountMailAgeFilter {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DeviceAccountMailAgeFilter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeviceAccountMailAgeFilter {}
 impl ::core::fmt::Debug for DeviceAccountMailAgeFilter {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DeviceAccountMailAgeFilter").field(&self.0).finish()
@@ -771,6 +756,7 @@ impl ::windows::core::DefaultType for DeviceAccountMailAgeFilter {
 }
 #[doc = "*Required features: 'ApplicationModel_UserDataAccounts_SystemAccess'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DeviceAccountServerType(pub i32);
 impl DeviceAccountServerType {
     pub const Exchange: Self = Self(0i32);
@@ -786,12 +772,6 @@ impl ::core::clone::Clone for DeviceAccountServerType {
 unsafe impl ::windows::core::Abi for DeviceAccountServerType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DeviceAccountServerType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeviceAccountServerType {}
 impl ::core::fmt::Debug for DeviceAccountServerType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DeviceAccountServerType").field(&self.0).finish()
@@ -805,6 +785,7 @@ impl ::windows::core::DefaultType for DeviceAccountServerType {
 }
 #[doc = "*Required features: 'ApplicationModel_UserDataAccounts_SystemAccess'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DeviceAccountSyncScheduleKind(pub i32);
 impl DeviceAccountSyncScheduleKind {
     pub const Manual: Self = Self(0i32);
@@ -824,12 +805,6 @@ impl ::core::clone::Clone for DeviceAccountSyncScheduleKind {
 unsafe impl ::windows::core::Abi for DeviceAccountSyncScheduleKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DeviceAccountSyncScheduleKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeviceAccountSyncScheduleKind {}
 impl ::core::fmt::Debug for DeviceAccountSyncScheduleKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DeviceAccountSyncScheduleKind").field(&self.0).finish()

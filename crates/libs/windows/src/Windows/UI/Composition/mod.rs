@@ -636,6 +636,7 @@ unsafe impl ::core::marker::Send for AnimationController {}
 unsafe impl ::core::marker::Sync for AnimationController {}
 #[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AnimationControllerProgressBehavior(pub i32);
 impl AnimationControllerProgressBehavior {
     pub const Default: Self = Self(0i32);
@@ -650,12 +651,6 @@ impl ::core::clone::Clone for AnimationControllerProgressBehavior {
 unsafe impl ::windows::core::Abi for AnimationControllerProgressBehavior {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AnimationControllerProgressBehavior {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AnimationControllerProgressBehavior {}
 impl ::core::fmt::Debug for AnimationControllerProgressBehavior {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AnimationControllerProgressBehavior").field(&self.0).finish()
@@ -669,6 +664,7 @@ impl ::windows::core::DefaultType for AnimationControllerProgressBehavior {
 }
 #[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AnimationDelayBehavior(pub i32);
 impl AnimationDelayBehavior {
     pub const SetInitialValueAfterDelay: Self = Self(0i32);
@@ -683,12 +679,6 @@ impl ::core::clone::Clone for AnimationDelayBehavior {
 unsafe impl ::windows::core::Abi for AnimationDelayBehavior {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AnimationDelayBehavior {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AnimationDelayBehavior {}
 impl ::core::fmt::Debug for AnimationDelayBehavior {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AnimationDelayBehavior").field(&self.0).finish()
@@ -702,6 +692,7 @@ impl ::windows::core::DefaultType for AnimationDelayBehavior {
 }
 #[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AnimationDirection(pub i32);
 impl AnimationDirection {
     pub const Normal: Self = Self(0i32);
@@ -718,12 +709,6 @@ impl ::core::clone::Clone for AnimationDirection {
 unsafe impl ::windows::core::Abi for AnimationDirection {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AnimationDirection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AnimationDirection {}
 impl ::core::fmt::Debug for AnimationDirection {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AnimationDirection").field(&self.0).finish()
@@ -737,6 +722,7 @@ impl ::windows::core::DefaultType for AnimationDirection {
 }
 #[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AnimationIterationBehavior(pub i32);
 impl AnimationIterationBehavior {
     pub const Count: Self = Self(0i32);
@@ -751,12 +737,6 @@ impl ::core::clone::Clone for AnimationIterationBehavior {
 unsafe impl ::windows::core::Abi for AnimationIterationBehavior {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AnimationIterationBehavior {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AnimationIterationBehavior {}
 impl ::core::fmt::Debug for AnimationIterationBehavior {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AnimationIterationBehavior").field(&self.0).finish()
@@ -770,6 +750,7 @@ impl ::windows::core::DefaultType for AnimationIterationBehavior {
 }
 #[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AnimationPropertyAccessMode(pub i32);
 impl AnimationPropertyAccessMode {
     pub const None: Self = Self(0i32);
@@ -786,12 +767,6 @@ impl ::core::clone::Clone for AnimationPropertyAccessMode {
 unsafe impl ::windows::core::Abi for AnimationPropertyAccessMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AnimationPropertyAccessMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AnimationPropertyAccessMode {}
 impl ::core::fmt::Debug for AnimationPropertyAccessMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AnimationPropertyAccessMode").field(&self.0).finish()
@@ -1074,6 +1049,7 @@ unsafe impl ::core::marker::Send for AnimationPropertyInfo {}
 unsafe impl ::core::marker::Sync for AnimationPropertyInfo {}
 #[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AnimationStopBehavior(pub i32);
 impl AnimationStopBehavior {
     pub const LeaveCurrentValue: Self = Self(0i32);
@@ -1089,12 +1065,6 @@ impl ::core::clone::Clone for AnimationStopBehavior {
 unsafe impl ::windows::core::Abi for AnimationStopBehavior {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AnimationStopBehavior {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AnimationStopBehavior {}
 impl ::core::fmt::Debug for AnimationStopBehavior {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AnimationStopBehavior").field(&self.0).finish()
@@ -5510,6 +5480,7 @@ unsafe impl ::core::marker::Send for CompositionBackdropBrush {}
 unsafe impl ::core::marker::Sync for CompositionBackdropBrush {}
 #[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CompositionBackfaceVisibility(pub i32);
 impl CompositionBackfaceVisibility {
     pub const Inherit: Self = Self(0i32);
@@ -5525,12 +5496,6 @@ impl ::core::clone::Clone for CompositionBackfaceVisibility {
 unsafe impl ::windows::core::Abi for CompositionBackfaceVisibility {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CompositionBackfaceVisibility {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionBackfaceVisibility {}
 impl ::core::fmt::Debug for CompositionBackfaceVisibility {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CompositionBackfaceVisibility").field(&self.0).finish()
@@ -5784,6 +5749,7 @@ unsafe impl ::core::marker::Send for CompositionBatchCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for CompositionBatchCompletedEventArgs {}
 #[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CompositionBatchTypes(pub u32);
 impl CompositionBatchTypes {
     pub const None: Self = Self(0u32);
@@ -5801,12 +5767,6 @@ impl ::core::clone::Clone for CompositionBatchTypes {
 unsafe impl ::windows::core::Abi for CompositionBatchTypes {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CompositionBatchTypes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionBatchTypes {}
 impl ::core::fmt::Debug for CompositionBatchTypes {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CompositionBatchTypes").field(&self.0).finish()
@@ -5848,6 +5808,7 @@ impl ::windows::core::DefaultType for CompositionBatchTypes {
 }
 #[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CompositionBitmapInterpolationMode(pub i32);
 impl CompositionBitmapInterpolationMode {
     pub const NearestNeighbor: Self = Self(0i32);
@@ -5870,12 +5831,6 @@ impl ::core::clone::Clone for CompositionBitmapInterpolationMode {
 unsafe impl ::windows::core::Abi for CompositionBitmapInterpolationMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CompositionBitmapInterpolationMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionBitmapInterpolationMode {}
 impl ::core::fmt::Debug for CompositionBitmapInterpolationMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CompositionBitmapInterpolationMode").field(&self.0).finish()
@@ -5889,6 +5844,7 @@ impl ::windows::core::DefaultType for CompositionBitmapInterpolationMode {
 }
 #[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CompositionBorderMode(pub i32);
 impl CompositionBorderMode {
     pub const Inherit: Self = Self(0i32);
@@ -5904,12 +5860,6 @@ impl ::core::clone::Clone for CompositionBorderMode {
 unsafe impl ::windows::core::Abi for CompositionBorderMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CompositionBorderMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionBorderMode {}
 impl ::core::fmt::Debug for CompositionBorderMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CompositionBorderMode").field(&self.0).finish()
@@ -7396,6 +7346,7 @@ unsafe impl ::core::marker::Send for CompositionColorGradientStopCollection {}
 unsafe impl ::core::marker::Sync for CompositionColorGradientStopCollection {}
 #[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CompositionColorSpace(pub i32);
 impl CompositionColorSpace {
     pub const Auto: Self = Self(0i32);
@@ -7413,12 +7364,6 @@ impl ::core::clone::Clone for CompositionColorSpace {
 unsafe impl ::windows::core::Abi for CompositionColorSpace {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CompositionColorSpace {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionColorSpace {}
 impl ::core::fmt::Debug for CompositionColorSpace {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CompositionColorSpace").field(&self.0).finish()
@@ -7703,6 +7648,7 @@ unsafe impl ::core::marker::Send for CompositionCommitBatch {}
 unsafe impl ::core::marker::Sync for CompositionCommitBatch {}
 #[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CompositionCompositeMode(pub i32);
 impl CompositionCompositeMode {
     pub const Inherit: Self = Self(0i32);
@@ -7719,12 +7665,6 @@ impl ::core::clone::Clone for CompositionCompositeMode {
 unsafe impl ::windows::core::Abi for CompositionCompositeMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CompositionCompositeMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionCompositeMode {}
 impl ::core::fmt::Debug for CompositionCompositeMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CompositionCompositeMode").field(&self.0).finish()
@@ -8421,6 +8361,7 @@ unsafe impl ::core::marker::Send for CompositionDrawingSurface {}
 unsafe impl ::core::marker::Sync for CompositionDrawingSurface {}
 #[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CompositionDropShadowSourcePolicy(pub i32);
 impl CompositionDropShadowSourcePolicy {
     pub const Default: Self = Self(0i32);
@@ -8435,12 +8376,6 @@ impl ::core::clone::Clone for CompositionDropShadowSourcePolicy {
 unsafe impl ::windows::core::Abi for CompositionDropShadowSourcePolicy {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CompositionDropShadowSourcePolicy {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionDropShadowSourcePolicy {}
 impl ::core::fmt::Debug for CompositionDropShadowSourcePolicy {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CompositionDropShadowSourcePolicy").field(&self.0).finish()
@@ -8777,6 +8712,7 @@ unsafe impl ::core::marker::Send for CompositionEasingFunction {}
 unsafe impl ::core::marker::Sync for CompositionEasingFunction {}
 #[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CompositionEasingFunctionMode(pub i32);
 impl CompositionEasingFunctionMode {
     pub const In: Self = Self(0i32);
@@ -8792,12 +8728,6 @@ impl ::core::clone::Clone for CompositionEasingFunctionMode {
 unsafe impl ::windows::core::Abi for CompositionEasingFunctionMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CompositionEasingFunctionMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionEasingFunctionMode {}
 impl ::core::fmt::Debug for CompositionEasingFunctionMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CompositionEasingFunctionMode").field(&self.0).finish()
@@ -9348,6 +9278,7 @@ unsafe impl ::core::marker::Send for CompositionEffectFactory {}
 unsafe impl ::core::marker::Sync for CompositionEffectFactory {}
 #[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CompositionEffectFactoryLoadStatus(pub i32);
 impl CompositionEffectFactoryLoadStatus {
     pub const Success: Self = Self(0i32);
@@ -9364,12 +9295,6 @@ impl ::core::clone::Clone for CompositionEffectFactoryLoadStatus {
 unsafe impl ::windows::core::Abi for CompositionEffectFactoryLoadStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CompositionEffectFactoryLoadStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionEffectFactoryLoadStatus {}
 impl ::core::fmt::Debug for CompositionEffectFactoryLoadStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CompositionEffectFactoryLoadStatus").field(&self.0).finish()
@@ -10497,6 +10422,7 @@ unsafe impl ::core::marker::Send for CompositionGeometry {}
 unsafe impl ::core::marker::Sync for CompositionGeometry {}
 #[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CompositionGetValueStatus(pub i32);
 impl CompositionGetValueStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -10512,12 +10438,6 @@ impl ::core::clone::Clone for CompositionGetValueStatus {
 unsafe impl ::windows::core::Abi for CompositionGetValueStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CompositionGetValueStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionGetValueStatus {}
 impl ::core::fmt::Debug for CompositionGetValueStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CompositionGetValueStatus").field(&self.0).finish()
@@ -10939,6 +10859,7 @@ unsafe impl ::core::marker::Send for CompositionGradientBrush {}
 unsafe impl ::core::marker::Sync for CompositionGradientBrush {}
 #[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CompositionGradientExtendMode(pub i32);
 impl CompositionGradientExtendMode {
     pub const Clamp: Self = Self(0i32);
@@ -10954,12 +10875,6 @@ impl ::core::clone::Clone for CompositionGradientExtendMode {
 unsafe impl ::windows::core::Abi for CompositionGradientExtendMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CompositionGradientExtendMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionGradientExtendMode {}
 impl ::core::fmt::Debug for CompositionGradientExtendMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CompositionGradientExtendMode").field(&self.0).finish()
@@ -12334,6 +12249,7 @@ unsafe impl ::core::marker::Send for CompositionLinearGradientBrush {}
 unsafe impl ::core::marker::Sync for CompositionLinearGradientBrush {}
 #[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CompositionMappingMode(pub i32);
 impl CompositionMappingMode {
     pub const Absolute: Self = Self(0i32);
@@ -12348,12 +12264,6 @@ impl ::core::clone::Clone for CompositionMappingMode {
 unsafe impl ::windows::core::Abi for CompositionMappingMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CompositionMappingMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionMappingMode {}
 impl ::core::fmt::Debug for CompositionMappingMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CompositionMappingMode").field(&self.0).finish()
@@ -18803,6 +18713,7 @@ unsafe impl ::core::marker::Send for CompositionSpriteShape {}
 unsafe impl ::core::marker::Sync for CompositionSpriteShape {}
 #[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CompositionStretch(pub i32);
 impl CompositionStretch {
     pub const None: Self = Self(0i32);
@@ -18819,12 +18730,6 @@ impl ::core::clone::Clone for CompositionStretch {
 unsafe impl ::windows::core::Abi for CompositionStretch {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CompositionStretch {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionStretch {}
 impl ::core::fmt::Debug for CompositionStretch {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CompositionStretch").field(&self.0).finish()
@@ -18838,6 +18743,7 @@ impl ::windows::core::DefaultType for CompositionStretch {
 }
 #[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CompositionStrokeCap(pub i32);
 impl CompositionStrokeCap {
     pub const Flat: Self = Self(0i32);
@@ -18854,12 +18760,6 @@ impl ::core::clone::Clone for CompositionStrokeCap {
 unsafe impl ::windows::core::Abi for CompositionStrokeCap {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CompositionStrokeCap {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionStrokeCap {}
 impl ::core::fmt::Debug for CompositionStrokeCap {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CompositionStrokeCap").field(&self.0).finish()
@@ -19304,6 +19204,7 @@ unsafe impl ::core::marker::Send for CompositionStrokeDashArray {}
 unsafe impl ::core::marker::Sync for CompositionStrokeDashArray {}
 #[doc = "*Required features: 'UI_Composition'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CompositionStrokeLineJoin(pub i32);
 impl CompositionStrokeLineJoin {
     pub const Miter: Self = Self(0i32);
@@ -19320,12 +19221,6 @@ impl ::core::clone::Clone for CompositionStrokeLineJoin {
 unsafe impl ::windows::core::Abi for CompositionStrokeLineJoin {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CompositionStrokeLineJoin {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionStrokeLineJoin {}
 impl ::core::fmt::Debug for CompositionStrokeLineJoin {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CompositionStrokeLineJoin").field(&self.0).finish()

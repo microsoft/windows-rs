@@ -2633,6 +2633,7 @@ pub struct IXmlTextVtbl(
 );
 #[doc = "*Required features: 'Data_Xml_Dom'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct NodeType(pub i32);
 impl NodeType {
     pub const Invalid: Self = Self(0i32);
@@ -2658,12 +2659,6 @@ impl ::core::clone::Clone for NodeType {
 unsafe impl ::windows::core::Abi for NodeType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for NodeType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for NodeType {}
 impl ::core::fmt::Debug for NodeType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NodeType").field(&self.0).finish()

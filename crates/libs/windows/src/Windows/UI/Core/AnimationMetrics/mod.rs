@@ -129,6 +129,7 @@ unsafe impl ::core::marker::Send for AnimationDescription {}
 unsafe impl ::core::marker::Sync for AnimationDescription {}
 #[doc = "*Required features: 'UI_Core_AnimationMetrics'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AnimationEffect(pub i32);
 impl AnimationEffect {
     pub const Expand: Self = Self(0i32);
@@ -177,12 +178,6 @@ impl ::core::clone::Clone for AnimationEffect {
 unsafe impl ::windows::core::Abi for AnimationEffect {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AnimationEffect {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AnimationEffect {}
 impl ::core::fmt::Debug for AnimationEffect {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AnimationEffect").field(&self.0).finish()
@@ -196,6 +191,7 @@ impl ::windows::core::DefaultType for AnimationEffect {
 }
 #[doc = "*Required features: 'UI_Core_AnimationMetrics'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AnimationEffectTarget(pub i32);
 impl AnimationEffectTarget {
     pub const Primary: Self = Self(0i32);
@@ -228,12 +224,6 @@ impl ::core::clone::Clone for AnimationEffectTarget {
 unsafe impl ::windows::core::Abi for AnimationEffectTarget {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AnimationEffectTarget {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AnimationEffectTarget {}
 impl ::core::fmt::Debug for AnimationEffectTarget {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AnimationEffectTarget").field(&self.0).finish()
@@ -761,6 +751,7 @@ unsafe impl ::core::marker::Send for PropertyAnimation {}
 unsafe impl ::core::marker::Sync for PropertyAnimation {}
 #[doc = "*Required features: 'UI_Core_AnimationMetrics'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PropertyAnimationType(pub i32);
 impl PropertyAnimationType {
     pub const Scale: Self = Self(0i32);
@@ -776,12 +767,6 @@ impl ::core::clone::Clone for PropertyAnimationType {
 unsafe impl ::windows::core::Abi for PropertyAnimationType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PropertyAnimationType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PropertyAnimationType {}
 impl ::core::fmt::Debug for PropertyAnimationType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PropertyAnimationType").field(&self.0).finish()

@@ -7,6 +7,7 @@ pub mod Imaging;
 pub mod Media3D;
 #[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AcrylicBackgroundSource(pub i32);
 impl AcrylicBackgroundSource {
     pub const HostBackdrop: Self = Self(0i32);
@@ -21,12 +22,6 @@ impl ::core::clone::Clone for AcrylicBackgroundSource {
 unsafe impl ::windows::core::Abi for AcrylicBackgroundSource {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AcrylicBackgroundSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AcrylicBackgroundSource {}
 impl ::core::fmt::Debug for AcrylicBackgroundSource {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AcrylicBackgroundSource").field(&self.0).finish()
@@ -345,6 +340,7 @@ unsafe impl ::core::marker::Send for AcrylicBrush {}
 unsafe impl ::core::marker::Sync for AcrylicBrush {}
 #[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AlignmentX(pub i32);
 impl AlignmentX {
     pub const Left: Self = Self(0i32);
@@ -360,12 +356,6 @@ impl ::core::clone::Clone for AlignmentX {
 unsafe impl ::windows::core::Abi for AlignmentX {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AlignmentX {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AlignmentX {}
 impl ::core::fmt::Debug for AlignmentX {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AlignmentX").field(&self.0).finish()
@@ -379,6 +369,7 @@ impl ::windows::core::DefaultType for AlignmentX {
 }
 #[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AlignmentY(pub i32);
 impl AlignmentY {
     pub const Top: Self = Self(0i32);
@@ -394,12 +385,6 @@ impl ::core::clone::Clone for AlignmentY {
 unsafe impl ::windows::core::Abi for AlignmentY {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AlignmentY {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AlignmentY {}
 impl ::core::fmt::Debug for AlignmentY {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AlignmentY").field(&self.0).finish()
@@ -642,6 +627,7 @@ unsafe impl ::core::marker::Send for ArcSegment {}
 unsafe impl ::core::marker::Sync for ArcSegment {}
 #[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AudioCategory(pub i32);
 impl AudioCategory {
     pub const Other: Self = Self(0i32);
@@ -666,12 +652,6 @@ impl ::core::clone::Clone for AudioCategory {
 unsafe impl ::windows::core::Abi for AudioCategory {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AudioCategory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioCategory {}
 impl ::core::fmt::Debug for AudioCategory {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AudioCategory").field(&self.0).finish()
@@ -685,6 +665,7 @@ impl ::windows::core::DefaultType for AudioCategory {
 }
 #[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AudioDeviceType(pub i32);
 impl AudioDeviceType {
     pub const Console: Self = Self(0i32);
@@ -700,12 +681,6 @@ impl ::core::clone::Clone for AudioDeviceType {
 unsafe impl ::windows::core::Abi for AudioDeviceType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AudioDeviceType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioDeviceType {}
 impl ::core::fmt::Debug for AudioDeviceType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AudioDeviceType").field(&self.0).finish()
@@ -1483,6 +1458,7 @@ unsafe impl ::core::marker::Send for BrushCollection {}
 unsafe impl ::core::marker::Sync for BrushCollection {}
 #[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct BrushMappingMode(pub i32);
 impl BrushMappingMode {
     pub const Absolute: Self = Self(0i32);
@@ -1497,12 +1473,6 @@ impl ::core::clone::Clone for BrushMappingMode {
 unsafe impl ::windows::core::Abi for BrushMappingMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BrushMappingMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BrushMappingMode {}
 impl ::core::fmt::Debug for BrushMappingMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BrushMappingMode").field(&self.0).finish()
@@ -1608,6 +1578,7 @@ unsafe impl ::core::marker::Send for CacheMode {}
 unsafe impl ::core::marker::Sync for CacheMode {}
 #[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ColorInterpolationMode(pub i32);
 impl ColorInterpolationMode {
     pub const ScRgbLinearInterpolation: Self = Self(0i32);
@@ -1622,12 +1593,6 @@ impl ::core::clone::Clone for ColorInterpolationMode {
 unsafe impl ::windows::core::Abi for ColorInterpolationMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ColorInterpolationMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ColorInterpolationMode {}
 impl ::core::fmt::Debug for ColorInterpolationMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ColorInterpolationMode").field(&self.0).finish()
@@ -2351,6 +2316,7 @@ unsafe impl ::core::marker::Send for DoubleCollection {}
 unsafe impl ::core::marker::Sync for DoubleCollection {}
 #[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ElementCompositeMode(pub i32);
 impl ElementCompositeMode {
     pub const Inherit: Self = Self(0i32);
@@ -2366,12 +2332,6 @@ impl ::core::clone::Clone for ElementCompositeMode {
 unsafe impl ::windows::core::Abi for ElementCompositeMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ElementCompositeMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ElementCompositeMode {}
 impl ::core::fmt::Debug for ElementCompositeMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ElementCompositeMode").field(&self.0).finish()
@@ -2572,6 +2532,7 @@ unsafe impl ::core::marker::Send for EllipseGeometry {}
 unsafe impl ::core::marker::Sync for EllipseGeometry {}
 #[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FastPlayFallbackBehaviour(pub i32);
 impl FastPlayFallbackBehaviour {
     pub const Skip: Self = Self(0i32);
@@ -2587,12 +2548,6 @@ impl ::core::clone::Clone for FastPlayFallbackBehaviour {
 unsafe impl ::windows::core::Abi for FastPlayFallbackBehaviour {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for FastPlayFallbackBehaviour {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FastPlayFallbackBehaviour {}
 impl ::core::fmt::Debug for FastPlayFallbackBehaviour {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FastPlayFallbackBehaviour").field(&self.0).finish()
@@ -2606,6 +2561,7 @@ impl ::windows::core::DefaultType for FastPlayFallbackBehaviour {
 }
 #[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FillRule(pub i32);
 impl FillRule {
     pub const EvenOdd: Self = Self(0i32);
@@ -2620,12 +2576,6 @@ impl ::core::clone::Clone for FillRule {
 unsafe impl ::windows::core::Abi for FillRule {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for FillRule {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FillRule {}
 impl ::core::fmt::Debug for FillRule {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FillRule").field(&self.0).finish()
@@ -3669,6 +3619,7 @@ unsafe impl ::core::marker::Send for GradientBrush {}
 unsafe impl ::core::marker::Sync for GradientBrush {}
 #[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GradientSpreadMethod(pub i32);
 impl GradientSpreadMethod {
     pub const Pad: Self = Self(0i32);
@@ -3684,12 +3635,6 @@ impl ::core::clone::Clone for GradientSpreadMethod {
 unsafe impl ::windows::core::Abi for GradientSpreadMethod {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GradientSpreadMethod {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GradientSpreadMethod {}
 impl ::core::fmt::Debug for GradientSpreadMethod {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GradientSpreadMethod").field(&self.0).finish()
@@ -7750,6 +7695,7 @@ unsafe impl ::core::marker::Send for LoadedImageSourceLoadCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for LoadedImageSourceLoadCompletedEventArgs {}
 #[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct LoadedImageSourceLoadStatus(pub i32);
 impl LoadedImageSourceLoadStatus {
     pub const Success: Self = Self(0i32);
@@ -7766,12 +7712,6 @@ impl ::core::clone::Clone for LoadedImageSourceLoadStatus {
 unsafe impl ::windows::core::Abi for LoadedImageSourceLoadStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LoadedImageSourceLoadStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LoadedImageSourceLoadStatus {}
 impl ::core::fmt::Debug for LoadedImageSourceLoadStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LoadedImageSourceLoadStatus").field(&self.0).finish()
@@ -8455,6 +8395,7 @@ unsafe impl ::core::marker::Send for MatrixTransform {}
 unsafe impl ::core::marker::Sync for MatrixTransform {}
 #[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MediaCanPlayResponse(pub i32);
 impl MediaCanPlayResponse {
     pub const NotSupported: Self = Self(0i32);
@@ -8470,12 +8411,6 @@ impl ::core::clone::Clone for MediaCanPlayResponse {
 unsafe impl ::windows::core::Abi for MediaCanPlayResponse {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MediaCanPlayResponse {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaCanPlayResponse {}
 impl ::core::fmt::Debug for MediaCanPlayResponse {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MediaCanPlayResponse").field(&self.0).finish()
@@ -8489,6 +8424,7 @@ impl ::windows::core::DefaultType for MediaCanPlayResponse {
 }
 #[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MediaElementState(pub i32);
 impl MediaElementState {
     pub const Closed: Self = Self(0i32);
@@ -8507,12 +8443,6 @@ impl ::core::clone::Clone for MediaElementState {
 unsafe impl ::windows::core::Abi for MediaElementState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MediaElementState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaElementState {}
 impl ::core::fmt::Debug for MediaElementState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MediaElementState").field(&self.0).finish()
@@ -9685,6 +9615,7 @@ unsafe impl ::core::marker::Send for PathSegmentCollection {}
 unsafe impl ::core::marker::Sync for PathSegmentCollection {}
 #[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PenLineCap(pub i32);
 impl PenLineCap {
     pub const Flat: Self = Self(0i32);
@@ -9701,12 +9632,6 @@ impl ::core::clone::Clone for PenLineCap {
 unsafe impl ::windows::core::Abi for PenLineCap {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PenLineCap {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PenLineCap {}
 impl ::core::fmt::Debug for PenLineCap {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PenLineCap").field(&self.0).finish()
@@ -9720,6 +9645,7 @@ impl ::windows::core::DefaultType for PenLineCap {
 }
 #[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PenLineJoin(pub i32);
 impl PenLineJoin {
     pub const Miter: Self = Self(0i32);
@@ -9735,12 +9661,6 @@ impl ::core::clone::Clone for PenLineJoin {
 unsafe impl ::windows::core::Abi for PenLineJoin {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PenLineJoin {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PenLineJoin {}
 impl ::core::fmt::Debug for PenLineJoin {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PenLineJoin").field(&self.0).finish()
@@ -12210,6 +12130,7 @@ unsafe impl ::core::marker::Send for RevealBrush {}
 unsafe impl ::core::marker::Sync for RevealBrush {}
 #[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct RevealBrushState(pub i32);
 impl RevealBrushState {
     pub const Normal: Self = Self(0i32);
@@ -12225,12 +12146,6 @@ impl ::core::clone::Clone for RevealBrushState {
 unsafe impl ::windows::core::Abi for RevealBrushState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RevealBrushState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RevealBrushState {}
 impl ::core::fmt::Debug for RevealBrushState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RevealBrushState").field(&self.0).finish()
@@ -13174,6 +13089,7 @@ unsafe impl ::core::marker::Send for SolidColorBrush {}
 unsafe impl ::core::marker::Sync for SolidColorBrush {}
 #[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct Stereo3DVideoPackingMode(pub i32);
 impl Stereo3DVideoPackingMode {
     pub const None: Self = Self(0i32);
@@ -13189,12 +13105,6 @@ impl ::core::clone::Clone for Stereo3DVideoPackingMode {
 unsafe impl ::windows::core::Abi for Stereo3DVideoPackingMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for Stereo3DVideoPackingMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Stereo3DVideoPackingMode {}
 impl ::core::fmt::Debug for Stereo3DVideoPackingMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("Stereo3DVideoPackingMode").field(&self.0).finish()
@@ -13208,6 +13118,7 @@ impl ::windows::core::DefaultType for Stereo3DVideoPackingMode {
 }
 #[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct Stereo3DVideoRenderMode(pub i32);
 impl Stereo3DVideoRenderMode {
     pub const Mono: Self = Self(0i32);
@@ -13222,12 +13133,6 @@ impl ::core::clone::Clone for Stereo3DVideoRenderMode {
 unsafe impl ::windows::core::Abi for Stereo3DVideoRenderMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for Stereo3DVideoRenderMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Stereo3DVideoRenderMode {}
 impl ::core::fmt::Debug for Stereo3DVideoRenderMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("Stereo3DVideoRenderMode").field(&self.0).finish()
@@ -13241,6 +13146,7 @@ impl ::windows::core::DefaultType for Stereo3DVideoRenderMode {
 }
 #[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct Stretch(pub i32);
 impl Stretch {
     pub const None: Self = Self(0i32);
@@ -13257,12 +13163,6 @@ impl ::core::clone::Clone for Stretch {
 unsafe impl ::windows::core::Abi for Stretch {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for Stretch {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Stretch {}
 impl ::core::fmt::Debug for Stretch {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("Stretch").field(&self.0).finish()
@@ -13276,6 +13176,7 @@ impl ::windows::core::DefaultType for Stretch {
 }
 #[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct StyleSimulations(pub i32);
 impl StyleSimulations {
     pub const None: Self = Self(0i32);
@@ -13292,12 +13193,6 @@ impl ::core::clone::Clone for StyleSimulations {
 unsafe impl ::windows::core::Abi for StyleSimulations {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for StyleSimulations {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StyleSimulations {}
 impl ::core::fmt::Debug for StyleSimulations {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("StyleSimulations").field(&self.0).finish()
@@ -13311,6 +13206,7 @@ impl ::windows::core::DefaultType for StyleSimulations {
 }
 #[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SweepDirection(pub i32);
 impl SweepDirection {
     pub const Counterclockwise: Self = Self(0i32);
@@ -13325,12 +13221,6 @@ impl ::core::clone::Clone for SweepDirection {
 unsafe impl ::windows::core::Abi for SweepDirection {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SweepDirection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SweepDirection {}
 impl ::core::fmt::Debug for SweepDirection {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SweepDirection").field(&self.0).finish()

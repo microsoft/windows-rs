@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'Foundation_Collections'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CollectionChange(pub i32);
 impl CollectionChange {
     pub const Reset: Self = Self(0i32);
@@ -17,12 +18,6 @@ impl ::core::clone::Clone for CollectionChange {
 unsafe impl ::windows::core::Abi for CollectionChange {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CollectionChange {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CollectionChange {}
 impl ::core::fmt::Debug for CollectionChange {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CollectionChange").field(&self.0).finish()

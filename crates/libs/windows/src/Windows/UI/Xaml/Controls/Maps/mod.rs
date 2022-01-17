@@ -3401,6 +3401,7 @@ unsafe impl ::core::marker::Send for MapActualCameraChangingEventArgs {}
 unsafe impl ::core::marker::Sync for MapActualCameraChangingEventArgs {}
 #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MapAnimationKind(pub i32);
 impl MapAnimationKind {
     pub const Default: Self = Self(0i32);
@@ -3417,12 +3418,6 @@ impl ::core::clone::Clone for MapAnimationKind {
 unsafe impl ::windows::core::Abi for MapAnimationKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MapAnimationKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MapAnimationKind {}
 impl ::core::fmt::Debug for MapAnimationKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MapAnimationKind").field(&self.0).finish()
@@ -3850,6 +3845,7 @@ unsafe impl ::core::marker::Send for MapCamera {}
 unsafe impl ::core::marker::Sync for MapCamera {}
 #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MapCameraChangeReason(pub i32);
 impl MapCameraChangeReason {
     pub const System: Self = Self(0i32);
@@ -3865,12 +3861,6 @@ impl ::core::clone::Clone for MapCameraChangeReason {
 unsafe impl ::windows::core::Abi for MapCameraChangeReason {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MapCameraChangeReason {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MapCameraChangeReason {}
 impl ::core::fmt::Debug for MapCameraChangeReason {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MapCameraChangeReason").field(&self.0).finish()
@@ -3884,6 +3874,7 @@ impl ::windows::core::DefaultType for MapCameraChangeReason {
 }
 #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MapColorScheme(pub i32);
 impl MapColorScheme {
     pub const Light: Self = Self(0i32);
@@ -3898,12 +3889,6 @@ impl ::core::clone::Clone for MapColorScheme {
 unsafe impl ::windows::core::Abi for MapColorScheme {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MapColorScheme {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MapColorScheme {}
 impl ::core::fmt::Debug for MapColorScheme {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MapColorScheme").field(&self.0).finish()
@@ -7405,6 +7390,7 @@ unsafe impl ::core::marker::Send for MapElementClickEventArgs {}
 unsafe impl ::core::marker::Sync for MapElementClickEventArgs {}
 #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MapElementCollisionBehavior(pub i32);
 impl MapElementCollisionBehavior {
     pub const Hide: Self = Self(0i32);
@@ -7419,12 +7405,6 @@ impl ::core::clone::Clone for MapElementCollisionBehavior {
 unsafe impl ::windows::core::Abi for MapElementCollisionBehavior {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MapElementCollisionBehavior {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MapElementCollisionBehavior {}
 impl ::core::fmt::Debug for MapElementCollisionBehavior {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MapElementCollisionBehavior").field(&self.0).finish()
@@ -8630,6 +8610,7 @@ unsafe impl ::core::marker::Send for MapInputEventArgs {}
 unsafe impl ::core::marker::Sync for MapInputEventArgs {}
 #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MapInteractionMode(pub i32);
 impl MapInteractionMode {
     pub const Auto: Self = Self(0i32);
@@ -8650,12 +8631,6 @@ impl ::core::clone::Clone for MapInteractionMode {
 unsafe impl ::windows::core::Abi for MapInteractionMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MapInteractionMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MapInteractionMode {}
 impl ::core::fmt::Debug for MapInteractionMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MapInteractionMode").field(&self.0).finish()
@@ -9000,6 +8975,7 @@ unsafe impl ::core::marker::Send for MapLayer {}
 unsafe impl ::core::marker::Sync for MapLayer {}
 #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MapLoadingStatus(pub i32);
 impl MapLoadingStatus {
     pub const Loading: Self = Self(0i32);
@@ -9016,12 +8992,6 @@ impl ::core::clone::Clone for MapLoadingStatus {
 unsafe impl ::windows::core::Abi for MapLoadingStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MapLoadingStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MapLoadingStatus {}
 impl ::core::fmt::Debug for MapLoadingStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MapLoadingStatus").field(&self.0).finish()
@@ -9161,6 +9131,7 @@ unsafe impl ::core::marker::Send for MapModel3D {}
 unsafe impl ::core::marker::Sync for MapModel3D {}
 #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MapModel3DShadingOption(pub i32);
 impl MapModel3DShadingOption {
     pub const Default: Self = Self(0i32);
@@ -9176,12 +9147,6 @@ impl ::core::clone::Clone for MapModel3DShadingOption {
 unsafe impl ::windows::core::Abi for MapModel3DShadingOption {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MapModel3DShadingOption {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MapModel3DShadingOption {}
 impl ::core::fmt::Debug for MapModel3DShadingOption {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MapModel3DShadingOption").field(&self.0).finish()
@@ -9195,6 +9160,7 @@ impl ::windows::core::DefaultType for MapModel3DShadingOption {
 }
 #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MapPanInteractionMode(pub i32);
 impl MapPanInteractionMode {
     pub const Auto: Self = Self(0i32);
@@ -9209,12 +9175,6 @@ impl ::core::clone::Clone for MapPanInteractionMode {
 unsafe impl ::windows::core::Abi for MapPanInteractionMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MapPanInteractionMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MapPanInteractionMode {}
 impl ::core::fmt::Debug for MapPanInteractionMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MapPanInteractionMode").field(&self.0).finish()
@@ -9643,6 +9603,7 @@ unsafe impl ::core::marker::Send for MapPolyline {}
 unsafe impl ::core::marker::Sync for MapPolyline {}
 #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MapProjection(pub i32);
 impl MapProjection {
     pub const WebMercator: Self = Self(0i32);
@@ -9657,12 +9618,6 @@ impl ::core::clone::Clone for MapProjection {
 unsafe impl ::windows::core::Abi for MapProjection {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MapProjection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MapProjection {}
 impl ::core::fmt::Debug for MapProjection {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MapProjection").field(&self.0).finish()
@@ -10107,6 +10062,7 @@ unsafe impl ::core::marker::Send for MapScene {}
 unsafe impl ::core::marker::Sync for MapScene {}
 #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MapStyle(pub i32);
 impl MapStyle {
     pub const None: Self = Self(0i32);
@@ -10127,12 +10083,6 @@ impl ::core::clone::Clone for MapStyle {
 unsafe impl ::windows::core::Abi for MapStyle {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MapStyle {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MapStyle {}
 impl ::core::fmt::Debug for MapStyle {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MapStyle").field(&self.0).finish()
@@ -10897,6 +10847,7 @@ unsafe impl ::core::marker::Send for MapTargetCameraChangedEventArgs {}
 unsafe impl ::core::marker::Sync for MapTargetCameraChangedEventArgs {}
 #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MapTileAnimationState(pub i32);
 impl MapTileAnimationState {
     pub const Stopped: Self = Self(0i32);
@@ -10912,12 +10863,6 @@ impl ::core::clone::Clone for MapTileAnimationState {
 unsafe impl ::windows::core::Abi for MapTileAnimationState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MapTileAnimationState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MapTileAnimationState {}
 impl ::core::fmt::Debug for MapTileAnimationState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MapTileAnimationState").field(&self.0).finish()
@@ -11344,6 +11289,7 @@ unsafe impl ::core::marker::Send for MapTileDataSource {}
 unsafe impl ::core::marker::Sync for MapTileDataSource {}
 #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MapTileLayer(pub i32);
 impl MapTileLayer {
     pub const LabelOverlay: Self = Self(0i32);
@@ -11361,12 +11307,6 @@ impl ::core::clone::Clone for MapTileLayer {
 unsafe impl ::windows::core::Abi for MapTileLayer {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MapTileLayer {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MapTileLayer {}
 impl ::core::fmt::Debug for MapTileLayer {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MapTileLayer").field(&self.0).finish()
@@ -12147,6 +12087,7 @@ unsafe impl ::core::marker::Send for MapTileUriRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for MapTileUriRequestedEventArgs {}
 #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MapVisibleRegionKind(pub i32);
 impl MapVisibleRegionKind {
     pub const Near: Self = Self(0i32);
@@ -12161,12 +12102,6 @@ impl ::core::clone::Clone for MapVisibleRegionKind {
 unsafe impl ::windows::core::Abi for MapVisibleRegionKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MapVisibleRegionKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MapVisibleRegionKind {}
 impl ::core::fmt::Debug for MapVisibleRegionKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MapVisibleRegionKind").field(&self.0).finish()
@@ -12180,6 +12115,7 @@ impl ::windows::core::DefaultType for MapVisibleRegionKind {
 }
 #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MapWatermarkMode(pub i32);
 impl MapWatermarkMode {
     pub const Automatic: Self = Self(0i32);
@@ -12194,12 +12130,6 @@ impl ::core::clone::Clone for MapWatermarkMode {
 unsafe impl ::windows::core::Abi for MapWatermarkMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MapWatermarkMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MapWatermarkMode {}
 impl ::core::fmt::Debug for MapWatermarkMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MapWatermarkMode").field(&self.0).finish()

@@ -9,6 +9,7 @@ path = "../../libs/windows"
 features = [
     "Win32_Foundation",
     "Win32_Graphics_Gdi",
+    "Win32_System_Registry",
 ]
 
 [dependencies.windows-sys]

@@ -380,6 +380,7 @@ unsafe impl ::core::marker::Send for CertificateChain {}
 unsafe impl ::core::marker::Sync for CertificateChain {}
 #[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CertificateChainPolicy(pub i32);
 impl CertificateChainPolicy {
     pub const Base: Self = Self(0i32);
@@ -396,12 +397,6 @@ impl ::core::clone::Clone for CertificateChainPolicy {
 unsafe impl ::windows::core::Abi for CertificateChainPolicy {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CertificateChainPolicy {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CertificateChainPolicy {}
 impl ::core::fmt::Debug for CertificateChainPolicy {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CertificateChainPolicy").field(&self.0).finish()
@@ -1724,6 +1719,7 @@ unsafe impl ::core::marker::Send for ChainValidationParameters {}
 unsafe impl ::core::marker::Sync for ChainValidationParameters {}
 #[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ChainValidationResult(pub i32);
 impl ChainValidationResult {
     pub const Success: Self = Self(0i32);
@@ -1750,12 +1746,6 @@ impl ::core::clone::Clone for ChainValidationResult {
 unsafe impl ::windows::core::Abi for ChainValidationResult {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ChainValidationResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ChainValidationResult {}
 impl ::core::fmt::Debug for ChainValidationResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ChainValidationResult").field(&self.0).finish()
@@ -2241,6 +2231,7 @@ unsafe impl ::core::marker::Send for CmsTimestampInfo {}
 unsafe impl ::core::marker::Sync for CmsTimestampInfo {}
 #[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EnrollKeyUsages(pub u32);
 impl EnrollKeyUsages {
     pub const None: Self = Self(0u32);
@@ -2258,12 +2249,6 @@ impl ::core::clone::Clone for EnrollKeyUsages {
 unsafe impl ::windows::core::Abi for EnrollKeyUsages {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EnrollKeyUsages {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EnrollKeyUsages {}
 impl ::core::fmt::Debug for EnrollKeyUsages {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EnrollKeyUsages").field(&self.0).finish()
@@ -2305,6 +2290,7 @@ impl ::windows::core::DefaultType for EnrollKeyUsages {
 }
 #[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ExportOption(pub i32);
 impl ExportOption {
     pub const NotExportable: Self = Self(0i32);
@@ -2319,12 +2305,6 @@ impl ::core::clone::Clone for ExportOption {
 unsafe impl ::windows::core::Abi for ExportOption {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ExportOption {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ExportOption {}
 impl ::core::fmt::Debug for ExportOption {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ExportOption").field(&self.0).finish()
@@ -3333,6 +3313,7 @@ pub struct IUserCertificateStoreVtbl(
 );
 #[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct InstallOptions(pub u32);
 impl InstallOptions {
     pub const None: Self = Self(0u32);
@@ -3347,12 +3328,6 @@ impl ::core::clone::Clone for InstallOptions {
 unsafe impl ::windows::core::Abi for InstallOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for InstallOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InstallOptions {}
 impl ::core::fmt::Debug for InstallOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("InstallOptions").field(&self.0).finish()
@@ -3521,6 +3496,7 @@ impl ::windows::core::RuntimeName for KeyAttestationHelper {
 }
 #[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct KeyProtectionLevel(pub i32);
 impl KeyProtectionLevel {
     pub const NoConsent: Self = Self(0i32);
@@ -3537,12 +3513,6 @@ impl ::core::clone::Clone for KeyProtectionLevel {
 unsafe impl ::windows::core::Abi for KeyProtectionLevel {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for KeyProtectionLevel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for KeyProtectionLevel {}
 impl ::core::fmt::Debug for KeyProtectionLevel {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("KeyProtectionLevel").field(&self.0).finish()
@@ -3556,6 +3526,7 @@ impl ::windows::core::DefaultType for KeyProtectionLevel {
 }
 #[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct KeySize(pub i32);
 impl KeySize {
     pub const Invalid: Self = Self(0i32);
@@ -3571,12 +3542,6 @@ impl ::core::clone::Clone for KeySize {
 unsafe impl ::windows::core::Abi for KeySize {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for KeySize {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for KeySize {}
 impl ::core::fmt::Debug for KeySize {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("KeySize").field(&self.0).finish()
@@ -3806,6 +3771,7 @@ unsafe impl ::core::marker::Send for PfxImportParameters {}
 unsafe impl ::core::marker::Sync for PfxImportParameters {}
 #[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SignatureValidationResult(pub i32);
 impl SignatureValidationResult {
     pub const Success: Self = Self(0i32);
@@ -3823,12 +3789,6 @@ impl ::core::clone::Clone for SignatureValidationResult {
 unsafe impl ::windows::core::Abi for SignatureValidationResult {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SignatureValidationResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SignatureValidationResult {}
 impl ::core::fmt::Debug for SignatureValidationResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SignatureValidationResult").field(&self.0).finish()

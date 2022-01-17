@@ -931,6 +931,7 @@ pub struct INotifyCollectionChangedEventArgsFactoryVtbl(
 );
 #[doc = "*Required features: 'UI_Xaml_Interop'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct NotifyCollectionChangedAction(pub i32);
 impl NotifyCollectionChangedAction {
     pub const Add: Self = Self(0i32);
@@ -948,12 +949,6 @@ impl ::core::clone::Clone for NotifyCollectionChangedAction {
 unsafe impl ::windows::core::Abi for NotifyCollectionChangedAction {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for NotifyCollectionChangedAction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for NotifyCollectionChangedAction {}
 impl ::core::fmt::Debug for NotifyCollectionChangedAction {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NotifyCollectionChangedAction").field(&self.0).finish()
@@ -1167,6 +1162,7 @@ unsafe impl ::windows::core::RuntimeType for NotifyCollectionChangedEventHandler
 pub struct NotifyCollectionChangedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[doc = "*Required features: 'UI_Xaml_Interop'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TypeKind(pub i32);
 impl TypeKind {
     pub const Primitive: Self = Self(0i32);
@@ -1182,12 +1178,6 @@ impl ::core::clone::Clone for TypeKind {
 unsafe impl ::windows::core::Abi for TypeKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TypeKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TypeKind {}
 impl ::core::fmt::Debug for TypeKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TypeKind").field(&self.0).finish()

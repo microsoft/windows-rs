@@ -1201,6 +1201,7 @@ unsafe impl ::core::marker::Send for PrintWorkflowForegroundSetupRequestedEventA
 unsafe impl ::core::marker::Sync for PrintWorkflowForegroundSetupRequestedEventArgs {}
 #[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PrintWorkflowJobAbortReason(pub i32);
 impl PrintWorkflowJobAbortReason {
     pub const JobFailed: Self = Self(0i32);
@@ -1215,12 +1216,6 @@ impl ::core::clone::Clone for PrintWorkflowJobAbortReason {
 unsafe impl ::windows::core::Abi for PrintWorkflowJobAbortReason {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PrintWorkflowJobAbortReason {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintWorkflowJobAbortReason {}
 impl ::core::fmt::Debug for PrintWorkflowJobAbortReason {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PrintWorkflowJobAbortReason").field(&self.0).finish()
@@ -2076,6 +2071,7 @@ unsafe impl ::core::marker::Send for PrintWorkflowObjectModelTargetPackage {}
 unsafe impl ::core::marker::Sync for PrintWorkflowObjectModelTargetPackage {}
 #[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PrintWorkflowPdlConversionType(pub i32);
 impl PrintWorkflowPdlConversionType {
     pub const XpsToPdf: Self = Self(0i32);
@@ -2091,12 +2087,6 @@ impl ::core::clone::Clone for PrintWorkflowPdlConversionType {
 unsafe impl ::windows::core::Abi for PrintWorkflowPdlConversionType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PrintWorkflowPdlConversionType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintWorkflowPdlConversionType {}
 impl ::core::fmt::Debug for PrintWorkflowPdlConversionType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PrintWorkflowPdlConversionType").field(&self.0).finish()
@@ -2775,6 +2765,7 @@ unsafe impl ::core::marker::Send for PrintWorkflowPrinterJob {}
 unsafe impl ::core::marker::Sync for PrintWorkflowPrinterJob {}
 #[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PrintWorkflowPrinterJobStatus(pub i32);
 impl PrintWorkflowPrinterJobStatus {
     pub const Error: Self = Self(0i32);
@@ -2791,12 +2782,6 @@ impl ::core::clone::Clone for PrintWorkflowPrinterJobStatus {
 unsafe impl ::windows::core::Abi for PrintWorkflowPrinterJobStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PrintWorkflowPrinterJobStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintWorkflowPrinterJobStatus {}
 impl ::core::fmt::Debug for PrintWorkflowPrinterJobStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PrintWorkflowPrinterJobStatus").field(&self.0).finish()
@@ -2810,6 +2795,7 @@ impl ::windows::core::DefaultType for PrintWorkflowPrinterJobStatus {
 }
 #[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PrintWorkflowSessionStatus(pub i32);
 impl PrintWorkflowSessionStatus {
     pub const Started: Self = Self(0i32);
@@ -2827,12 +2813,6 @@ impl ::core::clone::Clone for PrintWorkflowSessionStatus {
 unsafe impl ::windows::core::Abi for PrintWorkflowSessionStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PrintWorkflowSessionStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintWorkflowSessionStatus {}
 impl ::core::fmt::Debug for PrintWorkflowSessionStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PrintWorkflowSessionStatus").field(&self.0).finish()
@@ -3301,6 +3281,7 @@ unsafe impl ::core::marker::Send for PrintWorkflowSubmittedOperation {}
 unsafe impl ::core::marker::Sync for PrintWorkflowSubmittedOperation {}
 #[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PrintWorkflowSubmittedStatus(pub i32);
 impl PrintWorkflowSubmittedStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -3316,12 +3297,6 @@ impl ::core::clone::Clone for PrintWorkflowSubmittedStatus {
 unsafe impl ::windows::core::Abi for PrintWorkflowSubmittedStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PrintWorkflowSubmittedStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintWorkflowSubmittedStatus {}
 impl ::core::fmt::Debug for PrintWorkflowSubmittedStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PrintWorkflowSubmittedStatus").field(&self.0).finish()
@@ -3674,6 +3649,7 @@ unsafe impl ::core::marker::Send for PrintWorkflowUIActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintWorkflowUIActivatedEventArgs {}
 #[doc = "*Required features: 'Graphics_Printing_Workflow'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PrintWorkflowUICompletionStatus(pub i32);
 impl PrintWorkflowUICompletionStatus {
     pub const Completed: Self = Self(0i32);
@@ -3690,12 +3666,6 @@ impl ::core::clone::Clone for PrintWorkflowUICompletionStatus {
 unsafe impl ::windows::core::Abi for PrintWorkflowUICompletionStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PrintWorkflowUICompletionStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintWorkflowUICompletionStatus {}
 impl ::core::fmt::Debug for PrintWorkflowUICompletionStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PrintWorkflowUICompletionStatus").field(&self.0).finish()

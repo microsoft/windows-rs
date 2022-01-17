@@ -140,6 +140,7 @@ unsafe impl ::core::marker::Send for DnssdRegistrationResult {}
 unsafe impl ::core::marker::Sync for DnssdRegistrationResult {}
 #[doc = "*Required features: 'Networking_ServiceDiscovery_Dnssd'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DnssdRegistrationStatus(pub i32);
 impl DnssdRegistrationStatus {
     pub const Success: Self = Self(0i32);
@@ -156,12 +157,6 @@ impl ::core::clone::Clone for DnssdRegistrationStatus {
 unsafe impl ::windows::core::Abi for DnssdRegistrationStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DnssdRegistrationStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DnssdRegistrationStatus {}
 impl ::core::fmt::Debug for DnssdRegistrationStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DnssdRegistrationStatus").field(&self.0).finish()
@@ -746,6 +741,7 @@ unsafe impl ::core::marker::Send for DnssdServiceWatcher {}
 unsafe impl ::core::marker::Sync for DnssdServiceWatcher {}
 #[doc = "*Required features: 'Networking_ServiceDiscovery_Dnssd'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DnssdServiceWatcherStatus(pub i32);
 impl DnssdServiceWatcherStatus {
     pub const Created: Self = Self(0i32);
@@ -764,12 +760,6 @@ impl ::core::clone::Clone for DnssdServiceWatcherStatus {
 unsafe impl ::windows::core::Abi for DnssdServiceWatcherStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DnssdServiceWatcherStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DnssdServiceWatcherStatus {}
 impl ::core::fmt::Debug for DnssdServiceWatcherStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DnssdServiceWatcherStatus").field(&self.0).finish()

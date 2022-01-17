@@ -322,6 +322,7 @@ unsafe impl ::core::marker::Send for MicrosoftAccountMultiFactorAuthenticationMa
 unsafe impl ::core::marker::Sync for MicrosoftAccountMultiFactorAuthenticationManager {}
 #[doc = "*Required features: 'Security_Authentication_Identity_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MicrosoftAccountMultiFactorAuthenticationType(pub i32);
 impl MicrosoftAccountMultiFactorAuthenticationType {
     pub const User: Self = Self(0i32);
@@ -336,12 +337,6 @@ impl ::core::clone::Clone for MicrosoftAccountMultiFactorAuthenticationType {
 unsafe impl ::windows::core::Abi for MicrosoftAccountMultiFactorAuthenticationType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MicrosoftAccountMultiFactorAuthenticationType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MicrosoftAccountMultiFactorAuthenticationType {}
 impl ::core::fmt::Debug for MicrosoftAccountMultiFactorAuthenticationType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MicrosoftAccountMultiFactorAuthenticationType").field(&self.0).finish()
@@ -552,6 +547,7 @@ unsafe impl ::core::marker::Send for MicrosoftAccountMultiFactorOneTimeCodedInfo
 unsafe impl ::core::marker::Sync for MicrosoftAccountMultiFactorOneTimeCodedInfo {}
 #[doc = "*Required features: 'Security_Authentication_Identity_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MicrosoftAccountMultiFactorServiceResponse(pub i32);
 impl MicrosoftAccountMultiFactorServiceResponse {
     pub const Success: Self = Self(0i32);
@@ -586,12 +582,6 @@ impl ::core::clone::Clone for MicrosoftAccountMultiFactorServiceResponse {
 unsafe impl ::windows::core::Abi for MicrosoftAccountMultiFactorServiceResponse {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MicrosoftAccountMultiFactorServiceResponse {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MicrosoftAccountMultiFactorServiceResponse {}
 impl ::core::fmt::Debug for MicrosoftAccountMultiFactorServiceResponse {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MicrosoftAccountMultiFactorServiceResponse").field(&self.0).finish()
@@ -605,6 +595,7 @@ impl ::windows::core::DefaultType for MicrosoftAccountMultiFactorServiceResponse
 }
 #[doc = "*Required features: 'Security_Authentication_Identity_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MicrosoftAccountMultiFactorSessionApprovalStatus(pub i32);
 impl MicrosoftAccountMultiFactorSessionApprovalStatus {
     pub const Pending: Self = Self(0i32);
@@ -620,12 +611,6 @@ impl ::core::clone::Clone for MicrosoftAccountMultiFactorSessionApprovalStatus {
 unsafe impl ::windows::core::Abi for MicrosoftAccountMultiFactorSessionApprovalStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MicrosoftAccountMultiFactorSessionApprovalStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MicrosoftAccountMultiFactorSessionApprovalStatus {}
 impl ::core::fmt::Debug for MicrosoftAccountMultiFactorSessionApprovalStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MicrosoftAccountMultiFactorSessionApprovalStatus").field(&self.0).finish()
@@ -639,6 +624,7 @@ impl ::windows::core::DefaultType for MicrosoftAccountMultiFactorSessionApproval
 }
 #[doc = "*Required features: 'Security_Authentication_Identity_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MicrosoftAccountMultiFactorSessionAuthenticationStatus(pub i32);
 impl MicrosoftAccountMultiFactorSessionAuthenticationStatus {
     pub const Authenticated: Self = Self(0i32);
@@ -653,12 +639,6 @@ impl ::core::clone::Clone for MicrosoftAccountMultiFactorSessionAuthenticationSt
 unsafe impl ::windows::core::Abi for MicrosoftAccountMultiFactorSessionAuthenticationStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MicrosoftAccountMultiFactorSessionAuthenticationStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MicrosoftAccountMultiFactorSessionAuthenticationStatus {}
 impl ::core::fmt::Debug for MicrosoftAccountMultiFactorSessionAuthenticationStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MicrosoftAccountMultiFactorSessionAuthenticationStatus").field(&self.0).finish()

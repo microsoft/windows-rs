@@ -647,6 +647,7 @@ impl ::core::default::Default for CUSTOM_SYSTEM_EVENT_TRIGGER_CONFIG {
 pub const CameraUIControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16d5a2be_b1c5_47b3_8eae_ccbcf452c7e8);
 #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CameraUIControlCaptureMode(pub i32);
 impl CameraUIControlCaptureMode {
     pub const PhotoOrVideo: Self = Self(0i32);
@@ -662,12 +663,6 @@ impl ::core::clone::Clone for CameraUIControlCaptureMode {
 unsafe impl ::windows::core::Abi for CameraUIControlCaptureMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CameraUIControlCaptureMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CameraUIControlCaptureMode {}
 impl ::core::fmt::Debug for CameraUIControlCaptureMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CameraUIControlCaptureMode").field(&self.0).finish()
@@ -675,6 +670,7 @@ impl ::core::fmt::Debug for CameraUIControlCaptureMode {
 }
 #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CameraUIControlLinearSelectionMode(pub i32);
 impl CameraUIControlLinearSelectionMode {
     pub const Single: Self = Self(0i32);
@@ -689,12 +685,6 @@ impl ::core::clone::Clone for CameraUIControlLinearSelectionMode {
 unsafe impl ::windows::core::Abi for CameraUIControlLinearSelectionMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CameraUIControlLinearSelectionMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CameraUIControlLinearSelectionMode {}
 impl ::core::fmt::Debug for CameraUIControlLinearSelectionMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CameraUIControlLinearSelectionMode").field(&self.0).finish()
@@ -702,6 +692,7 @@ impl ::core::fmt::Debug for CameraUIControlLinearSelectionMode {
 }
 #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CameraUIControlMode(pub i32);
 impl CameraUIControlMode {
     pub const Browse: Self = Self(0i32);
@@ -716,12 +707,6 @@ impl ::core::clone::Clone for CameraUIControlMode {
 unsafe impl ::windows::core::Abi for CameraUIControlMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CameraUIControlMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CameraUIControlMode {}
 impl ::core::fmt::Debug for CameraUIControlMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CameraUIControlMode").field(&self.0).finish()
@@ -729,6 +714,7 @@ impl ::core::fmt::Debug for CameraUIControlMode {
 }
 #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CameraUIControlPhotoFormat(pub i32);
 impl CameraUIControlPhotoFormat {
     pub const Jpeg: Self = Self(0i32);
@@ -744,12 +730,6 @@ impl ::core::clone::Clone for CameraUIControlPhotoFormat {
 unsafe impl ::windows::core::Abi for CameraUIControlPhotoFormat {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CameraUIControlPhotoFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CameraUIControlPhotoFormat {}
 impl ::core::fmt::Debug for CameraUIControlPhotoFormat {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CameraUIControlPhotoFormat").field(&self.0).finish()
@@ -757,6 +737,7 @@ impl ::core::fmt::Debug for CameraUIControlPhotoFormat {
 }
 #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CameraUIControlVideoFormat(pub i32);
 impl CameraUIControlVideoFormat {
     pub const Mp4: Self = Self(0i32);
@@ -771,12 +752,6 @@ impl ::core::clone::Clone for CameraUIControlVideoFormat {
 unsafe impl ::windows::core::Abi for CameraUIControlVideoFormat {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CameraUIControlVideoFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CameraUIControlVideoFormat {}
 impl ::core::fmt::Debug for CameraUIControlVideoFormat {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CameraUIControlVideoFormat").field(&self.0).finish()
@@ -784,6 +759,7 @@ impl ::core::fmt::Debug for CameraUIControlVideoFormat {
 }
 #[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CameraUIControlViewType(pub i32);
 impl CameraUIControlViewType {
     pub const SingleItem: Self = Self(0i32);
@@ -798,12 +774,6 @@ impl ::core::clone::Clone for CameraUIControlViewType {
 unsafe impl ::windows::core::Abi for CameraUIControlViewType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CameraUIControlViewType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CameraUIControlViewType {}
 impl ::core::fmt::Debug for CameraUIControlViewType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CameraUIControlViewType").field(&self.0).finish()

@@ -387,6 +387,7 @@ unsafe impl ::core::marker::Send for BackgroundDownloader {}
 unsafe impl ::core::marker::Sync for BackgroundDownloader {}
 #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct BackgroundTransferBehavior(pub i32);
 impl BackgroundTransferBehavior {
     pub const Parallel: Self = Self(0i32);
@@ -401,12 +402,6 @@ impl ::core::clone::Clone for BackgroundTransferBehavior {
 unsafe impl ::windows::core::Abi for BackgroundTransferBehavior {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BackgroundTransferBehavior {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BackgroundTransferBehavior {}
 impl ::core::fmt::Debug for BackgroundTransferBehavior {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BackgroundTransferBehavior").field(&self.0).finish()
@@ -728,6 +723,7 @@ unsafe impl ::core::marker::Send for BackgroundTransferContentPart {}
 unsafe impl ::core::marker::Sync for BackgroundTransferContentPart {}
 #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct BackgroundTransferCostPolicy(pub i32);
 impl BackgroundTransferCostPolicy {
     pub const Default: Self = Self(0i32);
@@ -743,12 +739,6 @@ impl ::core::clone::Clone for BackgroundTransferCostPolicy {
 unsafe impl ::windows::core::Abi for BackgroundTransferCostPolicy {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BackgroundTransferCostPolicy {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BackgroundTransferCostPolicy {}
 impl ::core::fmt::Debug for BackgroundTransferCostPolicy {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BackgroundTransferCostPolicy").field(&self.0).finish()
@@ -925,6 +915,7 @@ unsafe impl ::core::marker::Send for BackgroundTransferGroup {}
 unsafe impl ::core::marker::Sync for BackgroundTransferGroup {}
 #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct BackgroundTransferPriority(pub i32);
 impl BackgroundTransferPriority {
     pub const Default: Self = Self(0i32);
@@ -940,12 +931,6 @@ impl ::core::clone::Clone for BackgroundTransferPriority {
 unsafe impl ::windows::core::Abi for BackgroundTransferPriority {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BackgroundTransferPriority {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BackgroundTransferPriority {}
 impl ::core::fmt::Debug for BackgroundTransferPriority {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BackgroundTransferPriority").field(&self.0).finish()
@@ -1058,6 +1043,7 @@ unsafe impl ::core::marker::Send for BackgroundTransferRangesDownloadedEventArgs
 unsafe impl ::core::marker::Sync for BackgroundTransferRangesDownloadedEventArgs {}
 #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct BackgroundTransferStatus(pub i32);
 impl BackgroundTransferStatus {
     pub const Idle: Self = Self(0i32);
@@ -1080,12 +1066,6 @@ impl ::core::clone::Clone for BackgroundTransferStatus {
 unsafe impl ::windows::core::Abi for BackgroundTransferStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BackgroundTransferStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BackgroundTransferStatus {}
 impl ::core::fmt::Debug for BackgroundTransferStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BackgroundTransferStatus").field(&self.0).finish()

@@ -771,6 +771,7 @@ unsafe impl ::core::marker::Send for PushNotificationReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for PushNotificationReceivedEventArgs {}
 #[doc = "*Required features: 'Networking_PushNotifications'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PushNotificationType(pub i32);
 impl PushNotificationType {
     pub const Toast: Self = Self(0i32);
@@ -788,12 +789,6 @@ impl ::core::clone::Clone for PushNotificationType {
 unsafe impl ::windows::core::Abi for PushNotificationType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PushNotificationType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PushNotificationType {}
 impl ::core::fmt::Debug for PushNotificationType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PushNotificationType").field(&self.0).finish()

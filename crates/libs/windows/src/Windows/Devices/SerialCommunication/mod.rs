@@ -658,6 +658,7 @@ unsafe impl ::core::marker::Send for SerialDevice {}
 unsafe impl ::core::marker::Sync for SerialDevice {}
 #[doc = "*Required features: 'Devices_SerialCommunication'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SerialError(pub i32);
 impl SerialError {
     pub const Frame: Self = Self(0i32);
@@ -675,12 +676,6 @@ impl ::core::clone::Clone for SerialError {
 unsafe impl ::windows::core::Abi for SerialError {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SerialError {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SerialError {}
 impl ::core::fmt::Debug for SerialError {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SerialError").field(&self.0).finish()
@@ -694,6 +689,7 @@ impl ::windows::core::DefaultType for SerialError {
 }
 #[doc = "*Required features: 'Devices_SerialCommunication'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SerialHandshake(pub i32);
 impl SerialHandshake {
     pub const None: Self = Self(0i32);
@@ -710,12 +706,6 @@ impl ::core::clone::Clone for SerialHandshake {
 unsafe impl ::windows::core::Abi for SerialHandshake {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SerialHandshake {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SerialHandshake {}
 impl ::core::fmt::Debug for SerialHandshake {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SerialHandshake").field(&self.0).finish()
@@ -729,6 +719,7 @@ impl ::windows::core::DefaultType for SerialHandshake {
 }
 #[doc = "*Required features: 'Devices_SerialCommunication'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SerialParity(pub i32);
 impl SerialParity {
     pub const None: Self = Self(0i32);
@@ -746,12 +737,6 @@ impl ::core::clone::Clone for SerialParity {
 unsafe impl ::windows::core::Abi for SerialParity {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SerialParity {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SerialParity {}
 impl ::core::fmt::Debug for SerialParity {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SerialParity").field(&self.0).finish()
@@ -765,6 +750,7 @@ impl ::windows::core::DefaultType for SerialParity {
 }
 #[doc = "*Required features: 'Devices_SerialCommunication'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SerialPinChange(pub i32);
 impl SerialPinChange {
     pub const BreakSignal: Self = Self(0i32);
@@ -782,12 +768,6 @@ impl ::core::clone::Clone for SerialPinChange {
 unsafe impl ::windows::core::Abi for SerialPinChange {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SerialPinChange {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SerialPinChange {}
 impl ::core::fmt::Debug for SerialPinChange {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SerialPinChange").field(&self.0).finish()
@@ -801,6 +781,7 @@ impl ::windows::core::DefaultType for SerialPinChange {
 }
 #[doc = "*Required features: 'Devices_SerialCommunication'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SerialStopBitCount(pub i32);
 impl SerialStopBitCount {
     pub const One: Self = Self(0i32);
@@ -816,12 +797,6 @@ impl ::core::clone::Clone for SerialStopBitCount {
 unsafe impl ::windows::core::Abi for SerialStopBitCount {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SerialStopBitCount {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SerialStopBitCount {}
 impl ::core::fmt::Debug for SerialStopBitCount {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SerialStopBitCount").field(&self.0).finish()

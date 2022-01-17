@@ -110,6 +110,7 @@ impl ::windows::core::RuntimeName for MdmPolicy {
 }
 #[doc = "*Required features: 'Management_Workplace'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MessagingSyncPolicy(pub i32);
 impl MessagingSyncPolicy {
     pub const Disallowed: Self = Self(0i32);
@@ -125,12 +126,6 @@ impl ::core::clone::Clone for MessagingSyncPolicy {
 unsafe impl ::windows::core::Abi for MessagingSyncPolicy {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MessagingSyncPolicy {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MessagingSyncPolicy {}
 impl ::core::fmt::Debug for MessagingSyncPolicy {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MessagingSyncPolicy").field(&self.0).finish()

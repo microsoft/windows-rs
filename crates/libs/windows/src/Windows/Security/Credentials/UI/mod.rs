@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'Security_Credentials_UI'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AuthenticationProtocol(pub i32);
 impl AuthenticationProtocol {
     pub const Basic: Self = Self(0i32);
@@ -20,12 +21,6 @@ impl ::core::clone::Clone for AuthenticationProtocol {
 unsafe impl ::windows::core::Abi for AuthenticationProtocol {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AuthenticationProtocol {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AuthenticationProtocol {}
 impl ::core::fmt::Debug for AuthenticationProtocol {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AuthenticationProtocol").field(&self.0).finish()
@@ -413,6 +408,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cred
 }
 #[doc = "*Required features: 'Security_Credentials_UI'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CredentialSaveOption(pub i32);
 impl CredentialSaveOption {
     pub const Unselected: Self = Self(0i32);
@@ -428,12 +424,6 @@ impl ::core::clone::Clone for CredentialSaveOption {
 unsafe impl ::windows::core::Abi for CredentialSaveOption {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CredentialSaveOption {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CredentialSaveOption {}
 impl ::core::fmt::Debug for CredentialSaveOption {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CredentialSaveOption").field(&self.0).finish()
@@ -555,6 +545,7 @@ pub struct IUserConsentVerifierStaticsVtbl(
 );
 #[doc = "*Required features: 'Security_Credentials_UI'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserConsentVerificationResult(pub i32);
 impl UserConsentVerificationResult {
     pub const Verified: Self = Self(0i32);
@@ -574,12 +565,6 @@ impl ::core::clone::Clone for UserConsentVerificationResult {
 unsafe impl ::windows::core::Abi for UserConsentVerificationResult {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UserConsentVerificationResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserConsentVerificationResult {}
 impl ::core::fmt::Debug for UserConsentVerificationResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserConsentVerificationResult").field(&self.0).finish()
@@ -621,6 +606,7 @@ impl ::windows::core::RuntimeName for UserConsentVerifier {
 }
 #[doc = "*Required features: 'Security_Credentials_UI'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserConsentVerifierAvailability(pub i32);
 impl UserConsentVerifierAvailability {
     pub const Available: Self = Self(0i32);
@@ -638,12 +624,6 @@ impl ::core::clone::Clone for UserConsentVerifierAvailability {
 unsafe impl ::windows::core::Abi for UserConsentVerifierAvailability {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UserConsentVerifierAvailability {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserConsentVerifierAvailability {}
 impl ::core::fmt::Debug for UserConsentVerifierAvailability {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserConsentVerifierAvailability").field(&self.0).finish()

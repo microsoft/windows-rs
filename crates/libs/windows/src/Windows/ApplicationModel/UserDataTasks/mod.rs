@@ -704,6 +704,7 @@ unsafe impl ::core::marker::Send for UserDataTaskBatch {}
 unsafe impl ::core::marker::Sync for UserDataTaskBatch {}
 #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserDataTaskDaysOfWeek(pub u32);
 impl UserDataTaskDaysOfWeek {
     pub const None: Self = Self(0u32);
@@ -724,12 +725,6 @@ impl ::core::clone::Clone for UserDataTaskDaysOfWeek {
 unsafe impl ::windows::core::Abi for UserDataTaskDaysOfWeek {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UserDataTaskDaysOfWeek {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataTaskDaysOfWeek {}
 impl ::core::fmt::Debug for UserDataTaskDaysOfWeek {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserDataTaskDaysOfWeek").field(&self.0).finish()
@@ -771,6 +766,7 @@ impl ::windows::core::DefaultType for UserDataTaskDaysOfWeek {
 }
 #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserDataTaskDetailsKind(pub i32);
 impl UserDataTaskDetailsKind {
     pub const PlainText: Self = Self(0i32);
@@ -785,12 +781,6 @@ impl ::core::clone::Clone for UserDataTaskDetailsKind {
 unsafe impl ::windows::core::Abi for UserDataTaskDetailsKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UserDataTaskDetailsKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataTaskDetailsKind {}
 impl ::core::fmt::Debug for UserDataTaskDetailsKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserDataTaskDetailsKind").field(&self.0).finish()
@@ -804,6 +794,7 @@ impl ::windows::core::DefaultType for UserDataTaskDetailsKind {
 }
 #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserDataTaskKind(pub i32);
 impl UserDataTaskKind {
     pub const Single: Self = Self(0i32);
@@ -819,12 +810,6 @@ impl ::core::clone::Clone for UserDataTaskKind {
 unsafe impl ::windows::core::Abi for UserDataTaskKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UserDataTaskKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataTaskKind {}
 impl ::core::fmt::Debug for UserDataTaskKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserDataTaskKind").field(&self.0).finish()
@@ -1169,6 +1154,7 @@ unsafe impl ::core::marker::Send for UserDataTaskListLimitedWriteOperations {}
 unsafe impl ::core::marker::Sync for UserDataTaskListLimitedWriteOperations {}
 #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserDataTaskListOtherAppReadAccess(pub i32);
 impl UserDataTaskListOtherAppReadAccess {
     pub const Full: Self = Self(0i32);
@@ -1184,12 +1170,6 @@ impl ::core::clone::Clone for UserDataTaskListOtherAppReadAccess {
 unsafe impl ::windows::core::Abi for UserDataTaskListOtherAppReadAccess {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UserDataTaskListOtherAppReadAccess {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataTaskListOtherAppReadAccess {}
 impl ::core::fmt::Debug for UserDataTaskListOtherAppReadAccess {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserDataTaskListOtherAppReadAccess").field(&self.0).finish()
@@ -1203,6 +1183,7 @@ impl ::windows::core::DefaultType for UserDataTaskListOtherAppReadAccess {
 }
 #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserDataTaskListOtherAppWriteAccess(pub i32);
 impl UserDataTaskListOtherAppWriteAccess {
     pub const Limited: Self = Self(0i32);
@@ -1217,12 +1198,6 @@ impl ::core::clone::Clone for UserDataTaskListOtherAppWriteAccess {
 unsafe impl ::windows::core::Abi for UserDataTaskListOtherAppWriteAccess {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UserDataTaskListOtherAppWriteAccess {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataTaskListOtherAppWriteAccess {}
 impl ::core::fmt::Debug for UserDataTaskListOtherAppWriteAccess {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserDataTaskListOtherAppWriteAccess").field(&self.0).finish()
@@ -1376,6 +1351,7 @@ unsafe impl ::core::marker::Send for UserDataTaskListSyncManager {}
 unsafe impl ::core::marker::Sync for UserDataTaskListSyncManager {}
 #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserDataTaskListSyncStatus(pub i32);
 impl UserDataTaskListSyncStatus {
     pub const Idle: Self = Self(0i32);
@@ -1394,12 +1370,6 @@ impl ::core::clone::Clone for UserDataTaskListSyncStatus {
 unsafe impl ::windows::core::Abi for UserDataTaskListSyncStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UserDataTaskListSyncStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataTaskListSyncStatus {}
 impl ::core::fmt::Debug for UserDataTaskListSyncStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserDataTaskListSyncStatus").field(&self.0).finish()
@@ -1524,6 +1494,7 @@ unsafe impl ::core::marker::Send for UserDataTaskManager {}
 unsafe impl ::core::marker::Sync for UserDataTaskManager {}
 #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserDataTaskPriority(pub i32);
 impl UserDataTaskPriority {
     pub const Normal: Self = Self(0i32);
@@ -1539,12 +1510,6 @@ impl ::core::clone::Clone for UserDataTaskPriority {
 unsafe impl ::windows::core::Abi for UserDataTaskPriority {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UserDataTaskPriority {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataTaskPriority {}
 impl ::core::fmt::Debug for UserDataTaskPriority {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserDataTaskPriority").field(&self.0).finish()
@@ -1558,6 +1523,7 @@ impl ::windows::core::DefaultType for UserDataTaskPriority {
 }
 #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserDataTaskQueryKind(pub i32);
 impl UserDataTaskQueryKind {
     pub const All: Self = Self(0i32);
@@ -1573,12 +1539,6 @@ impl ::core::clone::Clone for UserDataTaskQueryKind {
 unsafe impl ::windows::core::Abi for UserDataTaskQueryKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UserDataTaskQueryKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataTaskQueryKind {}
 impl ::core::fmt::Debug for UserDataTaskQueryKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserDataTaskQueryKind").field(&self.0).finish()
@@ -1698,6 +1658,7 @@ unsafe impl ::core::marker::Send for UserDataTaskQueryOptions {}
 unsafe impl ::core::marker::Sync for UserDataTaskQueryOptions {}
 #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserDataTaskQuerySortProperty(pub i32);
 impl UserDataTaskQuerySortProperty {
     pub const DueDate: Self = Self(0i32);
@@ -1711,12 +1672,6 @@ impl ::core::clone::Clone for UserDataTaskQuerySortProperty {
 unsafe impl ::windows::core::Abi for UserDataTaskQuerySortProperty {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UserDataTaskQuerySortProperty {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataTaskQuerySortProperty {}
 impl ::core::fmt::Debug for UserDataTaskQuerySortProperty {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserDataTaskQuerySortProperty").field(&self.0).finish()
@@ -2008,6 +1963,7 @@ unsafe impl ::core::marker::Send for UserDataTaskRecurrenceProperties {}
 unsafe impl ::core::marker::Sync for UserDataTaskRecurrenceProperties {}
 #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserDataTaskRecurrenceUnit(pub i32);
 impl UserDataTaskRecurrenceUnit {
     pub const Daily: Self = Self(0i32);
@@ -2026,12 +1982,6 @@ impl ::core::clone::Clone for UserDataTaskRecurrenceUnit {
 unsafe impl ::windows::core::Abi for UserDataTaskRecurrenceUnit {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UserDataTaskRecurrenceUnit {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataTaskRecurrenceUnit {}
 impl ::core::fmt::Debug for UserDataTaskRecurrenceUnit {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserDataTaskRecurrenceUnit").field(&self.0).finish()
@@ -2181,6 +2131,7 @@ unsafe impl ::core::marker::Send for UserDataTaskRegenerationProperties {}
 unsafe impl ::core::marker::Sync for UserDataTaskRegenerationProperties {}
 #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserDataTaskRegenerationUnit(pub i32);
 impl UserDataTaskRegenerationUnit {
     pub const Daily: Self = Self(0i32);
@@ -2197,12 +2148,6 @@ impl ::core::clone::Clone for UserDataTaskRegenerationUnit {
 unsafe impl ::windows::core::Abi for UserDataTaskRegenerationUnit {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UserDataTaskRegenerationUnit {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataTaskRegenerationUnit {}
 impl ::core::fmt::Debug for UserDataTaskRegenerationUnit {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserDataTaskRegenerationUnit").field(&self.0).finish()
@@ -2216,6 +2161,7 @@ impl ::windows::core::DefaultType for UserDataTaskRegenerationUnit {
 }
 #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserDataTaskSensitivity(pub i32);
 impl UserDataTaskSensitivity {
     pub const Public: Self = Self(0i32);
@@ -2230,12 +2176,6 @@ impl ::core::clone::Clone for UserDataTaskSensitivity {
 unsafe impl ::windows::core::Abi for UserDataTaskSensitivity {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UserDataTaskSensitivity {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataTaskSensitivity {}
 impl ::core::fmt::Debug for UserDataTaskSensitivity {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserDataTaskSensitivity").field(&self.0).finish()
@@ -2358,6 +2298,7 @@ unsafe impl ::core::marker::Send for UserDataTaskStore {}
 unsafe impl ::core::marker::Sync for UserDataTaskStore {}
 #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserDataTaskStoreAccessType(pub i32);
 impl UserDataTaskStoreAccessType {
     pub const AppTasksReadWrite: Self = Self(0i32);
@@ -2372,12 +2313,6 @@ impl ::core::clone::Clone for UserDataTaskStoreAccessType {
 unsafe impl ::windows::core::Abi for UserDataTaskStoreAccessType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UserDataTaskStoreAccessType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataTaskStoreAccessType {}
 impl ::core::fmt::Debug for UserDataTaskStoreAccessType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserDataTaskStoreAccessType").field(&self.0).finish()
@@ -2391,6 +2326,7 @@ impl ::windows::core::DefaultType for UserDataTaskStoreAccessType {
 }
 #[doc = "*Required features: 'ApplicationModel_UserDataTasks'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserDataTaskWeekOfMonth(pub i32);
 impl UserDataTaskWeekOfMonth {
     pub const First: Self = Self(0i32);
@@ -2408,12 +2344,6 @@ impl ::core::clone::Clone for UserDataTaskWeekOfMonth {
 unsafe impl ::windows::core::Abi for UserDataTaskWeekOfMonth {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UserDataTaskWeekOfMonth {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataTaskWeekOfMonth {}
 impl ::core::fmt::Debug for UserDataTaskWeekOfMonth {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserDataTaskWeekOfMonth").field(&self.0).finish()

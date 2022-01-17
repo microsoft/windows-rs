@@ -560,6 +560,7 @@ unsafe impl ::core::marker::Send for BindingExpressionBase {}
 unsafe impl ::core::marker::Sync for BindingExpressionBase {}
 #[doc = "*Required features: 'UI_Xaml_Data'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct BindingMode(pub i32);
 impl BindingMode {
     pub const OneWay: Self = Self(1i32);
@@ -575,12 +576,6 @@ impl ::core::clone::Clone for BindingMode {
 unsafe impl ::windows::core::Abi for BindingMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BindingMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BindingMode {}
 impl ::core::fmt::Debug for BindingMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BindingMode").field(&self.0).finish()
@@ -3299,6 +3294,7 @@ unsafe impl ::core::marker::Send for RelativeSource {}
 unsafe impl ::core::marker::Sync for RelativeSource {}
 #[doc = "*Required features: 'UI_Xaml_Data'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct RelativeSourceMode(pub i32);
 impl RelativeSourceMode {
     pub const None: Self = Self(0i32);
@@ -3314,12 +3310,6 @@ impl ::core::clone::Clone for RelativeSourceMode {
 unsafe impl ::windows::core::Abi for RelativeSourceMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RelativeSourceMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RelativeSourceMode {}
 impl ::core::fmt::Debug for RelativeSourceMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RelativeSourceMode").field(&self.0).finish()
@@ -3333,6 +3323,7 @@ impl ::windows::core::DefaultType for RelativeSourceMode {
 }
 #[doc = "*Required features: 'UI_Xaml_Data'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UpdateSourceTrigger(pub i32);
 impl UpdateSourceTrigger {
     pub const Default: Self = Self(0i32);
@@ -3349,12 +3340,6 @@ impl ::core::clone::Clone for UpdateSourceTrigger {
 unsafe impl ::windows::core::Abi for UpdateSourceTrigger {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UpdateSourceTrigger {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UpdateSourceTrigger {}
 impl ::core::fmt::Debug for UpdateSourceTrigger {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UpdateSourceTrigger").field(&self.0).finish()

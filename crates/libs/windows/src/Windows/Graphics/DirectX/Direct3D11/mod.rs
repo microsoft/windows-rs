@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'Graphics_DirectX_Direct3D11'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct Direct3DBindings(pub u32);
 impl Direct3DBindings {
     pub const VertexBuffer: Self = Self(1u32);
@@ -23,12 +24,6 @@ impl ::core::clone::Clone for Direct3DBindings {
 unsafe impl ::windows::core::Abi for Direct3DBindings {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for Direct3DBindings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Direct3DBindings {}
 impl ::core::fmt::Debug for Direct3DBindings {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("Direct3DBindings").field(&self.0).finish()
@@ -146,6 +141,7 @@ impl ::core::default::Default for Direct3DSurfaceDescription {
 }
 #[doc = "*Required features: 'Graphics_DirectX_Direct3D11'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct Direct3DUsage(pub i32);
 impl Direct3DUsage {
     pub const Default: Self = Self(0i32);
@@ -162,12 +158,6 @@ impl ::core::clone::Clone for Direct3DUsage {
 unsafe impl ::windows::core::Abi for Direct3DUsage {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for Direct3DUsage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Direct3DUsage {}
 impl ::core::fmt::Debug for Direct3DUsage {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("Direct3DUsage").field(&self.0).finish()

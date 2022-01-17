@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'ApplicationModel_ExtendedExecution_Foreground'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ExtendedExecutionForegroundReason(pub i32);
 impl ExtendedExecutionForegroundReason {
     pub const Unspecified: Self = Self(0i32);
@@ -17,12 +18,6 @@ impl ::core::clone::Clone for ExtendedExecutionForegroundReason {
 unsafe impl ::windows::core::Abi for ExtendedExecutionForegroundReason {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ExtendedExecutionForegroundReason {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ExtendedExecutionForegroundReason {}
 impl ::core::fmt::Debug for ExtendedExecutionForegroundReason {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ExtendedExecutionForegroundReason").field(&self.0).finish()
@@ -36,6 +31,7 @@ impl ::windows::core::DefaultType for ExtendedExecutionForegroundReason {
 }
 #[doc = "*Required features: 'ApplicationModel_ExtendedExecution_Foreground'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ExtendedExecutionForegroundResult(pub i32);
 impl ExtendedExecutionForegroundResult {
     pub const Allowed: Self = Self(0i32);
@@ -50,12 +46,6 @@ impl ::core::clone::Clone for ExtendedExecutionForegroundResult {
 unsafe impl ::windows::core::Abi for ExtendedExecutionForegroundResult {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ExtendedExecutionForegroundResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ExtendedExecutionForegroundResult {}
 impl ::core::fmt::Debug for ExtendedExecutionForegroundResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ExtendedExecutionForegroundResult").field(&self.0).finish()
@@ -150,6 +140,7 @@ unsafe impl ::core::marker::Send for ExtendedExecutionForegroundRevokedEventArgs
 unsafe impl ::core::marker::Sync for ExtendedExecutionForegroundRevokedEventArgs {}
 #[doc = "*Required features: 'ApplicationModel_ExtendedExecution_Foreground'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ExtendedExecutionForegroundRevokedReason(pub i32);
 impl ExtendedExecutionForegroundRevokedReason {
     pub const Resumed: Self = Self(0i32);
@@ -164,12 +155,6 @@ impl ::core::clone::Clone for ExtendedExecutionForegroundRevokedReason {
 unsafe impl ::windows::core::Abi for ExtendedExecutionForegroundRevokedReason {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ExtendedExecutionForegroundRevokedReason {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ExtendedExecutionForegroundRevokedReason {}
 impl ::core::fmt::Debug for ExtendedExecutionForegroundRevokedReason {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ExtendedExecutionForegroundRevokedReason").field(&self.0).finish()

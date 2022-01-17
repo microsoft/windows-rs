@@ -432,6 +432,7 @@ unsafe impl ::core::marker::Send for TargetedContentAction {}
 unsafe impl ::core::marker::Sync for TargetedContentAction {}
 #[doc = "*Required features: 'Services_TargetedContent'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TargetedContentAppInstallationState(pub i32);
 impl TargetedContentAppInstallationState {
     pub const NotApplicable: Self = Self(0i32);
@@ -447,12 +448,6 @@ impl ::core::clone::Clone for TargetedContentAppInstallationState {
 unsafe impl ::windows::core::Abi for TargetedContentAppInstallationState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TargetedContentAppInstallationState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TargetedContentAppInstallationState {}
 impl ::core::fmt::Debug for TargetedContentAppInstallationState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TargetedContentAppInstallationState").field(&self.0).finish()
@@ -466,6 +461,7 @@ impl ::windows::core::DefaultType for TargetedContentAppInstallationState {
 }
 #[doc = "*Required features: 'Services_TargetedContent'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TargetedContentAvailability(pub i32);
 impl TargetedContentAvailability {
     pub const None: Self = Self(0i32);
@@ -481,12 +477,6 @@ impl ::core::clone::Clone for TargetedContentAvailability {
 unsafe impl ::windows::core::Abi for TargetedContentAvailability {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TargetedContentAvailability {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TargetedContentAvailability {}
 impl ::core::fmt::Debug for TargetedContentAvailability {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TargetedContentAvailability").field(&self.0).finish()
@@ -1176,6 +1166,7 @@ unsafe impl ::core::marker::Send for TargetedContentImage {}
 unsafe impl ::core::marker::Sync for TargetedContentImage {}
 #[doc = "*Required features: 'Services_TargetedContent'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TargetedContentInteraction(pub i32);
 impl TargetedContentInteraction {
     pub const Impression: Self = Self(0i32);
@@ -1201,12 +1192,6 @@ impl ::core::clone::Clone for TargetedContentInteraction {
 unsafe impl ::windows::core::Abi for TargetedContentInteraction {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TargetedContentInteraction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TargetedContentInteraction {}
 impl ::core::fmt::Debug for TargetedContentInteraction {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TargetedContentInteraction").field(&self.0).finish()
@@ -1531,6 +1516,7 @@ unsafe impl ::core::marker::Send for TargetedContentObject {}
 unsafe impl ::core::marker::Sync for TargetedContentObject {}
 #[doc = "*Required features: 'Services_TargetedContent'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TargetedContentObjectKind(pub i32);
 impl TargetedContentObjectKind {
     pub const Collection: Self = Self(0i32);
@@ -1546,12 +1532,6 @@ impl ::core::clone::Clone for TargetedContentObjectKind {
 unsafe impl ::windows::core::Abi for TargetedContentObjectKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TargetedContentObjectKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TargetedContentObjectKind {}
 impl ::core::fmt::Debug for TargetedContentObjectKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TargetedContentObjectKind").field(&self.0).finish()
@@ -2129,6 +2109,7 @@ unsafe impl ::core::marker::Send for TargetedContentValue {}
 unsafe impl ::core::marker::Sync for TargetedContentValue {}
 #[doc = "*Required features: 'Services_TargetedContent'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TargetedContentValueKind(pub i32);
 impl TargetedContentValueKind {
     pub const String: Self = Self(0i32);
@@ -2155,12 +2136,6 @@ impl ::core::clone::Clone for TargetedContentValueKind {
 unsafe impl ::windows::core::Abi for TargetedContentValueKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TargetedContentValueKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TargetedContentValueKind {}
 impl ::core::fmt::Debug for TargetedContentValueKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TargetedContentValueKind").field(&self.0).finish()

@@ -1253,6 +1253,7 @@ impl<'a> ::windows::core::IntoParam<'a, IStorageItemExtraProperties> for &MusicP
 }
 #[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhotoOrientation(pub i32);
 impl PhotoOrientation {
     pub const Unspecified: Self = Self(0i32);
@@ -1274,12 +1275,6 @@ impl ::core::clone::Clone for PhotoOrientation {
 unsafe impl ::windows::core::Abi for PhotoOrientation {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhotoOrientation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhotoOrientation {}
 impl ::core::fmt::Debug for PhotoOrientation {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhotoOrientation").field(&self.0).finish()
@@ -1293,6 +1288,7 @@ impl ::windows::core::DefaultType for PhotoOrientation {
 }
 #[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PropertyPrefetchOptions(pub u32);
 impl PropertyPrefetchOptions {
     pub const None: Self = Self(0u32);
@@ -1311,12 +1307,6 @@ impl ::core::clone::Clone for PropertyPrefetchOptions {
 unsafe impl ::windows::core::Abi for PropertyPrefetchOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PropertyPrefetchOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PropertyPrefetchOptions {}
 impl ::core::fmt::Debug for PropertyPrefetchOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PropertyPrefetchOptions").field(&self.0).finish()
@@ -1907,6 +1897,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Streams::IRandomAccessStreamWithC
 }
 #[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ThumbnailMode(pub i32);
 impl ThumbnailMode {
     pub const PicturesView: Self = Self(0i32);
@@ -1925,12 +1916,6 @@ impl ::core::clone::Clone for ThumbnailMode {
 unsafe impl ::windows::core::Abi for ThumbnailMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ThumbnailMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ThumbnailMode {}
 impl ::core::fmt::Debug for ThumbnailMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ThumbnailMode").field(&self.0).finish()
@@ -1944,6 +1929,7 @@ impl ::windows::core::DefaultType for ThumbnailMode {
 }
 #[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ThumbnailOptions(pub u32);
 impl ThumbnailOptions {
     pub const None: Self = Self(0u32);
@@ -1960,12 +1946,6 @@ impl ::core::clone::Clone for ThumbnailOptions {
 unsafe impl ::windows::core::Abi for ThumbnailOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ThumbnailOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ThumbnailOptions {}
 impl ::core::fmt::Debug for ThumbnailOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ThumbnailOptions").field(&self.0).finish()
@@ -2007,6 +1987,7 @@ impl ::windows::core::DefaultType for ThumbnailOptions {
 }
 #[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ThumbnailType(pub i32);
 impl ThumbnailType {
     pub const Image: Self = Self(0i32);
@@ -2021,12 +2002,6 @@ impl ::core::clone::Clone for ThumbnailType {
 unsafe impl ::windows::core::Abi for ThumbnailType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ThumbnailType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ThumbnailType {}
 impl ::core::fmt::Debug for ThumbnailType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ThumbnailType").field(&self.0).finish()
@@ -2040,6 +2015,7 @@ impl ::windows::core::DefaultType for ThumbnailType {
 }
 #[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct VideoOrientation(pub i32);
 impl VideoOrientation {
     pub const Normal: Self = Self(0i32);
@@ -2056,12 +2032,6 @@ impl ::core::clone::Clone for VideoOrientation {
 unsafe impl ::windows::core::Abi for VideoOrientation {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VideoOrientation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VideoOrientation {}
 impl ::core::fmt::Debug for VideoOrientation {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VideoOrientation").field(&self.0).finish()

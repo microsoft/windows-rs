@@ -801,6 +801,7 @@ unsafe impl ::core::marker::Send for CircleEase {}
 unsafe impl ::core::marker::Sync for CircleEase {}
 #[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ClockState(pub i32);
 impl ClockState {
     pub const Active: Self = Self(0i32);
@@ -816,12 +817,6 @@ impl ::core::clone::Clone for ClockState {
 unsafe impl ::windows::core::Abi for ClockState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ClockState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ClockState {}
 impl ::core::fmt::Debug for ClockState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ClockState").field(&self.0).finish()
@@ -1928,6 +1923,7 @@ unsafe impl ::core::marker::Send for ConnectedAnimation {}
 unsafe impl ::core::marker::Sync for ConnectedAnimation {}
 #[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ConnectedAnimationComponent(pub i32);
 impl ConnectedAnimationComponent {
     pub const OffsetX: Self = Self(0i32);
@@ -1944,12 +1940,6 @@ impl ::core::clone::Clone for ConnectedAnimationComponent {
 unsafe impl ::windows::core::Abi for ConnectedAnimationComponent {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ConnectedAnimationComponent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ConnectedAnimationComponent {}
 impl ::core::fmt::Debug for ConnectedAnimationComponent {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ConnectedAnimationComponent").field(&self.0).finish()
@@ -5448,6 +5438,7 @@ unsafe impl ::core::marker::Send for EasingFunctionBase {}
 unsafe impl ::core::marker::Sync for EasingFunctionBase {}
 #[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EasingMode(pub i32);
 impl EasingMode {
     pub const EaseOut: Self = Self(0i32);
@@ -5463,12 +5454,6 @@ impl ::core::clone::Clone for EasingMode {
 unsafe impl ::windows::core::Abi for EasingMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EasingMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EasingMode {}
 impl ::core::fmt::Debug for EasingMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EasingMode").field(&self.0).finish()
@@ -6702,6 +6687,7 @@ unsafe impl ::core::marker::Send for FadeOutThemeAnimation {}
 unsafe impl ::core::marker::Sync for FadeOutThemeAnimation {}
 #[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FillBehavior(pub i32);
 impl FillBehavior {
     pub const HoldEnd: Self = Self(0i32);
@@ -6716,12 +6702,6 @@ impl ::core::clone::Clone for FillBehavior {
 unsafe impl ::windows::core::Abi for FillBehavior {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for FillBehavior {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FillBehavior {}
 impl ::core::fmt::Debug for FillBehavior {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FillBehavior").field(&self.0).finish()
@@ -13924,6 +13904,7 @@ unsafe impl ::core::marker::Send for RepeatBehaviorHelper {}
 unsafe impl ::core::marker::Sync for RepeatBehaviorHelper {}
 #[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct RepeatBehaviorType(pub i32);
 impl RepeatBehaviorType {
     pub const Count: Self = Self(0i32);
@@ -13939,12 +13920,6 @@ impl ::core::clone::Clone for RepeatBehaviorType {
 unsafe impl ::windows::core::Abi for RepeatBehaviorType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RepeatBehaviorType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RepeatBehaviorType {}
 impl ::core::fmt::Debug for RepeatBehaviorType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RepeatBehaviorType").field(&self.0).finish()
@@ -14408,6 +14383,7 @@ unsafe impl ::core::marker::Send for SineEase {}
 unsafe impl ::core::marker::Sync for SineEase {}
 #[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SlideNavigationTransitionEffect(pub i32);
 impl SlideNavigationTransitionEffect {
     pub const FromBottom: Self = Self(0i32);
@@ -14423,12 +14399,6 @@ impl ::core::clone::Clone for SlideNavigationTransitionEffect {
 unsafe impl ::windows::core::Abi for SlideNavigationTransitionEffect {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SlideNavigationTransitionEffect {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SlideNavigationTransitionEffect {}
 impl ::core::fmt::Debug for SlideNavigationTransitionEffect {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SlideNavigationTransitionEffect").field(&self.0).finish()

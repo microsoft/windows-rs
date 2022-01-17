@@ -97,6 +97,7 @@ unsafe impl ::core::marker::Send for DiagnosticActionResult {}
 unsafe impl ::core::marker::Sync for DiagnosticActionResult {}
 #[doc = "*Required features: 'System_Diagnostics'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DiagnosticActionState(pub i32);
 impl DiagnosticActionState {
     pub const Initializing: Self = Self(0i32);
@@ -116,12 +117,6 @@ impl ::core::clone::Clone for DiagnosticActionState {
 unsafe impl ::windows::core::Abi for DiagnosticActionState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DiagnosticActionState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DiagnosticActionState {}
 impl ::core::fmt::Debug for DiagnosticActionState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DiagnosticActionState").field(&self.0).finish()

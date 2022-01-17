@@ -606,6 +606,7 @@ unsafe impl ::core::marker::Send for PrintTicketFeature {}
 unsafe impl ::core::marker::Sync for PrintTicketFeature {}
 #[doc = "*Required features: 'Graphics_Printing_PrintTicket'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PrintTicketFeatureSelectionType(pub i32);
 impl PrintTicketFeatureSelectionType {
     pub const PickOne: Self = Self(0i32);
@@ -620,12 +621,6 @@ impl ::core::clone::Clone for PrintTicketFeatureSelectionType {
 unsafe impl ::windows::core::Abi for PrintTicketFeatureSelectionType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PrintTicketFeatureSelectionType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintTicketFeatureSelectionType {}
 impl ::core::fmt::Debug for PrintTicketFeatureSelectionType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PrintTicketFeatureSelectionType").field(&self.0).finish()
@@ -779,6 +774,7 @@ unsafe impl ::core::marker::Send for PrintTicketOption {}
 unsafe impl ::core::marker::Sync for PrintTicketOption {}
 #[doc = "*Required features: 'Graphics_Printing_PrintTicket'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PrintTicketParameterDataType(pub i32);
 impl PrintTicketParameterDataType {
     pub const Integer: Self = Self(0i32);
@@ -794,12 +790,6 @@ impl ::core::clone::Clone for PrintTicketParameterDataType {
 unsafe impl ::windows::core::Abi for PrintTicketParameterDataType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PrintTicketParameterDataType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintTicketParameterDataType {}
 impl ::core::fmt::Debug for PrintTicketParameterDataType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PrintTicketParameterDataType").field(&self.0).finish()
@@ -1151,6 +1141,7 @@ unsafe impl ::core::marker::Send for PrintTicketValue {}
 unsafe impl ::core::marker::Sync for PrintTicketValue {}
 #[doc = "*Required features: 'Graphics_Printing_PrintTicket'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PrintTicketValueType(pub i32);
 impl PrintTicketValueType {
     pub const Integer: Self = Self(0i32);
@@ -1166,12 +1157,6 @@ impl ::core::clone::Clone for PrintTicketValueType {
 unsafe impl ::windows::core::Abi for PrintTicketValueType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PrintTicketValueType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintTicketValueType {}
 impl ::core::fmt::Debug for PrintTicketValueType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PrintTicketValueType").field(&self.0).finish()

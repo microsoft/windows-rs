@@ -3,6 +3,7 @@
 pub mod Preview;
 #[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AddPackageByAppInstallerOptions(pub u32);
 impl AddPackageByAppInstallerOptions {
     pub const None: Self = Self(0u32);
@@ -20,12 +21,6 @@ impl ::core::clone::Clone for AddPackageByAppInstallerOptions {
 unsafe impl ::windows::core::Abi for AddPackageByAppInstallerOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AddPackageByAppInstallerOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AddPackageByAppInstallerOptions {}
 impl ::core::fmt::Debug for AddPackageByAppInstallerOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AddPackageByAppInstallerOptions").field(&self.0).finish()
@@ -1119,6 +1114,7 @@ unsafe impl ::core::marker::Send for DeleteSharedPackageContainerResult {}
 unsafe impl ::core::marker::Sync for DeleteSharedPackageContainerResult {}
 #[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DeploymentOptions(pub u32);
 impl DeploymentOptions {
     pub const None: Self = Self(0u32);
@@ -1140,12 +1136,6 @@ impl ::core::clone::Clone for DeploymentOptions {
 unsafe impl ::windows::core::Abi for DeploymentOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DeploymentOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeploymentOptions {}
 impl ::core::fmt::Debug for DeploymentOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DeploymentOptions").field(&self.0).finish()
@@ -1224,6 +1214,7 @@ impl ::core::default::Default for DeploymentProgress {
 }
 #[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DeploymentProgressState(pub i32);
 impl DeploymentProgressState {
     pub const Queued: Self = Self(0i32);
@@ -1238,12 +1229,6 @@ impl ::core::clone::Clone for DeploymentProgressState {
 unsafe impl ::windows::core::Abi for DeploymentProgressState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DeploymentProgressState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeploymentProgressState {}
 impl ::core::fmt::Debug for DeploymentProgressState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DeploymentProgressState").field(&self.0).finish()
@@ -2516,6 +2501,7 @@ unsafe impl ::core::marker::Send for PackageAllUserProvisioningOptions {}
 unsafe impl ::core::marker::Sync for PackageAllUserProvisioningOptions {}
 #[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PackageInstallState(pub i32);
 impl PackageInstallState {
     pub const NotInstalled: Self = Self(0i32);
@@ -2532,12 +2518,6 @@ impl ::core::clone::Clone for PackageInstallState {
 unsafe impl ::windows::core::Abi for PackageInstallState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PackageInstallState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PackageInstallState {}
 impl ::core::fmt::Debug for PackageInstallState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PackageInstallState").field(&self.0).finish()
@@ -3307,6 +3287,7 @@ unsafe impl ::core::marker::Send for PackageManagerDebugSettings {}
 unsafe impl ::core::marker::Sync for PackageManagerDebugSettings {}
 #[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PackageState(pub i32);
 impl PackageState {
     pub const Normal: Self = Self(0i32);
@@ -3323,12 +3304,6 @@ impl ::core::clone::Clone for PackageState {
 unsafe impl ::windows::core::Abi for PackageState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PackageState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PackageState {}
 impl ::core::fmt::Debug for PackageState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PackageState").field(&self.0).finish()
@@ -3342,6 +3317,7 @@ impl ::windows::core::DefaultType for PackageState {
 }
 #[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PackageStatus(pub u32);
 impl PackageStatus {
     pub const OK: Self = Self(0u32);
@@ -3359,12 +3335,6 @@ impl ::core::clone::Clone for PackageStatus {
 unsafe impl ::windows::core::Abi for PackageStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PackageStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PackageStatus {}
 impl ::core::fmt::Debug for PackageStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PackageStatus").field(&self.0).finish()
@@ -3406,6 +3376,7 @@ impl ::windows::core::DefaultType for PackageStatus {
 }
 #[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PackageStubPreference(pub i32);
 impl PackageStubPreference {
     pub const Full: Self = Self(0i32);
@@ -3420,12 +3391,6 @@ impl ::core::clone::Clone for PackageStubPreference {
 unsafe impl ::windows::core::Abi for PackageStubPreference {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PackageStubPreference {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PackageStubPreference {}
 impl ::core::fmt::Debug for PackageStubPreference {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PackageStubPreference").field(&self.0).finish()
@@ -3439,6 +3404,7 @@ impl ::windows::core::DefaultType for PackageStubPreference {
 }
 #[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PackageTypes(pub u32);
 impl PackageTypes {
     pub const None: Self = Self(0u32);
@@ -3459,12 +3425,6 @@ impl ::core::clone::Clone for PackageTypes {
 unsafe impl ::windows::core::Abi for PackageTypes {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PackageTypes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PackageTypes {}
 impl ::core::fmt::Debug for PackageTypes {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PackageTypes").field(&self.0).finish()
@@ -4097,6 +4057,7 @@ unsafe impl ::core::marker::Send for RegisterPackageOptions {}
 unsafe impl ::core::marker::Sync for RegisterPackageOptions {}
 #[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct RemovalOptions(pub u32);
 impl RemovalOptions {
     pub const None: Self = Self(0u32);
@@ -4113,12 +4074,6 @@ impl ::core::clone::Clone for RemovalOptions {
 unsafe impl ::windows::core::Abi for RemovalOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RemovalOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemovalOptions {}
 impl ::core::fmt::Debug for RemovalOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RemovalOptions").field(&self.0).finish()
@@ -4274,6 +4229,7 @@ unsafe impl ::core::marker::Send for SharedPackageContainer {}
 unsafe impl ::core::marker::Sync for SharedPackageContainer {}
 #[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SharedPackageContainerCreationCollisionOptions(pub i32);
 impl SharedPackageContainerCreationCollisionOptions {
     pub const FailIfExists: Self = Self(0i32);
@@ -4289,12 +4245,6 @@ impl ::core::clone::Clone for SharedPackageContainerCreationCollisionOptions {
 unsafe impl ::windows::core::Abi for SharedPackageContainerCreationCollisionOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SharedPackageContainerCreationCollisionOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SharedPackageContainerCreationCollisionOptions {}
 impl ::core::fmt::Debug for SharedPackageContainerCreationCollisionOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SharedPackageContainerCreationCollisionOptions").field(&self.0).finish()
@@ -4542,6 +4492,7 @@ unsafe impl ::core::marker::Send for SharedPackageContainerMember {}
 unsafe impl ::core::marker::Sync for SharedPackageContainerMember {}
 #[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SharedPackageContainerOperationStatus(pub i32);
 impl SharedPackageContainerOperationStatus {
     pub const Success: Self = Self(0i32);
@@ -4560,12 +4511,6 @@ impl ::core::clone::Clone for SharedPackageContainerOperationStatus {
 unsafe impl ::windows::core::Abi for SharedPackageContainerOperationStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SharedPackageContainerOperationStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SharedPackageContainerOperationStatus {}
 impl ::core::fmt::Debug for SharedPackageContainerOperationStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SharedPackageContainerOperationStatus").field(&self.0).finish()
@@ -4814,6 +4759,7 @@ unsafe impl ::core::marker::Send for StagePackageOptions {}
 unsafe impl ::core::marker::Sync for StagePackageOptions {}
 #[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct StubPackageOption(pub i32);
 impl StubPackageOption {
     pub const Default: Self = Self(0i32);
@@ -4830,12 +4776,6 @@ impl ::core::clone::Clone for StubPackageOption {
 unsafe impl ::windows::core::Abi for StubPackageOption {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for StubPackageOption {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StubPackageOption {}
 impl ::core::fmt::Debug for StubPackageOption {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("StubPackageOption").field(&self.0).finish()
