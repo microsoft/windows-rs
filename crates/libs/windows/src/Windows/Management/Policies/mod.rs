@@ -260,6 +260,7 @@ unsafe impl ::core::marker::Send for NamedPolicyData {}
 unsafe impl ::core::marker::Sync for NamedPolicyData {}
 #[doc = "*Required features: 'Management_Policies'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct NamedPolicyKind(pub i32);
 impl NamedPolicyKind {
     pub const Invalid: Self = Self(0i32);
@@ -278,12 +279,6 @@ impl ::core::clone::Clone for NamedPolicyKind {
 unsafe impl ::windows::core::Abi for NamedPolicyKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for NamedPolicyKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for NamedPolicyKind {}
 impl ::core::fmt::Debug for NamedPolicyKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NamedPolicyKind").field(&self.0).finish()

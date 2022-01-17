@@ -262,6 +262,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Ente
 }
 #[doc = "*Required features: 'Phone_Management_Deployment'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EnterpriseEnrollmentStatus(pub i32);
 impl EnterpriseEnrollmentStatus {
     pub const Success: Self = Self(0i32);
@@ -277,12 +278,6 @@ impl ::core::clone::Clone for EnterpriseEnrollmentStatus {
 unsafe impl ::windows::core::Abi for EnterpriseEnrollmentStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EnterpriseEnrollmentStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EnterpriseEnrollmentStatus {}
 impl ::core::fmt::Debug for EnterpriseEnrollmentStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EnterpriseEnrollmentStatus").field(&self.0).finish()
@@ -296,6 +291,7 @@ impl ::windows::core::DefaultType for EnterpriseEnrollmentStatus {
 }
 #[doc = "*Required features: 'Phone_Management_Deployment'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EnterpriseStatus(pub i32);
 impl EnterpriseStatus {
     pub const Enrolled: Self = Self(0i32);
@@ -312,12 +308,6 @@ impl ::core::clone::Clone for EnterpriseStatus {
 unsafe impl ::windows::core::Abi for EnterpriseStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EnterpriseStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EnterpriseStatus {}
 impl ::core::fmt::Debug for EnterpriseStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EnterpriseStatus").field(&self.0).finish()

@@ -3,6 +3,7 @@
 pub mod InstallControl;
 #[doc = "*Required features: 'ApplicationModel_Store_Preview'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DeliveryOptimizationDownloadMode(pub i32);
 impl DeliveryOptimizationDownloadMode {
     pub const Simple: Self = Self(0i32);
@@ -21,12 +22,6 @@ impl ::core::clone::Clone for DeliveryOptimizationDownloadMode {
 unsafe impl ::windows::core::Abi for DeliveryOptimizationDownloadMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DeliveryOptimizationDownloadMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeliveryOptimizationDownloadMode {}
 impl ::core::fmt::Debug for DeliveryOptimizationDownloadMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DeliveryOptimizationDownloadMode").field(&self.0).finish()
@@ -40,6 +35,7 @@ impl ::windows::core::DefaultType for DeliveryOptimizationDownloadMode {
 }
 #[doc = "*Required features: 'ApplicationModel_Store_Preview'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DeliveryOptimizationDownloadModeSource(pub i32);
 impl DeliveryOptimizationDownloadModeSource {
     pub const Default: Self = Self(0i32);
@@ -54,12 +50,6 @@ impl ::core::clone::Clone for DeliveryOptimizationDownloadModeSource {
 unsafe impl ::windows::core::Abi for DeliveryOptimizationDownloadModeSource {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DeliveryOptimizationDownloadModeSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeliveryOptimizationDownloadModeSource {}
 impl ::core::fmt::Debug for DeliveryOptimizationDownloadModeSource {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DeliveryOptimizationDownloadModeSource").field(&self.0).finish()
@@ -787,6 +777,7 @@ unsafe impl ::core::marker::Send for StoreHardwareManufacturerInfo {}
 unsafe impl ::core::marker::Sync for StoreHardwareManufacturerInfo {}
 #[doc = "*Required features: 'ApplicationModel_Store_Preview'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct StoreLogOptions(pub u32);
 impl StoreLogOptions {
     pub const None: Self = Self(0u32);
@@ -801,12 +792,6 @@ impl ::core::clone::Clone for StoreLogOptions {
 unsafe impl ::windows::core::Abi for StoreLogOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for StoreLogOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StoreLogOptions {}
 impl ::core::fmt::Debug for StoreLogOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("StoreLogOptions").field(&self.0).finish()
@@ -990,6 +975,7 @@ unsafe impl ::core::marker::Send for StorePreviewProductInfo {}
 unsafe impl ::core::marker::Sync for StorePreviewProductInfo {}
 #[doc = "*Required features: 'ApplicationModel_Store_Preview'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct StorePreviewProductPurchaseStatus(pub i32);
 impl StorePreviewProductPurchaseStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -1006,12 +992,6 @@ impl ::core::clone::Clone for StorePreviewProductPurchaseStatus {
 unsafe impl ::windows::core::Abi for StorePreviewProductPurchaseStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for StorePreviewProductPurchaseStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorePreviewProductPurchaseStatus {}
 impl ::core::fmt::Debug for StorePreviewProductPurchaseStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("StorePreviewProductPurchaseStatus").field(&self.0).finish()
@@ -1251,6 +1231,7 @@ unsafe impl ::core::marker::Send for StorePreviewSkuInfo {}
 unsafe impl ::core::marker::Sync for StorePreviewSkuInfo {}
 #[doc = "*Required features: 'ApplicationModel_Store_Preview'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct StoreSystemFeature(pub i32);
 impl StoreSystemFeature {
     pub const ArchitectureX86: Self = Self(0i32);
@@ -1298,12 +1279,6 @@ impl ::core::clone::Clone for StoreSystemFeature {
 unsafe impl ::windows::core::Abi for StoreSystemFeature {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for StoreSystemFeature {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StoreSystemFeature {}
 impl ::core::fmt::Debug for StoreSystemFeature {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("StoreSystemFeature").field(&self.0).finish()

@@ -85,6 +85,7 @@ impl ::windows::core::RuntimeName for PowerManager {
 }
 #[doc = "*Required features: 'Phone_System_Power'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PowerSavingMode(pub i32);
 impl PowerSavingMode {
     pub const Off: Self = Self(0i32);
@@ -99,12 +100,6 @@ impl ::core::clone::Clone for PowerSavingMode {
 unsafe impl ::windows::core::Abi for PowerSavingMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PowerSavingMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PowerSavingMode {}
 impl ::core::fmt::Debug for PowerSavingMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PowerSavingMode").field(&self.0).finish()

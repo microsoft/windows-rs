@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'ApplicationModel_Contacts_Provider'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AddContactResult(pub i32);
 impl AddContactResult {
     pub const Added: Self = Self(0i32);
@@ -16,12 +17,6 @@ impl ::core::clone::Clone for AddContactResult {
 unsafe impl ::windows::core::Abi for AddContactResult {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AddContactResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AddContactResult {}
 impl ::core::fmt::Debug for AddContactResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AddContactResult").field(&self.0).finish()

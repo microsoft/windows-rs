@@ -3,6 +3,7 @@
 pub mod Core;
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CaretType(pub i32);
 impl CaretType {
     pub const Normal: Self = Self(0i32);
@@ -17,12 +18,6 @@ impl ::core::clone::Clone for CaretType {
 unsafe impl ::windows::core::Abi for CaretType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CaretType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CaretType {}
 impl ::core::fmt::Debug for CaretType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CaretType").field(&self.0).finish()
@@ -183,6 +178,7 @@ unsafe impl ::core::marker::Send for ContentLinkInfo {}
 unsafe impl ::core::marker::Sync for ContentLinkInfo {}
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FindOptions(pub u32);
 impl FindOptions {
     pub const None: Self = Self(0u32);
@@ -198,12 +194,6 @@ impl ::core::clone::Clone for FindOptions {
 unsafe impl ::windows::core::Abi for FindOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for FindOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FindOptions {}
 impl ::core::fmt::Debug for FindOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FindOptions").field(&self.0).finish()
@@ -245,6 +235,7 @@ impl ::windows::core::DefaultType for FindOptions {
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FontStretch(pub i32);
 impl FontStretch {
     pub const Undefined: Self = Self(0i32);
@@ -267,12 +258,6 @@ impl ::core::clone::Clone for FontStretch {
 unsafe impl ::windows::core::Abi for FontStretch {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for FontStretch {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FontStretch {}
 impl ::core::fmt::Debug for FontStretch {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FontStretch").field(&self.0).finish()
@@ -286,6 +271,7 @@ impl ::windows::core::DefaultType for FontStretch {
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FontStyle(pub i32);
 impl FontStyle {
     pub const Normal: Self = Self(0i32);
@@ -301,12 +287,6 @@ impl ::core::clone::Clone for FontStyle {
 unsafe impl ::windows::core::Abi for FontStyle {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for FontStyle {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FontStyle {}
 impl ::core::fmt::Debug for FontStyle {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FontStyle").field(&self.0).finish()
@@ -511,6 +491,7 @@ unsafe impl ::core::marker::Send for FontWeights {}
 unsafe impl ::core::marker::Sync for FontWeights {}
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FormatEffect(pub i32);
 impl FormatEffect {
     pub const Off: Self = Self(0i32);
@@ -527,12 +508,6 @@ impl ::core::clone::Clone for FormatEffect {
 unsafe impl ::windows::core::Abi for FormatEffect {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for FormatEffect {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FormatEffect {}
 impl ::core::fmt::Debug for FormatEffect {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FormatEffect").field(&self.0).finish()
@@ -546,6 +521,7 @@ impl ::windows::core::DefaultType for FormatEffect {
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HorizontalCharacterAlignment(pub i32);
 impl HorizontalCharacterAlignment {
     pub const Left: Self = Self(0i32);
@@ -561,12 +537,6 @@ impl ::core::clone::Clone for HorizontalCharacterAlignment {
 unsafe impl ::windows::core::Abi for HorizontalCharacterAlignment {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for HorizontalCharacterAlignment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HorizontalCharacterAlignment {}
 impl ::core::fmt::Debug for HorizontalCharacterAlignment {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HorizontalCharacterAlignment").field(&self.0).finish()
@@ -2941,6 +2911,7 @@ pub struct ITextSelectionVtbl(
 );
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct LetterCase(pub i32);
 impl LetterCase {
     pub const Lower: Self = Self(0i32);
@@ -2955,12 +2926,6 @@ impl ::core::clone::Clone for LetterCase {
 unsafe impl ::windows::core::Abi for LetterCase {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LetterCase {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LetterCase {}
 impl ::core::fmt::Debug for LetterCase {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LetterCase").field(&self.0).finish()
@@ -2974,6 +2939,7 @@ impl ::windows::core::DefaultType for LetterCase {
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct LineSpacingRule(pub i32);
 impl LineSpacingRule {
     pub const Undefined: Self = Self(0i32);
@@ -2994,12 +2960,6 @@ impl ::core::clone::Clone for LineSpacingRule {
 unsafe impl ::windows::core::Abi for LineSpacingRule {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LineSpacingRule {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LineSpacingRule {}
 impl ::core::fmt::Debug for LineSpacingRule {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LineSpacingRule").field(&self.0).finish()
@@ -3013,6 +2973,7 @@ impl ::windows::core::DefaultType for LineSpacingRule {
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct LinkType(pub i32);
 impl LinkType {
     pub const Undefined: Self = Self(0i32);
@@ -3034,12 +2995,6 @@ impl ::core::clone::Clone for LinkType {
 unsafe impl ::windows::core::Abi for LinkType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LinkType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LinkType {}
 impl ::core::fmt::Debug for LinkType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LinkType").field(&self.0).finish()
@@ -3053,6 +3008,7 @@ impl ::windows::core::DefaultType for LinkType {
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MarkerAlignment(pub i32);
 impl MarkerAlignment {
     pub const Undefined: Self = Self(0i32);
@@ -3069,12 +3025,6 @@ impl ::core::clone::Clone for MarkerAlignment {
 unsafe impl ::windows::core::Abi for MarkerAlignment {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MarkerAlignment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MarkerAlignment {}
 impl ::core::fmt::Debug for MarkerAlignment {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MarkerAlignment").field(&self.0).finish()
@@ -3088,6 +3038,7 @@ impl ::windows::core::DefaultType for MarkerAlignment {
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MarkerStyle(pub i32);
 impl MarkerStyle {
     pub const Undefined: Self = Self(0i32);
@@ -3107,12 +3058,6 @@ impl ::core::clone::Clone for MarkerStyle {
 unsafe impl ::windows::core::Abi for MarkerStyle {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MarkerStyle {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MarkerStyle {}
 impl ::core::fmt::Debug for MarkerStyle {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MarkerStyle").field(&self.0).finish()
@@ -3126,6 +3071,7 @@ impl ::windows::core::DefaultType for MarkerStyle {
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MarkerType(pub i32);
 impl MarkerType {
     pub const Undefined: Self = Self(0i32);
@@ -3163,12 +3109,6 @@ impl ::core::clone::Clone for MarkerType {
 unsafe impl ::windows::core::Abi for MarkerType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MarkerType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MarkerType {}
 impl ::core::fmt::Debug for MarkerType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MarkerType").field(&self.0).finish()
@@ -3182,6 +3122,7 @@ impl ::windows::core::DefaultType for MarkerType {
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ParagraphAlignment(pub i32);
 impl ParagraphAlignment {
     pub const Undefined: Self = Self(0i32);
@@ -3199,12 +3140,6 @@ impl ::core::clone::Clone for ParagraphAlignment {
 unsafe impl ::windows::core::Abi for ParagraphAlignment {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ParagraphAlignment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ParagraphAlignment {}
 impl ::core::fmt::Debug for ParagraphAlignment {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ParagraphAlignment").field(&self.0).finish()
@@ -3218,6 +3153,7 @@ impl ::windows::core::DefaultType for ParagraphAlignment {
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ParagraphStyle(pub i32);
 impl ParagraphStyle {
     pub const Undefined: Self = Self(0i32);
@@ -3242,12 +3178,6 @@ impl ::core::clone::Clone for ParagraphStyle {
 unsafe impl ::windows::core::Abi for ParagraphStyle {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ParagraphStyle {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ParagraphStyle {}
 impl ::core::fmt::Debug for ParagraphStyle {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ParagraphStyle").field(&self.0).finish()
@@ -3261,6 +3191,7 @@ impl ::windows::core::DefaultType for ParagraphStyle {
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PointOptions(pub u32);
 impl PointOptions {
     pub const None: Self = Self(0u32);
@@ -3281,12 +3212,6 @@ impl ::core::clone::Clone for PointOptions {
 unsafe impl ::windows::core::Abi for PointOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PointOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PointOptions {}
 impl ::core::fmt::Debug for PointOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PointOptions").field(&self.0).finish()
@@ -3328,6 +3253,7 @@ impl ::windows::core::DefaultType for PointOptions {
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct RangeGravity(pub i32);
 impl RangeGravity {
     pub const UIBehavior: Self = Self(0i32);
@@ -3345,12 +3271,6 @@ impl ::core::clone::Clone for RangeGravity {
 unsafe impl ::windows::core::Abi for RangeGravity {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RangeGravity {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RangeGravity {}
 impl ::core::fmt::Debug for RangeGravity {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RangeGravity").field(&self.0).finish()
@@ -3364,6 +3284,7 @@ impl ::windows::core::DefaultType for RangeGravity {
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct RichEditMathMode(pub i32);
 impl RichEditMathMode {
     pub const NoMath: Self = Self(0i32);
@@ -3378,12 +3299,6 @@ impl ::core::clone::Clone for RichEditMathMode {
 unsafe impl ::windows::core::Abi for RichEditMathMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RichEditMathMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RichEditMathMode {}
 impl ::core::fmt::Debug for RichEditMathMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RichEditMathMode").field(&self.0).finish()
@@ -4167,6 +4082,7 @@ unsafe impl ::core::marker::Send for RichEditTextRange {}
 unsafe impl ::core::marker::Sync for RichEditTextRange {}
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SelectionOptions(pub u32);
 impl SelectionOptions {
     pub const StartActive: Self = Self(1u32);
@@ -4184,12 +4100,6 @@ impl ::core::clone::Clone for SelectionOptions {
 unsafe impl ::windows::core::Abi for SelectionOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SelectionOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SelectionOptions {}
 impl ::core::fmt::Debug for SelectionOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SelectionOptions").field(&self.0).finish()
@@ -4231,6 +4141,7 @@ impl ::windows::core::DefaultType for SelectionOptions {
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SelectionType(pub i32);
 impl SelectionType {
     pub const None: Self = Self(0i32);
@@ -4248,12 +4159,6 @@ impl ::core::clone::Clone for SelectionType {
 unsafe impl ::windows::core::Abi for SelectionType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SelectionType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SelectionType {}
 impl ::core::fmt::Debug for SelectionType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SelectionType").field(&self.0).finish()
@@ -4267,6 +4172,7 @@ impl ::windows::core::DefaultType for SelectionType {
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TabAlignment(pub i32);
 impl TabAlignment {
     pub const Left: Self = Self(0i32);
@@ -4284,12 +4190,6 @@ impl ::core::clone::Clone for TabAlignment {
 unsafe impl ::windows::core::Abi for TabAlignment {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TabAlignment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TabAlignment {}
 impl ::core::fmt::Debug for TabAlignment {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TabAlignment").field(&self.0).finish()
@@ -4303,6 +4203,7 @@ impl ::windows::core::DefaultType for TabAlignment {
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TabLeader(pub i32);
 impl TabLeader {
     pub const Spaces: Self = Self(0i32);
@@ -4321,12 +4222,6 @@ impl ::core::clone::Clone for TabLeader {
 unsafe impl ::windows::core::Abi for TabLeader {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TabLeader {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TabLeader {}
 impl ::core::fmt::Debug for TabLeader {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TabLeader").field(&self.0).finish()
@@ -4408,6 +4303,7 @@ impl ::windows::core::RuntimeName for TextConstants {
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TextDecorations(pub u32);
 impl TextDecorations {
     pub const None: Self = Self(0u32);
@@ -4423,12 +4319,6 @@ impl ::core::clone::Clone for TextDecorations {
 unsafe impl ::windows::core::Abi for TextDecorations {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TextDecorations {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TextDecorations {}
 impl ::core::fmt::Debug for TextDecorations {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TextDecorations").field(&self.0).finish()
@@ -4470,6 +4360,7 @@ impl ::windows::core::DefaultType for TextDecorations {
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TextGetOptions(pub u32);
 impl TextGetOptions {
     pub const None: Self = Self(0u32);
@@ -4491,12 +4382,6 @@ impl ::core::clone::Clone for TextGetOptions {
 unsafe impl ::windows::core::Abi for TextGetOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TextGetOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TextGetOptions {}
 impl ::core::fmt::Debug for TextGetOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TextGetOptions").field(&self.0).finish()
@@ -4538,6 +4423,7 @@ impl ::windows::core::DefaultType for TextGetOptions {
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TextRangeUnit(pub i32);
 impl TextRangeUnit {
     pub const Character: Self = Self(0i32);
@@ -4583,12 +4469,6 @@ impl ::core::clone::Clone for TextRangeUnit {
 unsafe impl ::windows::core::Abi for TextRangeUnit {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TextRangeUnit {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TextRangeUnit {}
 impl ::core::fmt::Debug for TextRangeUnit {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TextRangeUnit").field(&self.0).finish()
@@ -4602,6 +4482,7 @@ impl ::windows::core::DefaultType for TextRangeUnit {
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TextScript(pub i32);
 impl TextScript {
     pub const Undefined: Self = Self(0i32);
@@ -4678,12 +4559,6 @@ impl ::core::clone::Clone for TextScript {
 unsafe impl ::windows::core::Abi for TextScript {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TextScript {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TextScript {}
 impl ::core::fmt::Debug for TextScript {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TextScript").field(&self.0).finish()
@@ -4697,6 +4572,7 @@ impl ::windows::core::DefaultType for TextScript {
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TextSetOptions(pub u32);
 impl TextSetOptions {
     pub const None: Self = Self(0u32);
@@ -4716,12 +4592,6 @@ impl ::core::clone::Clone for TextSetOptions {
 unsafe impl ::windows::core::Abi for TextSetOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TextSetOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TextSetOptions {}
 impl ::core::fmt::Debug for TextSetOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TextSetOptions").field(&self.0).finish()
@@ -4763,6 +4633,7 @@ impl ::windows::core::DefaultType for TextSetOptions {
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UnderlineType(pub i32);
 impl UnderlineType {
     pub const Undefined: Self = Self(0i32);
@@ -4795,12 +4666,6 @@ impl ::core::clone::Clone for UnderlineType {
 unsafe impl ::windows::core::Abi for UnderlineType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UnderlineType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UnderlineType {}
 impl ::core::fmt::Debug for UnderlineType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UnderlineType").field(&self.0).finish()
@@ -4814,6 +4679,7 @@ impl ::windows::core::DefaultType for UnderlineType {
 }
 #[doc = "*Required features: 'UI_Text'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct VerticalCharacterAlignment(pub i32);
 impl VerticalCharacterAlignment {
     pub const Top: Self = Self(0i32);
@@ -4829,12 +4695,6 @@ impl ::core::clone::Clone for VerticalCharacterAlignment {
 unsafe impl ::windows::core::Abi for VerticalCharacterAlignment {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VerticalCharacterAlignment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VerticalCharacterAlignment {}
 impl ::core::fmt::Debug for VerticalCharacterAlignment {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VerticalCharacterAlignment").field(&self.0).finish()

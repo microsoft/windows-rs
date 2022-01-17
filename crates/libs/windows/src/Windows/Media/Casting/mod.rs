@@ -272,6 +272,7 @@ unsafe impl ::core::marker::Send for CastingConnectionErrorOccurredEventArgs {}
 unsafe impl ::core::marker::Sync for CastingConnectionErrorOccurredEventArgs {}
 #[doc = "*Required features: 'Media_Casting'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CastingConnectionErrorStatus(pub i32);
 impl CastingConnectionErrorStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -291,12 +292,6 @@ impl ::core::clone::Clone for CastingConnectionErrorStatus {
 unsafe impl ::windows::core::Abi for CastingConnectionErrorStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CastingConnectionErrorStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CastingConnectionErrorStatus {}
 impl ::core::fmt::Debug for CastingConnectionErrorStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CastingConnectionErrorStatus").field(&self.0).finish()
@@ -310,6 +305,7 @@ impl ::windows::core::DefaultType for CastingConnectionErrorStatus {
 }
 #[doc = "*Required features: 'Media_Casting'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CastingConnectionState(pub i32);
 impl CastingConnectionState {
     pub const Disconnected: Self = Self(0i32);
@@ -327,12 +323,6 @@ impl ::core::clone::Clone for CastingConnectionState {
 unsafe impl ::windows::core::Abi for CastingConnectionState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CastingConnectionState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CastingConnectionState {}
 impl ::core::fmt::Debug for CastingConnectionState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CastingConnectionState").field(&self.0).finish()
@@ -843,6 +833,7 @@ unsafe impl ::core::marker::Send for CastingDeviceSelectedEventArgs {}
 unsafe impl ::core::marker::Sync for CastingDeviceSelectedEventArgs {}
 #[doc = "*Required features: 'Media_Casting'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CastingPlaybackTypes(pub u32);
 impl CastingPlaybackTypes {
     pub const None: Self = Self(0u32);
@@ -859,12 +850,6 @@ impl ::core::clone::Clone for CastingPlaybackTypes {
 unsafe impl ::windows::core::Abi for CastingPlaybackTypes {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CastingPlaybackTypes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CastingPlaybackTypes {}
 impl ::core::fmt::Debug for CastingPlaybackTypes {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CastingPlaybackTypes").field(&self.0).finish()

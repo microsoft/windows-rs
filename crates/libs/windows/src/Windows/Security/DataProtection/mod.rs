@@ -108,6 +108,7 @@ pub struct IUserDataStorageItemProtectionInfoVtbl(
 );
 #[doc = "*Required features: 'Security_DataProtection'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserDataAvailability(pub i32);
 impl UserDataAvailability {
     pub const Always: Self = Self(0i32);
@@ -123,12 +124,6 @@ impl ::core::clone::Clone for UserDataAvailability {
 unsafe impl ::windows::core::Abi for UserDataAvailability {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UserDataAvailability {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataAvailability {}
 impl ::core::fmt::Debug for UserDataAvailability {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserDataAvailability").field(&self.0).finish()
@@ -314,6 +309,7 @@ unsafe impl ::core::marker::Send for UserDataBufferUnprotectResult {}
 unsafe impl ::core::marker::Sync for UserDataBufferUnprotectResult {}
 #[doc = "*Required features: 'Security_DataProtection'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserDataBufferUnprotectStatus(pub i32);
 impl UserDataBufferUnprotectStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -328,12 +324,6 @@ impl ::core::clone::Clone for UserDataBufferUnprotectStatus {
 unsafe impl ::windows::core::Abi for UserDataBufferUnprotectStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UserDataBufferUnprotectStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataBufferUnprotectStatus {}
 impl ::core::fmt::Debug for UserDataBufferUnprotectStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserDataBufferUnprotectStatus").field(&self.0).finish()
@@ -580,6 +570,7 @@ unsafe impl ::core::marker::Send for UserDataStorageItemProtectionInfo {}
 unsafe impl ::core::marker::Sync for UserDataStorageItemProtectionInfo {}
 #[doc = "*Required features: 'Security_DataProtection'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserDataStorageItemProtectionStatus(pub i32);
 impl UserDataStorageItemProtectionStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -595,12 +586,6 @@ impl ::core::clone::Clone for UserDataStorageItemProtectionStatus {
 unsafe impl ::windows::core::Abi for UserDataStorageItemProtectionStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UserDataStorageItemProtectionStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataStorageItemProtectionStatus {}
 impl ::core::fmt::Debug for UserDataStorageItemProtectionStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserDataStorageItemProtectionStatus").field(&self.0).finish()

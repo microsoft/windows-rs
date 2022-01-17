@@ -822,6 +822,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
 }
 #[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppBroadcastCameraCaptureState(pub i32);
 impl AppBroadcastCameraCaptureState {
     pub const Stopped: Self = Self(0i32);
@@ -837,12 +838,6 @@ impl ::core::clone::Clone for AppBroadcastCameraCaptureState {
 unsafe impl ::windows::core::Abi for AppBroadcastCameraCaptureState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppBroadcastCameraCaptureState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppBroadcastCameraCaptureState {}
 impl ::core::fmt::Debug for AppBroadcastCameraCaptureState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppBroadcastCameraCaptureState").field(&self.0).finish()
@@ -945,6 +940,7 @@ unsafe impl ::core::marker::Send for AppBroadcastCameraCaptureStateChangedEventA
 unsafe impl ::core::marker::Sync for AppBroadcastCameraCaptureStateChangedEventArgs {}
 #[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppBroadcastCameraOverlayLocation(pub i32);
 impl AppBroadcastCameraOverlayLocation {
     pub const TopLeft: Self = Self(0i32);
@@ -966,12 +962,6 @@ impl ::core::clone::Clone for AppBroadcastCameraOverlayLocation {
 unsafe impl ::windows::core::Abi for AppBroadcastCameraOverlayLocation {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppBroadcastCameraOverlayLocation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppBroadcastCameraOverlayLocation {}
 impl ::core::fmt::Debug for AppBroadcastCameraOverlayLocation {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppBroadcastCameraOverlayLocation").field(&self.0).finish()
@@ -985,6 +975,7 @@ impl ::windows::core::DefaultType for AppBroadcastCameraOverlayLocation {
 }
 #[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppBroadcastCameraOverlaySize(pub i32);
 impl AppBroadcastCameraOverlaySize {
     pub const Small: Self = Self(0i32);
@@ -1000,12 +991,6 @@ impl ::core::clone::Clone for AppBroadcastCameraOverlaySize {
 unsafe impl ::windows::core::Abi for AppBroadcastCameraOverlaySize {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppBroadcastCameraOverlaySize {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppBroadcastCameraOverlaySize {}
 impl ::core::fmt::Debug for AppBroadcastCameraOverlaySize {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppBroadcastCameraOverlaySize").field(&self.0).finish()
@@ -1019,6 +1004,7 @@ impl ::windows::core::DefaultType for AppBroadcastCameraOverlaySize {
 }
 #[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppBroadcastCaptureTargetType(pub i32);
 impl AppBroadcastCaptureTargetType {
     pub const AppView: Self = Self(0i32);
@@ -1033,12 +1019,6 @@ impl ::core::clone::Clone for AppBroadcastCaptureTargetType {
 unsafe impl ::windows::core::Abi for AppBroadcastCaptureTargetType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppBroadcastCaptureTargetType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppBroadcastCaptureTargetType {}
 impl ::core::fmt::Debug for AppBroadcastCaptureTargetType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppBroadcastCaptureTargetType").field(&self.0).finish()
@@ -1052,6 +1032,7 @@ impl ::windows::core::DefaultType for AppBroadcastCaptureTargetType {
 }
 #[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppBroadcastExitBroadcastModeReason(pub i32);
 impl AppBroadcastExitBroadcastModeReason {
     pub const NormalExit: Self = Self(0i32);
@@ -1068,12 +1049,6 @@ impl ::core::clone::Clone for AppBroadcastExitBroadcastModeReason {
 unsafe impl ::windows::core::Abi for AppBroadcastExitBroadcastModeReason {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppBroadcastExitBroadcastModeReason {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppBroadcastExitBroadcastModeReason {}
 impl ::core::fmt::Debug for AppBroadcastExitBroadcastModeReason {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppBroadcastExitBroadcastModeReason").field(&self.0).finish()
@@ -1438,6 +1413,7 @@ impl ::windows::core::RuntimeName for AppBroadcastManager {
 }
 #[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppBroadcastMicrophoneCaptureState(pub i32);
 impl AppBroadcastMicrophoneCaptureState {
     pub const Stopped: Self = Self(0i32);
@@ -1453,12 +1429,6 @@ impl ::core::clone::Clone for AppBroadcastMicrophoneCaptureState {
 unsafe impl ::windows::core::Abi for AppBroadcastMicrophoneCaptureState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppBroadcastMicrophoneCaptureState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppBroadcastMicrophoneCaptureState {}
 impl ::core::fmt::Debug for AppBroadcastMicrophoneCaptureState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppBroadcastMicrophoneCaptureState").field(&self.0).finish()
@@ -1790,6 +1760,7 @@ unsafe impl ::core::marker::Send for AppBroadcastPlugInManager {}
 unsafe impl ::core::marker::Sync for AppBroadcastPlugInManager {}
 #[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppBroadcastPlugInState(pub i32);
 impl AppBroadcastPlugInState {
     pub const Unknown: Self = Self(0i32);
@@ -1809,12 +1780,6 @@ impl ::core::clone::Clone for AppBroadcastPlugInState {
 unsafe impl ::windows::core::Abi for AppBroadcastPlugInState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppBroadcastPlugInState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppBroadcastPlugInState {}
 impl ::core::fmt::Debug for AppBroadcastPlugInState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppBroadcastPlugInState").field(&self.0).finish()
@@ -2027,6 +1992,7 @@ unsafe impl ::core::marker::Send for AppBroadcastPreview {}
 unsafe impl ::core::marker::Sync for AppBroadcastPreview {}
 #[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppBroadcastPreviewState(pub i32);
 impl AppBroadcastPreviewState {
     pub const Started: Self = Self(0i32);
@@ -2042,12 +2008,6 @@ impl ::core::clone::Clone for AppBroadcastPreviewState {
 unsafe impl ::windows::core::Abi for AppBroadcastPreviewState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppBroadcastPreviewState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppBroadcastPreviewState {}
 impl ::core::fmt::Debug for AppBroadcastPreviewState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppBroadcastPreviewState").field(&self.0).finish()
@@ -2822,6 +2782,7 @@ unsafe impl ::core::marker::Send for AppBroadcastServices {}
 unsafe impl ::core::marker::Sync for AppBroadcastServices {}
 #[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppBroadcastSignInResult(pub i32);
 impl AppBroadcastSignInResult {
     pub const Success: Self = Self(0i32);
@@ -2839,12 +2800,6 @@ impl ::core::clone::Clone for AppBroadcastSignInResult {
 unsafe impl ::windows::core::Abi for AppBroadcastSignInResult {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppBroadcastSignInResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppBroadcastSignInResult {}
 impl ::core::fmt::Debug for AppBroadcastSignInResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppBroadcastSignInResult").field(&self.0).finish()
@@ -2858,6 +2813,7 @@ impl ::windows::core::DefaultType for AppBroadcastSignInResult {
 }
 #[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppBroadcastSignInState(pub i32);
 impl AppBroadcastSignInState {
     pub const NotSignedIn: Self = Self(0i32);
@@ -2875,12 +2831,6 @@ impl ::core::clone::Clone for AppBroadcastSignInState {
 unsafe impl ::windows::core::Abi for AppBroadcastSignInState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppBroadcastSignInState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppBroadcastSignInState {}
 impl ::core::fmt::Debug for AppBroadcastSignInState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppBroadcastSignInState").field(&self.0).finish()
@@ -3691,6 +3641,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
 }
 #[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppBroadcastStreamState(pub i32);
 impl AppBroadcastStreamState {
     pub const Initializing: Self = Self(0i32);
@@ -3708,12 +3659,6 @@ impl ::core::clone::Clone for AppBroadcastStreamState {
 unsafe impl ::windows::core::Abi for AppBroadcastStreamState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppBroadcastStreamState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppBroadcastStreamState {}
 impl ::core::fmt::Debug for AppBroadcastStreamState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppBroadcastStreamState").field(&self.0).finish()
@@ -4016,6 +3961,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
 }
 #[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppBroadcastTerminationReason(pub i32);
 impl AppBroadcastTerminationReason {
     pub const NormalTermination: Self = Self(0i32);
@@ -4038,12 +3984,6 @@ impl ::core::clone::Clone for AppBroadcastTerminationReason {
 unsafe impl ::windows::core::Abi for AppBroadcastTerminationReason {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppBroadcastTerminationReason {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppBroadcastTerminationReason {}
 impl ::core::fmt::Debug for AppBroadcastTerminationReason {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppBroadcastTerminationReason").field(&self.0).finish()
@@ -4136,6 +4076,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppB
 }
 #[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppBroadcastVideoEncodingBitrateMode(pub i32);
 impl AppBroadcastVideoEncodingBitrateMode {
     pub const Custom: Self = Self(0i32);
@@ -4150,12 +4091,6 @@ impl ::core::clone::Clone for AppBroadcastVideoEncodingBitrateMode {
 unsafe impl ::windows::core::Abi for AppBroadcastVideoEncodingBitrateMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppBroadcastVideoEncodingBitrateMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppBroadcastVideoEncodingBitrateMode {}
 impl ::core::fmt::Debug for AppBroadcastVideoEncodingBitrateMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppBroadcastVideoEncodingBitrateMode").field(&self.0).finish()
@@ -4169,6 +4104,7 @@ impl ::windows::core::DefaultType for AppBroadcastVideoEncodingBitrateMode {
 }
 #[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppBroadcastVideoEncodingResolutionMode(pub i32);
 impl AppBroadcastVideoEncodingResolutionMode {
     pub const Custom: Self = Self(0i32);
@@ -4183,12 +4119,6 @@ impl ::core::clone::Clone for AppBroadcastVideoEncodingResolutionMode {
 unsafe impl ::windows::core::Abi for AppBroadcastVideoEncodingResolutionMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppBroadcastVideoEncodingResolutionMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppBroadcastVideoEncodingResolutionMode {}
 impl ::core::fmt::Debug for AppBroadcastVideoEncodingResolutionMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppBroadcastVideoEncodingResolutionMode").field(&self.0).finish()
@@ -4885,6 +4815,7 @@ unsafe impl ::core::marker::Send for AppCaptureFileGeneratedEventArgs {}
 unsafe impl ::core::marker::Sync for AppCaptureFileGeneratedEventArgs {}
 #[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppCaptureHistoricalBufferLengthUnit(pub i32);
 impl AppCaptureHistoricalBufferLengthUnit {
     pub const Megabytes: Self = Self(0i32);
@@ -4899,12 +4830,6 @@ impl ::core::clone::Clone for AppCaptureHistoricalBufferLengthUnit {
 unsafe impl ::windows::core::Abi for AppCaptureHistoricalBufferLengthUnit {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppCaptureHistoricalBufferLengthUnit {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppCaptureHistoricalBufferLengthUnit {}
 impl ::core::fmt::Debug for AppCaptureHistoricalBufferLengthUnit {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppCaptureHistoricalBufferLengthUnit").field(&self.0).finish()
@@ -4941,6 +4866,7 @@ impl ::windows::core::RuntimeName for AppCaptureManager {
 }
 #[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppCaptureMetadataPriority(pub i32);
 impl AppCaptureMetadataPriority {
     pub const Informational: Self = Self(0i32);
@@ -4955,12 +4881,6 @@ impl ::core::clone::Clone for AppCaptureMetadataPriority {
 unsafe impl ::windows::core::Abi for AppCaptureMetadataPriority {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppCaptureMetadataPriority {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppCaptureMetadataPriority {}
 impl ::core::fmt::Debug for AppCaptureMetadataPriority {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppCaptureMetadataPriority").field(&self.0).finish()
@@ -5149,6 +5069,7 @@ unsafe impl ::core::marker::Send for AppCaptureMetadataWriter {}
 unsafe impl ::core::marker::Sync for AppCaptureMetadataWriter {}
 #[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppCaptureMicrophoneCaptureState(pub i32);
 impl AppCaptureMicrophoneCaptureState {
     pub const Stopped: Self = Self(0i32);
@@ -5164,12 +5085,6 @@ impl ::core::clone::Clone for AppCaptureMicrophoneCaptureState {
 unsafe impl ::windows::core::Abi for AppCaptureMicrophoneCaptureState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppCaptureMicrophoneCaptureState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppCaptureMicrophoneCaptureState {}
 impl ::core::fmt::Debug for AppCaptureMicrophoneCaptureState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppCaptureMicrophoneCaptureState").field(&self.0).finish()
@@ -5439,6 +5354,7 @@ unsafe impl ::core::marker::Send for AppCaptureRecordOperation {}
 unsafe impl ::core::marker::Sync for AppCaptureRecordOperation {}
 #[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppCaptureRecordingState(pub i32);
 impl AppCaptureRecordingState {
     pub const InProgress: Self = Self(0i32);
@@ -5454,12 +5370,6 @@ impl ::core::clone::Clone for AppCaptureRecordingState {
 unsafe impl ::windows::core::Abi for AppCaptureRecordingState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppCaptureRecordingState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppCaptureRecordingState {}
 impl ::core::fmt::Debug for AppCaptureRecordingState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppCaptureRecordingState").field(&self.0).finish()
@@ -6245,6 +6155,7 @@ unsafe impl ::core::marker::Send for AppCaptureState {}
 unsafe impl ::core::marker::Sync for AppCaptureState {}
 #[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppCaptureVideoEncodingBitrateMode(pub i32);
 impl AppCaptureVideoEncodingBitrateMode {
     pub const Custom: Self = Self(0i32);
@@ -6260,12 +6171,6 @@ impl ::core::clone::Clone for AppCaptureVideoEncodingBitrateMode {
 unsafe impl ::windows::core::Abi for AppCaptureVideoEncodingBitrateMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppCaptureVideoEncodingBitrateMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppCaptureVideoEncodingBitrateMode {}
 impl ::core::fmt::Debug for AppCaptureVideoEncodingBitrateMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppCaptureVideoEncodingBitrateMode").field(&self.0).finish()
@@ -6279,6 +6184,7 @@ impl ::windows::core::DefaultType for AppCaptureVideoEncodingBitrateMode {
 }
 #[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppCaptureVideoEncodingFrameRateMode(pub i32);
 impl AppCaptureVideoEncodingFrameRateMode {
     pub const Standard: Self = Self(0i32);
@@ -6293,12 +6199,6 @@ impl ::core::clone::Clone for AppCaptureVideoEncodingFrameRateMode {
 unsafe impl ::windows::core::Abi for AppCaptureVideoEncodingFrameRateMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppCaptureVideoEncodingFrameRateMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppCaptureVideoEncodingFrameRateMode {}
 impl ::core::fmt::Debug for AppCaptureVideoEncodingFrameRateMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppCaptureVideoEncodingFrameRateMode").field(&self.0).finish()
@@ -6312,6 +6212,7 @@ impl ::windows::core::DefaultType for AppCaptureVideoEncodingFrameRateMode {
 }
 #[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppCaptureVideoEncodingResolutionMode(pub i32);
 impl AppCaptureVideoEncodingResolutionMode {
     pub const Custom: Self = Self(0i32);
@@ -6327,12 +6228,6 @@ impl ::core::clone::Clone for AppCaptureVideoEncodingResolutionMode {
 unsafe impl ::windows::core::Abi for AppCaptureVideoEncodingResolutionMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppCaptureVideoEncodingResolutionMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppCaptureVideoEncodingResolutionMode {}
 impl ::core::fmt::Debug for AppCaptureVideoEncodingResolutionMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppCaptureVideoEncodingResolutionMode").field(&self.0).finish()
@@ -6449,6 +6344,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Came
 }
 #[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CameraCaptureUIMaxPhotoResolution(pub i32);
 impl CameraCaptureUIMaxPhotoResolution {
     pub const HighestAvailable: Self = Self(0i32);
@@ -6467,12 +6363,6 @@ impl ::core::clone::Clone for CameraCaptureUIMaxPhotoResolution {
 unsafe impl ::windows::core::Abi for CameraCaptureUIMaxPhotoResolution {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CameraCaptureUIMaxPhotoResolution {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CameraCaptureUIMaxPhotoResolution {}
 impl ::core::fmt::Debug for CameraCaptureUIMaxPhotoResolution {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CameraCaptureUIMaxPhotoResolution").field(&self.0).finish()
@@ -6486,6 +6376,7 @@ impl ::windows::core::DefaultType for CameraCaptureUIMaxPhotoResolution {
 }
 #[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CameraCaptureUIMaxVideoResolution(pub i32);
 impl CameraCaptureUIMaxVideoResolution {
     pub const HighestAvailable: Self = Self(0i32);
@@ -6502,12 +6393,6 @@ impl ::core::clone::Clone for CameraCaptureUIMaxVideoResolution {
 unsafe impl ::windows::core::Abi for CameraCaptureUIMaxVideoResolution {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CameraCaptureUIMaxVideoResolution {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CameraCaptureUIMaxVideoResolution {}
 impl ::core::fmt::Debug for CameraCaptureUIMaxVideoResolution {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CameraCaptureUIMaxVideoResolution").field(&self.0).finish()
@@ -6521,6 +6406,7 @@ impl ::windows::core::DefaultType for CameraCaptureUIMaxVideoResolution {
 }
 #[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CameraCaptureUIMode(pub i32);
 impl CameraCaptureUIMode {
     pub const PhotoOrVideo: Self = Self(0i32);
@@ -6536,12 +6422,6 @@ impl ::core::clone::Clone for CameraCaptureUIMode {
 unsafe impl ::windows::core::Abi for CameraCaptureUIMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CameraCaptureUIMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CameraCaptureUIMode {}
 impl ::core::fmt::Debug for CameraCaptureUIMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CameraCaptureUIMode").field(&self.0).finish()
@@ -6697,6 +6577,7 @@ unsafe impl ::core::marker::Send for CameraCaptureUIPhotoCaptureSettings {}
 unsafe impl ::core::marker::Sync for CameraCaptureUIPhotoCaptureSettings {}
 #[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CameraCaptureUIPhotoFormat(pub i32);
 impl CameraCaptureUIPhotoFormat {
     pub const Jpeg: Self = Self(0i32);
@@ -6712,12 +6593,6 @@ impl ::core::clone::Clone for CameraCaptureUIPhotoFormat {
 unsafe impl ::windows::core::Abi for CameraCaptureUIPhotoFormat {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CameraCaptureUIPhotoFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CameraCaptureUIPhotoFormat {}
 impl ::core::fmt::Debug for CameraCaptureUIPhotoFormat {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CameraCaptureUIPhotoFormat").field(&self.0).finish()
@@ -6856,6 +6731,7 @@ unsafe impl ::core::marker::Send for CameraCaptureUIVideoCaptureSettings {}
 unsafe impl ::core::marker::Sync for CameraCaptureUIVideoCaptureSettings {}
 #[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CameraCaptureUIVideoFormat(pub i32);
 impl CameraCaptureUIVideoFormat {
     pub const Mp4: Self = Self(0i32);
@@ -6870,12 +6746,6 @@ impl ::core::clone::Clone for CameraCaptureUIVideoFormat {
 unsafe impl ::windows::core::Abi for CameraCaptureUIVideoFormat {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CameraCaptureUIVideoFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CameraCaptureUIVideoFormat {}
 impl ::core::fmt::Debug for CameraCaptureUIVideoFormat {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CameraCaptureUIVideoFormat").field(&self.0).finish()
@@ -7581,6 +7451,7 @@ unsafe impl ::core::marker::Send for CapturedPhoto {}
 unsafe impl ::core::marker::Sync for CapturedPhoto {}
 #[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ForegroundActivationArgument(pub i32);
 impl ForegroundActivationArgument {
     pub const SignInRequired: Self = Self(0i32);
@@ -7595,12 +7466,6 @@ impl ::core::clone::Clone for ForegroundActivationArgument {
 unsafe impl ::windows::core::Abi for ForegroundActivationArgument {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ForegroundActivationArgument {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ForegroundActivationArgument {}
 impl ::core::fmt::Debug for ForegroundActivationArgument {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ForegroundActivationArgument").field(&self.0).finish()
@@ -7614,6 +7479,7 @@ impl ::windows::core::DefaultType for ForegroundActivationArgument {
 }
 #[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GameBarCommand(pub i32);
 impl GameBarCommand {
     pub const OpenGameBar: Self = Self(0i32);
@@ -7640,12 +7506,6 @@ impl ::core::clone::Clone for GameBarCommand {
 unsafe impl ::windows::core::Abi for GameBarCommand {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GameBarCommand {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GameBarCommand {}
 impl ::core::fmt::Debug for GameBarCommand {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GameBarCommand").field(&self.0).finish()
@@ -7659,6 +7519,7 @@ impl ::windows::core::DefaultType for GameBarCommand {
 }
 #[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GameBarCommandOrigin(pub i32);
 impl GameBarCommandOrigin {
     pub const ShortcutKey: Self = Self(0i32);
@@ -7674,12 +7535,6 @@ impl ::core::clone::Clone for GameBarCommandOrigin {
 unsafe impl ::windows::core::Abi for GameBarCommandOrigin {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GameBarCommandOrigin {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GameBarCommandOrigin {}
 impl ::core::fmt::Debug for GameBarCommandOrigin {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GameBarCommandOrigin").field(&self.0).finish()
@@ -7920,6 +7775,7 @@ unsafe impl ::core::marker::Send for GameBarServicesCommandEventArgs {}
 unsafe impl ::core::marker::Sync for GameBarServicesCommandEventArgs {}
 #[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GameBarServicesDisplayMode(pub i32);
 impl GameBarServicesDisplayMode {
     pub const Windowed: Self = Self(0i32);
@@ -7934,12 +7790,6 @@ impl ::core::clone::Clone for GameBarServicesDisplayMode {
 unsafe impl ::windows::core::Abi for GameBarServicesDisplayMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GameBarServicesDisplayMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GameBarServicesDisplayMode {}
 impl ::core::fmt::Debug for GameBarServicesDisplayMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GameBarServicesDisplayMode").field(&self.0).finish()
@@ -8239,6 +8089,7 @@ unsafe impl ::core::marker::Send for GameBarServicesTargetInfo {}
 unsafe impl ::core::marker::Sync for GameBarServicesTargetInfo {}
 #[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GameBarTargetCapturePolicy(pub i32);
 impl GameBarTargetCapturePolicy {
     pub const EnabledBySystem: Self = Self(0i32);
@@ -8256,12 +8107,6 @@ impl ::core::clone::Clone for GameBarTargetCapturePolicy {
 unsafe impl ::windows::core::Abi for GameBarTargetCapturePolicy {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GameBarTargetCapturePolicy {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GameBarTargetCapturePolicy {}
 impl ::core::fmt::Debug for GameBarTargetCapturePolicy {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GameBarTargetCapturePolicy").field(&self.0).finish()
@@ -11058,6 +10903,7 @@ pub struct IVideoStreamConfigurationVtbl(
 );
 #[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct KnownVideoProfile(pub i32);
 impl KnownVideoProfile {
     pub const VideoRecording: Self = Self(0i32);
@@ -11081,12 +10927,6 @@ impl ::core::clone::Clone for KnownVideoProfile {
 unsafe impl ::windows::core::Abi for KnownVideoProfile {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for KnownVideoProfile {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for KnownVideoProfile {}
 impl ::core::fmt::Debug for KnownVideoProfile {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("KnownVideoProfile").field(&self.0).finish()
@@ -12133,6 +11973,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 #[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MediaCaptureDeviceExclusiveControlStatus(pub i32);
 impl MediaCaptureDeviceExclusiveControlStatus {
     pub const ExclusiveControlAvailable: Self = Self(0i32);
@@ -12147,12 +11988,6 @@ impl ::core::clone::Clone for MediaCaptureDeviceExclusiveControlStatus {
 unsafe impl ::windows::core::Abi for MediaCaptureDeviceExclusiveControlStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MediaCaptureDeviceExclusiveControlStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaCaptureDeviceExclusiveControlStatus {}
 impl ::core::fmt::Debug for MediaCaptureDeviceExclusiveControlStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MediaCaptureDeviceExclusiveControlStatus").field(&self.0).finish()
@@ -12823,6 +12658,7 @@ unsafe impl ::core::marker::Send for MediaCaptureInitializationSettings {}
 unsafe impl ::core::marker::Sync for MediaCaptureInitializationSettings {}
 #[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MediaCaptureMemoryPreference(pub i32);
 impl MediaCaptureMemoryPreference {
     pub const Auto: Self = Self(0i32);
@@ -12837,12 +12673,6 @@ impl ::core::clone::Clone for MediaCaptureMemoryPreference {
 unsafe impl ::windows::core::Abi for MediaCaptureMemoryPreference {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MediaCaptureMemoryPreference {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaCaptureMemoryPreference {}
 impl ::core::fmt::Debug for MediaCaptureMemoryPreference {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MediaCaptureMemoryPreference").field(&self.0).finish()
@@ -13302,6 +13132,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 #[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MediaCaptureSharingMode(pub i32);
 impl MediaCaptureSharingMode {
     pub const ExclusiveControl: Self = Self(0i32);
@@ -13316,12 +13147,6 @@ impl ::core::clone::Clone for MediaCaptureSharingMode {
 unsafe impl ::windows::core::Abi for MediaCaptureSharingMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MediaCaptureSharingMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaCaptureSharingMode {}
 impl ::core::fmt::Debug for MediaCaptureSharingMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MediaCaptureSharingMode").field(&self.0).finish()
@@ -13455,6 +13280,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 #[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MediaCaptureThermalStatus(pub i32);
 impl MediaCaptureThermalStatus {
     pub const Normal: Self = Self(0i32);
@@ -13469,12 +13295,6 @@ impl ::core::clone::Clone for MediaCaptureThermalStatus {
 unsafe impl ::windows::core::Abi for MediaCaptureThermalStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MediaCaptureThermalStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaCaptureThermalStatus {}
 impl ::core::fmt::Debug for MediaCaptureThermalStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MediaCaptureThermalStatus").field(&self.0).finish()
@@ -13763,6 +13583,7 @@ unsafe impl ::core::marker::Send for MediaCaptureVideoProfileMediaDescription {}
 unsafe impl ::core::marker::Sync for MediaCaptureVideoProfileMediaDescription {}
 #[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MediaCategory(pub i32);
 impl MediaCategory {
     pub const Other: Self = Self(0i32);
@@ -13783,12 +13604,6 @@ impl ::core::clone::Clone for MediaCategory {
 unsafe impl ::windows::core::Abi for MediaCategory {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MediaCategory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaCategory {}
 impl ::core::fmt::Debug for MediaCategory {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MediaCategory").field(&self.0).finish()
@@ -13802,6 +13617,7 @@ impl ::windows::core::DefaultType for MediaCategory {
 }
 #[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MediaStreamType(pub i32);
 impl MediaStreamType {
     pub const VideoPreview: Self = Self(0i32);
@@ -13819,12 +13635,6 @@ impl ::core::clone::Clone for MediaStreamType {
 unsafe impl ::windows::core::Abi for MediaStreamType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MediaStreamType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaStreamType {}
 impl ::core::fmt::Debug for MediaStreamType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MediaStreamType").field(&self.0).finish()
@@ -13927,6 +13737,7 @@ unsafe impl ::core::marker::Send for OptionalReferencePhotoCapturedEventArgs {}
 unsafe impl ::core::marker::Sync for OptionalReferencePhotoCapturedEventArgs {}
 #[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhotoCaptureSource(pub i32);
 impl PhotoCaptureSource {
     pub const Auto: Self = Self(0i32);
@@ -13942,12 +13753,6 @@ impl ::core::clone::Clone for PhotoCaptureSource {
 unsafe impl ::windows::core::Abi for PhotoCaptureSource {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhotoCaptureSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhotoCaptureSource {}
 impl ::core::fmt::Debug for PhotoCaptureSource {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhotoCaptureSource").field(&self.0).finish()
@@ -14149,6 +13954,7 @@ unsafe impl ::core::marker::Send for PhotoConfirmationCapturedEventArgs {}
 unsafe impl ::core::marker::Sync for PhotoConfirmationCapturedEventArgs {}
 #[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PowerlineFrequency(pub i32);
 impl PowerlineFrequency {
     pub const Disabled: Self = Self(0i32);
@@ -14165,12 +13971,6 @@ impl ::core::clone::Clone for PowerlineFrequency {
 unsafe impl ::windows::core::Abi for PowerlineFrequency {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PowerlineFrequency {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PowerlineFrequency {}
 impl ::core::fmt::Debug for PowerlineFrequency {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PowerlineFrequency").field(&self.0).finish()
@@ -14482,6 +14282,7 @@ unsafe impl ::core::marker::Send for SourceSuspensionChangedEventArgs {}
 unsafe impl ::core::marker::Sync for SourceSuspensionChangedEventArgs {}
 #[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct StreamingCaptureMode(pub i32);
 impl StreamingCaptureMode {
     pub const AudioAndVideo: Self = Self(0i32);
@@ -14497,12 +14298,6 @@ impl ::core::clone::Clone for StreamingCaptureMode {
 unsafe impl ::windows::core::Abi for StreamingCaptureMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for StreamingCaptureMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StreamingCaptureMode {}
 impl ::core::fmt::Debug for StreamingCaptureMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("StreamingCaptureMode").field(&self.0).finish()
@@ -14516,6 +14311,7 @@ impl ::windows::core::DefaultType for StreamingCaptureMode {
 }
 #[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct VideoDeviceCharacteristic(pub i32);
 impl VideoDeviceCharacteristic {
     pub const AllStreamsIndependent: Self = Self(0i32);
@@ -14533,12 +14329,6 @@ impl ::core::clone::Clone for VideoDeviceCharacteristic {
 unsafe impl ::windows::core::Abi for VideoDeviceCharacteristic {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VideoDeviceCharacteristic {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VideoDeviceCharacteristic {}
 impl ::core::fmt::Debug for VideoDeviceCharacteristic {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VideoDeviceCharacteristic").field(&self.0).finish()
@@ -14552,6 +14342,7 @@ impl ::windows::core::DefaultType for VideoDeviceCharacteristic {
 }
 #[doc = "*Required features: 'Media_Capture'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct VideoRotation(pub i32);
 impl VideoRotation {
     pub const None: Self = Self(0i32);
@@ -14568,12 +14359,6 @@ impl ::core::clone::Clone for VideoRotation {
 unsafe impl ::windows::core::Abi for VideoRotation {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VideoRotation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VideoRotation {}
 impl ::core::fmt::Debug for VideoRotation {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VideoRotation").field(&self.0).finish()

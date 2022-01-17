@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'Graphics_Imaging'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct BitmapAlphaMode(pub i32);
 impl BitmapAlphaMode {
     pub const Premultiplied: Self = Self(0i32);
@@ -16,12 +17,6 @@ impl ::core::clone::Clone for BitmapAlphaMode {
 unsafe impl ::windows::core::Abi for BitmapAlphaMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BitmapAlphaMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BitmapAlphaMode {}
 impl ::core::fmt::Debug for BitmapAlphaMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BitmapAlphaMode").field(&self.0).finish()
@@ -230,6 +225,7 @@ unsafe impl ::core::marker::Send for BitmapBuffer {}
 unsafe impl ::core::marker::Sync for BitmapBuffer {}
 #[doc = "*Required features: 'Graphics_Imaging'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct BitmapBufferAccessMode(pub i32);
 impl BitmapBufferAccessMode {
     pub const Read: Self = Self(0i32);
@@ -245,12 +241,6 @@ impl ::core::clone::Clone for BitmapBufferAccessMode {
 unsafe impl ::windows::core::Abi for BitmapBufferAccessMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BitmapBufferAccessMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BitmapBufferAccessMode {}
 impl ::core::fmt::Debug for BitmapBufferAccessMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BitmapBufferAccessMode").field(&self.0).finish()
@@ -1033,6 +1023,7 @@ unsafe impl ::core::marker::Send for BitmapEncoder {}
 unsafe impl ::core::marker::Sync for BitmapEncoder {}
 #[doc = "*Required features: 'Graphics_Imaging'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct BitmapFlip(pub i32);
 impl BitmapFlip {
     pub const None: Self = Self(0i32);
@@ -1048,12 +1039,6 @@ impl ::core::clone::Clone for BitmapFlip {
 unsafe impl ::windows::core::Abi for BitmapFlip {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BitmapFlip {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BitmapFlip {}
 impl ::core::fmt::Debug for BitmapFlip {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BitmapFlip").field(&self.0).finish()
@@ -1310,6 +1295,7 @@ unsafe impl ::core::marker::Send for BitmapFrame {}
 unsafe impl ::core::marker::Sync for BitmapFrame {}
 #[doc = "*Required features: 'Graphics_Imaging'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct BitmapInterpolationMode(pub i32);
 impl BitmapInterpolationMode {
     pub const NearestNeighbor: Self = Self(0i32);
@@ -1326,12 +1312,6 @@ impl ::core::clone::Clone for BitmapInterpolationMode {
 unsafe impl ::windows::core::Abi for BitmapInterpolationMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BitmapInterpolationMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BitmapInterpolationMode {}
 impl ::core::fmt::Debug for BitmapInterpolationMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BitmapInterpolationMode").field(&self.0).finish()
@@ -1345,6 +1325,7 @@ impl ::windows::core::DefaultType for BitmapInterpolationMode {
 }
 #[doc = "*Required features: 'Graphics_Imaging'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct BitmapPixelFormat(pub i32);
 impl BitmapPixelFormat {
     pub const Unknown: Self = Self(0i32);
@@ -1366,12 +1347,6 @@ impl ::core::clone::Clone for BitmapPixelFormat {
 unsafe impl ::windows::core::Abi for BitmapPixelFormat {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BitmapPixelFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BitmapPixelFormat {}
 impl ::core::fmt::Debug for BitmapPixelFormat {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BitmapPixelFormat").field(&self.0).finish()
@@ -1874,6 +1849,7 @@ unsafe impl ::core::marker::Send for BitmapPropertySet {}
 unsafe impl ::core::marker::Sync for BitmapPropertySet {}
 #[doc = "*Required features: 'Graphics_Imaging'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct BitmapRotation(pub i32);
 impl BitmapRotation {
     pub const None: Self = Self(0i32);
@@ -1890,12 +1866,6 @@ impl ::core::clone::Clone for BitmapRotation {
 unsafe impl ::windows::core::Abi for BitmapRotation {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BitmapRotation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BitmapRotation {}
 impl ::core::fmt::Debug for BitmapRotation {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BitmapRotation").field(&self.0).finish()
@@ -2207,6 +2177,7 @@ unsafe impl ::core::marker::Send for BitmapTypedValue {}
 unsafe impl ::core::marker::Sync for BitmapTypedValue {}
 #[doc = "*Required features: 'Graphics_Imaging'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ColorManagementMode(pub i32);
 impl ColorManagementMode {
     pub const DoNotColorManage: Self = Self(0i32);
@@ -2221,12 +2192,6 @@ impl ::core::clone::Clone for ColorManagementMode {
 unsafe impl ::windows::core::Abi for ColorManagementMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ColorManagementMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ColorManagementMode {}
 impl ::core::fmt::Debug for ColorManagementMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ColorManagementMode").field(&self.0).finish()
@@ -2240,6 +2205,7 @@ impl ::windows::core::DefaultType for ColorManagementMode {
 }
 #[doc = "*Required features: 'Graphics_Imaging'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ExifOrientationMode(pub i32);
 impl ExifOrientationMode {
     pub const IgnoreExifOrientation: Self = Self(0i32);
@@ -2254,12 +2220,6 @@ impl ::core::clone::Clone for ExifOrientationMode {
 unsafe impl ::windows::core::Abi for ExifOrientationMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ExifOrientationMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ExifOrientationMode {}
 impl ::core::fmt::Debug for ExifOrientationMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ExifOrientationMode").field(&self.0).finish()
@@ -3554,6 +3514,7 @@ unsafe impl ::core::marker::Send for ImageStream {}
 unsafe impl ::core::marker::Sync for ImageStream {}
 #[doc = "*Required features: 'Graphics_Imaging'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct JpegSubsamplingMode(pub i32);
 impl JpegSubsamplingMode {
     pub const Default: Self = Self(0i32);
@@ -3570,12 +3531,6 @@ impl ::core::clone::Clone for JpegSubsamplingMode {
 unsafe impl ::windows::core::Abi for JpegSubsamplingMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for JpegSubsamplingMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for JpegSubsamplingMode {}
 impl ::core::fmt::Debug for JpegSubsamplingMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("JpegSubsamplingMode").field(&self.0).finish()
@@ -3670,6 +3625,7 @@ unsafe impl ::core::marker::Send for PixelDataProvider {}
 unsafe impl ::core::marker::Sync for PixelDataProvider {}
 #[doc = "*Required features: 'Graphics_Imaging'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PngFilterMode(pub i32);
 impl PngFilterMode {
     pub const Automatic: Self = Self(0i32);
@@ -3689,12 +3645,6 @@ impl ::core::clone::Clone for PngFilterMode {
 unsafe impl ::windows::core::Abi for PngFilterMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PngFilterMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PngFilterMode {}
 impl ::core::fmt::Debug for PngFilterMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PngFilterMode").field(&self.0).finish()
@@ -3989,6 +3939,7 @@ unsafe impl ::core::marker::Send for SoftwareBitmap {}
 unsafe impl ::core::marker::Sync for SoftwareBitmap {}
 #[doc = "*Required features: 'Graphics_Imaging'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TiffCompressionMode(pub i32);
 impl TiffCompressionMode {
     pub const Automatic: Self = Self(0i32);
@@ -4009,12 +3960,6 @@ impl ::core::clone::Clone for TiffCompressionMode {
 unsafe impl ::windows::core::Abi for TiffCompressionMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TiffCompressionMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TiffCompressionMode {}
 impl ::core::fmt::Debug for TiffCompressionMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TiffCompressionMode").field(&self.0).finish()

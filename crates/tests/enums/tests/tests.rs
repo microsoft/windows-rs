@@ -18,3 +18,11 @@ fn nested() {
     options &= InputStreamOptions::ReadAhead;
     assert!(options.0 == 2);
 }
+
+#[test]
+fn const_pattern() {
+    match InputStreamOptions::ReadAhead {
+        InputStreamOptions::ReadAhead => assert!(true),
+        _ => assert!(false),
+    }
+}

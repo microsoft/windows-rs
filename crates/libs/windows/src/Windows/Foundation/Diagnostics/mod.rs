@@ -44,6 +44,7 @@ impl ::windows::core::RuntimeName for AsyncCausalityTracer {
 }
 #[doc = "*Required features: 'Foundation_Diagnostics'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CausalityRelation(pub i32);
 impl CausalityRelation {
     pub const AssignDelegate: Self = Self(0i32);
@@ -61,12 +62,6 @@ impl ::core::clone::Clone for CausalityRelation {
 unsafe impl ::windows::core::Abi for CausalityRelation {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CausalityRelation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CausalityRelation {}
 impl ::core::fmt::Debug for CausalityRelation {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CausalityRelation").field(&self.0).finish()
@@ -80,6 +75,7 @@ impl ::windows::core::DefaultType for CausalityRelation {
 }
 #[doc = "*Required features: 'Foundation_Diagnostics'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CausalitySource(pub i32);
 impl CausalitySource {
     pub const Application: Self = Self(0i32);
@@ -95,12 +91,6 @@ impl ::core::clone::Clone for CausalitySource {
 unsafe impl ::windows::core::Abi for CausalitySource {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CausalitySource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CausalitySource {}
 impl ::core::fmt::Debug for CausalitySource {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CausalitySource").field(&self.0).finish()
@@ -114,6 +104,7 @@ impl ::windows::core::DefaultType for CausalitySource {
 }
 #[doc = "*Required features: 'Foundation_Diagnostics'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CausalitySynchronousWork(pub i32);
 impl CausalitySynchronousWork {
     pub const CompletionNotification: Self = Self(0i32);
@@ -129,12 +120,6 @@ impl ::core::clone::Clone for CausalitySynchronousWork {
 unsafe impl ::windows::core::Abi for CausalitySynchronousWork {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CausalitySynchronousWork {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CausalitySynchronousWork {}
 impl ::core::fmt::Debug for CausalitySynchronousWork {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CausalitySynchronousWork").field(&self.0).finish()
@@ -148,6 +133,7 @@ impl ::windows::core::DefaultType for CausalitySynchronousWork {
 }
 #[doc = "*Required features: 'Foundation_Diagnostics'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CausalityTraceLevel(pub i32);
 impl CausalityTraceLevel {
     pub const Required: Self = Self(0i32);
@@ -163,12 +149,6 @@ impl ::core::clone::Clone for CausalityTraceLevel {
 unsafe impl ::windows::core::Abi for CausalityTraceLevel {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CausalityTraceLevel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CausalityTraceLevel {}
 impl ::core::fmt::Debug for CausalityTraceLevel {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CausalityTraceLevel").field(&self.0).finish()
@@ -291,6 +271,7 @@ unsafe impl ::core::marker::Send for ErrorDetails {}
 unsafe impl ::core::marker::Sync for ErrorDetails {}
 #[doc = "*Required features: 'Foundation_Diagnostics'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ErrorOptions(pub u32);
 impl ErrorOptions {
     pub const None: Self = Self(0u32);
@@ -308,12 +289,6 @@ impl ::core::clone::Clone for ErrorOptions {
 unsafe impl ::windows::core::Abi for ErrorOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ErrorOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ErrorOptions {}
 impl ::core::fmt::Debug for ErrorOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ErrorOptions").field(&self.0).finish()
@@ -2491,6 +2466,7 @@ unsafe impl ::core::marker::Send for LoggingChannelOptions {}
 unsafe impl ::core::marker::Sync for LoggingChannelOptions {}
 #[doc = "*Required features: 'Foundation_Diagnostics'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct LoggingFieldFormat(pub i32);
 impl LoggingFieldFormat {
     pub const Default: Self = Self(0i32);
@@ -2522,12 +2498,6 @@ impl ::core::clone::Clone for LoggingFieldFormat {
 unsafe impl ::windows::core::Abi for LoggingFieldFormat {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LoggingFieldFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LoggingFieldFormat {}
 impl ::core::fmt::Debug for LoggingFieldFormat {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LoggingFieldFormat").field(&self.0).finish()
@@ -3196,6 +3166,7 @@ unsafe impl ::core::marker::Send for LoggingFields {}
 unsafe impl ::core::marker::Sync for LoggingFields {}
 #[doc = "*Required features: 'Foundation_Diagnostics'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct LoggingLevel(pub i32);
 impl LoggingLevel {
     pub const Verbose: Self = Self(0i32);
@@ -3213,12 +3184,6 @@ impl ::core::clone::Clone for LoggingLevel {
 unsafe impl ::windows::core::Abi for LoggingLevel {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LoggingLevel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LoggingLevel {}
 impl ::core::fmt::Debug for LoggingLevel {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LoggingLevel").field(&self.0).finish()
@@ -3232,6 +3197,7 @@ impl ::windows::core::DefaultType for LoggingLevel {
 }
 #[doc = "*Required features: 'Foundation_Diagnostics'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct LoggingOpcode(pub i32);
 impl LoggingOpcode {
     pub const Info: Self = Self(0i32);
@@ -3251,12 +3217,6 @@ impl ::core::clone::Clone for LoggingOpcode {
 unsafe impl ::windows::core::Abi for LoggingOpcode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LoggingOpcode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LoggingOpcode {}
 impl ::core::fmt::Debug for LoggingOpcode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LoggingOpcode").field(&self.0).finish()

@@ -629,6 +629,7 @@ unsafe impl ::windows::core::RuntimeType for PaginateEventHandler {
 pub struct PaginateEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[doc = "*Required features: 'UI_Xaml_Printing'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PreviewPageCountType(pub i32);
 impl PreviewPageCountType {
     pub const Final: Self = Self(0i32);
@@ -643,12 +644,6 @@ impl ::core::clone::Clone for PreviewPageCountType {
 unsafe impl ::windows::core::Abi for PreviewPageCountType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PreviewPageCountType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PreviewPageCountType {}
 impl ::core::fmt::Debug for PreviewPageCountType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PreviewPageCountType").field(&self.0).finish()

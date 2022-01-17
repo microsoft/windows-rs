@@ -270,6 +270,7 @@ unsafe impl ::core::marker::Send for AudioEncodingProperties {}
 unsafe impl ::core::marker::Sync for AudioEncodingProperties {}
 #[doc = "*Required features: 'Media_MediaProperties'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AudioEncodingQuality(pub i32);
 impl AudioEncodingQuality {
     pub const Auto: Self = Self(0i32);
@@ -286,12 +287,6 @@ impl ::core::clone::Clone for AudioEncodingQuality {
 unsafe impl ::windows::core::Abi for AudioEncodingQuality {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AudioEncodingQuality {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioEncodingQuality {}
 impl ::core::fmt::Debug for AudioEncodingQuality {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AudioEncodingQuality").field(&self.0).finish()
@@ -2318,6 +2313,7 @@ impl ::windows::core::RuntimeName for MediaEncodingSubtypes {
 }
 #[doc = "*Required features: 'Media_MediaProperties'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MediaMirroringOptions(pub u32);
 impl MediaMirroringOptions {
     pub const None: Self = Self(0u32);
@@ -2333,12 +2329,6 @@ impl ::core::clone::Clone for MediaMirroringOptions {
 unsafe impl ::windows::core::Abi for MediaMirroringOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MediaMirroringOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaMirroringOptions {}
 impl ::core::fmt::Debug for MediaMirroringOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MediaMirroringOptions").field(&self.0).finish()
@@ -2380,6 +2370,7 @@ impl ::windows::core::DefaultType for MediaMirroringOptions {
 }
 #[doc = "*Required features: 'Media_MediaProperties'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MediaPixelFormat(pub i32);
 impl MediaPixelFormat {
     pub const Nv12: Self = Self(0i32);
@@ -2395,12 +2386,6 @@ impl ::core::clone::Clone for MediaPixelFormat {
 unsafe impl ::windows::core::Abi for MediaPixelFormat {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MediaPixelFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaPixelFormat {}
 impl ::core::fmt::Debug for MediaPixelFormat {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MediaPixelFormat").field(&self.0).finish()
@@ -2746,6 +2731,7 @@ unsafe impl ::core::marker::Send for MediaRatio {}
 unsafe impl ::core::marker::Sync for MediaRatio {}
 #[doc = "*Required features: 'Media_MediaProperties'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MediaRotation(pub i32);
 impl MediaRotation {
     pub const None: Self = Self(0i32);
@@ -2762,12 +2748,6 @@ impl ::core::clone::Clone for MediaRotation {
 unsafe impl ::windows::core::Abi for MediaRotation {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MediaRotation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaRotation {}
 impl ::core::fmt::Debug for MediaRotation {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MediaRotation").field(&self.0).finish()
@@ -2781,6 +2761,7 @@ impl ::windows::core::DefaultType for MediaRotation {
 }
 #[doc = "*Required features: 'Media_MediaProperties'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MediaThumbnailFormat(pub i32);
 impl MediaThumbnailFormat {
     pub const Bmp: Self = Self(0i32);
@@ -2795,12 +2776,6 @@ impl ::core::clone::Clone for MediaThumbnailFormat {
 unsafe impl ::windows::core::Abi for MediaThumbnailFormat {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MediaThumbnailFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaThumbnailFormat {}
 impl ::core::fmt::Debug for MediaThumbnailFormat {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MediaThumbnailFormat").field(&self.0).finish()
@@ -2861,6 +2836,7 @@ impl ::windows::core::RuntimeName for Mpeg2ProfileIds {
 }
 #[doc = "*Required features: 'Media_MediaProperties'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SphericalVideoFrameFormat(pub i32);
 impl SphericalVideoFrameFormat {
     pub const None: Self = Self(0i32);
@@ -2876,12 +2852,6 @@ impl ::core::clone::Clone for SphericalVideoFrameFormat {
 unsafe impl ::windows::core::Abi for SphericalVideoFrameFormat {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SphericalVideoFrameFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SphericalVideoFrameFormat {}
 impl ::core::fmt::Debug for SphericalVideoFrameFormat {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SphericalVideoFrameFormat").field(&self.0).finish()
@@ -2895,6 +2865,7 @@ impl ::windows::core::DefaultType for SphericalVideoFrameFormat {
 }
 #[doc = "*Required features: 'Media_MediaProperties'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct StereoscopicVideoPackingMode(pub i32);
 impl StereoscopicVideoPackingMode {
     pub const None: Self = Self(0i32);
@@ -2910,12 +2881,6 @@ impl ::core::clone::Clone for StereoscopicVideoPackingMode {
 unsafe impl ::windows::core::Abi for StereoscopicVideoPackingMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for StereoscopicVideoPackingMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StereoscopicVideoPackingMode {}
 impl ::core::fmt::Debug for StereoscopicVideoPackingMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("StereoscopicVideoPackingMode").field(&self.0).finish()
@@ -3384,6 +3349,7 @@ unsafe impl ::core::marker::Send for VideoEncodingProperties {}
 unsafe impl ::core::marker::Sync for VideoEncodingProperties {}
 #[doc = "*Required features: 'Media_MediaProperties'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct VideoEncodingQuality(pub i32);
 impl VideoEncodingQuality {
     pub const Auto: Self = Self(0i32);
@@ -3406,12 +3372,6 @@ impl ::core::clone::Clone for VideoEncodingQuality {
 unsafe impl ::windows::core::Abi for VideoEncodingQuality {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VideoEncodingQuality {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VideoEncodingQuality {}
 impl ::core::fmt::Debug for VideoEncodingQuality {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VideoEncodingQuality").field(&self.0).finish()

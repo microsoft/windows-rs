@@ -488,6 +488,7 @@ pub struct IGpioProviderVtbl(
 );
 #[doc = "*Required features: 'Devices_Gpio_Provider'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ProviderGpioPinDriveMode(pub i32);
 impl ProviderGpioPinDriveMode {
     pub const Input: Self = Self(0i32);
@@ -508,12 +509,6 @@ impl ::core::clone::Clone for ProviderGpioPinDriveMode {
 unsafe impl ::windows::core::Abi for ProviderGpioPinDriveMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ProviderGpioPinDriveMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProviderGpioPinDriveMode {}
 impl ::core::fmt::Debug for ProviderGpioPinDriveMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ProviderGpioPinDriveMode").field(&self.0).finish()
@@ -527,6 +522,7 @@ impl ::windows::core::DefaultType for ProviderGpioPinDriveMode {
 }
 #[doc = "*Required features: 'Devices_Gpio_Provider'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ProviderGpioPinEdge(pub i32);
 impl ProviderGpioPinEdge {
     pub const FallingEdge: Self = Self(0i32);
@@ -541,12 +537,6 @@ impl ::core::clone::Clone for ProviderGpioPinEdge {
 unsafe impl ::windows::core::Abi for ProviderGpioPinEdge {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ProviderGpioPinEdge {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProviderGpioPinEdge {}
 impl ::core::fmt::Debug for ProviderGpioPinEdge {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ProviderGpioPinEdge").field(&self.0).finish()
@@ -560,6 +550,7 @@ impl ::windows::core::DefaultType for ProviderGpioPinEdge {
 }
 #[doc = "*Required features: 'Devices_Gpio_Provider'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ProviderGpioPinValue(pub i32);
 impl ProviderGpioPinValue {
     pub const Low: Self = Self(0i32);
@@ -574,12 +565,6 @@ impl ::core::clone::Clone for ProviderGpioPinValue {
 unsafe impl ::windows::core::Abi for ProviderGpioPinValue {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ProviderGpioPinValue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProviderGpioPinValue {}
 impl ::core::fmt::Debug for ProviderGpioPinValue {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ProviderGpioPinValue").field(&self.0).finish()
@@ -593,6 +578,7 @@ impl ::windows::core::DefaultType for ProviderGpioPinValue {
 }
 #[doc = "*Required features: 'Devices_Gpio_Provider'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ProviderGpioSharingMode(pub i32);
 impl ProviderGpioSharingMode {
     pub const Exclusive: Self = Self(0i32);
@@ -607,12 +593,6 @@ impl ::core::clone::Clone for ProviderGpioSharingMode {
 unsafe impl ::windows::core::Abi for ProviderGpioSharingMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ProviderGpioSharingMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProviderGpioSharingMode {}
 impl ::core::fmt::Debug for ProviderGpioSharingMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ProviderGpioSharingMode").field(&self.0).finish()

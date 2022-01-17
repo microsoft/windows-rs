@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'Media_ContentRestrictions'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ContentAccessRestrictionLevel(pub i32);
 impl ContentAccessRestrictionLevel {
     pub const Allow: Self = Self(0i32);
@@ -17,12 +18,6 @@ impl ::core::clone::Clone for ContentAccessRestrictionLevel {
 unsafe impl ::windows::core::Abi for ContentAccessRestrictionLevel {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ContentAccessRestrictionLevel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ContentAccessRestrictionLevel {}
 impl ::core::fmt::Debug for ContentAccessRestrictionLevel {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ContentAccessRestrictionLevel").field(&self.0).finish()
@@ -251,6 +246,7 @@ pub struct IRatedContentRestrictionsFactoryVtbl(
 );
 #[doc = "*Required features: 'Media_ContentRestrictions'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct RatedContentCategory(pub i32);
 impl RatedContentCategory {
     pub const General: Self = Self(0i32);
@@ -269,12 +265,6 @@ impl ::core::clone::Clone for RatedContentCategory {
 unsafe impl ::windows::core::Abi for RatedContentCategory {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RatedContentCategory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RatedContentCategory {}
 impl ::core::fmt::Debug for RatedContentCategory {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RatedContentCategory").field(&self.0).finish()

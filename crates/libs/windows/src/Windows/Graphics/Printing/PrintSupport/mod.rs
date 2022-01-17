@@ -929,6 +929,7 @@ unsafe impl ::core::marker::Send for PrintSupportSettingsUISession {}
 unsafe impl ::core::marker::Sync for PrintSupportSettingsUISession {}
 #[doc = "*Required features: 'Graphics_Printing_PrintSupport'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SettingsLaunchKind(pub i32);
 impl SettingsLaunchKind {
     pub const JobPrintTicket: Self = Self(0i32);
@@ -943,12 +944,6 @@ impl ::core::clone::Clone for SettingsLaunchKind {
 unsafe impl ::windows::core::Abi for SettingsLaunchKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SettingsLaunchKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SettingsLaunchKind {}
 impl ::core::fmt::Debug for SettingsLaunchKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SettingsLaunchKind").field(&self.0).finish()
@@ -962,6 +957,7 @@ impl ::windows::core::DefaultType for SettingsLaunchKind {
 }
 #[doc = "*Required features: 'Graphics_Printing_PrintSupport'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WorkflowPrintTicketValidationStatus(pub i32);
 impl WorkflowPrintTicketValidationStatus {
     pub const Resolved: Self = Self(0i32);
@@ -977,12 +973,6 @@ impl ::core::clone::Clone for WorkflowPrintTicketValidationStatus {
 unsafe impl ::windows::core::Abi for WorkflowPrintTicketValidationStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WorkflowPrintTicketValidationStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WorkflowPrintTicketValidationStatus {}
 impl ::core::fmt::Debug for WorkflowPrintTicketValidationStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WorkflowPrintTicketValidationStatus").field(&self.0).finish()

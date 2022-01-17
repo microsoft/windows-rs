@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'Media_Render'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AudioRenderCategory(pub i32);
 impl AudioRenderCategory {
     pub const Other: Self = Self(0i32);
@@ -25,12 +26,6 @@ impl ::core::clone::Clone for AudioRenderCategory {
 unsafe impl ::windows::core::Abi for AudioRenderCategory {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AudioRenderCategory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioRenderCategory {}
 impl ::core::fmt::Debug for AudioRenderCategory {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AudioRenderCategory").field(&self.0).finish()

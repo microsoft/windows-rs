@@ -1193,6 +1193,7 @@ unsafe impl ::core::marker::Send for ApplicationDataContainerSettings {}
 unsafe impl ::core::marker::Sync for ApplicationDataContainerSettings {}
 #[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ApplicationDataCreateDisposition(pub i32);
 impl ApplicationDataCreateDisposition {
     pub const Always: Self = Self(0i32);
@@ -1207,12 +1208,6 @@ impl ::core::clone::Clone for ApplicationDataCreateDisposition {
 unsafe impl ::windows::core::Abi for ApplicationDataCreateDisposition {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ApplicationDataCreateDisposition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ApplicationDataCreateDisposition {}
 impl ::core::fmt::Debug for ApplicationDataCreateDisposition {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ApplicationDataCreateDisposition").field(&self.0).finish()
@@ -1226,6 +1221,7 @@ impl ::windows::core::DefaultType for ApplicationDataCreateDisposition {
 }
 #[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ApplicationDataLocality(pub i32);
 impl ApplicationDataLocality {
     pub const Local: Self = Self(0i32);
@@ -1243,12 +1239,6 @@ impl ::core::clone::Clone for ApplicationDataLocality {
 unsafe impl ::windows::core::Abi for ApplicationDataLocality {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ApplicationDataLocality {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ApplicationDataLocality {}
 impl ::core::fmt::Debug for ApplicationDataLocality {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ApplicationDataLocality").field(&self.0).finish()
@@ -1361,6 +1351,7 @@ impl ::windows::core::RuntimeName for CachedFileManager {
 }
 #[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CreationCollisionOption(pub i32);
 impl CreationCollisionOption {
     pub const GenerateUniqueName: Self = Self(0i32);
@@ -1377,12 +1368,6 @@ impl ::core::clone::Clone for CreationCollisionOption {
 unsafe impl ::windows::core::Abi for CreationCollisionOption {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CreationCollisionOption {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CreationCollisionOption {}
 impl ::core::fmt::Debug for CreationCollisionOption {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CreationCollisionOption").field(&self.0).finish()
@@ -1477,6 +1462,7 @@ impl ::windows::core::RuntimeName for DownloadsFolder {
 }
 #[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FileAccessMode(pub i32);
 impl FileAccessMode {
     pub const Read: Self = Self(0i32);
@@ -1491,12 +1477,6 @@ impl ::core::clone::Clone for FileAccessMode {
 unsafe impl ::windows::core::Abi for FileAccessMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for FileAccessMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FileAccessMode {}
 impl ::core::fmt::Debug for FileAccessMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FileAccessMode").field(&self.0).finish()
@@ -1510,6 +1490,7 @@ impl ::windows::core::DefaultType for FileAccessMode {
 }
 #[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FileAttributes(pub u32);
 impl FileAttributes {
     pub const Normal: Self = Self(0u32);
@@ -1528,12 +1509,6 @@ impl ::core::clone::Clone for FileAttributes {
 unsafe impl ::windows::core::Abi for FileAttributes {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for FileAttributes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FileAttributes {}
 impl ::core::fmt::Debug for FileAttributes {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FileAttributes").field(&self.0).finish()
@@ -4874,6 +4849,7 @@ pub struct IUserDataPathsStaticsVtbl(
 );
 #[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct KnownFolderId(pub i32);
 impl KnownFolderId {
     pub const AppCaptures: Self = Self(0i32);
@@ -4903,12 +4879,6 @@ impl ::core::clone::Clone for KnownFolderId {
 unsafe impl ::windows::core::Abi for KnownFolderId {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for KnownFolderId {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for KnownFolderId {}
 impl ::core::fmt::Debug for KnownFolderId {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("KnownFolderId").field(&self.0).finish()
@@ -5087,6 +5057,7 @@ impl ::windows::core::RuntimeName for KnownFolders {
 }
 #[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct KnownFoldersAccessStatus(pub i32);
 impl KnownFoldersAccessStatus {
     pub const DeniedBySystem: Self = Self(0i32);
@@ -5105,12 +5076,6 @@ impl ::core::clone::Clone for KnownFoldersAccessStatus {
 unsafe impl ::windows::core::Abi for KnownFoldersAccessStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for KnownFoldersAccessStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for KnownFoldersAccessStatus {}
 impl ::core::fmt::Debug for KnownFoldersAccessStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("KnownFoldersAccessStatus").field(&self.0).finish()
@@ -5124,6 +5089,7 @@ impl ::windows::core::DefaultType for KnownFoldersAccessStatus {
 }
 #[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct KnownLibraryId(pub i32);
 impl KnownLibraryId {
     pub const Music: Self = Self(0i32);
@@ -5140,12 +5106,6 @@ impl ::core::clone::Clone for KnownLibraryId {
 unsafe impl ::windows::core::Abi for KnownLibraryId {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for KnownLibraryId {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for KnownLibraryId {}
 impl ::core::fmt::Debug for KnownLibraryId {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("KnownLibraryId").field(&self.0).finish()
@@ -5159,6 +5119,7 @@ impl ::windows::core::DefaultType for KnownLibraryId {
 }
 #[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct NameCollisionOption(pub i32);
 impl NameCollisionOption {
     pub const GenerateUniqueName: Self = Self(0i32);
@@ -5174,12 +5135,6 @@ impl ::core::clone::Clone for NameCollisionOption {
 unsafe impl ::windows::core::Abi for NameCollisionOption {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for NameCollisionOption {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for NameCollisionOption {}
 impl ::core::fmt::Debug for NameCollisionOption {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NameCollisionOption").field(&self.0).finish()
@@ -5500,6 +5455,7 @@ unsafe impl ::core::marker::Send for SetVersionRequest {}
 unsafe impl ::core::marker::Sync for SetVersionRequest {}
 #[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct StorageDeleteOption(pub i32);
 impl StorageDeleteOption {
     pub const Default: Self = Self(0i32);
@@ -5514,12 +5470,6 @@ impl ::core::clone::Clone for StorageDeleteOption {
 unsafe impl ::windows::core::Abi for StorageDeleteOption {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for StorageDeleteOption {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorageDeleteOption {}
 impl ::core::fmt::Debug for StorageDeleteOption {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("StorageDeleteOption").field(&self.0).finish()
@@ -6981,6 +6931,7 @@ impl<'a> ::windows::core::IntoParam<'a, IStorageItemPropertiesWithProvider> for 
 }
 #[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct StorageItemTypes(pub u32);
 impl StorageItemTypes {
     pub const None: Self = Self(0u32);
@@ -6996,12 +6947,6 @@ impl ::core::clone::Clone for StorageItemTypes {
 unsafe impl ::windows::core::Abi for StorageItemTypes {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for StorageItemTypes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorageItemTypes {}
 impl ::core::fmt::Debug for StorageItemTypes {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("StorageItemTypes").field(&self.0).finish()
@@ -7614,6 +7559,7 @@ unsafe impl ::core::marker::Send for StorageLibraryChangeTrackerOptions {}
 unsafe impl ::core::marker::Sync for StorageLibraryChangeTrackerOptions {}
 #[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct StorageLibraryChangeType(pub i32);
 impl StorageLibraryChangeType {
     pub const Created: Self = Self(0i32);
@@ -7636,12 +7582,6 @@ impl ::core::clone::Clone for StorageLibraryChangeType {
 unsafe impl ::windows::core::Abi for StorageLibraryChangeType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for StorageLibraryChangeType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorageLibraryChangeType {}
 impl ::core::fmt::Debug for StorageLibraryChangeType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("StorageLibraryChangeType").field(&self.0).finish()
@@ -7740,6 +7680,7 @@ unsafe impl ::core::marker::Send for StorageLibraryLastChangeId {}
 unsafe impl ::core::marker::Sync for StorageLibraryLastChangeId {}
 #[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct StorageOpenOptions(pub u32);
 impl StorageOpenOptions {
     pub const None: Self = Self(0u32);
@@ -7755,12 +7696,6 @@ impl ::core::clone::Clone for StorageOpenOptions {
 unsafe impl ::windows::core::Abi for StorageOpenOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for StorageOpenOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorageOpenOptions {}
 impl ::core::fmt::Debug for StorageOpenOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("StorageOpenOptions").field(&self.0).finish()
@@ -8307,6 +8242,7 @@ pub struct StreamedFileDataRequestedHandlerVtbl(
 );
 #[doc = "*Required features: 'Storage'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct StreamedFileFailureMode(pub i32);
 impl StreamedFileFailureMode {
     pub const Failed: Self = Self(0i32);
@@ -8322,12 +8258,6 @@ impl ::core::clone::Clone for StreamedFileFailureMode {
 unsafe impl ::windows::core::Abi for StreamedFileFailureMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for StreamedFileFailureMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StreamedFileFailureMode {}
 impl ::core::fmt::Debug for StreamedFileFailureMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("StreamedFileFailureMode").field(&self.0).finish()

@@ -1438,6 +1438,7 @@ impl ::core::default::Default for MLOperatorAttributeNameValue_0 {
 }
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MLOperatorAttributeType(pub u32);
 impl MLOperatorAttributeType {
     pub const Undefined: Self = Self(0u32);
@@ -1457,12 +1458,6 @@ impl ::core::clone::Clone for MLOperatorAttributeType {
 unsafe impl ::windows::core::Abi for MLOperatorAttributeType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MLOperatorAttributeType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MLOperatorAttributeType {}
 impl ::core::fmt::Debug for MLOperatorAttributeType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MLOperatorAttributeType").field(&self.0).finish()
@@ -1550,6 +1545,7 @@ impl ::core::default::Default for MLOperatorEdgeDescription_0 {
 }
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MLOperatorEdgeType(pub u32);
 impl MLOperatorEdgeType {
     pub const Undefined: Self = Self(0u32);
@@ -1564,12 +1560,6 @@ impl ::core::clone::Clone for MLOperatorEdgeType {
 unsafe impl ::windows::core::Abi for MLOperatorEdgeType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MLOperatorEdgeType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MLOperatorEdgeType {}
 impl ::core::fmt::Debug for MLOperatorEdgeType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MLOperatorEdgeType").field(&self.0).finish()
@@ -1645,6 +1635,7 @@ impl ::core::default::Default for MLOperatorEdgeTypeConstraint {
 }
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MLOperatorExecutionType(pub u32);
 impl MLOperatorExecutionType {
     pub const Undefined: Self = Self(0u32);
@@ -1660,12 +1651,6 @@ impl ::core::clone::Clone for MLOperatorExecutionType {
 unsafe impl ::windows::core::Abi for MLOperatorExecutionType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MLOperatorExecutionType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MLOperatorExecutionType {}
 impl ::core::fmt::Debug for MLOperatorExecutionType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MLOperatorExecutionType").field(&self.0).finish()
@@ -1759,6 +1744,7 @@ impl ::core::default::Default for MLOperatorKernelDescription {
 }
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MLOperatorKernelOptions(pub u32);
 impl MLOperatorKernelOptions {
     pub const None: Self = Self(0u32);
@@ -1773,12 +1759,6 @@ impl ::core::clone::Clone for MLOperatorKernelOptions {
 unsafe impl ::windows::core::Abi for MLOperatorKernelOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MLOperatorKernelOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MLOperatorKernelOptions {}
 impl ::core::fmt::Debug for MLOperatorKernelOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MLOperatorKernelOptions").field(&self.0).finish()
@@ -1814,6 +1794,7 @@ impl ::core::ops::Not for MLOperatorKernelOptions {
 }
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MLOperatorParameterOptions(pub u32);
 impl MLOperatorParameterOptions {
     pub const Single: Self = Self(0u32);
@@ -1829,12 +1810,6 @@ impl ::core::clone::Clone for MLOperatorParameterOptions {
 unsafe impl ::windows::core::Abi for MLOperatorParameterOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MLOperatorParameterOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MLOperatorParameterOptions {}
 impl ::core::fmt::Debug for MLOperatorParameterOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MLOperatorParameterOptions").field(&self.0).finish()
@@ -2000,6 +1975,7 @@ impl ::core::default::Default for MLOperatorSchemaEdgeDescription_0 {
 }
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MLOperatorSchemaEdgeTypeFormat(pub i32);
 impl MLOperatorSchemaEdgeTypeFormat {
     pub const EdgeDescription: Self = Self(0i32);
@@ -2014,12 +1990,6 @@ impl ::core::clone::Clone for MLOperatorSchemaEdgeTypeFormat {
 unsafe impl ::windows::core::Abi for MLOperatorSchemaEdgeTypeFormat {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MLOperatorSchemaEdgeTypeFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MLOperatorSchemaEdgeTypeFormat {}
 impl ::core::fmt::Debug for MLOperatorSchemaEdgeTypeFormat {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MLOperatorSchemaEdgeTypeFormat").field(&self.0).finish()
@@ -2066,6 +2036,7 @@ impl ::core::default::Default for MLOperatorSetId {
 }
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MLOperatorTensorDataType(pub u32);
 impl MLOperatorTensorDataType {
     pub const Undefined: Self = Self(0u32);
@@ -2094,12 +2065,6 @@ impl ::core::clone::Clone for MLOperatorTensorDataType {
 unsafe impl ::windows::core::Abi for MLOperatorTensorDataType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MLOperatorTensorDataType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MLOperatorTensorDataType {}
 impl ::core::fmt::Debug for MLOperatorTensorDataType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MLOperatorTensorDataType").field(&self.0).finish()

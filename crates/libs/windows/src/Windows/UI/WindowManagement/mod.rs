@@ -620,6 +620,7 @@ unsafe impl ::core::marker::Send for AppWindowClosedEventArgs {}
 unsafe impl ::core::marker::Sync for AppWindowClosedEventArgs {}
 #[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppWindowClosedReason(pub i32);
 impl AppWindowClosedReason {
     pub const Other: Self = Self(0i32);
@@ -635,12 +636,6 @@ impl ::core::clone::Clone for AppWindowClosedReason {
 unsafe impl ::windows::core::Abi for AppWindowClosedReason {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppWindowClosedReason {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppWindowClosedReason {}
 impl ::core::fmt::Debug for AppWindowClosedReason {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppWindowClosedReason").field(&self.0).finish()
@@ -749,6 +744,7 @@ unsafe impl ::core::marker::Send for AppWindowFrame {}
 unsafe impl ::core::marker::Sync for AppWindowFrame {}
 #[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppWindowFrameStyle(pub i32);
 impl AppWindowFrameStyle {
     pub const Default: Self = Self(0i32);
@@ -763,12 +759,6 @@ impl ::core::clone::Clone for AppWindowFrameStyle {
 unsafe impl ::windows::core::Abi for AppWindowFrameStyle {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppWindowFrameStyle {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppWindowFrameStyle {}
 impl ::core::fmt::Debug for AppWindowFrameStyle {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppWindowFrameStyle").field(&self.0).finish()
@@ -962,6 +952,7 @@ unsafe impl ::core::marker::Send for AppWindowPresentationConfiguration {}
 unsafe impl ::core::marker::Sync for AppWindowPresentationConfiguration {}
 #[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppWindowPresentationKind(pub i32);
 impl AppWindowPresentationKind {
     pub const Default: Self = Self(0i32);
@@ -977,12 +968,6 @@ impl ::core::clone::Clone for AppWindowPresentationKind {
 unsafe impl ::windows::core::Abi for AppWindowPresentationKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppWindowPresentationKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppWindowPresentationKind {}
 impl ::core::fmt::Debug for AppWindowPresentationKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppWindowPresentationKind").field(&self.0).finish()
@@ -1479,6 +1464,7 @@ unsafe impl ::core::marker::Send for AppWindowTitleBarOcclusion {}
 unsafe impl ::core::marker::Sync for AppWindowTitleBarOcclusion {}
 #[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppWindowTitleBarVisibility(pub i32);
 impl AppWindowTitleBarVisibility {
     pub const Default: Self = Self(0i32);
@@ -1493,12 +1479,6 @@ impl ::core::clone::Clone for AppWindowTitleBarVisibility {
 unsafe impl ::windows::core::Abi for AppWindowTitleBarVisibility {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppWindowTitleBarVisibility {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppWindowTitleBarVisibility {}
 impl ::core::fmt::Debug for AppWindowTitleBarVisibility {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppWindowTitleBarVisibility").field(&self.0).finish()
@@ -2854,6 +2834,7 @@ unsafe impl ::core::marker::Send for WindowingEnvironmentChangedEventArgs {}
 unsafe impl ::core::marker::Sync for WindowingEnvironmentChangedEventArgs {}
 #[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WindowingEnvironmentKind(pub i32);
 impl WindowingEnvironmentKind {
     pub const Unknown: Self = Self(0i32);
@@ -2869,12 +2850,6 @@ impl ::core::clone::Clone for WindowingEnvironmentKind {
 unsafe impl ::windows::core::Abi for WindowingEnvironmentKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WindowingEnvironmentKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WindowingEnvironmentKind {}
 impl ::core::fmt::Debug for WindowingEnvironmentKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WindowingEnvironmentKind").field(&self.0).finish()

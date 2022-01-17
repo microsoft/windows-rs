@@ -3,6 +3,7 @@
 pub mod Provider;
 #[doc = "*Required features: 'Devices_I2c'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct I2cBusSpeed(pub i32);
 impl I2cBusSpeed {
     pub const StandardMode: Self = Self(0i32);
@@ -17,12 +18,6 @@ impl ::core::clone::Clone for I2cBusSpeed {
 unsafe impl ::windows::core::Abi for I2cBusSpeed {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for I2cBusSpeed {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for I2cBusSpeed {}
 impl ::core::fmt::Debug for I2cBusSpeed {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("I2cBusSpeed").field(&self.0).finish()
@@ -449,6 +444,7 @@ unsafe impl ::core::marker::Send for I2cDevice {}
 unsafe impl ::core::marker::Sync for I2cDevice {}
 #[doc = "*Required features: 'Devices_I2c'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct I2cSharingMode(pub i32);
 impl I2cSharingMode {
     pub const Exclusive: Self = Self(0i32);
@@ -463,12 +459,6 @@ impl ::core::clone::Clone for I2cSharingMode {
 unsafe impl ::windows::core::Abi for I2cSharingMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for I2cSharingMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for I2cSharingMode {}
 impl ::core::fmt::Debug for I2cSharingMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("I2cSharingMode").field(&self.0).finish()
@@ -519,6 +509,7 @@ impl ::core::default::Default for I2cTransferResult {
 }
 #[doc = "*Required features: 'Devices_I2c'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct I2cTransferStatus(pub i32);
 impl I2cTransferStatus {
     pub const FullTransfer: Self = Self(0i32);
@@ -536,12 +527,6 @@ impl ::core::clone::Clone for I2cTransferStatus {
 unsafe impl ::windows::core::Abi for I2cTransferStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for I2cTransferStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for I2cTransferStatus {}
 impl ::core::fmt::Debug for I2cTransferStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("I2cTransferStatus").field(&self.0).finish()

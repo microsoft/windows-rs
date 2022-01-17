@@ -532,6 +532,7 @@ where
     TProgress: ::windows::core::RuntimeType + 'static;
 #[doc = "*Required features: 'Foundation'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AsyncStatus(pub i32);
 impl AsyncStatus {
     pub const Canceled: Self = Self(2i32);
@@ -548,12 +549,6 @@ impl ::core::clone::Clone for AsyncStatus {
 unsafe impl ::windows::core::Abi for AsyncStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AsyncStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AsyncStatus {}
 impl ::core::fmt::Debug for AsyncStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AsyncStatus").field(&self.0).finish()
@@ -4018,6 +4013,7 @@ impl ::core::default::Default for Point {
 }
 #[doc = "*Required features: 'Foundation'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PropertyType(pub i32);
 impl PropertyType {
     pub const Empty: Self = Self(0i32);
@@ -4071,12 +4067,6 @@ impl ::core::clone::Clone for PropertyType {
 unsafe impl ::windows::core::Abi for PropertyType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PropertyType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PropertyType {}
 impl ::core::fmt::Debug for PropertyType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PropertyType").field(&self.0).finish()

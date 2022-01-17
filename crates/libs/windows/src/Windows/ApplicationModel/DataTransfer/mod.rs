@@ -527,6 +527,7 @@ unsafe impl ::core::marker::Send for ClipboardHistoryItemsResult {}
 unsafe impl ::core::marker::Sync for ClipboardHistoryItemsResult {}
 #[doc = "*Required features: 'ApplicationModel_DataTransfer'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ClipboardHistoryItemsResultStatus(pub i32);
 impl ClipboardHistoryItemsResultStatus {
     pub const Success: Self = Self(0i32);
@@ -542,12 +543,6 @@ impl ::core::clone::Clone for ClipboardHistoryItemsResultStatus {
 unsafe impl ::windows::core::Abi for ClipboardHistoryItemsResultStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ClipboardHistoryItemsResultStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ClipboardHistoryItemsResultStatus {}
 impl ::core::fmt::Debug for ClipboardHistoryItemsResultStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ClipboardHistoryItemsResultStatus").field(&self.0).finish()
@@ -800,6 +795,7 @@ unsafe impl ::core::marker::Send for DataPackage {}
 unsafe impl ::core::marker::Sync for DataPackage {}
 #[doc = "*Required features: 'ApplicationModel_DataTransfer'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DataPackageOperation(pub u32);
 impl DataPackageOperation {
     pub const None: Self = Self(0u32);
@@ -816,12 +812,6 @@ impl ::core::clone::Clone for DataPackageOperation {
 unsafe impl ::windows::core::Abi for DataPackageOperation {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DataPackageOperation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DataPackageOperation {}
 impl ::core::fmt::Debug for DataPackageOperation {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DataPackageOperation").field(&self.0).finish()
@@ -3650,6 +3640,7 @@ unsafe impl ::core::marker::Send for OperationCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for OperationCompletedEventArgs {}
 #[doc = "*Required features: 'ApplicationModel_DataTransfer'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SetHistoryItemAsContentStatus(pub i32);
 impl SetHistoryItemAsContentStatus {
     pub const Success: Self = Self(0i32);
@@ -3665,12 +3656,6 @@ impl ::core::clone::Clone for SetHistoryItemAsContentStatus {
 unsafe impl ::windows::core::Abi for SetHistoryItemAsContentStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SetHistoryItemAsContentStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SetHistoryItemAsContentStatus {}
 impl ::core::fmt::Debug for SetHistoryItemAsContentStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SetHistoryItemAsContentStatus").field(&self.0).finish()
@@ -4355,6 +4340,7 @@ unsafe impl ::core::marker::Send for ShareUIOptions {}
 unsafe impl ::core::marker::Sync for ShareUIOptions {}
 #[doc = "*Required features: 'ApplicationModel_DataTransfer'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ShareUITheme(pub i32);
 impl ShareUITheme {
     pub const Default: Self = Self(0i32);
@@ -4370,12 +4356,6 @@ impl ::core::clone::Clone for ShareUITheme {
 unsafe impl ::windows::core::Abi for ShareUITheme {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ShareUITheme {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ShareUITheme {}
 impl ::core::fmt::Debug for ShareUITheme {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ShareUITheme").field(&self.0).finish()

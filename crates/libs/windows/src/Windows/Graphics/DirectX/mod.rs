@@ -3,6 +3,7 @@
 pub mod Direct3D11;
 #[doc = "*Required features: 'Graphics_DirectX'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DirectXAlphaMode(pub i32);
 impl DirectXAlphaMode {
     pub const Unspecified: Self = Self(0i32);
@@ -19,12 +20,6 @@ impl ::core::clone::Clone for DirectXAlphaMode {
 unsafe impl ::windows::core::Abi for DirectXAlphaMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DirectXAlphaMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DirectXAlphaMode {}
 impl ::core::fmt::Debug for DirectXAlphaMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DirectXAlphaMode").field(&self.0).finish()
@@ -38,6 +33,7 @@ impl ::windows::core::DefaultType for DirectXAlphaMode {
 }
 #[doc = "*Required features: 'Graphics_DirectX'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DirectXColorSpace(pub i32);
 impl DirectXColorSpace {
     pub const RgbFullG22NoneP709: Self = Self(0i32);
@@ -75,12 +71,6 @@ impl ::core::clone::Clone for DirectXColorSpace {
 unsafe impl ::windows::core::Abi for DirectXColorSpace {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DirectXColorSpace {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DirectXColorSpace {}
 impl ::core::fmt::Debug for DirectXColorSpace {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DirectXColorSpace").field(&self.0).finish()
@@ -94,6 +84,7 @@ impl ::windows::core::DefaultType for DirectXColorSpace {
 }
 #[doc = "*Required features: 'Graphics_DirectX'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DirectXPixelFormat(pub i32);
 impl DirectXPixelFormat {
     pub const Unknown: Self = Self(0i32);
@@ -227,12 +218,6 @@ impl ::core::clone::Clone for DirectXPixelFormat {
 unsafe impl ::windows::core::Abi for DirectXPixelFormat {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DirectXPixelFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DirectXPixelFormat {}
 impl ::core::fmt::Debug for DirectXPixelFormat {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DirectXPixelFormat").field(&self.0).finish()
@@ -246,6 +231,7 @@ impl ::windows::core::DefaultType for DirectXPixelFormat {
 }
 #[doc = "*Required features: 'Graphics_DirectX'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DirectXPrimitiveTopology(pub i32);
 impl DirectXPrimitiveTopology {
     pub const Undefined: Self = Self(0i32);
@@ -264,12 +250,6 @@ impl ::core::clone::Clone for DirectXPrimitiveTopology {
 unsafe impl ::windows::core::Abi for DirectXPrimitiveTopology {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DirectXPrimitiveTopology {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DirectXPrimitiveTopology {}
 impl ::core::fmt::Debug for DirectXPrimitiveTopology {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DirectXPrimitiveTopology").field(&self.0).finish()

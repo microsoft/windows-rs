@@ -20,6 +20,7 @@ impl ::windows::core::RuntimeName for ApplicationProfile {
 }
 #[doc = "*Required features: 'Phone_ApplicationModel'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ApplicationProfileModes(pub u32);
 impl ApplicationProfileModes {
     pub const Default: Self = Self(0u32);
@@ -34,12 +35,6 @@ impl ::core::clone::Clone for ApplicationProfileModes {
 unsafe impl ::windows::core::Abi for ApplicationProfileModes {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ApplicationProfileModes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ApplicationProfileModes {}
 impl ::core::fmt::Debug for ApplicationProfileModes {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ApplicationProfileModes").field(&self.0).finish()

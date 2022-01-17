@@ -75,6 +75,7 @@ pub struct IWebAuthenticationResultVtbl(
 );
 #[doc = "*Required features: 'Security_Authentication_Web'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TokenBindingKeyType(pub i32);
 impl TokenBindingKeyType {
     pub const Rsa2048: Self = Self(0i32);
@@ -90,12 +91,6 @@ impl ::core::clone::Clone for TokenBindingKeyType {
 unsafe impl ::windows::core::Abi for TokenBindingKeyType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TokenBindingKeyType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TokenBindingKeyType {}
 impl ::core::fmt::Debug for TokenBindingKeyType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TokenBindingKeyType").field(&self.0).finish()
@@ -181,6 +176,7 @@ impl ::windows::core::RuntimeName for WebAuthenticationBroker {
 }
 #[doc = "*Required features: 'Security_Authentication_Web'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WebAuthenticationOptions(pub u32);
 impl WebAuthenticationOptions {
     pub const None: Self = Self(0u32);
@@ -198,12 +194,6 @@ impl ::core::clone::Clone for WebAuthenticationOptions {
 unsafe impl ::windows::core::Abi for WebAuthenticationOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WebAuthenticationOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebAuthenticationOptions {}
 impl ::core::fmt::Debug for WebAuthenticationOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WebAuthenticationOptions").field(&self.0).finish()
@@ -340,6 +330,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebA
 }
 #[doc = "*Required features: 'Security_Authentication_Web'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WebAuthenticationStatus(pub i32);
 impl WebAuthenticationStatus {
     pub const Success: Self = Self(0i32);
@@ -355,12 +346,6 @@ impl ::core::clone::Clone for WebAuthenticationStatus {
 unsafe impl ::windows::core::Abi for WebAuthenticationStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WebAuthenticationStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebAuthenticationStatus {}
 impl ::core::fmt::Debug for WebAuthenticationStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WebAuthenticationStatus").field(&self.0).finish()

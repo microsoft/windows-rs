@@ -36,10 +36,20 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
             }
         });
 
+        let eq = if gen.sys {
+            quote! {}
+        } else {
+            quote! {
+                // Unfortunately, Rust requires these to be derived to allow constant patterns.
+                #[derive(::core::cmp::PartialEq, ::core::cmp::Eq)]
+            }
+        };
+
         quote! {
             #doc
             #features
             #[repr(transparent)]
+            #eq
             pub struct #ident(pub #underlying_type);
             #features
             impl #ident {
@@ -78,14 +88,6 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
                 unsafe impl ::windows::core::Abi for #ident {
                     type Abi = Self;
                 }
-                #features
-                impl ::core::cmp::PartialEq for #ident {
-                    fn eq(&self, other: &Self) -> bool {
-                        self.0 == other.0
-                    }
-                }
-                #features
-                impl ::core::cmp::Eq for #ident {}
                 #features
                 impl ::core::fmt::Debug for #ident {
                     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {

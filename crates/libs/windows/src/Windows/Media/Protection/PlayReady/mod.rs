@@ -3931,6 +3931,7 @@ pub struct IPlayReadyStatics5Vtbl(
 #[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct NDCertificateFeature(pub i32);
 #[cfg(feature = "deprecated")]
 impl NDCertificateFeature {
@@ -3955,14 +3956,6 @@ unsafe impl ::windows::core::Abi for NDCertificateFeature {
     type Abi = Self;
 }
 #[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for NDCertificateFeature {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for NDCertificateFeature {}
-#[cfg(feature = "deprecated")]
 impl ::core::fmt::Debug for NDCertificateFeature {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NDCertificateFeature").field(&self.0).finish()
@@ -3979,6 +3972,7 @@ impl ::windows::core::DefaultType for NDCertificateFeature {
 #[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct NDCertificatePlatformID(pub i32);
 #[cfg(feature = "deprecated")]
 impl NDCertificatePlatformID {
@@ -4008,14 +4002,6 @@ unsafe impl ::windows::core::Abi for NDCertificatePlatformID {
     type Abi = Self;
 }
 #[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for NDCertificatePlatformID {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for NDCertificatePlatformID {}
-#[cfg(feature = "deprecated")]
 impl ::core::fmt::Debug for NDCertificatePlatformID {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NDCertificatePlatformID").field(&self.0).finish()
@@ -4032,6 +4018,7 @@ impl ::windows::core::DefaultType for NDCertificatePlatformID {
 #[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct NDCertificateType(pub i32);
 #[cfg(feature = "deprecated")]
 impl NDCertificateType {
@@ -4061,14 +4048,6 @@ impl ::core::clone::Clone for NDCertificateType {
 unsafe impl ::windows::core::Abi for NDCertificateType {
     type Abi = Self;
 }
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for NDCertificateType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for NDCertificateType {}
 #[cfg(feature = "deprecated")]
 impl ::core::fmt::Debug for NDCertificateType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4296,6 +4275,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &NDCl
 #[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct NDClosedCaptionFormat(pub i32);
 #[cfg(feature = "deprecated")]
 impl NDClosedCaptionFormat {
@@ -4316,14 +4296,6 @@ unsafe impl ::windows::core::Abi for NDClosedCaptionFormat {
     type Abi = Self;
 }
 #[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for NDClosedCaptionFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for NDClosedCaptionFormat {}
-#[cfg(feature = "deprecated")]
 impl ::core::fmt::Debug for NDClosedCaptionFormat {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NDClosedCaptionFormat").field(&self.0).finish()
@@ -4340,6 +4312,7 @@ impl ::windows::core::DefaultType for NDClosedCaptionFormat {
 #[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct NDContentIDType(pub i32);
 #[cfg(feature = "deprecated")]
 impl NDContentIDType {
@@ -4359,14 +4332,6 @@ impl ::core::clone::Clone for NDContentIDType {
 unsafe impl ::windows::core::Abi for NDContentIDType {
     type Abi = Self;
 }
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for NDContentIDType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for NDContentIDType {}
 #[cfg(feature = "deprecated")]
 impl ::core::fmt::Debug for NDContentIDType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4848,6 +4813,7 @@ impl<'a> ::windows::core::IntoParam<'a, INDLicenseFetchDescriptor> for &NDLicens
 #[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct NDMediaStreamType(pub i32);
 #[cfg(feature = "deprecated")]
 impl NDMediaStreamType {
@@ -4867,14 +4833,6 @@ unsafe impl ::windows::core::Abi for NDMediaStreamType {
     type Abi = Self;
 }
 #[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for NDMediaStreamType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for NDMediaStreamType {}
-#[cfg(feature = "deprecated")]
 impl ::core::fmt::Debug for NDMediaStreamType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NDMediaStreamType").field(&self.0).finish()
@@ -4891,6 +4849,7 @@ impl ::windows::core::DefaultType for NDMediaStreamType {
 #[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct NDProximityDetectionType(pub i32);
 #[cfg(feature = "deprecated")]
 impl NDProximityDetectionType {
@@ -4911,14 +4870,6 @@ unsafe impl ::windows::core::Abi for NDProximityDetectionType {
     type Abi = Self;
 }
 #[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for NDProximityDetectionType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for NDProximityDetectionType {}
-#[cfg(feature = "deprecated")]
 impl ::core::fmt::Debug for NDProximityDetectionType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NDProximityDetectionType").field(&self.0).finish()
@@ -4935,6 +4886,7 @@ impl ::windows::core::DefaultType for NDProximityDetectionType {
 #[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct NDStartAsyncOptions(pub i32);
 #[cfg(feature = "deprecated")]
 impl NDStartAsyncOptions {
@@ -4953,14 +4905,6 @@ impl ::core::clone::Clone for NDStartAsyncOptions {
 unsafe impl ::windows::core::Abi for NDStartAsyncOptions {
     type Abi = Self;
 }
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for NDStartAsyncOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for NDStartAsyncOptions {}
 #[cfg(feature = "deprecated")]
 impl ::core::fmt::Debug for NDStartAsyncOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5645,6 +5589,7 @@ impl ::windows::core::RuntimeName for PlayReadyContentResolver {
 }
 #[doc = "*Required features: 'Media_Protection_PlayReady'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PlayReadyDecryptorSetup(pub i32);
 impl PlayReadyDecryptorSetup {
     pub const Uninitialized: Self = Self(0i32);
@@ -5659,12 +5604,6 @@ impl ::core::clone::Clone for PlayReadyDecryptorSetup {
 unsafe impl ::windows::core::Abi for PlayReadyDecryptorSetup {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PlayReadyDecryptorSetup {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PlayReadyDecryptorSetup {}
 impl ::core::fmt::Debug for PlayReadyDecryptorSetup {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PlayReadyDecryptorSetup").field(&self.0).finish()
@@ -6593,6 +6532,7 @@ impl<'a> ::windows::core::IntoParam<'a, IPlayReadyServiceRequest> for &PlayReady
 }
 #[doc = "*Required features: 'Media_Protection_PlayReady'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PlayReadyEncryptionAlgorithm(pub i32);
 impl PlayReadyEncryptionAlgorithm {
     pub const Unprotected: Self = Self(0i32);
@@ -6611,12 +6551,6 @@ impl ::core::clone::Clone for PlayReadyEncryptionAlgorithm {
 unsafe impl ::windows::core::Abi for PlayReadyEncryptionAlgorithm {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PlayReadyEncryptionAlgorithm {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PlayReadyEncryptionAlgorithm {}
 impl ::core::fmt::Debug for PlayReadyEncryptionAlgorithm {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PlayReadyEncryptionAlgorithm").field(&self.0).finish()
@@ -6630,6 +6564,7 @@ impl ::windows::core::DefaultType for PlayReadyEncryptionAlgorithm {
 }
 #[doc = "*Required features: 'Media_Protection_PlayReady'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PlayReadyHardwareDRMFeatures(pub i32);
 impl PlayReadyHardwareDRMFeatures {
     pub const HardwareDRM: Self = Self(1i32);
@@ -6645,12 +6580,6 @@ impl ::core::clone::Clone for PlayReadyHardwareDRMFeatures {
 unsafe impl ::windows::core::Abi for PlayReadyHardwareDRMFeatures {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PlayReadyHardwareDRMFeatures {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PlayReadyHardwareDRMFeatures {}
 impl ::core::fmt::Debug for PlayReadyHardwareDRMFeatures {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PlayReadyHardwareDRMFeatures").field(&self.0).finish()
@@ -6664,6 +6593,7 @@ impl ::windows::core::DefaultType for PlayReadyHardwareDRMFeatures {
 }
 #[doc = "*Required features: 'Media_Protection_PlayReady'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PlayReadyITADataFormat(pub i32);
 impl PlayReadyITADataFormat {
     pub const SerializedProperties: Self = Self(0i32);
@@ -6678,12 +6608,6 @@ impl ::core::clone::Clone for PlayReadyITADataFormat {
 unsafe impl ::windows::core::Abi for PlayReadyITADataFormat {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PlayReadyITADataFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PlayReadyITADataFormat {}
 impl ::core::fmt::Debug for PlayReadyITADataFormat {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PlayReadyITADataFormat").field(&self.0).finish()

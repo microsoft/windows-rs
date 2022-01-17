@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'UI_Xaml_Automation_Text'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TextPatternRangeEndpoint(pub i32);
 impl TextPatternRangeEndpoint {
     pub const Start: Self = Self(0i32);
@@ -15,12 +16,6 @@ impl ::core::clone::Clone for TextPatternRangeEndpoint {
 unsafe impl ::windows::core::Abi for TextPatternRangeEndpoint {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TextPatternRangeEndpoint {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TextPatternRangeEndpoint {}
 impl ::core::fmt::Debug for TextPatternRangeEndpoint {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TextPatternRangeEndpoint").field(&self.0).finish()
@@ -34,6 +29,7 @@ impl ::windows::core::DefaultType for TextPatternRangeEndpoint {
 }
 #[doc = "*Required features: 'UI_Xaml_Automation_Text'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TextUnit(pub i32);
 impl TextUnit {
     pub const Character: Self = Self(0i32);
@@ -53,12 +49,6 @@ impl ::core::clone::Clone for TextUnit {
 unsafe impl ::windows::core::Abi for TextUnit {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TextUnit {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TextUnit {}
 impl ::core::fmt::Debug for TextUnit {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TextUnit").field(&self.0).finish()

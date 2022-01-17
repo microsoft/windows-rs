@@ -94,6 +94,7 @@ unsafe impl ::core::marker::Send for CompositionDebugHeatMaps {}
 unsafe impl ::core::marker::Sync for CompositionDebugHeatMaps {}
 #[doc = "*Required features: 'UI_Composition_Diagnostics'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CompositionDebugOverdrawContentKinds(pub u32);
 impl CompositionDebugOverdrawContentKinds {
     pub const None: Self = Self(0u32);
@@ -115,12 +116,6 @@ impl ::core::clone::Clone for CompositionDebugOverdrawContentKinds {
 unsafe impl ::windows::core::Abi for CompositionDebugOverdrawContentKinds {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CompositionDebugOverdrawContentKinds {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionDebugOverdrawContentKinds {}
 impl ::core::fmt::Debug for CompositionDebugOverdrawContentKinds {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CompositionDebugOverdrawContentKinds").field(&self.0).finish()

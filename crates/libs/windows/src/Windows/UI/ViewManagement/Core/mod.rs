@@ -765,6 +765,7 @@ unsafe impl ::core::marker::Send for CoreInputViewHidingEventArgs {}
 unsafe impl ::core::marker::Sync for CoreInputViewHidingEventArgs {}
 #[doc = "*Required features: 'UI_ViewManagement_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CoreInputViewKind(pub i32);
 impl CoreInputViewKind {
     pub const Default: Self = Self(0i32);
@@ -784,12 +785,6 @@ impl ::core::clone::Clone for CoreInputViewKind {
 unsafe impl ::windows::core::Abi for CoreInputViewKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CoreInputViewKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreInputViewKind {}
 impl ::core::fmt::Debug for CoreInputViewKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CoreInputViewKind").field(&self.0).finish()
@@ -893,6 +888,7 @@ unsafe impl ::core::marker::Send for CoreInputViewOcclusion {}
 unsafe impl ::core::marker::Sync for CoreInputViewOcclusion {}
 #[doc = "*Required features: 'UI_ViewManagement_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CoreInputViewOcclusionKind(pub i32);
 impl CoreInputViewOcclusionKind {
     pub const Docked: Self = Self(0i32);
@@ -908,12 +904,6 @@ impl ::core::clone::Clone for CoreInputViewOcclusionKind {
 unsafe impl ::windows::core::Abi for CoreInputViewOcclusionKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CoreInputViewOcclusionKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreInputViewOcclusionKind {}
 impl ::core::fmt::Debug for CoreInputViewOcclusionKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CoreInputViewOcclusionKind").field(&self.0).finish()
@@ -1219,6 +1209,7 @@ unsafe impl ::core::marker::Send for CoreInputViewTransferringXYFocusEventArgs {
 unsafe impl ::core::marker::Sync for CoreInputViewTransferringXYFocusEventArgs {}
 #[doc = "*Required features: 'UI_ViewManagement_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CoreInputViewXYFocusTransferDirection(pub i32);
 impl CoreInputViewXYFocusTransferDirection {
     pub const Up: Self = Self(0i32);
@@ -1235,12 +1226,6 @@ impl ::core::clone::Clone for CoreInputViewXYFocusTransferDirection {
 unsafe impl ::windows::core::Abi for CoreInputViewXYFocusTransferDirection {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CoreInputViewXYFocusTransferDirection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreInputViewXYFocusTransferDirection {}
 impl ::core::fmt::Debug for CoreInputViewXYFocusTransferDirection {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CoreInputViewXYFocusTransferDirection").field(&self.0).finish()

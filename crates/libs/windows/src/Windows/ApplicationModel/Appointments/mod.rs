@@ -431,6 +431,7 @@ unsafe impl ::core::marker::Send for Appointment {}
 unsafe impl ::core::marker::Sync for Appointment {}
 #[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppointmentBusyStatus(pub i32);
 impl AppointmentBusyStatus {
     pub const Busy: Self = Self(0i32);
@@ -448,12 +449,6 @@ impl ::core::clone::Clone for AppointmentBusyStatus {
 unsafe impl ::windows::core::Abi for AppointmentBusyStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppointmentBusyStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentBusyStatus {}
 impl ::core::fmt::Debug for AppointmentBusyStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppointmentBusyStatus").field(&self.0).finish()
@@ -936,6 +931,7 @@ unsafe impl ::core::marker::Send for AppointmentCalendar {}
 unsafe impl ::core::marker::Sync for AppointmentCalendar {}
 #[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppointmentCalendarOtherAppReadAccess(pub i32);
 impl AppointmentCalendarOtherAppReadAccess {
     pub const SystemOnly: Self = Self(0i32);
@@ -952,12 +948,6 @@ impl ::core::clone::Clone for AppointmentCalendarOtherAppReadAccess {
 unsafe impl ::windows::core::Abi for AppointmentCalendarOtherAppReadAccess {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppointmentCalendarOtherAppReadAccess {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentCalendarOtherAppReadAccess {}
 impl ::core::fmt::Debug for AppointmentCalendarOtherAppReadAccess {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppointmentCalendarOtherAppReadAccess").field(&self.0).finish()
@@ -971,6 +961,7 @@ impl ::windows::core::DefaultType for AppointmentCalendarOtherAppReadAccess {
 }
 #[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppointmentCalendarOtherAppWriteAccess(pub i32);
 impl AppointmentCalendarOtherAppWriteAccess {
     pub const None: Self = Self(0i32);
@@ -986,12 +977,6 @@ impl ::core::clone::Clone for AppointmentCalendarOtherAppWriteAccess {
 unsafe impl ::windows::core::Abi for AppointmentCalendarOtherAppWriteAccess {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppointmentCalendarOtherAppWriteAccess {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentCalendarOtherAppWriteAccess {}
 impl ::core::fmt::Debug for AppointmentCalendarOtherAppWriteAccess {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppointmentCalendarOtherAppWriteAccess").field(&self.0).finish()
@@ -1145,6 +1130,7 @@ unsafe impl ::core::marker::Send for AppointmentCalendarSyncManager {}
 unsafe impl ::core::marker::Sync for AppointmentCalendarSyncManager {}
 #[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppointmentCalendarSyncStatus(pub i32);
 impl AppointmentCalendarSyncStatus {
     pub const Idle: Self = Self(0i32);
@@ -1164,12 +1150,6 @@ impl ::core::clone::Clone for AppointmentCalendarSyncStatus {
 unsafe impl ::windows::core::Abi for AppointmentCalendarSyncStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppointmentCalendarSyncStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentCalendarSyncStatus {}
 impl ::core::fmt::Debug for AppointmentCalendarSyncStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppointmentCalendarSyncStatus").field(&self.0).finish()
@@ -1273,6 +1253,7 @@ unsafe impl ::core::marker::Send for AppointmentConflictResult {}
 unsafe impl ::core::marker::Sync for AppointmentConflictResult {}
 #[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppointmentConflictType(pub i32);
 impl AppointmentConflictType {
     pub const None: Self = Self(0i32);
@@ -1288,12 +1269,6 @@ impl ::core::clone::Clone for AppointmentConflictType {
 unsafe impl ::windows::core::Abi for AppointmentConflictType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppointmentConflictType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentConflictType {}
 impl ::core::fmt::Debug for AppointmentConflictType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppointmentConflictType").field(&self.0).finish()
@@ -1307,6 +1282,7 @@ impl ::windows::core::DefaultType for AppointmentConflictType {
 }
 #[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppointmentDaysOfWeek(pub u32);
 impl AppointmentDaysOfWeek {
     pub const None: Self = Self(0u32);
@@ -1327,12 +1303,6 @@ impl ::core::clone::Clone for AppointmentDaysOfWeek {
 unsafe impl ::windows::core::Abi for AppointmentDaysOfWeek {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppointmentDaysOfWeek {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentDaysOfWeek {}
 impl ::core::fmt::Debug for AppointmentDaysOfWeek {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppointmentDaysOfWeek").field(&self.0).finish()
@@ -1374,6 +1344,7 @@ impl ::windows::core::DefaultType for AppointmentDaysOfWeek {
 }
 #[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppointmentDetailsKind(pub i32);
 impl AppointmentDetailsKind {
     pub const PlainText: Self = Self(0i32);
@@ -1388,12 +1359,6 @@ impl ::core::clone::Clone for AppointmentDetailsKind {
 unsafe impl ::windows::core::Abi for AppointmentDetailsKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppointmentDetailsKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentDetailsKind {}
 impl ::core::fmt::Debug for AppointmentDetailsKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppointmentDetailsKind").field(&self.0).finish()
@@ -2120,6 +2085,7 @@ unsafe impl ::core::marker::Send for AppointmentOrganizer {}
 unsafe impl ::core::marker::Sync for AppointmentOrganizer {}
 #[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppointmentParticipantResponse(pub i32);
 impl AppointmentParticipantResponse {
     pub const None: Self = Self(0i32);
@@ -2137,12 +2103,6 @@ impl ::core::clone::Clone for AppointmentParticipantResponse {
 unsafe impl ::windows::core::Abi for AppointmentParticipantResponse {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppointmentParticipantResponse {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentParticipantResponse {}
 impl ::core::fmt::Debug for AppointmentParticipantResponse {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppointmentParticipantResponse").field(&self.0).finish()
@@ -2156,6 +2116,7 @@ impl ::windows::core::DefaultType for AppointmentParticipantResponse {
 }
 #[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppointmentParticipantRole(pub i32);
 impl AppointmentParticipantRole {
     pub const RequiredAttendee: Self = Self(0i32);
@@ -2171,12 +2132,6 @@ impl ::core::clone::Clone for AppointmentParticipantRole {
 unsafe impl ::windows::core::Abi for AppointmentParticipantRole {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppointmentParticipantRole {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentParticipantRole {}
 impl ::core::fmt::Debug for AppointmentParticipantRole {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppointmentParticipantRole").field(&self.0).finish()
@@ -2607,6 +2562,7 @@ unsafe impl ::core::marker::Send for AppointmentRecurrence {}
 unsafe impl ::core::marker::Sync for AppointmentRecurrence {}
 #[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppointmentRecurrenceUnit(pub i32);
 impl AppointmentRecurrenceUnit {
     pub const Daily: Self = Self(0i32);
@@ -2625,12 +2581,6 @@ impl ::core::clone::Clone for AppointmentRecurrenceUnit {
 unsafe impl ::windows::core::Abi for AppointmentRecurrenceUnit {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppointmentRecurrenceUnit {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentRecurrenceUnit {}
 impl ::core::fmt::Debug for AppointmentRecurrenceUnit {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppointmentRecurrenceUnit").field(&self.0).finish()
@@ -2644,6 +2594,7 @@ impl ::windows::core::DefaultType for AppointmentRecurrenceUnit {
 }
 #[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppointmentSensitivity(pub i32);
 impl AppointmentSensitivity {
     pub const Public: Self = Self(0i32);
@@ -2658,12 +2609,6 @@ impl ::core::clone::Clone for AppointmentSensitivity {
 unsafe impl ::windows::core::Abi for AppointmentSensitivity {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppointmentSensitivity {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentSensitivity {}
 impl ::core::fmt::Debug for AppointmentSensitivity {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppointmentSensitivity").field(&self.0).finish()
@@ -2970,6 +2915,7 @@ unsafe impl ::core::marker::Send for AppointmentStore {}
 unsafe impl ::core::marker::Sync for AppointmentStore {}
 #[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppointmentStoreAccessType(pub i32);
 impl AppointmentStoreAccessType {
     pub const AppCalendarsReadWrite: Self = Self(0i32);
@@ -2985,12 +2931,6 @@ impl ::core::clone::Clone for AppointmentStoreAccessType {
 unsafe impl ::windows::core::Abi for AppointmentStoreAccessType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppointmentStoreAccessType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentStoreAccessType {}
 impl ::core::fmt::Debug for AppointmentStoreAccessType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppointmentStoreAccessType").field(&self.0).finish()
@@ -3292,6 +3232,7 @@ unsafe impl ::core::marker::Send for AppointmentStoreChangeTracker {}
 unsafe impl ::core::marker::Sync for AppointmentStoreChangeTracker {}
 #[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppointmentStoreChangeType(pub i32);
 impl AppointmentStoreChangeType {
     pub const AppointmentCreated: Self = Self(0i32);
@@ -3311,12 +3252,6 @@ impl ::core::clone::Clone for AppointmentStoreChangeType {
 unsafe impl ::windows::core::Abi for AppointmentStoreChangeType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppointmentStoreChangeType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentStoreChangeType {}
 impl ::core::fmt::Debug for AppointmentStoreChangeType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppointmentStoreChangeType").field(&self.0).finish()
@@ -3561,6 +3496,7 @@ unsafe impl ::core::marker::Send for AppointmentStoreNotificationTriggerDetails 
 unsafe impl ::core::marker::Sync for AppointmentStoreNotificationTriggerDetails {}
 #[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppointmentSummaryCardView(pub i32);
 impl AppointmentSummaryCardView {
     pub const System: Self = Self(0i32);
@@ -3575,12 +3511,6 @@ impl ::core::clone::Clone for AppointmentSummaryCardView {
 unsafe impl ::windows::core::Abi for AppointmentSummaryCardView {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppointmentSummaryCardView {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentSummaryCardView {}
 impl ::core::fmt::Debug for AppointmentSummaryCardView {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppointmentSummaryCardView").field(&self.0).finish()
@@ -3594,6 +3524,7 @@ impl ::windows::core::DefaultType for AppointmentSummaryCardView {
 }
 #[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppointmentWeekOfMonth(pub i32);
 impl AppointmentWeekOfMonth {
     pub const First: Self = Self(0i32);
@@ -3611,12 +3542,6 @@ impl ::core::clone::Clone for AppointmentWeekOfMonth {
 unsafe impl ::windows::core::Abi for AppointmentWeekOfMonth {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppointmentWeekOfMonth {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppointmentWeekOfMonth {}
 impl ::core::fmt::Debug for AppointmentWeekOfMonth {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppointmentWeekOfMonth").field(&self.0).finish()
@@ -3630,6 +3555,7 @@ impl ::windows::core::DefaultType for AppointmentWeekOfMonth {
 }
 #[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FindAppointmentCalendarsOptions(pub u32);
 impl FindAppointmentCalendarsOptions {
     pub const None: Self = Self(0u32);
@@ -3644,12 +3570,6 @@ impl ::core::clone::Clone for FindAppointmentCalendarsOptions {
 unsafe impl ::windows::core::Abi for FindAppointmentCalendarsOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for FindAppointmentCalendarsOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FindAppointmentCalendarsOptions {}
 impl ::core::fmt::Debug for FindAppointmentCalendarsOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FindAppointmentCalendarsOptions").field(&self.0).finish()
@@ -4806,6 +4726,7 @@ pub struct IFindAppointmentsOptionsVtbl(
 );
 #[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct RecurrenceType(pub i32);
 impl RecurrenceType {
     pub const Master: Self = Self(0i32);
@@ -4821,12 +4742,6 @@ impl ::core::clone::Clone for RecurrenceType {
 unsafe impl ::windows::core::Abi for RecurrenceType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RecurrenceType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RecurrenceType {}
 impl ::core::fmt::Debug for RecurrenceType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RecurrenceType").field(&self.0).finish()

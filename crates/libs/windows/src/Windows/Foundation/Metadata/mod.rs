@@ -83,6 +83,7 @@ impl ::windows::core::RuntimeName for ApiInformation {
 }
 #[doc = "*Required features: 'Foundation_Metadata'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AttributeTargets(pub u32);
 impl AttributeTargets {
     pub const All: Self = Self(4294967295u32);
@@ -108,12 +109,6 @@ impl ::core::clone::Clone for AttributeTargets {
 unsafe impl ::windows::core::Abi for AttributeTargets {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AttributeTargets {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AttributeTargets {}
 impl ::core::fmt::Debug for AttributeTargets {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AttributeTargets").field(&self.0).finish()
@@ -155,6 +150,7 @@ impl ::windows::core::DefaultType for AttributeTargets {
 }
 #[doc = "*Required features: 'Foundation_Metadata'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CompositionType(pub i32);
 impl CompositionType {
     pub const Protected: Self = Self(1i32);
@@ -169,12 +165,6 @@ impl ::core::clone::Clone for CompositionType {
 unsafe impl ::windows::core::Abi for CompositionType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CompositionType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CompositionType {}
 impl ::core::fmt::Debug for CompositionType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CompositionType").field(&self.0).finish()
@@ -188,6 +178,7 @@ impl ::windows::core::DefaultType for CompositionType {
 }
 #[doc = "*Required features: 'Foundation_Metadata'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DeprecationType(pub i32);
 impl DeprecationType {
     pub const Deprecate: Self = Self(0i32);
@@ -202,12 +193,6 @@ impl ::core::clone::Clone for DeprecationType {
 unsafe impl ::windows::core::Abi for DeprecationType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DeprecationType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeprecationType {}
 impl ::core::fmt::Debug for DeprecationType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DeprecationType").field(&self.0).finish()
@@ -221,6 +206,7 @@ impl ::windows::core::DefaultType for DeprecationType {
 }
 #[doc = "*Required features: 'Foundation_Metadata'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FeatureStage(pub i32);
 impl FeatureStage {
     pub const AlwaysDisabled: Self = Self(0i32);
@@ -237,12 +223,6 @@ impl ::core::clone::Clone for FeatureStage {
 unsafe impl ::windows::core::Abi for FeatureStage {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for FeatureStage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FeatureStage {}
 impl ::core::fmt::Debug for FeatureStage {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FeatureStage").field(&self.0).finish()
@@ -256,6 +236,7 @@ impl ::windows::core::DefaultType for FeatureStage {
 }
 #[doc = "*Required features: 'Foundation_Metadata'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GCPressureAmount(pub i32);
 impl GCPressureAmount {
     pub const Low: Self = Self(0i32);
@@ -271,12 +252,6 @@ impl ::core::clone::Clone for GCPressureAmount {
 unsafe impl ::windows::core::Abi for GCPressureAmount {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GCPressureAmount {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GCPressureAmount {}
 impl ::core::fmt::Debug for GCPressureAmount {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GCPressureAmount").field(&self.0).finish()
@@ -317,6 +292,7 @@ pub struct IApiInformationStaticsVtbl(
 );
 #[doc = "*Required features: 'Foundation_Metadata'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MarshalingType(pub i32);
 impl MarshalingType {
     pub const None: Self = Self(1i32);
@@ -333,12 +309,6 @@ impl ::core::clone::Clone for MarshalingType {
 unsafe impl ::windows::core::Abi for MarshalingType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MarshalingType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MarshalingType {}
 impl ::core::fmt::Debug for MarshalingType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MarshalingType").field(&self.0).finish()
@@ -352,6 +322,7 @@ impl ::windows::core::DefaultType for MarshalingType {
 }
 #[doc = "*Required features: 'Foundation_Metadata'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct Platform(pub i32);
 impl Platform {
     pub const Windows: Self = Self(0i32);
@@ -366,12 +337,6 @@ impl ::core::clone::Clone for Platform {
 unsafe impl ::windows::core::Abi for Platform {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for Platform {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Platform {}
 impl ::core::fmt::Debug for Platform {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("Platform").field(&self.0).finish()
@@ -385,6 +350,7 @@ impl ::windows::core::DefaultType for Platform {
 }
 #[doc = "*Required features: 'Foundation_Metadata'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ThreadingModel(pub i32);
 impl ThreadingModel {
     pub const STA: Self = Self(1i32);
@@ -401,12 +367,6 @@ impl ::core::clone::Clone for ThreadingModel {
 unsafe impl ::windows::core::Abi for ThreadingModel {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ThreadingModel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ThreadingModel {}
 impl ::core::fmt::Debug for ThreadingModel {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ThreadingModel").field(&self.0).finish()

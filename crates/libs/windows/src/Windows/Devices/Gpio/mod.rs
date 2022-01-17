@@ -216,6 +216,7 @@ unsafe impl ::core::marker::Send for GpioChangeCounter {}
 unsafe impl ::core::marker::Sync for GpioChangeCounter {}
 #[doc = "*Required features: 'Devices_Gpio'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GpioChangePolarity(pub i32);
 impl GpioChangePolarity {
     pub const Falling: Self = Self(0i32);
@@ -231,12 +232,6 @@ impl ::core::clone::Clone for GpioChangePolarity {
 unsafe impl ::windows::core::Abi for GpioChangePolarity {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GpioChangePolarity {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GpioChangePolarity {}
 impl ::core::fmt::Debug for GpioChangePolarity {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GpioChangePolarity").field(&self.0).finish()
@@ -663,6 +658,7 @@ unsafe impl ::core::marker::Send for GpioController {}
 unsafe impl ::core::marker::Sync for GpioController {}
 #[doc = "*Required features: 'Devices_Gpio'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GpioOpenStatus(pub i32);
 impl GpioOpenStatus {
     pub const PinOpened: Self = Self(0i32);
@@ -680,12 +676,6 @@ impl ::core::clone::Clone for GpioOpenStatus {
 unsafe impl ::windows::core::Abi for GpioOpenStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GpioOpenStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GpioOpenStatus {}
 impl ::core::fmt::Debug for GpioOpenStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GpioOpenStatus").field(&self.0).finish()
@@ -884,6 +874,7 @@ unsafe impl ::core::marker::Send for GpioPin {}
 unsafe impl ::core::marker::Sync for GpioPin {}
 #[doc = "*Required features: 'Devices_Gpio'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GpioPinDriveMode(pub i32);
 impl GpioPinDriveMode {
     pub const Input: Self = Self(0i32);
@@ -904,12 +895,6 @@ impl ::core::clone::Clone for GpioPinDriveMode {
 unsafe impl ::windows::core::Abi for GpioPinDriveMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GpioPinDriveMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GpioPinDriveMode {}
 impl ::core::fmt::Debug for GpioPinDriveMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GpioPinDriveMode").field(&self.0).finish()
@@ -923,6 +908,7 @@ impl ::windows::core::DefaultType for GpioPinDriveMode {
 }
 #[doc = "*Required features: 'Devices_Gpio'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GpioPinEdge(pub i32);
 impl GpioPinEdge {
     pub const FallingEdge: Self = Self(0i32);
@@ -937,12 +923,6 @@ impl ::core::clone::Clone for GpioPinEdge {
 unsafe impl ::windows::core::Abi for GpioPinEdge {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GpioPinEdge {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GpioPinEdge {}
 impl ::core::fmt::Debug for GpioPinEdge {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GpioPinEdge").field(&self.0).finish()
@@ -956,6 +936,7 @@ impl ::windows::core::DefaultType for GpioPinEdge {
 }
 #[doc = "*Required features: 'Devices_Gpio'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GpioPinValue(pub i32);
 impl GpioPinValue {
     pub const Low: Self = Self(0i32);
@@ -970,12 +951,6 @@ impl ::core::clone::Clone for GpioPinValue {
 unsafe impl ::windows::core::Abi for GpioPinValue {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GpioPinValue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GpioPinValue {}
 impl ::core::fmt::Debug for GpioPinValue {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GpioPinValue").field(&self.0).finish()
@@ -1070,6 +1045,7 @@ unsafe impl ::core::marker::Send for GpioPinValueChangedEventArgs {}
 unsafe impl ::core::marker::Sync for GpioPinValueChangedEventArgs {}
 #[doc = "*Required features: 'Devices_Gpio'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GpioSharingMode(pub i32);
 impl GpioSharingMode {
     pub const Exclusive: Self = Self(0i32);
@@ -1084,12 +1060,6 @@ impl ::core::clone::Clone for GpioSharingMode {
 unsafe impl ::windows::core::Abi for GpioSharingMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GpioSharingMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GpioSharingMode {}
 impl ::core::fmt::Debug for GpioSharingMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GpioSharingMode").field(&self.0).finish()

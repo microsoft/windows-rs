@@ -2294,6 +2294,7 @@ unsafe impl ::core::marker::Send for VpnAppId {}
 unsafe impl ::core::marker::Sync for VpnAppId {}
 #[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct VpnAppIdType(pub i32);
 impl VpnAppIdType {
     pub const PackageFamilyName: Self = Self(0i32);
@@ -2309,12 +2310,6 @@ impl ::core::clone::Clone for VpnAppIdType {
 unsafe impl ::windows::core::Abi for VpnAppIdType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VpnAppIdType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnAppIdType {}
 impl ::core::fmt::Debug for VpnAppIdType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VpnAppIdType").field(&self.0).finish()
@@ -2328,6 +2323,7 @@ impl ::windows::core::DefaultType for VpnAppIdType {
 }
 #[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct VpnAuthenticationMethod(pub i32);
 impl VpnAuthenticationMethod {
     pub const Mschapv2: Self = Self(0i32);
@@ -2344,12 +2340,6 @@ impl ::core::clone::Clone for VpnAuthenticationMethod {
 unsafe impl ::windows::core::Abi for VpnAuthenticationMethod {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VpnAuthenticationMethod {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnAuthenticationMethod {}
 impl ::core::fmt::Debug for VpnAuthenticationMethod {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VpnAuthenticationMethod").field(&self.0).finish()
@@ -2823,6 +2813,7 @@ unsafe impl ::core::marker::Send for VpnChannelActivityEventArgs {}
 unsafe impl ::core::marker::Sync for VpnChannelActivityEventArgs {}
 #[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct VpnChannelActivityEventType(pub i32);
 impl VpnChannelActivityEventType {
     pub const Idle: Self = Self(0i32);
@@ -2837,12 +2828,6 @@ impl ::core::clone::Clone for VpnChannelActivityEventType {
 unsafe impl ::windows::core::Abi for VpnChannelActivityEventType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VpnChannelActivityEventType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnChannelActivityEventType {}
 impl ::core::fmt::Debug for VpnChannelActivityEventType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VpnChannelActivityEventType").field(&self.0).finish()
@@ -3044,6 +3029,7 @@ unsafe impl ::core::marker::Send for VpnChannelConfiguration {}
 unsafe impl ::core::marker::Sync for VpnChannelConfiguration {}
 #[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct VpnChannelRequestCredentialsOptions(pub u32);
 impl VpnChannelRequestCredentialsOptions {
     pub const None: Self = Self(0u32);
@@ -3059,12 +3045,6 @@ impl ::core::clone::Clone for VpnChannelRequestCredentialsOptions {
 unsafe impl ::windows::core::Abi for VpnChannelRequestCredentialsOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VpnChannelRequestCredentialsOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnChannelRequestCredentialsOptions {}
 impl ::core::fmt::Debug for VpnChannelRequestCredentialsOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VpnChannelRequestCredentialsOptions").field(&self.0).finish()
@@ -3236,6 +3216,7 @@ unsafe impl ::core::marker::Send for VpnCredential {}
 unsafe impl ::core::marker::Sync for VpnCredential {}
 #[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct VpnCredentialType(pub i32);
 impl VpnCredentialType {
     pub const UsernamePassword: Self = Self(0i32);
@@ -3255,12 +3236,6 @@ impl ::core::clone::Clone for VpnCredentialType {
 unsafe impl ::windows::core::Abi for VpnCredentialType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VpnCredentialType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnCredentialType {}
 impl ::core::fmt::Debug for VpnCredentialType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VpnCredentialType").field(&self.0).finish()
@@ -4719,6 +4694,7 @@ unsafe impl ::core::marker::Send for VpnCustomTextBox {}
 unsafe impl ::core::marker::Sync for VpnCustomTextBox {}
 #[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct VpnDataPathType(pub i32);
 impl VpnDataPathType {
     pub const Send: Self = Self(0i32);
@@ -4733,12 +4709,6 @@ impl ::core::clone::Clone for VpnDataPathType {
 unsafe impl ::windows::core::Abi for VpnDataPathType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VpnDataPathType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnDataPathType {}
 impl ::core::fmt::Debug for VpnDataPathType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VpnDataPathType").field(&self.0).finish()
@@ -4995,6 +4965,7 @@ unsafe impl ::core::marker::Send for VpnDomainNameInfo {}
 unsafe impl ::core::marker::Sync for VpnDomainNameInfo {}
 #[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct VpnDomainNameType(pub i32);
 impl VpnDomainNameType {
     pub const Suffix: Self = Self(0i32);
@@ -5010,12 +4981,6 @@ impl ::core::clone::Clone for VpnDomainNameType {
 unsafe impl ::windows::core::Abi for VpnDomainNameType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VpnDomainNameType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnDomainNameType {}
 impl ::core::fmt::Debug for VpnDomainNameType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VpnDomainNameType").field(&self.0).finish()
@@ -5294,6 +5259,7 @@ unsafe impl ::core::marker::Send for VpnForegroundActivationOperation {}
 unsafe impl ::core::marker::Sync for VpnForegroundActivationOperation {}
 #[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct VpnIPProtocol(pub i32);
 impl VpnIPProtocol {
     pub const None: Self = Self(0i32);
@@ -5313,12 +5279,6 @@ impl ::core::clone::Clone for VpnIPProtocol {
 unsafe impl ::windows::core::Abi for VpnIPProtocol {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VpnIPProtocol {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnIPProtocol {}
 impl ::core::fmt::Debug for VpnIPProtocol {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VpnIPProtocol").field(&self.0).finish()
@@ -5583,6 +5543,7 @@ unsafe impl ::core::marker::Send for VpnManagementAgent {}
 unsafe impl ::core::marker::Sync for VpnManagementAgent {}
 #[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct VpnManagementConnectionStatus(pub i32);
 impl VpnManagementConnectionStatus {
     pub const Disconnected: Self = Self(0i32);
@@ -5599,12 +5560,6 @@ impl ::core::clone::Clone for VpnManagementConnectionStatus {
 unsafe impl ::windows::core::Abi for VpnManagementConnectionStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VpnManagementConnectionStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnManagementConnectionStatus {}
 impl ::core::fmt::Debug for VpnManagementConnectionStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VpnManagementConnectionStatus").field(&self.0).finish()
@@ -5618,6 +5573,7 @@ impl ::windows::core::DefaultType for VpnManagementConnectionStatus {
 }
 #[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct VpnManagementErrorStatus(pub i32);
 impl VpnManagementErrorStatus {
     pub const Ok: Self = Self(0i32);
@@ -5649,12 +5605,6 @@ impl ::core::clone::Clone for VpnManagementErrorStatus {
 unsafe impl ::windows::core::Abi for VpnManagementErrorStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VpnManagementErrorStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnManagementErrorStatus {}
 impl ::core::fmt::Debug for VpnManagementErrorStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VpnManagementErrorStatus").field(&self.0).finish()
@@ -6179,6 +6129,7 @@ unsafe impl ::core::marker::Send for VpnNativeProfile {}
 unsafe impl ::core::marker::Sync for VpnNativeProfile {}
 #[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct VpnNativeProtocolType(pub i32);
 impl VpnNativeProtocolType {
     pub const Pptp: Self = Self(0i32);
@@ -6194,12 +6145,6 @@ impl ::core::clone::Clone for VpnNativeProtocolType {
 unsafe impl ::windows::core::Abi for VpnNativeProtocolType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VpnNativeProtocolType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnNativeProtocolType {}
 impl ::core::fmt::Debug for VpnNativeProtocolType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VpnNativeProtocolType").field(&self.0).finish()
@@ -6530,6 +6475,7 @@ unsafe impl ::core::marker::Send for VpnPacketBufferList {}
 unsafe impl ::core::marker::Sync for VpnPacketBufferList {}
 #[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct VpnPacketBufferStatus(pub i32);
 impl VpnPacketBufferStatus {
     pub const Ok: Self = Self(0i32);
@@ -6544,12 +6490,6 @@ impl ::core::clone::Clone for VpnPacketBufferStatus {
 unsafe impl ::windows::core::Abi for VpnPacketBufferStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VpnPacketBufferStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnPacketBufferStatus {}
 impl ::core::fmt::Debug for VpnPacketBufferStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VpnPacketBufferStatus").field(&self.0).finish()
@@ -7159,6 +7099,7 @@ unsafe impl ::core::marker::Send for VpnRouteAssignment {}
 unsafe impl ::core::marker::Sync for VpnRouteAssignment {}
 #[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct VpnRoutingPolicyType(pub i32);
 impl VpnRoutingPolicyType {
     pub const SplitRouting: Self = Self(0i32);
@@ -7173,12 +7114,6 @@ impl ::core::clone::Clone for VpnRoutingPolicyType {
 unsafe impl ::windows::core::Abi for VpnRoutingPolicyType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VpnRoutingPolicyType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VpnRoutingPolicyType {}
 impl ::core::fmt::Debug for VpnRoutingPolicyType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VpnRoutingPolicyType").field(&self.0).finish()

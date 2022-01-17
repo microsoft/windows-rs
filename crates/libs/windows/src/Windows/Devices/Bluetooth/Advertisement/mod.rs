@@ -677,6 +677,7 @@ unsafe impl ::core::marker::Send for BluetoothLEAdvertisementFilter {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementFilter {}
 #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct BluetoothLEAdvertisementFlags(pub u32);
 impl BluetoothLEAdvertisementFlags {
     pub const None: Self = Self(0u32);
@@ -695,12 +696,6 @@ impl ::core::clone::Clone for BluetoothLEAdvertisementFlags {
 unsafe impl ::windows::core::Abi for BluetoothLEAdvertisementFlags {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BluetoothLEAdvertisementFlags {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BluetoothLEAdvertisementFlags {}
 impl ::core::fmt::Debug for BluetoothLEAdvertisementFlags {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BluetoothLEAdvertisementFlags").field(&self.0).finish()
@@ -929,6 +924,7 @@ unsafe impl ::core::marker::Send for BluetoothLEAdvertisementPublisher {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementPublisher {}
 #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct BluetoothLEAdvertisementPublisherStatus(pub i32);
 impl BluetoothLEAdvertisementPublisherStatus {
     pub const Created: Self = Self(0i32);
@@ -947,12 +943,6 @@ impl ::core::clone::Clone for BluetoothLEAdvertisementPublisherStatus {
 unsafe impl ::windows::core::Abi for BluetoothLEAdvertisementPublisherStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BluetoothLEAdvertisementPublisherStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BluetoothLEAdvertisementPublisherStatus {}
 impl ::core::fmt::Debug for BluetoothLEAdvertisementPublisherStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BluetoothLEAdvertisementPublisherStatus").field(&self.0).finish()
@@ -1235,6 +1225,7 @@ unsafe impl ::core::marker::Send for BluetoothLEAdvertisementReceivedEventArgs {
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementReceivedEventArgs {}
 #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct BluetoothLEAdvertisementType(pub i32);
 impl BluetoothLEAdvertisementType {
     pub const ConnectableUndirected: Self = Self(0i32);
@@ -1253,12 +1244,6 @@ impl ::core::clone::Clone for BluetoothLEAdvertisementType {
 unsafe impl ::windows::core::Abi for BluetoothLEAdvertisementType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BluetoothLEAdvertisementType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BluetoothLEAdvertisementType {}
 impl ::core::fmt::Debug for BluetoothLEAdvertisementType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BluetoothLEAdvertisementType").field(&self.0).finish()
@@ -1500,6 +1485,7 @@ unsafe impl ::core::marker::Send for BluetoothLEAdvertisementWatcher {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementWatcher {}
 #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct BluetoothLEAdvertisementWatcherStatus(pub i32);
 impl BluetoothLEAdvertisementWatcherStatus {
     pub const Created: Self = Self(0i32);
@@ -1517,12 +1503,6 @@ impl ::core::clone::Clone for BluetoothLEAdvertisementWatcherStatus {
 unsafe impl ::windows::core::Abi for BluetoothLEAdvertisementWatcherStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BluetoothLEAdvertisementWatcherStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BluetoothLEAdvertisementWatcherStatus {}
 impl ::core::fmt::Debug for BluetoothLEAdvertisementWatcherStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BluetoothLEAdvertisementWatcherStatus").field(&self.0).finish()
@@ -1738,6 +1718,7 @@ unsafe impl ::core::marker::Send for BluetoothLEManufacturerData {}
 unsafe impl ::core::marker::Sync for BluetoothLEManufacturerData {}
 #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct BluetoothLEScanningMode(pub i32);
 impl BluetoothLEScanningMode {
     pub const Passive: Self = Self(0i32);
@@ -1753,12 +1734,6 @@ impl ::core::clone::Clone for BluetoothLEScanningMode {
 unsafe impl ::windows::core::Abi for BluetoothLEScanningMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BluetoothLEScanningMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BluetoothLEScanningMode {}
 impl ::core::fmt::Debug for BluetoothLEScanningMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BluetoothLEScanningMode").field(&self.0).finish()

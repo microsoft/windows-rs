@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'Storage_Search'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CommonFileQuery(pub i32);
 impl CommonFileQuery {
     pub const DefaultQuery: Self = Self(0i32);
@@ -19,12 +20,6 @@ impl ::core::clone::Clone for CommonFileQuery {
 unsafe impl ::windows::core::Abi for CommonFileQuery {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CommonFileQuery {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CommonFileQuery {}
 impl ::core::fmt::Debug for CommonFileQuery {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CommonFileQuery").field(&self.0).finish()
@@ -38,6 +33,7 @@ impl ::windows::core::DefaultType for CommonFileQuery {
 }
 #[doc = "*Required features: 'Storage_Search'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CommonFolderQuery(pub i32);
 impl CommonFolderQuery {
     pub const DefaultQuery: Self = Self(0i32);
@@ -63,12 +59,6 @@ impl ::core::clone::Clone for CommonFolderQuery {
 unsafe impl ::windows::core::Abi for CommonFolderQuery {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CommonFolderQuery {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CommonFolderQuery {}
 impl ::core::fmt::Debug for CommonFolderQuery {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CommonFolderQuery").field(&self.0).finish()
@@ -389,6 +379,7 @@ unsafe impl ::core::marker::Send for ContentIndexerQuery {}
 unsafe impl ::core::marker::Sync for ContentIndexerQuery {}
 #[doc = "*Required features: 'Storage_Search'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DateStackOption(pub i32);
 impl DateStackOption {
     pub const None: Self = Self(0i32);
@@ -404,12 +395,6 @@ impl ::core::clone::Clone for DateStackOption {
 unsafe impl ::windows::core::Abi for DateStackOption {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DateStackOption {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DateStackOption {}
 impl ::core::fmt::Debug for DateStackOption {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DateStackOption").field(&self.0).finish()
@@ -423,6 +408,7 @@ impl ::windows::core::DefaultType for DateStackOption {
 }
 #[doc = "*Required features: 'Storage_Search'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FolderDepth(pub i32);
 impl FolderDepth {
     pub const Shallow: Self = Self(0i32);
@@ -437,12 +423,6 @@ impl ::core::clone::Clone for FolderDepth {
 unsafe impl ::windows::core::Abi for FolderDepth {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for FolderDepth {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FolderDepth {}
 impl ::core::fmt::Debug for FolderDepth {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FolderDepth").field(&self.0).finish()
@@ -1471,6 +1451,7 @@ unsafe impl ::core::marker::Send for IndexableContent {}
 unsafe impl ::core::marker::Sync for IndexableContent {}
 #[doc = "*Required features: 'Storage_Search'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct IndexedState(pub i32);
 impl IndexedState {
     pub const Unknown: Self = Self(0i32);
@@ -1487,12 +1468,6 @@ impl ::core::clone::Clone for IndexedState {
 unsafe impl ::windows::core::Abi for IndexedState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for IndexedState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IndexedState {}
 impl ::core::fmt::Debug for IndexedState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IndexedState").field(&self.0).finish()
@@ -1506,6 +1481,7 @@ impl ::windows::core::DefaultType for IndexedState {
 }
 #[doc = "*Required features: 'Storage_Search'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct IndexerOption(pub i32);
 impl IndexerOption {
     pub const UseIndexerWhenAvailable: Self = Self(0i32);
@@ -1522,12 +1498,6 @@ impl ::core::clone::Clone for IndexerOption {
 unsafe impl ::windows::core::Abi for IndexerOption {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for IndexerOption {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IndexerOption {}
 impl ::core::fmt::Debug for IndexerOption {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IndexerOption").field(&self.0).finish()

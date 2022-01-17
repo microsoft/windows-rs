@@ -169,6 +169,7 @@ pub struct IWiFiWpsConfigurationResultVtbl(
 );
 #[doc = "*Required features: 'Devices_WiFi'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WiFiAccessStatus(pub i32);
 impl WiFiAccessStatus {
     pub const Unspecified: Self = Self(0i32);
@@ -185,12 +186,6 @@ impl ::core::clone::Clone for WiFiAccessStatus {
 unsafe impl ::windows::core::Abi for WiFiAccessStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WiFiAccessStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WiFiAccessStatus {}
 impl ::core::fmt::Debug for WiFiAccessStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WiFiAccessStatus").field(&self.0).finish()
@@ -568,6 +563,7 @@ unsafe impl ::core::marker::Send for WiFiAvailableNetwork {}
 unsafe impl ::core::marker::Sync for WiFiAvailableNetwork {}
 #[doc = "*Required features: 'Devices_WiFi'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WiFiConnectionMethod(pub i32);
 impl WiFiConnectionMethod {
     pub const Default: Self = Self(0i32);
@@ -583,12 +579,6 @@ impl ::core::clone::Clone for WiFiConnectionMethod {
 unsafe impl ::windows::core::Abi for WiFiConnectionMethod {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WiFiConnectionMethod {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WiFiConnectionMethod {}
 impl ::core::fmt::Debug for WiFiConnectionMethod {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WiFiConnectionMethod").field(&self.0).finish()
@@ -683,6 +673,7 @@ unsafe impl ::core::marker::Send for WiFiConnectionResult {}
 unsafe impl ::core::marker::Sync for WiFiConnectionResult {}
 #[doc = "*Required features: 'Devices_WiFi'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WiFiConnectionStatus(pub i32);
 impl WiFiConnectionStatus {
     pub const UnspecifiedFailure: Self = Self(0i32);
@@ -702,12 +693,6 @@ impl ::core::clone::Clone for WiFiConnectionStatus {
 unsafe impl ::windows::core::Abi for WiFiConnectionStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WiFiConnectionStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WiFiConnectionStatus {}
 impl ::core::fmt::Debug for WiFiConnectionStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WiFiConnectionStatus").field(&self.0).finish()
@@ -721,6 +706,7 @@ impl ::windows::core::DefaultType for WiFiConnectionStatus {
 }
 #[doc = "*Required features: 'Devices_WiFi'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WiFiNetworkKind(pub i32);
 impl WiFiNetworkKind {
     pub const Any: Self = Self(0i32);
@@ -736,12 +722,6 @@ impl ::core::clone::Clone for WiFiNetworkKind {
 unsafe impl ::windows::core::Abi for WiFiNetworkKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WiFiNetworkKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WiFiNetworkKind {}
 impl ::core::fmt::Debug for WiFiNetworkKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WiFiNetworkKind").field(&self.0).finish()
@@ -846,6 +826,7 @@ unsafe impl ::core::marker::Send for WiFiNetworkReport {}
 unsafe impl ::core::marker::Sync for WiFiNetworkReport {}
 #[doc = "*Required features: 'Devices_WiFi'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WiFiPhyKind(pub i32);
 impl WiFiPhyKind {
     pub const Unknown: Self = Self(0i32);
@@ -869,12 +850,6 @@ impl ::core::clone::Clone for WiFiPhyKind {
 unsafe impl ::windows::core::Abi for WiFiPhyKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WiFiPhyKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WiFiPhyKind {}
 impl ::core::fmt::Debug for WiFiPhyKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WiFiPhyKind").field(&self.0).finish()
@@ -888,6 +863,7 @@ impl ::windows::core::DefaultType for WiFiPhyKind {
 }
 #[doc = "*Required features: 'Devices_WiFi'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WiFiReconnectionKind(pub i32);
 impl WiFiReconnectionKind {
     pub const Automatic: Self = Self(0i32);
@@ -902,12 +878,6 @@ impl ::core::clone::Clone for WiFiReconnectionKind {
 unsafe impl ::windows::core::Abi for WiFiReconnectionKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WiFiReconnectionKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WiFiReconnectionKind {}
 impl ::core::fmt::Debug for WiFiReconnectionKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WiFiReconnectionKind").field(&self.0).finish()
@@ -1011,6 +981,7 @@ unsafe impl ::core::marker::Send for WiFiWpsConfigurationResult {}
 unsafe impl ::core::marker::Sync for WiFiWpsConfigurationResult {}
 #[doc = "*Required features: 'Devices_WiFi'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WiFiWpsConfigurationStatus(pub i32);
 impl WiFiWpsConfigurationStatus {
     pub const UnspecifiedFailure: Self = Self(0i32);
@@ -1026,12 +997,6 @@ impl ::core::clone::Clone for WiFiWpsConfigurationStatus {
 unsafe impl ::windows::core::Abi for WiFiWpsConfigurationStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WiFiWpsConfigurationStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WiFiWpsConfigurationStatus {}
 impl ::core::fmt::Debug for WiFiWpsConfigurationStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WiFiWpsConfigurationStatus").field(&self.0).finish()
@@ -1045,6 +1010,7 @@ impl ::windows::core::DefaultType for WiFiWpsConfigurationStatus {
 }
 #[doc = "*Required features: 'Devices_WiFi'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WiFiWpsKind(pub i32);
 impl WiFiWpsKind {
     pub const Unknown: Self = Self(0i32);
@@ -1063,12 +1029,6 @@ impl ::core::clone::Clone for WiFiWpsKind {
 unsafe impl ::windows::core::Abi for WiFiWpsKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WiFiWpsKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WiFiWpsKind {}
 impl ::core::fmt::Debug for WiFiWpsKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WiFiWpsKind").field(&self.0).finish()

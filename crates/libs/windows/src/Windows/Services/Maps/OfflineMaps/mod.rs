@@ -337,6 +337,7 @@ unsafe impl ::core::marker::Send for OfflineMapPackageQueryResult {}
 unsafe impl ::core::marker::Sync for OfflineMapPackageQueryResult {}
 #[doc = "*Required features: 'Services_Maps_OfflineMaps'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct OfflineMapPackageQueryStatus(pub i32);
 impl OfflineMapPackageQueryStatus {
     pub const Success: Self = Self(0i32);
@@ -353,12 +354,6 @@ impl ::core::clone::Clone for OfflineMapPackageQueryStatus {
 unsafe impl ::windows::core::Abi for OfflineMapPackageQueryStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for OfflineMapPackageQueryStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for OfflineMapPackageQueryStatus {}
 impl ::core::fmt::Debug for OfflineMapPackageQueryStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("OfflineMapPackageQueryStatus").field(&self.0).finish()
@@ -453,6 +448,7 @@ unsafe impl ::core::marker::Send for OfflineMapPackageStartDownloadResult {}
 unsafe impl ::core::marker::Sync for OfflineMapPackageStartDownloadResult {}
 #[doc = "*Required features: 'Services_Maps_OfflineMaps'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct OfflineMapPackageStartDownloadStatus(pub i32);
 impl OfflineMapPackageStartDownloadStatus {
     pub const Success: Self = Self(0i32);
@@ -469,12 +465,6 @@ impl ::core::clone::Clone for OfflineMapPackageStartDownloadStatus {
 unsafe impl ::windows::core::Abi for OfflineMapPackageStartDownloadStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for OfflineMapPackageStartDownloadStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for OfflineMapPackageStartDownloadStatus {}
 impl ::core::fmt::Debug for OfflineMapPackageStartDownloadStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("OfflineMapPackageStartDownloadStatus").field(&self.0).finish()
@@ -488,6 +478,7 @@ impl ::windows::core::DefaultType for OfflineMapPackageStartDownloadStatus {
 }
 #[doc = "*Required features: 'Services_Maps_OfflineMaps'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct OfflineMapPackageStatus(pub i32);
 impl OfflineMapPackageStatus {
     pub const NotDownloaded: Self = Self(0i32);
@@ -504,12 +495,6 @@ impl ::core::clone::Clone for OfflineMapPackageStatus {
 unsafe impl ::windows::core::Abi for OfflineMapPackageStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for OfflineMapPackageStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for OfflineMapPackageStatus {}
 impl ::core::fmt::Debug for OfflineMapPackageStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("OfflineMapPackageStatus").field(&self.0).finish()

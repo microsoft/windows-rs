@@ -83,6 +83,7 @@ impl ::windows::core::RuntimeName for GameService {
 }
 #[doc = "*Required features: 'Phone_System_UserProfile_GameServices_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GameServiceGameOutcome(pub i32);
 impl GameServiceGameOutcome {
     pub const None: Self = Self(0i32);
@@ -99,12 +100,6 @@ impl ::core::clone::Clone for GameServiceGameOutcome {
 unsafe impl ::windows::core::Abi for GameServiceGameOutcome {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GameServiceGameOutcome {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GameServiceGameOutcome {}
 impl ::core::fmt::Debug for GameServiceGameOutcome {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GameServiceGameOutcome").field(&self.0).finish()
@@ -200,6 +195,7 @@ unsafe impl ::core::marker::Send for GameServicePropertyCollection {}
 unsafe impl ::core::marker::Sync for GameServicePropertyCollection {}
 #[doc = "*Required features: 'Phone_System_UserProfile_GameServices_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GameServiceScoreKind(pub i32);
 impl GameServiceScoreKind {
     pub const Number: Self = Self(0i32);
@@ -214,12 +210,6 @@ impl ::core::clone::Clone for GameServiceScoreKind {
 unsafe impl ::windows::core::Abi for GameServiceScoreKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GameServiceScoreKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GameServiceScoreKind {}
 impl ::core::fmt::Debug for GameServiceScoreKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GameServiceScoreKind").field(&self.0).finish()

@@ -115,6 +115,7 @@ unsafe impl ::core::marker::Send for AttributedNetworkUsage {}
 unsafe impl ::core::marker::Sync for AttributedNetworkUsage {}
 #[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CellularApnAuthenticationType(pub i32);
 impl CellularApnAuthenticationType {
     pub const None: Self = Self(0i32);
@@ -131,12 +132,6 @@ impl ::core::clone::Clone for CellularApnAuthenticationType {
 unsafe impl ::windows::core::Abi for CellularApnAuthenticationType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CellularApnAuthenticationType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CellularApnAuthenticationType {}
 impl ::core::fmt::Debug for CellularApnAuthenticationType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CellularApnAuthenticationType").field(&self.0).finish()
@@ -693,6 +688,7 @@ unsafe impl ::core::marker::Send for ConnectionProfile {}
 unsafe impl ::core::marker::Sync for ConnectionProfile {}
 #[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ConnectionProfileDeleteStatus(pub i32);
 impl ConnectionProfileDeleteStatus {
     pub const Success: Self = Self(0i32);
@@ -709,12 +705,6 @@ impl ::core::clone::Clone for ConnectionProfileDeleteStatus {
 unsafe impl ::windows::core::Abi for ConnectionProfileDeleteStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ConnectionProfileDeleteStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ConnectionProfileDeleteStatus {}
 impl ::core::fmt::Debug for ConnectionProfileDeleteStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ConnectionProfileDeleteStatus").field(&self.0).finish()
@@ -1502,6 +1492,7 @@ unsafe impl ::core::marker::Send for DataUsage {}
 unsafe impl ::core::marker::Sync for DataUsage {}
 #[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DataUsageGranularity(pub i32);
 impl DataUsageGranularity {
     pub const PerMinute: Self = Self(0i32);
@@ -1518,12 +1509,6 @@ impl ::core::clone::Clone for DataUsageGranularity {
 unsafe impl ::windows::core::Abi for DataUsageGranularity {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DataUsageGranularity {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DataUsageGranularity {}
 impl ::core::fmt::Debug for DataUsageGranularity {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DataUsageGranularity").field(&self.0).finish()
@@ -1537,6 +1522,7 @@ impl ::windows::core::DefaultType for DataUsageGranularity {
 }
 #[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DomainConnectivityLevel(pub i32);
 impl DomainConnectivityLevel {
     pub const None: Self = Self(0i32);
@@ -1552,12 +1538,6 @@ impl ::core::clone::Clone for DomainConnectivityLevel {
 unsafe impl ::windows::core::Abi for DomainConnectivityLevel {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DomainConnectivityLevel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DomainConnectivityLevel {}
 impl ::core::fmt::Debug for DomainConnectivityLevel {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DomainConnectivityLevel").field(&self.0).finish()
@@ -2783,6 +2763,7 @@ unsafe impl ::core::marker::Send for NetworkAdapter {}
 unsafe impl ::core::marker::Sync for NetworkAdapter {}
 #[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct NetworkAuthenticationType(pub i32);
 impl NetworkAuthenticationType {
     pub const None: Self = Self(0i32);
@@ -2810,12 +2791,6 @@ impl ::core::clone::Clone for NetworkAuthenticationType {
 unsafe impl ::windows::core::Abi for NetworkAuthenticationType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for NetworkAuthenticationType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for NetworkAuthenticationType {}
 impl ::core::fmt::Debug for NetworkAuthenticationType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NetworkAuthenticationType").field(&self.0).finish()
@@ -2829,6 +2804,7 @@ impl ::windows::core::DefaultType for NetworkAuthenticationType {
 }
 #[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct NetworkConnectivityLevel(pub i32);
 impl NetworkConnectivityLevel {
     pub const None: Self = Self(0i32);
@@ -2845,12 +2821,6 @@ impl ::core::clone::Clone for NetworkConnectivityLevel {
 unsafe impl ::windows::core::Abi for NetworkConnectivityLevel {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for NetworkConnectivityLevel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for NetworkConnectivityLevel {}
 impl ::core::fmt::Debug for NetworkConnectivityLevel {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NetworkConnectivityLevel").field(&self.0).finish()
@@ -2864,6 +2834,7 @@ impl ::windows::core::DefaultType for NetworkConnectivityLevel {
 }
 #[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct NetworkCostType(pub i32);
 impl NetworkCostType {
     pub const Unknown: Self = Self(0i32);
@@ -2880,12 +2851,6 @@ impl ::core::clone::Clone for NetworkCostType {
 unsafe impl ::windows::core::Abi for NetworkCostType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for NetworkCostType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for NetworkCostType {}
 impl ::core::fmt::Debug for NetworkCostType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NetworkCostType").field(&self.0).finish()
@@ -2899,6 +2864,7 @@ impl ::windows::core::DefaultType for NetworkCostType {
 }
 #[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct NetworkEncryptionType(pub i32);
 impl NetworkEncryptionType {
     pub const None: Self = Self(0i32);
@@ -2923,12 +2889,6 @@ impl ::core::clone::Clone for NetworkEncryptionType {
 unsafe impl ::windows::core::Abi for NetworkEncryptionType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for NetworkEncryptionType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for NetworkEncryptionType {}
 impl ::core::fmt::Debug for NetworkEncryptionType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NetworkEncryptionType").field(&self.0).finish()
@@ -3417,6 +3377,7 @@ unsafe impl ::windows::core::RuntimeType for NetworkStatusChangedEventHandler {
 pub struct NetworkStatusChangedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
 #[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct NetworkTypes(pub u32);
 impl NetworkTypes {
     pub const None: Self = Self(0u32);
@@ -3432,12 +3393,6 @@ impl ::core::clone::Clone for NetworkTypes {
 unsafe impl ::windows::core::Abi for NetworkTypes {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for NetworkTypes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for NetworkTypes {}
 impl ::core::fmt::Debug for NetworkTypes {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NetworkTypes").field(&self.0).finish()
@@ -3801,6 +3756,7 @@ unsafe impl ::core::marker::Send for ProxyConfiguration {}
 unsafe impl ::core::marker::Sync for ProxyConfiguration {}
 #[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct RoamingStates(pub u32);
 impl RoamingStates {
     pub const None: Self = Self(0u32);
@@ -3816,12 +3772,6 @@ impl ::core::clone::Clone for RoamingStates {
 unsafe impl ::windows::core::Abi for RoamingStates {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RoamingStates {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RoamingStates {}
 impl ::core::fmt::Debug for RoamingStates {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RoamingStates").field(&self.0).finish()
@@ -3972,6 +3922,7 @@ unsafe impl ::core::marker::Send for RoutePolicy {}
 unsafe impl ::core::marker::Sync for RoutePolicy {}
 #[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TriStates(pub i32);
 impl TriStates {
     pub const DoNotCare: Self = Self(0i32);
@@ -3987,12 +3938,6 @@ impl ::core::clone::Clone for TriStates {
 unsafe impl ::windows::core::Abi for TriStates {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TriStates {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TriStates {}
 impl ::core::fmt::Debug for TriStates {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TriStates").field(&self.0).finish()
@@ -4209,6 +4154,7 @@ unsafe impl ::core::marker::Send for WwanConnectionProfileDetails {}
 unsafe impl ::core::marker::Sync for WwanConnectionProfileDetails {}
 #[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WwanDataClass(pub u32);
 impl WwanDataClass {
     pub const None: Self = Self(0u32);
@@ -4236,12 +4182,6 @@ impl ::core::clone::Clone for WwanDataClass {
 unsafe impl ::windows::core::Abi for WwanDataClass {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WwanDataClass {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WwanDataClass {}
 impl ::core::fmt::Debug for WwanDataClass {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WwanDataClass").field(&self.0).finish()
@@ -4283,6 +4223,7 @@ impl ::windows::core::DefaultType for WwanDataClass {
 }
 #[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WwanNetworkIPKind(pub i32);
 impl WwanNetworkIPKind {
     pub const None: Self = Self(0i32);
@@ -4300,12 +4241,6 @@ impl ::core::clone::Clone for WwanNetworkIPKind {
 unsafe impl ::windows::core::Abi for WwanNetworkIPKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WwanNetworkIPKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WwanNetworkIPKind {}
 impl ::core::fmt::Debug for WwanNetworkIPKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WwanNetworkIPKind").field(&self.0).finish()
@@ -4319,6 +4254,7 @@ impl ::windows::core::DefaultType for WwanNetworkIPKind {
 }
 #[doc = "*Required features: 'Networking_Connectivity'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WwanNetworkRegistrationState(pub i32);
 impl WwanNetworkRegistrationState {
     pub const None: Self = Self(0i32);
@@ -4338,12 +4274,6 @@ impl ::core::clone::Clone for WwanNetworkRegistrationState {
 unsafe impl ::windows::core::Abi for WwanNetworkRegistrationState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WwanNetworkRegistrationState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WwanNetworkRegistrationState {}
 impl ::core::fmt::Debug for WwanNetworkRegistrationState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WwanNetworkRegistrationState").field(&self.0).finish()

@@ -816,6 +816,7 @@ unsafe impl ::core::marker::Sync for SocialFeedItem {}
 #[doc = "*Required features: 'ApplicationModel_SocialInfo', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SocialFeedItemStyle(pub i32);
 #[cfg(feature = "deprecated")]
 impl SocialFeedItemStyle {
@@ -835,14 +836,6 @@ unsafe impl ::windows::core::Abi for SocialFeedItemStyle {
     type Abi = Self;
 }
 #[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for SocialFeedItemStyle {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for SocialFeedItemStyle {}
-#[cfg(feature = "deprecated")]
 impl ::core::fmt::Debug for SocialFeedItemStyle {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SocialFeedItemStyle").field(&self.0).finish()
@@ -859,6 +852,7 @@ impl ::windows::core::DefaultType for SocialFeedItemStyle {
 #[doc = "*Required features: 'ApplicationModel_SocialInfo', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SocialFeedKind(pub i32);
 #[cfg(feature = "deprecated")]
 impl SocialFeedKind {
@@ -878,14 +872,6 @@ impl ::core::clone::Clone for SocialFeedKind {
 unsafe impl ::windows::core::Abi for SocialFeedKind {
     type Abi = Self;
 }
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for SocialFeedKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for SocialFeedKind {}
 #[cfg(feature = "deprecated")]
 impl ::core::fmt::Debug for SocialFeedKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1071,6 +1057,7 @@ unsafe impl ::core::marker::Sync for SocialFeedSharedItem {}
 #[doc = "*Required features: 'ApplicationModel_SocialInfo', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SocialFeedUpdateMode(pub i32);
 #[cfg(feature = "deprecated")]
 impl SocialFeedUpdateMode {
@@ -1090,14 +1077,6 @@ unsafe impl ::windows::core::Abi for SocialFeedUpdateMode {
     type Abi = Self;
 }
 #[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for SocialFeedUpdateMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for SocialFeedUpdateMode {}
-#[cfg(feature = "deprecated")]
 impl ::core::fmt::Debug for SocialFeedUpdateMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SocialFeedUpdateMode").field(&self.0).finish()
@@ -1114,6 +1093,7 @@ impl ::windows::core::DefaultType for SocialFeedUpdateMode {
 #[doc = "*Required features: 'ApplicationModel_SocialInfo', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SocialItemBadgeStyle(pub i32);
 #[cfg(feature = "deprecated")]
 impl SocialItemBadgeStyle {
@@ -1133,14 +1113,6 @@ impl ::core::clone::Clone for SocialItemBadgeStyle {
 unsafe impl ::windows::core::Abi for SocialItemBadgeStyle {
     type Abi = Self;
 }
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for SocialItemBadgeStyle {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for SocialItemBadgeStyle {}
 #[cfg(feature = "deprecated")]
 impl ::core::fmt::Debug for SocialItemBadgeStyle {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {

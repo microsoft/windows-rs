@@ -208,6 +208,7 @@ unsafe impl ::core::marker::Send for Radio {}
 unsafe impl ::core::marker::Sync for Radio {}
 #[doc = "*Required features: 'Devices_Radios'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct RadioAccessStatus(pub i32);
 impl RadioAccessStatus {
     pub const Unspecified: Self = Self(0i32);
@@ -224,12 +225,6 @@ impl ::core::clone::Clone for RadioAccessStatus {
 unsafe impl ::windows::core::Abi for RadioAccessStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RadioAccessStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RadioAccessStatus {}
 impl ::core::fmt::Debug for RadioAccessStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RadioAccessStatus").field(&self.0).finish()
@@ -243,6 +238,7 @@ impl ::windows::core::DefaultType for RadioAccessStatus {
 }
 #[doc = "*Required features: 'Devices_Radios'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct RadioKind(pub i32);
 impl RadioKind {
     pub const Other: Self = Self(0i32);
@@ -260,12 +256,6 @@ impl ::core::clone::Clone for RadioKind {
 unsafe impl ::windows::core::Abi for RadioKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RadioKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RadioKind {}
 impl ::core::fmt::Debug for RadioKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RadioKind").field(&self.0).finish()
@@ -279,6 +269,7 @@ impl ::windows::core::DefaultType for RadioKind {
 }
 #[doc = "*Required features: 'Devices_Radios'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct RadioState(pub i32);
 impl RadioState {
     pub const Unknown: Self = Self(0i32);
@@ -295,12 +286,6 @@ impl ::core::clone::Clone for RadioState {
 unsafe impl ::windows::core::Abi for RadioState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RadioState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RadioState {}
 impl ::core::fmt::Debug for RadioState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RadioState").field(&self.0).finish()

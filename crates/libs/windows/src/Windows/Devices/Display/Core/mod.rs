@@ -153,6 +153,7 @@ unsafe impl ::core::marker::Send for DisplayAdapter {}
 unsafe impl ::core::marker::Sync for DisplayAdapter {}
 #[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DisplayBitsPerChannel(pub u32);
 impl DisplayBitsPerChannel {
     pub const None: Self = Self(0u32);
@@ -172,12 +173,6 @@ impl ::core::clone::Clone for DisplayBitsPerChannel {
 unsafe impl ::windows::core::Abi for DisplayBitsPerChannel {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DisplayBitsPerChannel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DisplayBitsPerChannel {}
 impl ::core::fmt::Debug for DisplayBitsPerChannel {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DisplayBitsPerChannel").field(&self.0).finish()
@@ -355,6 +350,7 @@ unsafe impl ::core::marker::Send for DisplayDevice {}
 unsafe impl ::core::marker::Sync for DisplayDevice {}
 #[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DisplayDeviceCapability(pub i32);
 impl DisplayDeviceCapability {
     pub const FlipOverride: Self = Self(0i32);
@@ -368,12 +364,6 @@ impl ::core::clone::Clone for DisplayDeviceCapability {
 unsafe impl ::windows::core::Abi for DisplayDeviceCapability {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DisplayDeviceCapability {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DisplayDeviceCapability {}
 impl ::core::fmt::Debug for DisplayDeviceCapability {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DisplayDeviceCapability").field(&self.0).finish()
@@ -1005,6 +995,7 @@ unsafe impl ::core::marker::Send for DisplayManagerEnabledEventArgs {}
 unsafe impl ::core::marker::Sync for DisplayManagerEnabledEventArgs {}
 #[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DisplayManagerOptions(pub u32);
 impl DisplayManagerOptions {
     pub const None: Self = Self(0u32);
@@ -1020,12 +1011,6 @@ impl ::core::clone::Clone for DisplayManagerOptions {
 unsafe impl ::windows::core::Abi for DisplayManagerOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DisplayManagerOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DisplayManagerOptions {}
 impl ::core::fmt::Debug for DisplayManagerOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DisplayManagerOptions").field(&self.0).finish()
@@ -1162,6 +1147,7 @@ unsafe impl ::core::marker::Send for DisplayManagerPathsFailedOrInvalidatedEvent
 unsafe impl ::core::marker::Sync for DisplayManagerPathsFailedOrInvalidatedEventArgs {}
 #[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DisplayManagerResult(pub i32);
 impl DisplayManagerResult {
     pub const Success: Self = Self(0i32);
@@ -1179,12 +1165,6 @@ impl ::core::clone::Clone for DisplayManagerResult {
 unsafe impl ::windows::core::Abi for DisplayManagerResult {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DisplayManagerResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DisplayManagerResult {}
 impl ::core::fmt::Debug for DisplayManagerResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DisplayManagerResult").field(&self.0).finish()
@@ -1454,6 +1434,7 @@ unsafe impl ::core::marker::Send for DisplayModeInfo {}
 unsafe impl ::core::marker::Sync for DisplayModeInfo {}
 #[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DisplayModeQueryOptions(pub u32);
 impl DisplayModeQueryOptions {
     pub const None: Self = Self(0u32);
@@ -1468,12 +1449,6 @@ impl ::core::clone::Clone for DisplayModeQueryOptions {
 unsafe impl ::windows::core::Abi for DisplayModeQueryOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DisplayModeQueryOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DisplayModeQueryOptions {}
 impl ::core::fmt::Debug for DisplayModeQueryOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DisplayModeQueryOptions").field(&self.0).finish()
@@ -1777,6 +1752,7 @@ unsafe impl ::core::marker::Send for DisplayPath {}
 unsafe impl ::core::marker::Sync for DisplayPath {}
 #[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DisplayPathScaling(pub i32);
 impl DisplayPathScaling {
     pub const Identity: Self = Self(0i32);
@@ -1795,12 +1771,6 @@ impl ::core::clone::Clone for DisplayPathScaling {
 unsafe impl ::windows::core::Abi for DisplayPathScaling {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DisplayPathScaling {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DisplayPathScaling {}
 impl ::core::fmt::Debug for DisplayPathScaling {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DisplayPathScaling").field(&self.0).finish()
@@ -1814,6 +1784,7 @@ impl ::windows::core::DefaultType for DisplayPathScaling {
 }
 #[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DisplayPathStatus(pub i32);
 impl DisplayPathStatus {
     pub const Unknown: Self = Self(0i32);
@@ -1832,12 +1803,6 @@ impl ::core::clone::Clone for DisplayPathStatus {
 unsafe impl ::windows::core::Abi for DisplayPathStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DisplayPathStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DisplayPathStatus {}
 impl ::core::fmt::Debug for DisplayPathStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DisplayPathStatus").field(&self.0).finish()
@@ -1851,6 +1816,7 @@ impl ::windows::core::DefaultType for DisplayPathStatus {
 }
 #[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DisplayPresentStatus(pub i32);
 impl DisplayPresentStatus {
     pub const Success: Self = Self(0i32);
@@ -1869,12 +1835,6 @@ impl ::core::clone::Clone for DisplayPresentStatus {
 unsafe impl ::windows::core::Abi for DisplayPresentStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DisplayPresentStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DisplayPresentStatus {}
 impl ::core::fmt::Debug for DisplayPresentStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DisplayPresentStatus").field(&self.0).finish()
@@ -2094,6 +2054,7 @@ unsafe impl ::core::marker::Send for DisplayPrimaryDescription {}
 unsafe impl ::core::marker::Sync for DisplayPrimaryDescription {}
 #[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DisplayRotation(pub i32);
 impl DisplayRotation {
     pub const None: Self = Self(0i32);
@@ -2110,12 +2071,6 @@ impl ::core::clone::Clone for DisplayRotation {
 unsafe impl ::windows::core::Abi for DisplayRotation {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DisplayRotation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DisplayRotation {}
 impl ::core::fmt::Debug for DisplayRotation {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DisplayRotation").field(&self.0).finish()
@@ -2201,6 +2156,7 @@ unsafe impl ::core::marker::Send for DisplayScanout {}
 unsafe impl ::core::marker::Sync for DisplayScanout {}
 #[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DisplayScanoutOptions(pub u32);
 impl DisplayScanoutOptions {
     pub const None: Self = Self(0u32);
@@ -2215,12 +2171,6 @@ impl ::core::clone::Clone for DisplayScanoutOptions {
 unsafe impl ::windows::core::Abi for DisplayScanoutOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DisplayScanoutOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DisplayScanoutOptions {}
 impl ::core::fmt::Debug for DisplayScanoutOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DisplayScanoutOptions").field(&self.0).finish()
@@ -2384,6 +2334,7 @@ unsafe impl ::core::marker::Send for DisplaySource {}
 unsafe impl ::core::marker::Sync for DisplaySource {}
 #[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DisplaySourceStatus(pub i32);
 impl DisplaySourceStatus {
     pub const Active: Self = Self(0i32);
@@ -2401,12 +2352,6 @@ impl ::core::clone::Clone for DisplaySourceStatus {
 unsafe impl ::windows::core::Abi for DisplaySourceStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DisplaySourceStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DisplaySourceStatus {}
 impl ::core::fmt::Debug for DisplaySourceStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DisplaySourceStatus").field(&self.0).finish()
@@ -2605,6 +2550,7 @@ unsafe impl ::core::marker::Send for DisplayState {}
 unsafe impl ::core::marker::Sync for DisplayState {}
 #[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DisplayStateApplyOptions(pub u32);
 impl DisplayStateApplyOptions {
     pub const None: Self = Self(0u32);
@@ -2621,12 +2567,6 @@ impl ::core::clone::Clone for DisplayStateApplyOptions {
 unsafe impl ::windows::core::Abi for DisplayStateApplyOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DisplayStateApplyOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DisplayStateApplyOptions {}
 impl ::core::fmt::Debug for DisplayStateApplyOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DisplayStateApplyOptions").field(&self.0).finish()
@@ -2668,6 +2608,7 @@ impl ::windows::core::DefaultType for DisplayStateApplyOptions {
 }
 #[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DisplayStateFunctionalizeOptions(pub u32);
 impl DisplayStateFunctionalizeOptions {
     pub const None: Self = Self(0u32);
@@ -2683,12 +2624,6 @@ impl ::core::clone::Clone for DisplayStateFunctionalizeOptions {
 unsafe impl ::windows::core::Abi for DisplayStateFunctionalizeOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DisplayStateFunctionalizeOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DisplayStateFunctionalizeOptions {}
 impl ::core::fmt::Debug for DisplayStateFunctionalizeOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DisplayStateFunctionalizeOptions").field(&self.0).finish()
@@ -2819,6 +2754,7 @@ unsafe impl ::core::marker::Send for DisplayStateOperationResult {}
 unsafe impl ::core::marker::Sync for DisplayStateOperationResult {}
 #[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DisplayStateOperationStatus(pub i32);
 impl DisplayStateOperationStatus {
     pub const Success: Self = Self(0i32);
@@ -2839,12 +2775,6 @@ impl ::core::clone::Clone for DisplayStateOperationStatus {
 unsafe impl ::windows::core::Abi for DisplayStateOperationStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DisplayStateOperationStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DisplayStateOperationStatus {}
 impl ::core::fmt::Debug for DisplayStateOperationStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DisplayStateOperationStatus").field(&self.0).finish()
@@ -3116,6 +3046,7 @@ unsafe impl ::core::marker::Send for DisplayTarget {}
 unsafe impl ::core::marker::Sync for DisplayTarget {}
 #[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DisplayTargetPersistence(pub i32);
 impl DisplayTargetPersistence {
     pub const None: Self = Self(0i32);
@@ -3132,12 +3063,6 @@ impl ::core::clone::Clone for DisplayTargetPersistence {
 unsafe impl ::windows::core::Abi for DisplayTargetPersistence {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DisplayTargetPersistence {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DisplayTargetPersistence {}
 impl ::core::fmt::Debug for DisplayTargetPersistence {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DisplayTargetPersistence").field(&self.0).finish()
@@ -3431,6 +3356,7 @@ unsafe impl ::core::marker::Send for DisplayTaskResult {}
 unsafe impl ::core::marker::Sync for DisplayTaskResult {}
 #[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DisplayTaskSignalKind(pub i32);
 impl DisplayTaskSignalKind {
     pub const OnPresentFlipAway: Self = Self(0i32);
@@ -3445,12 +3371,6 @@ impl ::core::clone::Clone for DisplayTaskSignalKind {
 unsafe impl ::windows::core::Abi for DisplayTaskSignalKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DisplayTaskSignalKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DisplayTaskSignalKind {}
 impl ::core::fmt::Debug for DisplayTaskSignalKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DisplayTaskSignalKind").field(&self.0).finish()
@@ -3722,6 +3642,7 @@ unsafe impl ::core::marker::Send for DisplayWireFormat {}
 unsafe impl ::core::marker::Sync for DisplayWireFormat {}
 #[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DisplayWireFormatColorSpace(pub i32);
 impl DisplayWireFormatColorSpace {
     pub const BT709: Self = Self(0i32);
@@ -3737,12 +3658,6 @@ impl ::core::clone::Clone for DisplayWireFormatColorSpace {
 unsafe impl ::windows::core::Abi for DisplayWireFormatColorSpace {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DisplayWireFormatColorSpace {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DisplayWireFormatColorSpace {}
 impl ::core::fmt::Debug for DisplayWireFormatColorSpace {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DisplayWireFormatColorSpace").field(&self.0).finish()
@@ -3756,6 +3671,7 @@ impl ::windows::core::DefaultType for DisplayWireFormatColorSpace {
 }
 #[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DisplayWireFormatEotf(pub i32);
 impl DisplayWireFormatEotf {
     pub const Sdr: Self = Self(0i32);
@@ -3770,12 +3686,6 @@ impl ::core::clone::Clone for DisplayWireFormatEotf {
 unsafe impl ::windows::core::Abi for DisplayWireFormatEotf {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DisplayWireFormatEotf {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DisplayWireFormatEotf {}
 impl ::core::fmt::Debug for DisplayWireFormatEotf {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DisplayWireFormatEotf").field(&self.0).finish()
@@ -3789,6 +3699,7 @@ impl ::windows::core::DefaultType for DisplayWireFormatEotf {
 }
 #[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DisplayWireFormatHdrMetadata(pub i32);
 impl DisplayWireFormatHdrMetadata {
     pub const None: Self = Self(0i32);
@@ -3805,12 +3716,6 @@ impl ::core::clone::Clone for DisplayWireFormatHdrMetadata {
 unsafe impl ::windows::core::Abi for DisplayWireFormatHdrMetadata {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DisplayWireFormatHdrMetadata {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DisplayWireFormatHdrMetadata {}
 impl ::core::fmt::Debug for DisplayWireFormatHdrMetadata {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DisplayWireFormatHdrMetadata").field(&self.0).finish()
@@ -3824,6 +3729,7 @@ impl ::windows::core::DefaultType for DisplayWireFormatHdrMetadata {
 }
 #[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DisplayWireFormatPixelEncoding(pub i32);
 impl DisplayWireFormatPixelEncoding {
     pub const Rgb444: Self = Self(0i32);
@@ -3841,12 +3747,6 @@ impl ::core::clone::Clone for DisplayWireFormatPixelEncoding {
 unsafe impl ::windows::core::Abi for DisplayWireFormatPixelEncoding {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DisplayWireFormatPixelEncoding {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DisplayWireFormatPixelEncoding {}
 impl ::core::fmt::Debug for DisplayWireFormatPixelEncoding {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DisplayWireFormatPixelEncoding").field(&self.0).finish()

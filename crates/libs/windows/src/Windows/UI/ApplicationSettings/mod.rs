@@ -1145,6 +1145,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::Popups::IUICommand> for &Settings
 #[doc = "*Required features: 'UI_ApplicationSettings', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SettingsEdgeLocation(pub i32);
 #[cfg(feature = "deprecated")]
 impl SettingsEdgeLocation {
@@ -1163,14 +1164,6 @@ impl ::core::clone::Clone for SettingsEdgeLocation {
 unsafe impl ::windows::core::Abi for SettingsEdgeLocation {
     type Abi = Self;
 }
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for SettingsEdgeLocation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for SettingsEdgeLocation {}
 #[cfg(feature = "deprecated")]
 impl ::core::fmt::Debug for SettingsEdgeLocation {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1511,6 +1504,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sett
 }
 #[doc = "*Required features: 'UI_ApplicationSettings'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SupportedWebAccountActions(pub u32);
 impl SupportedWebAccountActions {
     pub const None: Self = Self(0u32);
@@ -1529,12 +1523,6 @@ impl ::core::clone::Clone for SupportedWebAccountActions {
 unsafe impl ::windows::core::Abi for SupportedWebAccountActions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SupportedWebAccountActions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SupportedWebAccountActions {}
 impl ::core::fmt::Debug for SupportedWebAccountActions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SupportedWebAccountActions").field(&self.0).finish()
@@ -1576,6 +1564,7 @@ impl ::windows::core::DefaultType for SupportedWebAccountActions {
 }
 #[doc = "*Required features: 'UI_ApplicationSettings'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WebAccountAction(pub i32);
 impl WebAccountAction {
     pub const Reconnect: Self = Self(0i32);
@@ -1593,12 +1582,6 @@ impl ::core::clone::Clone for WebAccountAction {
 unsafe impl ::windows::core::Abi for WebAccountAction {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WebAccountAction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebAccountAction {}
 impl ::core::fmt::Debug for WebAccountAction {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WebAccountAction").field(&self.0).finish()

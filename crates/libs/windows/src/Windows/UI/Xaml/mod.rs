@@ -463,6 +463,7 @@ unsafe impl ::core::marker::Send for Application {}
 unsafe impl ::core::marker::Sync for Application {}
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ApplicationHighContrastAdjustment(pub u32);
 impl ApplicationHighContrastAdjustment {
     pub const None: Self = Self(0u32);
@@ -477,12 +478,6 @@ impl ::core::clone::Clone for ApplicationHighContrastAdjustment {
 unsafe impl ::windows::core::Abi for ApplicationHighContrastAdjustment {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ApplicationHighContrastAdjustment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ApplicationHighContrastAdjustment {}
 impl ::core::fmt::Debug for ApplicationHighContrastAdjustment {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ApplicationHighContrastAdjustment").field(&self.0).finish()
@@ -671,6 +666,7 @@ unsafe impl ::core::marker::Send for ApplicationInitializationCallbackParams {}
 unsafe impl ::core::marker::Sync for ApplicationInitializationCallbackParams {}
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ApplicationRequiresPointerMode(pub i32);
 impl ApplicationRequiresPointerMode {
     pub const Auto: Self = Self(0i32);
@@ -685,12 +681,6 @@ impl ::core::clone::Clone for ApplicationRequiresPointerMode {
 unsafe impl ::windows::core::Abi for ApplicationRequiresPointerMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ApplicationRequiresPointerMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ApplicationRequiresPointerMode {}
 impl ::core::fmt::Debug for ApplicationRequiresPointerMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ApplicationRequiresPointerMode").field(&self.0).finish()
@@ -704,6 +694,7 @@ impl ::windows::core::DefaultType for ApplicationRequiresPointerMode {
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ApplicationTheme(pub i32);
 impl ApplicationTheme {
     pub const Light: Self = Self(0i32);
@@ -718,12 +709,6 @@ impl ::core::clone::Clone for ApplicationTheme {
 unsafe impl ::windows::core::Abi for ApplicationTheme {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ApplicationTheme {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ApplicationTheme {}
 impl ::core::fmt::Debug for ApplicationTheme {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ApplicationTheme").field(&self.0).finish()
@@ -737,6 +722,7 @@ impl ::windows::core::DefaultType for ApplicationTheme {
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AutomationTextAttributesEnum(pub i32);
 impl AutomationTextAttributesEnum {
     pub const AnimationStyleAttribute: Self = Self(40000i32);
@@ -789,12 +775,6 @@ impl ::core::clone::Clone for AutomationTextAttributesEnum {
 unsafe impl ::windows::core::Abi for AutomationTextAttributesEnum {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AutomationTextAttributesEnum {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AutomationTextAttributesEnum {}
 impl ::core::fmt::Debug for AutomationTextAttributesEnum {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AutomationTextAttributesEnum").field(&self.0).finish()
@@ -4845,6 +4825,7 @@ unsafe impl ::core::marker::Send for DurationHelper {}
 unsafe impl ::core::marker::Sync for DurationHelper {}
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DurationType(pub i32);
 impl DurationType {
     pub const Automatic: Self = Self(0i32);
@@ -4860,12 +4841,6 @@ impl ::core::clone::Clone for DurationType {
 unsafe impl ::windows::core::Abi for DurationType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DurationType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DurationType {}
 impl ::core::fmt::Debug for DurationType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DurationType").field(&self.0).finish()
@@ -5208,6 +5183,7 @@ unsafe impl ::core::marker::Send for ElementFactoryRecycleArgs {}
 unsafe impl ::core::marker::Sync for ElementFactoryRecycleArgs {}
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ElementHighContrastAdjustment(pub u32);
 impl ElementHighContrastAdjustment {
     pub const None: Self = Self(0u32);
@@ -5223,12 +5199,6 @@ impl ::core::clone::Clone for ElementHighContrastAdjustment {
 unsafe impl ::windows::core::Abi for ElementHighContrastAdjustment {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ElementHighContrastAdjustment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ElementHighContrastAdjustment {}
 impl ::core::fmt::Debug for ElementHighContrastAdjustment {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ElementHighContrastAdjustment").field(&self.0).finish()
@@ -5270,6 +5240,7 @@ impl ::windows::core::DefaultType for ElementHighContrastAdjustment {
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ElementSoundKind(pub i32);
 impl ElementSoundKind {
     pub const Focus: Self = Self(0i32);
@@ -5289,12 +5260,6 @@ impl ::core::clone::Clone for ElementSoundKind {
 unsafe impl ::windows::core::Abi for ElementSoundKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ElementSoundKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ElementSoundKind {}
 impl ::core::fmt::Debug for ElementSoundKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ElementSoundKind").field(&self.0).finish()
@@ -5308,6 +5273,7 @@ impl ::windows::core::DefaultType for ElementSoundKind {
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ElementSoundMode(pub i32);
 impl ElementSoundMode {
     pub const Default: Self = Self(0i32);
@@ -5323,12 +5289,6 @@ impl ::core::clone::Clone for ElementSoundMode {
 unsafe impl ::windows::core::Abi for ElementSoundMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ElementSoundMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ElementSoundMode {}
 impl ::core::fmt::Debug for ElementSoundMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ElementSoundMode").field(&self.0).finish()
@@ -5462,6 +5422,7 @@ unsafe impl ::core::marker::Send for ElementSoundPlayer {}
 unsafe impl ::core::marker::Sync for ElementSoundPlayer {}
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ElementSoundPlayerState(pub i32);
 impl ElementSoundPlayerState {
     pub const Auto: Self = Self(0i32);
@@ -5477,12 +5438,6 @@ impl ::core::clone::Clone for ElementSoundPlayerState {
 unsafe impl ::windows::core::Abi for ElementSoundPlayerState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ElementSoundPlayerState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ElementSoundPlayerState {}
 impl ::core::fmt::Debug for ElementSoundPlayerState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ElementSoundPlayerState").field(&self.0).finish()
@@ -5496,6 +5451,7 @@ impl ::windows::core::DefaultType for ElementSoundPlayerState {
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ElementSpatialAudioMode(pub i32);
 impl ElementSpatialAudioMode {
     pub const Auto: Self = Self(0i32);
@@ -5511,12 +5467,6 @@ impl ::core::clone::Clone for ElementSpatialAudioMode {
 unsafe impl ::windows::core::Abi for ElementSpatialAudioMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ElementSpatialAudioMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ElementSpatialAudioMode {}
 impl ::core::fmt::Debug for ElementSpatialAudioMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ElementSpatialAudioMode").field(&self.0).finish()
@@ -5530,6 +5480,7 @@ impl ::windows::core::DefaultType for ElementSpatialAudioMode {
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ElementTheme(pub i32);
 impl ElementTheme {
     pub const Default: Self = Self(0i32);
@@ -5545,12 +5496,6 @@ impl ::core::clone::Clone for ElementTheme {
 unsafe impl ::windows::core::Abi for ElementTheme {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ElementTheme {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ElementTheme {}
 impl ::core::fmt::Debug for ElementTheme {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ElementTheme").field(&self.0).finish()
@@ -5975,6 +5920,7 @@ unsafe impl ::windows::core::RuntimeType for ExceptionRoutedEventHandler {
 pub struct ExceptionRoutedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FlowDirection(pub i32);
 impl FlowDirection {
     pub const LeftToRight: Self = Self(0i32);
@@ -5989,12 +5935,6 @@ impl ::core::clone::Clone for FlowDirection {
 unsafe impl ::windows::core::Abi for FlowDirection {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for FlowDirection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FlowDirection {}
 impl ::core::fmt::Debug for FlowDirection {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FlowDirection").field(&self.0).finish()
@@ -6008,6 +5948,7 @@ impl ::windows::core::DefaultType for FlowDirection {
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FocusState(pub i32);
 impl FocusState {
     pub const Unfocused: Self = Self(0i32);
@@ -6024,12 +5965,6 @@ impl ::core::clone::Clone for FocusState {
 unsafe impl ::windows::core::Abi for FocusState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for FocusState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FocusState {}
 impl ::core::fmt::Debug for FocusState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FocusState").field(&self.0).finish()
@@ -6043,6 +5978,7 @@ impl ::windows::core::DefaultType for FocusState {
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FocusVisualKind(pub i32);
 impl FocusVisualKind {
     pub const DottedLine: Self = Self(0i32);
@@ -6058,12 +5994,6 @@ impl ::core::clone::Clone for FocusVisualKind {
 unsafe impl ::windows::core::Abi for FocusVisualKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for FocusVisualKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FocusVisualKind {}
 impl ::core::fmt::Debug for FocusVisualKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FocusVisualKind").field(&self.0).finish()
@@ -6077,6 +6007,7 @@ impl ::windows::core::DefaultType for FocusVisualKind {
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FontCapitals(pub i32);
 impl FontCapitals {
     pub const Normal: Self = Self(0i32);
@@ -6096,12 +6027,6 @@ impl ::core::clone::Clone for FontCapitals {
 unsafe impl ::windows::core::Abi for FontCapitals {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for FontCapitals {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FontCapitals {}
 impl ::core::fmt::Debug for FontCapitals {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FontCapitals").field(&self.0).finish()
@@ -6115,6 +6040,7 @@ impl ::windows::core::DefaultType for FontCapitals {
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FontEastAsianLanguage(pub i32);
 impl FontEastAsianLanguage {
     pub const Normal: Self = Self(0i32);
@@ -6137,12 +6063,6 @@ impl ::core::clone::Clone for FontEastAsianLanguage {
 unsafe impl ::windows::core::Abi for FontEastAsianLanguage {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for FontEastAsianLanguage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FontEastAsianLanguage {}
 impl ::core::fmt::Debug for FontEastAsianLanguage {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FontEastAsianLanguage").field(&self.0).finish()
@@ -6156,6 +6076,7 @@ impl ::windows::core::DefaultType for FontEastAsianLanguage {
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FontEastAsianWidths(pub i32);
 impl FontEastAsianWidths {
     pub const Normal: Self = Self(0i32);
@@ -6174,12 +6095,6 @@ impl ::core::clone::Clone for FontEastAsianWidths {
 unsafe impl ::windows::core::Abi for FontEastAsianWidths {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for FontEastAsianWidths {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FontEastAsianWidths {}
 impl ::core::fmt::Debug for FontEastAsianWidths {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FontEastAsianWidths").field(&self.0).finish()
@@ -6193,6 +6108,7 @@ impl ::windows::core::DefaultType for FontEastAsianWidths {
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FontFraction(pub i32);
 impl FontFraction {
     pub const Normal: Self = Self(0i32);
@@ -6208,12 +6124,6 @@ impl ::core::clone::Clone for FontFraction {
 unsafe impl ::windows::core::Abi for FontFraction {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for FontFraction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FontFraction {}
 impl ::core::fmt::Debug for FontFraction {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FontFraction").field(&self.0).finish()
@@ -6227,6 +6137,7 @@ impl ::windows::core::DefaultType for FontFraction {
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FontNumeralAlignment(pub i32);
 impl FontNumeralAlignment {
     pub const Normal: Self = Self(0i32);
@@ -6242,12 +6153,6 @@ impl ::core::clone::Clone for FontNumeralAlignment {
 unsafe impl ::windows::core::Abi for FontNumeralAlignment {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for FontNumeralAlignment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FontNumeralAlignment {}
 impl ::core::fmt::Debug for FontNumeralAlignment {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FontNumeralAlignment").field(&self.0).finish()
@@ -6261,6 +6166,7 @@ impl ::windows::core::DefaultType for FontNumeralAlignment {
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FontNumeralStyle(pub i32);
 impl FontNumeralStyle {
     pub const Normal: Self = Self(0i32);
@@ -6276,12 +6182,6 @@ impl ::core::clone::Clone for FontNumeralStyle {
 unsafe impl ::windows::core::Abi for FontNumeralStyle {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for FontNumeralStyle {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FontNumeralStyle {}
 impl ::core::fmt::Debug for FontNumeralStyle {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FontNumeralStyle").field(&self.0).finish()
@@ -6295,6 +6195,7 @@ impl ::windows::core::DefaultType for FontNumeralStyle {
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FontVariants(pub i32);
 impl FontVariants {
     pub const Normal: Self = Self(0i32);
@@ -6313,12 +6214,6 @@ impl ::core::clone::Clone for FontVariants {
 unsafe impl ::windows::core::Abi for FontVariants {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for FontVariants {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FontVariants {}
 impl ::core::fmt::Debug for FontVariants {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FontVariants").field(&self.0).finish()
@@ -7737,6 +7632,7 @@ unsafe impl ::core::marker::Send for GridLengthHelper {}
 unsafe impl ::core::marker::Sync for GridLengthHelper {}
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GridUnitType(pub i32);
 impl GridUnitType {
     pub const Auto: Self = Self(0i32);
@@ -7752,12 +7648,6 @@ impl ::core::clone::Clone for GridUnitType {
 unsafe impl ::windows::core::Abi for GridUnitType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GridUnitType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GridUnitType {}
 impl ::core::fmt::Debug for GridUnitType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GridUnitType").field(&self.0).finish()
@@ -7771,6 +7661,7 @@ impl ::windows::core::DefaultType for GridUnitType {
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HorizontalAlignment(pub i32);
 impl HorizontalAlignment {
     pub const Left: Self = Self(0i32);
@@ -7787,12 +7678,6 @@ impl ::core::clone::Clone for HorizontalAlignment {
 unsafe impl ::windows::core::Abi for HorizontalAlignment {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for HorizontalAlignment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HorizontalAlignment {}
 impl ::core::fmt::Debug for HorizontalAlignment {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HorizontalAlignment").field(&self.0).finish()
@@ -12196,6 +12081,7 @@ pub struct LeavingBackgroundEventHandlerVtbl(
 );
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct LineStackingStrategy(pub i32);
 impl LineStackingStrategy {
     pub const MaxHeight: Self = Self(0i32);
@@ -12211,12 +12097,6 @@ impl ::core::clone::Clone for LineStackingStrategy {
 unsafe impl ::windows::core::Abi for LineStackingStrategy {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LineStackingStrategy {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LineStackingStrategy {}
 impl ::core::fmt::Debug for LineStackingStrategy {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LineStackingStrategy").field(&self.0).finish()
@@ -12351,6 +12231,7 @@ unsafe impl ::core::marker::Send for MediaFailedRoutedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaFailedRoutedEventArgs {}
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct OpticalMarginAlignment(pub i32);
 impl OpticalMarginAlignment {
     pub const None: Self = Self(0i32);
@@ -12365,12 +12246,6 @@ impl ::core::clone::Clone for OpticalMarginAlignment {
 unsafe impl ::windows::core::Abi for OpticalMarginAlignment {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for OpticalMarginAlignment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for OpticalMarginAlignment {}
 impl ::core::fmt::Debug for OpticalMarginAlignment {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("OpticalMarginAlignment").field(&self.0).finish()
@@ -15037,6 +14912,7 @@ unsafe impl ::core::marker::Send for TargetPropertyPath {}
 unsafe impl ::core::marker::Sync for TargetPropertyPath {}
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TextAlignment(pub i32);
 impl TextAlignment {
     pub const Center: Self = Self(0i32);
@@ -15056,12 +14932,6 @@ impl ::core::clone::Clone for TextAlignment {
 unsafe impl ::windows::core::Abi for TextAlignment {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TextAlignment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TextAlignment {}
 impl ::core::fmt::Debug for TextAlignment {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TextAlignment").field(&self.0).finish()
@@ -15075,6 +14945,7 @@ impl ::windows::core::DefaultType for TextAlignment {
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TextLineBounds(pub i32);
 impl TextLineBounds {
     pub const Full: Self = Self(0i32);
@@ -15091,12 +14962,6 @@ impl ::core::clone::Clone for TextLineBounds {
 unsafe impl ::windows::core::Abi for TextLineBounds {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TextLineBounds {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TextLineBounds {}
 impl ::core::fmt::Debug for TextLineBounds {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TextLineBounds").field(&self.0).finish()
@@ -15110,6 +14975,7 @@ impl ::windows::core::DefaultType for TextLineBounds {
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TextReadingOrder(pub i32);
 impl TextReadingOrder {
     pub const Default: Self = Self(0i32);
@@ -15125,12 +14991,6 @@ impl ::core::clone::Clone for TextReadingOrder {
 unsafe impl ::windows::core::Abi for TextReadingOrder {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TextReadingOrder {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TextReadingOrder {}
 impl ::core::fmt::Debug for TextReadingOrder {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TextReadingOrder").field(&self.0).finish()
@@ -15144,6 +15004,7 @@ impl ::windows::core::DefaultType for TextReadingOrder {
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TextTrimming(pub i32);
 impl TextTrimming {
     pub const None: Self = Self(0i32);
@@ -15160,12 +15021,6 @@ impl ::core::clone::Clone for TextTrimming {
 unsafe impl ::windows::core::Abi for TextTrimming {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TextTrimming {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TextTrimming {}
 impl ::core::fmt::Debug for TextTrimming {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TextTrimming").field(&self.0).finish()
@@ -15179,6 +15034,7 @@ impl ::windows::core::DefaultType for TextTrimming {
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TextWrapping(pub i32);
 impl TextWrapping {
     pub const NoWrap: Self = Self(1i32);
@@ -15194,12 +15050,6 @@ impl ::core::clone::Clone for TextWrapping {
 unsafe impl ::windows::core::Abi for TextWrapping {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TextWrapping {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TextWrapping {}
 impl ::core::fmt::Debug for TextWrapping {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TextWrapping").field(&self.0).finish()
@@ -18783,6 +18633,7 @@ unsafe impl ::core::marker::Send for Vector3Transition {}
 unsafe impl ::core::marker::Sync for Vector3Transition {}
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct Vector3TransitionComponents(pub u32);
 impl Vector3TransitionComponents {
     pub const X: Self = Self(1u32);
@@ -18798,12 +18649,6 @@ impl ::core::clone::Clone for Vector3TransitionComponents {
 unsafe impl ::windows::core::Abi for Vector3TransitionComponents {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for Vector3TransitionComponents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Vector3TransitionComponents {}
 impl ::core::fmt::Debug for Vector3TransitionComponents {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("Vector3TransitionComponents").field(&self.0).finish()
@@ -18845,6 +18690,7 @@ impl ::windows::core::DefaultType for Vector3TransitionComponents {
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct VerticalAlignment(pub i32);
 impl VerticalAlignment {
     pub const Top: Self = Self(0i32);
@@ -18861,12 +18707,6 @@ impl ::core::clone::Clone for VerticalAlignment {
 unsafe impl ::windows::core::Abi for VerticalAlignment {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VerticalAlignment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VerticalAlignment {}
 impl ::core::fmt::Debug for VerticalAlignment {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VerticalAlignment").field(&self.0).finish()
@@ -18880,6 +18720,7 @@ impl ::windows::core::DefaultType for VerticalAlignment {
 }
 #[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct Visibility(pub i32);
 impl Visibility {
     pub const Visible: Self = Self(0i32);
@@ -18894,12 +18735,6 @@ impl ::core::clone::Clone for Visibility {
 unsafe impl ::windows::core::Abi for Visibility {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for Visibility {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Visibility {}
 impl ::core::fmt::Debug for Visibility {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("Visibility").field(&self.0).finish()

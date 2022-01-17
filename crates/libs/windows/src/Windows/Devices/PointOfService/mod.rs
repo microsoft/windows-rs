@@ -742,6 +742,7 @@ unsafe impl ::core::marker::Send for BarcodeScannerReport {}
 unsafe impl ::core::marker::Sync for BarcodeScannerReport {}
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct BarcodeScannerStatus(pub i32);
 impl BarcodeScannerStatus {
     pub const Online: Self = Self(0i32);
@@ -759,12 +760,6 @@ impl ::core::clone::Clone for BarcodeScannerStatus {
 unsafe impl ::windows::core::Abi for BarcodeScannerStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BarcodeScannerStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarcodeScannerStatus {}
 impl ::core::fmt::Debug for BarcodeScannerStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BarcodeScannerStatus").field(&self.0).finish()
@@ -1711,6 +1706,7 @@ unsafe impl ::core::marker::Send for BarcodeSymbologyAttributes {}
 unsafe impl ::core::marker::Sync for BarcodeSymbologyAttributes {}
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct BarcodeSymbologyDecodeLengthKind(pub i32);
 impl BarcodeSymbologyDecodeLengthKind {
     pub const AnyLength: Self = Self(0i32);
@@ -1726,12 +1722,6 @@ impl ::core::clone::Clone for BarcodeSymbologyDecodeLengthKind {
 unsafe impl ::windows::core::Abi for BarcodeSymbologyDecodeLengthKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BarcodeSymbologyDecodeLengthKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarcodeSymbologyDecodeLengthKind {}
 impl ::core::fmt::Debug for BarcodeSymbologyDecodeLengthKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BarcodeSymbologyDecodeLengthKind").field(&self.0).finish()
@@ -2646,6 +2636,7 @@ unsafe impl ::core::marker::Send for CashDrawerStatus {}
 unsafe impl ::core::marker::Sync for CashDrawerStatus {}
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CashDrawerStatusKind(pub i32);
 impl CashDrawerStatusKind {
     pub const Online: Self = Self(0i32);
@@ -2663,12 +2654,6 @@ impl ::core::clone::Clone for CashDrawerStatusKind {
 unsafe impl ::windows::core::Abi for CashDrawerStatusKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CashDrawerStatusKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CashDrawerStatusKind {}
 impl ::core::fmt::Debug for CashDrawerStatusKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CashDrawerStatusKind").field(&self.0).finish()
@@ -10465,6 +10450,7 @@ unsafe impl ::core::marker::Send for LineDisplayCursorAttributes {}
 unsafe impl ::core::marker::Sync for LineDisplayCursorAttributes {}
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct LineDisplayCursorType(pub i32);
 impl LineDisplayCursorType {
     pub const None: Self = Self(0i32);
@@ -10483,12 +10469,6 @@ impl ::core::clone::Clone for LineDisplayCursorType {
 unsafe impl ::windows::core::Abi for LineDisplayCursorType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LineDisplayCursorType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LineDisplayCursorType {}
 impl ::core::fmt::Debug for LineDisplayCursorType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LineDisplayCursorType").field(&self.0).finish()
@@ -10602,6 +10582,7 @@ unsafe impl ::core::marker::Send for LineDisplayCustomGlyphs {}
 unsafe impl ::core::marker::Sync for LineDisplayCustomGlyphs {}
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct LineDisplayDescriptorState(pub i32);
 impl LineDisplayDescriptorState {
     pub const Off: Self = Self(0i32);
@@ -10617,12 +10598,6 @@ impl ::core::clone::Clone for LineDisplayDescriptorState {
 unsafe impl ::windows::core::Abi for LineDisplayDescriptorState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LineDisplayDescriptorState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LineDisplayDescriptorState {}
 impl ::core::fmt::Debug for LineDisplayDescriptorState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LineDisplayDescriptorState").field(&self.0).finish()
@@ -10636,6 +10611,7 @@ impl ::windows::core::DefaultType for LineDisplayDescriptorState {
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct LineDisplayHorizontalAlignment(pub i32);
 impl LineDisplayHorizontalAlignment {
     pub const Left: Self = Self(0i32);
@@ -10651,12 +10627,6 @@ impl ::core::clone::Clone for LineDisplayHorizontalAlignment {
 unsafe impl ::windows::core::Abi for LineDisplayHorizontalAlignment {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LineDisplayHorizontalAlignment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LineDisplayHorizontalAlignment {}
 impl ::core::fmt::Debug for LineDisplayHorizontalAlignment {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LineDisplayHorizontalAlignment").field(&self.0).finish()
@@ -10804,6 +10774,7 @@ unsafe impl ::core::marker::Send for LineDisplayMarquee {}
 unsafe impl ::core::marker::Sync for LineDisplayMarquee {}
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct LineDisplayMarqueeFormat(pub i32);
 impl LineDisplayMarqueeFormat {
     pub const None: Self = Self(0i32);
@@ -10819,12 +10790,6 @@ impl ::core::clone::Clone for LineDisplayMarqueeFormat {
 unsafe impl ::windows::core::Abi for LineDisplayMarqueeFormat {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LineDisplayMarqueeFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LineDisplayMarqueeFormat {}
 impl ::core::fmt::Debug for LineDisplayMarqueeFormat {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LineDisplayMarqueeFormat").field(&self.0).finish()
@@ -10838,6 +10803,7 @@ impl ::windows::core::DefaultType for LineDisplayMarqueeFormat {
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct LineDisplayPowerStatus(pub i32);
 impl LineDisplayPowerStatus {
     pub const Unknown: Self = Self(0i32);
@@ -10855,12 +10821,6 @@ impl ::core::clone::Clone for LineDisplayPowerStatus {
 unsafe impl ::windows::core::Abi for LineDisplayPowerStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LineDisplayPowerStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LineDisplayPowerStatus {}
 impl ::core::fmt::Debug for LineDisplayPowerStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LineDisplayPowerStatus").field(&self.0).finish()
@@ -10874,6 +10834,7 @@ impl ::windows::core::DefaultType for LineDisplayPowerStatus {
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct LineDisplayScrollDirection(pub i32);
 impl LineDisplayScrollDirection {
     pub const Up: Self = Self(0i32);
@@ -10890,12 +10851,6 @@ impl ::core::clone::Clone for LineDisplayScrollDirection {
 unsafe impl ::windows::core::Abi for LineDisplayScrollDirection {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LineDisplayScrollDirection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LineDisplayScrollDirection {}
 impl ::core::fmt::Debug for LineDisplayScrollDirection {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LineDisplayScrollDirection").field(&self.0).finish()
@@ -11177,6 +11132,7 @@ unsafe impl ::core::marker::Send for LineDisplayStoredBitmap {}
 unsafe impl ::core::marker::Sync for LineDisplayStoredBitmap {}
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct LineDisplayTextAttribute(pub i32);
 impl LineDisplayTextAttribute {
     pub const Normal: Self = Self(0i32);
@@ -11193,12 +11149,6 @@ impl ::core::clone::Clone for LineDisplayTextAttribute {
 unsafe impl ::windows::core::Abi for LineDisplayTextAttribute {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LineDisplayTextAttribute {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LineDisplayTextAttribute {}
 impl ::core::fmt::Debug for LineDisplayTextAttribute {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LineDisplayTextAttribute").field(&self.0).finish()
@@ -11212,6 +11162,7 @@ impl ::windows::core::DefaultType for LineDisplayTextAttribute {
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct LineDisplayTextAttributeGranularity(pub i32);
 impl LineDisplayTextAttributeGranularity {
     pub const NotSupported: Self = Self(0i32);
@@ -11227,12 +11178,6 @@ impl ::core::clone::Clone for LineDisplayTextAttributeGranularity {
 unsafe impl ::windows::core::Abi for LineDisplayTextAttributeGranularity {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LineDisplayTextAttributeGranularity {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LineDisplayTextAttributeGranularity {}
 impl ::core::fmt::Debug for LineDisplayTextAttributeGranularity {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LineDisplayTextAttributeGranularity").field(&self.0).finish()
@@ -11246,6 +11191,7 @@ impl ::windows::core::DefaultType for LineDisplayTextAttributeGranularity {
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct LineDisplayVerticalAlignment(pub i32);
 impl LineDisplayVerticalAlignment {
     pub const Top: Self = Self(0i32);
@@ -11261,12 +11207,6 @@ impl ::core::clone::Clone for LineDisplayVerticalAlignment {
 unsafe impl ::windows::core::Abi for LineDisplayVerticalAlignment {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LineDisplayVerticalAlignment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LineDisplayVerticalAlignment {}
 impl ::core::fmt::Debug for LineDisplayVerticalAlignment {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LineDisplayVerticalAlignment").field(&self.0).finish()
@@ -11994,6 +11934,7 @@ unsafe impl ::core::marker::Send for MagneticStripeReaderAamvaCardDataReceivedEv
 unsafe impl ::core::marker::Sync for MagneticStripeReaderAamvaCardDataReceivedEventArgs {}
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MagneticStripeReaderAuthenticationLevel(pub i32);
 impl MagneticStripeReaderAuthenticationLevel {
     pub const NotSupported: Self = Self(0i32);
@@ -12009,12 +11950,6 @@ impl ::core::clone::Clone for MagneticStripeReaderAuthenticationLevel {
 unsafe impl ::windows::core::Abi for MagneticStripeReaderAuthenticationLevel {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MagneticStripeReaderAuthenticationLevel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MagneticStripeReaderAuthenticationLevel {}
 impl ::core::fmt::Debug for MagneticStripeReaderAuthenticationLevel {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MagneticStripeReaderAuthenticationLevel").field(&self.0).finish()
@@ -12028,6 +11963,7 @@ impl ::windows::core::DefaultType for MagneticStripeReaderAuthenticationLevel {
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MagneticStripeReaderAuthenticationProtocol(pub i32);
 impl MagneticStripeReaderAuthenticationProtocol {
     pub const None: Self = Self(0i32);
@@ -12042,12 +11978,6 @@ impl ::core::clone::Clone for MagneticStripeReaderAuthenticationProtocol {
 unsafe impl ::windows::core::Abi for MagneticStripeReaderAuthenticationProtocol {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MagneticStripeReaderAuthenticationProtocol {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MagneticStripeReaderAuthenticationProtocol {}
 impl ::core::fmt::Debug for MagneticStripeReaderAuthenticationProtocol {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MagneticStripeReaderAuthenticationProtocol").field(&self.0).finish()
@@ -12561,6 +12491,7 @@ unsafe impl ::core::marker::Send for MagneticStripeReaderErrorOccurredEventArgs 
 unsafe impl ::core::marker::Sync for MagneticStripeReaderErrorOccurredEventArgs {}
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MagneticStripeReaderErrorReportingType(pub i32);
 impl MagneticStripeReaderErrorReportingType {
     pub const CardLevel: Self = Self(0i32);
@@ -12575,12 +12506,6 @@ impl ::core::clone::Clone for MagneticStripeReaderErrorReportingType {
 unsafe impl ::windows::core::Abi for MagneticStripeReaderErrorReportingType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MagneticStripeReaderErrorReportingType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MagneticStripeReaderErrorReportingType {}
 impl ::core::fmt::Debug for MagneticStripeReaderErrorReportingType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MagneticStripeReaderErrorReportingType").field(&self.0).finish()
@@ -12742,6 +12667,7 @@ unsafe impl ::core::marker::Send for MagneticStripeReaderReport {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderReport {}
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MagneticStripeReaderStatus(pub i32);
 impl MagneticStripeReaderStatus {
     pub const Unauthenticated: Self = Self(0i32);
@@ -12757,12 +12683,6 @@ impl ::core::clone::Clone for MagneticStripeReaderStatus {
 unsafe impl ::windows::core::Abi for MagneticStripeReaderStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MagneticStripeReaderStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MagneticStripeReaderStatus {}
 impl ::core::fmt::Debug for MagneticStripeReaderStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MagneticStripeReaderStatus").field(&self.0).finish()
@@ -12965,6 +12885,7 @@ unsafe impl ::core::marker::Send for MagneticStripeReaderTrackData {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderTrackData {}
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MagneticStripeReaderTrackErrorType(pub i32);
 impl MagneticStripeReaderTrackErrorType {
     pub const None: Self = Self(0i32);
@@ -12983,12 +12904,6 @@ impl ::core::clone::Clone for MagneticStripeReaderTrackErrorType {
 unsafe impl ::windows::core::Abi for MagneticStripeReaderTrackErrorType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MagneticStripeReaderTrackErrorType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MagneticStripeReaderTrackErrorType {}
 impl ::core::fmt::Debug for MagneticStripeReaderTrackErrorType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MagneticStripeReaderTrackErrorType").field(&self.0).finish()
@@ -13002,6 +12917,7 @@ impl ::windows::core::DefaultType for MagneticStripeReaderTrackErrorType {
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MagneticStripeReaderTrackIds(pub i32);
 impl MagneticStripeReaderTrackIds {
     pub const None: Self = Self(0i32);
@@ -13019,12 +12935,6 @@ impl ::core::clone::Clone for MagneticStripeReaderTrackIds {
 unsafe impl ::windows::core::Abi for MagneticStripeReaderTrackIds {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MagneticStripeReaderTrackIds {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MagneticStripeReaderTrackIds {}
 impl ::core::fmt::Debug for MagneticStripeReaderTrackIds {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MagneticStripeReaderTrackIds").field(&self.0).finish()
@@ -13119,6 +13029,7 @@ unsafe impl ::core::marker::Send for MagneticStripeReaderVendorSpecificCardDataR
 unsafe impl ::core::marker::Sync for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {}
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PosConnectionTypes(pub u32);
 impl PosConnectionTypes {
     pub const Local: Self = Self(1u32);
@@ -13135,12 +13046,6 @@ impl ::core::clone::Clone for PosConnectionTypes {
 unsafe impl ::windows::core::Abi for PosConnectionTypes {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PosConnectionTypes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PosConnectionTypes {}
 impl ::core::fmt::Debug for PosConnectionTypes {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PosConnectionTypes").field(&self.0).finish()
@@ -13428,6 +13333,7 @@ unsafe impl ::core::marker::Send for PosPrinter {}
 unsafe impl ::core::marker::Sync for PosPrinter {}
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PosPrinterAlignment(pub i32);
 impl PosPrinterAlignment {
     pub const Left: Self = Self(0i32);
@@ -13443,12 +13349,6 @@ impl ::core::clone::Clone for PosPrinterAlignment {
 unsafe impl ::windows::core::Abi for PosPrinterAlignment {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PosPrinterAlignment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PosPrinterAlignment {}
 impl ::core::fmt::Debug for PosPrinterAlignment {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PosPrinterAlignment").field(&self.0).finish()
@@ -13462,6 +13362,7 @@ impl ::windows::core::DefaultType for PosPrinterAlignment {
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PosPrinterBarcodeTextPosition(pub i32);
 impl PosPrinterBarcodeTextPosition {
     pub const None: Self = Self(0i32);
@@ -13477,12 +13378,6 @@ impl ::core::clone::Clone for PosPrinterBarcodeTextPosition {
 unsafe impl ::windows::core::Abi for PosPrinterBarcodeTextPosition {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PosPrinterBarcodeTextPosition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PosPrinterBarcodeTextPosition {}
 impl ::core::fmt::Debug for PosPrinterBarcodeTextPosition {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PosPrinterBarcodeTextPosition").field(&self.0).finish()
@@ -13649,6 +13544,7 @@ unsafe impl ::core::marker::Send for PosPrinterCapabilities {}
 unsafe impl ::core::marker::Sync for PosPrinterCapabilities {}
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PosPrinterCartridgeSensors(pub u32);
 impl PosPrinterCartridgeSensors {
     pub const None: Self = Self(0u32);
@@ -13666,12 +13562,6 @@ impl ::core::clone::Clone for PosPrinterCartridgeSensors {
 unsafe impl ::windows::core::Abi for PosPrinterCartridgeSensors {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PosPrinterCartridgeSensors {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PosPrinterCartridgeSensors {}
 impl ::core::fmt::Debug for PosPrinterCartridgeSensors {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PosPrinterCartridgeSensors").field(&self.0).finish()
@@ -13746,6 +13636,7 @@ impl ::windows::core::RuntimeName for PosPrinterCharacterSetIds {
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PosPrinterColorCapabilities(pub u32);
 impl PosPrinterColorCapabilities {
     pub const None: Self = Self(0u32);
@@ -13770,12 +13661,6 @@ impl ::core::clone::Clone for PosPrinterColorCapabilities {
 unsafe impl ::windows::core::Abi for PosPrinterColorCapabilities {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PosPrinterColorCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PosPrinterColorCapabilities {}
 impl ::core::fmt::Debug for PosPrinterColorCapabilities {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PosPrinterColorCapabilities").field(&self.0).finish()
@@ -13817,6 +13702,7 @@ impl ::windows::core::DefaultType for PosPrinterColorCapabilities {
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PosPrinterColorCartridge(pub i32);
 impl PosPrinterColorCartridge {
     pub const Unknown: Self = Self(0i32);
@@ -13840,12 +13726,6 @@ impl ::core::clone::Clone for PosPrinterColorCartridge {
 unsafe impl ::windows::core::Abi for PosPrinterColorCartridge {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PosPrinterColorCartridge {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PosPrinterColorCartridge {}
 impl ::core::fmt::Debug for PosPrinterColorCartridge {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PosPrinterColorCartridge").field(&self.0).finish()
@@ -13957,6 +13837,7 @@ unsafe impl ::core::marker::Send for PosPrinterFontProperty {}
 unsafe impl ::core::marker::Sync for PosPrinterFontProperty {}
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PosPrinterLineDirection(pub i32);
 impl PosPrinterLineDirection {
     pub const Horizontal: Self = Self(0i32);
@@ -13971,12 +13852,6 @@ impl ::core::clone::Clone for PosPrinterLineDirection {
 unsafe impl ::windows::core::Abi for PosPrinterLineDirection {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PosPrinterLineDirection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PosPrinterLineDirection {}
 impl ::core::fmt::Debug for PosPrinterLineDirection {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PosPrinterLineDirection").field(&self.0).finish()
@@ -13990,6 +13865,7 @@ impl ::windows::core::DefaultType for PosPrinterLineDirection {
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PosPrinterLineStyle(pub i32);
 impl PosPrinterLineStyle {
     pub const SingleSolid: Self = Self(0i32);
@@ -14006,12 +13882,6 @@ impl ::core::clone::Clone for PosPrinterLineStyle {
 unsafe impl ::windows::core::Abi for PosPrinterLineStyle {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PosPrinterLineStyle {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PosPrinterLineStyle {}
 impl ::core::fmt::Debug for PosPrinterLineStyle {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PosPrinterLineStyle").field(&self.0).finish()
@@ -14025,6 +13895,7 @@ impl ::windows::core::DefaultType for PosPrinterLineStyle {
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PosPrinterMapMode(pub i32);
 impl PosPrinterMapMode {
     pub const Dots: Self = Self(0i32);
@@ -14041,12 +13912,6 @@ impl ::core::clone::Clone for PosPrinterMapMode {
 unsafe impl ::windows::core::Abi for PosPrinterMapMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PosPrinterMapMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PosPrinterMapMode {}
 impl ::core::fmt::Debug for PosPrinterMapMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PosPrinterMapMode").field(&self.0).finish()
@@ -14060,6 +13925,7 @@ impl ::windows::core::DefaultType for PosPrinterMapMode {
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PosPrinterMarkFeedCapabilities(pub u32);
 impl PosPrinterMarkFeedCapabilities {
     pub const None: Self = Self(0u32);
@@ -14077,12 +13943,6 @@ impl ::core::clone::Clone for PosPrinterMarkFeedCapabilities {
 unsafe impl ::windows::core::Abi for PosPrinterMarkFeedCapabilities {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PosPrinterMarkFeedCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PosPrinterMarkFeedCapabilities {}
 impl ::core::fmt::Debug for PosPrinterMarkFeedCapabilities {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PosPrinterMarkFeedCapabilities").field(&self.0).finish()
@@ -14124,6 +13984,7 @@ impl ::windows::core::DefaultType for PosPrinterMarkFeedCapabilities {
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PosPrinterMarkFeedKind(pub i32);
 impl PosPrinterMarkFeedKind {
     pub const ToTakeUp: Self = Self(0i32);
@@ -14140,12 +14001,6 @@ impl ::core::clone::Clone for PosPrinterMarkFeedKind {
 unsafe impl ::windows::core::Abi for PosPrinterMarkFeedKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PosPrinterMarkFeedKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PosPrinterMarkFeedKind {}
 impl ::core::fmt::Debug for PosPrinterMarkFeedKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PosPrinterMarkFeedKind").field(&self.0).finish()
@@ -14408,6 +14263,7 @@ unsafe impl ::core::marker::Send for PosPrinterPrintOptions {}
 unsafe impl ::core::marker::Sync for PosPrinterPrintOptions {}
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PosPrinterPrintSide(pub i32);
 impl PosPrinterPrintSide {
     pub const Unknown: Self = Self(0i32);
@@ -14423,12 +14279,6 @@ impl ::core::clone::Clone for PosPrinterPrintSide {
 unsafe impl ::windows::core::Abi for PosPrinterPrintSide {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PosPrinterPrintSide {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PosPrinterPrintSide {}
 impl ::core::fmt::Debug for PosPrinterPrintSide {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PosPrinterPrintSide").field(&self.0).finish()
@@ -14514,6 +14364,7 @@ unsafe impl ::core::marker::Send for PosPrinterReleaseDeviceRequestedEventArgs {
 unsafe impl ::core::marker::Sync for PosPrinterReleaseDeviceRequestedEventArgs {}
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PosPrinterRotation(pub i32);
 impl PosPrinterRotation {
     pub const Normal: Self = Self(0i32);
@@ -14530,12 +14381,6 @@ impl ::core::clone::Clone for PosPrinterRotation {
 unsafe impl ::windows::core::Abi for PosPrinterRotation {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PosPrinterRotation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PosPrinterRotation {}
 impl ::core::fmt::Debug for PosPrinterRotation {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PosPrinterRotation").field(&self.0).finish()
@@ -14549,6 +14394,7 @@ impl ::windows::core::DefaultType for PosPrinterRotation {
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PosPrinterRuledLineCapabilities(pub u32);
 impl PosPrinterRuledLineCapabilities {
     pub const None: Self = Self(0u32);
@@ -14564,12 +14410,6 @@ impl ::core::clone::Clone for PosPrinterRuledLineCapabilities {
 unsafe impl ::windows::core::Abi for PosPrinterRuledLineCapabilities {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PosPrinterRuledLineCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PosPrinterRuledLineCapabilities {}
 impl ::core::fmt::Debug for PosPrinterRuledLineCapabilities {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PosPrinterRuledLineCapabilities").field(&self.0).finish()
@@ -14700,6 +14540,7 @@ unsafe impl ::core::marker::Send for PosPrinterStatus {}
 unsafe impl ::core::marker::Sync for PosPrinterStatus {}
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PosPrinterStatusKind(pub i32);
 impl PosPrinterStatusKind {
     pub const Online: Self = Self(0i32);
@@ -14717,12 +14558,6 @@ impl ::core::clone::Clone for PosPrinterStatusKind {
 unsafe impl ::windows::core::Abi for PosPrinterStatusKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PosPrinterStatusKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PosPrinterStatusKind {}
 impl ::core::fmt::Debug for PosPrinterStatusKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PosPrinterStatusKind").field(&self.0).finish()
@@ -16199,6 +16034,7 @@ unsafe impl ::core::marker::Send for UnifiedPosErrorData {}
 unsafe impl ::core::marker::Sync for UnifiedPosErrorData {}
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UnifiedPosErrorReason(pub i32);
 impl UnifiedPosErrorReason {
     pub const UnknownErrorReason: Self = Self(0i32);
@@ -16222,12 +16058,6 @@ impl ::core::clone::Clone for UnifiedPosErrorReason {
 unsafe impl ::windows::core::Abi for UnifiedPosErrorReason {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UnifiedPosErrorReason {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UnifiedPosErrorReason {}
 impl ::core::fmt::Debug for UnifiedPosErrorReason {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UnifiedPosErrorReason").field(&self.0).finish()
@@ -16241,6 +16071,7 @@ impl ::windows::core::DefaultType for UnifiedPosErrorReason {
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UnifiedPosErrorSeverity(pub i32);
 impl UnifiedPosErrorSeverity {
     pub const UnknownErrorSeverity: Self = Self(0i32);
@@ -16259,12 +16090,6 @@ impl ::core::clone::Clone for UnifiedPosErrorSeverity {
 unsafe impl ::windows::core::Abi for UnifiedPosErrorSeverity {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UnifiedPosErrorSeverity {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UnifiedPosErrorSeverity {}
 impl ::core::fmt::Debug for UnifiedPosErrorSeverity {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UnifiedPosErrorSeverity").field(&self.0).finish()
@@ -16278,6 +16103,7 @@ impl ::windows::core::DefaultType for UnifiedPosErrorSeverity {
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UnifiedPosHealthCheckLevel(pub i32);
 impl UnifiedPosHealthCheckLevel {
     pub const UnknownHealthCheckLevel: Self = Self(0i32);
@@ -16294,12 +16120,6 @@ impl ::core::clone::Clone for UnifiedPosHealthCheckLevel {
 unsafe impl ::windows::core::Abi for UnifiedPosHealthCheckLevel {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UnifiedPosHealthCheckLevel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UnifiedPosHealthCheckLevel {}
 impl ::core::fmt::Debug for UnifiedPosHealthCheckLevel {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UnifiedPosHealthCheckLevel").field(&self.0).finish()
@@ -16313,6 +16133,7 @@ impl ::windows::core::DefaultType for UnifiedPosHealthCheckLevel {
 }
 #[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UnifiedPosPowerReportingType(pub i32);
 impl UnifiedPosPowerReportingType {
     pub const UnknownPowerReportingType: Self = Self(0i32);
@@ -16328,12 +16149,6 @@ impl ::core::clone::Clone for UnifiedPosPowerReportingType {
 unsafe impl ::windows::core::Abi for UnifiedPosPowerReportingType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UnifiedPosPowerReportingType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UnifiedPosPowerReportingType {}
 impl ::core::fmt::Debug for UnifiedPosPowerReportingType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UnifiedPosPowerReportingType").field(&self.0).finish()

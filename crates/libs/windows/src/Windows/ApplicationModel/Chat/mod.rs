@@ -647,6 +647,7 @@ unsafe impl ::core::marker::Send for ChatConversationThreadingInfo {}
 unsafe impl ::core::marker::Sync for ChatConversationThreadingInfo {}
 #[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ChatConversationThreadingKind(pub i32);
 impl ChatConversationThreadingKind {
     pub const Participants: Self = Self(0i32);
@@ -663,12 +664,6 @@ impl ::core::clone::Clone for ChatConversationThreadingKind {
 unsafe impl ::windows::core::Abi for ChatConversationThreadingKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ChatConversationThreadingKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ChatConversationThreadingKind {}
 impl ::core::fmt::Debug for ChatConversationThreadingKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ChatConversationThreadingKind").field(&self.0).finish()
@@ -682,6 +677,7 @@ impl ::windows::core::DefaultType for ChatConversationThreadingKind {
 }
 #[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ChatItemKind(pub i32);
 impl ChatItemKind {
     pub const Message: Self = Self(0i32);
@@ -696,12 +692,6 @@ impl ::core::clone::Clone for ChatItemKind {
 unsafe impl ::windows::core::Abi for ChatItemKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ChatItemKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ChatItemKind {}
 impl ::core::fmt::Debug for ChatItemKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ChatItemKind").field(&self.0).finish()
@@ -1630,6 +1620,7 @@ unsafe impl ::core::marker::Send for ChatMessageChangeTracker {}
 unsafe impl ::core::marker::Sync for ChatMessageChangeTracker {}
 #[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ChatMessageChangeType(pub i32);
 impl ChatMessageChangeType {
     pub const MessageCreated: Self = Self(0i32);
@@ -1646,12 +1637,6 @@ impl ::core::clone::Clone for ChatMessageChangeType {
 unsafe impl ::windows::core::Abi for ChatMessageChangeType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ChatMessageChangeType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ChatMessageChangeType {}
 impl ::core::fmt::Debug for ChatMessageChangeType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ChatMessageChangeType").field(&self.0).finish()
@@ -1824,6 +1809,7 @@ unsafe impl ::core::marker::Send for ChatMessageChangedEventArgs {}
 unsafe impl ::core::marker::Sync for ChatMessageChangedEventArgs {}
 #[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ChatMessageKind(pub i32);
 impl ChatMessageKind {
     pub const Standard: Self = Self(0i32);
@@ -1843,12 +1829,6 @@ impl ::core::clone::Clone for ChatMessageKind {
 unsafe impl ::windows::core::Abi for ChatMessageKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ChatMessageKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ChatMessageKind {}
 impl ::core::fmt::Debug for ChatMessageKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ChatMessageKind").field(&self.0).finish()
@@ -2049,6 +2029,7 @@ unsafe impl ::core::marker::Send for ChatMessageNotificationTriggerDetails {}
 unsafe impl ::core::marker::Sync for ChatMessageNotificationTriggerDetails {}
 #[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ChatMessageOperatorKind(pub i32);
 impl ChatMessageOperatorKind {
     pub const Unspecified: Self = Self(0i32);
@@ -2065,12 +2046,6 @@ impl ::core::clone::Clone for ChatMessageOperatorKind {
 unsafe impl ::windows::core::Abi for ChatMessageOperatorKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ChatMessageOperatorKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ChatMessageOperatorKind {}
 impl ::core::fmt::Debug for ChatMessageOperatorKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ChatMessageOperatorKind").field(&self.0).finish()
@@ -2175,6 +2150,7 @@ unsafe impl ::core::marker::Send for ChatMessageReader {}
 unsafe impl ::core::marker::Sync for ChatMessageReader {}
 #[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ChatMessageStatus(pub i32);
 impl ChatMessageStatus {
     pub const Draft: Self = Self(0i32);
@@ -2201,12 +2177,6 @@ impl ::core::clone::Clone for ChatMessageStatus {
 unsafe impl ::windows::core::Abi for ChatMessageStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ChatMessageStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ChatMessageStatus {}
 impl ::core::fmt::Debug for ChatMessageStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ChatMessageStatus").field(&self.0).finish()
@@ -2886,6 +2856,7 @@ unsafe impl ::core::marker::Send for ChatMessageTransportConfiguration {}
 unsafe impl ::core::marker::Sync for ChatMessageTransportConfiguration {}
 #[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ChatMessageTransportKind(pub i32);
 impl ChatMessageTransportKind {
     pub const Text: Self = Self(0i32);
@@ -2902,12 +2873,6 @@ impl ::core::clone::Clone for ChatMessageTransportKind {
 unsafe impl ::windows::core::Abi for ChatMessageTransportKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ChatMessageTransportKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ChatMessageTransportKind {}
 impl ::core::fmt::Debug for ChatMessageTransportKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ChatMessageTransportKind").field(&self.0).finish()
@@ -3029,6 +2994,7 @@ unsafe impl ::core::marker::Send for ChatMessageValidationResult {}
 unsafe impl ::core::marker::Sync for ChatMessageValidationResult {}
 #[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ChatMessageValidationStatus(pub i32);
 impl ChatMessageValidationStatus {
     pub const Valid: Self = Self(0i32);
@@ -3055,12 +3021,6 @@ impl ::core::clone::Clone for ChatMessageValidationStatus {
 unsafe impl ::windows::core::Abi for ChatMessageValidationStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ChatMessageValidationStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ChatMessageValidationStatus {}
 impl ::core::fmt::Debug for ChatMessageValidationStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ChatMessageValidationStatus").field(&self.0).finish()
@@ -3330,6 +3290,7 @@ unsafe impl ::core::marker::Send for ChatRecipientDeliveryInfo {}
 unsafe impl ::core::marker::Sync for ChatRecipientDeliveryInfo {}
 #[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ChatRestoreHistorySpan(pub i32);
 impl ChatRestoreHistorySpan {
     pub const LastMonth: Self = Self(0i32);
@@ -3345,12 +3306,6 @@ impl ::core::clone::Clone for ChatRestoreHistorySpan {
 unsafe impl ::windows::core::Abi for ChatRestoreHistorySpan {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ChatRestoreHistorySpan {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ChatRestoreHistorySpan {}
 impl ::core::fmt::Debug for ChatRestoreHistorySpan {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ChatRestoreHistorySpan").field(&self.0).finish()
@@ -3455,6 +3410,7 @@ unsafe impl ::core::marker::Send for ChatSearchReader {}
 unsafe impl ::core::marker::Sync for ChatSearchReader {}
 #[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ChatStoreChangedEventKind(pub i32);
 impl ChatStoreChangedEventKind {
     pub const NotificationsMissed: Self = Self(0i32);
@@ -3475,12 +3431,6 @@ impl ::core::clone::Clone for ChatStoreChangedEventKind {
 unsafe impl ::windows::core::Abi for ChatStoreChangedEventKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ChatStoreChangedEventKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ChatStoreChangedEventKind {}
 impl ::core::fmt::Debug for ChatStoreChangedEventKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ChatStoreChangedEventKind").field(&self.0).finish()
@@ -3715,6 +3665,7 @@ unsafe impl ::core::marker::Send for ChatSyncManager {}
 unsafe impl ::core::marker::Sync for ChatSyncManager {}
 #[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ChatTransportErrorCodeCategory(pub i32);
 impl ChatTransportErrorCodeCategory {
     pub const None: Self = Self(0i32);
@@ -3731,12 +3682,6 @@ impl ::core::clone::Clone for ChatTransportErrorCodeCategory {
 unsafe impl ::windows::core::Abi for ChatTransportErrorCodeCategory {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ChatTransportErrorCodeCategory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ChatTransportErrorCodeCategory {}
 impl ::core::fmt::Debug for ChatTransportErrorCodeCategory {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ChatTransportErrorCodeCategory").field(&self.0).finish()
@@ -3750,6 +3695,7 @@ impl ::windows::core::DefaultType for ChatTransportErrorCodeCategory {
 }
 #[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ChatTransportInterpretedErrorCode(pub i32);
 impl ChatTransportInterpretedErrorCode {
     pub const None: Self = Self(0i32);
@@ -3768,12 +3714,6 @@ impl ::core::clone::Clone for ChatTransportInterpretedErrorCode {
 unsafe impl ::windows::core::Abi for ChatTransportInterpretedErrorCode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ChatTransportInterpretedErrorCode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ChatTransportInterpretedErrorCode {}
 impl ::core::fmt::Debug for ChatTransportInterpretedErrorCode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ChatTransportInterpretedErrorCode").field(&self.0).finish()
@@ -5612,6 +5552,7 @@ impl ::windows::core::RuntimeName for RcsManager {
 }
 #[doc = "*Required features: 'ApplicationModel_Chat'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct RcsServiceKind(pub i32);
 impl RcsServiceKind {
     pub const Chat: Self = Self(0i32);
@@ -5628,12 +5569,6 @@ impl ::core::clone::Clone for RcsServiceKind {
 unsafe impl ::windows::core::Abi for RcsServiceKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RcsServiceKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RcsServiceKind {}
 impl ::core::fmt::Debug for RcsServiceKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RcsServiceKind").field(&self.0).finish()

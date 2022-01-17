@@ -1296,6 +1296,7 @@ unsafe impl ::core::marker::Send for WebAccountClientView {}
 unsafe impl ::core::marker::Sync for WebAccountClientView {}
 #[doc = "*Required features: 'Security_Authentication_Web_Provider'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WebAccountClientViewType(pub i32);
 impl WebAccountClientViewType {
     pub const IdOnly: Self = Self(0i32);
@@ -1310,12 +1311,6 @@ impl ::core::clone::Clone for WebAccountClientViewType {
 unsafe impl ::windows::core::Abi for WebAccountClientViewType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WebAccountClientViewType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebAccountClientViewType {}
 impl ::core::fmt::Debug for WebAccountClientViewType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WebAccountClientViewType").field(&self.0).finish()
@@ -2151,6 +2146,7 @@ unsafe impl ::core::marker::Send for WebAccountProviderManageAccountOperation {}
 unsafe impl ::core::marker::Sync for WebAccountProviderManageAccountOperation {}
 #[doc = "*Required features: 'Security_Authentication_Web_Provider'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WebAccountProviderOperationKind(pub i32);
 impl WebAccountProviderOperationKind {
     pub const RequestToken: Self = Self(0i32);
@@ -2170,12 +2166,6 @@ impl ::core::clone::Clone for WebAccountProviderOperationKind {
 unsafe impl ::windows::core::Abi for WebAccountProviderOperationKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WebAccountProviderOperationKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebAccountProviderOperationKind {}
 impl ::core::fmt::Debug for WebAccountProviderOperationKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WebAccountProviderOperationKind").field(&self.0).finish()
@@ -2880,6 +2870,7 @@ unsafe impl ::core::marker::Send for WebAccountProviderTriggerDetails {}
 unsafe impl ::core::marker::Sync for WebAccountProviderTriggerDetails {}
 #[doc = "*Required features: 'Security_Authentication_Web_Provider'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WebAccountScope(pub i32);
 impl WebAccountScope {
     pub const PerUser: Self = Self(0i32);
@@ -2894,12 +2885,6 @@ impl ::core::clone::Clone for WebAccountScope {
 unsafe impl ::windows::core::Abi for WebAccountScope {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WebAccountScope {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebAccountScope {}
 impl ::core::fmt::Debug for WebAccountScope {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WebAccountScope").field(&self.0).finish()
@@ -2913,6 +2898,7 @@ impl ::windows::core::DefaultType for WebAccountScope {
 }
 #[doc = "*Required features: 'Security_Authentication_Web_Provider'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WebAccountSelectionOptions(pub u32);
 impl WebAccountSelectionOptions {
     pub const Default: Self = Self(0u32);
@@ -2927,12 +2913,6 @@ impl ::core::clone::Clone for WebAccountSelectionOptions {
 unsafe impl ::windows::core::Abi for WebAccountSelectionOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WebAccountSelectionOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebAccountSelectionOptions {}
 impl ::core::fmt::Debug for WebAccountSelectionOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WebAccountSelectionOptions").field(&self.0).finish()

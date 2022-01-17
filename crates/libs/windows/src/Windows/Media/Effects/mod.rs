@@ -311,6 +311,7 @@ unsafe impl ::core::marker::Send for AudioEffectDefinition {}
 unsafe impl ::core::marker::Sync for AudioEffectDefinition {}
 #[doc = "*Required features: 'Media_Effects'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AudioEffectType(pub i32);
 impl AudioEffectType {
     pub const Other: Self = Self(0i32);
@@ -343,12 +344,6 @@ impl ::core::clone::Clone for AudioEffectType {
 unsafe impl ::windows::core::Abi for AudioEffectType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AudioEffectType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioEffectType {}
 impl ::core::fmt::Debug for AudioEffectType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AudioEffectType").field(&self.0).finish()
@@ -1738,6 +1733,7 @@ pub struct IVideoTransformSphericalProjectionVtbl(
 );
 #[doc = "*Required features: 'Media_Effects'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MediaEffectClosedReason(pub i32);
 impl MediaEffectClosedReason {
     pub const Done: Self = Self(0i32);
@@ -1754,12 +1750,6 @@ impl ::core::clone::Clone for MediaEffectClosedReason {
 unsafe impl ::windows::core::Abi for MediaEffectClosedReason {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MediaEffectClosedReason {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaEffectClosedReason {}
 impl ::core::fmt::Debug for MediaEffectClosedReason {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MediaEffectClosedReason").field(&self.0).finish()
@@ -1773,6 +1763,7 @@ impl ::windows::core::DefaultType for MediaEffectClosedReason {
 }
 #[doc = "*Required features: 'Media_Effects'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MediaMemoryTypes(pub i32);
 impl MediaMemoryTypes {
     pub const Gpu: Self = Self(0i32);
@@ -1788,12 +1779,6 @@ impl ::core::clone::Clone for MediaMemoryTypes {
 unsafe impl ::windows::core::Abi for MediaMemoryTypes {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MediaMemoryTypes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaMemoryTypes {}
 impl ::core::fmt::Debug for MediaMemoryTypes {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MediaMemoryTypes").field(&self.0).finish()

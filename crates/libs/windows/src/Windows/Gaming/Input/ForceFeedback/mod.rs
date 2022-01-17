@@ -153,6 +153,7 @@ unsafe impl ::core::marker::Send for ConditionForceEffect {}
 unsafe impl ::core::marker::Sync for ConditionForceEffect {}
 #[doc = "*Required features: 'Gaming_Input_ForceFeedback'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ConditionForceEffectKind(pub i32);
 impl ConditionForceEffectKind {
     pub const Spring: Self = Self(0i32);
@@ -169,12 +170,6 @@ impl ::core::clone::Clone for ConditionForceEffectKind {
 unsafe impl ::windows::core::Abi for ConditionForceEffectKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ConditionForceEffectKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ConditionForceEffectKind {}
 impl ::core::fmt::Debug for ConditionForceEffectKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ConditionForceEffectKind").field(&self.0).finish()
@@ -333,6 +328,7 @@ unsafe impl ::core::marker::Send for ConstantForceEffect {}
 unsafe impl ::core::marker::Sync for ConstantForceEffect {}
 #[doc = "*Required features: 'Gaming_Input_ForceFeedback'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ForceFeedbackEffectAxes(pub u32);
 impl ForceFeedbackEffectAxes {
     pub const None: Self = Self(0u32);
@@ -349,12 +345,6 @@ impl ::core::clone::Clone for ForceFeedbackEffectAxes {
 unsafe impl ::windows::core::Abi for ForceFeedbackEffectAxes {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ForceFeedbackEffectAxes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ForceFeedbackEffectAxes {}
 impl ::core::fmt::Debug for ForceFeedbackEffectAxes {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ForceFeedbackEffectAxes").field(&self.0).finish()
@@ -396,6 +386,7 @@ impl ::windows::core::DefaultType for ForceFeedbackEffectAxes {
 }
 #[doc = "*Required features: 'Gaming_Input_ForceFeedback'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ForceFeedbackEffectState(pub i32);
 impl ForceFeedbackEffectState {
     pub const Stopped: Self = Self(0i32);
@@ -412,12 +403,6 @@ impl ::core::clone::Clone for ForceFeedbackEffectState {
 unsafe impl ::windows::core::Abi for ForceFeedbackEffectState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ForceFeedbackEffectState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ForceFeedbackEffectState {}
 impl ::core::fmt::Debug for ForceFeedbackEffectState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ForceFeedbackEffectState").field(&self.0).finish()
@@ -431,6 +416,7 @@ impl ::windows::core::DefaultType for ForceFeedbackEffectState {
 }
 #[doc = "*Required features: 'Gaming_Input_ForceFeedback'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ForceFeedbackLoadEffectResult(pub i32);
 impl ForceFeedbackLoadEffectResult {
     pub const Succeeded: Self = Self(0i32);
@@ -446,12 +432,6 @@ impl ::core::clone::Clone for ForceFeedbackLoadEffectResult {
 unsafe impl ::windows::core::Abi for ForceFeedbackLoadEffectResult {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ForceFeedbackLoadEffectResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ForceFeedbackLoadEffectResult {}
 impl ::core::fmt::Debug for ForceFeedbackLoadEffectResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ForceFeedbackLoadEffectResult").field(&self.0).finish()
@@ -1062,6 +1042,7 @@ unsafe impl ::core::marker::Send for PeriodicForceEffect {}
 unsafe impl ::core::marker::Sync for PeriodicForceEffect {}
 #[doc = "*Required features: 'Gaming_Input_ForceFeedback'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PeriodicForceEffectKind(pub i32);
 impl PeriodicForceEffectKind {
     pub const SquareWave: Self = Self(0i32);
@@ -1079,12 +1060,6 @@ impl ::core::clone::Clone for PeriodicForceEffectKind {
 unsafe impl ::windows::core::Abi for PeriodicForceEffectKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PeriodicForceEffectKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PeriodicForceEffectKind {}
 impl ::core::fmt::Debug for PeriodicForceEffectKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PeriodicForceEffectKind").field(&self.0).finish()

@@ -318,6 +318,7 @@ unsafe impl ::core::marker::Send for DateTimeFormatter {}
 unsafe impl ::core::marker::Sync for DateTimeFormatter {}
 #[doc = "*Required features: 'Globalization_DateTimeFormatting'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DayFormat(pub i32);
 impl DayFormat {
     pub const None: Self = Self(0i32);
@@ -332,12 +333,6 @@ impl ::core::clone::Clone for DayFormat {
 unsafe impl ::windows::core::Abi for DayFormat {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DayFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DayFormat {}
 impl ::core::fmt::Debug for DayFormat {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DayFormat").field(&self.0).finish()
@@ -351,6 +346,7 @@ impl ::windows::core::DefaultType for DayFormat {
 }
 #[doc = "*Required features: 'Globalization_DateTimeFormatting'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DayOfWeekFormat(pub i32);
 impl DayOfWeekFormat {
     pub const None: Self = Self(0i32);
@@ -367,12 +363,6 @@ impl ::core::clone::Clone for DayOfWeekFormat {
 unsafe impl ::windows::core::Abi for DayOfWeekFormat {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DayOfWeekFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DayOfWeekFormat {}
 impl ::core::fmt::Debug for DayOfWeekFormat {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DayOfWeekFormat").field(&self.0).finish()
@@ -386,6 +376,7 @@ impl ::windows::core::DefaultType for DayOfWeekFormat {
 }
 #[doc = "*Required features: 'Globalization_DateTimeFormatting'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HourFormat(pub i32);
 impl HourFormat {
     pub const None: Self = Self(0i32);
@@ -400,12 +391,6 @@ impl ::core::clone::Clone for HourFormat {
 unsafe impl ::windows::core::Abi for HourFormat {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for HourFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HourFormat {}
 impl ::core::fmt::Debug for HourFormat {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HourFormat").field(&self.0).finish()
@@ -525,6 +510,7 @@ pub struct IDateTimeFormatterStaticsVtbl(
 );
 #[doc = "*Required features: 'Globalization_DateTimeFormatting'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MinuteFormat(pub i32);
 impl MinuteFormat {
     pub const None: Self = Self(0i32);
@@ -539,12 +525,6 @@ impl ::core::clone::Clone for MinuteFormat {
 unsafe impl ::windows::core::Abi for MinuteFormat {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MinuteFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MinuteFormat {}
 impl ::core::fmt::Debug for MinuteFormat {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MinuteFormat").field(&self.0).finish()
@@ -558,6 +538,7 @@ impl ::windows::core::DefaultType for MinuteFormat {
 }
 #[doc = "*Required features: 'Globalization_DateTimeFormatting'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MonthFormat(pub i32);
 impl MonthFormat {
     pub const None: Self = Self(0i32);
@@ -575,12 +556,6 @@ impl ::core::clone::Clone for MonthFormat {
 unsafe impl ::windows::core::Abi for MonthFormat {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MonthFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MonthFormat {}
 impl ::core::fmt::Debug for MonthFormat {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MonthFormat").field(&self.0).finish()
@@ -594,6 +569,7 @@ impl ::windows::core::DefaultType for MonthFormat {
 }
 #[doc = "*Required features: 'Globalization_DateTimeFormatting'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SecondFormat(pub i32);
 impl SecondFormat {
     pub const None: Self = Self(0i32);
@@ -608,12 +584,6 @@ impl ::core::clone::Clone for SecondFormat {
 unsafe impl ::windows::core::Abi for SecondFormat {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SecondFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SecondFormat {}
 impl ::core::fmt::Debug for SecondFormat {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SecondFormat").field(&self.0).finish()
@@ -627,6 +597,7 @@ impl ::windows::core::DefaultType for SecondFormat {
 }
 #[doc = "*Required features: 'Globalization_DateTimeFormatting'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct YearFormat(pub i32);
 impl YearFormat {
     pub const None: Self = Self(0i32);
@@ -643,12 +614,6 @@ impl ::core::clone::Clone for YearFormat {
 unsafe impl ::windows::core::Abi for YearFormat {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for YearFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for YearFormat {}
 impl ::core::fmt::Debug for YearFormat {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("YearFormat").field(&self.0).finish()

@@ -1748,6 +1748,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Poin
 }
 #[doc = "*Required features: 'Devices_Input'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PointerDeviceType(pub i32);
 impl PointerDeviceType {
     pub const Touch: Self = Self(0i32);
@@ -1763,12 +1764,6 @@ impl ::core::clone::Clone for PointerDeviceType {
 unsafe impl ::windows::core::Abi for PointerDeviceType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PointerDeviceType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PointerDeviceType {}
 impl ::core::fmt::Debug for PointerDeviceType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PointerDeviceType").field(&self.0).finish()

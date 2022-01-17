@@ -724,6 +724,7 @@ unsafe impl ::core::marker::Send for MiracastReceiverApplySettingsResult {}
 unsafe impl ::core::marker::Sync for MiracastReceiverApplySettingsResult {}
 #[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MiracastReceiverApplySettingsStatus(pub i32);
 impl MiracastReceiverApplySettingsStatus {
     pub const Success: Self = Self(0i32);
@@ -744,12 +745,6 @@ impl ::core::clone::Clone for MiracastReceiverApplySettingsStatus {
 unsafe impl ::windows::core::Abi for MiracastReceiverApplySettingsStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MiracastReceiverApplySettingsStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MiracastReceiverApplySettingsStatus {}
 impl ::core::fmt::Debug for MiracastReceiverApplySettingsStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MiracastReceiverApplySettingsStatus").field(&self.0).finish()
@@ -763,6 +758,7 @@ impl ::windows::core::DefaultType for MiracastReceiverApplySettingsStatus {
 }
 #[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MiracastReceiverAuthorizationMethod(pub i32);
 impl MiracastReceiverAuthorizationMethod {
     pub const None: Self = Self(0i32);
@@ -779,12 +775,6 @@ impl ::core::clone::Clone for MiracastReceiverAuthorizationMethod {
 unsafe impl ::windows::core::Abi for MiracastReceiverAuthorizationMethod {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MiracastReceiverAuthorizationMethod {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MiracastReceiverAuthorizationMethod {}
 impl ::core::fmt::Debug for MiracastReceiverAuthorizationMethod {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MiracastReceiverAuthorizationMethod").field(&self.0).finish()
@@ -1310,6 +1300,7 @@ unsafe impl ::core::marker::Send for MiracastReceiverCursorImageChannelSettings 
 unsafe impl ::core::marker::Sync for MiracastReceiverCursorImageChannelSettings {}
 #[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MiracastReceiverDisconnectReason(pub i32);
 impl MiracastReceiverDisconnectReason {
     pub const Finished: Self = Self(0i32);
@@ -1330,12 +1321,6 @@ impl ::core::clone::Clone for MiracastReceiverDisconnectReason {
 unsafe impl ::windows::core::Abi for MiracastReceiverDisconnectReason {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MiracastReceiverDisconnectReason {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MiracastReceiverDisconnectReason {}
 impl ::core::fmt::Debug for MiracastReceiverDisconnectReason {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MiracastReceiverDisconnectReason").field(&self.0).finish()
@@ -1560,6 +1545,7 @@ unsafe impl ::core::marker::Send for MiracastReceiverGameControllerDevice {}
 unsafe impl ::core::marker::Sync for MiracastReceiverGameControllerDevice {}
 #[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MiracastReceiverGameControllerDeviceUsageMode(pub i32);
 impl MiracastReceiverGameControllerDeviceUsageMode {
     pub const AsGameController: Self = Self(0i32);
@@ -1574,12 +1560,6 @@ impl ::core::clone::Clone for MiracastReceiverGameControllerDeviceUsageMode {
 unsafe impl ::windows::core::Abi for MiracastReceiverGameControllerDeviceUsageMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MiracastReceiverGameControllerDeviceUsageMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MiracastReceiverGameControllerDeviceUsageMode {}
 impl ::core::fmt::Debug for MiracastReceiverGameControllerDeviceUsageMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MiracastReceiverGameControllerDeviceUsageMode").field(&self.0).finish()
@@ -1799,6 +1779,7 @@ unsafe impl ::core::marker::Send for MiracastReceiverKeyboardDevice {}
 unsafe impl ::core::marker::Sync for MiracastReceiverKeyboardDevice {}
 #[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MiracastReceiverListeningStatus(pub i32);
 impl MiracastReceiverListeningStatus {
     pub const NotListening: Self = Self(0i32);
@@ -1817,12 +1798,6 @@ impl ::core::clone::Clone for MiracastReceiverListeningStatus {
 unsafe impl ::windows::core::Abi for MiracastReceiverListeningStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MiracastReceiverListeningStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MiracastReceiverListeningStatus {}
 impl ::core::fmt::Debug for MiracastReceiverListeningStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MiracastReceiverListeningStatus").field(&self.0).finish()
@@ -2225,6 +2200,7 @@ unsafe impl ::core::marker::Send for MiracastReceiverSessionStartResult {}
 unsafe impl ::core::marker::Sync for MiracastReceiverSessionStartResult {}
 #[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MiracastReceiverSessionStartStatus(pub i32);
 impl MiracastReceiverSessionStartStatus {
     pub const Success: Self = Self(0i32);
@@ -2241,12 +2217,6 @@ impl ::core::clone::Clone for MiracastReceiverSessionStartStatus {
 unsafe impl ::windows::core::Abi for MiracastReceiverSessionStartStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MiracastReceiverSessionStartStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MiracastReceiverSessionStartStatus {}
 impl ::core::fmt::Debug for MiracastReceiverSessionStartStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MiracastReceiverSessionStartStatus").field(&self.0).finish()
@@ -2730,6 +2700,7 @@ unsafe impl ::core::marker::Send for MiracastReceiverVideoStreamSettings {}
 unsafe impl ::core::marker::Sync for MiracastReceiverVideoStreamSettings {}
 #[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MiracastReceiverWiFiStatus(pub i32);
 impl MiracastReceiverWiFiStatus {
     pub const MiracastSupportUndetermined: Self = Self(0i32);
@@ -2746,12 +2717,6 @@ impl ::core::clone::Clone for MiracastReceiverWiFiStatus {
 unsafe impl ::windows::core::Abi for MiracastReceiverWiFiStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MiracastReceiverWiFiStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MiracastReceiverWiFiStatus {}
 impl ::core::fmt::Debug for MiracastReceiverWiFiStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MiracastReceiverWiFiStatus").field(&self.0).finish()
@@ -2890,6 +2855,7 @@ unsafe impl ::core::marker::Send for MiracastTransmitter {}
 unsafe impl ::core::marker::Sync for MiracastTransmitter {}
 #[doc = "*Required features: 'Media_Miracast'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MiracastTransmitterAuthorizationStatus(pub i32);
 impl MiracastTransmitterAuthorizationStatus {
     pub const Undecided: Self = Self(0i32);
@@ -2906,12 +2872,6 @@ impl ::core::clone::Clone for MiracastTransmitterAuthorizationStatus {
 unsafe impl ::windows::core::Abi for MiracastTransmitterAuthorizationStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MiracastTransmitterAuthorizationStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MiracastTransmitterAuthorizationStatus {}
 impl ::core::fmt::Debug for MiracastTransmitterAuthorizationStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MiracastTransmitterAuthorizationStatus").field(&self.0).finish()

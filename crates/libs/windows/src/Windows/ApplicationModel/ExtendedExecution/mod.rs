@@ -3,6 +3,7 @@
 pub mod Foreground;
 #[doc = "*Required features: 'ApplicationModel_ExtendedExecution'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ExtendedExecutionReason(pub i32);
 impl ExtendedExecutionReason {
     pub const Unspecified: Self = Self(0i32);
@@ -18,12 +19,6 @@ impl ::core::clone::Clone for ExtendedExecutionReason {
 unsafe impl ::windows::core::Abi for ExtendedExecutionReason {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ExtendedExecutionReason {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ExtendedExecutionReason {}
 impl ::core::fmt::Debug for ExtendedExecutionReason {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ExtendedExecutionReason").field(&self.0).finish()
@@ -37,6 +32,7 @@ impl ::windows::core::DefaultType for ExtendedExecutionReason {
 }
 #[doc = "*Required features: 'ApplicationModel_ExtendedExecution'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ExtendedExecutionResult(pub i32);
 impl ExtendedExecutionResult {
     pub const Allowed: Self = Self(0i32);
@@ -51,12 +47,6 @@ impl ::core::clone::Clone for ExtendedExecutionResult {
 unsafe impl ::windows::core::Abi for ExtendedExecutionResult {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ExtendedExecutionResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ExtendedExecutionResult {}
 impl ::core::fmt::Debug for ExtendedExecutionResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ExtendedExecutionResult").field(&self.0).finish()
@@ -151,6 +141,7 @@ unsafe impl ::core::marker::Send for ExtendedExecutionRevokedEventArgs {}
 unsafe impl ::core::marker::Sync for ExtendedExecutionRevokedEventArgs {}
 #[doc = "*Required features: 'ApplicationModel_ExtendedExecution'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ExtendedExecutionRevokedReason(pub i32);
 impl ExtendedExecutionRevokedReason {
     pub const Resumed: Self = Self(0i32);
@@ -165,12 +156,6 @@ impl ::core::clone::Clone for ExtendedExecutionRevokedReason {
 unsafe impl ::windows::core::Abi for ExtendedExecutionRevokedReason {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ExtendedExecutionRevokedReason {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ExtendedExecutionRevokedReason {}
 impl ::core::fmt::Debug for ExtendedExecutionRevokedReason {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ExtendedExecutionRevokedReason").field(&self.0).finish()

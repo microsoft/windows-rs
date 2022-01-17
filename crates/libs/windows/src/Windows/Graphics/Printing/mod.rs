@@ -990,6 +990,7 @@ pub struct IStandardPrintTaskOptionsStatic3Vtbl(
 );
 #[doc = "*Required features: 'Graphics_Printing'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PrintBinding(pub i32);
 impl PrintBinding {
     pub const Default: Self = Self(0i32);
@@ -1019,12 +1020,6 @@ impl ::core::clone::Clone for PrintBinding {
 unsafe impl ::windows::core::Abi for PrintBinding {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PrintBinding {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintBinding {}
 impl ::core::fmt::Debug for PrintBinding {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PrintBinding").field(&self.0).finish()
@@ -1038,6 +1033,7 @@ impl ::windows::core::DefaultType for PrintBinding {
 }
 #[doc = "*Required features: 'Graphics_Printing'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PrintBordering(pub i32);
 impl PrintBordering {
     pub const Default: Self = Self(0i32);
@@ -1055,12 +1051,6 @@ impl ::core::clone::Clone for PrintBordering {
 unsafe impl ::windows::core::Abi for PrintBordering {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PrintBordering {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintBordering {}
 impl ::core::fmt::Debug for PrintBordering {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PrintBordering").field(&self.0).finish()
@@ -1074,6 +1064,7 @@ impl ::windows::core::DefaultType for PrintBordering {
 }
 #[doc = "*Required features: 'Graphics_Printing'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PrintCollation(pub i32);
 impl PrintCollation {
     pub const Default: Self = Self(0i32);
@@ -1091,12 +1082,6 @@ impl ::core::clone::Clone for PrintCollation {
 unsafe impl ::windows::core::Abi for PrintCollation {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PrintCollation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintCollation {}
 impl ::core::fmt::Debug for PrintCollation {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PrintCollation").field(&self.0).finish()
@@ -1110,6 +1095,7 @@ impl ::windows::core::DefaultType for PrintCollation {
 }
 #[doc = "*Required features: 'Graphics_Printing'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PrintColorMode(pub i32);
 impl PrintColorMode {
     pub const Default: Self = Self(0i32);
@@ -1128,12 +1114,6 @@ impl ::core::clone::Clone for PrintColorMode {
 unsafe impl ::windows::core::Abi for PrintColorMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PrintColorMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintColorMode {}
 impl ::core::fmt::Debug for PrintColorMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PrintColorMode").field(&self.0).finish()
@@ -1147,6 +1127,7 @@ impl ::windows::core::DefaultType for PrintColorMode {
 }
 #[doc = "*Required features: 'Graphics_Printing'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PrintDuplex(pub i32);
 impl PrintDuplex {
     pub const Default: Self = Self(0i32);
@@ -1165,12 +1146,6 @@ impl ::core::clone::Clone for PrintDuplex {
 unsafe impl ::windows::core::Abi for PrintDuplex {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PrintDuplex {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintDuplex {}
 impl ::core::fmt::Debug for PrintDuplex {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PrintDuplex").field(&self.0).finish()
@@ -1184,6 +1159,7 @@ impl ::windows::core::DefaultType for PrintDuplex {
 }
 #[doc = "*Required features: 'Graphics_Printing'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PrintHolePunch(pub i32);
 impl PrintHolePunch {
     pub const Default: Self = Self(0i32);
@@ -1204,12 +1180,6 @@ impl ::core::clone::Clone for PrintHolePunch {
 unsafe impl ::windows::core::Abi for PrintHolePunch {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PrintHolePunch {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintHolePunch {}
 impl ::core::fmt::Debug for PrintHolePunch {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PrintHolePunch").field(&self.0).finish()
@@ -1343,6 +1313,7 @@ unsafe impl ::core::marker::Send for PrintManager {}
 unsafe impl ::core::marker::Sync for PrintManager {}
 #[doc = "*Required features: 'Graphics_Printing'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PrintMediaSize(pub i32);
 impl PrintMediaSize {
     pub const Default: Self = Self(0i32);
@@ -1528,12 +1499,6 @@ impl ::core::clone::Clone for PrintMediaSize {
 unsafe impl ::windows::core::Abi for PrintMediaSize {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PrintMediaSize {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintMediaSize {}
 impl ::core::fmt::Debug for PrintMediaSize {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PrintMediaSize").field(&self.0).finish()
@@ -1547,6 +1512,7 @@ impl ::windows::core::DefaultType for PrintMediaSize {
 }
 #[doc = "*Required features: 'Graphics_Printing'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PrintMediaType(pub i32);
 impl PrintMediaType {
     pub const Default: Self = Self(0i32);
@@ -1591,12 +1557,6 @@ impl ::core::clone::Clone for PrintMediaType {
 unsafe impl ::windows::core::Abi for PrintMediaType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PrintMediaType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintMediaType {}
 impl ::core::fmt::Debug for PrintMediaType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PrintMediaType").field(&self.0).finish()
@@ -1610,6 +1570,7 @@ impl ::windows::core::DefaultType for PrintMediaType {
 }
 #[doc = "*Required features: 'Graphics_Printing'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PrintOrientation(pub i32);
 impl PrintOrientation {
     pub const Default: Self = Self(0i32);
@@ -1629,12 +1590,6 @@ impl ::core::clone::Clone for PrintOrientation {
 unsafe impl ::windows::core::Abi for PrintOrientation {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PrintOrientation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintOrientation {}
 impl ::core::fmt::Debug for PrintOrientation {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PrintOrientation").field(&self.0).finish()
@@ -2064,6 +2019,7 @@ unsafe impl ::core::marker::Send for PrintPageRangeOptions {}
 unsafe impl ::core::marker::Sync for PrintPageRangeOptions {}
 #[doc = "*Required features: 'Graphics_Printing'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PrintQuality(pub i32);
 impl PrintQuality {
     pub const Default: Self = Self(0i32);
@@ -2086,12 +2042,6 @@ impl ::core::clone::Clone for PrintQuality {
 unsafe impl ::windows::core::Abi for PrintQuality {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PrintQuality {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintQuality {}
 impl ::core::fmt::Debug for PrintQuality {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PrintQuality").field(&self.0).finish()
@@ -2105,6 +2055,7 @@ impl ::windows::core::DefaultType for PrintQuality {
 }
 #[doc = "*Required features: 'Graphics_Printing'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PrintStaple(pub i32);
 impl PrintStaple {
     pub const Default: Self = Self(0i32);
@@ -2130,12 +2081,6 @@ impl ::core::clone::Clone for PrintStaple {
 unsafe impl ::windows::core::Abi for PrintStaple {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PrintStaple {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintStaple {}
 impl ::core::fmt::Debug for PrintStaple {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PrintStaple").field(&self.0).finish()
@@ -2427,6 +2372,7 @@ unsafe impl ::core::marker::Send for PrintTaskCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for PrintTaskCompletedEventArgs {}
 #[doc = "*Required features: 'Graphics_Printing'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PrintTaskCompletion(pub i32);
 impl PrintTaskCompletion {
     pub const Abandoned: Self = Self(0i32);
@@ -2443,12 +2389,6 @@ impl ::core::clone::Clone for PrintTaskCompletion {
 unsafe impl ::windows::core::Abi for PrintTaskCompletion {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PrintTaskCompletion {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintTaskCompletion {}
 impl ::core::fmt::Debug for PrintTaskCompletion {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PrintTaskCompletion").field(&self.0).finish()

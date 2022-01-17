@@ -3,6 +3,7 @@
 pub mod Core;
 #[doc = "*Required features: 'ApplicationModel_DataTransfer_DragDrop'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DragDropModifiers(pub u32);
 impl DragDropModifiers {
     pub const None: Self = Self(0u32);
@@ -22,12 +23,6 @@ impl ::core::clone::Clone for DragDropModifiers {
 unsafe impl ::windows::core::Abi for DragDropModifiers {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DragDropModifiers {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DragDropModifiers {}
 impl ::core::fmt::Debug for DragDropModifiers {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DragDropModifiers").field(&self.0).finish()

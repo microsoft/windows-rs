@@ -511,6 +511,7 @@ unsafe impl ::core::marker::Send for AppDiagnosticInfoWatcherEventArgs {}
 unsafe impl ::core::marker::Sync for AppDiagnosticInfoWatcherEventArgs {}
 #[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppDiagnosticInfoWatcherStatus(pub i32);
 impl AppDiagnosticInfoWatcherStatus {
     pub const Created: Self = Self(0i32);
@@ -529,12 +530,6 @@ impl ::core::clone::Clone for AppDiagnosticInfoWatcherStatus {
 unsafe impl ::windows::core::Abi for AppDiagnosticInfoWatcherStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppDiagnosticInfoWatcherStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppDiagnosticInfoWatcherStatus {}
 impl ::core::fmt::Debug for AppDiagnosticInfoWatcherStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppDiagnosticInfoWatcherStatus").field(&self.0).finish()
@@ -742,6 +737,7 @@ unsafe impl ::core::marker::Send for AppMemoryReport {}
 unsafe impl ::core::marker::Sync for AppMemoryReport {}
 #[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppMemoryUsageLevel(pub i32);
 impl AppMemoryUsageLevel {
     pub const Low: Self = Self(0i32);
@@ -758,12 +754,6 @@ impl ::core::clone::Clone for AppMemoryUsageLevel {
 unsafe impl ::windows::core::Abi for AppMemoryUsageLevel {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppMemoryUsageLevel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppMemoryUsageLevel {}
 impl ::core::fmt::Debug for AppMemoryUsageLevel {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppMemoryUsageLevel").field(&self.0).finish()
@@ -971,6 +961,7 @@ unsafe impl ::core::marker::Send for AppResourceGroupBackgroundTaskReport {}
 unsafe impl ::core::marker::Sync for AppResourceGroupBackgroundTaskReport {}
 #[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppResourceGroupEnergyQuotaState(pub i32);
 impl AppResourceGroupEnergyQuotaState {
     pub const Unknown: Self = Self(0i32);
@@ -986,12 +977,6 @@ impl ::core::clone::Clone for AppResourceGroupEnergyQuotaState {
 unsafe impl ::windows::core::Abi for AppResourceGroupEnergyQuotaState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppResourceGroupEnergyQuotaState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppResourceGroupEnergyQuotaState {}
 impl ::core::fmt::Debug for AppResourceGroupEnergyQuotaState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppResourceGroupEnergyQuotaState").field(&self.0).finish()
@@ -1005,6 +990,7 @@ impl ::windows::core::DefaultType for AppResourceGroupEnergyQuotaState {
 }
 #[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppResourceGroupExecutionState(pub i32);
 impl AppResourceGroupExecutionState {
     pub const Unknown: Self = Self(0i32);
@@ -1022,12 +1008,6 @@ impl ::core::clone::Clone for AppResourceGroupExecutionState {
 unsafe impl ::windows::core::Abi for AppResourceGroupExecutionState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppResourceGroupExecutionState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppResourceGroupExecutionState {}
 impl ::core::fmt::Debug for AppResourceGroupExecutionState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppResourceGroupExecutionState").field(&self.0).finish()
@@ -1537,6 +1517,7 @@ unsafe impl ::core::marker::Send for AppResourceGroupInfoWatcherExecutionStateCh
 unsafe impl ::core::marker::Sync for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {}
 #[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppResourceGroupInfoWatcherStatus(pub i32);
 impl AppResourceGroupInfoWatcherStatus {
     pub const Created: Self = Self(0i32);
@@ -1555,12 +1536,6 @@ impl ::core::clone::Clone for AppResourceGroupInfoWatcherStatus {
 unsafe impl ::windows::core::Abi for AppResourceGroupInfoWatcherStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppResourceGroupInfoWatcherStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppResourceGroupInfoWatcherStatus {}
 impl ::core::fmt::Debug for AppResourceGroupInfoWatcherStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppResourceGroupInfoWatcherStatus").field(&self.0).finish()
@@ -2151,6 +2126,7 @@ unsafe impl ::core::marker::Send for AppUriHandlerRegistrationManager {}
 unsafe impl ::core::marker::Sync for AppUriHandlerRegistrationManager {}
 #[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AutoUpdateTimeZoneStatus(pub i32);
 impl AutoUpdateTimeZoneStatus {
     pub const Attempted: Self = Self(0i32);
@@ -2166,12 +2142,6 @@ impl ::core::clone::Clone for AutoUpdateTimeZoneStatus {
 unsafe impl ::windows::core::Abi for AutoUpdateTimeZoneStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AutoUpdateTimeZoneStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AutoUpdateTimeZoneStatus {}
 impl ::core::fmt::Debug for AutoUpdateTimeZoneStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AutoUpdateTimeZoneStatus").field(&self.0).finish()
@@ -2202,6 +2172,7 @@ impl ::windows::core::RuntimeName for DateTimeSettings {
 }
 #[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DiagnosticAccessStatus(pub i32);
 impl DiagnosticAccessStatus {
     pub const Unspecified: Self = Self(0i32);
@@ -2218,12 +2189,6 @@ impl ::core::clone::Clone for DiagnosticAccessStatus {
 unsafe impl ::windows::core::Abi for DiagnosticAccessStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DiagnosticAccessStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DiagnosticAccessStatus {}
 impl ::core::fmt::Debug for DiagnosticAccessStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DiagnosticAccessStatus").field(&self.0).finish()
@@ -2561,6 +2526,7 @@ unsafe impl ::windows::core::RuntimeType for DispatcherQueueHandler {
 pub struct DispatcherQueueHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
 #[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DispatcherQueuePriority(pub i32);
 impl DispatcherQueuePriority {
     pub const Low: Self = Self(-10i32);
@@ -2576,12 +2542,6 @@ impl ::core::clone::Clone for DispatcherQueuePriority {
 unsafe impl ::windows::core::Abi for DispatcherQueuePriority {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DispatcherQueuePriority {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DispatcherQueuePriority {}
 impl ::core::fmt::Debug for DispatcherQueuePriority {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DispatcherQueuePriority").field(&self.0).finish()
@@ -4872,6 +4832,7 @@ impl ::windows::core::RuntimeName for KnownUserProperties {
 }
 #[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct LaunchFileStatus(pub i32);
 impl LaunchFileStatus {
     pub const Success: Self = Self(0i32);
@@ -4889,12 +4850,6 @@ impl ::core::clone::Clone for LaunchFileStatus {
 unsafe impl ::windows::core::Abi for LaunchFileStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LaunchFileStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LaunchFileStatus {}
 impl ::core::fmt::Debug for LaunchFileStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LaunchFileStatus").field(&self.0).finish()
@@ -4908,6 +4863,7 @@ impl ::windows::core::DefaultType for LaunchFileStatus {
 }
 #[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct LaunchQuerySupportStatus(pub i32);
 impl LaunchQuerySupportStatus {
     pub const Available: Self = Self(0i32);
@@ -4925,12 +4881,6 @@ impl ::core::clone::Clone for LaunchQuerySupportStatus {
 unsafe impl ::windows::core::Abi for LaunchQuerySupportStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LaunchQuerySupportStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LaunchQuerySupportStatus {}
 impl ::core::fmt::Debug for LaunchQuerySupportStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LaunchQuerySupportStatus").field(&self.0).finish()
@@ -4944,6 +4894,7 @@ impl ::windows::core::DefaultType for LaunchQuerySupportStatus {
 }
 #[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct LaunchQuerySupportType(pub i32);
 impl LaunchQuerySupportType {
     pub const Uri: Self = Self(0i32);
@@ -4958,12 +4909,6 @@ impl ::core::clone::Clone for LaunchQuerySupportType {
 unsafe impl ::windows::core::Abi for LaunchQuerySupportType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LaunchQuerySupportType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LaunchQuerySupportType {}
 impl ::core::fmt::Debug for LaunchQuerySupportType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LaunchQuerySupportType").field(&self.0).finish()
@@ -5067,6 +5012,7 @@ unsafe impl ::core::marker::Send for LaunchUriResult {}
 unsafe impl ::core::marker::Sync for LaunchUriResult {}
 #[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct LaunchUriStatus(pub i32);
 impl LaunchUriStatus {
     pub const Success: Self = Self(0i32);
@@ -5083,12 +5029,6 @@ impl ::core::clone::Clone for LaunchUriStatus {
 unsafe impl ::windows::core::Abi for LaunchUriStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LaunchUriStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LaunchUriStatus {}
 impl ::core::fmt::Debug for LaunchUriStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LaunchUriStatus").field(&self.0).finish()
@@ -5850,6 +5790,7 @@ impl ::windows::core::RuntimeName for MemoryManager {
 }
 #[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PowerState(pub i32);
 impl PowerState {
     pub const ConnectedStandby: Self = Self(0i32);
@@ -5864,12 +5805,6 @@ impl ::core::clone::Clone for PowerState {
 unsafe impl ::windows::core::Abi for PowerState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PowerState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PowerState {}
 impl ::core::fmt::Debug for PowerState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PowerState").field(&self.0).finish()
@@ -6219,6 +6154,7 @@ unsafe impl ::core::marker::Send for ProcessMemoryReport {}
 unsafe impl ::core::marker::Sync for ProcessMemoryReport {}
 #[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ProcessorArchitecture(pub i32);
 impl ProcessorArchitecture {
     pub const X86: Self = Self(0i32);
@@ -6238,12 +6174,6 @@ impl ::core::clone::Clone for ProcessorArchitecture {
 unsafe impl ::windows::core::Abi for ProcessorArchitecture {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ProcessorArchitecture {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProcessorArchitecture {}
 impl ::core::fmt::Debug for ProcessorArchitecture {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ProcessorArchitecture").field(&self.0).finish()
@@ -6336,6 +6266,7 @@ unsafe impl ::core::marker::Send for ProtocolForResultsOperation {}
 unsafe impl ::core::marker::Sync for ProtocolForResultsOperation {}
 #[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct RemoteLaunchUriStatus(pub i32);
 impl RemoteLaunchUriStatus {
     pub const Unknown: Self = Self(0i32);
@@ -6356,12 +6287,6 @@ impl ::core::clone::Clone for RemoteLaunchUriStatus {
 unsafe impl ::windows::core::Abi for RemoteLaunchUriStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RemoteLaunchUriStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteLaunchUriStatus {}
 impl ::core::fmt::Debug for RemoteLaunchUriStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RemoteLaunchUriStatus").field(&self.0).finish()
@@ -6515,6 +6440,7 @@ unsafe impl ::core::marker::Send for RemoteLauncherOptions {}
 unsafe impl ::core::marker::Sync for RemoteLauncherOptions {}
 #[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ShutdownKind(pub i32);
 impl ShutdownKind {
     pub const Shutdown: Self = Self(0i32);
@@ -6529,12 +6455,6 @@ impl ::core::clone::Clone for ShutdownKind {
 unsafe impl ::windows::core::Abi for ShutdownKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ShutdownKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ShutdownKind {}
 impl ::core::fmt::Debug for ShutdownKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ShutdownKind").field(&self.0).finish()
@@ -6829,6 +6749,7 @@ unsafe impl ::core::marker::Send for User {}
 unsafe impl ::core::marker::Sync for User {}
 #[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserAgeConsentGroup(pub i32);
 impl UserAgeConsentGroup {
     pub const Child: Self = Self(0i32);
@@ -6844,12 +6765,6 @@ impl ::core::clone::Clone for UserAgeConsentGroup {
 unsafe impl ::windows::core::Abi for UserAgeConsentGroup {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UserAgeConsentGroup {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserAgeConsentGroup {}
 impl ::core::fmt::Debug for UserAgeConsentGroup {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserAgeConsentGroup").field(&self.0).finish()
@@ -6863,6 +6778,7 @@ impl ::windows::core::DefaultType for UserAgeConsentGroup {
 }
 #[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserAgeConsentResult(pub i32);
 impl UserAgeConsentResult {
     pub const NotEnforced: Self = Self(0i32);
@@ -6880,12 +6796,6 @@ impl ::core::clone::Clone for UserAgeConsentResult {
 unsafe impl ::windows::core::Abi for UserAgeConsentResult {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UserAgeConsentResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserAgeConsentResult {}
 impl ::core::fmt::Debug for UserAgeConsentResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserAgeConsentResult").field(&self.0).finish()
@@ -6899,6 +6809,7 @@ impl ::windows::core::DefaultType for UserAgeConsentResult {
 }
 #[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserAuthenticationStatus(pub i32);
 impl UserAuthenticationStatus {
     pub const Unauthenticated: Self = Self(0i32);
@@ -6914,12 +6825,6 @@ impl ::core::clone::Clone for UserAuthenticationStatus {
 unsafe impl ::windows::core::Abi for UserAuthenticationStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UserAuthenticationStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserAuthenticationStatus {}
 impl ::core::fmt::Debug for UserAuthenticationStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserAuthenticationStatus").field(&self.0).finish()
@@ -7462,6 +7367,7 @@ unsafe impl ::core::marker::Send for UserPicker {}
 unsafe impl ::core::marker::Sync for UserPicker {}
 #[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserPictureSize(pub i32);
 impl UserPictureSize {
     pub const Size64x64: Self = Self(0i32);
@@ -7478,12 +7384,6 @@ impl ::core::clone::Clone for UserPictureSize {
 unsafe impl ::windows::core::Abi for UserPictureSize {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UserPictureSize {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserPictureSize {}
 impl ::core::fmt::Debug for UserPictureSize {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserPictureSize").field(&self.0).finish()
@@ -7497,6 +7397,7 @@ impl ::windows::core::DefaultType for UserPictureSize {
 }
 #[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserType(pub i32);
 impl UserType {
     pub const LocalUser: Self = Self(0i32);
@@ -7514,12 +7415,6 @@ impl ::core::clone::Clone for UserType {
 unsafe impl ::windows::core::Abi for UserType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UserType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserType {}
 impl ::core::fmt::Debug for UserType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserType").field(&self.0).finish()
@@ -7729,6 +7624,7 @@ unsafe impl ::core::marker::Send for UserWatcher {}
 unsafe impl ::core::marker::Sync for UserWatcher {}
 #[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserWatcherStatus(pub i32);
 impl UserWatcherStatus {
     pub const Created: Self = Self(0i32);
@@ -7747,12 +7643,6 @@ impl ::core::clone::Clone for UserWatcherStatus {
 unsafe impl ::windows::core::Abi for UserWatcherStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UserWatcherStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserWatcherStatus {}
 impl ::core::fmt::Debug for UserWatcherStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserWatcherStatus").field(&self.0).finish()
@@ -7766,6 +7656,7 @@ impl ::windows::core::DefaultType for UserWatcherStatus {
 }
 #[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserWatcherUpdateKind(pub i32);
 impl UserWatcherUpdateKind {
     pub const Properties: Self = Self(0i32);
@@ -7780,12 +7671,6 @@ impl ::core::clone::Clone for UserWatcherUpdateKind {
 unsafe impl ::windows::core::Abi for UserWatcherUpdateKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UserWatcherUpdateKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserWatcherUpdateKind {}
 impl ::core::fmt::Debug for UserWatcherUpdateKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserWatcherUpdateKind").field(&self.0).finish()
@@ -7799,6 +7684,7 @@ impl ::windows::core::DefaultType for UserWatcherUpdateKind {
 }
 #[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct VirtualKey(pub i32);
 impl VirtualKey {
     pub const None: Self = Self(0i32);
@@ -7983,12 +7869,6 @@ impl ::core::clone::Clone for VirtualKey {
 unsafe impl ::windows::core::Abi for VirtualKey {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VirtualKey {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VirtualKey {}
 impl ::core::fmt::Debug for VirtualKey {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VirtualKey").field(&self.0).finish()
@@ -8002,6 +7882,7 @@ impl ::windows::core::DefaultType for VirtualKey {
 }
 #[doc = "*Required features: 'System'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct VirtualKeyModifiers(pub u32);
 impl VirtualKeyModifiers {
     pub const None: Self = Self(0u32);
@@ -8019,12 +7900,6 @@ impl ::core::clone::Clone for VirtualKeyModifiers {
 unsafe impl ::windows::core::Abi for VirtualKeyModifiers {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VirtualKeyModifiers {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VirtualKeyModifiers {}
 impl ::core::fmt::Debug for VirtualKeyModifiers {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VirtualKeyModifiers").field(&self.0).finish()

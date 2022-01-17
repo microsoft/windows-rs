@@ -130,6 +130,7 @@ unsafe impl ::core::marker::Send for CustomDevice {}
 unsafe impl ::core::marker::Sync for CustomDevice {}
 #[doc = "*Required features: 'Devices_Custom'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DeviceAccessMode(pub i32);
 impl DeviceAccessMode {
     pub const Read: Self = Self(0i32);
@@ -145,12 +146,6 @@ impl ::core::clone::Clone for DeviceAccessMode {
 unsafe impl ::windows::core::Abi for DeviceAccessMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DeviceAccessMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeviceAccessMode {}
 impl ::core::fmt::Debug for DeviceAccessMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DeviceAccessMode").field(&self.0).finish()
@@ -164,6 +159,7 @@ impl ::windows::core::DefaultType for DeviceAccessMode {
 }
 #[doc = "*Required features: 'Devices_Custom'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DeviceSharingMode(pub i32);
 impl DeviceSharingMode {
     pub const Shared: Self = Self(0i32);
@@ -178,12 +174,6 @@ impl ::core::clone::Clone for DeviceSharingMode {
 unsafe impl ::windows::core::Abi for DeviceSharingMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DeviceSharingMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeviceSharingMode {}
 impl ::core::fmt::Debug for DeviceSharingMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DeviceSharingMode").field(&self.0).finish()
@@ -401,6 +391,7 @@ pub struct IKnownDeviceTypesStaticsVtbl(
 );
 #[doc = "*Required features: 'Devices_Custom'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct IOControlAccessMode(pub i32);
 impl IOControlAccessMode {
     pub const Any: Self = Self(0i32);
@@ -417,12 +408,6 @@ impl ::core::clone::Clone for IOControlAccessMode {
 unsafe impl ::windows::core::Abi for IOControlAccessMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for IOControlAccessMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IOControlAccessMode {}
 impl ::core::fmt::Debug for IOControlAccessMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IOControlAccessMode").field(&self.0).finish()
@@ -436,6 +421,7 @@ impl ::windows::core::DefaultType for IOControlAccessMode {
 }
 #[doc = "*Required features: 'Devices_Custom'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct IOControlBufferingMethod(pub i32);
 impl IOControlBufferingMethod {
     pub const Buffered: Self = Self(0i32);
@@ -452,12 +438,6 @@ impl ::core::clone::Clone for IOControlBufferingMethod {
 unsafe impl ::windows::core::Abi for IOControlBufferingMethod {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for IOControlBufferingMethod {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IOControlBufferingMethod {}
 impl ::core::fmt::Debug for IOControlBufferingMethod {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IOControlBufferingMethod").field(&self.0).finish()

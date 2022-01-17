@@ -801,6 +801,7 @@ unsafe impl ::core::marker::Send for SpeechContinuousRecognitionCompletedEventAr
 unsafe impl ::core::marker::Sync for SpeechContinuousRecognitionCompletedEventArgs {}
 #[doc = "*Required features: 'Media_SpeechRecognition'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechContinuousRecognitionMode(pub i32);
 impl SpeechContinuousRecognitionMode {
     pub const Default: Self = Self(0i32);
@@ -815,12 +816,6 @@ impl ::core::clone::Clone for SpeechContinuousRecognitionMode {
 unsafe impl ::windows::core::Abi for SpeechContinuousRecognitionMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SpeechContinuousRecognitionMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpeechContinuousRecognitionMode {}
 impl ::core::fmt::Debug for SpeechContinuousRecognitionMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SpeechContinuousRecognitionMode").field(&self.0).finish()
@@ -1083,6 +1078,7 @@ unsafe impl ::core::marker::Send for SpeechContinuousRecognitionSession {}
 unsafe impl ::core::marker::Sync for SpeechContinuousRecognitionSession {}
 #[doc = "*Required features: 'Media_SpeechRecognition'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechRecognitionAudioProblem(pub i32);
 impl SpeechRecognitionAudioProblem {
     pub const None: Self = Self(0i32);
@@ -1102,12 +1098,6 @@ impl ::core::clone::Clone for SpeechRecognitionAudioProblem {
 unsafe impl ::windows::core::Abi for SpeechRecognitionAudioProblem {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SpeechRecognitionAudioProblem {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpeechRecognitionAudioProblem {}
 impl ::core::fmt::Debug for SpeechRecognitionAudioProblem {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SpeechRecognitionAudioProblem").field(&self.0).finish()
@@ -1202,6 +1192,7 @@ unsafe impl ::core::marker::Send for SpeechRecognitionCompilationResult {}
 unsafe impl ::core::marker::Sync for SpeechRecognitionCompilationResult {}
 #[doc = "*Required features: 'Media_SpeechRecognition'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechRecognitionConfidence(pub i32);
 impl SpeechRecognitionConfidence {
     pub const High: Self = Self(0i32);
@@ -1218,12 +1209,6 @@ impl ::core::clone::Clone for SpeechRecognitionConfidence {
 unsafe impl ::windows::core::Abi for SpeechRecognitionConfidence {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SpeechRecognitionConfidence {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpeechRecognitionConfidence {}
 impl ::core::fmt::Debug for SpeechRecognitionConfidence {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SpeechRecognitionConfidence").field(&self.0).finish()
@@ -1237,6 +1222,7 @@ impl ::windows::core::DefaultType for SpeechRecognitionConfidence {
 }
 #[doc = "*Required features: 'Media_SpeechRecognition'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechRecognitionConstraintProbability(pub i32);
 impl SpeechRecognitionConstraintProbability {
     pub const Default: Self = Self(0i32);
@@ -1252,12 +1238,6 @@ impl ::core::clone::Clone for SpeechRecognitionConstraintProbability {
 unsafe impl ::windows::core::Abi for SpeechRecognitionConstraintProbability {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SpeechRecognitionConstraintProbability {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpeechRecognitionConstraintProbability {}
 impl ::core::fmt::Debug for SpeechRecognitionConstraintProbability {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SpeechRecognitionConstraintProbability").field(&self.0).finish()
@@ -1271,6 +1251,7 @@ impl ::windows::core::DefaultType for SpeechRecognitionConstraintProbability {
 }
 #[doc = "*Required features: 'Media_SpeechRecognition'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechRecognitionConstraintType(pub i32);
 impl SpeechRecognitionConstraintType {
     pub const Topic: Self = Self(0i32);
@@ -1287,12 +1268,6 @@ impl ::core::clone::Clone for SpeechRecognitionConstraintType {
 unsafe impl ::windows::core::Abi for SpeechRecognitionConstraintType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SpeechRecognitionConstraintType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpeechRecognitionConstraintType {}
 impl ::core::fmt::Debug for SpeechRecognitionConstraintType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SpeechRecognitionConstraintType").field(&self.0).finish()
@@ -2050,6 +2025,7 @@ unsafe impl ::core::marker::Send for SpeechRecognitionResult {}
 unsafe impl ::core::marker::Sync for SpeechRecognitionResult {}
 #[doc = "*Required features: 'Media_SpeechRecognition'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechRecognitionResultStatus(pub i32);
 impl SpeechRecognitionResultStatus {
     pub const Success: Self = Self(0i32);
@@ -2073,12 +2049,6 @@ impl ::core::clone::Clone for SpeechRecognitionResultStatus {
 unsafe impl ::windows::core::Abi for SpeechRecognitionResultStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SpeechRecognitionResultStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpeechRecognitionResultStatus {}
 impl ::core::fmt::Debug for SpeechRecognitionResultStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SpeechRecognitionResultStatus").field(&self.0).finish()
@@ -2092,6 +2062,7 @@ impl ::windows::core::DefaultType for SpeechRecognitionResultStatus {
 }
 #[doc = "*Required features: 'Media_SpeechRecognition'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechRecognitionScenario(pub i32);
 impl SpeechRecognitionScenario {
     pub const WebSearch: Self = Self(0i32);
@@ -2107,12 +2078,6 @@ impl ::core::clone::Clone for SpeechRecognitionScenario {
 unsafe impl ::windows::core::Abi for SpeechRecognitionScenario {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SpeechRecognitionScenario {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpeechRecognitionScenario {}
 impl ::core::fmt::Debug for SpeechRecognitionScenario {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SpeechRecognitionScenario").field(&self.0).finish()
@@ -2825,6 +2790,7 @@ unsafe impl ::core::marker::Send for SpeechRecognizer {}
 unsafe impl ::core::marker::Sync for SpeechRecognizer {}
 #[doc = "*Required features: 'Media_SpeechRecognition'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpeechRecognizerState(pub i32);
 impl SpeechRecognizerState {
     pub const Idle: Self = Self(0i32);
@@ -2844,12 +2810,6 @@ impl ::core::clone::Clone for SpeechRecognizerState {
 unsafe impl ::windows::core::Abi for SpeechRecognizerState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SpeechRecognizerState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpeechRecognizerState {}
 impl ::core::fmt::Debug for SpeechRecognizerState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SpeechRecognizerState").field(&self.0).finish()

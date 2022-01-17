@@ -581,6 +581,7 @@ unsafe impl ::core::marker::Send for ResourceCandidate {}
 unsafe impl ::core::marker::Sync for ResourceCandidate {}
 #[doc = "*Required features: 'ApplicationModel_Resources_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ResourceCandidateKind(pub i32);
 impl ResourceCandidateKind {
     pub const String: Self = Self(0i32);
@@ -596,12 +597,6 @@ impl ::core::clone::Clone for ResourceCandidateKind {
 unsafe impl ::windows::core::Abi for ResourceCandidateKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ResourceCandidateKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ResourceCandidateKind {}
 impl ::core::fmt::Debug for ResourceCandidateKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ResourceCandidateKind").field(&self.0).finish()
@@ -2716,6 +2711,7 @@ unsafe impl ::core::marker::Send for ResourceQualifierObservableMap {}
 unsafe impl ::core::marker::Sync for ResourceQualifierObservableMap {}
 #[doc = "*Required features: 'ApplicationModel_Resources_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ResourceQualifierPersistence(pub i32);
 impl ResourceQualifierPersistence {
     pub const None: Self = Self(0i32);
@@ -2730,12 +2726,6 @@ impl ::core::clone::Clone for ResourceQualifierPersistence {
 unsafe impl ::windows::core::Abi for ResourceQualifierPersistence {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ResourceQualifierPersistence {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ResourceQualifierPersistence {}
 impl ::core::fmt::Debug for ResourceQualifierPersistence {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ResourceQualifierPersistence").field(&self.0).finish()

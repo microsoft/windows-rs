@@ -671,6 +671,7 @@ unsafe impl ::core::marker::Send for LampArray {}
 unsafe impl ::core::marker::Sync for LampArray {}
 #[doc = "*Required features: 'Devices_Lights'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct LampArrayKind(pub i32);
 impl LampArrayKind {
     pub const Undefined: Self = Self(0i32);
@@ -694,12 +695,6 @@ impl ::core::clone::Clone for LampArrayKind {
 unsafe impl ::windows::core::Abi for LampArrayKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LampArrayKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LampArrayKind {}
 impl ::core::fmt::Debug for LampArrayKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LampArrayKind").field(&self.0).finish()
@@ -951,6 +946,7 @@ unsafe impl ::core::marker::Send for LampInfo {}
 unsafe impl ::core::marker::Sync for LampInfo {}
 #[doc = "*Required features: 'Devices_Lights'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct LampPurposes(pub u32);
 impl LampPurposes {
     pub const Undefined: Self = Self(0u32);
@@ -970,12 +966,6 @@ impl ::core::clone::Clone for LampPurposes {
 unsafe impl ::windows::core::Abi for LampPurposes {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LampPurposes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LampPurposes {}
 impl ::core::fmt::Debug for LampPurposes {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LampPurposes").field(&self.0).finish()

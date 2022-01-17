@@ -497,6 +497,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &EasC
 }
 #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EasDisallowConvenienceLogonResult(pub i32);
 impl EasDisallowConvenienceLogonResult {
     pub const NotEvaluated: Self = Self(0i32);
@@ -513,12 +514,6 @@ impl ::core::clone::Clone for EasDisallowConvenienceLogonResult {
 unsafe impl ::windows::core::Abi for EasDisallowConvenienceLogonResult {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EasDisallowConvenienceLogonResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EasDisallowConvenienceLogonResult {}
 impl ::core::fmt::Debug for EasDisallowConvenienceLogonResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EasDisallowConvenienceLogonResult").field(&self.0).finish()
@@ -532,6 +527,7 @@ impl ::windows::core::DefaultType for EasDisallowConvenienceLogonResult {
 }
 #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EasEncryptionProviderType(pub i32);
 impl EasEncryptionProviderType {
     pub const NotEvaluated: Self = Self(0i32);
@@ -547,12 +543,6 @@ impl ::core::clone::Clone for EasEncryptionProviderType {
 unsafe impl ::windows::core::Abi for EasEncryptionProviderType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EasEncryptionProviderType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EasEncryptionProviderType {}
 impl ::core::fmt::Debug for EasEncryptionProviderType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EasEncryptionProviderType").field(&self.0).finish()
@@ -566,6 +556,7 @@ impl ::windows::core::DefaultType for EasEncryptionProviderType {
 }
 #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EasMaxInactivityTimeLockResult(pub i32);
 impl EasMaxInactivityTimeLockResult {
     pub const NotEvaluated: Self = Self(0i32);
@@ -583,12 +574,6 @@ impl ::core::clone::Clone for EasMaxInactivityTimeLockResult {
 unsafe impl ::windows::core::Abi for EasMaxInactivityTimeLockResult {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EasMaxInactivityTimeLockResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EasMaxInactivityTimeLockResult {}
 impl ::core::fmt::Debug for EasMaxInactivityTimeLockResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EasMaxInactivityTimeLockResult").field(&self.0).finish()
@@ -602,6 +587,7 @@ impl ::windows::core::DefaultType for EasMaxInactivityTimeLockResult {
 }
 #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EasMaxPasswordFailedAttemptsResult(pub i32);
 impl EasMaxPasswordFailedAttemptsResult {
     pub const NotEvaluated: Self = Self(0i32);
@@ -619,12 +605,6 @@ impl ::core::clone::Clone for EasMaxPasswordFailedAttemptsResult {
 unsafe impl ::windows::core::Abi for EasMaxPasswordFailedAttemptsResult {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EasMaxPasswordFailedAttemptsResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EasMaxPasswordFailedAttemptsResult {}
 impl ::core::fmt::Debug for EasMaxPasswordFailedAttemptsResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EasMaxPasswordFailedAttemptsResult").field(&self.0).finish()
@@ -638,6 +618,7 @@ impl ::windows::core::DefaultType for EasMaxPasswordFailedAttemptsResult {
 }
 #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EasMinPasswordComplexCharactersResult(pub i32);
 impl EasMinPasswordComplexCharactersResult {
     pub const NotEvaluated: Self = Self(0i32);
@@ -665,12 +646,6 @@ impl ::core::clone::Clone for EasMinPasswordComplexCharactersResult {
 unsafe impl ::windows::core::Abi for EasMinPasswordComplexCharactersResult {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EasMinPasswordComplexCharactersResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EasMinPasswordComplexCharactersResult {}
 impl ::core::fmt::Debug for EasMinPasswordComplexCharactersResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EasMinPasswordComplexCharactersResult").field(&self.0).finish()
@@ -684,6 +659,7 @@ impl ::windows::core::DefaultType for EasMinPasswordComplexCharactersResult {
 }
 #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EasMinPasswordLengthResult(pub i32);
 impl EasMinPasswordLengthResult {
     pub const NotEvaluated: Self = Self(0i32);
@@ -711,12 +687,6 @@ impl ::core::clone::Clone for EasMinPasswordLengthResult {
 unsafe impl ::windows::core::Abi for EasMinPasswordLengthResult {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EasMinPasswordLengthResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EasMinPasswordLengthResult {}
 impl ::core::fmt::Debug for EasMinPasswordLengthResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EasMinPasswordLengthResult").field(&self.0).finish()
@@ -730,6 +700,7 @@ impl ::windows::core::DefaultType for EasMinPasswordLengthResult {
 }
 #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EasPasswordExpirationResult(pub i32);
 impl EasPasswordExpirationResult {
     pub const NotEvaluated: Self = Self(0i32);
@@ -751,12 +722,6 @@ impl ::core::clone::Clone for EasPasswordExpirationResult {
 unsafe impl ::windows::core::Abi for EasPasswordExpirationResult {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EasPasswordExpirationResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EasPasswordExpirationResult {}
 impl ::core::fmt::Debug for EasPasswordExpirationResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EasPasswordExpirationResult").field(&self.0).finish()
@@ -770,6 +735,7 @@ impl ::windows::core::DefaultType for EasPasswordExpirationResult {
 }
 #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EasPasswordHistoryResult(pub i32);
 impl EasPasswordHistoryResult {
     pub const NotEvaluated: Self = Self(0i32);
@@ -787,12 +753,6 @@ impl ::core::clone::Clone for EasPasswordHistoryResult {
 unsafe impl ::windows::core::Abi for EasPasswordHistoryResult {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EasPasswordHistoryResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EasPasswordHistoryResult {}
 impl ::core::fmt::Debug for EasPasswordHistoryResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EasPasswordHistoryResult").field(&self.0).finish()
@@ -806,6 +766,7 @@ impl ::windows::core::DefaultType for EasPasswordHistoryResult {
 }
 #[doc = "*Required features: 'Security_ExchangeActiveSyncProvisioning'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EasRequireEncryptionResult(pub i32);
 impl EasRequireEncryptionResult {
     pub const NotEvaluated: Self = Self(0i32);
@@ -837,12 +798,6 @@ impl ::core::clone::Clone for EasRequireEncryptionResult {
 unsafe impl ::windows::core::Abi for EasRequireEncryptionResult {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EasRequireEncryptionResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EasRequireEncryptionResult {}
 impl ::core::fmt::Debug for EasRequireEncryptionResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EasRequireEncryptionResult").field(&self.0).finish()

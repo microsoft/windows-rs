@@ -132,6 +132,7 @@ unsafe impl ::core::marker::Send for AdcChannel {}
 unsafe impl ::core::marker::Sync for AdcChannel {}
 #[doc = "*Required features: 'Devices_Adc'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AdcChannelMode(pub i32);
 impl AdcChannelMode {
     pub const SingleEnded: Self = Self(0i32);
@@ -146,12 +147,6 @@ impl ::core::clone::Clone for AdcChannelMode {
 unsafe impl ::windows::core::Abi for AdcChannelMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AdcChannelMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AdcChannelMode {}
 impl ::core::fmt::Debug for AdcChannelMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AdcChannelMode").field(&self.0).finish()

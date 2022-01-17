@@ -248,6 +248,7 @@ unsafe impl ::core::marker::Send for CallStateChangeEventArgs {}
 unsafe impl ::core::marker::Sync for CallStateChangeEventArgs {}
 #[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CellularDtmfMode(pub i32);
 impl CellularDtmfMode {
     pub const Continuous: Self = Self(0i32);
@@ -262,12 +263,6 @@ impl ::core::clone::Clone for CellularDtmfMode {
 unsafe impl ::windows::core::Abi for CellularDtmfMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CellularDtmfMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CellularDtmfMode {}
 impl ::core::fmt::Debug for CellularDtmfMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CellularDtmfMode").field(&self.0).finish()
@@ -281,6 +276,7 @@ impl ::windows::core::DefaultType for CellularDtmfMode {
 }
 #[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DtmfKey(pub i32);
 impl DtmfKey {
     pub const D0: Self = Self(0i32);
@@ -305,12 +301,6 @@ impl ::core::clone::Clone for DtmfKey {
 unsafe impl ::windows::core::Abi for DtmfKey {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DtmfKey {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DtmfKey {}
 impl ::core::fmt::Debug for DtmfKey {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DtmfKey").field(&self.0).finish()
@@ -324,6 +314,7 @@ impl ::windows::core::DefaultType for DtmfKey {
 }
 #[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DtmfToneAudioPlayback(pub i32);
 impl DtmfToneAudioPlayback {
     pub const Play: Self = Self(0i32);
@@ -338,12 +329,6 @@ impl ::core::clone::Clone for DtmfToneAudioPlayback {
 unsafe impl ::windows::core::Abi for DtmfToneAudioPlayback {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DtmfToneAudioPlayback {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DtmfToneAudioPlayback {}
 impl ::core::fmt::Debug for DtmfToneAudioPlayback {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DtmfToneAudioPlayback").field(&self.0).finish()
@@ -1896,6 +1881,7 @@ unsafe impl ::core::marker::Send for MuteChangeEventArgs {}
 unsafe impl ::core::marker::Sync for MuteChangeEventArgs {}
 #[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhoneAudioRoutingEndpoint(pub i32);
 impl PhoneAudioRoutingEndpoint {
     pub const Default: Self = Self(0i32);
@@ -1911,12 +1897,6 @@ impl ::core::clone::Clone for PhoneAudioRoutingEndpoint {
 unsafe impl ::windows::core::Abi for PhoneAudioRoutingEndpoint {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhoneAudioRoutingEndpoint {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneAudioRoutingEndpoint {}
 impl ::core::fmt::Debug for PhoneAudioRoutingEndpoint {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhoneAudioRoutingEndpoint").field(&self.0).finish()
@@ -2262,6 +2242,7 @@ unsafe impl ::core::marker::Send for PhoneCall {}
 unsafe impl ::core::marker::Sync for PhoneCall {}
 #[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhoneCallAudioDevice(pub i32);
 impl PhoneCallAudioDevice {
     pub const Unknown: Self = Self(0i32);
@@ -2277,12 +2258,6 @@ impl ::core::clone::Clone for PhoneCallAudioDevice {
 unsafe impl ::windows::core::Abi for PhoneCallAudioDevice {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhoneCallAudioDevice {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneCallAudioDevice {}
 impl ::core::fmt::Debug for PhoneCallAudioDevice {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhoneCallAudioDevice").field(&self.0).finish()
@@ -2338,6 +2313,7 @@ impl ::windows::core::RuntimeName for PhoneCallBlocking {
 }
 #[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhoneCallDirection(pub i32);
 impl PhoneCallDirection {
     pub const Unknown: Self = Self(0i32);
@@ -2353,12 +2329,6 @@ impl ::core::clone::Clone for PhoneCallDirection {
 unsafe impl ::windows::core::Abi for PhoneCallDirection {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhoneCallDirection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneCallDirection {}
 impl ::core::fmt::Debug for PhoneCallDirection {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhoneCallDirection").field(&self.0).finish()
@@ -2824,6 +2794,7 @@ unsafe impl ::core::marker::Send for PhoneCallHistoryEntryAddress {}
 unsafe impl ::core::marker::Sync for PhoneCallHistoryEntryAddress {}
 #[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhoneCallHistoryEntryMedia(pub i32);
 impl PhoneCallHistoryEntryMedia {
     pub const Audio: Self = Self(0i32);
@@ -2838,12 +2809,6 @@ impl ::core::clone::Clone for PhoneCallHistoryEntryMedia {
 unsafe impl ::windows::core::Abi for PhoneCallHistoryEntryMedia {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhoneCallHistoryEntryMedia {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneCallHistoryEntryMedia {}
 impl ::core::fmt::Debug for PhoneCallHistoryEntryMedia {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhoneCallHistoryEntryMedia").field(&self.0).finish()
@@ -2857,6 +2822,7 @@ impl ::windows::core::DefaultType for PhoneCallHistoryEntryMedia {
 }
 #[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhoneCallHistoryEntryOtherAppReadAccess(pub i32);
 impl PhoneCallHistoryEntryOtherAppReadAccess {
     pub const Full: Self = Self(0i32);
@@ -2871,12 +2837,6 @@ impl ::core::clone::Clone for PhoneCallHistoryEntryOtherAppReadAccess {
 unsafe impl ::windows::core::Abi for PhoneCallHistoryEntryOtherAppReadAccess {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhoneCallHistoryEntryOtherAppReadAccess {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneCallHistoryEntryOtherAppReadAccess {}
 impl ::core::fmt::Debug for PhoneCallHistoryEntryOtherAppReadAccess {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhoneCallHistoryEntryOtherAppReadAccess").field(&self.0).finish()
@@ -2890,6 +2850,7 @@ impl ::windows::core::DefaultType for PhoneCallHistoryEntryOtherAppReadAccess {
 }
 #[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhoneCallHistoryEntryQueryDesiredMedia(pub u32);
 impl PhoneCallHistoryEntryQueryDesiredMedia {
     pub const None: Self = Self(0u32);
@@ -2906,12 +2867,6 @@ impl ::core::clone::Clone for PhoneCallHistoryEntryQueryDesiredMedia {
 unsafe impl ::windows::core::Abi for PhoneCallHistoryEntryQueryDesiredMedia {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhoneCallHistoryEntryQueryDesiredMedia {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneCallHistoryEntryQueryDesiredMedia {}
 impl ::core::fmt::Debug for PhoneCallHistoryEntryQueryDesiredMedia {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhoneCallHistoryEntryQueryDesiredMedia").field(&self.0).finish()
@@ -3055,6 +3010,7 @@ unsafe impl ::core::marker::Send for PhoneCallHistoryEntryQueryOptions {}
 unsafe impl ::core::marker::Sync for PhoneCallHistoryEntryQueryOptions {}
 #[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhoneCallHistoryEntryRawAddressKind(pub i32);
 impl PhoneCallHistoryEntryRawAddressKind {
     pub const PhoneNumber: Self = Self(0i32);
@@ -3069,12 +3025,6 @@ impl ::core::clone::Clone for PhoneCallHistoryEntryRawAddressKind {
 unsafe impl ::windows::core::Abi for PhoneCallHistoryEntryRawAddressKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhoneCallHistoryEntryRawAddressKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneCallHistoryEntryRawAddressKind {}
 impl ::core::fmt::Debug for PhoneCallHistoryEntryRawAddressKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhoneCallHistoryEntryRawAddressKind").field(&self.0).finish()
@@ -3294,6 +3244,7 @@ unsafe impl ::core::marker::Send for PhoneCallHistoryManagerForUser {}
 unsafe impl ::core::marker::Sync for PhoneCallHistoryManagerForUser {}
 #[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhoneCallHistorySourceIdKind(pub i32);
 impl PhoneCallHistorySourceIdKind {
     pub const CellularPhoneLineId: Self = Self(0i32);
@@ -3308,12 +3259,6 @@ impl ::core::clone::Clone for PhoneCallHistorySourceIdKind {
 unsafe impl ::windows::core::Abi for PhoneCallHistorySourceIdKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhoneCallHistorySourceIdKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneCallHistorySourceIdKind {}
 impl ::core::fmt::Debug for PhoneCallHistorySourceIdKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhoneCallHistorySourceIdKind").field(&self.0).finish()
@@ -3506,6 +3451,7 @@ unsafe impl ::core::marker::Send for PhoneCallHistoryStore {}
 unsafe impl ::core::marker::Sync for PhoneCallHistoryStore {}
 #[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhoneCallHistoryStoreAccessType(pub i32);
 impl PhoneCallHistoryStoreAccessType {
     pub const AppEntriesReadWrite: Self = Self(0i32);
@@ -3521,12 +3467,6 @@ impl ::core::clone::Clone for PhoneCallHistoryStoreAccessType {
 unsafe impl ::windows::core::Abi for PhoneCallHistoryStoreAccessType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhoneCallHistoryStoreAccessType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneCallHistoryStoreAccessType {}
 impl ::core::fmt::Debug for PhoneCallHistoryStoreAccessType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhoneCallHistoryStoreAccessType").field(&self.0).finish()
@@ -3722,6 +3662,7 @@ impl ::windows::core::RuntimeName for PhoneCallManager {
 }
 #[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhoneCallMedia(pub i32);
 impl PhoneCallMedia {
     pub const Audio: Self = Self(0i32);
@@ -3737,12 +3678,6 @@ impl ::core::clone::Clone for PhoneCallMedia {
 unsafe impl ::windows::core::Abi for PhoneCallMedia {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhoneCallMedia {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneCallMedia {}
 impl ::core::fmt::Debug for PhoneCallMedia {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhoneCallMedia").field(&self.0).finish()
@@ -3756,6 +3691,7 @@ impl ::windows::core::DefaultType for PhoneCallMedia {
 }
 #[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhoneCallOperationStatus(pub i32);
 impl PhoneCallOperationStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -3773,12 +3709,6 @@ impl ::core::clone::Clone for PhoneCallOperationStatus {
 unsafe impl ::windows::core::Abi for PhoneCallOperationStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhoneCallOperationStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneCallOperationStatus {}
 impl ::core::fmt::Debug for PhoneCallOperationStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhoneCallOperationStatus").field(&self.0).finish()
@@ -3792,6 +3722,7 @@ impl ::windows::core::DefaultType for PhoneCallOperationStatus {
 }
 #[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhoneCallStatus(pub i32);
 impl PhoneCallStatus {
     pub const Lost: Self = Self(0i32);
@@ -3810,12 +3741,6 @@ impl ::core::clone::Clone for PhoneCallStatus {
 unsafe impl ::windows::core::Abi for PhoneCallStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhoneCallStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneCallStatus {}
 impl ::core::fmt::Debug for PhoneCallStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhoneCallStatus").field(&self.0).finish()
@@ -4837,6 +4762,7 @@ unsafe impl ::core::marker::Send for PhoneLineDialResult {}
 unsafe impl ::core::marker::Sync for PhoneLineDialResult {}
 #[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhoneLineNetworkOperatorDisplayTextLocation(pub i32);
 impl PhoneLineNetworkOperatorDisplayTextLocation {
     pub const Default: Self = Self(0i32);
@@ -4853,12 +4779,6 @@ impl ::core::clone::Clone for PhoneLineNetworkOperatorDisplayTextLocation {
 unsafe impl ::windows::core::Abi for PhoneLineNetworkOperatorDisplayTextLocation {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhoneLineNetworkOperatorDisplayTextLocation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneLineNetworkOperatorDisplayTextLocation {}
 impl ::core::fmt::Debug for PhoneLineNetworkOperatorDisplayTextLocation {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhoneLineNetworkOperatorDisplayTextLocation").field(&self.0).finish()
@@ -4872,6 +4792,7 @@ impl ::windows::core::DefaultType for PhoneLineNetworkOperatorDisplayTextLocatio
 }
 #[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhoneLineOperationStatus(pub i32);
 impl PhoneLineOperationStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -4889,12 +4810,6 @@ impl ::core::clone::Clone for PhoneLineOperationStatus {
 unsafe impl ::windows::core::Abi for PhoneLineOperationStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhoneLineOperationStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneLineOperationStatus {}
 impl ::core::fmt::Debug for PhoneLineOperationStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhoneLineOperationStatus").field(&self.0).finish()
@@ -4908,6 +4823,7 @@ impl ::windows::core::DefaultType for PhoneLineOperationStatus {
 }
 #[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhoneLineTransport(pub i32);
 impl PhoneLineTransport {
     pub const Cellular: Self = Self(0i32);
@@ -4923,12 +4839,6 @@ impl ::core::clone::Clone for PhoneLineTransport {
 unsafe impl ::windows::core::Abi for PhoneLineTransport {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhoneLineTransport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneLineTransport {}
 impl ::core::fmt::Debug for PhoneLineTransport {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhoneLineTransport").field(&self.0).finish()
@@ -5406,6 +5316,7 @@ unsafe impl ::core::marker::Send for PhoneLineWatcherEventArgs {}
 unsafe impl ::core::marker::Sync for PhoneLineWatcherEventArgs {}
 #[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhoneLineWatcherStatus(pub i32);
 impl PhoneLineWatcherStatus {
     pub const Created: Self = Self(0i32);
@@ -5422,12 +5333,6 @@ impl ::core::clone::Clone for PhoneLineWatcherStatus {
 unsafe impl ::windows::core::Abi for PhoneLineWatcherStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhoneLineWatcherStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneLineWatcherStatus {}
 impl ::core::fmt::Debug for PhoneLineWatcherStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhoneLineWatcherStatus").field(&self.0).finish()
@@ -5441,6 +5346,7 @@ impl ::windows::core::DefaultType for PhoneLineWatcherStatus {
 }
 #[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhoneNetworkState(pub i32);
 impl PhoneNetworkState {
     pub const Unknown: Self = Self(0i32);
@@ -5461,12 +5367,6 @@ impl ::core::clone::Clone for PhoneNetworkState {
 unsafe impl ::windows::core::Abi for PhoneNetworkState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhoneNetworkState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneNetworkState {}
 impl ::core::fmt::Debug for PhoneNetworkState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhoneNetworkState").field(&self.0).finish()
@@ -5480,6 +5380,7 @@ impl ::windows::core::DefaultType for PhoneNetworkState {
 }
 #[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhoneSimState(pub i32);
 impl PhoneSimState {
     pub const Unknown: Self = Self(0i32);
@@ -5500,12 +5401,6 @@ impl ::core::clone::Clone for PhoneSimState {
 unsafe impl ::windows::core::Abi for PhoneSimState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhoneSimState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneSimState {}
 impl ::core::fmt::Debug for PhoneSimState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhoneSimState").field(&self.0).finish()
@@ -5625,6 +5520,7 @@ unsafe impl ::core::marker::Send for PhoneVoicemail {}
 unsafe impl ::core::marker::Sync for PhoneVoicemail {}
 #[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhoneVoicemailType(pub i32);
 impl PhoneVoicemailType {
     pub const None: Self = Self(0i32);
@@ -5640,12 +5536,6 @@ impl ::core::clone::Clone for PhoneVoicemailType {
 unsafe impl ::windows::core::Abi for PhoneVoicemailType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhoneVoicemailType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneVoicemailType {}
 impl ::core::fmt::Debug for PhoneVoicemailType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhoneVoicemailType").field(&self.0).finish()
@@ -5659,6 +5549,7 @@ impl ::windows::core::DefaultType for PhoneVoicemailType {
 }
 #[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TransportDeviceAudioRoutingStatus(pub i32);
 impl TransportDeviceAudioRoutingStatus {
     pub const Unknown: Self = Self(0i32);
@@ -5674,12 +5565,6 @@ impl ::core::clone::Clone for TransportDeviceAudioRoutingStatus {
 unsafe impl ::windows::core::Abi for TransportDeviceAudioRoutingStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TransportDeviceAudioRoutingStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TransportDeviceAudioRoutingStatus {}
 impl ::core::fmt::Debug for TransportDeviceAudioRoutingStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TransportDeviceAudioRoutingStatus").field(&self.0).finish()
@@ -6145,6 +6030,7 @@ unsafe impl ::core::marker::Send for VoipPhoneCall {}
 unsafe impl ::core::marker::Sync for VoipPhoneCall {}
 #[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct VoipPhoneCallMedia(pub u32);
 impl VoipPhoneCallMedia {
     pub const None: Self = Self(0u32);
@@ -6160,12 +6046,6 @@ impl ::core::clone::Clone for VoipPhoneCallMedia {
 unsafe impl ::windows::core::Abi for VoipPhoneCallMedia {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VoipPhoneCallMedia {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VoipPhoneCallMedia {}
 impl ::core::fmt::Debug for VoipPhoneCallMedia {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VoipPhoneCallMedia").field(&self.0).finish()
@@ -6207,6 +6087,7 @@ impl ::windows::core::DefaultType for VoipPhoneCallMedia {
 }
 #[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct VoipPhoneCallRejectReason(pub i32);
 impl VoipPhoneCallRejectReason {
     pub const UserIgnored: Self = Self(0i32);
@@ -6224,12 +6105,6 @@ impl ::core::clone::Clone for VoipPhoneCallRejectReason {
 unsafe impl ::windows::core::Abi for VoipPhoneCallRejectReason {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VoipPhoneCallRejectReason {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VoipPhoneCallRejectReason {}
 impl ::core::fmt::Debug for VoipPhoneCallRejectReason {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VoipPhoneCallRejectReason").field(&self.0).finish()
@@ -6243,6 +6118,7 @@ impl ::windows::core::DefaultType for VoipPhoneCallRejectReason {
 }
 #[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct VoipPhoneCallResourceReservationStatus(pub i32);
 impl VoipPhoneCallResourceReservationStatus {
     pub const Success: Self = Self(0i32);
@@ -6257,12 +6133,6 @@ impl ::core::clone::Clone for VoipPhoneCallResourceReservationStatus {
 unsafe impl ::windows::core::Abi for VoipPhoneCallResourceReservationStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VoipPhoneCallResourceReservationStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VoipPhoneCallResourceReservationStatus {}
 impl ::core::fmt::Debug for VoipPhoneCallResourceReservationStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VoipPhoneCallResourceReservationStatus").field(&self.0).finish()
@@ -6276,6 +6146,7 @@ impl ::windows::core::DefaultType for VoipPhoneCallResourceReservationStatus {
 }
 #[doc = "*Required features: 'ApplicationModel_Calls'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct VoipPhoneCallState(pub i32);
 impl VoipPhoneCallState {
     pub const Ended: Self = Self(0i32);
@@ -6293,12 +6164,6 @@ impl ::core::clone::Clone for VoipPhoneCallState {
 unsafe impl ::windows::core::Abi for VoipPhoneCallState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VoipPhoneCallState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VoipPhoneCallState {}
 impl ::core::fmt::Debug for VoipPhoneCallState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VoipPhoneCallState").field(&self.0).finish()

@@ -210,6 +210,7 @@ unsafe impl ::core::marker::Send for GipFirmwareUpdateResult {}
 unsafe impl ::core::marker::Sync for GipFirmwareUpdateResult {}
 #[doc = "*Required features: 'Gaming_Input_Custom'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GipFirmwareUpdateStatus(pub i32);
 impl GipFirmwareUpdateStatus {
     pub const Completed: Self = Self(0i32);
@@ -225,12 +226,6 @@ impl ::core::clone::Clone for GipFirmwareUpdateStatus {
 unsafe impl ::windows::core::Abi for GipFirmwareUpdateStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GipFirmwareUpdateStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GipFirmwareUpdateStatus {}
 impl ::core::fmt::Debug for GipFirmwareUpdateStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GipFirmwareUpdateStatus").field(&self.0).finish()
@@ -398,6 +393,7 @@ unsafe impl ::core::marker::Send for GipGameControllerProvider {}
 unsafe impl ::core::marker::Sync for GipGameControllerProvider {}
 #[doc = "*Required features: 'Gaming_Input_Custom'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GipMessageClass(pub i32);
 impl GipMessageClass {
     pub const Command: Self = Self(0i32);
@@ -413,12 +409,6 @@ impl ::core::clone::Clone for GipMessageClass {
 unsafe impl ::windows::core::Abi for GipMessageClass {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GipMessageClass {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GipMessageClass {}
 impl ::core::fmt::Debug for GipMessageClass {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GipMessageClass").field(&self.0).finish()
@@ -1383,6 +1373,7 @@ pub struct IXusbGameControllerProviderVtbl(
 );
 #[doc = "*Required features: 'Gaming_Input_Custom'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct XusbDeviceSubtype(pub i32);
 impl XusbDeviceSubtype {
     pub const Unknown: Self = Self(0i32);
@@ -1406,12 +1397,6 @@ impl ::core::clone::Clone for XusbDeviceSubtype {
 unsafe impl ::windows::core::Abi for XusbDeviceSubtype {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for XusbDeviceSubtype {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XusbDeviceSubtype {}
 impl ::core::fmt::Debug for XusbDeviceSubtype {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("XusbDeviceSubtype").field(&self.0).finish()
@@ -1425,6 +1410,7 @@ impl ::windows::core::DefaultType for XusbDeviceSubtype {
 }
 #[doc = "*Required features: 'Gaming_Input_Custom'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct XusbDeviceType(pub i32);
 impl XusbDeviceType {
     pub const Unknown: Self = Self(0i32);
@@ -1439,12 +1425,6 @@ impl ::core::clone::Clone for XusbDeviceType {
 unsafe impl ::windows::core::Abi for XusbDeviceType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for XusbDeviceType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XusbDeviceType {}
 impl ::core::fmt::Debug for XusbDeviceType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("XusbDeviceType").field(&self.0).finish()

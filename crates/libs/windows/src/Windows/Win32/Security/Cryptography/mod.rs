@@ -21964,6 +21964,7 @@ impl ::core::default::Default for HTTPSPolicyCallbackData_0 {
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HandleType(pub i32);
 impl HandleType {
     pub const Asymmetric: Self = Self(1i32);
@@ -21980,12 +21981,6 @@ impl ::core::clone::Clone for HandleType {
 unsafe impl ::windows::core::Abi for HandleType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for HandleType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HandleType {}
 impl ::core::fmt::Debug for HandleType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HandleType").field(&self.0).finish()
@@ -26423,6 +26418,7 @@ impl ::core::default::Default for PUBLICKEYSTRUC {
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PaddingMode(pub i32);
 impl PaddingMode {
     pub const None: Self = Self(1i32);
@@ -26440,12 +26436,6 @@ impl ::core::clone::Clone for PaddingMode {
 unsafe impl ::windows::core::Abi for PaddingMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PaddingMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PaddingMode {}
 impl ::core::fmt::Debug for PaddingMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PaddingMode").field(&self.0).finish()

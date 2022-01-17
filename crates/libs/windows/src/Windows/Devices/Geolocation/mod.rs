@@ -3,6 +3,7 @@
 pub mod Geofencing;
 #[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AltitudeReferenceSystem(pub i32);
 impl AltitudeReferenceSystem {
     pub const Unspecified: Self = Self(0i32);
@@ -20,12 +21,6 @@ impl ::core::clone::Clone for AltitudeReferenceSystem {
 unsafe impl ::windows::core::Abi for AltitudeReferenceSystem {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AltitudeReferenceSystem {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AltitudeReferenceSystem {}
 impl ::core::fmt::Debug for AltitudeReferenceSystem {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AltitudeReferenceSystem").field(&self.0).finish()
@@ -869,6 +864,7 @@ unsafe impl ::core::marker::Send for GeocoordinateSatelliteData {}
 unsafe impl ::core::marker::Sync for GeocoordinateSatelliteData {}
 #[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GeolocationAccessStatus(pub i32);
 impl GeolocationAccessStatus {
     pub const Unspecified: Self = Self(0i32);
@@ -884,12 +880,6 @@ impl ::core::clone::Clone for GeolocationAccessStatus {
 unsafe impl ::windows::core::Abi for GeolocationAccessStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GeolocationAccessStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GeolocationAccessStatus {}
 impl ::core::fmt::Debug for GeolocationAccessStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GeolocationAccessStatus").field(&self.0).finish()
@@ -1559,6 +1549,7 @@ unsafe impl ::core::marker::Send for Geoposition {}
 unsafe impl ::core::marker::Sync for Geoposition {}
 #[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GeoshapeType(pub i32);
 impl GeoshapeType {
     pub const Geopoint: Self = Self(0i32);
@@ -1575,12 +1566,6 @@ impl ::core::clone::Clone for GeoshapeType {
 unsafe impl ::windows::core::Abi for GeoshapeType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GeoshapeType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GeoshapeType {}
 impl ::core::fmt::Debug for GeoshapeType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GeoshapeType").field(&self.0).finish()
@@ -2756,6 +2741,7 @@ pub struct IVenueDataVtbl(
 );
 #[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PositionAccuracy(pub i32);
 impl PositionAccuracy {
     pub const Default: Self = Self(0i32);
@@ -2770,12 +2756,6 @@ impl ::core::clone::Clone for PositionAccuracy {
 unsafe impl ::windows::core::Abi for PositionAccuracy {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PositionAccuracy {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PositionAccuracy {}
 impl ::core::fmt::Debug for PositionAccuracy {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PositionAccuracy").field(&self.0).finish()
@@ -2870,6 +2850,7 @@ unsafe impl ::core::marker::Send for PositionChangedEventArgs {}
 unsafe impl ::core::marker::Sync for PositionChangedEventArgs {}
 #[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PositionSource(pub i32);
 impl PositionSource {
     pub const Cellular: Self = Self(0i32);
@@ -2889,12 +2870,6 @@ impl ::core::clone::Clone for PositionSource {
 unsafe impl ::windows::core::Abi for PositionSource {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PositionSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PositionSource {}
 impl ::core::fmt::Debug for PositionSource {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PositionSource").field(&self.0).finish()
@@ -2908,6 +2883,7 @@ impl ::windows::core::DefaultType for PositionSource {
 }
 #[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PositionStatus(pub i32);
 impl PositionStatus {
     pub const Ready: Self = Self(0i32);
@@ -2926,12 +2902,6 @@ impl ::core::clone::Clone for PositionStatus {
 unsafe impl ::windows::core::Abi for PositionStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PositionStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PositionStatus {}
 impl ::core::fmt::Debug for PositionStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PositionStatus").field(&self.0).finish()
@@ -3115,6 +3085,7 @@ unsafe impl ::core::marker::Send for VenueData {}
 unsafe impl ::core::marker::Sync for VenueData {}
 #[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct VisitMonitoringScope(pub i32);
 impl VisitMonitoringScope {
     pub const Venue: Self = Self(0i32);
@@ -3129,12 +3100,6 @@ impl ::core::clone::Clone for VisitMonitoringScope {
 unsafe impl ::windows::core::Abi for VisitMonitoringScope {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VisitMonitoringScope {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VisitMonitoringScope {}
 impl ::core::fmt::Debug for VisitMonitoringScope {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VisitMonitoringScope").field(&self.0).finish()
@@ -3148,6 +3113,7 @@ impl ::windows::core::DefaultType for VisitMonitoringScope {
 }
 #[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct VisitStateChange(pub i32);
 impl VisitStateChange {
     pub const TrackingLost: Self = Self(0i32);
@@ -3164,12 +3130,6 @@ impl ::core::clone::Clone for VisitStateChange {
 unsafe impl ::windows::core::Abi for VisitStateChange {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VisitStateChange {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VisitStateChange {}
 impl ::core::fmt::Debug for VisitStateChange {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VisitStateChange").field(&self.0).finish()

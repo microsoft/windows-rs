@@ -809,6 +809,7 @@ unsafe impl ::core::marker::Sync for PlayToConnection {}
 #[doc = "*Required features: 'Media_PlayTo', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PlayToConnectionError(pub i32);
 #[cfg(feature = "deprecated")]
 impl PlayToConnectionError {
@@ -830,14 +831,6 @@ impl ::core::clone::Clone for PlayToConnectionError {
 unsafe impl ::windows::core::Abi for PlayToConnectionError {
     type Abi = Self;
 }
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for PlayToConnectionError {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for PlayToConnectionError {}
 #[cfg(feature = "deprecated")]
 impl ::core::fmt::Debug for PlayToConnectionError {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -965,6 +958,7 @@ unsafe impl ::core::marker::Sync for PlayToConnectionErrorEventArgs {}
 #[doc = "*Required features: 'Media_PlayTo', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PlayToConnectionState(pub i32);
 #[cfg(feature = "deprecated")]
 impl PlayToConnectionState {
@@ -984,14 +978,6 @@ impl ::core::clone::Clone for PlayToConnectionState {
 unsafe impl ::windows::core::Abi for PlayToConnectionState {
     type Abi = Self;
 }
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for PlayToConnectionState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for PlayToConnectionState {}
 #[cfg(feature = "deprecated")]
 impl ::core::fmt::Debug for PlayToConnectionState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
