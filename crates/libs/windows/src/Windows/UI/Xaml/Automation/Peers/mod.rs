@@ -34,11 +34,19 @@ pub struct AppBarAutomationPeer(::windows::core::IUnknown);
 impl AppBarAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::AppBar>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<AppBarAutomationPeer> {
-        Self::IAppBarAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<AppBarAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::AppBar>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<AppBarAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IAppBarAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<AppBarAutomationPeer>(result__)
+            })
+        } else {
+            Self::IAppBarAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<AppBarAutomationPeer>(result__)
+            })
+        }
     }
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
@@ -369,11 +377,19 @@ pub struct AppBarButtonAutomationPeer(::windows::core::IUnknown);
 impl AppBarButtonAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::AppBarButton>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<AppBarButtonAutomationPeer> {
-        Self::IAppBarButtonAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<AppBarButtonAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::AppBarButton>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<AppBarButtonAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IAppBarButtonAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<AppBarButtonAutomationPeer>(result__)
+            })
+        } else {
+            Self::IAppBarButtonAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<AppBarButtonAutomationPeer>(result__)
+            })
+        }
     }
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
@@ -628,11 +644,19 @@ pub struct AppBarToggleButtonAutomationPeer(::windows::core::IUnknown);
 impl AppBarToggleButtonAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::AppBarToggleButton>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<AppBarToggleButtonAutomationPeer> {
-        Self::IAppBarToggleButtonAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<AppBarToggleButtonAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::AppBarToggleButton>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<AppBarToggleButtonAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IAppBarToggleButtonAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<AppBarToggleButtonAutomationPeer>(result__)
+            })
+        } else {
+            Self::IAppBarToggleButtonAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<AppBarToggleButtonAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IAppBarToggleButtonAutomationPeerFactory<R, F: FnOnce(&IAppBarToggleButtonAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -2102,11 +2126,19 @@ pub struct ButtonAutomationPeer(::windows::core::IUnknown);
 impl ButtonAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Button>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ButtonAutomationPeer> {
-        Self::IButtonAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<ButtonAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Button>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<ButtonAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IButtonAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ButtonAutomationPeer>(result__)
+            })
+        } else {
+            Self::IButtonAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ButtonAutomationPeer>(result__)
+            })
+        }
     }
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
@@ -2432,11 +2464,19 @@ pub struct CalendarDatePickerAutomationPeer(::windows::core::IUnknown);
 impl CalendarDatePickerAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::CalendarDatePicker>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<CalendarDatePickerAutomationPeer> {
-        Self::ICalendarDatePickerAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<CalendarDatePickerAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::CalendarDatePicker>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<CalendarDatePickerAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::ICalendarDatePickerAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<CalendarDatePickerAutomationPeer>(result__)
+            })
+        } else {
+            Self::ICalendarDatePickerAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<CalendarDatePickerAutomationPeer>(result__)
+            })
+        }
     }
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
@@ -2660,11 +2700,19 @@ pub struct CaptureElementAutomationPeer(::windows::core::IUnknown);
 impl CaptureElementAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::CaptureElement>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<CaptureElementAutomationPeer> {
-        Self::ICaptureElementAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<CaptureElementAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::CaptureElement>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<CaptureElementAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::ICaptureElementAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<CaptureElementAutomationPeer>(result__)
+            })
+        } else {
+            Self::ICaptureElementAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<CaptureElementAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn ICaptureElementAutomationPeerFactory<R, F: FnOnce(&ICaptureElementAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -2806,11 +2854,19 @@ pub struct CheckBoxAutomationPeer(::windows::core::IUnknown);
 impl CheckBoxAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::CheckBox>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<CheckBoxAutomationPeer> {
-        Self::ICheckBoxAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<CheckBoxAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::CheckBox>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<CheckBoxAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::ICheckBoxAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<CheckBoxAutomationPeer>(result__)
+            })
+        } else {
+            Self::ICheckBoxAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<CheckBoxAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn ICheckBoxAutomationPeerFactory<R, F: FnOnce(&ICheckBoxAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -3018,11 +3074,19 @@ pub struct ColorPickerSliderAutomationPeer(::windows::core::IUnknown);
 impl ColorPickerSliderAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls_Primitives'*"]
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Primitives::ColorPickerSlider>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ColorPickerSliderAutomationPeer> {
-        Self::IColorPickerSliderAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<ColorPickerSliderAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Primitives::ColorPickerSlider>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<ColorPickerSliderAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IColorPickerSliderAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ColorPickerSliderAutomationPeer>(result__)
+            })
+        } else {
+            Self::IColorPickerSliderAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ColorPickerSliderAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IColorPickerSliderAutomationPeerFactory<R, F: FnOnce(&IColorPickerSliderAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -3230,11 +3294,19 @@ pub struct ColorSpectrumAutomationPeer(::windows::core::IUnknown);
 impl ColorSpectrumAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls_Primitives'*"]
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Primitives::ColorSpectrum>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ColorSpectrumAutomationPeer> {
-        Self::IColorSpectrumAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<ColorSpectrumAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Primitives::ColorSpectrum>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<ColorSpectrumAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IColorSpectrumAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ColorSpectrumAutomationPeer>(result__)
+            })
+        } else {
+            Self::IColorSpectrumAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ColorSpectrumAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IColorSpectrumAutomationPeerFactory<R, F: FnOnce(&IColorSpectrumAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -3376,11 +3448,19 @@ pub struct ComboBoxAutomationPeer(::windows::core::IUnknown);
 impl ComboBoxAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ComboBox>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ComboBoxAutomationPeer> {
-        Self::IComboBoxAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<ComboBoxAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ComboBox>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<ComboBoxAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IComboBoxAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ComboBoxAutomationPeer>(result__)
+            })
+        } else {
+            Self::IComboBoxAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ComboBoxAutomationPeer>(result__)
+            })
+        }
     }
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
@@ -3812,11 +3892,19 @@ pub struct ComboBoxItemAutomationPeer(::windows::core::IUnknown);
 impl ComboBoxItemAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ComboBoxItem>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ComboBoxItemAutomationPeer> {
-        Self::IComboBoxItemAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<ComboBoxItemAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ComboBoxItem>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<ComboBoxItemAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IComboBoxItemAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ComboBoxItemAutomationPeer>(result__)
+            })
+        } else {
+            Self::IComboBoxItemAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ComboBoxItemAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IComboBoxItemAutomationPeerFactory<R, F: FnOnce(&IComboBoxItemAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -3957,11 +4045,19 @@ unsafe impl ::core::marker::Sync for ComboBoxItemAutomationPeer {}
 pub struct ComboBoxItemDataAutomationPeer(::windows::core::IUnknown);
 impl ComboBoxItemDataAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
-    pub fn CreateInstanceWithParentAndItem<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ComboBoxAutomationPeer>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(item: Param0, parent: Param1, baseinterface: Param2, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ComboBoxItemDataAutomationPeer> {
-        Self::IComboBoxItemDataAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithParentAndItem)(::core::mem::transmute_copy(this), item.into_param().abi(), parent.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<ComboBoxItemDataAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithParentAndItem<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ComboBoxAutomationPeer>, T: ::windows::core::Compose>(item: Param0, parent: Param1, compose: ::core::option::Option<T>) -> ::windows::core::Result<ComboBoxItemDataAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IComboBoxItemDataAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithParentAndItem)(::core::mem::transmute_copy(this), item.into_param().abi(), parent.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ComboBoxItemDataAutomationPeer>(result__)
+            })
+        } else {
+            Self::IComboBoxItemDataAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithParentAndItem)(::core::mem::transmute_copy(this), item.into_param().abi(), parent.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ComboBoxItemDataAutomationPeer>(result__)
+            })
+        }
     }
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
@@ -4207,11 +4303,19 @@ pub struct DatePickerAutomationPeer(::windows::core::IUnknown);
 impl DatePickerAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::DatePicker>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<DatePickerAutomationPeer> {
-        Self::IDatePickerAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<DatePickerAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::DatePicker>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<DatePickerAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IDatePickerAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<DatePickerAutomationPeer>(result__)
+            })
+        } else {
+            Self::IDatePickerAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<DatePickerAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IDatePickerAutomationPeerFactory<R, F: FnOnce(&IDatePickerAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -4485,11 +4589,19 @@ pub struct FlipViewAutomationPeer(::windows::core::IUnknown);
 impl FlipViewAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::FlipView>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<FlipViewAutomationPeer> {
-        Self::IFlipViewAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<FlipViewAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::FlipView>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<FlipViewAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IFlipViewAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<FlipViewAutomationPeer>(result__)
+            })
+        } else {
+            Self::IFlipViewAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<FlipViewAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IFlipViewAutomationPeerFactory<R, F: FnOnce(&IFlipViewAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -4723,11 +4835,19 @@ pub struct FlipViewItemAutomationPeer(::windows::core::IUnknown);
 impl FlipViewItemAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::FlipViewItem>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<FlipViewItemAutomationPeer> {
-        Self::IFlipViewItemAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<FlipViewItemAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::FlipViewItem>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<FlipViewItemAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IFlipViewItemAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<FlipViewItemAutomationPeer>(result__)
+            })
+        } else {
+            Self::IFlipViewItemAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<FlipViewItemAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IFlipViewItemAutomationPeerFactory<R, F: FnOnce(&IFlipViewItemAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -4868,11 +4988,19 @@ unsafe impl ::core::marker::Sync for FlipViewItemAutomationPeer {}
 pub struct FlipViewItemDataAutomationPeer(::windows::core::IUnknown);
 impl FlipViewItemDataAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
-    pub fn CreateInstanceWithParentAndItem<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, FlipViewAutomationPeer>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(item: Param0, parent: Param1, baseinterface: Param2, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<FlipViewItemDataAutomationPeer> {
-        Self::IFlipViewItemDataAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithParentAndItem)(::core::mem::transmute_copy(this), item.into_param().abi(), parent.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<FlipViewItemDataAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithParentAndItem<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, FlipViewAutomationPeer>, T: ::windows::core::Compose>(item: Param0, parent: Param1, compose: ::core::option::Option<T>) -> ::windows::core::Result<FlipViewItemDataAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IFlipViewItemDataAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithParentAndItem)(::core::mem::transmute_copy(this), item.into_param().abi(), parent.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<FlipViewItemDataAutomationPeer>(result__)
+            })
+        } else {
+            Self::IFlipViewItemDataAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithParentAndItem)(::core::mem::transmute_copy(this), item.into_param().abi(), parent.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<FlipViewItemDataAutomationPeer>(result__)
+            })
+        }
     }
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
@@ -5118,11 +5246,19 @@ pub struct FlyoutPresenterAutomationPeer(::windows::core::IUnknown);
 impl FlyoutPresenterAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::FlyoutPresenter>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<FlyoutPresenterAutomationPeer> {
-        Self::IFlyoutPresenterAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<FlyoutPresenterAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::FlyoutPresenter>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<FlyoutPresenterAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IFlyoutPresenterAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<FlyoutPresenterAutomationPeer>(result__)
+            })
+        } else {
+            Self::IFlyoutPresenterAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<FlyoutPresenterAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IFlyoutPresenterAutomationPeerFactory<R, F: FnOnce(&IFlyoutPresenterAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -5271,11 +5407,19 @@ impl FrameworkElementAutomationPeer {
         }
     }
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::FrameworkElement>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<FrameworkElementAutomationPeer> {
-        Self::IFrameworkElementAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<FrameworkElementAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::FrameworkElement>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<FrameworkElementAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IFrameworkElementAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<FrameworkElementAutomationPeer>(result__)
+            })
+        } else {
+            Self::IFrameworkElementAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<FrameworkElementAutomationPeer>(result__)
+            })
+        }
     }
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
     pub fn FromElement<'a, Param0: ::windows::core::IntoParam<'a, super::super::UIElement>>(element: Param0) -> ::windows::core::Result<AutomationPeer> {
@@ -5416,11 +5560,19 @@ pub struct GridViewAutomationPeer(::windows::core::IUnknown);
 impl GridViewAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::GridView>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<GridViewAutomationPeer> {
-        Self::IGridViewAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<GridViewAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::GridView>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<GridViewAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IGridViewAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<GridViewAutomationPeer>(result__)
+            })
+        } else {
+            Self::IGridViewAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<GridViewAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IGridViewAutomationPeerFactory<R, F: FnOnce(&IGridViewAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -5700,11 +5852,19 @@ pub struct GridViewHeaderItemAutomationPeer(::windows::core::IUnknown);
 impl GridViewHeaderItemAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::GridViewHeaderItem>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<GridViewHeaderItemAutomationPeer> {
-        Self::IGridViewHeaderItemAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<GridViewHeaderItemAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::GridViewHeaderItem>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<GridViewHeaderItemAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IGridViewHeaderItemAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<GridViewHeaderItemAutomationPeer>(result__)
+            })
+        } else {
+            Self::IGridViewHeaderItemAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<GridViewHeaderItemAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IGridViewHeaderItemAutomationPeerFactory<R, F: FnOnce(&IGridViewHeaderItemAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -5866,11 +6026,19 @@ pub struct GridViewItemAutomationPeer(::windows::core::IUnknown);
 impl GridViewItemAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::GridViewItem>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<GridViewItemAutomationPeer> {
-        Self::IGridViewItemAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<GridViewItemAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::GridViewItem>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<GridViewItemAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IGridViewItemAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<GridViewItemAutomationPeer>(result__)
+            })
+        } else {
+            Self::IGridViewItemAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<GridViewItemAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IGridViewItemAutomationPeerFactory<R, F: FnOnce(&IGridViewItemAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -6011,11 +6179,19 @@ unsafe impl ::core::marker::Sync for GridViewItemAutomationPeer {}
 pub struct GridViewItemDataAutomationPeer(::windows::core::IUnknown);
 impl GridViewItemDataAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
-    pub fn CreateInstanceWithParentAndItem<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, GridViewAutomationPeer>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(item: Param0, parent: Param1, baseinterface: Param2, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<GridViewItemDataAutomationPeer> {
-        Self::IGridViewItemDataAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithParentAndItem)(::core::mem::transmute_copy(this), item.into_param().abi(), parent.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<GridViewItemDataAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithParentAndItem<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, GridViewAutomationPeer>, T: ::windows::core::Compose>(item: Param0, parent: Param1, compose: ::core::option::Option<T>) -> ::windows::core::Result<GridViewItemDataAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IGridViewItemDataAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithParentAndItem)(::core::mem::transmute_copy(this), item.into_param().abi(), parent.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<GridViewItemDataAutomationPeer>(result__)
+            })
+        } else {
+            Self::IGridViewItemDataAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithParentAndItem)(::core::mem::transmute_copy(this), item.into_param().abi(), parent.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<GridViewItemDataAutomationPeer>(result__)
+            })
+        }
     }
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
@@ -6261,11 +6437,19 @@ pub struct GroupItemAutomationPeer(::windows::core::IUnknown);
 impl GroupItemAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::GroupItem>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<GroupItemAutomationPeer> {
-        Self::IGroupItemAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<GroupItemAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::GroupItem>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<GroupItemAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IGroupItemAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<GroupItemAutomationPeer>(result__)
+            })
+        } else {
+            Self::IGroupItemAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<GroupItemAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IGroupItemAutomationPeerFactory<R, F: FnOnce(&IGroupItemAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -6407,11 +6591,19 @@ pub struct HubAutomationPeer(::windows::core::IUnknown);
 impl HubAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Hub>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<HubAutomationPeer> {
-        Self::IHubAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<HubAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Hub>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<HubAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IHubAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<HubAutomationPeer>(result__)
+            })
+        } else {
+            Self::IHubAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<HubAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IHubAutomationPeerFactory<R, F: FnOnce(&IHubAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -6553,11 +6745,19 @@ pub struct HubSectionAutomationPeer(::windows::core::IUnknown);
 impl HubSectionAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::HubSection>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<HubSectionAutomationPeer> {
-        Self::IHubSectionAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<HubSectionAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::HubSection>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<HubSectionAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IHubSectionAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<HubSectionAutomationPeer>(result__)
+            })
+        } else {
+            Self::IHubSectionAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<HubSectionAutomationPeer>(result__)
+            })
+        }
     }
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
@@ -6731,11 +6931,19 @@ pub struct HyperlinkButtonAutomationPeer(::windows::core::IUnknown);
 impl HyperlinkButtonAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::HyperlinkButton>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<HyperlinkButtonAutomationPeer> {
-        Self::IHyperlinkButtonAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<HyperlinkButtonAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::HyperlinkButton>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<HyperlinkButtonAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IHyperlinkButtonAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<HyperlinkButtonAutomationPeer>(result__)
+            })
+        } else {
+            Self::IHyperlinkButtonAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<HyperlinkButtonAutomationPeer>(result__)
+            })
+        }
     }
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
@@ -9730,11 +9938,19 @@ pub struct ImageAutomationPeer(::windows::core::IUnknown);
 impl ImageAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Image>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ImageAutomationPeer> {
-        Self::IImageAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<ImageAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Image>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<ImageAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IImageAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ImageAutomationPeer>(result__)
+            })
+        } else {
+            Self::IImageAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ImageAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IImageAutomationPeerFactory<R, F: FnOnce(&IImageAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -10023,11 +10239,19 @@ impl ItemAutomationPeer {
         }
     }
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
-    pub fn CreateInstanceWithParentAndItem<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ItemsControlAutomationPeer>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(item: Param0, parent: Param1, baseinterface: Param2, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ItemAutomationPeer> {
-        Self::IItemAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithParentAndItem)(::core::mem::transmute_copy(this), item.into_param().abi(), parent.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<ItemAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithParentAndItem<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ItemsControlAutomationPeer>, T: ::windows::core::Compose>(item: Param0, parent: Param1, compose: ::core::option::Option<T>) -> ::windows::core::Result<ItemAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IItemAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithParentAndItem)(::core::mem::transmute_copy(this), item.into_param().abi(), parent.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ItemAutomationPeer>(result__)
+            })
+        } else {
+            Self::IItemAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithParentAndItem)(::core::mem::transmute_copy(this), item.into_param().abi(), parent.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ItemAutomationPeer>(result__)
+            })
+        }
     }
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
@@ -10198,11 +10422,19 @@ impl ItemsControlAutomationPeer {
     }
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ItemsControl>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ItemsControlAutomationPeer> {
-        Self::IItemsControlAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<ItemsControlAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ItemsControl>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<ItemsControlAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IItemsControlAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ItemsControlAutomationPeer>(result__)
+            })
+        } else {
+            Self::IItemsControlAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ItemsControlAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IItemsControlAutomationPeerFactory<R, F: FnOnce(&IItemsControlAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -10370,11 +10602,19 @@ pub struct ListBoxAutomationPeer(::windows::core::IUnknown);
 impl ListBoxAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ListBox>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ListBoxAutomationPeer> {
-        Self::IListBoxAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<ListBoxAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ListBox>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<ListBoxAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IListBoxAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ListBoxAutomationPeer>(result__)
+            })
+        } else {
+            Self::IListBoxAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ListBoxAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IListBoxAutomationPeerFactory<R, F: FnOnce(&IListBoxAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -10608,11 +10848,19 @@ pub struct ListBoxItemAutomationPeer(::windows::core::IUnknown);
 impl ListBoxItemAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ListBoxItem>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ListBoxItemAutomationPeer> {
-        Self::IListBoxItemAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<ListBoxItemAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ListBoxItem>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<ListBoxItemAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IListBoxItemAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ListBoxItemAutomationPeer>(result__)
+            })
+        } else {
+            Self::IListBoxItemAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ListBoxItemAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IListBoxItemAutomationPeerFactory<R, F: FnOnce(&IListBoxItemAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -10753,11 +11001,19 @@ unsafe impl ::core::marker::Sync for ListBoxItemAutomationPeer {}
 pub struct ListBoxItemDataAutomationPeer(::windows::core::IUnknown);
 impl ListBoxItemDataAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
-    pub fn CreateInstanceWithParentAndItem<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ListBoxAutomationPeer>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(item: Param0, parent: Param1, baseinterface: Param2, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ListBoxItemDataAutomationPeer> {
-        Self::IListBoxItemDataAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithParentAndItem)(::core::mem::transmute_copy(this), item.into_param().abi(), parent.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<ListBoxItemDataAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithParentAndItem<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ListBoxAutomationPeer>, T: ::windows::core::Compose>(item: Param0, parent: Param1, compose: ::core::option::Option<T>) -> ::windows::core::Result<ListBoxItemDataAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IListBoxItemDataAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithParentAndItem)(::core::mem::transmute_copy(this), item.into_param().abi(), parent.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ListBoxItemDataAutomationPeer>(result__)
+            })
+        } else {
+            Self::IListBoxItemDataAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithParentAndItem)(::core::mem::transmute_copy(this), item.into_param().abi(), parent.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ListBoxItemDataAutomationPeer>(result__)
+            })
+        }
     }
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
@@ -11135,11 +11391,19 @@ pub struct ListViewAutomationPeer(::windows::core::IUnknown);
 impl ListViewAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ListView>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ListViewAutomationPeer> {
-        Self::IListViewAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<ListViewAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ListView>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<ListViewAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IListViewAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ListViewAutomationPeer>(result__)
+            })
+        } else {
+            Self::IListViewAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ListViewAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IListViewAutomationPeerFactory<R, F: FnOnce(&IListViewAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -11437,11 +11701,19 @@ impl ListViewBaseAutomationPeer {
     }
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ListViewBase>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ListViewBaseAutomationPeer> {
-        Self::IListViewBaseAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<ListViewBaseAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ListViewBase>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<ListViewBaseAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IListViewBaseAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ListViewBaseAutomationPeer>(result__)
+            })
+        } else {
+            Self::IListViewBaseAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ListViewBaseAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IListViewBaseAutomationPeerFactory<R, F: FnOnce(&IListViewBaseAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -11833,11 +12105,19 @@ pub struct ListViewHeaderItemAutomationPeer(::windows::core::IUnknown);
 impl ListViewHeaderItemAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ListViewHeaderItem>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ListViewHeaderItemAutomationPeer> {
-        Self::IListViewHeaderItemAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<ListViewHeaderItemAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ListViewHeaderItem>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<ListViewHeaderItemAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IListViewHeaderItemAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ListViewHeaderItemAutomationPeer>(result__)
+            })
+        } else {
+            Self::IListViewHeaderItemAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ListViewHeaderItemAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IListViewHeaderItemAutomationPeerFactory<R, F: FnOnce(&IListViewHeaderItemAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -11999,11 +12279,19 @@ pub struct ListViewItemAutomationPeer(::windows::core::IUnknown);
 impl ListViewItemAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ListViewItem>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ListViewItemAutomationPeer> {
-        Self::IListViewItemAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<ListViewItemAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ListViewItem>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<ListViewItemAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IListViewItemAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ListViewItemAutomationPeer>(result__)
+            })
+        } else {
+            Self::IListViewItemAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ListViewItemAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IListViewItemAutomationPeerFactory<R, F: FnOnce(&IListViewItemAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -12144,11 +12432,19 @@ unsafe impl ::core::marker::Sync for ListViewItemAutomationPeer {}
 pub struct ListViewItemDataAutomationPeer(::windows::core::IUnknown);
 impl ListViewItemDataAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
-    pub fn CreateInstanceWithParentAndItem<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ListViewBaseAutomationPeer>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(item: Param0, parent: Param1, baseinterface: Param2, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ListViewItemDataAutomationPeer> {
-        Self::IListViewItemDataAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithParentAndItem)(::core::mem::transmute_copy(this), item.into_param().abi(), parent.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<ListViewItemDataAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithParentAndItem<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, ListViewBaseAutomationPeer>, T: ::windows::core::Compose>(item: Param0, parent: Param1, compose: ::core::option::Option<T>) -> ::windows::core::Result<ListViewItemDataAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IListViewItemDataAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithParentAndItem)(::core::mem::transmute_copy(this), item.into_param().abi(), parent.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ListViewItemDataAutomationPeer>(result__)
+            })
+        } else {
+            Self::IListViewItemDataAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithParentAndItem)(::core::mem::transmute_copy(this), item.into_param().abi(), parent.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ListViewItemDataAutomationPeer>(result__)
+            })
+        }
     }
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
@@ -13496,11 +13792,19 @@ pub struct MediaElementAutomationPeer(::windows::core::IUnknown);
 impl MediaElementAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::MediaElement>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<MediaElementAutomationPeer> {
-        Self::IMediaElementAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<MediaElementAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::MediaElement>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<MediaElementAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IMediaElementAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MediaElementAutomationPeer>(result__)
+            })
+        } else {
+            Self::IMediaElementAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MediaElementAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IMediaElementAutomationPeerFactory<R, F: FnOnce(&IMediaElementAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -13642,11 +13946,19 @@ pub struct MediaPlayerElementAutomationPeer(::windows::core::IUnknown);
 impl MediaPlayerElementAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::MediaPlayerElement>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<MediaPlayerElementAutomationPeer> {
-        Self::IMediaPlayerElementAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<MediaPlayerElementAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::MediaPlayerElement>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<MediaPlayerElementAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IMediaPlayerElementAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MediaPlayerElementAutomationPeer>(result__)
+            })
+        } else {
+            Self::IMediaPlayerElementAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MediaPlayerElementAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IMediaPlayerElementAutomationPeerFactory<R, F: FnOnce(&IMediaPlayerElementAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -13788,11 +14100,19 @@ pub struct MediaTransportControlsAutomationPeer(::windows::core::IUnknown);
 impl MediaTransportControlsAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::MediaTransportControls>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<MediaTransportControlsAutomationPeer> {
-        Self::IMediaTransportControlsAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<MediaTransportControlsAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::MediaTransportControls>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<MediaTransportControlsAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IMediaTransportControlsAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MediaTransportControlsAutomationPeer>(result__)
+            })
+        } else {
+            Self::IMediaTransportControlsAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MediaTransportControlsAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IMediaTransportControlsAutomationPeerFactory<R, F: FnOnce(&IMediaTransportControlsAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -13934,11 +14254,19 @@ pub struct MenuBarAutomationPeer(::windows::core::IUnknown);
 impl MenuBarAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::MenuBar>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<MenuBarAutomationPeer> {
-        Self::IMenuBarAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<MenuBarAutomationPeer>(result__)
-        })
+    pub fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::MenuBar>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<MenuBarAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IMenuBarAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MenuBarAutomationPeer>(result__)
+            })
+        } else {
+            Self::IMenuBarAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MenuBarAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IMenuBarAutomationPeerFactory<R, F: FnOnce(&IMenuBarAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -14107,11 +14435,19 @@ impl MenuBarItemAutomationPeer {
     }
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::MenuBarItem>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<MenuBarItemAutomationPeer> {
-        Self::IMenuBarItemAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<MenuBarItemAutomationPeer>(result__)
-        })
+    pub fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::MenuBarItem>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<MenuBarItemAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IMenuBarItemAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MenuBarItemAutomationPeer>(result__)
+            })
+        } else {
+            Self::IMenuBarItemAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MenuBarItemAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IMenuBarItemAutomationPeerFactory<R, F: FnOnce(&IMenuBarItemAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -14311,11 +14647,19 @@ impl MenuFlyoutItemAutomationPeer {
     }
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::MenuFlyoutItem>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<MenuFlyoutItemAutomationPeer> {
-        Self::IMenuFlyoutItemAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<MenuFlyoutItemAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::MenuFlyoutItem>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<MenuFlyoutItemAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IMenuFlyoutItemAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MenuFlyoutItemAutomationPeer>(result__)
+            })
+        } else {
+            Self::IMenuFlyoutItemAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MenuFlyoutItemAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IMenuFlyoutItemAutomationPeerFactory<R, F: FnOnce(&IMenuFlyoutItemAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -14483,11 +14827,19 @@ pub struct MenuFlyoutPresenterAutomationPeer(::windows::core::IUnknown);
 impl MenuFlyoutPresenterAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::MenuFlyoutPresenter>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<MenuFlyoutPresenterAutomationPeer> {
-        Self::IMenuFlyoutPresenterAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<MenuFlyoutPresenterAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::MenuFlyoutPresenter>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<MenuFlyoutPresenterAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IMenuFlyoutPresenterAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MenuFlyoutPresenterAutomationPeer>(result__)
+            })
+        } else {
+            Self::IMenuFlyoutPresenterAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MenuFlyoutPresenterAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IMenuFlyoutPresenterAutomationPeerFactory<R, F: FnOnce(&IMenuFlyoutPresenterAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -14675,11 +15027,19 @@ pub struct NavigationViewItemAutomationPeer(::windows::core::IUnknown);
 impl NavigationViewItemAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::NavigationViewItem>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<NavigationViewItemAutomationPeer> {
-        Self::INavigationViewItemAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<NavigationViewItemAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::NavigationViewItem>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<NavigationViewItemAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::INavigationViewItemAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<NavigationViewItemAutomationPeer>(result__)
+            })
+        } else {
+            Self::INavigationViewItemAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<NavigationViewItemAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn INavigationViewItemAutomationPeerFactory<R, F: FnOnce(&INavigationViewItemAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -14841,11 +15201,19 @@ pub struct PasswordBoxAutomationPeer(::windows::core::IUnknown);
 impl PasswordBoxAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::PasswordBox>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<PasswordBoxAutomationPeer> {
-        Self::IPasswordBoxAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<PasswordBoxAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::PasswordBox>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<PasswordBoxAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IPasswordBoxAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<PasswordBoxAutomationPeer>(result__)
+            })
+        } else {
+            Self::IPasswordBoxAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<PasswordBoxAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IPasswordBoxAutomationPeerFactory<R, F: FnOnce(&IPasswordBoxAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -15047,11 +15415,19 @@ pub struct PersonPictureAutomationPeer(::windows::core::IUnknown);
 impl PersonPictureAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::PersonPicture>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<PersonPictureAutomationPeer> {
-        Self::IPersonPictureAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<PersonPictureAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::PersonPicture>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<PersonPictureAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IPersonPictureAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<PersonPictureAutomationPeer>(result__)
+            })
+        } else {
+            Self::IPersonPictureAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<PersonPictureAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IPersonPictureAutomationPeerFactory<R, F: FnOnce(&IPersonPictureAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -16079,11 +16455,19 @@ pub struct ProgressBarAutomationPeer(::windows::core::IUnknown);
 impl ProgressBarAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ProgressBar>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ProgressBarAutomationPeer> {
-        Self::IProgressBarAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<ProgressBarAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ProgressBar>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<ProgressBarAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IProgressBarAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ProgressBarAutomationPeer>(result__)
+            })
+        } else {
+            Self::IProgressBarAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ProgressBarAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IProgressBarAutomationPeerFactory<R, F: FnOnce(&IProgressBarAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -16271,11 +16655,19 @@ pub struct ProgressRingAutomationPeer(::windows::core::IUnknown);
 impl ProgressRingAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ProgressRing>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ProgressRingAutomationPeer> {
-        Self::IProgressRingAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<ProgressRingAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ProgressRing>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<ProgressRingAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IProgressRingAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ProgressRingAutomationPeer>(result__)
+            })
+        } else {
+            Self::IProgressRingAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ProgressRingAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IProgressRingAutomationPeerFactory<R, F: FnOnce(&IProgressRingAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -16417,11 +16809,19 @@ pub struct RadioButtonAutomationPeer(::windows::core::IUnknown);
 impl RadioButtonAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::RadioButton>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<RadioButtonAutomationPeer> {
-        Self::IRadioButtonAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<RadioButtonAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::RadioButton>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<RadioButtonAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IRadioButtonAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<RadioButtonAutomationPeer>(result__)
+            })
+        } else {
+            Self::IRadioButtonAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<RadioButtonAutomationPeer>(result__)
+            })
+        }
     }
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
@@ -16691,11 +17091,19 @@ pub struct RangeBaseAutomationPeer(::windows::core::IUnknown);
 impl RangeBaseAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls_Primitives'*"]
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Primitives::RangeBase>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<RangeBaseAutomationPeer> {
-        Self::IRangeBaseAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<RangeBaseAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Primitives::RangeBase>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<RangeBaseAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IRangeBaseAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<RangeBaseAutomationPeer>(result__)
+            })
+        } else {
+            Self::IRangeBaseAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<RangeBaseAutomationPeer>(result__)
+            })
+        }
     }
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
@@ -16923,11 +17331,19 @@ pub struct RatingControlAutomationPeer(::windows::core::IUnknown);
 impl RatingControlAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::RatingControl>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<RatingControlAutomationPeer> {
-        Self::IRatingControlAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<RatingControlAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::RatingControl>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<RatingControlAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IRatingControlAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<RatingControlAutomationPeer>(result__)
+            })
+        } else {
+            Self::IRatingControlAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<RatingControlAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IRatingControlAutomationPeerFactory<R, F: FnOnce(&IRatingControlAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -17112,11 +17528,19 @@ impl RepeatButtonAutomationPeer {
     }
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls_Primitives'*"]
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Primitives::RepeatButton>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<RepeatButtonAutomationPeer> {
-        Self::IRepeatButtonAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<RepeatButtonAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Primitives::RepeatButton>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<RepeatButtonAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IRepeatButtonAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<RepeatButtonAutomationPeer>(result__)
+            })
+        } else {
+            Self::IRepeatButtonAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<RepeatButtonAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IRepeatButtonAutomationPeerFactory<R, F: FnOnce(&IRepeatButtonAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -17304,11 +17728,19 @@ pub struct RichEditBoxAutomationPeer(::windows::core::IUnknown);
 impl RichEditBoxAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::RichEditBox>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<RichEditBoxAutomationPeer> {
-        Self::IRichEditBoxAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<RichEditBoxAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::RichEditBox>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<RichEditBoxAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IRichEditBoxAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<RichEditBoxAutomationPeer>(result__)
+            })
+        } else {
+            Self::IRichEditBoxAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<RichEditBoxAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IRichEditBoxAutomationPeerFactory<R, F: FnOnce(&IRichEditBoxAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -17450,11 +17882,19 @@ pub struct RichTextBlockAutomationPeer(::windows::core::IUnknown);
 impl RichTextBlockAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::RichTextBlock>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<RichTextBlockAutomationPeer> {
-        Self::IRichTextBlockAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<RichTextBlockAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::RichTextBlock>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<RichTextBlockAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IRichTextBlockAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<RichTextBlockAutomationPeer>(result__)
+            })
+        } else {
+            Self::IRichTextBlockAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<RichTextBlockAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IRichTextBlockAutomationPeerFactory<R, F: FnOnce(&IRichTextBlockAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -17596,11 +18036,19 @@ pub struct RichTextBlockOverflowAutomationPeer(::windows::core::IUnknown);
 impl RichTextBlockOverflowAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::RichTextBlockOverflow>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<RichTextBlockOverflowAutomationPeer> {
-        Self::IRichTextBlockOverflowAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<RichTextBlockOverflowAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::RichTextBlockOverflow>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<RichTextBlockOverflowAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IRichTextBlockOverflowAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<RichTextBlockOverflowAutomationPeer>(result__)
+            })
+        } else {
+            Self::IRichTextBlockOverflowAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<RichTextBlockOverflowAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IRichTextBlockOverflowAutomationPeerFactory<R, F: FnOnce(&IRichTextBlockOverflowAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -17742,11 +18190,19 @@ pub struct ScrollBarAutomationPeer(::windows::core::IUnknown);
 impl ScrollBarAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls_Primitives'*"]
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Primitives::ScrollBar>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ScrollBarAutomationPeer> {
-        Self::IScrollBarAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<ScrollBarAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Primitives::ScrollBar>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<ScrollBarAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IScrollBarAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ScrollBarAutomationPeer>(result__)
+            })
+        } else {
+            Self::IScrollBarAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ScrollBarAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IScrollBarAutomationPeerFactory<R, F: FnOnce(&IScrollBarAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -18000,11 +18456,19 @@ impl ScrollViewerAutomationPeer {
     }
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ScrollViewer>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ScrollViewerAutomationPeer> {
-        Self::IScrollViewerAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<ScrollViewerAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ScrollViewer>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<ScrollViewerAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IScrollViewerAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ScrollViewerAutomationPeer>(result__)
+            })
+        } else {
+            Self::IScrollViewerAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ScrollViewerAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IScrollViewerAutomationPeerFactory<R, F: FnOnce(&IScrollViewerAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -18172,11 +18636,19 @@ pub struct SearchBoxAutomationPeer(::windows::core::IUnknown);
 impl SearchBoxAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::SearchBox>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<SearchBoxAutomationPeer> {
-        Self::ISearchBoxAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<SearchBoxAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::SearchBox>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<SearchBoxAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::ISearchBoxAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<SearchBoxAutomationPeer>(result__)
+            })
+        } else {
+            Self::ISearchBoxAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<SearchBoxAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn ISearchBoxAutomationPeerFactory<R, F: FnOnce(&ISearchBoxAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -18345,11 +18817,19 @@ impl SelectorAutomationPeer {
     }
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls_Primitives'*"]
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Primitives::Selector>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<SelectorAutomationPeer> {
-        Self::ISelectorAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<SelectorAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Primitives::Selector>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<SelectorAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::ISelectorAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<SelectorAutomationPeer>(result__)
+            })
+        } else {
+            Self::ISelectorAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<SelectorAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn ISelectorAutomationPeerFactory<R, F: FnOnce(&ISelectorAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -18598,11 +19078,19 @@ impl SelectorItemAutomationPeer {
         unsafe { (::windows::core::Interface::vtable(this).Select)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
-    pub fn CreateInstanceWithParentAndItem<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, SelectorAutomationPeer>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(item: Param0, parent: Param1, baseinterface: Param2, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<SelectorItemAutomationPeer> {
-        Self::ISelectorItemAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithParentAndItem)(::core::mem::transmute_copy(this), item.into_param().abi(), parent.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<SelectorItemAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithParentAndItem<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, SelectorAutomationPeer>, T: ::windows::core::Compose>(item: Param0, parent: Param1, compose: ::core::option::Option<T>) -> ::windows::core::Result<SelectorItemAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::ISelectorItemAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithParentAndItem)(::core::mem::transmute_copy(this), item.into_param().abi(), parent.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<SelectorItemAutomationPeer>(result__)
+            })
+        } else {
+            Self::ISelectorItemAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithParentAndItem)(::core::mem::transmute_copy(this), item.into_param().abi(), parent.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<SelectorItemAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn ISelectorItemAutomationPeerFactory<R, F: FnOnce(&ISelectorItemAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -18796,11 +19284,19 @@ pub struct SemanticZoomAutomationPeer(::windows::core::IUnknown);
 impl SemanticZoomAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::SemanticZoom>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<SemanticZoomAutomationPeer> {
-        Self::ISemanticZoomAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<SemanticZoomAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::SemanticZoom>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<SemanticZoomAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::ISemanticZoomAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<SemanticZoomAutomationPeer>(result__)
+            })
+        } else {
+            Self::ISemanticZoomAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<SemanticZoomAutomationPeer>(result__)
+            })
+        }
     }
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
@@ -18983,11 +19479,19 @@ pub struct SettingsFlyoutAutomationPeer(::windows::core::IUnknown);
 impl SettingsFlyoutAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::SettingsFlyout>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<SettingsFlyoutAutomationPeer> {
-        Self::ISettingsFlyoutAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<SettingsFlyoutAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::SettingsFlyout>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<SettingsFlyoutAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::ISettingsFlyoutAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<SettingsFlyoutAutomationPeer>(result__)
+            })
+        } else {
+            Self::ISettingsFlyoutAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<SettingsFlyoutAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn ISettingsFlyoutAutomationPeerFactory<R, F: FnOnce(&ISettingsFlyoutAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -19129,11 +19633,19 @@ pub struct SliderAutomationPeer(::windows::core::IUnknown);
 impl SliderAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Slider>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<SliderAutomationPeer> {
-        Self::ISliderAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<SliderAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Slider>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<SliderAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::ISliderAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<SliderAutomationPeer>(result__)
+            })
+        } else {
+            Self::ISliderAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<SliderAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn ISliderAutomationPeerFactory<R, F: FnOnce(&ISliderAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -19321,11 +19833,19 @@ pub struct TextBlockAutomationPeer(::windows::core::IUnknown);
 impl TextBlockAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::TextBlock>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<TextBlockAutomationPeer> {
-        Self::ITextBlockAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<TextBlockAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::TextBlock>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<TextBlockAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::ITextBlockAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<TextBlockAutomationPeer>(result__)
+            })
+        } else {
+            Self::ITextBlockAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<TextBlockAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn ITextBlockAutomationPeerFactory<R, F: FnOnce(&ITextBlockAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -19467,11 +19987,19 @@ pub struct TextBoxAutomationPeer(::windows::core::IUnknown);
 impl TextBoxAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::TextBox>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<TextBoxAutomationPeer> {
-        Self::ITextBoxAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<TextBoxAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::TextBox>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<TextBoxAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::ITextBoxAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<TextBoxAutomationPeer>(result__)
+            })
+        } else {
+            Self::ITextBoxAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<TextBoxAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn ITextBoxAutomationPeerFactory<R, F: FnOnce(&ITextBoxAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -19613,11 +20141,19 @@ pub struct ThumbAutomationPeer(::windows::core::IUnknown);
 impl ThumbAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls_Primitives'*"]
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Primitives::Thumb>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ThumbAutomationPeer> {
-        Self::IThumbAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<ThumbAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Primitives::Thumb>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<ThumbAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IThumbAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ThumbAutomationPeer>(result__)
+            })
+        } else {
+            Self::IThumbAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ThumbAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IThumbAutomationPeerFactory<R, F: FnOnce(&IThumbAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -19759,11 +20295,19 @@ pub struct TimePickerAutomationPeer(::windows::core::IUnknown);
 impl TimePickerAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::TimePicker>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<TimePickerAutomationPeer> {
-        Self::ITimePickerAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<TimePickerAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::TimePicker>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<TimePickerAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::ITimePickerAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<TimePickerAutomationPeer>(result__)
+            })
+        } else {
+            Self::ITimePickerAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<TimePickerAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn ITimePickerAutomationPeerFactory<R, F: FnOnce(&ITimePickerAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -20037,11 +20581,19 @@ pub struct ToggleButtonAutomationPeer(::windows::core::IUnknown);
 impl ToggleButtonAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls_Primitives'*"]
     #[cfg(feature = "UI_Xaml_Controls_Primitives")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Primitives::ToggleButton>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ToggleButtonAutomationPeer> {
-        Self::IToggleButtonAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<ToggleButtonAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::Primitives::ToggleButton>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<ToggleButtonAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IToggleButtonAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ToggleButtonAutomationPeer>(result__)
+            })
+        } else {
+            Self::IToggleButtonAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ToggleButtonAutomationPeer>(result__)
+            })
+        }
     }
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
@@ -20244,11 +20796,19 @@ pub struct ToggleMenuFlyoutItemAutomationPeer(::windows::core::IUnknown);
 impl ToggleMenuFlyoutItemAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ToggleMenuFlyoutItem>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ToggleMenuFlyoutItemAutomationPeer> {
-        Self::IToggleMenuFlyoutItemAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<ToggleMenuFlyoutItemAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ToggleMenuFlyoutItem>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<ToggleMenuFlyoutItemAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IToggleMenuFlyoutItemAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ToggleMenuFlyoutItemAutomationPeer>(result__)
+            })
+        } else {
+            Self::IToggleMenuFlyoutItemAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ToggleMenuFlyoutItemAutomationPeer>(result__)
+            })
+        }
     }
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Automation_Provider'*"]
     #[cfg(feature = "UI_Xaml_Automation_Provider")]
@@ -20446,11 +21006,19 @@ impl ToggleSwitchAutomationPeer {
     }
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ToggleSwitch>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ToggleSwitchAutomationPeer> {
-        Self::IToggleSwitchAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<ToggleSwitchAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::ToggleSwitch>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<ToggleSwitchAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IToggleSwitchAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ToggleSwitchAutomationPeer>(result__)
+            })
+        } else {
+            Self::IToggleSwitchAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ToggleSwitchAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IToggleSwitchAutomationPeerFactory<R, F: FnOnce(&IToggleSwitchAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -20639,11 +21207,19 @@ impl TreeViewItemAutomationPeer {
     }
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::TreeViewItem>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<TreeViewItemAutomationPeer> {
-        Self::ITreeViewItemAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<TreeViewItemAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::TreeViewItem>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<TreeViewItemAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::ITreeViewItemAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<TreeViewItemAutomationPeer>(result__)
+            })
+        } else {
+            Self::ITreeViewItemAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<TreeViewItemAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn ITreeViewItemAutomationPeerFactory<R, F: FnOnce(&ITreeViewItemAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -20831,11 +21407,19 @@ pub struct TreeViewListAutomationPeer(::windows::core::IUnknown);
 impl TreeViewListAutomationPeer {
     #[doc = "*Required features: 'UI_Xaml_Automation_Peers', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
-    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::TreeViewList>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(owner: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<TreeViewListAutomationPeer> {
-        Self::ITreeViewListAutomationPeerFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<TreeViewListAutomationPeer>(result__)
-        })
+    pub fn CreateInstanceWithOwner<'a, Param0: ::windows::core::IntoParam<'a, super::super::Controls::TreeViewList>, T: ::windows::core::Compose>(owner: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<TreeViewListAutomationPeer> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::ITreeViewListAutomationPeerFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<TreeViewListAutomationPeer>(result__)
+            })
+        } else {
+            Self::ITreeViewListAutomationPeerFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithOwner)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<TreeViewListAutomationPeer>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn ITreeViewListAutomationPeerFactory<R, F: FnOnce(&ITreeViewListAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {

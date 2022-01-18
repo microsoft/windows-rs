@@ -4,11 +4,19 @@
 pub struct CustomXamlResourceLoader(::windows::core::IUnknown);
 impl CustomXamlResourceLoader {
     #[doc = "*Required features: 'UI_Xaml_Resources'*"]
-    pub fn new<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(baseinterface: Param0, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<CustomXamlResourceLoader> {
-        Self::ICustomXamlResourceLoaderFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<CustomXamlResourceLoader>(result__)
-        })
+    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<CustomXamlResourceLoader> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::ICustomXamlResourceLoaderFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<CustomXamlResourceLoader>(result__)
+            })
+        } else {
+            Self::ICustomXamlResourceLoaderFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<CustomXamlResourceLoader>(result__)
+            })
+        }
     }
     #[doc = "*Required features: 'UI_Xaml_Resources'*"]
     pub fn Current() -> ::windows::core::Result<CustomXamlResourceLoader> {

@@ -483,11 +483,19 @@ impl DesktopWindowXamlSource {
         }
     }
     #[doc = "*Required features: 'UI_Xaml_Hosting'*"]
-    pub fn new<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(baseinterface: Param0, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<DesktopWindowXamlSource> {
-        Self::IDesktopWindowXamlSourceFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<DesktopWindowXamlSource>(result__)
-        })
+    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<DesktopWindowXamlSource> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IDesktopWindowXamlSourceFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<DesktopWindowXamlSource>(result__)
+            })
+        } else {
+            Self::IDesktopWindowXamlSourceFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<DesktopWindowXamlSource>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IDesktopWindowXamlSourceFactory<R, F: FnOnce(&IDesktopWindowXamlSourceFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {

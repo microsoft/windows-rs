@@ -120,11 +120,19 @@ impl AcrylicBrush {
         unsafe { (::windows::core::Interface::vtable(this).SetTintLuminosityOpacity)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml_Media'*"]
-    pub fn new<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(baseinterface: Param0, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<AcrylicBrush> {
-        Self::IAcrylicBrushFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<AcrylicBrush>(result__)
-        })
+    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<AcrylicBrush> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IAcrylicBrushFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<AcrylicBrush>(result__)
+            })
+        } else {
+            Self::IAcrylicBrushFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<AcrylicBrush>(result__)
+            })
+        }
     }
     #[doc = "*Required features: 'UI_Xaml_Media'*"]
     pub fn BackgroundSourceProperty() -> ::windows::core::Result<super::DependencyProperty> {
@@ -2600,11 +2608,19 @@ impl FontFamily {
         }
     }
     #[doc = "*Required features: 'UI_Xaml_Media'*"]
-    pub fn CreateInstanceWithName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(familyname: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<FontFamily> {
-        Self::IFontFamilyFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithName)(::core::mem::transmute_copy(this), familyname.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<FontFamily>(result__)
-        })
+    pub fn CreateInstanceWithName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, T: ::windows::core::Compose>(familyname: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<FontFamily> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IFontFamilyFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithName)(::core::mem::transmute_copy(this), familyname.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<FontFamily>(result__)
+            })
+        } else {
+            Self::IFontFamilyFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithName)(::core::mem::transmute_copy(this), familyname.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<FontFamily>(result__)
+            })
+        }
     }
     #[doc = "*Required features: 'UI_Xaml_Media'*"]
     pub fn XamlAutoFontFamily() -> ::windows::core::Result<FontFamily> {
@@ -11053,11 +11069,19 @@ unsafe impl ::core::marker::Sync for RenderingEventArgs {}
 pub struct RevealBackgroundBrush(::windows::core::IUnknown);
 impl RevealBackgroundBrush {
     #[doc = "*Required features: 'UI_Xaml_Media'*"]
-    pub fn new<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(baseinterface: Param0, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<RevealBackgroundBrush> {
-        Self::IRevealBackgroundBrushFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<RevealBackgroundBrush>(result__)
-        })
+    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<RevealBackgroundBrush> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IRevealBackgroundBrushFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<RevealBackgroundBrush>(result__)
+            })
+        } else {
+            Self::IRevealBackgroundBrushFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<RevealBackgroundBrush>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IRevealBackgroundBrushFactory<R, F: FnOnce(&IRevealBackgroundBrushFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -11244,11 +11268,19 @@ unsafe impl ::core::marker::Sync for RevealBackgroundBrush {}
 pub struct RevealBorderBrush(::windows::core::IUnknown);
 impl RevealBorderBrush {
     #[doc = "*Required features: 'UI_Xaml_Media'*"]
-    pub fn new<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(baseinterface: Param0, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<RevealBorderBrush> {
-        Self::IRevealBorderBrushFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<RevealBorderBrush>(result__)
-        })
+    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<RevealBorderBrush> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IRevealBorderBrushFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<RevealBorderBrush>(result__)
+            })
+        } else {
+            Self::IRevealBorderBrushFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<RevealBorderBrush>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IRevealBorderBrushFactory<R, F: FnOnce(&IRevealBorderBrushFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -12789,11 +12821,19 @@ impl ThemeShadow {
         }
     }
     #[doc = "*Required features: 'UI_Xaml_Media'*"]
-    pub fn new<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(baseinterface: Param0, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ThemeShadow> {
-        Self::IThemeShadowFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<ThemeShadow>(result__)
-        })
+    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<ThemeShadow> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IThemeShadowFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ThemeShadow>(result__)
+            })
+        } else {
+            Self::IThemeShadowFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ThemeShadow>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IThemeShadowFactory<R, F: FnOnce(&IThemeShadowFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -14814,11 +14854,19 @@ unsafe impl ::core::marker::Sync for XamlCompositionBrushBase {}
 pub struct XamlLight(::windows::core::IUnknown);
 impl XamlLight {
     #[doc = "*Required features: 'UI_Xaml_Media'*"]
-    pub fn new<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(baseinterface: Param0, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<XamlLight> {
-        Self::IXamlLightFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<XamlLight>(result__)
-        })
+    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<XamlLight> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IXamlLightFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<XamlLight>(result__)
+            })
+        } else {
+            Self::IXamlLightFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<XamlLight>(result__)
+            })
+        }
     }
     #[doc = "*Required features: 'UI_Xaml_Media', 'UI_Composition'*"]
     #[cfg(feature = "UI_Composition")]

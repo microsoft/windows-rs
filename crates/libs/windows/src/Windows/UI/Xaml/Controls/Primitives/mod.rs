@@ -1339,11 +1339,19 @@ impl CarouselPanel {
         }
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
-    pub fn new<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(baseinterface: Param0, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<CarouselPanel> {
-        Self::ICarouselPanelFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<CarouselPanel>(result__)
-        })
+    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<CarouselPanel> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::ICarouselPanelFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<CarouselPanel>(result__)
+            })
+        } else {
+            Self::ICarouselPanelFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<CarouselPanel>(result__)
+            })
+        }
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
     pub fn AreHorizontalSnapPointsRegular(&self) -> ::windows::core::Result<bool> {
@@ -1674,11 +1682,19 @@ impl ColorPickerSlider {
         unsafe { (::windows::core::Interface::vtable(this).SetColorChannel)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
-    pub fn new<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(baseinterface: Param0, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ColorPickerSlider> {
-        Self::IColorPickerSliderFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<ColorPickerSlider>(result__)
-        })
+    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<ColorPickerSlider> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IColorPickerSliderFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ColorPickerSlider>(result__)
+            })
+        } else {
+            Self::IColorPickerSliderFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ColorPickerSlider>(result__)
+            })
+        }
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
     pub fn ColorChannelProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
@@ -2090,11 +2106,19 @@ impl ColorSpectrum {
         unsafe { (::windows::core::Interface::vtable(this).RemoveColorChanged)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
-    pub fn new<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(baseinterface: Param0, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ColorSpectrum> {
-        Self::IColorSpectrumFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<ColorSpectrum>(result__)
-        })
+    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<ColorSpectrum> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IColorSpectrumFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ColorSpectrum>(result__)
+            })
+        } else {
+            Self::IColorSpectrumFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ColorSpectrum>(result__)
+            })
+        }
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
     pub fn ColorProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
@@ -2523,11 +2547,19 @@ impl CommandBarFlyoutCommandBar {
         }
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
-    pub fn new<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(baseinterface: Param0, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<CommandBarFlyoutCommandBar> {
-        Self::ICommandBarFlyoutCommandBarFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<CommandBarFlyoutCommandBar>(result__)
-        })
+    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<CommandBarFlyoutCommandBar> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::ICommandBarFlyoutCommandBarFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<CommandBarFlyoutCommandBar>(result__)
+            })
+        } else {
+            Self::ICommandBarFlyoutCommandBarFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<CommandBarFlyoutCommandBar>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn ICommandBarFlyoutCommandBarFactory<R, F: FnOnce(&ICommandBarFlyoutCommandBarFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -3297,11 +3329,19 @@ impl DragCompletedEventArgs {
         }
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
-    pub fn CreateInstanceWithHorizontalChangeVerticalChangeAndCanceled<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(horizontalchange: f64, verticalchange: f64, canceled: bool, baseinterface: Param3, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<DragCompletedEventArgs> {
-        Self::IDragCompletedEventArgsFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithHorizontalChangeVerticalChangeAndCanceled)(::core::mem::transmute_copy(this), horizontalchange, verticalchange, canceled, baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<DragCompletedEventArgs>(result__)
-        })
+    pub fn CreateInstanceWithHorizontalChangeVerticalChangeAndCanceled<T: ::windows::core::Compose>(horizontalchange: f64, verticalchange: f64, canceled: bool, compose: ::core::option::Option<T>) -> ::windows::core::Result<DragCompletedEventArgs> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IDragCompletedEventArgsFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithHorizontalChangeVerticalChangeAndCanceled)(::core::mem::transmute_copy(this), horizontalchange, verticalchange, canceled, ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<DragCompletedEventArgs>(result__)
+            })
+        } else {
+            Self::IDragCompletedEventArgsFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithHorizontalChangeVerticalChangeAndCanceled)(::core::mem::transmute_copy(this), horizontalchange, verticalchange, canceled, ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<DragCompletedEventArgs>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IDragCompletedEventArgsFactory<R, F: FnOnce(&IDragCompletedEventArgsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -3496,11 +3536,19 @@ impl DragDeltaEventArgs {
         }
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
-    pub fn CreateInstanceWithHorizontalChangeAndVerticalChange<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(horizontalchange: f64, verticalchange: f64, baseinterface: Param2, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<DragDeltaEventArgs> {
-        Self::IDragDeltaEventArgsFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithHorizontalChangeAndVerticalChange)(::core::mem::transmute_copy(this), horizontalchange, verticalchange, baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<DragDeltaEventArgs>(result__)
-        })
+    pub fn CreateInstanceWithHorizontalChangeAndVerticalChange<T: ::windows::core::Compose>(horizontalchange: f64, verticalchange: f64, compose: ::core::option::Option<T>) -> ::windows::core::Result<DragDeltaEventArgs> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IDragDeltaEventArgsFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithHorizontalChangeAndVerticalChange)(::core::mem::transmute_copy(this), horizontalchange, verticalchange, ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<DragDeltaEventArgs>(result__)
+            })
+        } else {
+            Self::IDragDeltaEventArgsFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithHorizontalChangeAndVerticalChange)(::core::mem::transmute_copy(this), horizontalchange, verticalchange, ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<DragDeltaEventArgs>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IDragDeltaEventArgsFactory<R, F: FnOnce(&IDragDeltaEventArgsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -3695,11 +3743,19 @@ impl DragStartedEventArgs {
         }
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
-    pub fn CreateInstanceWithHorizontalOffsetAndVerticalOffset<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(horizontaloffset: f64, verticaloffset: f64, baseinterface: Param2, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<DragStartedEventArgs> {
-        Self::IDragStartedEventArgsFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithHorizontalOffsetAndVerticalOffset)(::core::mem::transmute_copy(this), horizontaloffset, verticaloffset, baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<DragStartedEventArgs>(result__)
-        })
+    pub fn CreateInstanceWithHorizontalOffsetAndVerticalOffset<T: ::windows::core::Compose>(horizontaloffset: f64, verticaloffset: f64, compose: ::core::option::Option<T>) -> ::windows::core::Result<DragStartedEventArgs> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IDragStartedEventArgsFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithHorizontalOffsetAndVerticalOffset)(::core::mem::transmute_copy(this), horizontaloffset, verticaloffset, ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<DragStartedEventArgs>(result__)
+            })
+        } else {
+            Self::IDragStartedEventArgsFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstanceWithHorizontalOffsetAndVerticalOffset)(::core::mem::transmute_copy(this), horizontaloffset, verticaloffset, ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<DragStartedEventArgs>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IDragStartedEventArgsFactory<R, F: FnOnce(&IDragStartedEventArgsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -4587,11 +4643,19 @@ impl FlyoutShowOptions {
         unsafe { (::windows::core::Interface::vtable(this).SetPlacement)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
-    pub fn new<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(baseinterface: Param0, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<FlyoutShowOptions> {
-        Self::IFlyoutShowOptionsFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<FlyoutShowOptions>(result__)
-        })
+    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<FlyoutShowOptions> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IFlyoutShowOptionsFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<FlyoutShowOptions>(result__)
+            })
+        } else {
+            Self::IFlyoutShowOptionsFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<FlyoutShowOptions>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IFlyoutShowOptionsFactory<R, F: FnOnce(&IFlyoutShowOptionsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -5138,11 +5202,19 @@ impl GridViewItemPresenter {
         unsafe { (::windows::core::Interface::vtable(this).SetContentMargin)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
-    pub fn new<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(baseinterface: Param0, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<GridViewItemPresenter> {
-        Self::IGridViewItemPresenterFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<GridViewItemPresenter>(result__)
-        })
+    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<GridViewItemPresenter> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IGridViewItemPresenterFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<GridViewItemPresenter>(result__)
+            })
+        } else {
+            Self::IGridViewItemPresenterFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<GridViewItemPresenter>(result__)
+            })
+        }
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
     pub fn SelectionCheckMarkVisualEnabledProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
@@ -10237,11 +10309,19 @@ impl ListViewItemPresenter {
         unsafe { (::windows::core::Interface::vtable(this).SetPointerOverBorderBrush)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
-    pub fn new<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(baseinterface: Param0, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ListViewItemPresenter> {
-        Self::IListViewItemPresenterFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<ListViewItemPresenter>(result__)
-        })
+    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<ListViewItemPresenter> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IListViewItemPresenterFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ListViewItemPresenter>(result__)
+            })
+        } else {
+            Self::IListViewItemPresenterFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ListViewItemPresenter>(result__)
+            })
+        }
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
     pub fn SelectionCheckMarkVisualEnabledProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
@@ -12163,11 +12243,19 @@ impl NavigationViewItemPresenter {
         unsafe { (::windows::core::Interface::vtable(this).SetIcon)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
-    pub fn new<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(baseinterface: Param0, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<NavigationViewItemPresenter> {
-        Self::INavigationViewItemPresenterFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<NavigationViewItemPresenter>(result__)
-        })
+    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<NavigationViewItemPresenter> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::INavigationViewItemPresenterFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<NavigationViewItemPresenter>(result__)
+            })
+        } else {
+            Self::INavigationViewItemPresenterFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<NavigationViewItemPresenter>(result__)
+            })
+        }
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
     pub fn IconProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
@@ -13052,11 +13140,19 @@ unsafe impl ::core::marker::Sync for PickerFlyoutBase {}
 pub struct PivotHeaderItem(::windows::core::IUnknown);
 impl PivotHeaderItem {
     #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
-    pub fn new<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(baseinterface: Param0, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<PivotHeaderItem> {
-        Self::IPivotHeaderItemFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<PivotHeaderItem>(result__)
-        })
+    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<PivotHeaderItem> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IPivotHeaderItemFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<PivotHeaderItem>(result__)
+            })
+        } else {
+            Self::IPivotHeaderItemFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<PivotHeaderItem>(result__)
+            })
+        }
     }
     #[doc(hidden)]
     pub fn IPivotHeaderItemFactory<R, F: FnOnce(&IPivotHeaderItemFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -17583,11 +17679,19 @@ impl ToggleButton {
         unsafe { (::windows::core::Interface::vtable(this).RemoveIndeterminate)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
-    pub fn new<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(baseinterface: Param0, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ToggleButton> {
-        Self::IToggleButtonFactory(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<ToggleButton>(result__)
-        })
+    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<ToggleButton> {
+        if let ::core::option::Option::Some(compose) = compose {
+            Self::IToggleButtonFactory(|this| unsafe {
+                let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ToggleButton>(result__)
+            })
+        } else {
+            Self::IToggleButtonFactory(|this| unsafe {
+                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ToggleButton>(result__)
+            })
+        }
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
     pub fn IsCheckedProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
