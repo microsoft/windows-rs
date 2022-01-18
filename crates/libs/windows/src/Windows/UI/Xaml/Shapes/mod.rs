@@ -874,10 +874,10 @@ impl Path {
         unsafe { (::windows::core::Interface::vtable(this).SetData)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml_Shapes'*"]
-    pub fn new() -> ::windows::core::Result<Path> {
+    pub fn new<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(baseinterface: Param0, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<Path> {
         Self::IPathFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<Path>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<Path>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Shapes'*"]

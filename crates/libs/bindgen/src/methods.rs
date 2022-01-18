@@ -2,7 +2,6 @@ use super::*;
 
 pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef,  method_names: &mut MethodNames, virtual_names: &mut MethodNames, gen: &Gen) -> TokenStream {
     let signature = method.signature(&def.generics);
-
     let params = if kind == InterfaceKind::Composable { &signature.params[..signature.params.len() - 2] } else { &signature.params };
 
     let name = if kind == InterfaceKind::Composable && signature.params.len() == 2 {
@@ -41,37 +40,40 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
         quote! {}
     };
 
-    // The ABI obviously still has the two composable parameters. Here we just pass the default in and out
-    // arguments to ensure the call succeeds in the non-aggregating case.
     let composable_args = match kind {
         InterfaceKind::Composable => quote! {
-            ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _,
+            ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _,
         },
         _ => quote! {},
     };
 
     // TODO: don't use Interface::vtable trait for winrt/winrt calls - just stamp out vtable type directly
 
-    let vcall = if let Some(return_sig) = &signature.return_sig {
+    let (vcall, vcall_none) = if let Some(return_sig) = &signature.return_sig {
         if return_sig.is_array {
-            quote! {
+            (quote! {
                 let mut result__: #return_type_tokens = ::core::mem::zeroed();
                 (::windows::core::Interface::vtable(this).#vname)(::core::mem::transmute_copy(this), #(#args,)* #composable_args #return_arg)
                     .and_then(|| result__ )
-            }
+            }, quote! {} )
         } else {
             let abi_type_name = gen_abi_element_name(return_sig, gen);
+            let args = quote! { #(#args,)* };
 
-            quote! {
+            (quote! {
                 let mut result__: #abi_type_name = ::core::mem::zeroed();
-                    (::windows::core::Interface::vtable(this).#vname)(::core::mem::transmute_copy(this), #(#args,)* #composable_args #return_arg)
+                    (::windows::core::Interface::vtable(this).#vname)(::core::mem::transmute_copy(this), #args #composable_args #return_arg)
                         .from_abi::<#return_type_tokens>(result__ )
-            }
+            }, quote! {
+                let mut result__: #abi_type_name = ::core::mem::zeroed();
+                    (::windows::core::Interface::vtable(this).#vname)(::core::mem::transmute_copy(this), #args ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, #return_arg)
+                        .from_abi::<#return_type_tokens>(result__ )
+            })
         }
     } else {
-        quote! {
+        (quote! {
             (::windows::core::Interface::vtable(this).#vname)(::core::mem::transmute_copy(this), #(#args,)* #composable_args).ok()
-        }
+        }, quote! {} )
     };
 
     match kind {
@@ -95,11 +97,26 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
                 }
             }
         }
-        InterfaceKind::Static | InterfaceKind::Composable => {
+        // TODO: for composable generate a different signature that lets you provide an Option<Composable> so non
+        // derived cases can just provide None for the derived type
+        InterfaceKind::Static => {
             quote! {
                 #cfg
                 pub fn #name<#constraints>(#params) -> ::windows::core::Result<#return_type_tokens> {
                     Self::#interface_name(|this| unsafe { #vcall })
+                }
+            }
+        }
+         InterfaceKind::Composable => {
+            quote! {
+                #cfg
+                pub fn #name<#constraints T: ::windows::core::Compose>(#params  compose: ::core::option::Option<T>) -> ::windows::core::Result<#return_type_tokens> {
+                    if let ::core::option::Option::Some(compose) = compose {
+                        Self::#interface_name(|this| unsafe {                         let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                            #vcall })
+                    } else {
+                        Self::#interface_name(|this| unsafe { #vcall_none })
+                    }
                 }
             }
         }

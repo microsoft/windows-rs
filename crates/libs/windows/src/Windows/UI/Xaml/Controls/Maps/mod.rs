@@ -19,10 +19,10 @@ impl CustomMapTileDataSource {
         unsafe { (::windows::core::Interface::vtable(this).RemoveBitmapRequested)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
-    pub fn new() -> ::windows::core::Result<CustomMapTileDataSource> {
+    pub fn new<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(baseinterface: Param0, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<CustomMapTileDataSource> {
         Self::ICustomMapTileDataSourceFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<CustomMapTileDataSource>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<CustomMapTileDataSource>(result__)
         })
     }
     #[doc(hidden)]
@@ -194,17 +194,17 @@ impl HttpMapTileDataSource {
         unsafe { (::windows::core::Interface::vtable(this).RemoveUriRequested)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
-    pub fn new() -> ::windows::core::Result<HttpMapTileDataSource> {
+    pub fn new<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(baseinterface: Param0, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<HttpMapTileDataSource> {
         Self::IHttpMapTileDataSourceFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<HttpMapTileDataSource>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<HttpMapTileDataSource>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
-    pub fn CreateInstanceWithUriFormatString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(uriformatstring: Param0) -> ::windows::core::Result<HttpMapTileDataSource> {
+    pub fn CreateInstanceWithUriFormatString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(uriformatstring: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<HttpMapTileDataSource> {
         Self::IHttpMapTileDataSourceFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithUriFormatString)(::core::mem::transmute_copy(this), uriformatstring.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<HttpMapTileDataSource>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceWithUriFormatString)(::core::mem::transmute_copy(this), uriformatstring.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<HttpMapTileDataSource>(result__)
         })
     }
     #[doc(hidden)]
@@ -2910,17 +2910,17 @@ impl LocalMapTileDataSource {
         unsafe { (::windows::core::Interface::vtable(this).RemoveUriRequested)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
-    pub fn new() -> ::windows::core::Result<LocalMapTileDataSource> {
+    pub fn new<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(baseinterface: Param0, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<LocalMapTileDataSource> {
         Self::ILocalMapTileDataSourceFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<LocalMapTileDataSource>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<LocalMapTileDataSource>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
-    pub fn CreateInstanceWithUriFormatString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(uriformatstring: Param0) -> ::windows::core::Result<LocalMapTileDataSource> {
+    pub fn CreateInstanceWithUriFormatString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(uriformatstring: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<LocalMapTileDataSource> {
         Self::ILocalMapTileDataSourceFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithUriFormatString)(::core::mem::transmute_copy(this), uriformatstring.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<LocalMapTileDataSource>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceWithUriFormatString)(::core::mem::transmute_copy(this), uriformatstring.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<LocalMapTileDataSource>(result__)
         })
     }
     #[doc(hidden)]
@@ -6424,10 +6424,10 @@ unsafe impl ::core::marker::Sync for MapControlTransitFeatureRightTappedEventArg
 pub struct MapCustomExperience(::windows::core::IUnknown);
 impl MapCustomExperience {
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
-    pub fn new() -> ::windows::core::Result<MapCustomExperience> {
+    pub fn new<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(baseinterface: Param0, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<MapCustomExperience> {
         Self::IMapCustomExperienceFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapCustomExperience>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<MapCustomExperience>(result__)
         })
     }
     #[doc(hidden)]
@@ -6700,10 +6700,10 @@ impl MapElement {
         unsafe { (::windows::core::Interface::vtable(this).SetIsEnabled)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
-    pub fn new() -> ::windows::core::Result<MapElement> {
+    pub fn new<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(baseinterface: Param0, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<MapElement> {
         Self::IMapElementFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapElement>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<MapElement>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
@@ -8677,10 +8677,10 @@ impl MapLayer {
         unsafe { (::windows::core::Interface::vtable(this).SetZIndex)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
-    pub fn new() -> ::windows::core::Result<MapLayer> {
+    pub fn new<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(baseinterface: Param0, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<MapLayer> {
         Self::IMapLayerFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapLayer>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<MapLayer>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
@@ -8838,10 +8838,10 @@ impl ::windows::core::DefaultType for MapLoadingStatus {
 pub struct MapModel3D(::windows::core::IUnknown);
 impl MapModel3D {
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
-    pub fn new() -> ::windows::core::Result<MapModel3D> {
+    pub fn new<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(baseinterface: Param0, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<MapModel3D> {
         Self::IMapModel3DFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapModel3D>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<MapModel3D>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps', 'Foundation', 'Storage_Streams'*"]
@@ -9598,10 +9598,10 @@ impl MapRouteView {
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps', 'Services_Maps'*"]
     #[cfg(feature = "Services_Maps")]
-    pub fn CreateInstanceWithMapRoute<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Services::Maps::MapRoute>>(route: Param0) -> ::windows::core::Result<MapRouteView> {
+    pub fn CreateInstanceWithMapRoute<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Services::Maps::MapRoute>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(route: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<MapRouteView> {
         Self::IMapRouteViewFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithMapRoute)(::core::mem::transmute_copy(this), route.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapRouteView>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceWithMapRoute)(::core::mem::transmute_copy(this), route.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<MapRouteView>(result__)
         })
     }
     #[doc(hidden)]
@@ -11017,10 +11017,10 @@ unsafe impl ::core::marker::Sync for MapTileBitmapRequestedEventArgs {}
 pub struct MapTileDataSource(::windows::core::IUnknown);
 impl MapTileDataSource {
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
-    pub fn new() -> ::windows::core::Result<MapTileDataSource> {
+    pub fn new<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(baseinterface: Param0, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<MapTileDataSource> {
         Self::IMapTileDataSourceFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapTileDataSource>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<MapTileDataSource>(result__)
         })
     }
     #[doc(hidden)]
@@ -11362,40 +11362,40 @@ impl MapTileSource {
         unsafe { (::windows::core::Interface::vtable(this).Stop)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
-    pub fn new() -> ::windows::core::Result<MapTileSource> {
+    pub fn new<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(baseinterface: Param0, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<MapTileSource> {
         Self::IMapTileSourceFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
-    pub fn CreateInstanceWithDataSource<'a, Param0: ::windows::core::IntoParam<'a, MapTileDataSource>>(datasource: Param0) -> ::windows::core::Result<MapTileSource> {
+    pub fn CreateInstanceWithDataSource<'a, Param0: ::windows::core::IntoParam<'a, MapTileDataSource>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(datasource: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<MapTileSource> {
         Self::IMapTileSourceFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithDataSource)(::core::mem::transmute_copy(this), datasource.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceWithDataSource)(::core::mem::transmute_copy(this), datasource.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
-    pub fn CreateInstanceWithDataSourceAndZoomRange<'a, Param0: ::windows::core::IntoParam<'a, MapTileDataSource>, Param1: ::windows::core::IntoParam<'a, MapZoomLevelRange>>(datasource: Param0, zoomlevelrange: Param1) -> ::windows::core::Result<MapTileSource> {
+    pub fn CreateInstanceWithDataSourceAndZoomRange<'a, Param0: ::windows::core::IntoParam<'a, MapTileDataSource>, Param1: ::windows::core::IntoParam<'a, MapZoomLevelRange>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(datasource: Param0, zoomlevelrange: Param1, baseinterface: Param2, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<MapTileSource> {
         Self::IMapTileSourceFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithDataSourceAndZoomRange)(::core::mem::transmute_copy(this), datasource.into_param().abi(), zoomlevelrange.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceWithDataSourceAndZoomRange)(::core::mem::transmute_copy(this), datasource.into_param().abi(), zoomlevelrange.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps', 'Devices_Geolocation'*"]
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn CreateInstanceWithDataSourceZoomRangeAndBounds<'a, Param0: ::windows::core::IntoParam<'a, MapTileDataSource>, Param1: ::windows::core::IntoParam<'a, MapZoomLevelRange>, Param2: ::windows::core::IntoParam<'a, super::super::super::super::Devices::Geolocation::GeoboundingBox>>(datasource: Param0, zoomlevelrange: Param1, bounds: Param2) -> ::windows::core::Result<MapTileSource> {
+    pub fn CreateInstanceWithDataSourceZoomRangeAndBounds<'a, Param0: ::windows::core::IntoParam<'a, MapTileDataSource>, Param1: ::windows::core::IntoParam<'a, MapZoomLevelRange>, Param2: ::windows::core::IntoParam<'a, super::super::super::super::Devices::Geolocation::GeoboundingBox>, Param3: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(datasource: Param0, zoomlevelrange: Param1, bounds: Param2, baseinterface: Param3, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<MapTileSource> {
         Self::IMapTileSourceFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithDataSourceZoomRangeAndBounds)(::core::mem::transmute_copy(this), datasource.into_param().abi(), zoomlevelrange.into_param().abi(), bounds.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceWithDataSourceZoomRangeAndBounds)(::core::mem::transmute_copy(this), datasource.into_param().abi(), zoomlevelrange.into_param().abi(), bounds.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps', 'Devices_Geolocation'*"]
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn CreateInstanceWithDataSourceZoomRangeBoundsAndTileSize<'a, Param0: ::windows::core::IntoParam<'a, MapTileDataSource>, Param1: ::windows::core::IntoParam<'a, MapZoomLevelRange>, Param2: ::windows::core::IntoParam<'a, super::super::super::super::Devices::Geolocation::GeoboundingBox>>(datasource: Param0, zoomlevelrange: Param1, bounds: Param2, tilesizeinpixels: i32) -> ::windows::core::Result<MapTileSource> {
+    pub fn CreateInstanceWithDataSourceZoomRangeBoundsAndTileSize<'a, Param0: ::windows::core::IntoParam<'a, MapTileDataSource>, Param1: ::windows::core::IntoParam<'a, MapZoomLevelRange>, Param2: ::windows::core::IntoParam<'a, super::super::super::super::Devices::Geolocation::GeoboundingBox>, Param4: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(datasource: Param0, zoomlevelrange: Param1, bounds: Param2, tilesizeinpixels: i32, baseinterface: Param4, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<MapTileSource> {
         Self::IMapTileSourceFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithDataSourceZoomRangeBoundsAndTileSize)(::core::mem::transmute_copy(this), datasource.into_param().abi(), zoomlevelrange.into_param().abi(), bounds.into_param().abi(), tilesizeinpixels, ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceWithDataSourceZoomRangeBoundsAndTileSize)(::core::mem::transmute_copy(this), datasource.into_param().abi(), zoomlevelrange.into_param().abi(), bounds.into_param().abi(), tilesizeinpixels, baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]

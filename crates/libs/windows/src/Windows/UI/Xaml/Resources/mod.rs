@@ -4,10 +4,10 @@
 pub struct CustomXamlResourceLoader(::windows::core::IUnknown);
 impl CustomXamlResourceLoader {
     #[doc = "*Required features: 'UI_Xaml_Resources'*"]
-    pub fn new() -> ::windows::core::Result<CustomXamlResourceLoader> {
+    pub fn new<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(baseinterface: Param0, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<CustomXamlResourceLoader> {
         Self::ICustomXamlResourceLoaderFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<CustomXamlResourceLoader>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<CustomXamlResourceLoader>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Resources'*"]

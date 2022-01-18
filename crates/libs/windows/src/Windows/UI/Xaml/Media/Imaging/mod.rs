@@ -1618,17 +1618,17 @@ unsafe impl ::core::marker::Sync for SoftwareBitmapSource {}
 pub struct SurfaceImageSource(::windows::core::IUnknown);
 impl SurfaceImageSource {
     #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
-    pub fn CreateInstanceWithDimensions(pixelwidth: i32, pixelheight: i32) -> ::windows::core::Result<SurfaceImageSource> {
+    pub fn CreateInstanceWithDimensions<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(pixelwidth: i32, pixelheight: i32, baseinterface: Param2, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<SurfaceImageSource> {
         Self::ISurfaceImageSourceFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithDimensions)(::core::mem::transmute_copy(this), pixelwidth, pixelheight, ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<SurfaceImageSource>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceWithDimensions)(::core::mem::transmute_copy(this), pixelwidth, pixelheight, baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<SurfaceImageSource>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
-    pub fn CreateInstanceWithDimensionsAndOpacity(pixelwidth: i32, pixelheight: i32, isopaque: bool) -> ::windows::core::Result<SurfaceImageSource> {
+    pub fn CreateInstanceWithDimensionsAndOpacity<'a, Param3: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(pixelwidth: i32, pixelheight: i32, isopaque: bool, baseinterface: Param3, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<SurfaceImageSource> {
         Self::ISurfaceImageSourceFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithDimensionsAndOpacity)(::core::mem::transmute_copy(this), pixelwidth, pixelheight, isopaque, ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<SurfaceImageSource>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceWithDimensionsAndOpacity)(::core::mem::transmute_copy(this), pixelwidth, pixelheight, isopaque, baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<SurfaceImageSource>(result__)
         })
     }
     #[doc(hidden)]
@@ -1830,18 +1830,18 @@ impl SvgImageSource {
         }
     }
     #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
-    pub fn new() -> ::windows::core::Result<SvgImageSource> {
+    pub fn new<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(baseinterface: Param0, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<SvgImageSource> {
         Self::ISvgImageSourceFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<SvgImageSource>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<SvgImageSource>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Media_Imaging', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateInstanceWithUriSource<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Uri>>(urisource: Param0) -> ::windows::core::Result<SvgImageSource> {
+    pub fn CreateInstanceWithUriSource<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(urisource: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<SvgImageSource> {
         Self::ISvgImageSourceFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithUriSource)(::core::mem::transmute_copy(this), urisource.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<SvgImageSource>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceWithUriSource)(::core::mem::transmute_copy(this), urisource.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<SvgImageSource>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]

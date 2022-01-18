@@ -269,10 +269,10 @@ unsafe impl ::core::marker::Sync for BackEase {}
 pub struct BasicConnectedAnimationConfiguration(::windows::core::IUnknown);
 impl BasicConnectedAnimationConfiguration {
     #[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
-    pub fn new() -> ::windows::core::Result<BasicConnectedAnimationConfiguration> {
+    pub fn new<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(baseinterface: Param0, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<BasicConnectedAnimationConfiguration> {
         Self::IBasicConnectedAnimationConfigurationFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<BasicConnectedAnimationConfiguration>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<BasicConnectedAnimationConfiguration>(result__)
         })
     }
     #[doc(hidden)]
@@ -2645,10 +2645,10 @@ unsafe impl ::core::marker::Sync for CubicEase {}
 pub struct DirectConnectedAnimationConfiguration(::windows::core::IUnknown);
 impl DirectConnectedAnimationConfiguration {
     #[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
-    pub fn new() -> ::windows::core::Result<DirectConnectedAnimationConfiguration> {
+    pub fn new<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(baseinterface: Param0, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<DirectConnectedAnimationConfiguration> {
         Self::IDirectConnectedAnimationConfigurationFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<DirectConnectedAnimationConfiguration>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<DirectConnectedAnimationConfiguration>(result__)
         })
     }
     #[doc(hidden)]
@@ -6731,10 +6731,10 @@ impl GravityConnectedAnimationConfiguration {
         unsafe { (::windows::core::Interface::vtable(this).SetIsShadowEnabled)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
-    pub fn new() -> ::windows::core::Result<GravityConnectedAnimationConfiguration> {
+    pub fn new<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(baseinterface: Param0, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<GravityConnectedAnimationConfiguration> {
         Self::IGravityConnectedAnimationConfigurationFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<GravityConnectedAnimationConfiguration>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<GravityConnectedAnimationConfiguration>(result__)
         })
     }
     #[doc(hidden)]

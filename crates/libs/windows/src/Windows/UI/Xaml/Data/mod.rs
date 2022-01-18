@@ -147,10 +147,10 @@ impl Binding {
         unsafe { (::windows::core::Interface::vtable(this).SetUpdateSourceTrigger)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml_Data'*"]
-    pub fn new() -> ::windows::core::Result<Binding> {
+    pub fn new<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(baseinterface: Param0, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<Binding> {
         Self::IBindingFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<Binding>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<Binding>(result__)
         })
     }
     #[doc(hidden)]
@@ -272,10 +272,10 @@ unsafe impl ::core::marker::Sync for Binding {}
 pub struct BindingBase(::windows::core::IUnknown);
 impl BindingBase {
     #[doc = "*Required features: 'UI_Xaml_Data'*"]
-    pub fn new() -> ::windows::core::Result<BindingBase> {
+    pub fn new<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(baseinterface: Param0, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<BindingBase> {
         Self::IBindingBaseFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<BindingBase>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<BindingBase>(result__)
         })
     }
     #[doc(hidden)]
@@ -875,17 +875,17 @@ impl CurrentChangingEventArgs {
         }
     }
     #[doc = "*Required features: 'UI_Xaml_Data'*"]
-    pub fn new() -> ::windows::core::Result<CurrentChangingEventArgs> {
+    pub fn new<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(baseinterface: Param0, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<CurrentChangingEventArgs> {
         Self::ICurrentChangingEventArgsFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<CurrentChangingEventArgs>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<CurrentChangingEventArgs>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Data'*"]
-    pub fn CreateWithCancelableParameter(iscancelable: bool) -> ::windows::core::Result<CurrentChangingEventArgs> {
+    pub fn CreateWithCancelableParameter<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(iscancelable: bool, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<CurrentChangingEventArgs> {
         Self::ICurrentChangingEventArgsFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateWithCancelableParameter)(::core::mem::transmute_copy(this), iscancelable, ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<CurrentChangingEventArgs>(result__)
+            (::windows::core::Interface::vtable(this).CreateWithCancelableParameter)(::core::mem::transmute_copy(this), iscancelable, baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<CurrentChangingEventArgs>(result__)
         })
     }
     #[doc(hidden)]
@@ -2772,10 +2772,10 @@ impl ItemIndexRange {
         }
     }
     #[doc = "*Required features: 'UI_Xaml_Data'*"]
-    pub fn CreateInstance(firstindex: i32, length: u32) -> ::windows::core::Result<ItemIndexRange> {
+    pub fn CreateInstance<'a, Param2: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(firstindex: i32, length: u32, baseinterface: Param2, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ItemIndexRange> {
         Self::IItemIndexRangeFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), firstindex, length, ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ItemIndexRange>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), firstindex, length, baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<ItemIndexRange>(result__)
         })
     }
     #[doc(hidden)]
@@ -2901,10 +2901,10 @@ impl PropertyChangedEventArgs {
         }
     }
     #[doc = "*Required features: 'UI_Xaml_Data'*"]
-    pub fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(name: Param0) -> ::windows::core::Result<PropertyChangedEventArgs> {
+    pub fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(name: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<PropertyChangedEventArgs> {
         Self::IPropertyChangedEventArgsFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), name.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<PropertyChangedEventArgs>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), name.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<PropertyChangedEventArgs>(result__)
         })
     }
     #[doc(hidden)]
@@ -3077,10 +3077,10 @@ impl RelativeSource {
         unsafe { (::windows::core::Interface::vtable(this).SetMode)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml_Data'*"]
-    pub fn new() -> ::windows::core::Result<RelativeSource> {
+    pub fn new<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(baseinterface: Param0, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<RelativeSource> {
         Self::IRelativeSourceFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<RelativeSource>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<RelativeSource>(result__)
         })
     }
     #[doc(hidden)]

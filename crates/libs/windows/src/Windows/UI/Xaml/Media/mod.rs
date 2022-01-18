@@ -120,10 +120,10 @@ impl AcrylicBrush {
         unsafe { (::windows::core::Interface::vtable(this).SetTintLuminosityOpacity)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml_Media'*"]
-    pub fn new() -> ::windows::core::Result<AcrylicBrush> {
+    pub fn new<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(baseinterface: Param0, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<AcrylicBrush> {
         Self::IAcrylicBrushFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<AcrylicBrush>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<AcrylicBrush>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Media'*"]
@@ -2600,10 +2600,10 @@ impl FontFamily {
         }
     }
     #[doc = "*Required features: 'UI_Xaml_Media'*"]
-    pub fn CreateInstanceWithName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(familyname: Param0) -> ::windows::core::Result<FontFamily> {
+    pub fn CreateInstanceWithName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(familyname: Param0, baseinterface: Param1, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<FontFamily> {
         Self::IFontFamilyFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstanceWithName)(::core::mem::transmute_copy(this), familyname.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<FontFamily>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstanceWithName)(::core::mem::transmute_copy(this), familyname.into_param().abi(), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<FontFamily>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Media'*"]
@@ -11053,10 +11053,10 @@ unsafe impl ::core::marker::Sync for RenderingEventArgs {}
 pub struct RevealBackgroundBrush(::windows::core::IUnknown);
 impl RevealBackgroundBrush {
     #[doc = "*Required features: 'UI_Xaml_Media'*"]
-    pub fn new() -> ::windows::core::Result<RevealBackgroundBrush> {
+    pub fn new<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(baseinterface: Param0, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<RevealBackgroundBrush> {
         Self::IRevealBackgroundBrushFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<RevealBackgroundBrush>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<RevealBackgroundBrush>(result__)
         })
     }
     #[doc(hidden)]
@@ -11244,10 +11244,10 @@ unsafe impl ::core::marker::Sync for RevealBackgroundBrush {}
 pub struct RevealBorderBrush(::windows::core::IUnknown);
 impl RevealBorderBrush {
     #[doc = "*Required features: 'UI_Xaml_Media'*"]
-    pub fn new() -> ::windows::core::Result<RevealBorderBrush> {
+    pub fn new<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(baseinterface: Param0, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<RevealBorderBrush> {
         Self::IRevealBorderBrushFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<RevealBorderBrush>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<RevealBorderBrush>(result__)
         })
     }
     #[doc(hidden)]
@@ -12789,10 +12789,10 @@ impl ThemeShadow {
         }
     }
     #[doc = "*Required features: 'UI_Xaml_Media'*"]
-    pub fn new() -> ::windows::core::Result<ThemeShadow> {
+    pub fn new<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(baseinterface: Param0, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<ThemeShadow> {
         Self::IThemeShadowFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ThemeShadow>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<ThemeShadow>(result__)
         })
     }
     #[doc(hidden)]
@@ -14814,10 +14814,10 @@ unsafe impl ::core::marker::Sync for XamlCompositionBrushBase {}
 pub struct XamlLight(::windows::core::IUnknown);
 impl XamlLight {
     #[doc = "*Required features: 'UI_Xaml_Media'*"]
-    pub fn new() -> ::windows::core::Result<XamlLight> {
+    pub fn new<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(baseinterface: Param0, innerinterface: &mut ::core::option::Option<::windows::core::IInspectable>) -> ::windows::core::Result<XamlLight> {
         Self::IXamlLightFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<XamlLight>(result__)
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), baseinterface.into_param().abi(), innerinterface as *mut _ as _, &mut result__).from_abi::<XamlLight>(result__)
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Media', 'UI_Composition'*"]
