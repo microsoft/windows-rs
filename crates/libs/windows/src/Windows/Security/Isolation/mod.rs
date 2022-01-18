@@ -801,6 +801,7 @@ unsafe impl ::core::marker::Send for IsolatedWindowsEnvironment {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironment {}
 #[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct IsolatedWindowsEnvironmentActivator(pub i32);
 impl IsolatedWindowsEnvironmentActivator {
     pub const System: Self = Self(0i32);
@@ -815,12 +816,6 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentActivator {
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentActivator {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentActivator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IsolatedWindowsEnvironmentActivator {}
 impl ::core::fmt::Debug for IsolatedWindowsEnvironmentActivator {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IsolatedWindowsEnvironmentActivator").field(&self.0).finish()
@@ -834,6 +829,7 @@ impl ::windows::core::DefaultType for IsolatedWindowsEnvironmentActivator {
 }
 #[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct IsolatedWindowsEnvironmentAllowedClipboardFormats(pub u32);
 impl IsolatedWindowsEnvironmentAllowedClipboardFormats {
     pub const None: Self = Self(0u32);
@@ -849,12 +845,6 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentAllowedClipboardFormats 
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentAllowedClipboardFormats {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentAllowedClipboardFormats {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IsolatedWindowsEnvironmentAllowedClipboardFormats {}
 impl ::core::fmt::Debug for IsolatedWindowsEnvironmentAllowedClipboardFormats {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IsolatedWindowsEnvironmentAllowedClipboardFormats").field(&self.0).finish()
@@ -896,6 +886,7 @@ impl ::windows::core::DefaultType for IsolatedWindowsEnvironmentAllowedClipboard
 }
 #[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct IsolatedWindowsEnvironmentAvailablePrinters(pub u32);
 impl IsolatedWindowsEnvironmentAvailablePrinters {
     pub const None: Self = Self(0u32);
@@ -913,12 +904,6 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentAvailablePrinters {
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentAvailablePrinters {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentAvailablePrinters {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IsolatedWindowsEnvironmentAvailablePrinters {}
 impl ::core::fmt::Debug for IsolatedWindowsEnvironmentAvailablePrinters {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IsolatedWindowsEnvironmentAvailablePrinters").field(&self.0).finish()
@@ -960,6 +945,7 @@ impl ::windows::core::DefaultType for IsolatedWindowsEnvironmentAvailablePrinter
 }
 #[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct IsolatedWindowsEnvironmentClipboardCopyPasteDirections(pub u32);
 impl IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
     pub const None: Self = Self(0u32);
@@ -975,12 +961,6 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentClipboardCopyPasteDirect
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {}
 impl ::core::fmt::Debug for IsolatedWindowsEnvironmentClipboardCopyPasteDirections {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IsolatedWindowsEnvironmentClipboardCopyPasteDirections").field(&self.0).finish()
@@ -1156,6 +1136,7 @@ unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentCreateResult {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentCreateResult {}
 #[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct IsolatedWindowsEnvironmentCreateStatus(pub i32);
 impl IsolatedWindowsEnvironmentCreateStatus {
     pub const Success: Self = Self(0i32);
@@ -1171,12 +1152,6 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentCreateStatus {
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentCreateStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentCreateStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IsolatedWindowsEnvironmentCreateStatus {}
 impl ::core::fmt::Debug for IsolatedWindowsEnvironmentCreateStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IsolatedWindowsEnvironmentCreateStatus").field(&self.0).finish()
@@ -1327,6 +1302,7 @@ impl ::windows::core::RuntimeName for IsolatedWindowsEnvironmentHost {
 }
 #[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct IsolatedWindowsEnvironmentHostError(pub i32);
 impl IsolatedWindowsEnvironmentHostError {
     pub const AdminPolicyIsDisabledOrNotPresent: Self = Self(0i32);
@@ -1344,12 +1320,6 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentHostError {
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentHostError {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentHostError {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IsolatedWindowsEnvironmentHostError {}
 impl ::core::fmt::Debug for IsolatedWindowsEnvironmentHostError {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IsolatedWindowsEnvironmentHostError").field(&self.0).finish()
@@ -1460,6 +1430,7 @@ unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentLaunchFileResult 
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentLaunchFileResult {}
 #[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct IsolatedWindowsEnvironmentLaunchFileStatus(pub i32);
 impl IsolatedWindowsEnvironmentLaunchFileStatus {
     pub const Success: Self = Self(0i32);
@@ -1478,12 +1449,6 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentLaunchFileStatus {
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentLaunchFileStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentLaunchFileStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IsolatedWindowsEnvironmentLaunchFileStatus {}
 impl ::core::fmt::Debug for IsolatedWindowsEnvironmentLaunchFileStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IsolatedWindowsEnvironmentLaunchFileStatus").field(&self.0).finish()
@@ -1930,6 +1895,7 @@ unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentOwnerRegistration
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentOwnerRegistrationResult {}
 #[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct IsolatedWindowsEnvironmentOwnerRegistrationStatus(pub i32);
 impl IsolatedWindowsEnvironmentOwnerRegistrationStatus {
     pub const Success: Self = Self(0i32);
@@ -1947,12 +1913,6 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentOwnerRegistrationStatus 
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentOwnerRegistrationStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentOwnerRegistrationStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IsolatedWindowsEnvironmentOwnerRegistrationStatus {}
 impl ::core::fmt::Debug for IsolatedWindowsEnvironmentOwnerRegistrationStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IsolatedWindowsEnvironmentOwnerRegistrationStatus").field(&self.0).finish()
@@ -2055,6 +2015,7 @@ unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentPostMessageResult
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentPostMessageResult {}
 #[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct IsolatedWindowsEnvironmentPostMessageStatus(pub i32);
 impl IsolatedWindowsEnvironmentPostMessageStatus {
     pub const Success: Self = Self(0i32);
@@ -2070,12 +2031,6 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentPostMessageStatus {
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentPostMessageStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentPostMessageStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IsolatedWindowsEnvironmentPostMessageStatus {}
 impl ::core::fmt::Debug for IsolatedWindowsEnvironmentPostMessageStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IsolatedWindowsEnvironmentPostMessageStatus").field(&self.0).finish()
@@ -2197,6 +2152,7 @@ unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentProcess {}
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentProcess {}
 #[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct IsolatedWindowsEnvironmentProcessState(pub i32);
 impl IsolatedWindowsEnvironmentProcessState {
     pub const Running: Self = Self(1i32);
@@ -2212,12 +2168,6 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentProcessState {
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentProcessState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentProcessState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IsolatedWindowsEnvironmentProcessState {}
 impl ::core::fmt::Debug for IsolatedWindowsEnvironmentProcessState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IsolatedWindowsEnvironmentProcessState").field(&self.0).finish()
@@ -2231,6 +2181,7 @@ impl ::windows::core::DefaultType for IsolatedWindowsEnvironmentProcessState {
 }
 #[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct IsolatedWindowsEnvironmentProgressState(pub i32);
 impl IsolatedWindowsEnvironmentProgressState {
     pub const Queued: Self = Self(0i32);
@@ -2246,12 +2197,6 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentProgressState {
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentProgressState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentProgressState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IsolatedWindowsEnvironmentProgressState {}
 impl ::core::fmt::Debug for IsolatedWindowsEnvironmentProgressState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IsolatedWindowsEnvironmentProgressState").field(&self.0).finish()
@@ -2455,6 +2400,7 @@ unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentShareFileResult {
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentShareFileResult {}
 #[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct IsolatedWindowsEnvironmentShareFileStatus(pub i32);
 impl IsolatedWindowsEnvironmentShareFileStatus {
     pub const Success: Self = Self(0i32);
@@ -2473,12 +2419,6 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentShareFileStatus {
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentShareFileStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentShareFileStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IsolatedWindowsEnvironmentShareFileStatus {}
 impl ::core::fmt::Debug for IsolatedWindowsEnvironmentShareFileStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IsolatedWindowsEnvironmentShareFileStatus").field(&self.0).finish()
@@ -2674,6 +2614,7 @@ unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentShareFolderResult
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentShareFolderResult {}
 #[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct IsolatedWindowsEnvironmentShareFolderStatus(pub i32);
 impl IsolatedWindowsEnvironmentShareFolderStatus {
     pub const Success: Self = Self(0i32);
@@ -2691,12 +2632,6 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentShareFolderStatus {
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentShareFolderStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentShareFolderStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IsolatedWindowsEnvironmentShareFolderStatus {}
 impl ::core::fmt::Debug for IsolatedWindowsEnvironmentShareFolderStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IsolatedWindowsEnvironmentShareFolderStatus").field(&self.0).finish()
@@ -2807,6 +2742,7 @@ unsafe impl ::core::marker::Send for IsolatedWindowsEnvironmentStartProcessResul
 unsafe impl ::core::marker::Sync for IsolatedWindowsEnvironmentStartProcessResult {}
 #[doc = "*Required features: 'Security_Isolation'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct IsolatedWindowsEnvironmentStartProcessStatus(pub i32);
 impl IsolatedWindowsEnvironmentStartProcessStatus {
     pub const Success: Self = Self(0i32);
@@ -2824,12 +2760,6 @@ impl ::core::clone::Clone for IsolatedWindowsEnvironmentStartProcessStatus {
 unsafe impl ::windows::core::Abi for IsolatedWindowsEnvironmentStartProcessStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for IsolatedWindowsEnvironmentStartProcessStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IsolatedWindowsEnvironmentStartProcessStatus {}
 impl ::core::fmt::Debug for IsolatedWindowsEnvironmentStartProcessStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IsolatedWindowsEnvironmentStartProcessStatus").field(&self.0).finish()

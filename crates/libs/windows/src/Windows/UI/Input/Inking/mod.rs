@@ -7,6 +7,7 @@ pub mod Core;
 pub mod Preview;
 #[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HandwritingLineHeight(pub i32);
 impl HandwritingLineHeight {
     pub const Small: Self = Self(0i32);
@@ -22,12 +23,6 @@ impl ::core::clone::Clone for HandwritingLineHeight {
 unsafe impl ::windows::core::Abi for HandwritingLineHeight {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for HandwritingLineHeight {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HandwritingLineHeight {}
 impl ::core::fmt::Debug for HandwritingLineHeight {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HandwritingLineHeight").field(&self.0).finish()
@@ -1790,6 +1785,7 @@ unsafe impl ::core::marker::Send for InkDrawingAttributes {}
 unsafe impl ::core::marker::Sync for InkDrawingAttributes {}
 #[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct InkDrawingAttributesKind(pub i32);
 impl InkDrawingAttributesKind {
     pub const Default: Self = Self(0i32);
@@ -1804,12 +1800,6 @@ impl ::core::clone::Clone for InkDrawingAttributesKind {
 unsafe impl ::windows::core::Abi for InkDrawingAttributesKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for InkDrawingAttributesKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InkDrawingAttributesKind {}
 impl ::core::fmt::Debug for InkDrawingAttributesKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("InkDrawingAttributesKind").field(&self.0).finish()
@@ -1909,6 +1899,7 @@ unsafe impl ::core::marker::Send for InkDrawingAttributesPencilProperties {}
 unsafe impl ::core::marker::Sync for InkDrawingAttributesPencilProperties {}
 #[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct InkHighContrastAdjustment(pub i32);
 impl InkHighContrastAdjustment {
     pub const UseSystemColorsWhenNecessary: Self = Self(0i32);
@@ -1924,12 +1915,6 @@ impl ::core::clone::Clone for InkHighContrastAdjustment {
 unsafe impl ::windows::core::Abi for InkHighContrastAdjustment {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for InkHighContrastAdjustment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InkHighContrastAdjustment {}
 impl ::core::fmt::Debug for InkHighContrastAdjustment {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("InkHighContrastAdjustment").field(&self.0).finish()
@@ -2154,6 +2139,7 @@ unsafe impl ::core::marker::Send for InkInputProcessingConfiguration {}
 unsafe impl ::core::marker::Sync for InkInputProcessingConfiguration {}
 #[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct InkInputProcessingMode(pub i32);
 impl InkInputProcessingMode {
     pub const None: Self = Self(0i32);
@@ -2169,12 +2155,6 @@ impl ::core::clone::Clone for InkInputProcessingMode {
 unsafe impl ::windows::core::Abi for InkInputProcessingMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for InkInputProcessingMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InkInputProcessingMode {}
 impl ::core::fmt::Debug for InkInputProcessingMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("InkInputProcessingMode").field(&self.0).finish()
@@ -2188,6 +2168,7 @@ impl ::windows::core::DefaultType for InkInputProcessingMode {
 }
 #[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct InkInputRightDragAction(pub i32);
 impl InkInputRightDragAction {
     pub const LeaveUnprocessed: Self = Self(0i32);
@@ -2202,12 +2183,6 @@ impl ::core::clone::Clone for InkInputRightDragAction {
 unsafe impl ::windows::core::Abi for InkInputRightDragAction {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for InkInputRightDragAction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InkInputRightDragAction {}
 impl ::core::fmt::Debug for InkInputRightDragAction {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("InkInputRightDragAction").field(&self.0).finish()
@@ -2529,6 +2504,7 @@ impl<'a> ::windows::core::IntoParam<'a, IInkStrokeContainer> for &InkManager {
 }
 #[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct InkManipulationMode(pub i32);
 impl InkManipulationMode {
     pub const Inking: Self = Self(0i32);
@@ -2544,12 +2520,6 @@ impl ::core::clone::Clone for InkManipulationMode {
 unsafe impl ::windows::core::Abi for InkManipulationMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for InkManipulationMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InkManipulationMode {}
 impl ::core::fmt::Debug for InkManipulationMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("InkManipulationMode").field(&self.0).finish()
@@ -2677,6 +2647,7 @@ unsafe impl ::core::marker::Send for InkModelerAttributes {}
 unsafe impl ::core::marker::Sync for InkModelerAttributes {}
 #[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct InkPersistenceFormat(pub i32);
 impl InkPersistenceFormat {
     pub const GifWithEmbeddedIsf: Self = Self(0i32);
@@ -2691,12 +2662,6 @@ impl ::core::clone::Clone for InkPersistenceFormat {
 unsafe impl ::windows::core::Abi for InkPersistenceFormat {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for InkPersistenceFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InkPersistenceFormat {}
 impl ::core::fmt::Debug for InkPersistenceFormat {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("InkPersistenceFormat").field(&self.0).finish()
@@ -3065,6 +3030,7 @@ unsafe impl ::core::marker::Send for InkPresenter {}
 unsafe impl ::core::marker::Sync for InkPresenter {}
 #[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct InkPresenterPredefinedConfiguration(pub i32);
 impl InkPresenterPredefinedConfiguration {
     pub const SimpleSinglePointer: Self = Self(0i32);
@@ -3079,12 +3045,6 @@ impl ::core::clone::Clone for InkPresenterPredefinedConfiguration {
 unsafe impl ::windows::core::Abi for InkPresenterPredefinedConfiguration {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for InkPresenterPredefinedConfiguration {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InkPresenterPredefinedConfiguration {}
 impl ::core::fmt::Debug for InkPresenterPredefinedConfiguration {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("InkPresenterPredefinedConfiguration").field(&self.0).finish()
@@ -3579,6 +3539,7 @@ unsafe impl ::core::marker::Send for InkPresenterRuler {}
 unsafe impl ::core::marker::Sync for InkPresenterRuler {}
 #[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct InkPresenterStencilKind(pub i32);
 impl InkPresenterStencilKind {
     pub const Other: Self = Self(0i32);
@@ -3594,12 +3555,6 @@ impl ::core::clone::Clone for InkPresenterStencilKind {
 unsafe impl ::windows::core::Abi for InkPresenterStencilKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for InkPresenterStencilKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InkPresenterStencilKind {}
 impl ::core::fmt::Debug for InkPresenterStencilKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("InkPresenterStencilKind").field(&self.0).finish()
@@ -3713,6 +3668,7 @@ unsafe impl ::core::marker::Send for InkRecognitionResult {}
 unsafe impl ::core::marker::Sync for InkRecognitionResult {}
 #[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct InkRecognitionTarget(pub i32);
 impl InkRecognitionTarget {
     pub const All: Self = Self(0i32);
@@ -3728,12 +3684,6 @@ impl ::core::clone::Clone for InkRecognitionTarget {
 unsafe impl ::windows::core::Abi for InkRecognitionTarget {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for InkRecognitionTarget {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InkRecognitionTarget {}
 impl ::core::fmt::Debug for InkRecognitionTarget {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("InkRecognitionTarget").field(&self.0).finish()
@@ -5367,6 +5317,7 @@ unsafe impl ::core::marker::Send for PenAndInkSettings {}
 unsafe impl ::core::marker::Sync for PenAndInkSettings {}
 #[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PenHandedness(pub i32);
 impl PenHandedness {
     pub const Right: Self = Self(0i32);
@@ -5381,12 +5332,6 @@ impl ::core::clone::Clone for PenHandedness {
 unsafe impl ::windows::core::Abi for PenHandedness {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PenHandedness {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PenHandedness {}
 impl ::core::fmt::Debug for PenHandedness {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PenHandedness").field(&self.0).finish()
@@ -5400,6 +5345,7 @@ impl ::windows::core::DefaultType for PenHandedness {
 }
 #[doc = "*Required features: 'UI_Input_Inking'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PenTipShape(pub i32);
 impl PenTipShape {
     pub const Circle: Self = Self(0i32);
@@ -5414,12 +5360,6 @@ impl ::core::clone::Clone for PenTipShape {
 unsafe impl ::windows::core::Abi for PenTipShape {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PenTipShape {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PenTipShape {}
 impl ::core::fmt::Debug for PenTipShape {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PenTipShape").field(&self.0).finish()

@@ -360,6 +360,7 @@ unsafe impl ::core::marker::Send for CoreDragOperation {}
 unsafe impl ::core::marker::Sync for CoreDragOperation {}
 #[doc = "*Required features: 'ApplicationModel_DataTransfer_DragDrop_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CoreDragUIContentMode(pub u32);
 impl CoreDragUIContentMode {
     pub const Auto: Self = Self(0u32);
@@ -374,12 +375,6 @@ impl ::core::clone::Clone for CoreDragUIContentMode {
 unsafe impl ::windows::core::Abi for CoreDragUIContentMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CoreDragUIContentMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreDragUIContentMode {}
 impl ::core::fmt::Debug for CoreDragUIContentMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CoreDragUIContentMode").field(&self.0).finish()

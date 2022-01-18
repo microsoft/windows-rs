@@ -1239,6 +1239,7 @@ unsafe impl ::core::marker::Send for SpatialGestureRecognizer {}
 unsafe impl ::core::marker::Sync for SpatialGestureRecognizer {}
 #[doc = "*Required features: 'UI_Input_Spatial'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpatialGestureSettings(pub u32);
 impl SpatialGestureSettings {
     pub const None: Self = Self(0u32);
@@ -1262,12 +1263,6 @@ impl ::core::clone::Clone for SpatialGestureSettings {
 unsafe impl ::windows::core::Abi for SpatialGestureSettings {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SpatialGestureSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialGestureSettings {}
 impl ::core::fmt::Debug for SpatialGestureSettings {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SpatialGestureSettings").field(&self.0).finish()
@@ -2213,6 +2208,7 @@ unsafe impl ::core::marker::Send for SpatialInteractionManager {}
 unsafe impl ::core::marker::Sync for SpatialInteractionManager {}
 #[doc = "*Required features: 'UI_Input_Spatial'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpatialInteractionPressKind(pub i32);
 impl SpatialInteractionPressKind {
     pub const None: Self = Self(0i32);
@@ -2231,12 +2227,6 @@ impl ::core::clone::Clone for SpatialInteractionPressKind {
 unsafe impl ::windows::core::Abi for SpatialInteractionPressKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SpatialInteractionPressKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialInteractionPressKind {}
 impl ::core::fmt::Debug for SpatialInteractionPressKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SpatialInteractionPressKind").field(&self.0).finish()
@@ -2495,6 +2485,7 @@ unsafe impl ::core::marker::Send for SpatialInteractionSourceEventArgs {}
 unsafe impl ::core::marker::Sync for SpatialInteractionSourceEventArgs {}
 #[doc = "*Required features: 'UI_Input_Spatial'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpatialInteractionSourceHandedness(pub i32);
 impl SpatialInteractionSourceHandedness {
     pub const Unspecified: Self = Self(0i32);
@@ -2510,12 +2501,6 @@ impl ::core::clone::Clone for SpatialInteractionSourceHandedness {
 unsafe impl ::windows::core::Abi for SpatialInteractionSourceHandedness {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SpatialInteractionSourceHandedness {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialInteractionSourceHandedness {}
 impl ::core::fmt::Debug for SpatialInteractionSourceHandedness {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SpatialInteractionSourceHandedness").field(&self.0).finish()
@@ -2529,6 +2514,7 @@ impl ::windows::core::DefaultType for SpatialInteractionSourceHandedness {
 }
 #[doc = "*Required features: 'UI_Input_Spatial'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpatialInteractionSourceKind(pub i32);
 impl SpatialInteractionSourceKind {
     pub const Other: Self = Self(0i32);
@@ -2545,12 +2531,6 @@ impl ::core::clone::Clone for SpatialInteractionSourceKind {
 unsafe impl ::windows::core::Abi for SpatialInteractionSourceKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SpatialInteractionSourceKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialInteractionSourceKind {}
 impl ::core::fmt::Debug for SpatialInteractionSourceKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SpatialInteractionSourceKind").field(&self.0).finish()
@@ -2689,6 +2669,7 @@ unsafe impl ::core::marker::Send for SpatialInteractionSourceLocation {}
 unsafe impl ::core::marker::Sync for SpatialInteractionSourceLocation {}
 #[doc = "*Required features: 'UI_Input_Spatial'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpatialInteractionSourcePositionAccuracy(pub i32);
 impl SpatialInteractionSourcePositionAccuracy {
     pub const High: Self = Self(0i32);
@@ -2703,12 +2684,6 @@ impl ::core::clone::Clone for SpatialInteractionSourcePositionAccuracy {
 unsafe impl ::windows::core::Abi for SpatialInteractionSourcePositionAccuracy {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SpatialInteractionSourcePositionAccuracy {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialInteractionSourcePositionAccuracy {}
 impl ::core::fmt::Debug for SpatialInteractionSourcePositionAccuracy {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SpatialInteractionSourcePositionAccuracy").field(&self.0).finish()

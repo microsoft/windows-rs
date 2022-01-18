@@ -2323,6 +2323,7 @@ impl ::windows::core::RuntimeName for CurrencyIdentifiers {
 }
 #[doc = "*Required features: 'Globalization'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DayOfWeek(pub i32);
 impl DayOfWeek {
     pub const Sunday: Self = Self(0i32);
@@ -2342,12 +2343,6 @@ impl ::core::clone::Clone for DayOfWeek {
 unsafe impl ::windows::core::Abi for DayOfWeek {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DayOfWeek {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DayOfWeek {}
 impl ::core::fmt::Debug for DayOfWeek {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DayOfWeek").field(&self.0).finish()
@@ -3602,6 +3597,7 @@ unsafe impl ::core::marker::Send for Language {}
 unsafe impl ::core::marker::Sync for Language {}
 #[doc = "*Required features: 'Globalization'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct LanguageLayoutDirection(pub i32);
 impl LanguageLayoutDirection {
     pub const Ltr: Self = Self(0i32);
@@ -3618,12 +3614,6 @@ impl ::core::clone::Clone for LanguageLayoutDirection {
 unsafe impl ::windows::core::Abi for LanguageLayoutDirection {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LanguageLayoutDirection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LanguageLayoutDirection {}
 impl ::core::fmt::Debug for LanguageLayoutDirection {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LanguageLayoutDirection").field(&self.0).finish()

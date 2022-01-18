@@ -915,6 +915,7 @@ unsafe impl ::core::marker::Send for PaymentCanMakePaymentResult {}
 unsafe impl ::core::marker::Sync for PaymentCanMakePaymentResult {}
 #[doc = "*Required features: 'ApplicationModel_Payments'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PaymentCanMakePaymentResultStatus(pub i32);
 impl PaymentCanMakePaymentResultStatus {
     pub const Unknown: Self = Self(0i32);
@@ -934,12 +935,6 @@ impl ::core::clone::Clone for PaymentCanMakePaymentResultStatus {
 unsafe impl ::windows::core::Abi for PaymentCanMakePaymentResultStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PaymentCanMakePaymentResultStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PaymentCanMakePaymentResultStatus {}
 impl ::core::fmt::Debug for PaymentCanMakePaymentResultStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PaymentCanMakePaymentResultStatus").field(&self.0).finish()
@@ -1839,6 +1834,7 @@ unsafe impl ::core::marker::Send for PaymentMethodData {}
 unsafe impl ::core::marker::Sync for PaymentMethodData {}
 #[doc = "*Required features: 'ApplicationModel_Payments'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PaymentOptionPresence(pub i32);
 impl PaymentOptionPresence {
     pub const None: Self = Self(0i32);
@@ -1854,12 +1850,6 @@ impl ::core::clone::Clone for PaymentOptionPresence {
 unsafe impl ::windows::core::Abi for PaymentOptionPresence {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PaymentOptionPresence {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PaymentOptionPresence {}
 impl ::core::fmt::Debug for PaymentOptionPresence {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PaymentOptionPresence").field(&self.0).finish()
@@ -2174,6 +2164,7 @@ unsafe impl ::core::marker::Send for PaymentRequest {}
 unsafe impl ::core::marker::Sync for PaymentRequest {}
 #[doc = "*Required features: 'ApplicationModel_Payments'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PaymentRequestChangeKind(pub i32);
 impl PaymentRequestChangeKind {
     pub const ShippingOption: Self = Self(0i32);
@@ -2188,12 +2179,6 @@ impl ::core::clone::Clone for PaymentRequestChangeKind {
 unsafe impl ::windows::core::Abi for PaymentRequestChangeKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PaymentRequestChangeKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PaymentRequestChangeKind {}
 impl ::core::fmt::Debug for PaymentRequestChangeKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PaymentRequestChangeKind").field(&self.0).finish()
@@ -2518,6 +2503,7 @@ unsafe impl ::core::marker::Send for PaymentRequestChangedResult {}
 unsafe impl ::core::marker::Sync for PaymentRequestChangedResult {}
 #[doc = "*Required features: 'ApplicationModel_Payments'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PaymentRequestCompletionStatus(pub i32);
 impl PaymentRequestCompletionStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -2533,12 +2519,6 @@ impl ::core::clone::Clone for PaymentRequestCompletionStatus {
 unsafe impl ::windows::core::Abi for PaymentRequestCompletionStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PaymentRequestCompletionStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PaymentRequestCompletionStatus {}
 impl ::core::fmt::Debug for PaymentRequestCompletionStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PaymentRequestCompletionStatus").field(&self.0).finish()
@@ -2552,6 +2532,7 @@ impl ::windows::core::DefaultType for PaymentRequestCompletionStatus {
 }
 #[doc = "*Required features: 'ApplicationModel_Payments'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PaymentRequestStatus(pub i32);
 impl PaymentRequestStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -2567,12 +2548,6 @@ impl ::core::clone::Clone for PaymentRequestStatus {
 unsafe impl ::windows::core::Abi for PaymentRequestStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PaymentRequestStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PaymentRequestStatus {}
 impl ::core::fmt::Debug for PaymentRequestStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PaymentRequestStatus").field(&self.0).finish()
@@ -2956,6 +2931,7 @@ unsafe impl ::core::marker::Send for PaymentShippingOption {}
 unsafe impl ::core::marker::Sync for PaymentShippingOption {}
 #[doc = "*Required features: 'ApplicationModel_Payments'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PaymentShippingType(pub i32);
 impl PaymentShippingType {
     pub const Shipping: Self = Self(0i32);
@@ -2971,12 +2947,6 @@ impl ::core::clone::Clone for PaymentShippingType {
 unsafe impl ::windows::core::Abi for PaymentShippingType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PaymentShippingType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PaymentShippingType {}
 impl ::core::fmt::Debug for PaymentShippingType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PaymentShippingType").field(&self.0).finish()

@@ -422,6 +422,7 @@ unsafe impl ::core::marker::Send for PwmPin {}
 unsafe impl ::core::marker::Sync for PwmPin {}
 #[doc = "*Required features: 'Devices_Pwm'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PwmPulsePolarity(pub i32);
 impl PwmPulsePolarity {
     pub const ActiveHigh: Self = Self(0i32);
@@ -436,12 +437,6 @@ impl ::core::clone::Clone for PwmPulsePolarity {
 unsafe impl ::windows::core::Abi for PwmPulsePolarity {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PwmPulsePolarity {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PwmPulsePolarity {}
 impl ::core::fmt::Debug for PwmPulsePolarity {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PwmPulsePolarity").field(&self.0).finish()

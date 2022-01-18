@@ -681,6 +681,7 @@ unsafe impl ::core::marker::Send for XboxLiveEndpointPair {}
 unsafe impl ::core::marker::Sync for XboxLiveEndpointPair {}
 #[doc = "*Required features: 'Networking_XboxLive'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct XboxLiveEndpointPairCreationBehaviors(pub u32);
 impl XboxLiveEndpointPairCreationBehaviors {
     pub const None: Self = Self(0u32);
@@ -695,12 +696,6 @@ impl ::core::clone::Clone for XboxLiveEndpointPairCreationBehaviors {
 unsafe impl ::windows::core::Abi for XboxLiveEndpointPairCreationBehaviors {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for XboxLiveEndpointPairCreationBehaviors {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XboxLiveEndpointPairCreationBehaviors {}
 impl ::core::fmt::Debug for XboxLiveEndpointPairCreationBehaviors {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("XboxLiveEndpointPairCreationBehaviors").field(&self.0).finish()
@@ -847,6 +842,7 @@ unsafe impl ::core::marker::Send for XboxLiveEndpointPairCreationResult {}
 unsafe impl ::core::marker::Sync for XboxLiveEndpointPairCreationResult {}
 #[doc = "*Required features: 'Networking_XboxLive'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct XboxLiveEndpointPairCreationStatus(pub i32);
 impl XboxLiveEndpointPairCreationStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -868,12 +864,6 @@ impl ::core::clone::Clone for XboxLiveEndpointPairCreationStatus {
 unsafe impl ::windows::core::Abi for XboxLiveEndpointPairCreationStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for XboxLiveEndpointPairCreationStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XboxLiveEndpointPairCreationStatus {}
 impl ::core::fmt::Debug for XboxLiveEndpointPairCreationStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("XboxLiveEndpointPairCreationStatus").field(&self.0).finish()
@@ -887,6 +877,7 @@ impl ::windows::core::DefaultType for XboxLiveEndpointPairCreationStatus {
 }
 #[doc = "*Required features: 'Networking_XboxLive'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct XboxLiveEndpointPairState(pub i32);
 impl XboxLiveEndpointPairState {
     pub const Invalid: Self = Self(0i32);
@@ -906,12 +897,6 @@ impl ::core::clone::Clone for XboxLiveEndpointPairState {
 unsafe impl ::windows::core::Abi for XboxLiveEndpointPairState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for XboxLiveEndpointPairState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XboxLiveEndpointPairState {}
 impl ::core::fmt::Debug for XboxLiveEndpointPairState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("XboxLiveEndpointPairState").field(&self.0).finish()
@@ -1296,6 +1281,7 @@ unsafe impl ::core::marker::Send for XboxLiveInboundEndpointPairCreatedEventArgs
 unsafe impl ::core::marker::Sync for XboxLiveInboundEndpointPairCreatedEventArgs {}
 #[doc = "*Required features: 'Networking_XboxLive'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct XboxLiveNetworkAccessKind(pub i32);
 impl XboxLiveNetworkAccessKind {
     pub const Open: Self = Self(0i32);
@@ -1311,12 +1297,6 @@ impl ::core::clone::Clone for XboxLiveNetworkAccessKind {
 unsafe impl ::windows::core::Abi for XboxLiveNetworkAccessKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for XboxLiveNetworkAccessKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XboxLiveNetworkAccessKind {}
 impl ::core::fmt::Debug for XboxLiveNetworkAccessKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("XboxLiveNetworkAccessKind").field(&self.0).finish()
@@ -1602,6 +1582,7 @@ unsafe impl ::core::marker::Send for XboxLiveQualityOfServiceMeasurement {}
 unsafe impl ::core::marker::Sync for XboxLiveQualityOfServiceMeasurement {}
 #[doc = "*Required features: 'Networking_XboxLive'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct XboxLiveQualityOfServiceMeasurementStatus(pub i32);
 impl XboxLiveQualityOfServiceMeasurementStatus {
     pub const NotStarted: Self = Self(0i32);
@@ -1626,12 +1607,6 @@ impl ::core::clone::Clone for XboxLiveQualityOfServiceMeasurementStatus {
 unsafe impl ::windows::core::Abi for XboxLiveQualityOfServiceMeasurementStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for XboxLiveQualityOfServiceMeasurementStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XboxLiveQualityOfServiceMeasurementStatus {}
 impl ::core::fmt::Debug for XboxLiveQualityOfServiceMeasurementStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("XboxLiveQualityOfServiceMeasurementStatus").field(&self.0).finish()
@@ -1645,6 +1620,7 @@ impl ::windows::core::DefaultType for XboxLiveQualityOfServiceMeasurementStatus 
 }
 #[doc = "*Required features: 'Networking_XboxLive'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct XboxLiveQualityOfServiceMetric(pub i32);
 impl XboxLiveQualityOfServiceMetric {
     pub const AverageLatencyInMilliseconds: Self = Self(0i32);
@@ -1666,12 +1642,6 @@ impl ::core::clone::Clone for XboxLiveQualityOfServiceMetric {
 unsafe impl ::windows::core::Abi for XboxLiveQualityOfServiceMetric {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for XboxLiveQualityOfServiceMetric {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XboxLiveQualityOfServiceMetric {}
 impl ::core::fmt::Debug for XboxLiveQualityOfServiceMetric {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("XboxLiveQualityOfServiceMetric").field(&self.0).finish()
@@ -1888,6 +1858,7 @@ unsafe impl ::core::marker::Send for XboxLiveQualityOfServicePrivatePayloadResul
 unsafe impl ::core::marker::Sync for XboxLiveQualityOfServicePrivatePayloadResult {}
 #[doc = "*Required features: 'Networking_XboxLive'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct XboxLiveSocketKind(pub i32);
 impl XboxLiveSocketKind {
     pub const None: Self = Self(0i32);
@@ -1903,12 +1874,6 @@ impl ::core::clone::Clone for XboxLiveSocketKind {
 unsafe impl ::windows::core::Abi for XboxLiveSocketKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for XboxLiveSocketKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XboxLiveSocketKind {}
 impl ::core::fmt::Debug for XboxLiveSocketKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("XboxLiveSocketKind").field(&self.0).finish()

@@ -2,6 +2,7 @@
 #[doc = "*Required features: 'System_Preview', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HingeState(pub i32);
 #[cfg(feature = "deprecated")]
 impl HingeState {
@@ -24,14 +25,6 @@ impl ::core::clone::Clone for HingeState {
 unsafe impl ::windows::core::Abi for HingeState {
     type Abi = Self;
 }
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for HingeState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for HingeState {}
 #[cfg(feature = "deprecated")]
 impl ::core::fmt::Debug for HingeState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {

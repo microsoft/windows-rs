@@ -656,6 +656,7 @@ impl ::core::default::Default for Point {
     }
 }
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PropertyType(pub i32);
 impl PropertyType {
     pub const Empty: Self = Self(0i32);
@@ -709,12 +710,6 @@ impl ::core::clone::Clone for PropertyType {
 unsafe impl ::windows::core::Abi for PropertyType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PropertyType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PropertyType {}
 impl ::core::fmt::Debug for PropertyType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PropertyType").field(&self.0).finish()

@@ -252,6 +252,7 @@ unsafe impl ::core::marker::Send for ControlChannelTrigger {}
 unsafe impl ::core::marker::Sync for ControlChannelTrigger {}
 #[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ControlChannelTriggerResetReason(pub i32);
 impl ControlChannelTriggerResetReason {
     pub const FastUserSwitched: Self = Self(0i32);
@@ -268,12 +269,6 @@ impl ::core::clone::Clone for ControlChannelTriggerResetReason {
 unsafe impl ::windows::core::Abi for ControlChannelTriggerResetReason {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ControlChannelTriggerResetReason {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ControlChannelTriggerResetReason {}
 impl ::core::fmt::Debug for ControlChannelTriggerResetReason {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ControlChannelTriggerResetReason").field(&self.0).finish()
@@ -287,6 +282,7 @@ impl ::windows::core::DefaultType for ControlChannelTriggerResetReason {
 }
 #[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ControlChannelTriggerResourceType(pub i32);
 impl ControlChannelTriggerResourceType {
     pub const RequestSoftwareSlot: Self = Self(0i32);
@@ -301,12 +297,6 @@ impl ::core::clone::Clone for ControlChannelTriggerResourceType {
 unsafe impl ::windows::core::Abi for ControlChannelTriggerResourceType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ControlChannelTriggerResourceType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ControlChannelTriggerResourceType {}
 impl ::core::fmt::Debug for ControlChannelTriggerResourceType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ControlChannelTriggerResourceType").field(&self.0).finish()
@@ -320,6 +310,7 @@ impl ::windows::core::DefaultType for ControlChannelTriggerResourceType {
 }
 #[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ControlChannelTriggerStatus(pub i32);
 impl ControlChannelTriggerStatus {
     pub const HardwareSlotRequested: Self = Self(0i32);
@@ -339,12 +330,6 @@ impl ::core::clone::Clone for ControlChannelTriggerStatus {
 unsafe impl ::windows::core::Abi for ControlChannelTriggerStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ControlChannelTriggerStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ControlChannelTriggerStatus {}
 impl ::core::fmt::Debug for ControlChannelTriggerStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ControlChannelTriggerStatus").field(&self.0).finish()
@@ -3795,6 +3780,7 @@ unsafe impl ::core::marker::Send for MessageWebSocketMessageReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MessageWebSocketMessageReceivedEventArgs {}
 #[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MessageWebSocketReceiveMode(pub i32);
 impl MessageWebSocketReceiveMode {
     pub const FullMessage: Self = Self(0i32);
@@ -3809,12 +3795,6 @@ impl ::core::clone::Clone for MessageWebSocketReceiveMode {
 unsafe impl ::windows::core::Abi for MessageWebSocketReceiveMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MessageWebSocketReceiveMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MessageWebSocketReceiveMode {}
 impl ::core::fmt::Debug for MessageWebSocketReceiveMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MessageWebSocketReceiveMode").field(&self.0).finish()
@@ -4463,6 +4443,7 @@ unsafe impl ::core::marker::Send for ServerStreamWebSocketInformation {}
 unsafe impl ::core::marker::Sync for ServerStreamWebSocketInformation {}
 #[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SocketActivityConnectedStandbyAction(pub i32);
 impl SocketActivityConnectedStandbyAction {
     pub const DoNotWake: Self = Self(0i32);
@@ -4477,12 +4458,6 @@ impl ::core::clone::Clone for SocketActivityConnectedStandbyAction {
 unsafe impl ::windows::core::Abi for SocketActivityConnectedStandbyAction {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SocketActivityConnectedStandbyAction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SocketActivityConnectedStandbyAction {}
 impl ::core::fmt::Debug for SocketActivityConnectedStandbyAction {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SocketActivityConnectedStandbyAction").field(&self.0).finish()
@@ -4733,6 +4708,7 @@ unsafe impl ::core::marker::Send for SocketActivityInformation {}
 unsafe impl ::core::marker::Sync for SocketActivityInformation {}
 #[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SocketActivityKind(pub i32);
 impl SocketActivityKind {
     pub const None: Self = Self(0i32);
@@ -4749,12 +4725,6 @@ impl ::core::clone::Clone for SocketActivityKind {
 unsafe impl ::windows::core::Abi for SocketActivityKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SocketActivityKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SocketActivityKind {}
 impl ::core::fmt::Debug for SocketActivityKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SocketActivityKind").field(&self.0).finish()
@@ -4857,6 +4827,7 @@ unsafe impl ::core::marker::Send for SocketActivityTriggerDetails {}
 unsafe impl ::core::marker::Sync for SocketActivityTriggerDetails {}
 #[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SocketActivityTriggerReason(pub i32);
 impl SocketActivityTriggerReason {
     pub const None: Self = Self(0i32);
@@ -4874,12 +4845,6 @@ impl ::core::clone::Clone for SocketActivityTriggerReason {
 unsafe impl ::windows::core::Abi for SocketActivityTriggerReason {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SocketActivityTriggerReason {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SocketActivityTriggerReason {}
 impl ::core::fmt::Debug for SocketActivityTriggerReason {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SocketActivityTriggerReason").field(&self.0).finish()
@@ -4912,6 +4877,7 @@ impl ::windows::core::RuntimeName for SocketError {
 }
 #[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SocketErrorStatus(pub i32);
 impl SocketErrorStatus {
     pub const Unknown: Self = Self(0i32);
@@ -4955,12 +4921,6 @@ impl ::core::clone::Clone for SocketErrorStatus {
 unsafe impl ::windows::core::Abi for SocketErrorStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SocketErrorStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SocketErrorStatus {}
 impl ::core::fmt::Debug for SocketErrorStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SocketErrorStatus").field(&self.0).finish()
@@ -4974,6 +4934,7 @@ impl ::windows::core::DefaultType for SocketErrorStatus {
 }
 #[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SocketMessageType(pub i32);
 impl SocketMessageType {
     pub const Binary: Self = Self(0i32);
@@ -4988,12 +4949,6 @@ impl ::core::clone::Clone for SocketMessageType {
 unsafe impl ::windows::core::Abi for SocketMessageType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SocketMessageType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SocketMessageType {}
 impl ::core::fmt::Debug for SocketMessageType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SocketMessageType").field(&self.0).finish()
@@ -5007,6 +4962,7 @@ impl ::windows::core::DefaultType for SocketMessageType {
 }
 #[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SocketProtectionLevel(pub i32);
 impl SocketProtectionLevel {
     pub const PlainSocket: Self = Self(0i32);
@@ -5029,12 +4985,6 @@ impl ::core::clone::Clone for SocketProtectionLevel {
 unsafe impl ::windows::core::Abi for SocketProtectionLevel {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SocketProtectionLevel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SocketProtectionLevel {}
 impl ::core::fmt::Debug for SocketProtectionLevel {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SocketProtectionLevel").field(&self.0).finish()
@@ -5048,6 +4998,7 @@ impl ::windows::core::DefaultType for SocketProtectionLevel {
 }
 #[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SocketQualityOfService(pub i32);
 impl SocketQualityOfService {
     pub const Normal: Self = Self(0i32);
@@ -5062,12 +5013,6 @@ impl ::core::clone::Clone for SocketQualityOfService {
 unsafe impl ::windows::core::Abi for SocketQualityOfService {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SocketQualityOfService {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SocketQualityOfService {}
 impl ::core::fmt::Debug for SocketQualityOfService {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SocketQualityOfService").field(&self.0).finish()
@@ -5081,6 +5026,7 @@ impl ::windows::core::DefaultType for SocketQualityOfService {
 }
 #[doc = "*Required features: 'Networking_Sockets'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SocketSslErrorSeverity(pub i32);
 impl SocketSslErrorSeverity {
     pub const None: Self = Self(0i32);
@@ -5096,12 +5042,6 @@ impl ::core::clone::Clone for SocketSslErrorSeverity {
 unsafe impl ::windows::core::Abi for SocketSslErrorSeverity {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SocketSslErrorSeverity {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SocketSslErrorSeverity {}
 impl ::core::fmt::Debug for SocketSslErrorSeverity {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SocketSslErrorSeverity").field(&self.0).finish()

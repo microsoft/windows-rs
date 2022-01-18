@@ -966,6 +966,7 @@ unsafe impl ::core::marker::Send for GlobalSystemMediaTransportControlsSessionPl
 unsafe impl ::core::marker::Sync for GlobalSystemMediaTransportControlsSessionPlaybackInfo {}
 #[doc = "*Required features: 'Media_Control'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GlobalSystemMediaTransportControlsSessionPlaybackStatus(pub i32);
 impl GlobalSystemMediaTransportControlsSessionPlaybackStatus {
     pub const Closed: Self = Self(0i32);
@@ -984,12 +985,6 @@ impl ::core::clone::Clone for GlobalSystemMediaTransportControlsSessionPlaybackS
 unsafe impl ::windows::core::Abi for GlobalSystemMediaTransportControlsSessionPlaybackStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GlobalSystemMediaTransportControlsSessionPlaybackStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GlobalSystemMediaTransportControlsSessionPlaybackStatus {}
 impl ::core::fmt::Debug for GlobalSystemMediaTransportControlsSessionPlaybackStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GlobalSystemMediaTransportControlsSessionPlaybackStatus").field(&self.0).finish()

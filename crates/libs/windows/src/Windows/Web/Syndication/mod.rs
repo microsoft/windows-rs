@@ -2040,6 +2040,7 @@ impl ::windows::core::RuntimeName for SyndicationError {
 }
 #[doc = "*Required features: 'Web_Syndication'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SyndicationErrorStatus(pub i32);
 impl SyndicationErrorStatus {
     pub const Unknown: Self = Self(0i32);
@@ -2058,12 +2059,6 @@ impl ::core::clone::Clone for SyndicationErrorStatus {
 unsafe impl ::windows::core::Abi for SyndicationErrorStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SyndicationErrorStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SyndicationErrorStatus {}
 impl ::core::fmt::Debug for SyndicationErrorStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SyndicationErrorStatus").field(&self.0).finish()
@@ -2496,6 +2491,7 @@ unsafe impl ::core::marker::Send for SyndicationFeed {}
 unsafe impl ::core::marker::Sync for SyndicationFeed {}
 #[doc = "*Required features: 'Web_Syndication'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SyndicationFormat(pub i32);
 impl SyndicationFormat {
     pub const Atom10: Self = Self(0i32);
@@ -2514,12 +2510,6 @@ impl ::core::clone::Clone for SyndicationFormat {
 unsafe impl ::windows::core::Abi for SyndicationFormat {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SyndicationFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SyndicationFormat {}
 impl ::core::fmt::Debug for SyndicationFormat {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SyndicationFormat").field(&self.0).finish()
@@ -4236,6 +4226,7 @@ unsafe impl ::core::marker::Send for SyndicationText {}
 unsafe impl ::core::marker::Sync for SyndicationText {}
 #[doc = "*Required features: 'Web_Syndication'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SyndicationTextType(pub i32);
 impl SyndicationTextType {
     pub const Text: Self = Self(0i32);
@@ -4251,12 +4242,6 @@ impl ::core::clone::Clone for SyndicationTextType {
 unsafe impl ::windows::core::Abi for SyndicationTextType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SyndicationTextType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SyndicationTextType {}
 impl ::core::fmt::Debug for SyndicationTextType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SyndicationTextType").field(&self.0).finish()

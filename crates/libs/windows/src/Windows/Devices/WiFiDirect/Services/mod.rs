@@ -509,6 +509,7 @@ unsafe impl ::core::marker::Send for WiFiDirectService {}
 unsafe impl ::core::marker::Sync for WiFiDirectService {}
 #[doc = "*Required features: 'Devices_WiFiDirect_Services'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WiFiDirectServiceAdvertisementStatus(pub i32);
 impl WiFiDirectServiceAdvertisementStatus {
     pub const Created: Self = Self(0i32);
@@ -525,12 +526,6 @@ impl ::core::clone::Clone for WiFiDirectServiceAdvertisementStatus {
 unsafe impl ::windows::core::Abi for WiFiDirectServiceAdvertisementStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WiFiDirectServiceAdvertisementStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WiFiDirectServiceAdvertisementStatus {}
 impl ::core::fmt::Debug for WiFiDirectServiceAdvertisementStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WiFiDirectServiceAdvertisementStatus").field(&self.0).finish()
@@ -916,6 +911,7 @@ unsafe impl ::core::marker::Send for WiFiDirectServiceAutoAcceptSessionConnected
 unsafe impl ::core::marker::Sync for WiFiDirectServiceAutoAcceptSessionConnectedEventArgs {}
 #[doc = "*Required features: 'Devices_WiFiDirect_Services'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WiFiDirectServiceConfigurationMethod(pub i32);
 impl WiFiDirectServiceConfigurationMethod {
     pub const Default: Self = Self(0i32);
@@ -931,12 +927,6 @@ impl ::core::clone::Clone for WiFiDirectServiceConfigurationMethod {
 unsafe impl ::windows::core::Abi for WiFiDirectServiceConfigurationMethod {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WiFiDirectServiceConfigurationMethod {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WiFiDirectServiceConfigurationMethod {}
 impl ::core::fmt::Debug for WiFiDirectServiceConfigurationMethod {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WiFiDirectServiceConfigurationMethod").field(&self.0).finish()
@@ -950,6 +940,7 @@ impl ::windows::core::DefaultType for WiFiDirectServiceConfigurationMethod {
 }
 #[doc = "*Required features: 'Devices_WiFiDirect_Services'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WiFiDirectServiceError(pub i32);
 impl WiFiDirectServiceError {
     pub const Success: Self = Self(0i32);
@@ -967,12 +958,6 @@ impl ::core::clone::Clone for WiFiDirectServiceError {
 unsafe impl ::windows::core::Abi for WiFiDirectServiceError {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WiFiDirectServiceError {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WiFiDirectServiceError {}
 impl ::core::fmt::Debug for WiFiDirectServiceError {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WiFiDirectServiceError").field(&self.0).finish()
@@ -986,6 +971,7 @@ impl ::windows::core::DefaultType for WiFiDirectServiceError {
 }
 #[doc = "*Required features: 'Devices_WiFiDirect_Services'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WiFiDirectServiceIPProtocol(pub i32);
 impl WiFiDirectServiceIPProtocol {
     pub const Tcp: Self = Self(6i32);
@@ -1000,12 +986,6 @@ impl ::core::clone::Clone for WiFiDirectServiceIPProtocol {
 unsafe impl ::windows::core::Abi for WiFiDirectServiceIPProtocol {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WiFiDirectServiceIPProtocol {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WiFiDirectServiceIPProtocol {}
 impl ::core::fmt::Debug for WiFiDirectServiceIPProtocol {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WiFiDirectServiceIPProtocol").field(&self.0).finish()
@@ -1498,6 +1478,7 @@ unsafe impl ::core::marker::Send for WiFiDirectServiceSessionDeferredEventArgs {
 unsafe impl ::core::marker::Sync for WiFiDirectServiceSessionDeferredEventArgs {}
 #[doc = "*Required features: 'Devices_WiFiDirect_Services'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WiFiDirectServiceSessionErrorStatus(pub i32);
 impl WiFiDirectServiceSessionErrorStatus {
     pub const Ok: Self = Self(0i32);
@@ -1516,12 +1497,6 @@ impl ::core::clone::Clone for WiFiDirectServiceSessionErrorStatus {
 unsafe impl ::windows::core::Abi for WiFiDirectServiceSessionErrorStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WiFiDirectServiceSessionErrorStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WiFiDirectServiceSessionErrorStatus {}
 impl ::core::fmt::Debug for WiFiDirectServiceSessionErrorStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WiFiDirectServiceSessionErrorStatus").field(&self.0).finish()
@@ -1747,6 +1722,7 @@ unsafe impl ::core::marker::Send for WiFiDirectServiceSessionRequestedEventArgs 
 unsafe impl ::core::marker::Sync for WiFiDirectServiceSessionRequestedEventArgs {}
 #[doc = "*Required features: 'Devices_WiFiDirect_Services'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WiFiDirectServiceSessionStatus(pub i32);
 impl WiFiDirectServiceSessionStatus {
     pub const Closed: Self = Self(0i32);
@@ -1763,12 +1739,6 @@ impl ::core::clone::Clone for WiFiDirectServiceSessionStatus {
 unsafe impl ::windows::core::Abi for WiFiDirectServiceSessionStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WiFiDirectServiceSessionStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WiFiDirectServiceSessionStatus {}
 impl ::core::fmt::Debug for WiFiDirectServiceSessionStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WiFiDirectServiceSessionStatus").field(&self.0).finish()
@@ -1782,6 +1752,7 @@ impl ::windows::core::DefaultType for WiFiDirectServiceSessionStatus {
 }
 #[doc = "*Required features: 'Devices_WiFiDirect_Services'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WiFiDirectServiceStatus(pub i32);
 impl WiFiDirectServiceStatus {
     pub const Available: Self = Self(0i32);
@@ -1797,12 +1768,6 @@ impl ::core::clone::Clone for WiFiDirectServiceStatus {
 unsafe impl ::windows::core::Abi for WiFiDirectServiceStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WiFiDirectServiceStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WiFiDirectServiceStatus {}
 impl ::core::fmt::Debug for WiFiDirectServiceStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WiFiDirectServiceStatus").field(&self.0).finish()

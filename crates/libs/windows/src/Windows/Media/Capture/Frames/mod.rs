@@ -1410,6 +1410,7 @@ unsafe impl ::core::marker::Send for MediaFrameReader {}
 unsafe impl ::core::marker::Sync for MediaFrameReader {}
 #[doc = "*Required features: 'Media_Capture_Frames'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MediaFrameReaderAcquisitionMode(pub i32);
 impl MediaFrameReaderAcquisitionMode {
     pub const Realtime: Self = Self(0i32);
@@ -1424,12 +1425,6 @@ impl ::core::clone::Clone for MediaFrameReaderAcquisitionMode {
 unsafe impl ::windows::core::Abi for MediaFrameReaderAcquisitionMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MediaFrameReaderAcquisitionMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaFrameReaderAcquisitionMode {}
 impl ::core::fmt::Debug for MediaFrameReaderAcquisitionMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MediaFrameReaderAcquisitionMode").field(&self.0).finish()
@@ -1443,6 +1438,7 @@ impl ::windows::core::DefaultType for MediaFrameReaderAcquisitionMode {
 }
 #[doc = "*Required features: 'Media_Capture_Frames'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MediaFrameReaderStartStatus(pub i32);
 impl MediaFrameReaderStartStatus {
     pub const Success: Self = Self(0i32);
@@ -1460,12 +1456,6 @@ impl ::core::clone::Clone for MediaFrameReaderStartStatus {
 unsafe impl ::windows::core::Abi for MediaFrameReaderStartStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MediaFrameReaderStartStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaFrameReaderStartStatus {}
 impl ::core::fmt::Debug for MediaFrameReaderStartStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MediaFrameReaderStartStatus").field(&self.0).finish()
@@ -2015,6 +2005,7 @@ unsafe impl ::core::marker::Send for MediaFrameSourceGetPropertyResult {}
 unsafe impl ::core::marker::Sync for MediaFrameSourceGetPropertyResult {}
 #[doc = "*Required features: 'Media_Capture_Frames'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MediaFrameSourceGetPropertyStatus(pub i32);
 impl MediaFrameSourceGetPropertyStatus {
     pub const Success: Self = Self(0i32);
@@ -2033,12 +2024,6 @@ impl ::core::clone::Clone for MediaFrameSourceGetPropertyStatus {
 unsafe impl ::windows::core::Abi for MediaFrameSourceGetPropertyStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MediaFrameSourceGetPropertyStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaFrameSourceGetPropertyStatus {}
 impl ::core::fmt::Debug for MediaFrameSourceGetPropertyStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MediaFrameSourceGetPropertyStatus").field(&self.0).finish()
@@ -2336,6 +2321,7 @@ unsafe impl ::core::marker::Send for MediaFrameSourceInfo {}
 unsafe impl ::core::marker::Sync for MediaFrameSourceInfo {}
 #[doc = "*Required features: 'Media_Capture_Frames'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MediaFrameSourceKind(pub i32);
 impl MediaFrameSourceKind {
     pub const Custom: Self = Self(0i32);
@@ -2355,12 +2341,6 @@ impl ::core::clone::Clone for MediaFrameSourceKind {
 unsafe impl ::windows::core::Abi for MediaFrameSourceKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MediaFrameSourceKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaFrameSourceKind {}
 impl ::core::fmt::Debug for MediaFrameSourceKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MediaFrameSourceKind").field(&self.0).finish()
@@ -2374,6 +2354,7 @@ impl ::windows::core::DefaultType for MediaFrameSourceKind {
 }
 #[doc = "*Required features: 'Media_Capture_Frames'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MediaFrameSourceSetPropertyStatus(pub i32);
 impl MediaFrameSourceSetPropertyStatus {
     pub const Success: Self = Self(0i32);
@@ -2392,12 +2373,6 @@ impl ::core::clone::Clone for MediaFrameSourceSetPropertyStatus {
 unsafe impl ::windows::core::Abi for MediaFrameSourceSetPropertyStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MediaFrameSourceSetPropertyStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaFrameSourceSetPropertyStatus {}
 impl ::core::fmt::Debug for MediaFrameSourceSetPropertyStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MediaFrameSourceSetPropertyStatus").field(&self.0).finish()
@@ -2642,6 +2617,7 @@ unsafe impl ::core::marker::Send for MultiSourceMediaFrameReader {}
 unsafe impl ::core::marker::Sync for MultiSourceMediaFrameReader {}
 #[doc = "*Required features: 'Media_Capture_Frames'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MultiSourceMediaFrameReaderStartStatus(pub i32);
 impl MultiSourceMediaFrameReaderStartStatus {
     pub const Success: Self = Self(0i32);
@@ -2659,12 +2635,6 @@ impl ::core::clone::Clone for MultiSourceMediaFrameReaderStartStatus {
 unsafe impl ::windows::core::Abi for MultiSourceMediaFrameReaderStartStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MultiSourceMediaFrameReaderStartStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MultiSourceMediaFrameReaderStartStatus {}
 impl ::core::fmt::Debug for MultiSourceMediaFrameReaderStartStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MultiSourceMediaFrameReaderStartStatus").field(&self.0).finish()

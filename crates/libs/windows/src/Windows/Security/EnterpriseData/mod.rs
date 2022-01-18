@@ -240,6 +240,7 @@ impl ::windows::core::RuntimeName for DataProtectionManager {
 }
 #[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DataProtectionStatus(pub i32);
 impl DataProtectionStatus {
     pub const ProtectedToOtherIdentity: Self = Self(0i32);
@@ -258,12 +259,6 @@ impl ::core::clone::Clone for DataProtectionStatus {
 unsafe impl ::windows::core::Abi for DataProtectionStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DataProtectionStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DataProtectionStatus {}
 impl ::core::fmt::Debug for DataProtectionStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DataProtectionStatus").field(&self.0).finish()
@@ -277,6 +272,7 @@ impl ::windows::core::DefaultType for DataProtectionStatus {
 }
 #[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EnforcementLevel(pub i32);
 impl EnforcementLevel {
     pub const NoProtection: Self = Self(0i32);
@@ -293,12 +289,6 @@ impl ::core::clone::Clone for EnforcementLevel {
 unsafe impl ::windows::core::Abi for EnforcementLevel {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EnforcementLevel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EnforcementLevel {}
 impl ::core::fmt::Debug for EnforcementLevel {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EnforcementLevel").field(&self.0).finish()
@@ -535,6 +525,7 @@ impl ::windows::core::RuntimeName for FileProtectionManager {
 }
 #[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FileProtectionStatus(pub i32);
 impl FileProtectionStatus {
     pub const Undetermined: Self = Self(0i32);
@@ -559,12 +550,6 @@ impl ::core::clone::Clone for FileProtectionStatus {
 unsafe impl ::windows::core::Abi for FileProtectionStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for FileProtectionStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FileProtectionStatus {}
 impl ::core::fmt::Debug for FileProtectionStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FileProtectionStatus").field(&self.0).finish()
@@ -1846,6 +1831,7 @@ unsafe impl ::core::marker::Send for ProtectedFileCreateResult {}
 unsafe impl ::core::marker::Sync for ProtectedFileCreateResult {}
 #[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ProtectedImportExportStatus(pub i32);
 impl ProtectedImportExportStatus {
     pub const Ok: Self = Self(0i32);
@@ -1866,12 +1852,6 @@ impl ::core::clone::Clone for ProtectedImportExportStatus {
 unsafe impl ::windows::core::Abi for ProtectedImportExportStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ProtectedImportExportStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProtectedImportExportStatus {}
 impl ::core::fmt::Debug for ProtectedImportExportStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ProtectedImportExportStatus").field(&self.0).finish()
@@ -1885,6 +1865,7 @@ impl ::windows::core::DefaultType for ProtectedImportExportStatus {
 }
 #[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ProtectionPolicyAuditAction(pub i32);
 impl ProtectionPolicyAuditAction {
     pub const Decrypt: Self = Self(0i32);
@@ -1901,12 +1882,6 @@ impl ::core::clone::Clone for ProtectionPolicyAuditAction {
 unsafe impl ::windows::core::Abi for ProtectionPolicyAuditAction {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ProtectionPolicyAuditAction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProtectionPolicyAuditAction {}
 impl ::core::fmt::Debug for ProtectionPolicyAuditAction {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ProtectionPolicyAuditAction").field(&self.0).finish()
@@ -2064,6 +2039,7 @@ unsafe impl ::core::marker::Send for ProtectionPolicyAuditInfo {}
 unsafe impl ::core::marker::Sync for ProtectionPolicyAuditInfo {}
 #[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ProtectionPolicyEvaluationResult(pub i32);
 impl ProtectionPolicyEvaluationResult {
     pub const Allowed: Self = Self(0i32);
@@ -2079,12 +2055,6 @@ impl ::core::clone::Clone for ProtectionPolicyEvaluationResult {
 unsafe impl ::windows::core::Abi for ProtectionPolicyEvaluationResult {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ProtectionPolicyEvaluationResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProtectionPolicyEvaluationResult {}
 impl ::core::fmt::Debug for ProtectionPolicyEvaluationResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ProtectionPolicyEvaluationResult").field(&self.0).finish()
@@ -2500,6 +2470,7 @@ unsafe impl ::core::marker::Send for ProtectionPolicyManager {}
 unsafe impl ::core::marker::Sync for ProtectionPolicyManager {}
 #[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ProtectionPolicyRequestAccessBehavior(pub i32);
 impl ProtectionPolicyRequestAccessBehavior {
     pub const Decrypt: Self = Self(0i32);
@@ -2514,12 +2485,6 @@ impl ::core::clone::Clone for ProtectionPolicyRequestAccessBehavior {
 unsafe impl ::windows::core::Abi for ProtectionPolicyRequestAccessBehavior {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ProtectionPolicyRequestAccessBehavior {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProtectionPolicyRequestAccessBehavior {}
 impl ::core::fmt::Debug for ProtectionPolicyRequestAccessBehavior {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ProtectionPolicyRequestAccessBehavior").field(&self.0).finish()

@@ -556,6 +556,7 @@ unsafe impl ::core::marker::Send for AccelerometerReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AccelerometerReadingChangedEventArgs {}
 #[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AccelerometerReadingType(pub i32);
 impl AccelerometerReadingType {
     pub const Standard: Self = Self(0i32);
@@ -571,12 +572,6 @@ impl ::core::clone::Clone for AccelerometerReadingType {
 unsafe impl ::windows::core::Abi for AccelerometerReadingType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AccelerometerReadingType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AccelerometerReadingType {}
 impl ::core::fmt::Debug for AccelerometerReadingType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AccelerometerReadingType").field(&self.0).finish()
@@ -1115,6 +1110,7 @@ unsafe impl ::core::marker::Send for ActivitySensorReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for ActivitySensorReadingChangedEventArgs {}
 #[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ActivitySensorReadingConfidence(pub i32);
 impl ActivitySensorReadingConfidence {
     pub const High: Self = Self(0i32);
@@ -1129,12 +1125,6 @@ impl ::core::clone::Clone for ActivitySensorReadingConfidence {
 unsafe impl ::windows::core::Abi for ActivitySensorReadingConfidence {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ActivitySensorReadingConfidence {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ActivitySensorReadingConfidence {}
 impl ::core::fmt::Debug for ActivitySensorReadingConfidence {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ActivitySensorReadingConfidence").field(&self.0).finish()
@@ -1230,6 +1220,7 @@ unsafe impl ::core::marker::Send for ActivitySensorTriggerDetails {}
 unsafe impl ::core::marker::Sync for ActivitySensorTriggerDetails {}
 #[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ActivityType(pub i32);
 impl ActivityType {
     pub const Unknown: Self = Self(0i32);
@@ -1250,12 +1241,6 @@ impl ::core::clone::Clone for ActivityType {
 unsafe impl ::windows::core::Abi for ActivityType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ActivityType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ActivityType {}
 impl ::core::fmt::Debug for ActivityType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ActivityType").field(&self.0).finish()
@@ -6976,6 +6961,7 @@ unsafe impl ::core::marker::Send for Magnetometer {}
 unsafe impl ::core::marker::Sync for Magnetometer {}
 #[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MagnetometerAccuracy(pub i32);
 impl MagnetometerAccuracy {
     pub const Unknown: Self = Self(0i32);
@@ -6992,12 +6978,6 @@ impl ::core::clone::Clone for MagnetometerAccuracy {
 unsafe impl ::windows::core::Abi for MagnetometerAccuracy {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MagnetometerAccuracy {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MagnetometerAccuracy {}
 impl ::core::fmt::Debug for MagnetometerAccuracy {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MagnetometerAccuracy").field(&self.0).finish()
@@ -8266,6 +8246,7 @@ unsafe impl ::core::marker::Send for PedometerReadingChangedEventArgs {}
 unsafe impl ::core::marker::Sync for PedometerReadingChangedEventArgs {}
 #[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PedometerStepKind(pub i32);
 impl PedometerStepKind {
     pub const Unknown: Self = Self(0i32);
@@ -8281,12 +8262,6 @@ impl ::core::clone::Clone for PedometerStepKind {
 unsafe impl ::windows::core::Abi for PedometerStepKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PedometerStepKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PedometerStepKind {}
 impl ::core::fmt::Debug for PedometerStepKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PedometerStepKind").field(&self.0).finish()
@@ -8963,6 +8938,7 @@ unsafe impl ::core::marker::Send for SensorDataThresholdTriggerDetails {}
 unsafe impl ::core::marker::Sync for SensorDataThresholdTriggerDetails {}
 #[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SensorOptimizationGoal(pub i32);
 impl SensorOptimizationGoal {
     pub const Precision: Self = Self(0i32);
@@ -8977,12 +8953,6 @@ impl ::core::clone::Clone for SensorOptimizationGoal {
 unsafe impl ::windows::core::Abi for SensorOptimizationGoal {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SensorOptimizationGoal {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SensorOptimizationGoal {}
 impl ::core::fmt::Debug for SensorOptimizationGoal {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SensorOptimizationGoal").field(&self.0).finish()
@@ -9101,6 +9071,7 @@ unsafe impl ::core::marker::Send for SensorQuaternion {}
 unsafe impl ::core::marker::Sync for SensorQuaternion {}
 #[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SensorReadingType(pub i32);
 impl SensorReadingType {
     pub const Absolute: Self = Self(0i32);
@@ -9115,12 +9086,6 @@ impl ::core::clone::Clone for SensorReadingType {
 unsafe impl ::windows::core::Abi for SensorReadingType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SensorReadingType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SensorReadingType {}
 impl ::core::fmt::Debug for SensorReadingType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SensorReadingType").field(&self.0).finish()
@@ -9279,6 +9244,7 @@ unsafe impl ::core::marker::Send for SensorRotationMatrix {}
 unsafe impl ::core::marker::Sync for SensorRotationMatrix {}
 #[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SensorType(pub i32);
 impl SensorType {
     pub const Accelerometer: Self = Self(0i32);
@@ -9305,12 +9271,6 @@ impl ::core::clone::Clone for SensorType {
 unsafe impl ::windows::core::Abi for SensorType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SensorType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SensorType {}
 impl ::core::fmt::Debug for SensorType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SensorType").field(&self.0).finish()
@@ -9324,6 +9284,7 @@ impl ::windows::core::DefaultType for SensorType {
 }
 #[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SimpleOrientation(pub i32);
 impl SimpleOrientation {
     pub const NotRotated: Self = Self(0i32);
@@ -9342,12 +9303,6 @@ impl ::core::clone::Clone for SimpleOrientation {
 unsafe impl ::windows::core::Abi for SimpleOrientation {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SimpleOrientation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SimpleOrientation {}
 impl ::core::fmt::Debug for SimpleOrientation {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SimpleOrientation").field(&self.0).finish()

@@ -89,6 +89,7 @@ impl ::windows::core::RuntimeName for GameList {
 }
 #[doc = "*Required features: 'Gaming_Preview_GamesEnumeration'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GameListCategory(pub i32);
 impl GameListCategory {
     pub const Candidate: Self = Self(0i32);
@@ -104,12 +105,6 @@ impl ::core::clone::Clone for GameListCategory {
 unsafe impl ::windows::core::Abi for GameListCategory {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GameListCategory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GameListCategory {}
 impl ::core::fmt::Debug for GameListCategory {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GameListCategory").field(&self.0).finish()
@@ -408,6 +403,7 @@ unsafe impl ::core::marker::Send for GameListEntry {}
 unsafe impl ::core::marker::Sync for GameListEntry {}
 #[doc = "*Required features: 'Gaming_Preview_GamesEnumeration'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GameListEntryLaunchableState(pub i32);
 impl GameListEntryLaunchableState {
     pub const NotLaunchable: Self = Self(0i32);
@@ -424,12 +420,6 @@ impl ::core::clone::Clone for GameListEntryLaunchableState {
 unsafe impl ::windows::core::Abi for GameListEntryLaunchableState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GameListEntryLaunchableState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GameListEntryLaunchableState {}
 impl ::core::fmt::Debug for GameListEntryLaunchableState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GameListEntryLaunchableState").field(&self.0).finish()

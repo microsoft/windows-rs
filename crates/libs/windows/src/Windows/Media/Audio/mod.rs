@@ -284,6 +284,7 @@ unsafe impl ::core::marker::Send for AudioDeviceInputNode {}
 unsafe impl ::core::marker::Sync for AudioDeviceInputNode {}
 #[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AudioDeviceNodeCreationStatus(pub i32);
 impl AudioDeviceNodeCreationStatus {
     pub const Success: Self = Self(0i32);
@@ -301,12 +302,6 @@ impl ::core::clone::Clone for AudioDeviceNodeCreationStatus {
 unsafe impl ::windows::core::Abi for AudioDeviceNodeCreationStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AudioDeviceNodeCreationStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioDeviceNodeCreationStatus {}
 impl ::core::fmt::Debug for AudioDeviceNodeCreationStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AudioDeviceNodeCreationStatus").field(&self.0).finish()
@@ -942,6 +937,7 @@ unsafe impl ::core::marker::Send for AudioFileInputNode {}
 unsafe impl ::core::marker::Sync for AudioFileInputNode {}
 #[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AudioFileNodeCreationStatus(pub i32);
 impl AudioFileNodeCreationStatus {
     pub const Success: Self = Self(0i32);
@@ -959,12 +955,6 @@ impl ::core::clone::Clone for AudioFileNodeCreationStatus {
 unsafe impl ::windows::core::Abi for AudioFileNodeCreationStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AudioFileNodeCreationStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioFileNodeCreationStatus {}
 impl ::core::fmt::Debug for AudioFileNodeCreationStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AudioFileNodeCreationStatus").field(&self.0).finish()
@@ -2448,6 +2438,7 @@ unsafe impl ::core::marker::Send for AudioGraphConnection {}
 unsafe impl ::core::marker::Sync for AudioGraphConnection {}
 #[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AudioGraphCreationStatus(pub i32);
 impl AudioGraphCreationStatus {
     pub const Success: Self = Self(0i32);
@@ -2464,12 +2455,6 @@ impl ::core::clone::Clone for AudioGraphCreationStatus {
 unsafe impl ::windows::core::Abi for AudioGraphCreationStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AudioGraphCreationStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioGraphCreationStatus {}
 impl ::core::fmt::Debug for AudioGraphCreationStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AudioGraphCreationStatus").field(&self.0).finish()
@@ -2666,6 +2651,7 @@ unsafe impl ::core::marker::Send for AudioGraphSettings {}
 unsafe impl ::core::marker::Sync for AudioGraphSettings {}
 #[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AudioGraphUnrecoverableError(pub i32);
 impl AudioGraphUnrecoverableError {
     pub const None: Self = Self(0i32);
@@ -2682,12 +2668,6 @@ impl ::core::clone::Clone for AudioGraphUnrecoverableError {
 unsafe impl ::windows::core::Abi for AudioGraphUnrecoverableError {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AudioGraphUnrecoverableError {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioGraphUnrecoverableError {}
 impl ::core::fmt::Debug for AudioGraphUnrecoverableError {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AudioGraphUnrecoverableError").field(&self.0).finish()
@@ -3092,6 +3072,7 @@ unsafe impl ::core::marker::Send for AudioNodeEmitterConeProperties {}
 unsafe impl ::core::marker::Sync for AudioNodeEmitterConeProperties {}
 #[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AudioNodeEmitterDecayKind(pub i32);
 impl AudioNodeEmitterDecayKind {
     pub const Natural: Self = Self(0i32);
@@ -3106,12 +3087,6 @@ impl ::core::clone::Clone for AudioNodeEmitterDecayKind {
 unsafe impl ::windows::core::Abi for AudioNodeEmitterDecayKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AudioNodeEmitterDecayKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioNodeEmitterDecayKind {}
 impl ::core::fmt::Debug for AudioNodeEmitterDecayKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AudioNodeEmitterDecayKind").field(&self.0).finish()
@@ -3338,6 +3313,7 @@ unsafe impl ::core::marker::Send for AudioNodeEmitterNaturalDecayModelProperties
 unsafe impl ::core::marker::Sync for AudioNodeEmitterNaturalDecayModelProperties {}
 #[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AudioNodeEmitterSettings(pub u32);
 impl AudioNodeEmitterSettings {
     pub const None: Self = Self(0u32);
@@ -3352,12 +3328,6 @@ impl ::core::clone::Clone for AudioNodeEmitterSettings {
 unsafe impl ::windows::core::Abi for AudioNodeEmitterSettings {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AudioNodeEmitterSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioNodeEmitterSettings {}
 impl ::core::fmt::Debug for AudioNodeEmitterSettings {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AudioNodeEmitterSettings").field(&self.0).finish()
@@ -3507,6 +3477,7 @@ unsafe impl ::core::marker::Send for AudioNodeEmitterShape {}
 unsafe impl ::core::marker::Sync for AudioNodeEmitterShape {}
 #[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AudioNodeEmitterShapeKind(pub i32);
 impl AudioNodeEmitterShapeKind {
     pub const Omnidirectional: Self = Self(0i32);
@@ -3521,12 +3492,6 @@ impl ::core::clone::Clone for AudioNodeEmitterShapeKind {
 unsafe impl ::windows::core::Abi for AudioNodeEmitterShapeKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AudioNodeEmitterShapeKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioNodeEmitterShapeKind {}
 impl ::core::fmt::Debug for AudioNodeEmitterShapeKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AudioNodeEmitterShapeKind").field(&self.0).finish()
@@ -3953,6 +3918,7 @@ unsafe impl ::core::marker::Send for AudioPlaybackConnectionOpenResult {}
 unsafe impl ::core::marker::Sync for AudioPlaybackConnectionOpenResult {}
 #[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AudioPlaybackConnectionOpenResultStatus(pub i32);
 impl AudioPlaybackConnectionOpenResultStatus {
     pub const Success: Self = Self(0i32);
@@ -3969,12 +3935,6 @@ impl ::core::clone::Clone for AudioPlaybackConnectionOpenResultStatus {
 unsafe impl ::windows::core::Abi for AudioPlaybackConnectionOpenResultStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AudioPlaybackConnectionOpenResultStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioPlaybackConnectionOpenResultStatus {}
 impl ::core::fmt::Debug for AudioPlaybackConnectionOpenResultStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AudioPlaybackConnectionOpenResultStatus").field(&self.0).finish()
@@ -3988,6 +3948,7 @@ impl ::windows::core::DefaultType for AudioPlaybackConnectionOpenResultStatus {
 }
 #[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AudioPlaybackConnectionState(pub i32);
 impl AudioPlaybackConnectionState {
     pub const Closed: Self = Self(0i32);
@@ -4002,12 +3963,6 @@ impl ::core::clone::Clone for AudioPlaybackConnectionState {
 unsafe impl ::windows::core::Abi for AudioPlaybackConnectionState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AudioPlaybackConnectionState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioPlaybackConnectionState {}
 impl ::core::fmt::Debug for AudioPlaybackConnectionState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AudioPlaybackConnectionState").field(&self.0).finish()
@@ -8259,6 +8214,7 @@ unsafe impl ::core::marker::Send for MediaSourceAudioInputNode {}
 unsafe impl ::core::marker::Sync for MediaSourceAudioInputNode {}
 #[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MediaSourceAudioInputNodeCreationStatus(pub i32);
 impl MediaSourceAudioInputNodeCreationStatus {
     pub const Success: Self = Self(0i32);
@@ -8275,12 +8231,6 @@ impl ::core::clone::Clone for MediaSourceAudioInputNodeCreationStatus {
 unsafe impl ::windows::core::Abi for MediaSourceAudioInputNodeCreationStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MediaSourceAudioInputNodeCreationStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaSourceAudioInputNodeCreationStatus {}
 impl ::core::fmt::Debug for MediaSourceAudioInputNodeCreationStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MediaSourceAudioInputNodeCreationStatus").field(&self.0).finish()
@@ -8294,6 +8244,7 @@ impl ::windows::core::DefaultType for MediaSourceAudioInputNodeCreationStatus {
 }
 #[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MixedRealitySpatialAudioFormatPolicy(pub i32);
 impl MixedRealitySpatialAudioFormatPolicy {
     pub const UseMixedRealityDefaultSpatialAudioFormat: Self = Self(0i32);
@@ -8308,12 +8259,6 @@ impl ::core::clone::Clone for MixedRealitySpatialAudioFormatPolicy {
 unsafe impl ::windows::core::Abi for MixedRealitySpatialAudioFormatPolicy {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MixedRealitySpatialAudioFormatPolicy {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MixedRealitySpatialAudioFormatPolicy {}
 impl ::core::fmt::Debug for MixedRealitySpatialAudioFormatPolicy {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MixedRealitySpatialAudioFormatPolicy").field(&self.0).finish()
@@ -8327,6 +8272,7 @@ impl ::windows::core::DefaultType for MixedRealitySpatialAudioFormatPolicy {
 }
 #[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct QuantumSizeSelectionMode(pub i32);
 impl QuantumSizeSelectionMode {
     pub const SystemDefault: Self = Self(0i32);
@@ -8342,12 +8288,6 @@ impl ::core::clone::Clone for QuantumSizeSelectionMode {
 unsafe impl ::windows::core::Abi for QuantumSizeSelectionMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for QuantumSizeSelectionMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for QuantumSizeSelectionMode {}
 impl ::core::fmt::Debug for QuantumSizeSelectionMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("QuantumSizeSelectionMode").field(&self.0).finish()
@@ -8870,6 +8810,7 @@ unsafe impl ::core::marker::Send for SetDefaultSpatialAudioFormatResult {}
 unsafe impl ::core::marker::Sync for SetDefaultSpatialAudioFormatResult {}
 #[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SetDefaultSpatialAudioFormatStatus(pub i32);
 impl SetDefaultSpatialAudioFormatStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -8888,12 +8829,6 @@ impl ::core::clone::Clone for SetDefaultSpatialAudioFormatStatus {
 unsafe impl ::windows::core::Abi for SetDefaultSpatialAudioFormatStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SetDefaultSpatialAudioFormatStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SetDefaultSpatialAudioFormatStatus {}
 impl ::core::fmt::Debug for SetDefaultSpatialAudioFormatStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SetDefaultSpatialAudioFormatStatus").field(&self.0).finish()
@@ -9238,6 +9173,7 @@ impl ::windows::core::RuntimeName for SpatialAudioFormatSubtype {
 }
 #[doc = "*Required features: 'Media_Audio'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpatialAudioModel(pub i32);
 impl SpatialAudioModel {
     pub const ObjectBased: Self = Self(0i32);
@@ -9252,12 +9188,6 @@ impl ::core::clone::Clone for SpatialAudioModel {
 unsafe impl ::windows::core::Abi for SpatialAudioModel {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SpatialAudioModel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialAudioModel {}
 impl ::core::fmt::Debug for SpatialAudioModel {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SpatialAudioModel").field(&self.0).finish()

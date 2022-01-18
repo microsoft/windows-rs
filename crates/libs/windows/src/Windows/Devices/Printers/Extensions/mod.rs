@@ -300,6 +300,7 @@ unsafe impl ::core::marker::Send for Print3DWorkflow {}
 unsafe impl ::core::marker::Sync for Print3DWorkflow {}
 #[doc = "*Required features: 'Devices_Printers_Extensions'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct Print3DWorkflowDetail(pub i32);
 impl Print3DWorkflowDetail {
     pub const Unknown: Self = Self(0i32);
@@ -319,12 +320,6 @@ impl ::core::clone::Clone for Print3DWorkflowDetail {
 unsafe impl ::windows::core::Abi for Print3DWorkflowDetail {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for Print3DWorkflowDetail {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Print3DWorkflowDetail {}
 impl ::core::fmt::Debug for Print3DWorkflowDetail {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("Print3DWorkflowDetail").field(&self.0).finish()
@@ -515,6 +510,7 @@ unsafe impl ::core::marker::Send for Print3DWorkflowPrinterChangedEventArgs {}
 unsafe impl ::core::marker::Sync for Print3DWorkflowPrinterChangedEventArgs {}
 #[doc = "*Required features: 'Devices_Printers_Extensions'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct Print3DWorkflowStatus(pub i32);
 impl Print3DWorkflowStatus {
     pub const Abandoned: Self = Self(0i32);
@@ -532,12 +528,6 @@ impl ::core::clone::Clone for Print3DWorkflowStatus {
 unsafe impl ::windows::core::Abi for Print3DWorkflowStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for Print3DWorkflowStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Print3DWorkflowStatus {}
 impl ::core::fmt::Debug for Print3DWorkflowStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("Print3DWorkflowStatus").field(&self.0).finish()

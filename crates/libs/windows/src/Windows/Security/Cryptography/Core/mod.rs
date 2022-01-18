@@ -318,6 +318,7 @@ unsafe impl ::core::marker::Send for AsymmetricKeyAlgorithmProvider {}
 unsafe impl ::core::marker::Sync for AsymmetricKeyAlgorithmProvider {}
 #[doc = "*Required features: 'Security_Cryptography_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct Capi1KdfTargetAlgorithm(pub i32);
 impl Capi1KdfTargetAlgorithm {
     pub const NotAes: Self = Self(0i32);
@@ -332,12 +333,6 @@ impl ::core::clone::Clone for Capi1KdfTargetAlgorithm {
 unsafe impl ::windows::core::Abi for Capi1KdfTargetAlgorithm {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for Capi1KdfTargetAlgorithm {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Capi1KdfTargetAlgorithm {}
 impl ::core::fmt::Debug for Capi1KdfTargetAlgorithm {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("Capi1KdfTargetAlgorithm").field(&self.0).finish()
@@ -669,6 +664,7 @@ unsafe impl ::core::marker::Send for CryptographicKey {}
 unsafe impl ::core::marker::Sync for CryptographicKey {}
 #[doc = "*Required features: 'Security_Cryptography_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CryptographicPadding(pub i32);
 impl CryptographicPadding {
     pub const None: Self = Self(0i32);
@@ -685,12 +681,6 @@ impl ::core::clone::Clone for CryptographicPadding {
 unsafe impl ::windows::core::Abi for CryptographicPadding {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CryptographicPadding {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CryptographicPadding {}
 impl ::core::fmt::Debug for CryptographicPadding {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CryptographicPadding").field(&self.0).finish()
@@ -704,6 +694,7 @@ impl ::windows::core::DefaultType for CryptographicPadding {
 }
 #[doc = "*Required features: 'Security_Cryptography_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CryptographicPrivateKeyBlobType(pub i32);
 impl CryptographicPrivateKeyBlobType {
     pub const Pkcs8RawPrivateKeyInfo: Self = Self(0i32);
@@ -721,12 +712,6 @@ impl ::core::clone::Clone for CryptographicPrivateKeyBlobType {
 unsafe impl ::windows::core::Abi for CryptographicPrivateKeyBlobType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CryptographicPrivateKeyBlobType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CryptographicPrivateKeyBlobType {}
 impl ::core::fmt::Debug for CryptographicPrivateKeyBlobType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CryptographicPrivateKeyBlobType").field(&self.0).finish()
@@ -740,6 +725,7 @@ impl ::windows::core::DefaultType for CryptographicPrivateKeyBlobType {
 }
 #[doc = "*Required features: 'Security_Cryptography_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CryptographicPublicKeyBlobType(pub i32);
 impl CryptographicPublicKeyBlobType {
     pub const X509SubjectPublicKeyInfo: Self = Self(0i32);
@@ -757,12 +743,6 @@ impl ::core::clone::Clone for CryptographicPublicKeyBlobType {
 unsafe impl ::windows::core::Abi for CryptographicPublicKeyBlobType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CryptographicPublicKeyBlobType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CryptographicPublicKeyBlobType {}
 impl ::core::fmt::Debug for CryptographicPublicKeyBlobType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CryptographicPublicKeyBlobType").field(&self.0).finish()

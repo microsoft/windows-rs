@@ -1805,6 +1805,7 @@ pub unsafe fn CoRegisterMessageFilter<'a, Param0: ::windows::core::IntoParam<'a,
 }
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ConnectorType(pub i32);
 impl ConnectorType {
     pub const Unknown_Connector: Self = Self(0i32);
@@ -1823,12 +1824,6 @@ impl ::core::clone::Clone for ConnectorType {
 unsafe impl ::windows::core::Abi for ConnectorType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ConnectorType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ConnectorType {}
 impl ::core::fmt::Debug for ConnectorType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ConnectorType").field(&self.0).finish()

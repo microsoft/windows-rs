@@ -207,6 +207,7 @@ unsafe impl ::core::marker::Send for BluetoothAdapter {}
 unsafe impl ::core::marker::Sync for BluetoothAdapter {}
 #[doc = "*Required features: 'Devices_Bluetooth'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct BluetoothAddressType(pub i32);
 impl BluetoothAddressType {
     pub const Public: Self = Self(0i32);
@@ -222,12 +223,6 @@ impl ::core::clone::Clone for BluetoothAddressType {
 unsafe impl ::windows::core::Abi for BluetoothAddressType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BluetoothAddressType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BluetoothAddressType {}
 impl ::core::fmt::Debug for BluetoothAddressType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BluetoothAddressType").field(&self.0).finish()
@@ -241,6 +236,7 @@ impl ::windows::core::DefaultType for BluetoothAddressType {
 }
 #[doc = "*Required features: 'Devices_Bluetooth'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct BluetoothCacheMode(pub i32);
 impl BluetoothCacheMode {
     pub const Cached: Self = Self(0i32);
@@ -255,12 +251,6 @@ impl ::core::clone::Clone for BluetoothCacheMode {
 unsafe impl ::windows::core::Abi for BluetoothCacheMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BluetoothCacheMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BluetoothCacheMode {}
 impl ::core::fmt::Debug for BluetoothCacheMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BluetoothCacheMode").field(&self.0).finish()
@@ -398,6 +388,7 @@ unsafe impl ::core::marker::Send for BluetoothClassOfDevice {}
 unsafe impl ::core::marker::Sync for BluetoothClassOfDevice {}
 #[doc = "*Required features: 'Devices_Bluetooth'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct BluetoothConnectionStatus(pub i32);
 impl BluetoothConnectionStatus {
     pub const Disconnected: Self = Self(0i32);
@@ -412,12 +403,6 @@ impl ::core::clone::Clone for BluetoothConnectionStatus {
 unsafe impl ::windows::core::Abi for BluetoothConnectionStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BluetoothConnectionStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BluetoothConnectionStatus {}
 impl ::core::fmt::Debug for BluetoothConnectionStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BluetoothConnectionStatus").field(&self.0).finish()
@@ -912,6 +897,7 @@ unsafe impl ::core::marker::Send for BluetoothDeviceId {}
 unsafe impl ::core::marker::Sync for BluetoothDeviceId {}
 #[doc = "*Required features: 'Devices_Bluetooth'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct BluetoothError(pub i32);
 impl BluetoothError {
     pub const Success: Self = Self(0i32);
@@ -934,12 +920,6 @@ impl ::core::clone::Clone for BluetoothError {
 unsafe impl ::windows::core::Abi for BluetoothError {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BluetoothError {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BluetoothError {}
 impl ::core::fmt::Debug for BluetoothError {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BluetoothError").field(&self.0).finish()
@@ -2402,6 +2382,7 @@ unsafe impl ::core::marker::Send for BluetoothLEPreferredConnectionParametersReq
 unsafe impl ::core::marker::Sync for BluetoothLEPreferredConnectionParametersRequest {}
 #[doc = "*Required features: 'Devices_Bluetooth'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct BluetoothLEPreferredConnectionParametersRequestStatus(pub i32);
 impl BluetoothLEPreferredConnectionParametersRequestStatus {
     pub const Unspecified: Self = Self(0i32);
@@ -2418,12 +2399,6 @@ impl ::core::clone::Clone for BluetoothLEPreferredConnectionParametersRequestSta
 unsafe impl ::windows::core::Abi for BluetoothLEPreferredConnectionParametersRequestStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BluetoothLEPreferredConnectionParametersRequestStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BluetoothLEPreferredConnectionParametersRequestStatus {}
 impl ::core::fmt::Debug for BluetoothLEPreferredConnectionParametersRequestStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BluetoothLEPreferredConnectionParametersRequestStatus").field(&self.0).finish()
@@ -2437,6 +2412,7 @@ impl ::windows::core::DefaultType for BluetoothLEPreferredConnectionParametersRe
 }
 #[doc = "*Required features: 'Devices_Bluetooth'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct BluetoothMajorClass(pub i32);
 impl BluetoothMajorClass {
     pub const Miscellaneous: Self = Self(0i32);
@@ -2459,12 +2435,6 @@ impl ::core::clone::Clone for BluetoothMajorClass {
 unsafe impl ::windows::core::Abi for BluetoothMajorClass {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BluetoothMajorClass {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BluetoothMajorClass {}
 impl ::core::fmt::Debug for BluetoothMajorClass {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BluetoothMajorClass").field(&self.0).finish()
@@ -2478,6 +2448,7 @@ impl ::windows::core::DefaultType for BluetoothMajorClass {
 }
 #[doc = "*Required features: 'Devices_Bluetooth'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct BluetoothMinorClass(pub i32);
 impl BluetoothMinorClass {
     pub const Uncategorized: Self = Self(0i32);
@@ -2561,12 +2532,6 @@ impl ::core::clone::Clone for BluetoothMinorClass {
 unsafe impl ::windows::core::Abi for BluetoothMinorClass {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BluetoothMinorClass {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BluetoothMinorClass {}
 impl ::core::fmt::Debug for BluetoothMinorClass {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BluetoothMinorClass").field(&self.0).finish()
@@ -2580,6 +2545,7 @@ impl ::windows::core::DefaultType for BluetoothMinorClass {
 }
 #[doc = "*Required features: 'Devices_Bluetooth'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct BluetoothServiceCapabilities(pub u32);
 impl BluetoothServiceCapabilities {
     pub const None: Self = Self(0u32);
@@ -2602,12 +2568,6 @@ impl ::core::clone::Clone for BluetoothServiceCapabilities {
 unsafe impl ::windows::core::Abi for BluetoothServiceCapabilities {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BluetoothServiceCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BluetoothServiceCapabilities {}
 impl ::core::fmt::Debug for BluetoothServiceCapabilities {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BluetoothServiceCapabilities").field(&self.0).finish()

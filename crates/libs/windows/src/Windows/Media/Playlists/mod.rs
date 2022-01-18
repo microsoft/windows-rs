@@ -172,6 +172,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Play
 }
 #[doc = "*Required features: 'Media_Playlists'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PlaylistFormat(pub i32);
 impl PlaylistFormat {
     pub const WindowsMedia: Self = Self(0i32);
@@ -187,12 +188,6 @@ impl ::core::clone::Clone for PlaylistFormat {
 unsafe impl ::windows::core::Abi for PlaylistFormat {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PlaylistFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PlaylistFormat {}
 impl ::core::fmt::Debug for PlaylistFormat {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PlaylistFormat").field(&self.0).finish()

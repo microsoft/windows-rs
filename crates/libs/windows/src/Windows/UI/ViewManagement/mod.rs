@@ -689,6 +689,7 @@ unsafe impl ::core::marker::Send for ApplicationView {}
 unsafe impl ::core::marker::Sync for ApplicationView {}
 #[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ApplicationViewBoundsMode(pub i32);
 impl ApplicationViewBoundsMode {
     pub const UseVisible: Self = Self(0i32);
@@ -703,12 +704,6 @@ impl ::core::clone::Clone for ApplicationViewBoundsMode {
 unsafe impl ::windows::core::Abi for ApplicationViewBoundsMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ApplicationViewBoundsMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ApplicationViewBoundsMode {}
 impl ::core::fmt::Debug for ApplicationViewBoundsMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ApplicationViewBoundsMode").field(&self.0).finish()
@@ -811,6 +806,7 @@ unsafe impl ::core::marker::Send for ApplicationViewConsolidatedEventArgs {}
 unsafe impl ::core::marker::Sync for ApplicationViewConsolidatedEventArgs {}
 #[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ApplicationViewMode(pub i32);
 impl ApplicationViewMode {
     pub const Default: Self = Self(0i32);
@@ -825,12 +821,6 @@ impl ::core::clone::Clone for ApplicationViewMode {
 unsafe impl ::windows::core::Abi for ApplicationViewMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ApplicationViewMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ApplicationViewMode {}
 impl ::core::fmt::Debug for ApplicationViewMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ApplicationViewMode").field(&self.0).finish()
@@ -844,6 +834,7 @@ impl ::windows::core::DefaultType for ApplicationViewMode {
 }
 #[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ApplicationViewOrientation(pub i32);
 impl ApplicationViewOrientation {
     pub const Landscape: Self = Self(0i32);
@@ -858,12 +849,6 @@ impl ::core::clone::Clone for ApplicationViewOrientation {
 unsafe impl ::windows::core::Abi for ApplicationViewOrientation {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ApplicationViewOrientation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ApplicationViewOrientation {}
 impl ::core::fmt::Debug for ApplicationViewOrientation {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ApplicationViewOrientation").field(&self.0).finish()
@@ -968,6 +953,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appl
 #[doc = "*Required features: 'UI_ViewManagement', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ApplicationViewState(pub i32);
 #[cfg(feature = "deprecated")]
 impl ApplicationViewState {
@@ -988,14 +974,6 @@ impl ::core::clone::Clone for ApplicationViewState {
 unsafe impl ::windows::core::Abi for ApplicationViewState {
     type Abi = Self;
 }
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for ApplicationViewState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for ApplicationViewState {}
 #[cfg(feature = "deprecated")]
 impl ::core::fmt::Debug for ApplicationViewState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1114,6 +1092,7 @@ impl ::windows::core::RuntimeName for ApplicationViewSwitcher {
 }
 #[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ApplicationViewSwitchingOptions(pub u32);
 impl ApplicationViewSwitchingOptions {
     pub const Default: Self = Self(0u32);
@@ -1129,12 +1108,6 @@ impl ::core::clone::Clone for ApplicationViewSwitchingOptions {
 unsafe impl ::windows::core::Abi for ApplicationViewSwitchingOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ApplicationViewSwitchingOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ApplicationViewSwitchingOptions {}
 impl ::core::fmt::Debug for ApplicationViewSwitchingOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ApplicationViewSwitchingOptions").field(&self.0).finish()
@@ -1532,6 +1505,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Appl
 }
 #[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ApplicationViewWindowingMode(pub i32);
 impl ApplicationViewWindowingMode {
     pub const Auto: Self = Self(0i32);
@@ -1549,12 +1523,6 @@ impl ::core::clone::Clone for ApplicationViewWindowingMode {
 unsafe impl ::windows::core::Abi for ApplicationViewWindowingMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ApplicationViewWindowingMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ApplicationViewWindowingMode {}
 impl ::core::fmt::Debug for ApplicationViewWindowingMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ApplicationViewWindowingMode").field(&self.0).finish()
@@ -1568,6 +1536,7 @@ impl ::windows::core::DefaultType for ApplicationViewWindowingMode {
 }
 #[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FullScreenSystemOverlayMode(pub i32);
 impl FullScreenSystemOverlayMode {
     pub const Standard: Self = Self(0i32);
@@ -1582,12 +1551,6 @@ impl ::core::clone::Clone for FullScreenSystemOverlayMode {
 unsafe impl ::windows::core::Abi for FullScreenSystemOverlayMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for FullScreenSystemOverlayMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FullScreenSystemOverlayMode {}
 impl ::core::fmt::Debug for FullScreenSystemOverlayMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FullScreenSystemOverlayMode").field(&self.0).finish()
@@ -1601,6 +1564,7 @@ impl ::windows::core::DefaultType for FullScreenSystemOverlayMode {
 }
 #[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HandPreference(pub i32);
 impl HandPreference {
     pub const LeftHanded: Self = Self(0i32);
@@ -1615,12 +1579,6 @@ impl ::core::clone::Clone for HandPreference {
 unsafe impl ::windows::core::Abi for HandPreference {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for HandPreference {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HandPreference {}
 impl ::core::fmt::Debug for HandPreference {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HandPreference").field(&self.0).finish()
@@ -3384,6 +3342,7 @@ unsafe impl ::core::marker::Send for StatusBarProgressIndicator {}
 unsafe impl ::core::marker::Sync for StatusBarProgressIndicator {}
 #[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UIColorType(pub i32);
 impl UIColorType {
     pub const Background: Self = Self(0i32);
@@ -3406,12 +3365,6 @@ impl ::core::clone::Clone for UIColorType {
 unsafe impl ::windows::core::Abi for UIColorType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UIColorType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UIColorType {}
 impl ::core::fmt::Debug for UIColorType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UIColorType").field(&self.0).finish()
@@ -3425,6 +3378,7 @@ impl ::windows::core::DefaultType for UIColorType {
 }
 #[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UIElementType(pub i32);
 impl UIElementType {
     pub const ActiveCaption: Self = Self(0i32);
@@ -3463,12 +3417,6 @@ impl ::core::clone::Clone for UIElementType {
 unsafe impl ::windows::core::Abi for UIElementType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UIElementType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UIElementType {}
 impl ::core::fmt::Debug for UIElementType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UIElementType").field(&self.0).finish()
@@ -4101,6 +4049,7 @@ unsafe impl ::core::marker::Send for UIViewSettings {}
 unsafe impl ::core::marker::Sync for UIViewSettings {}
 #[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserInteractionMode(pub i32);
 impl UserInteractionMode {
     pub const Mouse: Self = Self(0i32);
@@ -4115,12 +4064,6 @@ impl ::core::clone::Clone for UserInteractionMode {
 unsafe impl ::windows::core::Abi for UserInteractionMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UserInteractionMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserInteractionMode {}
 impl ::core::fmt::Debug for UserInteractionMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserInteractionMode").field(&self.0).finish()
@@ -4245,6 +4188,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &View
 }
 #[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ViewSizePreference(pub i32);
 impl ViewSizePreference {
     pub const Default: Self = Self(0i32);
@@ -4264,12 +4208,6 @@ impl ::core::clone::Clone for ViewSizePreference {
 unsafe impl ::windows::core::Abi for ViewSizePreference {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ViewSizePreference {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ViewSizePreference {}
 impl ::core::fmt::Debug for ViewSizePreference {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ViewSizePreference").field(&self.0).finish()

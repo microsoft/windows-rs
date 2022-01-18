@@ -655,6 +655,7 @@ unsafe impl ::core::marker::Send for HolographicCameraViewportParameters {}
 unsafe impl ::core::marker::Sync for HolographicCameraViewportParameters {}
 #[doc = "*Required features: 'Graphics_Holographic'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HolographicDepthReprojectionMethod(pub i32);
 impl HolographicDepthReprojectionMethod {
     pub const DepthReprojection: Self = Self(0i32);
@@ -669,12 +670,6 @@ impl ::core::clone::Clone for HolographicDepthReprojectionMethod {
 unsafe impl ::windows::core::Abi for HolographicDepthReprojectionMethod {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for HolographicDepthReprojectionMethod {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HolographicDepthReprojectionMethod {}
 impl ::core::fmt::Debug for HolographicDepthReprojectionMethod {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HolographicDepthReprojectionMethod").field(&self.0).finish()
@@ -1124,6 +1119,7 @@ unsafe impl ::core::marker::Send for HolographicFramePrediction {}
 unsafe impl ::core::marker::Sync for HolographicFramePrediction {}
 #[doc = "*Required features: 'Graphics_Holographic'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HolographicFramePresentResult(pub i32);
 impl HolographicFramePresentResult {
     pub const Success: Self = Self(0i32);
@@ -1138,12 +1134,6 @@ impl ::core::clone::Clone for HolographicFramePresentResult {
 unsafe impl ::windows::core::Abi for HolographicFramePresentResult {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for HolographicFramePresentResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HolographicFramePresentResult {}
 impl ::core::fmt::Debug for HolographicFramePresentResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HolographicFramePresentResult").field(&self.0).finish()
@@ -1157,6 +1147,7 @@ impl ::windows::core::DefaultType for HolographicFramePresentResult {
 }
 #[doc = "*Required features: 'Graphics_Holographic'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HolographicFramePresentWaitBehavior(pub i32);
 impl HolographicFramePresentWaitBehavior {
     pub const WaitForFrameToFinish: Self = Self(0i32);
@@ -1171,12 +1162,6 @@ impl ::core::clone::Clone for HolographicFramePresentWaitBehavior {
 unsafe impl ::windows::core::Abi for HolographicFramePresentWaitBehavior {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for HolographicFramePresentWaitBehavior {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HolographicFramePresentWaitBehavior {}
 impl ::core::fmt::Debug for HolographicFramePresentWaitBehavior {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HolographicFramePresentWaitBehavior").field(&self.0).finish()
@@ -2078,6 +2063,7 @@ unsafe impl ::core::marker::Send for HolographicQuadLayerUpdateParameters {}
 unsafe impl ::core::marker::Sync for HolographicQuadLayerUpdateParameters {}
 #[doc = "*Required features: 'Graphics_Holographic'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HolographicReprojectionMode(pub i32);
 impl HolographicReprojectionMode {
     pub const PositionAndOrientation: Self = Self(0i32);
@@ -2093,12 +2079,6 @@ impl ::core::clone::Clone for HolographicReprojectionMode {
 unsafe impl ::windows::core::Abi for HolographicReprojectionMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for HolographicReprojectionMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HolographicReprojectionMode {}
 impl ::core::fmt::Debug for HolographicReprojectionMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HolographicReprojectionMode").field(&self.0).finish()
@@ -2516,6 +2496,7 @@ unsafe impl ::core::marker::Send for HolographicSpaceCameraRemovedEventArgs {}
 unsafe impl ::core::marker::Sync for HolographicSpaceCameraRemovedEventArgs {}
 #[doc = "*Required features: 'Graphics_Holographic'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HolographicSpaceUserPresence(pub i32);
 impl HolographicSpaceUserPresence {
     pub const Absent: Self = Self(0i32);
@@ -2531,12 +2512,6 @@ impl ::core::clone::Clone for HolographicSpaceUserPresence {
 unsafe impl ::windows::core::Abi for HolographicSpaceUserPresence {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for HolographicSpaceUserPresence {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HolographicSpaceUserPresence {}
 impl ::core::fmt::Debug for HolographicSpaceUserPresence {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HolographicSpaceUserPresence").field(&self.0).finish()
@@ -2775,6 +2750,7 @@ unsafe impl ::core::marker::Send for HolographicViewConfiguration {}
 unsafe impl ::core::marker::Sync for HolographicViewConfiguration {}
 #[doc = "*Required features: 'Graphics_Holographic'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HolographicViewConfigurationKind(pub i32);
 impl HolographicViewConfigurationKind {
     pub const Display: Self = Self(0i32);
@@ -2789,12 +2765,6 @@ impl ::core::clone::Clone for HolographicViewConfigurationKind {
 unsafe impl ::windows::core::Abi for HolographicViewConfigurationKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for HolographicViewConfigurationKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HolographicViewConfigurationKind {}
 impl ::core::fmt::Debug for HolographicViewConfigurationKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HolographicViewConfigurationKind").field(&self.0).finish()

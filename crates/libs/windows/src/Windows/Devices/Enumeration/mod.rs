@@ -214,6 +214,7 @@ unsafe impl ::core::marker::Send for DeviceAccessInformation {}
 unsafe impl ::core::marker::Sync for DeviceAccessInformation {}
 #[doc = "*Required features: 'Devices_Enumeration'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DeviceAccessStatus(pub i32);
 impl DeviceAccessStatus {
     pub const Unspecified: Self = Self(0i32);
@@ -230,12 +231,6 @@ impl ::core::clone::Clone for DeviceAccessStatus {
 unsafe impl ::windows::core::Abi for DeviceAccessStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DeviceAccessStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeviceAccessStatus {}
 impl ::core::fmt::Debug for DeviceAccessStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DeviceAccessStatus").field(&self.0).finish()
@@ -249,6 +244,7 @@ impl ::windows::core::DefaultType for DeviceAccessStatus {
 }
 #[doc = "*Required features: 'Devices_Enumeration'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DeviceClass(pub i32);
 impl DeviceClass {
     pub const All: Self = Self(0i32);
@@ -268,12 +264,6 @@ impl ::core::clone::Clone for DeviceClass {
 unsafe impl ::windows::core::Abi for DeviceClass {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DeviceClass {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeviceClass {}
 impl ::core::fmt::Debug for DeviceClass {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DeviceClass").field(&self.0).finish()
@@ -1048,6 +1038,7 @@ unsafe impl ::core::marker::Send for DeviceInformationCustomPairing {}
 unsafe impl ::core::marker::Sync for DeviceInformationCustomPairing {}
 #[doc = "*Required features: 'Devices_Enumeration'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DeviceInformationKind(pub i32);
 impl DeviceInformationKind {
     pub const Unknown: Self = Self(0i32);
@@ -1069,12 +1060,6 @@ impl ::core::clone::Clone for DeviceInformationKind {
 unsafe impl ::windows::core::Abi for DeviceInformationKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DeviceInformationKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeviceInformationKind {}
 impl ::core::fmt::Debug for DeviceInformationKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DeviceInformationKind").field(&self.0).finish()
@@ -1351,6 +1336,7 @@ unsafe impl ::core::marker::Send for DeviceInformationUpdate {}
 unsafe impl ::core::marker::Sync for DeviceInformationUpdate {}
 #[doc = "*Required features: 'Devices_Enumeration'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DevicePairingKinds(pub u32);
 impl DevicePairingKinds {
     pub const None: Self = Self(0u32);
@@ -1369,12 +1355,6 @@ impl ::core::clone::Clone for DevicePairingKinds {
 unsafe impl ::windows::core::Abi for DevicePairingKinds {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DevicePairingKinds {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DevicePairingKinds {}
 impl ::core::fmt::Debug for DevicePairingKinds {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DevicePairingKinds").field(&self.0).finish()
@@ -1416,6 +1396,7 @@ impl ::windows::core::DefaultType for DevicePairingKinds {
 }
 #[doc = "*Required features: 'Devices_Enumeration'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DevicePairingProtectionLevel(pub i32);
 impl DevicePairingProtectionLevel {
     pub const Default: Self = Self(0i32);
@@ -1432,12 +1413,6 @@ impl ::core::clone::Clone for DevicePairingProtectionLevel {
 unsafe impl ::windows::core::Abi for DevicePairingProtectionLevel {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DevicePairingProtectionLevel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DevicePairingProtectionLevel {}
 impl ::core::fmt::Debug for DevicePairingProtectionLevel {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DevicePairingProtectionLevel").field(&self.0).finish()
@@ -1662,6 +1637,7 @@ unsafe impl ::core::marker::Send for DevicePairingResult {}
 unsafe impl ::core::marker::Sync for DevicePairingResult {}
 #[doc = "*Required features: 'Devices_Enumeration'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DevicePairingResultStatus(pub i32);
 impl DevicePairingResultStatus {
     pub const Paired: Self = Self(0i32);
@@ -1694,12 +1670,6 @@ impl ::core::clone::Clone for DevicePairingResultStatus {
 unsafe impl ::windows::core::Abi for DevicePairingResultStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DevicePairingResultStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DevicePairingResultStatus {}
 impl ::core::fmt::Debug for DevicePairingResultStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DevicePairingResultStatus").field(&self.0).finish()
@@ -2079,6 +2049,7 @@ unsafe impl ::core::marker::Send for DevicePickerAppearance {}
 unsafe impl ::core::marker::Sync for DevicePickerAppearance {}
 #[doc = "*Required features: 'Devices_Enumeration'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DevicePickerDisplayStatusOptions(pub u32);
 impl DevicePickerDisplayStatusOptions {
     pub const None: Self = Self(0u32);
@@ -2095,12 +2066,6 @@ impl ::core::clone::Clone for DevicePickerDisplayStatusOptions {
 unsafe impl ::windows::core::Abi for DevicePickerDisplayStatusOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DevicePickerDisplayStatusOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DevicePickerDisplayStatusOptions {}
 impl ::core::fmt::Debug for DevicePickerDisplayStatusOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DevicePickerDisplayStatusOptions").field(&self.0).finish()
@@ -2760,6 +2725,7 @@ unsafe impl ::core::marker::Send for DeviceUnpairingResult {}
 unsafe impl ::core::marker::Sync for DeviceUnpairingResult {}
 #[doc = "*Required features: 'Devices_Enumeration'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DeviceUnpairingResultStatus(pub i32);
 impl DeviceUnpairingResultStatus {
     pub const Unpaired: Self = Self(0i32);
@@ -2777,12 +2743,6 @@ impl ::core::clone::Clone for DeviceUnpairingResultStatus {
 unsafe impl ::windows::core::Abi for DeviceUnpairingResultStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DeviceUnpairingResultStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeviceUnpairingResultStatus {}
 impl ::core::fmt::Debug for DeviceUnpairingResultStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DeviceUnpairingResultStatus").field(&self.0).finish()
@@ -3068,6 +3028,7 @@ unsafe impl ::core::marker::Send for DeviceWatcherEvent {}
 unsafe impl ::core::marker::Sync for DeviceWatcherEvent {}
 #[doc = "*Required features: 'Devices_Enumeration'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DeviceWatcherEventKind(pub i32);
 impl DeviceWatcherEventKind {
     pub const Add: Self = Self(0i32);
@@ -3083,12 +3044,6 @@ impl ::core::clone::Clone for DeviceWatcherEventKind {
 unsafe impl ::windows::core::Abi for DeviceWatcherEventKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DeviceWatcherEventKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeviceWatcherEventKind {}
 impl ::core::fmt::Debug for DeviceWatcherEventKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DeviceWatcherEventKind").field(&self.0).finish()
@@ -3102,6 +3057,7 @@ impl ::windows::core::DefaultType for DeviceWatcherEventKind {
 }
 #[doc = "*Required features: 'Devices_Enumeration'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DeviceWatcherStatus(pub i32);
 impl DeviceWatcherStatus {
     pub const Created: Self = Self(0i32);
@@ -3120,12 +3076,6 @@ impl ::core::clone::Clone for DeviceWatcherStatus {
 unsafe impl ::windows::core::Abi for DeviceWatcherStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DeviceWatcherStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeviceWatcherStatus {}
 impl ::core::fmt::Debug for DeviceWatcherStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DeviceWatcherStatus").field(&self.0).finish()
@@ -4079,6 +4029,7 @@ pub struct IEnclosureLocation2_Vtbl {
 }
 #[doc = "*Required features: 'Devices_Enumeration'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct Panel(pub i32);
 impl Panel {
     pub const Unknown: Self = Self(0i32);
@@ -4098,12 +4049,6 @@ impl ::core::clone::Clone for Panel {
 unsafe impl ::windows::core::Abi for Panel {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for Panel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Panel {}
 impl ::core::fmt::Debug for Panel {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("Panel").field(&self.0).finish()

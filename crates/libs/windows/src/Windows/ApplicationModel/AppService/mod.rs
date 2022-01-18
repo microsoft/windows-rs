@@ -102,6 +102,7 @@ unsafe impl ::core::marker::Send for AppServiceClosedEventArgs {}
 unsafe impl ::core::marker::Sync for AppServiceClosedEventArgs {}
 #[doc = "*Required features: 'ApplicationModel_AppService'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppServiceClosedStatus(pub i32);
 impl AppServiceClosedStatus {
     pub const Completed: Self = Self(0i32);
@@ -118,12 +119,6 @@ impl ::core::clone::Clone for AppServiceClosedStatus {
 unsafe impl ::windows::core::Abi for AppServiceClosedStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppServiceClosedStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppServiceClosedStatus {}
 impl ::core::fmt::Debug for AppServiceClosedStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppServiceClosedStatus").field(&self.0).finish()
@@ -360,6 +355,7 @@ unsafe impl ::core::marker::Send for AppServiceConnection {}
 unsafe impl ::core::marker::Sync for AppServiceConnection {}
 #[doc = "*Required features: 'ApplicationModel_AppService'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppServiceConnectionStatus(pub i32);
 impl AppServiceConnectionStatus {
     pub const Success: Self = Self(0i32);
@@ -384,12 +380,6 @@ impl ::core::clone::Clone for AppServiceConnectionStatus {
 unsafe impl ::windows::core::Abi for AppServiceConnectionStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppServiceConnectionStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppServiceConnectionStatus {}
 impl ::core::fmt::Debug for AppServiceConnectionStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppServiceConnectionStatus").field(&self.0).finish()
@@ -751,6 +741,7 @@ unsafe impl ::core::marker::Send for AppServiceResponse {}
 unsafe impl ::core::marker::Sync for AppServiceResponse {}
 #[doc = "*Required features: 'ApplicationModel_AppService'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppServiceResponseStatus(pub i32);
 impl AppServiceResponseStatus {
     pub const Success: Self = Self(0i32);
@@ -774,12 +765,6 @@ impl ::core::clone::Clone for AppServiceResponseStatus {
 unsafe impl ::windows::core::Abi for AppServiceResponseStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppServiceResponseStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppServiceResponseStatus {}
 impl ::core::fmt::Debug for AppServiceResponseStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppServiceResponseStatus").field(&self.0).finish()
@@ -1252,6 +1237,7 @@ unsafe impl ::core::marker::Send for StatelessAppServiceResponse {}
 unsafe impl ::core::marker::Sync for StatelessAppServiceResponse {}
 #[doc = "*Required features: 'ApplicationModel_AppService'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct StatelessAppServiceResponseStatus(pub i32);
 impl StatelessAppServiceResponseStatus {
     pub const Success: Self = Self(0i32);
@@ -1279,12 +1265,6 @@ impl ::core::clone::Clone for StatelessAppServiceResponseStatus {
 unsafe impl ::windows::core::Abi for StatelessAppServiceResponseStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for StatelessAppServiceResponseStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StatelessAppServiceResponseStatus {}
 impl ::core::fmt::Debug for StatelessAppServiceResponseStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("StatelessAppServiceResponseStatus").field(&self.0).finish()

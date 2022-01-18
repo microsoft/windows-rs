@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'UI_StartScreen'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ForegroundText(pub i32);
 impl ForegroundText {
     pub const Dark: Self = Self(0i32);
@@ -15,12 +16,6 @@ impl ::core::clone::Clone for ForegroundText {
 unsafe impl ::windows::core::Abi for ForegroundText {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ForegroundText {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ForegroundText {}
 impl ::core::fmt::Debug for ForegroundText {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ForegroundText").field(&self.0).finish()
@@ -887,6 +882,7 @@ unsafe impl ::core::marker::Send for JumpListItem {}
 unsafe impl ::core::marker::Sync for JumpListItem {}
 #[doc = "*Required features: 'UI_StartScreen'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct JumpListItemKind(pub i32);
 impl JumpListItemKind {
     pub const Arguments: Self = Self(0i32);
@@ -901,12 +897,6 @@ impl ::core::clone::Clone for JumpListItemKind {
 unsafe impl ::windows::core::Abi for JumpListItemKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for JumpListItemKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for JumpListItemKind {}
 impl ::core::fmt::Debug for JumpListItemKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("JumpListItemKind").field(&self.0).finish()
@@ -920,6 +910,7 @@ impl ::windows::core::DefaultType for JumpListItemKind {
 }
 #[doc = "*Required features: 'UI_StartScreen'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct JumpListSystemGroupKind(pub i32);
 impl JumpListSystemGroupKind {
     pub const None: Self = Self(0i32);
@@ -935,12 +926,6 @@ impl ::core::clone::Clone for JumpListSystemGroupKind {
 unsafe impl ::windows::core::Abi for JumpListSystemGroupKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for JumpListSystemGroupKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for JumpListSystemGroupKind {}
 impl ::core::fmt::Debug for JumpListSystemGroupKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("JumpListSystemGroupKind").field(&self.0).finish()
@@ -1927,6 +1912,7 @@ unsafe impl ::core::marker::Send for TileMixedRealityModel {}
 unsafe impl ::core::marker::Sync for TileMixedRealityModel {}
 #[doc = "*Required features: 'UI_StartScreen'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TileMixedRealityModelActivationBehavior(pub i32);
 impl TileMixedRealityModelActivationBehavior {
     pub const Default: Self = Self(0i32);
@@ -1941,12 +1927,6 @@ impl ::core::clone::Clone for TileMixedRealityModelActivationBehavior {
 unsafe impl ::windows::core::Abi for TileMixedRealityModelActivationBehavior {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TileMixedRealityModelActivationBehavior {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TileMixedRealityModelActivationBehavior {}
 impl ::core::fmt::Debug for TileMixedRealityModelActivationBehavior {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TileMixedRealityModelActivationBehavior").field(&self.0).finish()
@@ -1960,6 +1940,7 @@ impl ::windows::core::DefaultType for TileMixedRealityModelActivationBehavior {
 }
 #[doc = "*Required features: 'UI_StartScreen'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TileOptions(pub u32);
 impl TileOptions {
     pub const None: Self = Self(0u32);
@@ -1976,12 +1957,6 @@ impl ::core::clone::Clone for TileOptions {
 unsafe impl ::windows::core::Abi for TileOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TileOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TileOptions {}
 impl ::core::fmt::Debug for TileOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TileOptions").field(&self.0).finish()
@@ -2023,6 +1998,7 @@ impl ::windows::core::DefaultType for TileOptions {
 }
 #[doc = "*Required features: 'UI_StartScreen'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TileSize(pub i32);
 impl TileSize {
     pub const Default: Self = Self(0i32);
@@ -2043,12 +2019,6 @@ impl ::core::clone::Clone for TileSize {
 unsafe impl ::windows::core::Abi for TileSize {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TileSize {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TileSize {}
 impl ::core::fmt::Debug for TileSize {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TileSize").field(&self.0).finish()

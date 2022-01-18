@@ -685,6 +685,7 @@ pub struct MessageTransmittedHandler_Vtbl {
 }
 #[doc = "*Required features: 'Networking_Proximity'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PeerDiscoveryTypes(pub u32);
 impl PeerDiscoveryTypes {
     pub const None: Self = Self(0u32);
@@ -700,12 +701,6 @@ impl ::core::clone::Clone for PeerDiscoveryTypes {
 unsafe impl ::windows::core::Abi for PeerDiscoveryTypes {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PeerDiscoveryTypes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PeerDiscoveryTypes {}
 impl ::core::fmt::Debug for PeerDiscoveryTypes {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PeerDiscoveryTypes").field(&self.0).finish()
@@ -1022,6 +1017,7 @@ unsafe impl ::core::marker::Send for PeerInformation {}
 unsafe impl ::core::marker::Sync for PeerInformation {}
 #[doc = "*Required features: 'Networking_Proximity'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PeerRole(pub i32);
 impl PeerRole {
     pub const Peer: Self = Self(0i32);
@@ -1037,12 +1033,6 @@ impl ::core::clone::Clone for PeerRole {
 unsafe impl ::windows::core::Abi for PeerRole {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PeerRole {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PeerRole {}
 impl ::core::fmt::Debug for PeerRole {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PeerRole").field(&self.0).finish()
@@ -1222,6 +1212,7 @@ unsafe impl ::core::marker::Send for PeerWatcher {}
 unsafe impl ::core::marker::Sync for PeerWatcher {}
 #[doc = "*Required features: 'Networking_Proximity'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PeerWatcherStatus(pub i32);
 impl PeerWatcherStatus {
     pub const Created: Self = Self(0i32);
@@ -1240,12 +1231,6 @@ impl ::core::clone::Clone for PeerWatcherStatus {
 unsafe impl ::windows::core::Abi for PeerWatcherStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PeerWatcherStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PeerWatcherStatus {}
 impl ::core::fmt::Debug for PeerWatcherStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PeerWatcherStatus").field(&self.0).finish()
@@ -1588,6 +1573,7 @@ unsafe impl ::core::marker::Send for ProximityMessage {}
 unsafe impl ::core::marker::Sync for ProximityMessage {}
 #[doc = "*Required features: 'Networking_Proximity'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TriggeredConnectState(pub i32);
 impl TriggeredConnectState {
     pub const PeerFound: Self = Self(0i32);
@@ -1606,12 +1592,6 @@ impl ::core::clone::Clone for TriggeredConnectState {
 unsafe impl ::windows::core::Abi for TriggeredConnectState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TriggeredConnectState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TriggeredConnectState {}
 impl ::core::fmt::Debug for TriggeredConnectState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TriggeredConnectState").field(&self.0).finish()

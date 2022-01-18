@@ -350,6 +350,7 @@ impl ::windows::core::RuntimeName for AccessoryManager {
 }
 #[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AccessoryNotificationType(pub u32);
 impl AccessoryNotificationType {
     pub const None: Self = Self(0u32);
@@ -378,12 +379,6 @@ impl ::core::clone::Clone for AccessoryNotificationType {
 unsafe impl ::windows::core::Abi for AccessoryNotificationType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AccessoryNotificationType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AccessoryNotificationType {}
 impl ::core::fmt::Debug for AccessoryNotificationType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AccessoryNotificationType").field(&self.0).finish()
@@ -779,6 +774,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Bina
 }
 #[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CalendarChangedEvent(pub i32);
 impl CalendarChangedEvent {
     pub const LostEvents: Self = Self(0i32);
@@ -798,12 +794,6 @@ impl ::core::clone::Clone for CalendarChangedEvent {
 unsafe impl ::windows::core::Abi for CalendarChangedEvent {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CalendarChangedEvent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CalendarChangedEvent {}
 impl ::core::fmt::Debug for CalendarChangedEvent {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CalendarChangedEvent").field(&self.0).finish()
@@ -2680,6 +2670,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
 }
 #[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhoneCallAudioEndpoint(pub i32);
 impl PhoneCallAudioEndpoint {
     pub const Default: Self = Self(0i32);
@@ -2695,12 +2686,6 @@ impl ::core::clone::Clone for PhoneCallAudioEndpoint {
 unsafe impl ::windows::core::Abi for PhoneCallAudioEndpoint {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhoneCallAudioEndpoint {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneCallAudioEndpoint {}
 impl ::core::fmt::Debug for PhoneCallAudioEndpoint {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhoneCallAudioEndpoint").field(&self.0).finish()
@@ -2884,6 +2869,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
 }
 #[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhoneCallDirection(pub i32);
 impl PhoneCallDirection {
     pub const Incoming: Self = Self(0i32);
@@ -2898,12 +2884,6 @@ impl ::core::clone::Clone for PhoneCallDirection {
 unsafe impl ::windows::core::Abi for PhoneCallDirection {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhoneCallDirection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneCallDirection {}
 impl ::core::fmt::Debug for PhoneCallDirection {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhoneCallDirection").field(&self.0).finish()
@@ -2917,6 +2897,7 @@ impl ::windows::core::DefaultType for PhoneCallDirection {
 }
 #[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhoneCallState(pub i32);
 impl PhoneCallState {
     pub const Unknown: Self = Self(0i32);
@@ -2934,12 +2915,6 @@ impl ::core::clone::Clone for PhoneCallState {
 unsafe impl ::windows::core::Abi for PhoneCallState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhoneCallState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneCallState {}
 impl ::core::fmt::Debug for PhoneCallState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhoneCallState").field(&self.0).finish()
@@ -2953,6 +2928,7 @@ impl ::windows::core::DefaultType for PhoneCallState {
 }
 #[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhoneCallTransport(pub i32);
 impl PhoneCallTransport {
     pub const Cellular: Self = Self(0i32);
@@ -2967,12 +2943,6 @@ impl ::core::clone::Clone for PhoneCallTransport {
 unsafe impl ::windows::core::Abi for PhoneCallTransport {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhoneCallTransport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneCallTransport {}
 impl ::core::fmt::Debug for PhoneCallTransport {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhoneCallTransport").field(&self.0).finish()
@@ -3113,6 +3083,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
 }
 #[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhoneLineRegistrationState(pub i32);
 impl PhoneLineRegistrationState {
     pub const Disconnected: Self = Self(0i32);
@@ -3128,12 +3099,6 @@ impl ::core::clone::Clone for PhoneLineRegistrationState {
 unsafe impl ::windows::core::Abi for PhoneLineRegistrationState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhoneLineRegistrationState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneLineRegistrationState {}
 impl ::core::fmt::Debug for PhoneLineRegistrationState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhoneLineRegistrationState").field(&self.0).finish()
@@ -3147,6 +3112,7 @@ impl ::windows::core::DefaultType for PhoneLineRegistrationState {
 }
 #[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhoneMediaType(pub i32);
 impl PhoneMediaType {
     pub const AudioOnly: Self = Self(0i32);
@@ -3161,12 +3127,6 @@ impl ::core::clone::Clone for PhoneMediaType {
 unsafe impl ::windows::core::Abi for PhoneMediaType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhoneMediaType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneMediaType {}
 impl ::core::fmt::Debug for PhoneMediaType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhoneMediaType").field(&self.0).finish()
@@ -3343,6 +3303,7 @@ impl<'a> ::windows::core::IntoParam<'a, IAccessoryNotificationTriggerDetails> fo
 }
 #[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhoneNotificationType(pub i32);
 impl PhoneNotificationType {
     pub const NewCall: Self = Self(0i32);
@@ -3360,12 +3321,6 @@ impl ::core::clone::Clone for PhoneNotificationType {
 unsafe impl ::windows::core::Abi for PhoneNotificationType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhoneNotificationType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneNotificationType {}
 impl ::core::fmt::Debug for PhoneNotificationType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhoneNotificationType").field(&self.0).finish()
@@ -3379,6 +3334,7 @@ impl ::windows::core::DefaultType for PhoneNotificationType {
 }
 #[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PlaybackCapability(pub u32);
 impl PlaybackCapability {
     pub const None: Self = Self(0u32);
@@ -3402,12 +3358,6 @@ impl ::core::clone::Clone for PlaybackCapability {
 unsafe impl ::windows::core::Abi for PlaybackCapability {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PlaybackCapability {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PlaybackCapability {}
 impl ::core::fmt::Debug for PlaybackCapability {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PlaybackCapability").field(&self.0).finish()
@@ -3449,6 +3399,7 @@ impl ::windows::core::DefaultType for PlaybackCapability {
 }
 #[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PlaybackCommand(pub i32);
 impl PlaybackCommand {
     pub const Play: Self = Self(0i32);
@@ -3471,12 +3422,6 @@ impl ::core::clone::Clone for PlaybackCommand {
 unsafe impl ::windows::core::Abi for PlaybackCommand {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PlaybackCommand {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PlaybackCommand {}
 impl ::core::fmt::Debug for PlaybackCommand {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PlaybackCommand").field(&self.0).finish()
@@ -3490,6 +3435,7 @@ impl ::windows::core::DefaultType for PlaybackCommand {
 }
 #[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PlaybackStatus(pub i32);
 impl PlaybackStatus {
     pub const None: Self = Self(0i32);
@@ -3507,12 +3453,6 @@ impl ::core::clone::Clone for PlaybackStatus {
 unsafe impl ::windows::core::Abi for PlaybackStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PlaybackStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PlaybackStatus {}
 impl ::core::fmt::Debug for PlaybackStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PlaybackStatus").field(&self.0).finish()
@@ -3731,6 +3671,7 @@ impl<'a> ::windows::core::IntoParam<'a, IAccessoryNotificationTriggerDetails> fo
 }
 #[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ReminderState(pub i32);
 impl ReminderState {
     pub const Active: Self = Self(0i32);
@@ -3746,12 +3687,6 @@ impl ::core::clone::Clone for ReminderState {
 unsafe impl ::windows::core::Abi for ReminderState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ReminderState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ReminderState {}
 impl ::core::fmt::Debug for ReminderState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ReminderState").field(&self.0).finish()
@@ -4134,6 +4069,7 @@ impl<'a> ::windows::core::IntoParam<'a, IAccessoryNotificationTriggerDetails> fo
 }
 #[doc = "*Required features: 'Phone_Notification_Management'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct VibrateState(pub i32);
 impl VibrateState {
     pub const RingerOffVibrateOff: Self = Self(0i32);
@@ -4150,12 +4086,6 @@ impl ::core::clone::Clone for VibrateState {
 unsafe impl ::windows::core::Abi for VibrateState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VibrateState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VibrateState {}
 impl ::core::fmt::Debug for VibrateState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VibrateState").field(&self.0).finish()

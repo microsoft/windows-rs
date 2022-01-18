@@ -316,6 +316,7 @@ unsafe impl ::core::marker::Send for IndexedResourceQualifier {}
 unsafe impl ::core::marker::Sync for IndexedResourceQualifier {}
 #[doc = "*Required features: 'ApplicationModel_Resources_Management'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct IndexedResourceType(pub i32);
 impl IndexedResourceType {
     pub const String: Self = Self(0i32);
@@ -331,12 +332,6 @@ impl ::core::clone::Clone for IndexedResourceType {
 unsafe impl ::windows::core::Abi for IndexedResourceType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for IndexedResourceType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for IndexedResourceType {}
 impl ::core::fmt::Debug for IndexedResourceType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("IndexedResourceType").field(&self.0).finish()

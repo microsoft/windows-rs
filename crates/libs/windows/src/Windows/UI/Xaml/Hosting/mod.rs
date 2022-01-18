@@ -387,6 +387,7 @@ unsafe impl ::core::marker::Send for DesignerAppView {}
 unsafe impl ::core::marker::Sync for DesignerAppView {}
 #[doc = "*Required features: 'UI_Xaml_Hosting'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DesignerAppViewState(pub i32);
 impl DesignerAppViewState {
     pub const Visible: Self = Self(0i32);
@@ -401,12 +402,6 @@ impl ::core::clone::Clone for DesignerAppViewState {
 unsafe impl ::windows::core::Abi for DesignerAppViewState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DesignerAppViewState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DesignerAppViewState {}
 impl ::core::fmt::Debug for DesignerAppViewState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DesignerAppViewState").field(&self.0).finish()
@@ -1654,6 +1649,7 @@ unsafe impl ::core::marker::Send for WindowsXamlManager {}
 unsafe impl ::core::marker::Sync for WindowsXamlManager {}
 #[doc = "*Required features: 'UI_Xaml_Hosting'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct XamlSourceFocusNavigationReason(pub i32);
 impl XamlSourceFocusNavigationReason {
     pub const Programmatic: Self = Self(0i32);
@@ -1674,12 +1670,6 @@ impl ::core::clone::Clone for XamlSourceFocusNavigationReason {
 unsafe impl ::windows::core::Abi for XamlSourceFocusNavigationReason {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for XamlSourceFocusNavigationReason {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XamlSourceFocusNavigationReason {}
 impl ::core::fmt::Debug for XamlSourceFocusNavigationReason {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("XamlSourceFocusNavigationReason").field(&self.0).finish()

@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'Data_Text'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AlternateNormalizationFormat(pub i32);
 impl AlternateNormalizationFormat {
     pub const NotNormalized: Self = Self(0i32);
@@ -18,12 +19,6 @@ impl ::core::clone::Clone for AlternateNormalizationFormat {
 unsafe impl ::windows::core::Abi for AlternateNormalizationFormat {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AlternateNormalizationFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AlternateNormalizationFormat {}
 impl ::core::fmt::Debug for AlternateNormalizationFormat {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AlternateNormalizationFormat").field(&self.0).finish()
@@ -1245,6 +1240,7 @@ unsafe impl ::core::marker::Send for TextPredictionGenerator {}
 unsafe impl ::core::marker::Sync for TextPredictionGenerator {}
 #[doc = "*Required features: 'Data_Text'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TextPredictionOptions(pub u32);
 impl TextPredictionOptions {
     pub const None: Self = Self(0u32);
@@ -1260,12 +1256,6 @@ impl ::core::clone::Clone for TextPredictionOptions {
 unsafe impl ::windows::core::Abi for TextPredictionOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TextPredictionOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TextPredictionOptions {}
 impl ::core::fmt::Debug for TextPredictionOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TextPredictionOptions").field(&self.0).finish()
@@ -1591,6 +1581,7 @@ impl ::windows::core::RuntimeName for UnicodeCharacters {
 }
 #[doc = "*Required features: 'Data_Text'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UnicodeGeneralCategory(pub i32);
 impl UnicodeGeneralCategory {
     pub const UppercaseLetter: Self = Self(0i32);
@@ -1633,12 +1624,6 @@ impl ::core::clone::Clone for UnicodeGeneralCategory {
 unsafe impl ::windows::core::Abi for UnicodeGeneralCategory {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UnicodeGeneralCategory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UnicodeGeneralCategory {}
 impl ::core::fmt::Debug for UnicodeGeneralCategory {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UnicodeGeneralCategory").field(&self.0).finish()
@@ -1652,6 +1637,7 @@ impl ::windows::core::DefaultType for UnicodeGeneralCategory {
 }
 #[doc = "*Required features: 'Data_Text'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UnicodeNumericType(pub i32);
 impl UnicodeNumericType {
     pub const None: Self = Self(0i32);
@@ -1668,12 +1654,6 @@ impl ::core::clone::Clone for UnicodeNumericType {
 unsafe impl ::windows::core::Abi for UnicodeNumericType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UnicodeNumericType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UnicodeNumericType {}
 impl ::core::fmt::Debug for UnicodeNumericType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UnicodeNumericType").field(&self.0).finish()

@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'Devices_Bluetooth_Background'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct BluetoothEventTriggeringMode(pub i32);
 impl BluetoothEventTriggeringMode {
     pub const Serial: Self = Self(0i32);
@@ -16,12 +17,6 @@ impl ::core::clone::Clone for BluetoothEventTriggeringMode {
 unsafe impl ::windows::core::Abi for BluetoothEventTriggeringMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BluetoothEventTriggeringMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BluetoothEventTriggeringMode {}
 impl ::core::fmt::Debug for BluetoothEventTriggeringMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BluetoothEventTriggeringMode").field(&self.0).finish()

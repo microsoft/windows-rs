@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'Services_Maps_Guidance'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GuidanceAudioMeasurementSystem(pub i32);
 impl GuidanceAudioMeasurementSystem {
     pub const Meters: Self = Self(0i32);
@@ -16,12 +17,6 @@ impl ::core::clone::Clone for GuidanceAudioMeasurementSystem {
 unsafe impl ::windows::core::Abi for GuidanceAudioMeasurementSystem {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GuidanceAudioMeasurementSystem {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GuidanceAudioMeasurementSystem {}
 impl ::core::fmt::Debug for GuidanceAudioMeasurementSystem {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GuidanceAudioMeasurementSystem").field(&self.0).finish()
@@ -35,6 +30,7 @@ impl ::windows::core::DefaultType for GuidanceAudioMeasurementSystem {
 }
 #[doc = "*Required features: 'Services_Maps_Guidance'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GuidanceAudioNotificationKind(pub i32);
 impl GuidanceAudioNotificationKind {
     pub const Maneuver: Self = Self(0i32);
@@ -53,12 +49,6 @@ impl ::core::clone::Clone for GuidanceAudioNotificationKind {
 unsafe impl ::windows::core::Abi for GuidanceAudioNotificationKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GuidanceAudioNotificationKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GuidanceAudioNotificationKind {}
 impl ::core::fmt::Debug for GuidanceAudioNotificationKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GuidanceAudioNotificationKind").field(&self.0).finish()
@@ -170,6 +160,7 @@ unsafe impl ::core::marker::Send for GuidanceAudioNotificationRequestedEventArgs
 unsafe impl ::core::marker::Sync for GuidanceAudioNotificationRequestedEventArgs {}
 #[doc = "*Required features: 'Services_Maps_Guidance'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GuidanceAudioNotifications(pub u32);
 impl GuidanceAudioNotifications {
     pub const None: Self = Self(0u32);
@@ -189,12 +180,6 @@ impl ::core::clone::Clone for GuidanceAudioNotifications {
 unsafe impl ::windows::core::Abi for GuidanceAudioNotifications {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GuidanceAudioNotifications {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GuidanceAudioNotifications {}
 impl ::core::fmt::Debug for GuidanceAudioNotifications {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GuidanceAudioNotifications").field(&self.0).finish()
@@ -325,6 +310,7 @@ unsafe impl ::core::marker::Send for GuidanceLaneInfo {}
 unsafe impl ::core::marker::Sync for GuidanceLaneInfo {}
 #[doc = "*Required features: 'Services_Maps_Guidance'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GuidanceLaneMarkers(pub u32);
 impl GuidanceLaneMarkers {
     pub const None: Self = Self(0u32);
@@ -348,12 +334,6 @@ impl ::core::clone::Clone for GuidanceLaneMarkers {
 unsafe impl ::windows::core::Abi for GuidanceLaneMarkers {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GuidanceLaneMarkers {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GuidanceLaneMarkers {}
 impl ::core::fmt::Debug for GuidanceLaneMarkers {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GuidanceLaneMarkers").field(&self.0).finish()
@@ -565,6 +545,7 @@ unsafe impl ::core::marker::Send for GuidanceManeuver {}
 unsafe impl ::core::marker::Sync for GuidanceManeuver {}
 #[doc = "*Required features: 'Services_Maps_Guidance'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GuidanceManeuverKind(pub i32);
 impl GuidanceManeuverKind {
     pub const None: Self = Self(0i32);
@@ -625,12 +606,6 @@ impl ::core::clone::Clone for GuidanceManeuverKind {
 unsafe impl ::windows::core::Abi for GuidanceManeuverKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GuidanceManeuverKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GuidanceManeuverKind {}
 impl ::core::fmt::Debug for GuidanceManeuverKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GuidanceManeuverKind").field(&self.0).finish()
@@ -758,6 +733,7 @@ unsafe impl ::core::marker::Send for GuidanceMapMatchedCoordinate {}
 unsafe impl ::core::marker::Sync for GuidanceMapMatchedCoordinate {}
 #[doc = "*Required features: 'Services_Maps_Guidance'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GuidanceMode(pub i32);
 impl GuidanceMode {
     pub const None: Self = Self(0i32);
@@ -774,12 +750,6 @@ impl ::core::clone::Clone for GuidanceMode {
 unsafe impl ::windows::core::Abi for GuidanceMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GuidanceMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GuidanceMode {}
 impl ::core::fmt::Debug for GuidanceMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GuidanceMode").field(&self.0).finish()

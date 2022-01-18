@@ -317,6 +317,7 @@ unsafe impl ::core::marker::Sync for CortanaActionableInsightsOptions {}
 #[doc = "*Required features: 'Services_Cortana', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CortanaPermission(pub i32);
 #[cfg(feature = "deprecated")]
 impl CortanaPermission {
@@ -345,14 +346,6 @@ unsafe impl ::windows::core::Abi for CortanaPermission {
     type Abi = Self;
 }
 #[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for CortanaPermission {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for CortanaPermission {}
-#[cfg(feature = "deprecated")]
 impl ::core::fmt::Debug for CortanaPermission {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CortanaPermission").field(&self.0).finish()
@@ -369,6 +362,7 @@ impl ::windows::core::DefaultType for CortanaPermission {
 #[doc = "*Required features: 'Services_Cortana', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CortanaPermissionsChangeResult(pub i32);
 #[cfg(feature = "deprecated")]
 impl CortanaPermissionsChangeResult {
@@ -388,14 +382,6 @@ impl ::core::clone::Clone for CortanaPermissionsChangeResult {
 unsafe impl ::windows::core::Abi for CortanaPermissionsChangeResult {
     type Abi = Self;
 }
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for CortanaPermissionsChangeResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for CortanaPermissionsChangeResult {}
 #[cfg(feature = "deprecated")]
 impl ::core::fmt::Debug for CortanaPermissionsChangeResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {

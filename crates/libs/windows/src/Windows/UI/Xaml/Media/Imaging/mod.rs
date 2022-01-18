@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct BitmapCreateOptions(pub u32);
 impl BitmapCreateOptions {
     pub const None: Self = Self(0u32);
@@ -15,12 +16,6 @@ impl ::core::clone::Clone for BitmapCreateOptions {
 unsafe impl ::windows::core::Abi for BitmapCreateOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BitmapCreateOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BitmapCreateOptions {}
 impl ::core::fmt::Debug for BitmapCreateOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BitmapCreateOptions").field(&self.0).finish()
@@ -600,6 +595,7 @@ unsafe impl ::core::marker::Send for BitmapSource {}
 unsafe impl ::core::marker::Sync for BitmapSource {}
 #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DecodePixelType(pub i32);
 impl DecodePixelType {
     pub const Physical: Self = Self(0i32);
@@ -614,12 +610,6 @@ impl ::core::clone::Clone for DecodePixelType {
 unsafe impl ::windows::core::Abi for DecodePixelType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DecodePixelType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DecodePixelType {}
 impl ::core::fmt::Debug for DecodePixelType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DecodePixelType").field(&self.0).finish()
@@ -2077,6 +2067,7 @@ unsafe impl ::core::marker::Send for SvgImageSourceFailedEventArgs {}
 unsafe impl ::core::marker::Sync for SvgImageSourceFailedEventArgs {}
 #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SvgImageSourceLoadStatus(pub i32);
 impl SvgImageSourceLoadStatus {
     pub const Success: Self = Self(0i32);
@@ -2093,12 +2084,6 @@ impl ::core::clone::Clone for SvgImageSourceLoadStatus {
 unsafe impl ::windows::core::Abi for SvgImageSourceLoadStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SvgImageSourceLoadStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SvgImageSourceLoadStatus {}
 impl ::core::fmt::Debug for SvgImageSourceLoadStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SvgImageSourceLoadStatus").field(&self.0).finish()

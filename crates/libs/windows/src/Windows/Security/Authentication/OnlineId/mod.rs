@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'Security_Authentication_OnlineId'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CredentialPromptType(pub i32);
 impl CredentialPromptType {
     pub const PromptIfNeeded: Self = Self(0i32);
@@ -16,12 +17,6 @@ impl ::core::clone::Clone for CredentialPromptType {
 unsafe impl ::windows::core::Abi for CredentialPromptType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CredentialPromptType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CredentialPromptType {}
 impl ::core::fmt::Debug for CredentialPromptType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CredentialPromptType").field(&self.0).finish()
@@ -855,6 +850,7 @@ unsafe impl ::core::marker::Send for OnlineIdSystemTicketResult {}
 unsafe impl ::core::marker::Sync for OnlineIdSystemTicketResult {}
 #[doc = "*Required features: 'Security_Authentication_OnlineId'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct OnlineIdSystemTicketStatus(pub i32);
 impl OnlineIdSystemTicketStatus {
     pub const Success: Self = Self(0i32);
@@ -870,12 +866,6 @@ impl ::core::clone::Clone for OnlineIdSystemTicketStatus {
 unsafe impl ::windows::core::Abi for OnlineIdSystemTicketStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for OnlineIdSystemTicketStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for OnlineIdSystemTicketStatus {}
 impl ::core::fmt::Debug for OnlineIdSystemTicketStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("OnlineIdSystemTicketStatus").field(&self.0).finish()

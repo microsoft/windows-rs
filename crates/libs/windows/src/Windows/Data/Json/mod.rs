@@ -697,6 +697,7 @@ impl ::windows::core::RuntimeName for JsonError {
 }
 #[doc = "*Required features: 'Data_Json'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct JsonErrorStatus(pub i32);
 impl JsonErrorStatus {
     pub const Unknown: Self = Self(0i32);
@@ -714,12 +715,6 @@ impl ::core::clone::Clone for JsonErrorStatus {
 unsafe impl ::windows::core::Abi for JsonErrorStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for JsonErrorStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for JsonErrorStatus {}
 impl ::core::fmt::Debug for JsonErrorStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("JsonErrorStatus").field(&self.0).finish()
@@ -1418,6 +1413,7 @@ unsafe impl ::core::marker::Send for JsonValue {}
 unsafe impl ::core::marker::Sync for JsonValue {}
 #[doc = "*Required features: 'Data_Json'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct JsonValueType(pub i32);
 impl JsonValueType {
     pub const Null: Self = Self(0i32);
@@ -1436,12 +1432,6 @@ impl ::core::clone::Clone for JsonValueType {
 unsafe impl ::windows::core::Abi for JsonValueType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for JsonValueType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for JsonValueType {}
 impl ::core::fmt::Debug for JsonValueType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("JsonValueType").field(&self.0).finish()

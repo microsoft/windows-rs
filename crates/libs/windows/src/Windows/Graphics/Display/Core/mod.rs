@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'Graphics_Display_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HdmiDisplayColorSpace(pub i32);
 impl HdmiDisplayColorSpace {
     pub const RgbLimited: Self = Self(0i32);
@@ -17,12 +18,6 @@ impl ::core::clone::Clone for HdmiDisplayColorSpace {
 unsafe impl ::windows::core::Abi for HdmiDisplayColorSpace {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for HdmiDisplayColorSpace {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HdmiDisplayColorSpace {}
 impl ::core::fmt::Debug for HdmiDisplayColorSpace {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HdmiDisplayColorSpace").field(&self.0).finish()
@@ -96,6 +91,7 @@ impl ::core::default::Default for HdmiDisplayHdr2086Metadata {
 }
 #[doc = "*Required features: 'Graphics_Display_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HdmiDisplayHdrOption(pub i32);
 impl HdmiDisplayHdrOption {
     pub const None: Self = Self(0i32);
@@ -112,12 +108,6 @@ impl ::core::clone::Clone for HdmiDisplayHdrOption {
 unsafe impl ::windows::core::Abi for HdmiDisplayHdrOption {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for HdmiDisplayHdrOption {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HdmiDisplayHdrOption {}
 impl ::core::fmt::Debug for HdmiDisplayHdrOption {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HdmiDisplayHdrOption").field(&self.0).finish()
@@ -453,6 +443,7 @@ unsafe impl ::core::marker::Send for HdmiDisplayMode {}
 unsafe impl ::core::marker::Sync for HdmiDisplayMode {}
 #[doc = "*Required features: 'Graphics_Display_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HdmiDisplayPixelEncoding(pub i32);
 impl HdmiDisplayPixelEncoding {
     pub const Rgb444: Self = Self(0i32);
@@ -469,12 +460,6 @@ impl ::core::clone::Clone for HdmiDisplayPixelEncoding {
 unsafe impl ::windows::core::Abi for HdmiDisplayPixelEncoding {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for HdmiDisplayPixelEncoding {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HdmiDisplayPixelEncoding {}
 impl ::core::fmt::Debug for HdmiDisplayPixelEncoding {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HdmiDisplayPixelEncoding").field(&self.0).finish()

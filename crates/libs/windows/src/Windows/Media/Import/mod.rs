@@ -448,6 +448,7 @@ pub struct IPhotoImportVideoSegment_Vtbl {
 }
 #[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhotoImportAccessMode(pub i32);
 impl PhotoImportAccessMode {
     pub const ReadWrite: Self = Self(0i32);
@@ -463,12 +464,6 @@ impl ::core::clone::Clone for PhotoImportAccessMode {
 unsafe impl ::windows::core::Abi for PhotoImportAccessMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhotoImportAccessMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhotoImportAccessMode {}
 impl ::core::fmt::Debug for PhotoImportAccessMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhotoImportAccessMode").field(&self.0).finish()
@@ -482,6 +477,7 @@ impl ::windows::core::DefaultType for PhotoImportAccessMode {
 }
 #[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhotoImportConnectionTransport(pub i32);
 impl PhotoImportConnectionTransport {
     pub const Unknown: Self = Self(0i32);
@@ -498,12 +494,6 @@ impl ::core::clone::Clone for PhotoImportConnectionTransport {
 unsafe impl ::windows::core::Abi for PhotoImportConnectionTransport {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhotoImportConnectionTransport {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhotoImportConnectionTransport {}
 impl ::core::fmt::Debug for PhotoImportConnectionTransport {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhotoImportConnectionTransport").field(&self.0).finish()
@@ -517,6 +507,7 @@ impl ::windows::core::DefaultType for PhotoImportConnectionTransport {
 }
 #[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhotoImportContentType(pub i32);
 impl PhotoImportContentType {
     pub const Unknown: Self = Self(0i32);
@@ -532,12 +523,6 @@ impl ::core::clone::Clone for PhotoImportContentType {
 unsafe impl ::windows::core::Abi for PhotoImportContentType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhotoImportContentType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhotoImportContentType {}
 impl ::core::fmt::Debug for PhotoImportContentType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhotoImportContentType").field(&self.0).finish()
@@ -551,6 +536,7 @@ impl ::windows::core::DefaultType for PhotoImportContentType {
 }
 #[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhotoImportContentTypeFilter(pub i32);
 impl PhotoImportContentTypeFilter {
     pub const OnlyImages: Self = Self(0i32);
@@ -567,12 +553,6 @@ impl ::core::clone::Clone for PhotoImportContentTypeFilter {
 unsafe impl ::windows::core::Abi for PhotoImportContentTypeFilter {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhotoImportContentTypeFilter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhotoImportContentTypeFilter {}
 impl ::core::fmt::Debug for PhotoImportContentTypeFilter {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhotoImportContentTypeFilter").field(&self.0).finish()
@@ -1286,6 +1266,7 @@ unsafe impl ::core::marker::Send for PhotoImportImportItemsResult {}
 unsafe impl ::core::marker::Sync for PhotoImportImportItemsResult {}
 #[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhotoImportImportMode(pub i32);
 impl PhotoImportImportMode {
     pub const ImportEverything: Self = Self(0i32);
@@ -1302,12 +1283,6 @@ impl ::core::clone::Clone for PhotoImportImportMode {
 unsafe impl ::windows::core::Abi for PhotoImportImportMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhotoImportImportMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhotoImportImportMode {}
 impl ::core::fmt::Debug for PhotoImportImportMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhotoImportImportMode").field(&self.0).finish()
@@ -1590,6 +1565,7 @@ unsafe impl ::core::marker::Send for PhotoImportItemImportedEventArgs {}
 unsafe impl ::core::marker::Sync for PhotoImportItemImportedEventArgs {}
 #[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhotoImportItemSelectionMode(pub i32);
 impl PhotoImportItemSelectionMode {
     pub const SelectAll: Self = Self(0i32);
@@ -1605,12 +1581,6 @@ impl ::core::clone::Clone for PhotoImportItemSelectionMode {
 unsafe impl ::windows::core::Abi for PhotoImportItemSelectionMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhotoImportItemSelectionMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhotoImportItemSelectionMode {}
 impl ::core::fmt::Debug for PhotoImportItemSelectionMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhotoImportItemSelectionMode").field(&self.0).finish()
@@ -1776,6 +1746,7 @@ unsafe impl ::core::marker::Send for PhotoImportOperation {}
 unsafe impl ::core::marker::Sync for PhotoImportOperation {}
 #[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhotoImportPowerSource(pub i32);
 impl PhotoImportPowerSource {
     pub const Unknown: Self = Self(0i32);
@@ -1791,12 +1762,6 @@ impl ::core::clone::Clone for PhotoImportPowerSource {
 unsafe impl ::windows::core::Abi for PhotoImportPowerSource {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhotoImportPowerSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhotoImportPowerSource {}
 impl ::core::fmt::Debug for PhotoImportPowerSource {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhotoImportPowerSource").field(&self.0).finish()
@@ -2474,6 +2439,7 @@ unsafe impl ::core::marker::Send for PhotoImportSource {}
 unsafe impl ::core::marker::Sync for PhotoImportSource {}
 #[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhotoImportSourceType(pub i32);
 impl PhotoImportSourceType {
     pub const Generic: Self = Self(0i32);
@@ -2493,12 +2459,6 @@ impl ::core::clone::Clone for PhotoImportSourceType {
 unsafe impl ::windows::core::Abi for PhotoImportSourceType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhotoImportSourceType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhotoImportSourceType {}
 impl ::core::fmt::Debug for PhotoImportSourceType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhotoImportSourceType").field(&self.0).finish()
@@ -2512,6 +2472,7 @@ impl ::windows::core::DefaultType for PhotoImportSourceType {
 }
 #[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhotoImportStage(pub i32);
 impl PhotoImportStage {
     pub const NotStarted: Self = Self(0i32);
@@ -2528,12 +2489,6 @@ impl ::core::clone::Clone for PhotoImportStage {
 unsafe impl ::windows::core::Abi for PhotoImportStage {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhotoImportStage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhotoImportStage {}
 impl ::core::fmt::Debug for PhotoImportStage {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhotoImportStage").field(&self.0).finish()
@@ -2681,6 +2636,7 @@ unsafe impl ::core::marker::Send for PhotoImportStorageMedium {}
 unsafe impl ::core::marker::Sync for PhotoImportStorageMedium {}
 #[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhotoImportStorageMediumType(pub i32);
 impl PhotoImportStorageMediumType {
     pub const Undefined: Self = Self(0i32);
@@ -2696,12 +2652,6 @@ impl ::core::clone::Clone for PhotoImportStorageMediumType {
 unsafe impl ::windows::core::Abi for PhotoImportStorageMediumType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhotoImportStorageMediumType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhotoImportStorageMediumType {}
 impl ::core::fmt::Debug for PhotoImportStorageMediumType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhotoImportStorageMediumType").field(&self.0).finish()
@@ -2715,6 +2665,7 @@ impl ::windows::core::DefaultType for PhotoImportStorageMediumType {
 }
 #[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhotoImportSubfolderCreationMode(pub i32);
 impl PhotoImportSubfolderCreationMode {
     pub const DoNotCreateSubfolders: Self = Self(0i32);
@@ -2731,12 +2682,6 @@ impl ::core::clone::Clone for PhotoImportSubfolderCreationMode {
 unsafe impl ::windows::core::Abi for PhotoImportSubfolderCreationMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhotoImportSubfolderCreationMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhotoImportSubfolderCreationMode {}
 impl ::core::fmt::Debug for PhotoImportSubfolderCreationMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhotoImportSubfolderCreationMode").field(&self.0).finish()
@@ -2750,6 +2695,7 @@ impl ::windows::core::DefaultType for PhotoImportSubfolderCreationMode {
 }
 #[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhotoImportSubfolderDateFormat(pub i32);
 impl PhotoImportSubfolderDateFormat {
     pub const Year: Self = Self(0i32);
@@ -2765,12 +2711,6 @@ impl ::core::clone::Clone for PhotoImportSubfolderDateFormat {
 unsafe impl ::windows::core::Abi for PhotoImportSubfolderDateFormat {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhotoImportSubfolderDateFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhotoImportSubfolderDateFormat {}
 impl ::core::fmt::Debug for PhotoImportSubfolderDateFormat {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhotoImportSubfolderDateFormat").field(&self.0).finish()

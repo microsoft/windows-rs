@@ -258,6 +258,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cros
 }
 #[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CrossSlidingState(pub i32);
 impl CrossSlidingState {
     pub const Started: Self = Self(0i32);
@@ -277,12 +278,6 @@ impl ::core::clone::Clone for CrossSlidingState {
 unsafe impl ::windows::core::Abi for CrossSlidingState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CrossSlidingState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CrossSlidingState {}
 impl ::core::fmt::Debug for CrossSlidingState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CrossSlidingState").field(&self.0).finish()
@@ -401,6 +396,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Drag
 }
 #[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DraggingState(pub i32);
 impl DraggingState {
     pub const Started: Self = Self(0i32);
@@ -416,12 +412,6 @@ impl ::core::clone::Clone for DraggingState {
 unsafe impl ::windows::core::Abi for DraggingState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DraggingState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DraggingState {}
 impl ::core::fmt::Debug for DraggingState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DraggingState").field(&self.0).finish()
@@ -642,6 +632,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Edge
 }
 #[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EdgeGestureKind(pub i32);
 impl EdgeGestureKind {
     pub const Touch: Self = Self(0i32);
@@ -657,12 +648,6 @@ impl ::core::clone::Clone for EdgeGestureKind {
 unsafe impl ::windows::core::Abi for EdgeGestureKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EdgeGestureKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EdgeGestureKind {}
 impl ::core::fmt::Debug for EdgeGestureKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EdgeGestureKind").field(&self.0).finish()
@@ -676,6 +661,7 @@ impl ::windows::core::DefaultType for EdgeGestureKind {
 }
 #[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GazeInputAccessStatus(pub i32);
 impl GazeInputAccessStatus {
     pub const Unspecified: Self = Self(0i32);
@@ -692,12 +678,6 @@ impl ::core::clone::Clone for GazeInputAccessStatus {
 unsafe impl ::windows::core::Abi for GazeInputAccessStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GazeInputAccessStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GazeInputAccessStatus {}
 impl ::core::fmt::Debug for GazeInputAccessStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GazeInputAccessStatus").field(&self.0).finish()
@@ -1290,6 +1270,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gest
 }
 #[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GestureSettings(pub u32);
 impl GestureSettings {
     pub const None: Self = Self(0u32);
@@ -1320,12 +1301,6 @@ impl ::core::clone::Clone for GestureSettings {
 unsafe impl ::windows::core::Abi for GestureSettings {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GestureSettings {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GestureSettings {}
 impl ::core::fmt::Debug for GestureSettings {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GestureSettings").field(&self.0).finish()
@@ -1480,6 +1455,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Hold
 }
 #[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HoldingState(pub i32);
 impl HoldingState {
     pub const Started: Self = Self(0i32);
@@ -1495,12 +1471,6 @@ impl ::core::clone::Clone for HoldingState {
 unsafe impl ::windows::core::Abi for HoldingState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for HoldingState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HoldingState {}
 impl ::core::fmt::Debug for HoldingState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HoldingState").field(&self.0).finish()
@@ -3300,6 +3270,7 @@ unsafe impl ::core::marker::Send for InputActivationListenerActivationChangedEve
 unsafe impl ::core::marker::Sync for InputActivationListenerActivationChangedEventArgs {}
 #[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct InputActivationState(pub i32);
 impl InputActivationState {
     pub const None: Self = Self(0i32);
@@ -3316,12 +3287,6 @@ impl ::core::clone::Clone for InputActivationState {
 unsafe impl ::windows::core::Abi for InputActivationState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for InputActivationState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InputActivationState {}
 impl ::core::fmt::Debug for InputActivationState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("InputActivationState").field(&self.0).finish()
@@ -4619,6 +4584,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Poin
 }
 #[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PointerUpdateKind(pub i32);
 impl PointerUpdateKind {
     pub const Other: Self = Self(0i32);
@@ -4642,12 +4608,6 @@ impl ::core::clone::Clone for PointerUpdateKind {
 unsafe impl ::windows::core::Abi for PointerUpdateKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PointerUpdateKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PointerUpdateKind {}
 impl ::core::fmt::Debug for PointerUpdateKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PointerUpdateKind").field(&self.0).finish()
@@ -5928,6 +5888,7 @@ unsafe impl ::core::marker::Send for RadialControllerMenuItem {}
 unsafe impl ::core::marker::Sync for RadialControllerMenuItem {}
 #[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct RadialControllerMenuKnownIcon(pub i32);
 impl RadialControllerMenuKnownIcon {
     pub const Scroll: Self = Self(0i32);
@@ -5949,12 +5910,6 @@ impl ::core::clone::Clone for RadialControllerMenuKnownIcon {
 unsafe impl ::windows::core::Abi for RadialControllerMenuKnownIcon {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RadialControllerMenuKnownIcon {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RadialControllerMenuKnownIcon {}
 impl ::core::fmt::Debug for RadialControllerMenuKnownIcon {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RadialControllerMenuKnownIcon").field(&self.0).finish()
@@ -6451,6 +6406,7 @@ unsafe impl ::core::marker::Send for RadialControllerScreenContactStartedEventAr
 unsafe impl ::core::marker::Sync for RadialControllerScreenContactStartedEventArgs {}
 #[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct RadialControllerSystemMenuItemKind(pub i32);
 impl RadialControllerSystemMenuItemKind {
     pub const Scroll: Self = Self(0i32);
@@ -6468,12 +6424,6 @@ impl ::core::clone::Clone for RadialControllerSystemMenuItemKind {
 unsafe impl ::windows::core::Abi for RadialControllerSystemMenuItemKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RadialControllerSystemMenuItemKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RadialControllerSystemMenuItemKind {}
 impl ::core::fmt::Debug for RadialControllerSystemMenuItemKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RadialControllerSystemMenuItemKind").field(&self.0).finish()

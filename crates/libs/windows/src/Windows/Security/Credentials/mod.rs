@@ -614,6 +614,7 @@ unsafe impl ::core::marker::Send for KeyCredentialAttestationResult {}
 unsafe impl ::core::marker::Sync for KeyCredentialAttestationResult {}
 #[doc = "*Required features: 'Security_Credentials'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct KeyCredentialAttestationStatus(pub i32);
 impl KeyCredentialAttestationStatus {
     pub const Success: Self = Self(0i32);
@@ -630,12 +631,6 @@ impl ::core::clone::Clone for KeyCredentialAttestationStatus {
 unsafe impl ::windows::core::Abi for KeyCredentialAttestationStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for KeyCredentialAttestationStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for KeyCredentialAttestationStatus {}
 impl ::core::fmt::Debug for KeyCredentialAttestationStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("KeyCredentialAttestationStatus").field(&self.0).finish()
@@ -649,6 +644,7 @@ impl ::windows::core::DefaultType for KeyCredentialAttestationStatus {
 }
 #[doc = "*Required features: 'Security_Credentials'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct KeyCredentialCreationOption(pub i32);
 impl KeyCredentialCreationOption {
     pub const ReplaceExisting: Self = Self(0i32);
@@ -663,12 +659,6 @@ impl ::core::clone::Clone for KeyCredentialCreationOption {
 unsafe impl ::windows::core::Abi for KeyCredentialCreationOption {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for KeyCredentialCreationOption {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for KeyCredentialCreationOption {}
 impl ::core::fmt::Debug for KeyCredentialCreationOption {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("KeyCredentialCreationOption").field(&self.0).finish()
@@ -913,6 +903,7 @@ unsafe impl ::core::marker::Send for KeyCredentialRetrievalResult {}
 unsafe impl ::core::marker::Sync for KeyCredentialRetrievalResult {}
 #[doc = "*Required features: 'Security_Credentials'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct KeyCredentialStatus(pub i32);
 impl KeyCredentialStatus {
     pub const Success: Self = Self(0i32);
@@ -932,12 +923,6 @@ impl ::core::clone::Clone for KeyCredentialStatus {
 unsafe impl ::windows::core::Abi for KeyCredentialStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for KeyCredentialStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for KeyCredentialStatus {}
 impl ::core::fmt::Debug for KeyCredentialStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("KeyCredentialStatus").field(&self.0).finish()
@@ -1696,6 +1681,7 @@ unsafe impl ::core::marker::Send for WebAccount {}
 unsafe impl ::core::marker::Sync for WebAccount {}
 #[doc = "*Required features: 'Security_Credentials'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WebAccountPictureSize(pub i32);
 impl WebAccountPictureSize {
     pub const Size64x64: Self = Self(64i32);
@@ -1712,12 +1698,6 @@ impl ::core::clone::Clone for WebAccountPictureSize {
 unsafe impl ::windows::core::Abi for WebAccountPictureSize {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WebAccountPictureSize {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebAccountPictureSize {}
 impl ::core::fmt::Debug for WebAccountPictureSize {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WebAccountPictureSize").field(&self.0).finish()
@@ -1875,6 +1855,7 @@ unsafe impl ::core::marker::Send for WebAccountProvider {}
 unsafe impl ::core::marker::Sync for WebAccountProvider {}
 #[doc = "*Required features: 'Security_Credentials'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WebAccountState(pub i32);
 impl WebAccountState {
     pub const None: Self = Self(0i32);
@@ -1890,12 +1871,6 @@ impl ::core::clone::Clone for WebAccountState {
 unsafe impl ::windows::core::Abi for WebAccountState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WebAccountState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebAccountState {}
 impl ::core::fmt::Debug for WebAccountState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WebAccountState").field(&self.0).finish()

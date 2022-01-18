@@ -601,6 +601,7 @@ unsafe impl ::core::marker::Send for HttpClient {}
 unsafe impl ::core::marker::Sync for HttpClient {}
 #[doc = "*Required features: 'Web_Http'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HttpCompletionOption(pub i32);
 impl HttpCompletionOption {
     pub const ResponseContentRead: Self = Self(0i32);
@@ -615,12 +616,6 @@ impl ::core::clone::Clone for HttpCompletionOption {
 unsafe impl ::windows::core::Abi for HttpCompletionOption {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for HttpCompletionOption {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpCompletionOption {}
 impl ::core::fmt::Debug for HttpCompletionOption {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HttpCompletionOption").field(&self.0).finish()
@@ -2772,6 +2767,7 @@ impl ::core::default::Default for HttpProgress {
 }
 #[doc = "*Required features: 'Web_Http'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HttpProgressStage(pub i32);
 impl HttpProgressStage {
     pub const None: Self = Self(0i32);
@@ -2794,12 +2790,6 @@ impl ::core::clone::Clone for HttpProgressStage {
 unsafe impl ::windows::core::Abi for HttpProgressStage {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for HttpProgressStage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpProgressStage {}
 impl ::core::fmt::Debug for HttpProgressStage {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HttpProgressStage").field(&self.0).finish()
@@ -3474,6 +3464,7 @@ unsafe impl ::core::marker::Send for HttpResponseMessage {}
 unsafe impl ::core::marker::Sync for HttpResponseMessage {}
 #[doc = "*Required features: 'Web_Http'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HttpResponseMessageSource(pub i32);
 impl HttpResponseMessageSource {
     pub const None: Self = Self(0i32);
@@ -3489,12 +3480,6 @@ impl ::core::clone::Clone for HttpResponseMessageSource {
 unsafe impl ::windows::core::Abi for HttpResponseMessageSource {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for HttpResponseMessageSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpResponseMessageSource {}
 impl ::core::fmt::Debug for HttpResponseMessageSource {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HttpResponseMessageSource").field(&self.0).finish()
@@ -3508,6 +3493,7 @@ impl ::windows::core::DefaultType for HttpResponseMessageSource {
 }
 #[doc = "*Required features: 'Web_Http'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HttpStatusCode(pub i32);
 impl HttpStatusCode {
     pub const None: Self = Self(0i32);
@@ -3578,12 +3564,6 @@ impl ::core::clone::Clone for HttpStatusCode {
 unsafe impl ::windows::core::Abi for HttpStatusCode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for HttpStatusCode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpStatusCode {}
 impl ::core::fmt::Debug for HttpStatusCode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HttpStatusCode").field(&self.0).finish()
@@ -4230,6 +4210,7 @@ unsafe impl ::core::marker::Send for HttpTransportInformation {}
 unsafe impl ::core::marker::Sync for HttpTransportInformation {}
 #[doc = "*Required features: 'Web_Http'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HttpVersion(pub i32);
 impl HttpVersion {
     pub const None: Self = Self(0i32);
@@ -4246,12 +4227,6 @@ impl ::core::clone::Clone for HttpVersion {
 unsafe impl ::windows::core::Abi for HttpVersion {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for HttpVersion {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpVersion {}
 impl ::core::fmt::Debug for HttpVersion {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HttpVersion").field(&self.0).finish()

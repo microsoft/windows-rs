@@ -413,6 +413,7 @@ pub struct IWalletVerbFactory_Vtbl {
 }
 #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WalletActionKind(pub i32);
 impl WalletActionKind {
     pub const OpenItem: Self = Self(0i32);
@@ -430,12 +431,6 @@ impl ::core::clone::Clone for WalletActionKind {
 unsafe impl ::windows::core::Abi for WalletActionKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WalletActionKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WalletActionKind {}
 impl ::core::fmt::Debug for WalletActionKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WalletActionKind").field(&self.0).finish()
@@ -567,6 +562,7 @@ unsafe impl ::core::marker::Send for WalletBarcode {}
 unsafe impl ::core::marker::Sync for WalletBarcode {}
 #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WalletBarcodeSymbology(pub i32);
 impl WalletBarcodeSymbology {
     pub const Invalid: Self = Self(0i32);
@@ -591,12 +587,6 @@ impl ::core::clone::Clone for WalletBarcodeSymbology {
 unsafe impl ::windows::core::Abi for WalletBarcodeSymbology {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WalletBarcodeSymbology {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WalletBarcodeSymbology {}
 impl ::core::fmt::Debug for WalletBarcodeSymbology {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WalletBarcodeSymbology").field(&self.0).finish()
@@ -610,6 +600,7 @@ impl ::windows::core::DefaultType for WalletBarcodeSymbology {
 }
 #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WalletDetailViewPosition(pub i32);
 impl WalletDetailViewPosition {
     pub const Hidden: Self = Self(0i32);
@@ -637,12 +628,6 @@ impl ::core::clone::Clone for WalletDetailViewPosition {
 unsafe impl ::windows::core::Abi for WalletDetailViewPosition {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WalletDetailViewPosition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WalletDetailViewPosition {}
 impl ::core::fmt::Debug for WalletDetailViewPosition {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WalletDetailViewPosition").field(&self.0).finish()
@@ -1270,6 +1255,7 @@ unsafe impl ::core::marker::Send for WalletItemCustomProperty {}
 unsafe impl ::core::marker::Sync for WalletItemCustomProperty {}
 #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WalletItemKind(pub i32);
 impl WalletItemKind {
     pub const Invalid: Self = Self(0i32);
@@ -1289,12 +1275,6 @@ impl ::core::clone::Clone for WalletItemKind {
 unsafe impl ::windows::core::Abi for WalletItemKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WalletItemKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WalletItemKind {}
 impl ::core::fmt::Debug for WalletItemKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WalletItemKind").field(&self.0).finish()
@@ -1599,6 +1579,7 @@ unsafe impl ::core::marker::Send for WalletRelevantLocation {}
 unsafe impl ::core::marker::Sync for WalletRelevantLocation {}
 #[doc = "*Required features: 'ApplicationModel_Wallet'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WalletSummaryViewPosition(pub i32);
 impl WalletSummaryViewPosition {
     pub const Hidden: Self = Self(0i32);
@@ -1614,12 +1595,6 @@ impl ::core::clone::Clone for WalletSummaryViewPosition {
 unsafe impl ::windows::core::Abi for WalletSummaryViewPosition {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WalletSummaryViewPosition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WalletSummaryViewPosition {}
 impl ::core::fmt::Debug for WalletSummaryViewPosition {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WalletSummaryViewPosition").field(&self.0).finish()

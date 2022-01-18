@@ -127,6 +127,7 @@ impl ::windows::core::RuntimeName for WebError {
 }
 #[doc = "*Required features: 'Web'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WebErrorStatus(pub i32);
 impl WebErrorStatus {
     pub const Unknown: Self = Self(0i32);
@@ -194,12 +195,6 @@ impl ::core::clone::Clone for WebErrorStatus {
 unsafe impl ::windows::core::Abi for WebErrorStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WebErrorStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebErrorStatus {}
 impl ::core::fmt::Debug for WebErrorStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WebErrorStatus").field(&self.0).finish()

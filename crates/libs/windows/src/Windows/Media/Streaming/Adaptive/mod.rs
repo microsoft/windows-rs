@@ -752,6 +752,7 @@ unsafe impl ::core::marker::Send for AdaptiveMediaSourceCreationResult {}
 unsafe impl ::core::marker::Sync for AdaptiveMediaSourceCreationResult {}
 #[doc = "*Required features: 'Media_Streaming_Adaptive'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AdaptiveMediaSourceCreationStatus(pub i32);
 impl AdaptiveMediaSourceCreationStatus {
     pub const Success: Self = Self(0i32);
@@ -771,12 +772,6 @@ impl ::core::clone::Clone for AdaptiveMediaSourceCreationStatus {
 unsafe impl ::windows::core::Abi for AdaptiveMediaSourceCreationStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AdaptiveMediaSourceCreationStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AdaptiveMediaSourceCreationStatus {}
 impl ::core::fmt::Debug for AdaptiveMediaSourceCreationStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AdaptiveMediaSourceCreationStatus").field(&self.0).finish()
@@ -968,6 +963,7 @@ unsafe impl ::core::marker::Send for AdaptiveMediaSourceDiagnosticAvailableEvent
 unsafe impl ::core::marker::Sync for AdaptiveMediaSourceDiagnosticAvailableEventArgs {}
 #[doc = "*Required features: 'Media_Streaming_Adaptive'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AdaptiveMediaSourceDiagnosticType(pub i32);
 impl AdaptiveMediaSourceDiagnosticType {
     pub const ManifestUnchangedUponReload: Self = Self(0i32);
@@ -989,12 +985,6 @@ impl ::core::clone::Clone for AdaptiveMediaSourceDiagnosticType {
 unsafe impl ::windows::core::Abi for AdaptiveMediaSourceDiagnosticType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AdaptiveMediaSourceDiagnosticType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AdaptiveMediaSourceDiagnosticType {}
 impl ::core::fmt::Debug for AdaptiveMediaSourceDiagnosticType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AdaptiveMediaSourceDiagnosticType").field(&self.0).finish()
@@ -1193,6 +1183,7 @@ unsafe impl ::core::marker::Send for AdaptiveMediaSourceDownloadBitrateChangedEv
 unsafe impl ::core::marker::Sync for AdaptiveMediaSourceDownloadBitrateChangedEventArgs {}
 #[doc = "*Required features: 'Media_Streaming_Adaptive'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AdaptiveMediaSourceDownloadBitrateChangedReason(pub i32);
 impl AdaptiveMediaSourceDownloadBitrateChangedReason {
     pub const SufficientInboundBitsPerSecond: Self = Self(0i32);
@@ -1212,12 +1203,6 @@ impl ::core::clone::Clone for AdaptiveMediaSourceDownloadBitrateChangedReason {
 unsafe impl ::windows::core::Abi for AdaptiveMediaSourceDownloadBitrateChangedReason {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AdaptiveMediaSourceDownloadBitrateChangedReason {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AdaptiveMediaSourceDownloadBitrateChangedReason {}
 impl ::core::fmt::Debug for AdaptiveMediaSourceDownloadBitrateChangedReason {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AdaptiveMediaSourceDownloadBitrateChangedReason").field(&self.0).finish()
@@ -2172,6 +2157,7 @@ unsafe impl ::core::marker::Send for AdaptiveMediaSourcePlaybackBitrateChangedEv
 unsafe impl ::core::marker::Sync for AdaptiveMediaSourcePlaybackBitrateChangedEventArgs {}
 #[doc = "*Required features: 'Media_Streaming_Adaptive'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AdaptiveMediaSourceResourceType(pub i32);
 impl AdaptiveMediaSourceResourceType {
     pub const Manifest: Self = Self(0i32);
@@ -2190,12 +2176,6 @@ impl ::core::clone::Clone for AdaptiveMediaSourceResourceType {
 unsafe impl ::windows::core::Abi for AdaptiveMediaSourceResourceType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AdaptiveMediaSourceResourceType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AdaptiveMediaSourceResourceType {}
 impl ::core::fmt::Debug for AdaptiveMediaSourceResourceType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AdaptiveMediaSourceResourceType").field(&self.0).finish()

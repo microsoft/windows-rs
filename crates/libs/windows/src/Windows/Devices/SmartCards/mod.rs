@@ -1446,6 +1446,7 @@ unsafe impl ::core::marker::Send for SmartCard {}
 unsafe impl ::core::marker::Sync for SmartCard {}
 #[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SmartCardActivationPolicyChangeResult(pub i32);
 impl SmartCardActivationPolicyChangeResult {
     pub const Denied: Self = Self(0i32);
@@ -1460,12 +1461,6 @@ impl ::core::clone::Clone for SmartCardActivationPolicyChangeResult {
 unsafe impl ::windows::core::Abi for SmartCardActivationPolicyChangeResult {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SmartCardActivationPolicyChangeResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardActivationPolicyChangeResult {}
 impl ::core::fmt::Debug for SmartCardActivationPolicyChangeResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SmartCardActivationPolicyChangeResult").field(&self.0).finish()
@@ -1695,6 +1690,7 @@ unsafe impl ::core::marker::Send for SmartCardAppletIdGroup {}
 unsafe impl ::core::marker::Sync for SmartCardAppletIdGroup {}
 #[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SmartCardAppletIdGroupActivationPolicy(pub i32);
 impl SmartCardAppletIdGroupActivationPolicy {
     pub const Disabled: Self = Self(0i32);
@@ -1710,12 +1706,6 @@ impl ::core::clone::Clone for SmartCardAppletIdGroupActivationPolicy {
 unsafe impl ::windows::core::Abi for SmartCardAppletIdGroupActivationPolicy {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SmartCardAppletIdGroupActivationPolicy {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardAppletIdGroupActivationPolicy {}
 impl ::core::fmt::Debug for SmartCardAppletIdGroupActivationPolicy {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SmartCardAppletIdGroupActivationPolicy").field(&self.0).finish()
@@ -2063,6 +2053,7 @@ unsafe impl ::core::marker::Send for SmartCardAutomaticResponseApdu {}
 unsafe impl ::core::marker::Sync for SmartCardAutomaticResponseApdu {}
 #[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SmartCardAutomaticResponseStatus(pub i32);
 impl SmartCardAutomaticResponseStatus {
     pub const None: Self = Self(0i32);
@@ -2078,12 +2069,6 @@ impl ::core::clone::Clone for SmartCardAutomaticResponseStatus {
 unsafe impl ::windows::core::Abi for SmartCardAutomaticResponseStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SmartCardAutomaticResponseStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardAutomaticResponseStatus {}
 impl ::core::fmt::Debug for SmartCardAutomaticResponseStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SmartCardAutomaticResponseStatus").field(&self.0).finish()
@@ -2361,6 +2346,7 @@ unsafe impl ::core::marker::Send for SmartCardConnection {}
 unsafe impl ::core::marker::Sync for SmartCardConnection {}
 #[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SmartCardCryptogramAlgorithm(pub i32);
 impl SmartCardCryptogramAlgorithm {
     pub const None: Self = Self(0i32);
@@ -2382,12 +2368,6 @@ impl ::core::clone::Clone for SmartCardCryptogramAlgorithm {
 unsafe impl ::windows::core::Abi for SmartCardCryptogramAlgorithm {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SmartCardCryptogramAlgorithm {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardCryptogramAlgorithm {}
 impl ::core::fmt::Debug for SmartCardCryptogramAlgorithm {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SmartCardCryptogramAlgorithm").field(&self.0).finish()
@@ -2652,6 +2632,7 @@ unsafe impl ::core::marker::Send for SmartCardCryptogramGenerator {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramGenerator {}
 #[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SmartCardCryptogramGeneratorOperationStatus(pub i32);
 impl SmartCardCryptogramGeneratorOperationStatus {
     pub const Success: Self = Self(0i32);
@@ -2678,12 +2659,6 @@ impl ::core::clone::Clone for SmartCardCryptogramGeneratorOperationStatus {
 unsafe impl ::windows::core::Abi for SmartCardCryptogramGeneratorOperationStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SmartCardCryptogramGeneratorOperationStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardCryptogramGeneratorOperationStatus {}
 impl ::core::fmt::Debug for SmartCardCryptogramGeneratorOperationStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SmartCardCryptogramGeneratorOperationStatus").field(&self.0).finish()
@@ -3248,6 +3223,7 @@ unsafe impl ::core::marker::Send for SmartCardCryptogramMaterialPackageCharacter
 unsafe impl ::core::marker::Sync for SmartCardCryptogramMaterialPackageCharacteristics {}
 #[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SmartCardCryptogramMaterialPackageConfirmationResponseFormat(pub i32);
 impl SmartCardCryptogramMaterialPackageConfirmationResponseFormat {
     pub const None: Self = Self(0i32);
@@ -3262,12 +3238,6 @@ impl ::core::clone::Clone for SmartCardCryptogramMaterialPackageConfirmationResp
 unsafe impl ::windows::core::Abi for SmartCardCryptogramMaterialPackageConfirmationResponseFormat {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SmartCardCryptogramMaterialPackageConfirmationResponseFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardCryptogramMaterialPackageConfirmationResponseFormat {}
 impl ::core::fmt::Debug for SmartCardCryptogramMaterialPackageConfirmationResponseFormat {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SmartCardCryptogramMaterialPackageConfirmationResponseFormat").field(&self.0).finish()
@@ -3281,6 +3251,7 @@ impl ::windows::core::DefaultType for SmartCardCryptogramMaterialPackageConfirma
 }
 #[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SmartCardCryptogramMaterialPackageFormat(pub i32);
 impl SmartCardCryptogramMaterialPackageFormat {
     pub const None: Self = Self(0i32);
@@ -3295,12 +3266,6 @@ impl ::core::clone::Clone for SmartCardCryptogramMaterialPackageFormat {
 unsafe impl ::windows::core::Abi for SmartCardCryptogramMaterialPackageFormat {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SmartCardCryptogramMaterialPackageFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardCryptogramMaterialPackageFormat {}
 impl ::core::fmt::Debug for SmartCardCryptogramMaterialPackageFormat {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SmartCardCryptogramMaterialPackageFormat").field(&self.0).finish()
@@ -3404,6 +3369,7 @@ unsafe impl ::core::marker::Send for SmartCardCryptogramMaterialPossessionProof 
 unsafe impl ::core::marker::Sync for SmartCardCryptogramMaterialPossessionProof {}
 #[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SmartCardCryptogramMaterialProtectionMethod(pub i32);
 impl SmartCardCryptogramMaterialProtectionMethod {
     pub const None: Self = Self(0i32);
@@ -3418,12 +3384,6 @@ impl ::core::clone::Clone for SmartCardCryptogramMaterialProtectionMethod {
 unsafe impl ::windows::core::Abi for SmartCardCryptogramMaterialProtectionMethod {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SmartCardCryptogramMaterialProtectionMethod {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardCryptogramMaterialProtectionMethod {}
 impl ::core::fmt::Debug for SmartCardCryptogramMaterialProtectionMethod {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SmartCardCryptogramMaterialProtectionMethod").field(&self.0).finish()
@@ -3437,6 +3397,7 @@ impl ::windows::core::DefaultType for SmartCardCryptogramMaterialProtectionMetho
 }
 #[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SmartCardCryptogramMaterialType(pub i32);
 impl SmartCardCryptogramMaterialType {
     pub const None: Self = Self(0i32);
@@ -3454,12 +3415,6 @@ impl ::core::clone::Clone for SmartCardCryptogramMaterialType {
 unsafe impl ::windows::core::Abi for SmartCardCryptogramMaterialType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SmartCardCryptogramMaterialType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardCryptogramMaterialType {}
 impl ::core::fmt::Debug for SmartCardCryptogramMaterialType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SmartCardCryptogramMaterialType").field(&self.0).finish()
@@ -3473,6 +3428,7 @@ impl ::windows::core::DefaultType for SmartCardCryptogramMaterialType {
 }
 #[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SmartCardCryptogramPlacementOptions(pub u32);
 impl SmartCardCryptogramPlacementOptions {
     pub const None: Self = Self(0u32);
@@ -3488,12 +3444,6 @@ impl ::core::clone::Clone for SmartCardCryptogramPlacementOptions {
 unsafe impl ::windows::core::Abi for SmartCardCryptogramPlacementOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SmartCardCryptogramPlacementOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardCryptogramPlacementOptions {}
 impl ::core::fmt::Debug for SmartCardCryptogramPlacementOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SmartCardCryptogramPlacementOptions").field(&self.0).finish()
@@ -3734,6 +3684,7 @@ unsafe impl ::core::marker::Send for SmartCardCryptogramPlacementStep {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramPlacementStep {}
 #[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SmartCardCryptogramStorageKeyAlgorithm(pub i32);
 impl SmartCardCryptogramStorageKeyAlgorithm {
     pub const None: Self = Self(0i32);
@@ -3748,12 +3699,6 @@ impl ::core::clone::Clone for SmartCardCryptogramStorageKeyAlgorithm {
 unsafe impl ::windows::core::Abi for SmartCardCryptogramStorageKeyAlgorithm {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SmartCardCryptogramStorageKeyAlgorithm {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardCryptogramStorageKeyAlgorithm {}
 impl ::core::fmt::Debug for SmartCardCryptogramStorageKeyAlgorithm {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SmartCardCryptogramStorageKeyAlgorithm").field(&self.0).finish()
@@ -3767,6 +3712,7 @@ impl ::windows::core::DefaultType for SmartCardCryptogramStorageKeyAlgorithm {
 }
 #[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SmartCardCryptogramStorageKeyCapabilities(pub u32);
 impl SmartCardCryptogramStorageKeyCapabilities {
     pub const None: Self = Self(0u32);
@@ -3782,12 +3728,6 @@ impl ::core::clone::Clone for SmartCardCryptogramStorageKeyCapabilities {
 unsafe impl ::windows::core::Abi for SmartCardCryptogramStorageKeyCapabilities {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SmartCardCryptogramStorageKeyCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardCryptogramStorageKeyCapabilities {}
 impl ::core::fmt::Debug for SmartCardCryptogramStorageKeyCapabilities {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SmartCardCryptogramStorageKeyCapabilities").field(&self.0).finish()
@@ -4083,6 +4023,7 @@ unsafe impl ::core::marker::Send for SmartCardCryptogramStorageKeyInfo {}
 unsafe impl ::core::marker::Sync for SmartCardCryptogramStorageKeyInfo {}
 #[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SmartCardCryptographicKeyAttestationStatus(pub i32);
 impl SmartCardCryptographicKeyAttestationStatus {
     pub const NoAttestation: Self = Self(0i32);
@@ -4103,12 +4044,6 @@ impl ::core::clone::Clone for SmartCardCryptographicKeyAttestationStatus {
 unsafe impl ::windows::core::Abi for SmartCardCryptographicKeyAttestationStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SmartCardCryptographicKeyAttestationStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardCryptographicKeyAttestationStatus {}
 impl ::core::fmt::Debug for SmartCardCryptographicKeyAttestationStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SmartCardCryptographicKeyAttestationStatus").field(&self.0).finish()
@@ -4122,6 +4057,7 @@ impl ::windows::core::DefaultType for SmartCardCryptographicKeyAttestationStatus
 }
 #[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SmartCardEmulationCategory(pub i32);
 impl SmartCardEmulationCategory {
     pub const Other: Self = Self(0i32);
@@ -4136,12 +4072,6 @@ impl ::core::clone::Clone for SmartCardEmulationCategory {
 unsafe impl ::windows::core::Abi for SmartCardEmulationCategory {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SmartCardEmulationCategory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardEmulationCategory {}
 impl ::core::fmt::Debug for SmartCardEmulationCategory {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SmartCardEmulationCategory").field(&self.0).finish()
@@ -4155,6 +4085,7 @@ impl ::windows::core::DefaultType for SmartCardEmulationCategory {
 }
 #[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SmartCardEmulationType(pub i32);
 impl SmartCardEmulationType {
     pub const Host: Self = Self(0i32);
@@ -4170,12 +4101,6 @@ impl ::core::clone::Clone for SmartCardEmulationType {
 unsafe impl ::windows::core::Abi for SmartCardEmulationType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SmartCardEmulationType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardEmulationType {}
 impl ::core::fmt::Debug for SmartCardEmulationType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SmartCardEmulationType").field(&self.0).finish()
@@ -4605,6 +4530,7 @@ unsafe impl ::core::marker::Send for SmartCardEmulatorConnectionDeactivatedEvent
 unsafe impl ::core::marker::Sync for SmartCardEmulatorConnectionDeactivatedEventArgs {}
 #[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SmartCardEmulatorConnectionDeactivatedReason(pub i32);
 impl SmartCardEmulatorConnectionDeactivatedReason {
     pub const ConnectionLost: Self = Self(0i32);
@@ -4619,12 +4545,6 @@ impl ::core::clone::Clone for SmartCardEmulatorConnectionDeactivatedReason {
 unsafe impl ::windows::core::Abi for SmartCardEmulatorConnectionDeactivatedReason {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SmartCardEmulatorConnectionDeactivatedReason {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardEmulatorConnectionDeactivatedReason {}
 impl ::core::fmt::Debug for SmartCardEmulatorConnectionDeactivatedReason {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SmartCardEmulatorConnectionDeactivatedReason").field(&self.0).finish()
@@ -4727,6 +4647,7 @@ unsafe impl ::core::marker::Send for SmartCardEmulatorConnectionProperties {}
 unsafe impl ::core::marker::Sync for SmartCardEmulatorConnectionProperties {}
 #[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SmartCardEmulatorConnectionSource(pub i32);
 impl SmartCardEmulatorConnectionSource {
     pub const Unknown: Self = Self(0i32);
@@ -4741,12 +4662,6 @@ impl ::core::clone::Clone for SmartCardEmulatorConnectionSource {
 unsafe impl ::windows::core::Abi for SmartCardEmulatorConnectionSource {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SmartCardEmulatorConnectionSource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardEmulatorConnectionSource {}
 impl ::core::fmt::Debug for SmartCardEmulatorConnectionSource {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SmartCardEmulatorConnectionSource").field(&self.0).finish()
@@ -4760,6 +4675,7 @@ impl ::windows::core::DefaultType for SmartCardEmulatorConnectionSource {
 }
 #[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SmartCardEmulatorEnablementPolicy(pub i32);
 impl SmartCardEmulatorEnablementPolicy {
     pub const Never: Self = Self(0i32);
@@ -4776,12 +4692,6 @@ impl ::core::clone::Clone for SmartCardEmulatorEnablementPolicy {
 unsafe impl ::windows::core::Abi for SmartCardEmulatorEnablementPolicy {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SmartCardEmulatorEnablementPolicy {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardEmulatorEnablementPolicy {}
 impl ::core::fmt::Debug for SmartCardEmulatorEnablementPolicy {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SmartCardEmulatorEnablementPolicy").field(&self.0).finish()
@@ -4795,6 +4705,7 @@ impl ::windows::core::DefaultType for SmartCardEmulatorEnablementPolicy {
 }
 #[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SmartCardLaunchBehavior(pub i32);
 impl SmartCardLaunchBehavior {
     pub const Default: Self = Self(0i32);
@@ -4809,12 +4720,6 @@ impl ::core::clone::Clone for SmartCardLaunchBehavior {
 unsafe impl ::windows::core::Abi for SmartCardLaunchBehavior {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SmartCardLaunchBehavior {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardLaunchBehavior {}
 impl ::core::fmt::Debug for SmartCardLaunchBehavior {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SmartCardLaunchBehavior").field(&self.0).finish()
@@ -4828,6 +4733,7 @@ impl ::windows::core::DefaultType for SmartCardLaunchBehavior {
 }
 #[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SmartCardPinCharacterPolicyOption(pub i32);
 impl SmartCardPinCharacterPolicyOption {
     pub const Allow: Self = Self(0i32);
@@ -4843,12 +4749,6 @@ impl ::core::clone::Clone for SmartCardPinCharacterPolicyOption {
 unsafe impl ::windows::core::Abi for SmartCardPinCharacterPolicyOption {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SmartCardPinCharacterPolicyOption {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardPinCharacterPolicyOption {}
 impl ::core::fmt::Debug for SmartCardPinCharacterPolicyOption {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SmartCardPinCharacterPolicyOption").field(&self.0).finish()
@@ -5646,6 +5546,7 @@ unsafe impl ::core::marker::Send for SmartCardReader {}
 unsafe impl ::core::marker::Sync for SmartCardReader {}
 #[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SmartCardReaderKind(pub i32);
 impl SmartCardReaderKind {
     pub const Any: Self = Self(0i32);
@@ -5664,12 +5565,6 @@ impl ::core::clone::Clone for SmartCardReaderKind {
 unsafe impl ::windows::core::Abi for SmartCardReaderKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SmartCardReaderKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardReaderKind {}
 impl ::core::fmt::Debug for SmartCardReaderKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SmartCardReaderKind").field(&self.0).finish()
@@ -5683,6 +5578,7 @@ impl ::windows::core::DefaultType for SmartCardReaderKind {
 }
 #[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SmartCardReaderStatus(pub i32);
 impl SmartCardReaderStatus {
     pub const Disconnected: Self = Self(0i32);
@@ -5698,12 +5594,6 @@ impl ::core::clone::Clone for SmartCardReaderStatus {
 unsafe impl ::windows::core::Abi for SmartCardReaderStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SmartCardReaderStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardReaderStatus {}
 impl ::core::fmt::Debug for SmartCardReaderStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SmartCardReaderStatus").field(&self.0).finish()
@@ -5717,6 +5607,7 @@ impl ::windows::core::DefaultType for SmartCardReaderStatus {
 }
 #[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SmartCardStatus(pub i32);
 impl SmartCardStatus {
     pub const Disconnected: Self = Self(0i32);
@@ -5734,12 +5625,6 @@ impl ::core::clone::Clone for SmartCardStatus {
 unsafe impl ::windows::core::Abi for SmartCardStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SmartCardStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardStatus {}
 impl ::core::fmt::Debug for SmartCardStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SmartCardStatus").field(&self.0).finish()
@@ -5886,6 +5771,7 @@ unsafe impl ::core::marker::Send for SmartCardTriggerDetails {}
 unsafe impl ::core::marker::Sync for SmartCardTriggerDetails {}
 #[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SmartCardTriggerType(pub i32);
 impl SmartCardTriggerType {
     pub const EmulatorTransaction: Self = Self(0i32);
@@ -5904,12 +5790,6 @@ impl ::core::clone::Clone for SmartCardTriggerType {
 unsafe impl ::windows::core::Abi for SmartCardTriggerType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SmartCardTriggerType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardTriggerType {}
 impl ::core::fmt::Debug for SmartCardTriggerType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SmartCardTriggerType").field(&self.0).finish()
@@ -5923,6 +5803,7 @@ impl ::windows::core::DefaultType for SmartCardTriggerType {
 }
 #[doc = "*Required features: 'Devices_SmartCards'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SmartCardUnlockPromptingBehavior(pub i32);
 impl SmartCardUnlockPromptingBehavior {
     pub const AllowUnlockPrompt: Self = Self(0i32);
@@ -5938,12 +5819,6 @@ impl ::core::clone::Clone for SmartCardUnlockPromptingBehavior {
 unsafe impl ::windows::core::Abi for SmartCardUnlockPromptingBehavior {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SmartCardUnlockPromptingBehavior {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmartCardUnlockPromptingBehavior {}
 impl ::core::fmt::Debug for SmartCardUnlockPromptingBehavior {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SmartCardUnlockPromptingBehavior").field(&self.0).finish()

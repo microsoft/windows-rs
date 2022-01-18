@@ -949,6 +949,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebV
 }
 #[doc = "*Required features: 'Web_UI_Interop'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WebViewControlAcceleratorKeyRoutingStage(pub i32);
 impl WebViewControlAcceleratorKeyRoutingStage {
     pub const Tunneling: Self = Self(0i32);
@@ -963,12 +964,6 @@ impl ::core::clone::Clone for WebViewControlAcceleratorKeyRoutingStage {
 unsafe impl ::windows::core::Abi for WebViewControlAcceleratorKeyRoutingStage {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WebViewControlAcceleratorKeyRoutingStage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebViewControlAcceleratorKeyRoutingStage {}
 impl ::core::fmt::Debug for WebViewControlAcceleratorKeyRoutingStage {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WebViewControlAcceleratorKeyRoutingStage").field(&self.0).finish()
@@ -982,6 +977,7 @@ impl ::windows::core::DefaultType for WebViewControlAcceleratorKeyRoutingStage {
 }
 #[doc = "*Required features: 'Web_UI_Interop'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WebViewControlMoveFocusReason(pub i32);
 impl WebViewControlMoveFocusReason {
     pub const Programmatic: Self = Self(0i32);
@@ -997,12 +993,6 @@ impl ::core::clone::Clone for WebViewControlMoveFocusReason {
 unsafe impl ::windows::core::Abi for WebViewControlMoveFocusReason {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WebViewControlMoveFocusReason {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebViewControlMoveFocusReason {}
 impl ::core::fmt::Debug for WebViewControlMoveFocusReason {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WebViewControlMoveFocusReason").field(&self.0).finish()
@@ -1247,6 +1237,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebV
 }
 #[doc = "*Required features: 'Web_UI_Interop'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WebViewControlProcessCapabilityState(pub i32);
 impl WebViewControlProcessCapabilityState {
     pub const Default: Self = Self(0i32);
@@ -1262,12 +1253,6 @@ impl ::core::clone::Clone for WebViewControlProcessCapabilityState {
 unsafe impl ::windows::core::Abi for WebViewControlProcessCapabilityState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WebViewControlProcessCapabilityState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WebViewControlProcessCapabilityState {}
 impl ::core::fmt::Debug for WebViewControlProcessCapabilityState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WebViewControlProcessCapabilityState").field(&self.0).finish()

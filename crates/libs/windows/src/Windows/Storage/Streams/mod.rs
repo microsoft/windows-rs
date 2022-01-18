@@ -150,6 +150,7 @@ unsafe impl ::core::marker::Send for Buffer {}
 unsafe impl ::core::marker::Sync for Buffer {}
 #[doc = "*Required features: 'Storage_Streams'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ByteOrder(pub i32);
 impl ByteOrder {
     pub const LittleEndian: Self = Self(0i32);
@@ -164,12 +165,6 @@ impl ::core::clone::Clone for ByteOrder {
 unsafe impl ::windows::core::Abi for ByteOrder {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ByteOrder {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ByteOrder {}
 impl ::core::fmt::Debug for ByteOrder {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ByteOrder").field(&self.0).finish()
@@ -1457,6 +1452,7 @@ unsafe impl ::core::marker::Send for FileInputStream {}
 unsafe impl ::core::marker::Sync for FileInputStream {}
 #[doc = "*Required features: 'Storage_Streams'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FileOpenDisposition(pub i32);
 impl FileOpenDisposition {
     pub const OpenExisting: Self = Self(0i32);
@@ -1474,12 +1470,6 @@ impl ::core::clone::Clone for FileOpenDisposition {
 unsafe impl ::windows::core::Abi for FileOpenDisposition {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for FileOpenDisposition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FileOpenDisposition {}
 impl ::core::fmt::Debug for FileOpenDisposition {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FileOpenDisposition").field(&self.0).finish()
@@ -4226,6 +4216,7 @@ unsafe impl ::core::marker::Send for InMemoryRandomAccessStream {}
 unsafe impl ::core::marker::Sync for InMemoryRandomAccessStream {}
 #[doc = "*Required features: 'Storage_Streams'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct InputStreamOptions(pub u32);
 impl InputStreamOptions {
     pub const None: Self = Self(0u32);
@@ -4241,12 +4232,6 @@ impl ::core::clone::Clone for InputStreamOptions {
 unsafe impl ::windows::core::Abi for InputStreamOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for InputStreamOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InputStreamOptions {}
 impl ::core::fmt::Debug for InputStreamOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("InputStreamOptions").field(&self.0).finish()
@@ -5000,6 +4985,7 @@ unsafe impl ::core::marker::Send for RandomAccessStreamReference {}
 unsafe impl ::core::marker::Sync for RandomAccessStreamReference {}
 #[doc = "*Required features: 'Storage_Streams'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UnicodeEncoding(pub i32);
 impl UnicodeEncoding {
     pub const Utf8: Self = Self(0i32);
@@ -5015,12 +5001,6 @@ impl ::core::clone::Clone for UnicodeEncoding {
 unsafe impl ::windows::core::Abi for UnicodeEncoding {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UnicodeEncoding {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UnicodeEncoding {}
 impl ::core::fmt::Debug for UnicodeEncoding {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UnicodeEncoding").field(&self.0).finish()

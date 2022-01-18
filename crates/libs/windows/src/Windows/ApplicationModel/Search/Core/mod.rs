@@ -285,6 +285,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sear
 }
 #[doc = "*Required features: 'ApplicationModel_Search_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SearchSuggestionKind(pub i32);
 impl SearchSuggestionKind {
     pub const Query: Self = Self(0i32);
@@ -300,12 +301,6 @@ impl ::core::clone::Clone for SearchSuggestionKind {
 unsafe impl ::windows::core::Abi for SearchSuggestionKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SearchSuggestionKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SearchSuggestionKind {}
 impl ::core::fmt::Debug for SearchSuggestionKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SearchSuggestionKind").field(&self.0).finish()

@@ -216,6 +216,7 @@ unsafe impl ::core::marker::Send for AudioBuffer {}
 unsafe impl ::core::marker::Sync for AudioBuffer {}
 #[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AudioBufferAccessMode(pub i32);
 impl AudioBufferAccessMode {
     pub const Read: Self = Self(0i32);
@@ -231,12 +232,6 @@ impl ::core::clone::Clone for AudioBufferAccessMode {
 unsafe impl ::windows::core::Abi for AudioBufferAccessMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AudioBufferAccessMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioBufferAccessMode {}
 impl ::core::fmt::Debug for AudioBufferAccessMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AudioBufferAccessMode").field(&self.0).finish()
@@ -480,6 +475,7 @@ unsafe impl ::core::marker::Send for AudioFrame {}
 unsafe impl ::core::marker::Sync for AudioFrame {}
 #[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AudioProcessing(pub i32);
 impl AudioProcessing {
     pub const Default: Self = Self(0i32);
@@ -494,12 +490,6 @@ impl ::core::clone::Clone for AudioProcessing {
 unsafe impl ::windows::core::Abi for AudioProcessing {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AudioProcessing {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioProcessing {}
 impl ::core::fmt::Debug for AudioProcessing {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AudioProcessing").field(&self.0).finish()
@@ -2442,6 +2432,7 @@ impl ::windows::core::RuntimeName for MediaMarkerTypes {
 }
 #[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MediaPlaybackAutoRepeatMode(pub i32);
 impl MediaPlaybackAutoRepeatMode {
     pub const None: Self = Self(0i32);
@@ -2457,12 +2448,6 @@ impl ::core::clone::Clone for MediaPlaybackAutoRepeatMode {
 unsafe impl ::windows::core::Abi for MediaPlaybackAutoRepeatMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MediaPlaybackAutoRepeatMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaPlaybackAutoRepeatMode {}
 impl ::core::fmt::Debug for MediaPlaybackAutoRepeatMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MediaPlaybackAutoRepeatMode").field(&self.0).finish()
@@ -2476,6 +2461,7 @@ impl ::windows::core::DefaultType for MediaPlaybackAutoRepeatMode {
 }
 #[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MediaPlaybackStatus(pub i32);
 impl MediaPlaybackStatus {
     pub const Closed: Self = Self(0i32);
@@ -2493,12 +2479,6 @@ impl ::core::clone::Clone for MediaPlaybackStatus {
 unsafe impl ::windows::core::Abi for MediaPlaybackStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MediaPlaybackStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaPlaybackStatus {}
 impl ::core::fmt::Debug for MediaPlaybackStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MediaPlaybackStatus").field(&self.0).finish()
@@ -2512,6 +2492,7 @@ impl ::windows::core::DefaultType for MediaPlaybackStatus {
 }
 #[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MediaPlaybackType(pub i32);
 impl MediaPlaybackType {
     pub const Unknown: Self = Self(0i32);
@@ -2528,12 +2509,6 @@ impl ::core::clone::Clone for MediaPlaybackType {
 unsafe impl ::windows::core::Abi for MediaPlaybackType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MediaPlaybackType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaPlaybackType {}
 impl ::core::fmt::Debug for MediaPlaybackType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MediaPlaybackType").field(&self.0).finish()
@@ -2976,6 +2951,7 @@ unsafe impl ::core::marker::Send for MediaTimelineControllerFailedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaTimelineControllerFailedEventArgs {}
 #[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MediaTimelineControllerState(pub i32);
 impl MediaTimelineControllerState {
     pub const Paused: Self = Self(0i32);
@@ -2992,12 +2968,6 @@ impl ::core::clone::Clone for MediaTimelineControllerState {
 unsafe impl ::windows::core::Abi for MediaTimelineControllerState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MediaTimelineControllerState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaTimelineControllerState {}
 impl ::core::fmt::Debug for MediaTimelineControllerState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MediaTimelineControllerState").field(&self.0).finish()
@@ -3415,6 +3385,7 @@ unsafe impl ::core::marker::Send for ShuffleEnabledChangeRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for ShuffleEnabledChangeRequestedEventArgs {}
 #[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SoundLevel(pub i32);
 impl SoundLevel {
     pub const Muted: Self = Self(0i32);
@@ -3430,12 +3401,6 @@ impl ::core::clone::Clone for SoundLevel {
 unsafe impl ::windows::core::Abi for SoundLevel {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SoundLevel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SoundLevel {}
 impl ::core::fmt::Debug for SoundLevel {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SoundLevel").field(&self.0).finish()
@@ -3840,6 +3805,7 @@ unsafe impl ::core::marker::Send for SystemMediaTransportControls {}
 unsafe impl ::core::marker::Sync for SystemMediaTransportControls {}
 #[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SystemMediaTransportControlsButton(pub i32);
 impl SystemMediaTransportControlsButton {
     pub const Play: Self = Self(0i32);
@@ -3862,12 +3828,6 @@ impl ::core::clone::Clone for SystemMediaTransportControlsButton {
 unsafe impl ::windows::core::Abi for SystemMediaTransportControlsButton {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SystemMediaTransportControlsButton {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SystemMediaTransportControlsButton {}
 impl ::core::fmt::Debug for SystemMediaTransportControlsButton {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SystemMediaTransportControlsButton").field(&self.0).finish()
@@ -4119,6 +4079,7 @@ unsafe impl ::core::marker::Send for SystemMediaTransportControlsDisplayUpdater 
 unsafe impl ::core::marker::Sync for SystemMediaTransportControlsDisplayUpdater {}
 #[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SystemMediaTransportControlsProperty(pub i32);
 impl SystemMediaTransportControlsProperty {
     pub const SoundLevel: Self = Self(0i32);
@@ -4132,12 +4093,6 @@ impl ::core::clone::Clone for SystemMediaTransportControlsProperty {
 unsafe impl ::windows::core::Abi for SystemMediaTransportControlsProperty {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SystemMediaTransportControlsProperty {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SystemMediaTransportControlsProperty {}
 impl ::core::fmt::Debug for SystemMediaTransportControlsProperty {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SystemMediaTransportControlsProperty").field(&self.0).finish()

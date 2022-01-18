@@ -478,6 +478,7 @@ unsafe impl ::core::marker::Send for PnpObjectCollection {}
 unsafe impl ::core::marker::Sync for PnpObjectCollection {}
 #[doc = "*Required features: 'Devices_Enumeration_Pnp'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PnpObjectType(pub i32);
 impl PnpObjectType {
     pub const Unknown: Self = Self(0i32);
@@ -499,12 +500,6 @@ impl ::core::clone::Clone for PnpObjectType {
 unsafe impl ::windows::core::Abi for PnpObjectType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PnpObjectType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PnpObjectType {}
 impl ::core::fmt::Debug for PnpObjectType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PnpObjectType").field(&self.0).finish()

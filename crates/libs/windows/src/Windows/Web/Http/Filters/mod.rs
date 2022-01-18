@@ -446,6 +446,7 @@ unsafe impl ::core::marker::Send for HttpCacheControl {}
 unsafe impl ::core::marker::Sync for HttpCacheControl {}
 #[doc = "*Required features: 'Web_Http_Filters'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HttpCacheReadBehavior(pub i32);
 impl HttpCacheReadBehavior {
     pub const Default: Self = Self(0i32);
@@ -462,12 +463,6 @@ impl ::core::clone::Clone for HttpCacheReadBehavior {
 unsafe impl ::windows::core::Abi for HttpCacheReadBehavior {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for HttpCacheReadBehavior {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpCacheReadBehavior {}
 impl ::core::fmt::Debug for HttpCacheReadBehavior {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HttpCacheReadBehavior").field(&self.0).finish()
@@ -481,6 +476,7 @@ impl ::windows::core::DefaultType for HttpCacheReadBehavior {
 }
 #[doc = "*Required features: 'Web_Http_Filters'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HttpCacheWriteBehavior(pub i32);
 impl HttpCacheWriteBehavior {
     pub const Default: Self = Self(0i32);
@@ -495,12 +491,6 @@ impl ::core::clone::Clone for HttpCacheWriteBehavior {
 unsafe impl ::windows::core::Abi for HttpCacheWriteBehavior {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for HttpCacheWriteBehavior {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpCacheWriteBehavior {}
 impl ::core::fmt::Debug for HttpCacheWriteBehavior {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HttpCacheWriteBehavior").field(&self.0).finish()
@@ -514,6 +504,7 @@ impl ::windows::core::DefaultType for HttpCacheWriteBehavior {
 }
 #[doc = "*Required features: 'Web_Http_Filters'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HttpCookieUsageBehavior(pub i32);
 impl HttpCookieUsageBehavior {
     pub const Default: Self = Self(0i32);
@@ -528,12 +519,6 @@ impl ::core::clone::Clone for HttpCookieUsageBehavior {
 unsafe impl ::windows::core::Abi for HttpCookieUsageBehavior {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for HttpCookieUsageBehavior {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpCookieUsageBehavior {}
 impl ::core::fmt::Debug for HttpCookieUsageBehavior {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HttpCookieUsageBehavior").field(&self.0).finish()

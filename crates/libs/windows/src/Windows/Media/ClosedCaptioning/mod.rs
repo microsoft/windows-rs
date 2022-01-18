@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'Media_ClosedCaptioning'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ClosedCaptionColor(pub i32);
 impl ClosedCaptionColor {
     pub const Default: Self = Self(0i32);
@@ -22,12 +23,6 @@ impl ::core::clone::Clone for ClosedCaptionColor {
 unsafe impl ::windows::core::Abi for ClosedCaptionColor {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ClosedCaptionColor {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ClosedCaptionColor {}
 impl ::core::fmt::Debug for ClosedCaptionColor {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ClosedCaptionColor").field(&self.0).finish()
@@ -41,6 +36,7 @@ impl ::windows::core::DefaultType for ClosedCaptionColor {
 }
 #[doc = "*Required features: 'Media_ClosedCaptioning'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ClosedCaptionEdgeEffect(pub i32);
 impl ClosedCaptionEdgeEffect {
     pub const Default: Self = Self(0i32);
@@ -59,12 +55,6 @@ impl ::core::clone::Clone for ClosedCaptionEdgeEffect {
 unsafe impl ::windows::core::Abi for ClosedCaptionEdgeEffect {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ClosedCaptionEdgeEffect {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ClosedCaptionEdgeEffect {}
 impl ::core::fmt::Debug for ClosedCaptionEdgeEffect {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ClosedCaptionEdgeEffect").field(&self.0).finish()
@@ -78,6 +68,7 @@ impl ::windows::core::DefaultType for ClosedCaptionEdgeEffect {
 }
 #[doc = "*Required features: 'Media_ClosedCaptioning'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ClosedCaptionOpacity(pub i32);
 impl ClosedCaptionOpacity {
     pub const Default: Self = Self(0i32);
@@ -95,12 +86,6 @@ impl ::core::clone::Clone for ClosedCaptionOpacity {
 unsafe impl ::windows::core::Abi for ClosedCaptionOpacity {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ClosedCaptionOpacity {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ClosedCaptionOpacity {}
 impl ::core::fmt::Debug for ClosedCaptionOpacity {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ClosedCaptionOpacity").field(&self.0).finish()
@@ -213,6 +198,7 @@ impl ::windows::core::RuntimeName for ClosedCaptionProperties {
 }
 #[doc = "*Required features: 'Media_ClosedCaptioning'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ClosedCaptionSize(pub i32);
 impl ClosedCaptionSize {
     pub const Default: Self = Self(0i32);
@@ -230,12 +216,6 @@ impl ::core::clone::Clone for ClosedCaptionSize {
 unsafe impl ::windows::core::Abi for ClosedCaptionSize {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ClosedCaptionSize {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ClosedCaptionSize {}
 impl ::core::fmt::Debug for ClosedCaptionSize {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ClosedCaptionSize").field(&self.0).finish()
@@ -249,6 +229,7 @@ impl ::windows::core::DefaultType for ClosedCaptionSize {
 }
 #[doc = "*Required features: 'Media_ClosedCaptioning'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ClosedCaptionStyle(pub i32);
 impl ClosedCaptionStyle {
     pub const Default: Self = Self(0i32);
@@ -269,12 +250,6 @@ impl ::core::clone::Clone for ClosedCaptionStyle {
 unsafe impl ::windows::core::Abi for ClosedCaptionStyle {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ClosedCaptionStyle {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ClosedCaptionStyle {}
 impl ::core::fmt::Debug for ClosedCaptionStyle {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ClosedCaptionStyle").field(&self.0).finish()

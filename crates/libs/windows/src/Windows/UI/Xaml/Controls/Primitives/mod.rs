@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AnimationDirection(pub i32);
 impl AnimationDirection {
     pub const Left: Self = Self(0i32);
@@ -17,12 +18,6 @@ impl ::core::clone::Clone for AnimationDirection {
 unsafe impl ::windows::core::Abi for AnimationDirection {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AnimationDirection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AnimationDirection {}
 impl ::core::fmt::Debug for AnimationDirection {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AnimationDirection").field(&self.0).finish()
@@ -3247,6 +3242,7 @@ unsafe impl ::core::marker::Send for CommandBarTemplateSettings {}
 unsafe impl ::core::marker::Sync for CommandBarTemplateSettings {}
 #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ComponentResourceLocation(pub i32);
 impl ComponentResourceLocation {
     pub const Application: Self = Self(0i32);
@@ -3261,12 +3257,6 @@ impl ::core::clone::Clone for ComponentResourceLocation {
 unsafe impl ::windows::core::Abi for ComponentResourceLocation {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ComponentResourceLocation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ComponentResourceLocation {}
 impl ::core::fmt::Debug for ComponentResourceLocation {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ComponentResourceLocation").field(&self.0).finish()
@@ -3885,6 +3875,7 @@ pub struct DragStartedEventHandler_Vtbl {
 }
 #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EdgeTransitionLocation(pub i32);
 impl EdgeTransitionLocation {
     pub const Left: Self = Self(0i32);
@@ -3901,12 +3892,6 @@ impl ::core::clone::Clone for EdgeTransitionLocation {
 unsafe impl ::windows::core::Abi for EdgeTransitionLocation {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EdgeTransitionLocation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EdgeTransitionLocation {}
 impl ::core::fmt::Debug for EdgeTransitionLocation {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EdgeTransitionLocation").field(&self.0).finish()
@@ -4473,6 +4458,7 @@ unsafe impl ::core::marker::Send for FlyoutBaseClosingEventArgs {}
 unsafe impl ::core::marker::Sync for FlyoutBaseClosingEventArgs {}
 #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FlyoutPlacementMode(pub i32);
 impl FlyoutPlacementMode {
     pub const Top: Self = Self(0i32);
@@ -4499,12 +4485,6 @@ impl ::core::clone::Clone for FlyoutPlacementMode {
 unsafe impl ::windows::core::Abi for FlyoutPlacementMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for FlyoutPlacementMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FlyoutPlacementMode {}
 impl ::core::fmt::Debug for FlyoutPlacementMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FlyoutPlacementMode").field(&self.0).finish()
@@ -4518,6 +4498,7 @@ impl ::windows::core::DefaultType for FlyoutPlacementMode {
 }
 #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FlyoutShowMode(pub i32);
 impl FlyoutShowMode {
     pub const Auto: Self = Self(0i32);
@@ -4534,12 +4515,6 @@ impl ::core::clone::Clone for FlyoutShowMode {
 unsafe impl ::windows::core::Abi for FlyoutShowMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for FlyoutShowMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FlyoutShowMode {}
 impl ::core::fmt::Debug for FlyoutShowMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FlyoutShowMode").field(&self.0).finish()
@@ -4694,6 +4669,7 @@ unsafe impl ::core::marker::Send for FlyoutShowOptions {}
 unsafe impl ::core::marker::Sync for FlyoutShowOptions {}
 #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GeneratorDirection(pub i32);
 impl GeneratorDirection {
     pub const Forward: Self = Self(0i32);
@@ -4708,12 +4684,6 @@ impl ::core::clone::Clone for GeneratorDirection {
 unsafe impl ::windows::core::Abi for GeneratorDirection {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GeneratorDirection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GeneratorDirection {}
 impl ::core::fmt::Debug for GeneratorDirection {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GeneratorDirection").field(&self.0).finish()
@@ -5645,6 +5615,7 @@ unsafe impl ::core::marker::Send for GridViewItemTemplateSettings {}
 unsafe impl ::core::marker::Sync for GridViewItemTemplateSettings {}
 #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GroupHeaderPlacement(pub i32);
 impl GroupHeaderPlacement {
     pub const Top: Self = Self(0i32);
@@ -5659,12 +5630,6 @@ impl ::core::clone::Clone for GroupHeaderPlacement {
 unsafe impl ::windows::core::Abi for GroupHeaderPlacement {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GroupHeaderPlacement {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GroupHeaderPlacement {}
 impl ::core::fmt::Debug for GroupHeaderPlacement {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GroupHeaderPlacement").field(&self.0).finish()
@@ -10922,6 +10887,7 @@ unsafe impl ::core::marker::Send for ListViewItemPresenter {}
 unsafe impl ::core::marker::Sync for ListViewItemPresenter {}
 #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ListViewItemPresenterCheckMode(pub i32);
 impl ListViewItemPresenterCheckMode {
     pub const Inline: Self = Self(0i32);
@@ -10936,12 +10902,6 @@ impl ::core::clone::Clone for ListViewItemPresenterCheckMode {
 unsafe impl ::windows::core::Abi for ListViewItemPresenterCheckMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ListViewItemPresenterCheckMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ListViewItemPresenterCheckMode {}
 impl ::core::fmt::Debug for ListViewItemPresenterCheckMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ListViewItemPresenterCheckMode").field(&self.0).finish()
@@ -10955,6 +10915,7 @@ impl ::windows::core::DefaultType for ListViewItemPresenterCheckMode {
 }
 #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ListViewItemPresenterSelectionIndicatorMode(pub i32);
 impl ListViewItemPresenterSelectionIndicatorMode {
     pub const Inline: Self = Self(0i32);
@@ -10969,12 +10930,6 @@ impl ::core::clone::Clone for ListViewItemPresenterSelectionIndicatorMode {
 unsafe impl ::windows::core::Abi for ListViewItemPresenterSelectionIndicatorMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ListViewItemPresenterSelectionIndicatorMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ListViewItemPresenterSelectionIndicatorMode {}
 impl ::core::fmt::Debug for ListViewItemPresenterSelectionIndicatorMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ListViewItemPresenterSelectionIndicatorMode").field(&self.0).finish()
@@ -13860,6 +13815,7 @@ unsafe impl ::core::marker::Send for PivotPanel {}
 unsafe impl ::core::marker::Sync for PivotPanel {}
 #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PlacementMode(pub i32);
 impl PlacementMode {
     pub const Bottom: Self = Self(2i32);
@@ -13877,12 +13833,6 @@ impl ::core::clone::Clone for PlacementMode {
 unsafe impl ::windows::core::Abi for PlacementMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PlacementMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PlacementMode {}
 impl ::core::fmt::Debug for PlacementMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PlacementMode").field(&self.0).finish()
@@ -14371,6 +14321,7 @@ unsafe impl ::core::marker::Send for Popup {}
 unsafe impl ::core::marker::Sync for Popup {}
 #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PopupPlacementMode(pub i32);
 impl PopupPlacementMode {
     pub const Auto: Self = Self(0i32);
@@ -14396,12 +14347,6 @@ impl ::core::clone::Clone for PopupPlacementMode {
 unsafe impl ::windows::core::Abi for PopupPlacementMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PopupPlacementMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PopupPlacementMode {}
 impl ::core::fmt::Debug for PopupPlacementMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PopupPlacementMode").field(&self.0).finish()
@@ -15996,6 +15941,7 @@ pub struct ScrollEventHandler_Vtbl {
 }
 #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ScrollEventType(pub i32);
 impl ScrollEventType {
     pub const SmallDecrement: Self = Self(0i32);
@@ -16017,12 +15963,6 @@ impl ::core::clone::Clone for ScrollEventType {
 unsafe impl ::windows::core::Abi for ScrollEventType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ScrollEventType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ScrollEventType {}
 impl ::core::fmt::Debug for ScrollEventType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ScrollEventType").field(&self.0).finish()
@@ -16036,6 +15976,7 @@ impl ::windows::core::DefaultType for ScrollEventType {
 }
 #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ScrollingIndicatorMode(pub i32);
 impl ScrollingIndicatorMode {
     pub const None: Self = Self(0i32);
@@ -16051,12 +15992,6 @@ impl ::core::clone::Clone for ScrollingIndicatorMode {
 unsafe impl ::windows::core::Abi for ScrollingIndicatorMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ScrollingIndicatorMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ScrollingIndicatorMode {}
 impl ::core::fmt::Debug for ScrollingIndicatorMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ScrollingIndicatorMode").field(&self.0).finish()
@@ -16842,6 +16777,7 @@ unsafe impl ::core::marker::Send for SettingsFlyoutTemplateSettings {}
 unsafe impl ::core::marker::Sync for SettingsFlyoutTemplateSettings {}
 #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SliderSnapsTo(pub i32);
 impl SliderSnapsTo {
     pub const StepValues: Self = Self(0i32);
@@ -16856,12 +16792,6 @@ impl ::core::clone::Clone for SliderSnapsTo {
 unsafe impl ::windows::core::Abi for SliderSnapsTo {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SliderSnapsTo {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SliderSnapsTo {}
 impl ::core::fmt::Debug for SliderSnapsTo {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SliderSnapsTo").field(&self.0).finish()
@@ -16875,6 +16805,7 @@ impl ::windows::core::DefaultType for SliderSnapsTo {
 }
 #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SnapPointsAlignment(pub i32);
 impl SnapPointsAlignment {
     pub const Near: Self = Self(0i32);
@@ -16890,12 +16821,6 @@ impl ::core::clone::Clone for SnapPointsAlignment {
 unsafe impl ::windows::core::Abi for SnapPointsAlignment {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SnapPointsAlignment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SnapPointsAlignment {}
 impl ::core::fmt::Debug for SnapPointsAlignment {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SnapPointsAlignment").field(&self.0).finish()
@@ -17551,6 +17476,7 @@ unsafe impl ::core::marker::Send for TickBar {}
 unsafe impl ::core::marker::Sync for TickBar {}
 #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TickPlacement(pub i32);
 impl TickPlacement {
     pub const None: Self = Self(0i32);
@@ -17568,12 +17494,6 @@ impl ::core::clone::Clone for TickPlacement {
 unsafe impl ::windows::core::Abi for TickPlacement {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TickPlacement {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TickPlacement {}
 impl ::core::fmt::Debug for TickPlacement {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TickPlacement").field(&self.0).finish()

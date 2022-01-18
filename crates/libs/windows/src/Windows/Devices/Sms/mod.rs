@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CellularClass(pub i32);
 impl CellularClass {
     pub const None: Self = Self(0i32);
@@ -16,12 +17,6 @@ impl ::core::clone::Clone for CellularClass {
 unsafe impl ::windows::core::Abi for CellularClass {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CellularClass {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CellularClass {}
 impl ::core::fmt::Debug for CellularClass {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CellularClass").field(&self.0).finish()
@@ -3618,6 +3613,7 @@ unsafe impl ::core::marker::Send for SmsBroadcastMessage {}
 unsafe impl ::core::marker::Sync for SmsBroadcastMessage {}
 #[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SmsBroadcastType(pub i32);
 impl SmsBroadcastType {
     pub const Other: Self = Self(0i32);
@@ -3645,12 +3641,6 @@ impl ::core::clone::Clone for SmsBroadcastType {
 unsafe impl ::windows::core::Abi for SmsBroadcastType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SmsBroadcastType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmsBroadcastType {}
 impl ::core::fmt::Debug for SmsBroadcastType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SmsBroadcastType").field(&self.0).finish()
@@ -3664,6 +3654,7 @@ impl ::windows::core::DefaultType for SmsBroadcastType {
 }
 #[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SmsDataFormat(pub i32);
 impl SmsDataFormat {
     pub const Unknown: Self = Self(0i32);
@@ -3681,12 +3672,6 @@ impl ::core::clone::Clone for SmsDataFormat {
 unsafe impl ::windows::core::Abi for SmsDataFormat {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SmsDataFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmsDataFormat {}
 impl ::core::fmt::Debug for SmsDataFormat {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SmsDataFormat").field(&self.0).finish()
@@ -4264,6 +4249,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmsD
 }
 #[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SmsDeviceStatus(pub i32);
 impl SmsDeviceStatus {
     pub const Off: Self = Self(0i32);
@@ -4284,12 +4270,6 @@ impl ::core::clone::Clone for SmsDeviceStatus {
 unsafe impl ::windows::core::Abi for SmsDeviceStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SmsDeviceStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmsDeviceStatus {}
 impl ::core::fmt::Debug for SmsDeviceStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SmsDeviceStatus").field(&self.0).finish()
@@ -4436,6 +4416,7 @@ impl ::core::default::Default for SmsEncodedLength {
 }
 #[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SmsEncoding(pub i32);
 impl SmsEncoding {
     pub const Unknown: Self = Self(0i32);
@@ -4459,12 +4440,6 @@ impl ::core::clone::Clone for SmsEncoding {
 unsafe impl ::windows::core::Abi for SmsEncoding {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SmsEncoding {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmsEncoding {}
 impl ::core::fmt::Debug for SmsEncoding {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SmsEncoding").field(&self.0).finish()
@@ -4478,6 +4453,7 @@ impl ::windows::core::DefaultType for SmsEncoding {
 }
 #[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SmsFilterActionType(pub i32);
 impl SmsFilterActionType {
     pub const AcceptImmediately: Self = Self(0i32);
@@ -4494,12 +4470,6 @@ impl ::core::clone::Clone for SmsFilterActionType {
 unsafe impl ::windows::core::Abi for SmsFilterActionType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SmsFilterActionType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmsFilterActionType {}
 impl ::core::fmt::Debug for SmsFilterActionType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SmsFilterActionType").field(&self.0).finish()
@@ -4820,6 +4790,7 @@ unsafe impl ::core::marker::Send for SmsFilterRules {}
 unsafe impl ::core::marker::Sync for SmsFilterRules {}
 #[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SmsGeographicalScope(pub i32);
 impl SmsGeographicalScope {
     pub const None: Self = Self(0i32);
@@ -4837,12 +4808,6 @@ impl ::core::clone::Clone for SmsGeographicalScope {
 unsafe impl ::windows::core::Abi for SmsGeographicalScope {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SmsGeographicalScope {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmsGeographicalScope {}
 impl ::core::fmt::Debug for SmsGeographicalScope {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SmsGeographicalScope").field(&self.0).finish()
@@ -4856,6 +4821,7 @@ impl ::windows::core::DefaultType for SmsGeographicalScope {
 }
 #[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SmsMessageClass(pub i32);
 impl SmsMessageClass {
     pub const None: Self = Self(0i32);
@@ -4873,12 +4839,6 @@ impl ::core::clone::Clone for SmsMessageClass {
 unsafe impl ::windows::core::Abi for SmsMessageClass {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SmsMessageClass {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmsMessageClass {}
 impl ::core::fmt::Debug for SmsMessageClass {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SmsMessageClass").field(&self.0).finish()
@@ -4893,6 +4853,7 @@ impl ::windows::core::DefaultType for SmsMessageClass {
 #[doc = "*Required features: 'Devices_Sms', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SmsMessageFilter(pub i32);
 #[cfg(feature = "deprecated")]
 impl SmsMessageFilter {
@@ -4914,14 +4875,6 @@ impl ::core::clone::Clone for SmsMessageFilter {
 unsafe impl ::windows::core::Abi for SmsMessageFilter {
     type Abi = Self;
 }
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for SmsMessageFilter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for SmsMessageFilter {}
 #[cfg(feature = "deprecated")]
 impl ::core::fmt::Debug for SmsMessageFilter {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -5395,6 +5348,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SmsM
 }
 #[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SmsMessageType(pub i32);
 impl SmsMessageType {
     pub const Binary: Self = Self(0i32);
@@ -5414,12 +5368,6 @@ impl ::core::clone::Clone for SmsMessageType {
 unsafe impl ::windows::core::Abi for SmsMessageType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SmsMessageType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmsMessageType {}
 impl ::core::fmt::Debug for SmsMessageType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SmsMessageType").field(&self.0).finish()
@@ -5433,6 +5381,7 @@ impl ::windows::core::DefaultType for SmsMessageType {
 }
 #[doc = "*Required features: 'Devices_Sms'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SmsModemErrorCode(pub i32);
 impl SmsModemErrorCode {
     pub const Other: Self = Self(0i32);
@@ -5457,12 +5406,6 @@ impl ::core::clone::Clone for SmsModemErrorCode {
 unsafe impl ::windows::core::Abi for SmsModemErrorCode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SmsModemErrorCode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SmsModemErrorCode {}
 impl ::core::fmt::Debug for SmsModemErrorCode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SmsModemErrorCode").field(&self.0).finish()

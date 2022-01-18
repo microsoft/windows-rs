@@ -807,6 +807,7 @@ unsafe impl ::core::marker::Send for GameSaveContainerInfoQuery {}
 unsafe impl ::core::marker::Sync for GameSaveContainerInfoQuery {}
 #[doc = "*Required features: 'Gaming_XboxLive_Storage'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GameSaveErrorStatus(pub i32);
 impl GameSaveErrorStatus {
     pub const Ok: Self = Self(0i32);
@@ -834,12 +835,6 @@ impl ::core::clone::Clone for GameSaveErrorStatus {
 unsafe impl ::windows::core::Abi for GameSaveErrorStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GameSaveErrorStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GameSaveErrorStatus {}
 impl ::core::fmt::Debug for GameSaveErrorStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GameSaveErrorStatus").field(&self.0).finish()

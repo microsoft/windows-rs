@@ -634,6 +634,7 @@ unsafe impl ::core::marker::Send for XamlDirect {}
 unsafe impl ::core::marker::Sync for XamlDirect {}
 #[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct XamlEventIndex(pub i32);
 impl XamlEventIndex {
     pub const FrameworkElement_DataContextChanged: Self = Self(16i32);
@@ -784,12 +785,6 @@ impl ::core::clone::Clone for XamlEventIndex {
 unsafe impl ::windows::core::Abi for XamlEventIndex {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for XamlEventIndex {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XamlEventIndex {}
 impl ::core::fmt::Debug for XamlEventIndex {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("XamlEventIndex").field(&self.0).finish()
@@ -803,6 +798,7 @@ impl ::windows::core::DefaultType for XamlEventIndex {
 }
 #[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct XamlPropertyIndex(pub i32);
 impl XamlPropertyIndex {
     pub const AutomationProperties_AcceleratorKey: Self = Self(5i32);
@@ -2484,12 +2480,6 @@ impl ::core::clone::Clone for XamlPropertyIndex {
 unsafe impl ::windows::core::Abi for XamlPropertyIndex {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for XamlPropertyIndex {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XamlPropertyIndex {}
 impl ::core::fmt::Debug for XamlPropertyIndex {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("XamlPropertyIndex").field(&self.0).finish()
@@ -2503,6 +2493,7 @@ impl ::windows::core::DefaultType for XamlPropertyIndex {
 }
 #[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct XamlTypeIndex(pub i32);
 impl XamlTypeIndex {
     pub const AutoSuggestBoxSuggestionChosenEventArgs: Self = Self(34i32);
@@ -2765,12 +2756,6 @@ impl ::core::clone::Clone for XamlTypeIndex {
 unsafe impl ::windows::core::Abi for XamlTypeIndex {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for XamlTypeIndex {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XamlTypeIndex {}
 impl ::core::fmt::Debug for XamlTypeIndex {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("XamlTypeIndex").field(&self.0).finish()

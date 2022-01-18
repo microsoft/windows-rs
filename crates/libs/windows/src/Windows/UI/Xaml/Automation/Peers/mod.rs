@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AccessibilityView(pub i32);
 impl AccessibilityView {
     pub const Raw: Self = Self(0i32);
@@ -16,12 +17,6 @@ impl ::core::clone::Clone for AccessibilityView {
 unsafe impl ::windows::core::Abi for AccessibilityView {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AccessibilityView {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AccessibilityView {}
 impl ::core::fmt::Debug for AccessibilityView {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AccessibilityView").field(&self.0).finish()
@@ -1019,6 +1014,7 @@ unsafe impl ::core::marker::Send for AutoSuggestBoxAutomationPeer {}
 unsafe impl ::core::marker::Sync for AutoSuggestBoxAutomationPeer {}
 #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AutomationControlType(pub i32);
 impl AutomationControlType {
     pub const Button: Self = Self(0i32);
@@ -1072,12 +1068,6 @@ impl ::core::clone::Clone for AutomationControlType {
 unsafe impl ::windows::core::Abi for AutomationControlType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AutomationControlType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AutomationControlType {}
 impl ::core::fmt::Debug for AutomationControlType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AutomationControlType").field(&self.0).finish()
@@ -1091,6 +1081,7 @@ impl ::windows::core::DefaultType for AutomationControlType {
 }
 #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AutomationEvents(pub i32);
 impl AutomationEvents {
     pub const ToolTipOpened: Self = Self(0i32);
@@ -1133,12 +1124,6 @@ impl ::core::clone::Clone for AutomationEvents {
 unsafe impl ::windows::core::Abi for AutomationEvents {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AutomationEvents {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AutomationEvents {}
 impl ::core::fmt::Debug for AutomationEvents {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AutomationEvents").field(&self.0).finish()
@@ -1152,6 +1137,7 @@ impl ::windows::core::DefaultType for AutomationEvents {
 }
 #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AutomationHeadingLevel(pub i32);
 impl AutomationHeadingLevel {
     pub const None: Self = Self(0i32);
@@ -1174,12 +1160,6 @@ impl ::core::clone::Clone for AutomationHeadingLevel {
 unsafe impl ::windows::core::Abi for AutomationHeadingLevel {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AutomationHeadingLevel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AutomationHeadingLevel {}
 impl ::core::fmt::Debug for AutomationHeadingLevel {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AutomationHeadingLevel").field(&self.0).finish()
@@ -1193,6 +1173,7 @@ impl ::windows::core::DefaultType for AutomationHeadingLevel {
 }
 #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AutomationLandmarkType(pub i32);
 impl AutomationLandmarkType {
     pub const None: Self = Self(0i32);
@@ -1211,12 +1192,6 @@ impl ::core::clone::Clone for AutomationLandmarkType {
 unsafe impl ::windows::core::Abi for AutomationLandmarkType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AutomationLandmarkType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AutomationLandmarkType {}
 impl ::core::fmt::Debug for AutomationLandmarkType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AutomationLandmarkType").field(&self.0).finish()
@@ -1230,6 +1205,7 @@ impl ::windows::core::DefaultType for AutomationLandmarkType {
 }
 #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AutomationLiveSetting(pub i32);
 impl AutomationLiveSetting {
     pub const Off: Self = Self(0i32);
@@ -1245,12 +1221,6 @@ impl ::core::clone::Clone for AutomationLiveSetting {
 unsafe impl ::windows::core::Abi for AutomationLiveSetting {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AutomationLiveSetting {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AutomationLiveSetting {}
 impl ::core::fmt::Debug for AutomationLiveSetting {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AutomationLiveSetting").field(&self.0).finish()
@@ -1264,6 +1234,7 @@ impl ::windows::core::DefaultType for AutomationLiveSetting {
 }
 #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AutomationNavigationDirection(pub i32);
 impl AutomationNavigationDirection {
     pub const Parent: Self = Self(0i32);
@@ -1281,12 +1252,6 @@ impl ::core::clone::Clone for AutomationNavigationDirection {
 unsafe impl ::windows::core::Abi for AutomationNavigationDirection {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AutomationNavigationDirection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AutomationNavigationDirection {}
 impl ::core::fmt::Debug for AutomationNavigationDirection {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AutomationNavigationDirection").field(&self.0).finish()
@@ -1300,6 +1265,7 @@ impl ::windows::core::DefaultType for AutomationNavigationDirection {
 }
 #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AutomationNotificationKind(pub i32);
 impl AutomationNotificationKind {
     pub const ItemAdded: Self = Self(0i32);
@@ -1317,12 +1283,6 @@ impl ::core::clone::Clone for AutomationNotificationKind {
 unsafe impl ::windows::core::Abi for AutomationNotificationKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AutomationNotificationKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AutomationNotificationKind {}
 impl ::core::fmt::Debug for AutomationNotificationKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AutomationNotificationKind").field(&self.0).finish()
@@ -1336,6 +1296,7 @@ impl ::windows::core::DefaultType for AutomationNotificationKind {
 }
 #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AutomationNotificationProcessing(pub i32);
 impl AutomationNotificationProcessing {
     pub const ImportantAll: Self = Self(0i32);
@@ -1353,12 +1314,6 @@ impl ::core::clone::Clone for AutomationNotificationProcessing {
 unsafe impl ::windows::core::Abi for AutomationNotificationProcessing {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AutomationNotificationProcessing {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AutomationNotificationProcessing {}
 impl ::core::fmt::Debug for AutomationNotificationProcessing {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AutomationNotificationProcessing").field(&self.0).finish()
@@ -1372,6 +1327,7 @@ impl ::windows::core::DefaultType for AutomationNotificationProcessing {
 }
 #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AutomationOrientation(pub i32);
 impl AutomationOrientation {
     pub const None: Self = Self(0i32);
@@ -1387,12 +1343,6 @@ impl ::core::clone::Clone for AutomationOrientation {
 unsafe impl ::windows::core::Abi for AutomationOrientation {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AutomationOrientation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AutomationOrientation {}
 impl ::core::fmt::Debug for AutomationOrientation {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AutomationOrientation").field(&self.0).finish()
@@ -2116,6 +2066,7 @@ unsafe impl ::core::marker::Send for AutomationPeerAnnotation {}
 unsafe impl ::core::marker::Sync for AutomationPeerAnnotation {}
 #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AutomationStructureChangeType(pub i32);
 impl AutomationStructureChangeType {
     pub const ChildAdded: Self = Self(0i32);
@@ -2134,12 +2085,6 @@ impl ::core::clone::Clone for AutomationStructureChangeType {
 unsafe impl ::windows::core::Abi for AutomationStructureChangeType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AutomationStructureChangeType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AutomationStructureChangeType {}
 impl ::core::fmt::Debug for AutomationStructureChangeType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AutomationStructureChangeType").field(&self.0).finish()
@@ -15038,6 +14983,7 @@ unsafe impl ::core::marker::Send for PasswordBoxAutomationPeer {}
 unsafe impl ::core::marker::Sync for PasswordBoxAutomationPeer {}
 #[doc = "*Required features: 'UI_Xaml_Automation_Peers'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PatternInterface(pub i32);
 impl PatternInterface {
     pub const Invoke: Self = Self(0i32);
@@ -15084,12 +15030,6 @@ impl ::core::clone::Clone for PatternInterface {
 unsafe impl ::windows::core::Abi for PatternInterface {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PatternInterface {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PatternInterface {}
 impl ::core::fmt::Debug for PatternInterface {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PatternInterface").field(&self.0).finish()

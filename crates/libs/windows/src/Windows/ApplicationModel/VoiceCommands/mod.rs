@@ -442,6 +442,7 @@ unsafe impl ::core::marker::Send for VoiceCommandCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for VoiceCommandCompletedEventArgs {}
 #[doc = "*Required features: 'ApplicationModel_VoiceCommands'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct VoiceCommandCompletionReason(pub i32);
 impl VoiceCommandCompletionReason {
     pub const Unknown: Self = Self(0i32);
@@ -461,12 +462,6 @@ impl ::core::clone::Clone for VoiceCommandCompletionReason {
 unsafe impl ::windows::core::Abi for VoiceCommandCompletionReason {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VoiceCommandCompletionReason {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VoiceCommandCompletionReason {}
 impl ::core::fmt::Debug for VoiceCommandCompletionReason {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VoiceCommandCompletionReason").field(&self.0).finish()
@@ -747,6 +742,7 @@ unsafe impl ::core::marker::Send for VoiceCommandContentTile {}
 unsafe impl ::core::marker::Sync for VoiceCommandContentTile {}
 #[doc = "*Required features: 'ApplicationModel_VoiceCommands'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct VoiceCommandContentTileType(pub i32);
 impl VoiceCommandContentTileType {
     pub const TitleOnly: Self = Self(0i32);
@@ -767,12 +763,6 @@ impl ::core::clone::Clone for VoiceCommandContentTileType {
 unsafe impl ::windows::core::Abi for VoiceCommandContentTileType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VoiceCommandContentTileType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VoiceCommandContentTileType {}
 impl ::core::fmt::Debug for VoiceCommandContentTileType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VoiceCommandContentTileType").field(&self.0).finish()

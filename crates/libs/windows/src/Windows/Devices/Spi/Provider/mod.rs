@@ -501,6 +501,7 @@ unsafe impl ::core::marker::Send for ProviderSpiConnectionSettings {}
 unsafe impl ::core::marker::Sync for ProviderSpiConnectionSettings {}
 #[doc = "*Required features: 'Devices_Spi_Provider'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ProviderSpiMode(pub i32);
 impl ProviderSpiMode {
     pub const Mode0: Self = Self(0i32);
@@ -517,12 +518,6 @@ impl ::core::clone::Clone for ProviderSpiMode {
 unsafe impl ::windows::core::Abi for ProviderSpiMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ProviderSpiMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProviderSpiMode {}
 impl ::core::fmt::Debug for ProviderSpiMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ProviderSpiMode").field(&self.0).finish()
@@ -536,6 +531,7 @@ impl ::windows::core::DefaultType for ProviderSpiMode {
 }
 #[doc = "*Required features: 'Devices_Spi_Provider'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ProviderSpiSharingMode(pub i32);
 impl ProviderSpiSharingMode {
     pub const Exclusive: Self = Self(0i32);
@@ -550,12 +546,6 @@ impl ::core::clone::Clone for ProviderSpiSharingMode {
 unsafe impl ::windows::core::Abi for ProviderSpiSharingMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ProviderSpiSharingMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProviderSpiSharingMode {}
 impl ::core::fmt::Debug for ProviderSpiSharingMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ProviderSpiSharingMode").field(&self.0).finish()

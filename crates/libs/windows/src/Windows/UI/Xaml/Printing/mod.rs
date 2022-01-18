@@ -626,6 +626,7 @@ pub struct PaginateEventHandler_Vtbl {
 }
 #[doc = "*Required features: 'UI_Xaml_Printing'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PreviewPageCountType(pub i32);
 impl PreviewPageCountType {
     pub const Final: Self = Self(0i32);
@@ -640,12 +641,6 @@ impl ::core::clone::Clone for PreviewPageCountType {
 unsafe impl ::windows::core::Abi for PreviewPageCountType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PreviewPageCountType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PreviewPageCountType {}
 impl ::core::fmt::Debug for PreviewPageCountType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PreviewPageCountType").field(&self.0).finish()

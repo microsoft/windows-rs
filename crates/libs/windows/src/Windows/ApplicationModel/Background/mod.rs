@@ -142,6 +142,7 @@ unsafe impl ::core::marker::Send for ActivitySensorTrigger {}
 unsafe impl ::core::marker::Sync for ActivitySensorTrigger {}
 #[doc = "*Required features: 'ApplicationModel_Background'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AlarmAccessStatus(pub i32);
 impl AlarmAccessStatus {
     pub const Unspecified: Self = Self(0i32);
@@ -158,12 +159,6 @@ impl ::core::clone::Clone for AlarmAccessStatus {
 unsafe impl ::windows::core::Abi for AlarmAccessStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AlarmAccessStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AlarmAccessStatus {}
 impl ::core::fmt::Debug for AlarmAccessStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AlarmAccessStatus").field(&self.0).finish()
@@ -679,6 +674,7 @@ unsafe impl ::core::marker::Send for ApplicationTriggerDetails {}
 unsafe impl ::core::marker::Sync for ApplicationTriggerDetails {}
 #[doc = "*Required features: 'ApplicationModel_Background'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ApplicationTriggerResult(pub i32);
 impl ApplicationTriggerResult {
     pub const Allowed: Self = Self(0i32);
@@ -695,12 +691,6 @@ impl ::core::clone::Clone for ApplicationTriggerResult {
 unsafe impl ::windows::core::Abi for ApplicationTriggerResult {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ApplicationTriggerResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ApplicationTriggerResult {}
 impl ::core::fmt::Debug for ApplicationTriggerResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ApplicationTriggerResult").field(&self.0).finish()
@@ -816,6 +806,7 @@ unsafe impl ::core::marker::Send for AppointmentStoreNotificationTrigger {}
 unsafe impl ::core::marker::Sync for AppointmentStoreNotificationTrigger {}
 #[doc = "*Required features: 'ApplicationModel_Background'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct BackgroundAccessRequestKind(pub i32);
 impl BackgroundAccessRequestKind {
     pub const AlwaysAllowed: Self = Self(0i32);
@@ -830,12 +821,6 @@ impl ::core::clone::Clone for BackgroundAccessRequestKind {
 unsafe impl ::windows::core::Abi for BackgroundAccessRequestKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BackgroundAccessRequestKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BackgroundAccessRequestKind {}
 impl ::core::fmt::Debug for BackgroundAccessRequestKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BackgroundAccessRequestKind").field(&self.0).finish()
@@ -849,6 +834,7 @@ impl ::windows::core::DefaultType for BackgroundAccessRequestKind {
 }
 #[doc = "*Required features: 'ApplicationModel_Background'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct BackgroundAccessStatus(pub i32);
 impl BackgroundAccessStatus {
     pub const Unspecified: Self = Self(0i32);
@@ -869,12 +855,6 @@ impl ::core::clone::Clone for BackgroundAccessStatus {
 unsafe impl ::windows::core::Abi for BackgroundAccessStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BackgroundAccessStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BackgroundAccessStatus {}
 impl ::core::fmt::Debug for BackgroundAccessStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BackgroundAccessStatus").field(&self.0).finish()
@@ -1222,6 +1202,7 @@ pub struct BackgroundTaskCanceledEventHandler_Vtbl {
 }
 #[doc = "*Required features: 'ApplicationModel_Background'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct BackgroundTaskCancellationReason(pub i32);
 impl BackgroundTaskCancellationReason {
     pub const Abort: Self = Self(0i32);
@@ -1246,12 +1227,6 @@ impl ::core::clone::Clone for BackgroundTaskCancellationReason {
 unsafe impl ::windows::core::Abi for BackgroundTaskCancellationReason {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BackgroundTaskCancellationReason {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BackgroundTaskCancellationReason {}
 impl ::core::fmt::Debug for BackgroundTaskCancellationReason {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BackgroundTaskCancellationReason").field(&self.0).finish()
@@ -2045,6 +2020,7 @@ unsafe impl ::core::marker::Send for BackgroundTaskRegistrationGroup {}
 unsafe impl ::core::marker::Sync for BackgroundTaskRegistrationGroup {}
 #[doc = "*Required features: 'ApplicationModel_Background'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct BackgroundTaskThrottleCounter(pub i32);
 impl BackgroundTaskThrottleCounter {
     pub const All: Self = Self(0i32);
@@ -2060,12 +2036,6 @@ impl ::core::clone::Clone for BackgroundTaskThrottleCounter {
 unsafe impl ::windows::core::Abi for BackgroundTaskThrottleCounter {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BackgroundTaskThrottleCounter {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BackgroundTaskThrottleCounter {}
 impl ::core::fmt::Debug for BackgroundTaskThrottleCounter {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BackgroundTaskThrottleCounter").field(&self.0).finish()
@@ -2098,6 +2068,7 @@ impl ::windows::core::RuntimeName for BackgroundWorkCost {
 }
 #[doc = "*Required features: 'ApplicationModel_Background'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct BackgroundWorkCostValue(pub i32);
 impl BackgroundWorkCostValue {
     pub const Low: Self = Self(0i32);
@@ -2113,12 +2084,6 @@ impl ::core::clone::Clone for BackgroundWorkCostValue {
 unsafe impl ::windows::core::Abi for BackgroundWorkCostValue {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BackgroundWorkCostValue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BackgroundWorkCostValue {}
 impl ::core::fmt::Debug for BackgroundWorkCostValue {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BackgroundWorkCostValue").field(&self.0).finish()
@@ -3430,6 +3395,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &CustomSystemEve
 }
 #[doc = "*Required features: 'ApplicationModel_Background'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CustomSystemEventTriggerRecurrence(pub i32);
 impl CustomSystemEventTriggerRecurrence {
     pub const Once: Self = Self(0i32);
@@ -3444,12 +3410,6 @@ impl ::core::clone::Clone for CustomSystemEventTriggerRecurrence {
 unsafe impl ::windows::core::Abi for CustomSystemEventTriggerRecurrence {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CustomSystemEventTriggerRecurrence {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CustomSystemEventTriggerRecurrence {}
 impl ::core::fmt::Debug for CustomSystemEventTriggerRecurrence {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CustomSystemEventTriggerRecurrence").field(&self.0).finish()
@@ -3866,6 +3826,7 @@ unsafe impl ::core::marker::Send for DeviceServicingTrigger {}
 unsafe impl ::core::marker::Sync for DeviceServicingTrigger {}
 #[doc = "*Required features: 'ApplicationModel_Background'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DeviceTriggerResult(pub i32);
 impl DeviceTriggerResult {
     pub const Allowed: Self = Self(0i32);
@@ -3882,12 +3843,6 @@ impl ::core::clone::Clone for DeviceTriggerResult {
 unsafe impl ::windows::core::Abi for DeviceTriggerResult {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DeviceTriggerResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DeviceTriggerResult {}
 impl ::core::fmt::Debug for DeviceTriggerResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DeviceTriggerResult").field(&self.0).finish()
@@ -7413,6 +7368,7 @@ unsafe impl ::core::marker::Send for LocationTrigger {}
 unsafe impl ::core::marker::Sync for LocationTrigger {}
 #[doc = "*Required features: 'ApplicationModel_Background'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct LocationTriggerType(pub i32);
 impl LocationTriggerType {
     pub const Geofence: Self = Self(0i32);
@@ -7426,12 +7382,6 @@ impl ::core::clone::Clone for LocationTriggerType {
 unsafe impl ::windows::core::Abi for LocationTriggerType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LocationTriggerType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LocationTriggerType {}
 impl ::core::fmt::Debug for LocationTriggerType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LocationTriggerType").field(&self.0).finish()
@@ -7684,6 +7634,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &MediaProcessing
 }
 #[doc = "*Required features: 'ApplicationModel_Background'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MediaProcessingTriggerResult(pub i32);
 impl MediaProcessingTriggerResult {
     pub const Allowed: Self = Self(0i32);
@@ -7700,12 +7651,6 @@ impl ::core::clone::Clone for MediaProcessingTriggerResult {
 unsafe impl ::windows::core::Abi for MediaProcessingTriggerResult {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MediaProcessingTriggerResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaProcessingTriggerResult {}
 impl ::core::fmt::Debug for MediaProcessingTriggerResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MediaProcessingTriggerResult").field(&self.0).finish()
@@ -10047,6 +9992,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundCondition> for &SystemConditi
 }
 #[doc = "*Required features: 'ApplicationModel_Background'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SystemConditionType(pub i32);
 impl SystemConditionType {
     pub const Invalid: Self = Self(0i32);
@@ -10068,12 +10014,6 @@ impl ::core::clone::Clone for SystemConditionType {
 unsafe impl ::windows::core::Abi for SystemConditionType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SystemConditionType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SystemConditionType {}
 impl ::core::fmt::Debug for SystemConditionType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SystemConditionType").field(&self.0).finish()
@@ -10208,6 +10148,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &SystemTrigger {
 }
 #[doc = "*Required features: 'ApplicationModel_Background'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SystemTriggerType(pub i32);
 impl SystemTriggerType {
     pub const Invalid: Self = Self(0i32);
@@ -10236,12 +10177,6 @@ impl ::core::clone::Clone for SystemTriggerType {
 unsafe impl ::windows::core::Abi for SystemTriggerType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SystemTriggerType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SystemTriggerType {}
 impl ::core::fmt::Debug for SystemTriggerType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SystemTriggerType").field(&self.0).finish()

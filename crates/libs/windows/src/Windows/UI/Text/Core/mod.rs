@@ -734,6 +734,7 @@ unsafe impl ::core::marker::Send for CoreTextFormatUpdatingEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextFormatUpdatingEventArgs {}
 #[doc = "*Required features: 'UI_Text_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CoreTextFormatUpdatingReason(pub i32);
 impl CoreTextFormatUpdatingReason {
     pub const None: Self = Self(0i32);
@@ -751,12 +752,6 @@ impl ::core::clone::Clone for CoreTextFormatUpdatingReason {
 unsafe impl ::windows::core::Abi for CoreTextFormatUpdatingReason {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CoreTextFormatUpdatingReason {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreTextFormatUpdatingReason {}
 impl ::core::fmt::Debug for CoreTextFormatUpdatingReason {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CoreTextFormatUpdatingReason").field(&self.0).finish()
@@ -770,6 +765,7 @@ impl ::windows::core::DefaultType for CoreTextFormatUpdatingReason {
 }
 #[doc = "*Required features: 'UI_Text_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CoreTextFormatUpdatingResult(pub i32);
 impl CoreTextFormatUpdatingResult {
     pub const Succeeded: Self = Self(0i32);
@@ -784,12 +780,6 @@ impl ::core::clone::Clone for CoreTextFormatUpdatingResult {
 unsafe impl ::windows::core::Abi for CoreTextFormatUpdatingResult {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CoreTextFormatUpdatingResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreTextFormatUpdatingResult {}
 impl ::core::fmt::Debug for CoreTextFormatUpdatingResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CoreTextFormatUpdatingResult").field(&self.0).finish()
@@ -803,6 +793,7 @@ impl ::windows::core::DefaultType for CoreTextFormatUpdatingResult {
 }
 #[doc = "*Required features: 'UI_Text_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CoreTextInputPaneDisplayPolicy(pub i32);
 impl CoreTextInputPaneDisplayPolicy {
     pub const Automatic: Self = Self(0i32);
@@ -817,12 +808,6 @@ impl ::core::clone::Clone for CoreTextInputPaneDisplayPolicy {
 unsafe impl ::windows::core::Abi for CoreTextInputPaneDisplayPolicy {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CoreTextInputPaneDisplayPolicy {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreTextInputPaneDisplayPolicy {}
 impl ::core::fmt::Debug for CoreTextInputPaneDisplayPolicy {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CoreTextInputPaneDisplayPolicy").field(&self.0).finish()
@@ -836,6 +821,7 @@ impl ::windows::core::DefaultType for CoreTextInputPaneDisplayPolicy {
 }
 #[doc = "*Required features: 'UI_Text_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CoreTextInputScope(pub i32);
 impl CoreTextInputScope {
     pub const Default: Self = Self(0i32);
@@ -915,12 +901,6 @@ impl ::core::clone::Clone for CoreTextInputScope {
 unsafe impl ::windows::core::Abi for CoreTextInputScope {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CoreTextInputScope {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreTextInputScope {}
 impl ::core::fmt::Debug for CoreTextInputScope {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CoreTextInputScope").field(&self.0).finish()
@@ -1564,6 +1544,7 @@ unsafe impl ::core::marker::Send for CoreTextSelectionUpdatingEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextSelectionUpdatingEventArgs {}
 #[doc = "*Required features: 'UI_Text_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CoreTextSelectionUpdatingResult(pub i32);
 impl CoreTextSelectionUpdatingResult {
     pub const Succeeded: Self = Self(0i32);
@@ -1578,12 +1559,6 @@ impl ::core::clone::Clone for CoreTextSelectionUpdatingResult {
 unsafe impl ::windows::core::Abi for CoreTextSelectionUpdatingResult {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CoreTextSelectionUpdatingResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreTextSelectionUpdatingResult {}
 impl ::core::fmt::Debug for CoreTextSelectionUpdatingResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CoreTextSelectionUpdatingResult").field(&self.0).finish()
@@ -2061,6 +2036,7 @@ unsafe impl ::core::marker::Send for CoreTextTextUpdatingEventArgs {}
 unsafe impl ::core::marker::Sync for CoreTextTextUpdatingEventArgs {}
 #[doc = "*Required features: 'UI_Text_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CoreTextTextUpdatingResult(pub i32);
 impl CoreTextTextUpdatingResult {
     pub const Succeeded: Self = Self(0i32);
@@ -2075,12 +2051,6 @@ impl ::core::clone::Clone for CoreTextTextUpdatingResult {
 unsafe impl ::windows::core::Abi for CoreTextTextUpdatingResult {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CoreTextTextUpdatingResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreTextTextUpdatingResult {}
 impl ::core::fmt::Debug for CoreTextTextUpdatingResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CoreTextTextUpdatingResult").field(&self.0).finish()

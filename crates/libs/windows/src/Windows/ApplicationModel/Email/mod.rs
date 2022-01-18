@@ -231,6 +231,7 @@ unsafe impl ::core::marker::Send for EmailAttachment {}
 unsafe impl ::core::marker::Sync for EmailAttachment {}
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EmailAttachmentDownloadState(pub i32);
 impl EmailAttachmentDownloadState {
     pub const NotDownloaded: Self = Self(0i32);
@@ -247,12 +248,6 @@ impl ::core::clone::Clone for EmailAttachmentDownloadState {
 unsafe impl ::windows::core::Abi for EmailAttachmentDownloadState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EmailAttachmentDownloadState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailAttachmentDownloadState {}
 impl ::core::fmt::Debug for EmailAttachmentDownloadState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EmailAttachmentDownloadState").field(&self.0).finish()
@@ -266,6 +261,7 @@ impl ::windows::core::DefaultType for EmailAttachmentDownloadState {
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EmailBatchStatus(pub i32);
 impl EmailBatchStatus {
     pub const Success: Self = Self(0i32);
@@ -281,12 +277,6 @@ impl ::core::clone::Clone for EmailBatchStatus {
 unsafe impl ::windows::core::Abi for EmailBatchStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EmailBatchStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailBatchStatus {}
 impl ::core::fmt::Debug for EmailBatchStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EmailBatchStatus").field(&self.0).finish()
@@ -300,6 +290,7 @@ impl ::windows::core::DefaultType for EmailBatchStatus {
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EmailCertificateValidationStatus(pub i32);
 impl EmailCertificateValidationStatus {
     pub const Success: Self = Self(0i32);
@@ -323,12 +314,6 @@ impl ::core::clone::Clone for EmailCertificateValidationStatus {
 unsafe impl ::windows::core::Abi for EmailCertificateValidationStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EmailCertificateValidationStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailCertificateValidationStatus {}
 impl ::core::fmt::Debug for EmailCertificateValidationStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EmailCertificateValidationStatus").field(&self.0).finish()
@@ -710,6 +695,7 @@ unsafe impl ::core::marker::Send for EmailConversationReader {}
 unsafe impl ::core::marker::Sync for EmailConversationReader {}
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EmailFlagState(pub i32);
 impl EmailFlagState {
     pub const Unflagged: Self = Self(0i32);
@@ -726,12 +712,6 @@ impl ::core::clone::Clone for EmailFlagState {
 unsafe impl ::windows::core::Abi for EmailFlagState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EmailFlagState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailFlagState {}
 impl ::core::fmt::Debug for EmailFlagState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EmailFlagState").field(&self.0).finish()
@@ -1017,6 +997,7 @@ unsafe impl ::core::marker::Send for EmailFolder {}
 unsafe impl ::core::marker::Sync for EmailFolder {}
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EmailImportance(pub i32);
 impl EmailImportance {
     pub const Normal: Self = Self(0i32);
@@ -1032,12 +1013,6 @@ impl ::core::clone::Clone for EmailImportance {
 unsafe impl ::windows::core::Abi for EmailImportance {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EmailImportance {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailImportance {}
 impl ::core::fmt::Debug for EmailImportance {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EmailImportance").field(&self.0).finish()
@@ -2200,6 +2175,7 @@ unsafe impl ::core::marker::Send for EmailMailboxAction {}
 unsafe impl ::core::marker::Sync for EmailMailboxAction {}
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EmailMailboxActionKind(pub i32);
 impl EmailMailboxActionKind {
     pub const MarkMessageAsSeen: Self = Self(0i32);
@@ -2223,12 +2199,6 @@ impl ::core::clone::Clone for EmailMailboxActionKind {
 unsafe impl ::windows::core::Abi for EmailMailboxActionKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EmailMailboxActionKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMailboxActionKind {}
 impl ::core::fmt::Debug for EmailMailboxActionKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EmailMailboxActionKind").field(&self.0).finish()
@@ -2242,6 +2212,7 @@ impl ::windows::core::DefaultType for EmailMailboxActionKind {
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation(pub i32);
 impl EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation {
     pub const None: Self = Self(0i32);
@@ -2257,12 +2228,6 @@ impl ::core::clone::Clone for EmailMailboxAllowedSmimeEncryptionAlgorithmNegotia
 unsafe impl ::windows::core::Abi for EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation {}
 impl ::core::fmt::Debug for EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EmailMailboxAllowedSmimeEncryptionAlgorithmNegotiation").field(&self.0).finish()
@@ -2375,6 +2340,7 @@ unsafe impl ::core::marker::Send for EmailMailboxAutoReply {}
 unsafe impl ::core::marker::Sync for EmailMailboxAutoReply {}
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EmailMailboxAutoReplyMessageResponseKind(pub i32);
 impl EmailMailboxAutoReplyMessageResponseKind {
     pub const Html: Self = Self(0i32);
@@ -2389,12 +2355,6 @@ impl ::core::clone::Clone for EmailMailboxAutoReplyMessageResponseKind {
 unsafe impl ::windows::core::Abi for EmailMailboxAutoReplyMessageResponseKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EmailMailboxAutoReplyMessageResponseKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMailboxAutoReplyMessageResponseKind {}
 impl ::core::fmt::Debug for EmailMailboxAutoReplyMessageResponseKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EmailMailboxAutoReplyMessageResponseKind").field(&self.0).finish()
@@ -3120,6 +3080,7 @@ unsafe impl ::core::marker::Send for EmailMailboxChangeTracker {}
 unsafe impl ::core::marker::Sync for EmailMailboxChangeTracker {}
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EmailMailboxChangeType(pub i32);
 impl EmailMailboxChangeType {
     pub const MessageCreated: Self = Self(0i32);
@@ -3139,12 +3100,6 @@ impl ::core::clone::Clone for EmailMailboxChangeType {
 unsafe impl ::windows::core::Abi for EmailMailboxChangeType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EmailMailboxChangeType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMailboxChangeType {}
 impl ::core::fmt::Debug for EmailMailboxChangeType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EmailMailboxChangeType").field(&self.0).finish()
@@ -3406,6 +3361,7 @@ unsafe impl ::core::marker::Send for EmailMailboxCreateFolderResult {}
 unsafe impl ::core::marker::Sync for EmailMailboxCreateFolderResult {}
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EmailMailboxCreateFolderStatus(pub i32);
 impl EmailMailboxCreateFolderStatus {
     pub const Success: Self = Self(0i32);
@@ -3425,12 +3381,6 @@ impl ::core::clone::Clone for EmailMailboxCreateFolderStatus {
 unsafe impl ::windows::core::Abi for EmailMailboxCreateFolderStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EmailMailboxCreateFolderStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMailboxCreateFolderStatus {}
 impl ::core::fmt::Debug for EmailMailboxCreateFolderStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EmailMailboxCreateFolderStatus").field(&self.0).finish()
@@ -3444,6 +3394,7 @@ impl ::windows::core::DefaultType for EmailMailboxCreateFolderStatus {
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EmailMailboxDeleteFolderStatus(pub i32);
 impl EmailMailboxDeleteFolderStatus {
     pub const Success: Self = Self(0i32);
@@ -3462,12 +3413,6 @@ impl ::core::clone::Clone for EmailMailboxDeleteFolderStatus {
 unsafe impl ::windows::core::Abi for EmailMailboxDeleteFolderStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EmailMailboxDeleteFolderStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMailboxDeleteFolderStatus {}
 impl ::core::fmt::Debug for EmailMailboxDeleteFolderStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EmailMailboxDeleteFolderStatus").field(&self.0).finish()
@@ -3481,6 +3426,7 @@ impl ::windows::core::DefaultType for EmailMailboxDeleteFolderStatus {
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EmailMailboxEmptyFolderStatus(pub i32);
 impl EmailMailboxEmptyFolderStatus {
     pub const Success: Self = Self(0i32);
@@ -3499,12 +3445,6 @@ impl ::core::clone::Clone for EmailMailboxEmptyFolderStatus {
 unsafe impl ::windows::core::Abi for EmailMailboxEmptyFolderStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EmailMailboxEmptyFolderStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMailboxEmptyFolderStatus {}
 impl ::core::fmt::Debug for EmailMailboxEmptyFolderStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EmailMailboxEmptyFolderStatus").field(&self.0).finish()
@@ -3518,6 +3458,7 @@ impl ::windows::core::DefaultType for EmailMailboxEmptyFolderStatus {
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EmailMailboxOtherAppReadAccess(pub i32);
 impl EmailMailboxOtherAppReadAccess {
     pub const SystemOnly: Self = Self(0i32);
@@ -3533,12 +3474,6 @@ impl ::core::clone::Clone for EmailMailboxOtherAppReadAccess {
 unsafe impl ::windows::core::Abi for EmailMailboxOtherAppReadAccess {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EmailMailboxOtherAppReadAccess {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMailboxOtherAppReadAccess {}
 impl ::core::fmt::Debug for EmailMailboxOtherAppReadAccess {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EmailMailboxOtherAppReadAccess").field(&self.0).finish()
@@ -3552,6 +3487,7 @@ impl ::windows::core::DefaultType for EmailMailboxOtherAppReadAccess {
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EmailMailboxOtherAppWriteAccess(pub i32);
 impl EmailMailboxOtherAppWriteAccess {
     pub const None: Self = Self(0i32);
@@ -3566,12 +3502,6 @@ impl ::core::clone::Clone for EmailMailboxOtherAppWriteAccess {
 unsafe impl ::windows::core::Abi for EmailMailboxOtherAppWriteAccess {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EmailMailboxOtherAppWriteAccess {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMailboxOtherAppWriteAccess {}
 impl ::core::fmt::Debug for EmailMailboxOtherAppWriteAccess {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EmailMailboxOtherAppWriteAccess").field(&self.0).finish()
@@ -3740,6 +3670,7 @@ unsafe impl ::core::marker::Send for EmailMailboxPolicies {}
 unsafe impl ::core::marker::Sync for EmailMailboxPolicies {}
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EmailMailboxSmimeEncryptionAlgorithm(pub i32);
 impl EmailMailboxSmimeEncryptionAlgorithm {
     pub const Any: Self = Self(0i32);
@@ -3758,12 +3689,6 @@ impl ::core::clone::Clone for EmailMailboxSmimeEncryptionAlgorithm {
 unsafe impl ::windows::core::Abi for EmailMailboxSmimeEncryptionAlgorithm {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EmailMailboxSmimeEncryptionAlgorithm {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMailboxSmimeEncryptionAlgorithm {}
 impl ::core::fmt::Debug for EmailMailboxSmimeEncryptionAlgorithm {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EmailMailboxSmimeEncryptionAlgorithm").field(&self.0).finish()
@@ -3777,6 +3702,7 @@ impl ::windows::core::DefaultType for EmailMailboxSmimeEncryptionAlgorithm {
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EmailMailboxSmimeSigningAlgorithm(pub i32);
 impl EmailMailboxSmimeSigningAlgorithm {
     pub const Any: Self = Self(0i32);
@@ -3792,12 +3718,6 @@ impl ::core::clone::Clone for EmailMailboxSmimeSigningAlgorithm {
 unsafe impl ::windows::core::Abi for EmailMailboxSmimeSigningAlgorithm {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EmailMailboxSmimeSigningAlgorithm {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMailboxSmimeSigningAlgorithm {}
 impl ::core::fmt::Debug for EmailMailboxSmimeSigningAlgorithm {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EmailMailboxSmimeSigningAlgorithm").field(&self.0).finish()
@@ -3951,6 +3871,7 @@ unsafe impl ::core::marker::Send for EmailMailboxSyncManager {}
 unsafe impl ::core::marker::Sync for EmailMailboxSyncManager {}
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EmailMailboxSyncStatus(pub i32);
 impl EmailMailboxSyncStatus {
     pub const Idle: Self = Self(0i32);
@@ -3970,12 +3891,6 @@ impl ::core::clone::Clone for EmailMailboxSyncStatus {
 unsafe impl ::windows::core::Abi for EmailMailboxSyncStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EmailMailboxSyncStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMailboxSyncStatus {}
 impl ::core::fmt::Debug for EmailMailboxSyncStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EmailMailboxSyncStatus").field(&self.0).finish()
@@ -4406,6 +4321,7 @@ unsafe impl ::core::marker::Send for EmailMeetingInfo {}
 unsafe impl ::core::marker::Sync for EmailMeetingInfo {}
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EmailMeetingResponseType(pub i32);
 impl EmailMeetingResponseType {
     pub const Accept: Self = Self(0i32);
@@ -4421,12 +4337,6 @@ impl ::core::clone::Clone for EmailMeetingResponseType {
 unsafe impl ::windows::core::Abi for EmailMeetingResponseType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EmailMeetingResponseType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMeetingResponseType {}
 impl ::core::fmt::Debug for EmailMeetingResponseType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EmailMeetingResponseType").field(&self.0).finish()
@@ -5035,6 +4945,7 @@ unsafe impl ::core::marker::Send for EmailMessageBatch {}
 unsafe impl ::core::marker::Sync for EmailMessageBatch {}
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EmailMessageBodyKind(pub i32);
 impl EmailMessageBodyKind {
     pub const Html: Self = Self(0i32);
@@ -5049,12 +4960,6 @@ impl ::core::clone::Clone for EmailMessageBodyKind {
 unsafe impl ::windows::core::Abi for EmailMessageBodyKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EmailMessageBodyKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMessageBodyKind {}
 impl ::core::fmt::Debug for EmailMessageBodyKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EmailMessageBodyKind").field(&self.0).finish()
@@ -5068,6 +4973,7 @@ impl ::windows::core::DefaultType for EmailMessageBodyKind {
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EmailMessageDownloadState(pub i32);
 impl EmailMessageDownloadState {
     pub const PartiallyDownloaded: Self = Self(0i32);
@@ -5084,12 +4990,6 @@ impl ::core::clone::Clone for EmailMessageDownloadState {
 unsafe impl ::windows::core::Abi for EmailMessageDownloadState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EmailMessageDownloadState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMessageDownloadState {}
 impl ::core::fmt::Debug for EmailMessageDownloadState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EmailMessageDownloadState").field(&self.0).finish()
@@ -5185,6 +5085,7 @@ unsafe impl ::core::marker::Send for EmailMessageReader {}
 unsafe impl ::core::marker::Sync for EmailMessageReader {}
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EmailMessageResponseKind(pub i32);
 impl EmailMessageResponseKind {
     pub const None: Self = Self(0i32);
@@ -5201,12 +5102,6 @@ impl ::core::clone::Clone for EmailMessageResponseKind {
 unsafe impl ::windows::core::Abi for EmailMessageResponseKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EmailMessageResponseKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMessageResponseKind {}
 impl ::core::fmt::Debug for EmailMessageResponseKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EmailMessageResponseKind").field(&self.0).finish()
@@ -5220,6 +5115,7 @@ impl ::windows::core::DefaultType for EmailMessageResponseKind {
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EmailMessageSmimeKind(pub i32);
 impl EmailMessageSmimeKind {
     pub const None: Self = Self(0i32);
@@ -5236,12 +5132,6 @@ impl ::core::clone::Clone for EmailMessageSmimeKind {
 unsafe impl ::windows::core::Abi for EmailMessageSmimeKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EmailMessageSmimeKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailMessageSmimeKind {}
 impl ::core::fmt::Debug for EmailMessageSmimeKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EmailMessageSmimeKind").field(&self.0).finish()
@@ -5255,6 +5145,7 @@ impl ::windows::core::DefaultType for EmailMessageSmimeKind {
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EmailQueryKind(pub i32);
 impl EmailQueryKind {
     pub const All: Self = Self(0i32);
@@ -5273,12 +5164,6 @@ impl ::core::clone::Clone for EmailQueryKind {
 unsafe impl ::windows::core::Abi for EmailQueryKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EmailQueryKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailQueryKind {}
 impl ::core::fmt::Debug for EmailQueryKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EmailQueryKind").field(&self.0).finish()
@@ -5447,6 +5332,7 @@ unsafe impl ::core::marker::Send for EmailQueryOptions {}
 unsafe impl ::core::marker::Sync for EmailQueryOptions {}
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EmailQuerySearchFields(pub u32);
 impl EmailQuerySearchFields {
     pub const None: Self = Self(0u32);
@@ -5465,12 +5351,6 @@ impl ::core::clone::Clone for EmailQuerySearchFields {
 unsafe impl ::windows::core::Abi for EmailQuerySearchFields {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EmailQuerySearchFields {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailQuerySearchFields {}
 impl ::core::fmt::Debug for EmailQuerySearchFields {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EmailQuerySearchFields").field(&self.0).finish()
@@ -5512,6 +5392,7 @@ impl ::windows::core::DefaultType for EmailQuerySearchFields {
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EmailQuerySearchScope(pub i32);
 impl EmailQuerySearchScope {
     pub const Local: Self = Self(0i32);
@@ -5526,12 +5407,6 @@ impl ::core::clone::Clone for EmailQuerySearchScope {
 unsafe impl ::windows::core::Abi for EmailQuerySearchScope {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EmailQuerySearchScope {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailQuerySearchScope {}
 impl ::core::fmt::Debug for EmailQuerySearchScope {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EmailQuerySearchScope").field(&self.0).finish()
@@ -5545,6 +5420,7 @@ impl ::windows::core::DefaultType for EmailQuerySearchScope {
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EmailQuerySortDirection(pub i32);
 impl EmailQuerySortDirection {
     pub const Descending: Self = Self(0i32);
@@ -5559,12 +5435,6 @@ impl ::core::clone::Clone for EmailQuerySortDirection {
 unsafe impl ::windows::core::Abi for EmailQuerySortDirection {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EmailQuerySortDirection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailQuerySortDirection {}
 impl ::core::fmt::Debug for EmailQuerySortDirection {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EmailQuerySortDirection").field(&self.0).finish()
@@ -5578,6 +5448,7 @@ impl ::windows::core::DefaultType for EmailQuerySortDirection {
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EmailQuerySortProperty(pub i32);
 impl EmailQuerySortProperty {
     pub const Date: Self = Self(0i32);
@@ -5591,12 +5462,6 @@ impl ::core::clone::Clone for EmailQuerySortProperty {
 unsafe impl ::windows::core::Abi for EmailQuerySortProperty {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EmailQuerySortProperty {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailQuerySortProperty {}
 impl ::core::fmt::Debug for EmailQuerySortProperty {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EmailQuerySortProperty").field(&self.0).finish()
@@ -5955,6 +5820,7 @@ unsafe impl ::core::marker::Send for EmailRecipientResolutionResult {}
 unsafe impl ::core::marker::Sync for EmailRecipientResolutionResult {}
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EmailRecipientResolutionStatus(pub i32);
 impl EmailRecipientResolutionStatus {
     pub const Success: Self = Self(0i32);
@@ -5975,12 +5841,6 @@ impl ::core::clone::Clone for EmailRecipientResolutionStatus {
 unsafe impl ::windows::core::Abi for EmailRecipientResolutionStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EmailRecipientResolutionStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailRecipientResolutionStatus {}
 impl ::core::fmt::Debug for EmailRecipientResolutionStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EmailRecipientResolutionStatus").field(&self.0).finish()
@@ -5994,6 +5854,7 @@ impl ::windows::core::DefaultType for EmailRecipientResolutionStatus {
 }
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EmailSpecialFolderKind(pub i32);
 impl EmailSpecialFolderKind {
     pub const None: Self = Self(0i32);
@@ -6013,12 +5874,6 @@ impl ::core::clone::Clone for EmailSpecialFolderKind {
 unsafe impl ::windows::core::Abi for EmailSpecialFolderKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EmailSpecialFolderKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailSpecialFolderKind {}
 impl ::core::fmt::Debug for EmailSpecialFolderKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EmailSpecialFolderKind").field(&self.0).finish()
@@ -6200,6 +6055,7 @@ unsafe impl ::core::marker::Send for EmailStore {}
 unsafe impl ::core::marker::Sync for EmailStore {}
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct EmailStoreAccessType(pub i32);
 impl EmailStoreAccessType {
     pub const AppMailboxesReadWrite: Self = Self(0i32);
@@ -6214,12 +6070,6 @@ impl ::core::clone::Clone for EmailStoreAccessType {
 unsafe impl ::windows::core::Abi for EmailStoreAccessType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for EmailStoreAccessType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for EmailStoreAccessType {}
 impl ::core::fmt::Debug for EmailStoreAccessType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("EmailStoreAccessType").field(&self.0).finish()

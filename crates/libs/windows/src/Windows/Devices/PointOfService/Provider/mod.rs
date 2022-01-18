@@ -2301,6 +2301,7 @@ unsafe impl ::core::marker::Send for BarcodeScannerStopSoftwareTriggerRequestEve
 unsafe impl ::core::marker::Sync for BarcodeScannerStopSoftwareTriggerRequestEventArgs {}
 #[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct BarcodeScannerTriggerState(pub i32);
 impl BarcodeScannerTriggerState {
     pub const Released: Self = Self(0i32);
@@ -2315,12 +2316,6 @@ impl ::core::clone::Clone for BarcodeScannerTriggerState {
 unsafe impl ::windows::core::Abi for BarcodeScannerTriggerState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BarcodeScannerTriggerState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BarcodeScannerTriggerState {}
 impl ::core::fmt::Debug for BarcodeScannerTriggerState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BarcodeScannerTriggerState").field(&self.0).finish()

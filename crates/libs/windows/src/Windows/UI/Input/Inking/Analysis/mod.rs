@@ -400,6 +400,7 @@ pub struct IInkAnalyzerFactory_Vtbl {
 }
 #[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct InkAnalysisDrawingKind(pub i32);
 impl InkAnalysisDrawingKind {
     pub const Drawing: Self = Self(0i32);
@@ -427,12 +428,6 @@ impl ::core::clone::Clone for InkAnalysisDrawingKind {
 unsafe impl ::windows::core::Abi for InkAnalysisDrawingKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for InkAnalysisDrawingKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InkAnalysisDrawingKind {}
 impl ::core::fmt::Debug for InkAnalysisDrawingKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("InkAnalysisDrawingKind").field(&self.0).finish()
@@ -1451,6 +1446,7 @@ unsafe impl ::core::marker::Send for InkAnalysisNode {}
 unsafe impl ::core::marker::Sync for InkAnalysisNode {}
 #[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct InkAnalysisNodeKind(pub i32);
 impl InkAnalysisNodeKind {
     pub const UnclassifiedInk: Self = Self(0i32);
@@ -1472,12 +1468,6 @@ impl ::core::clone::Clone for InkAnalysisNodeKind {
 unsafe impl ::windows::core::Abi for InkAnalysisNodeKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for InkAnalysisNodeKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InkAnalysisNodeKind {}
 impl ::core::fmt::Debug for InkAnalysisNodeKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("InkAnalysisNodeKind").field(&self.0).finish()
@@ -1907,6 +1897,7 @@ unsafe impl ::core::marker::Send for InkAnalysisRoot {}
 unsafe impl ::core::marker::Sync for InkAnalysisRoot {}
 #[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct InkAnalysisStatus(pub i32);
 impl InkAnalysisStatus {
     pub const Updated: Self = Self(0i32);
@@ -1921,12 +1912,6 @@ impl ::core::clone::Clone for InkAnalysisStatus {
 unsafe impl ::windows::core::Abi for InkAnalysisStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for InkAnalysisStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InkAnalysisStatus {}
 impl ::core::fmt::Debug for InkAnalysisStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("InkAnalysisStatus").field(&self.0).finish()
@@ -1940,6 +1925,7 @@ impl ::windows::core::DefaultType for InkAnalysisStatus {
 }
 #[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct InkAnalysisStrokeKind(pub i32);
 impl InkAnalysisStrokeKind {
     pub const Auto: Self = Self(0i32);
@@ -1955,12 +1941,6 @@ impl ::core::clone::Clone for InkAnalysisStrokeKind {
 unsafe impl ::windows::core::Abi for InkAnalysisStrokeKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for InkAnalysisStrokeKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InkAnalysisStrokeKind {}
 impl ::core::fmt::Debug for InkAnalysisStrokeKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("InkAnalysisStrokeKind").field(&self.0).finish()

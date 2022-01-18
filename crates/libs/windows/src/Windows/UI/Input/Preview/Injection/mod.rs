@@ -208,6 +208,7 @@ pub struct IInputInjectorStatics2_Vtbl {
 }
 #[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct InjectedInputButtonChangeKind(pub i32);
 impl InjectedInputButtonChangeKind {
     pub const None: Self = Self(0i32);
@@ -231,12 +232,6 @@ impl ::core::clone::Clone for InjectedInputButtonChangeKind {
 unsafe impl ::windows::core::Abi for InjectedInputButtonChangeKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for InjectedInputButtonChangeKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InjectedInputButtonChangeKind {}
 impl ::core::fmt::Debug for InjectedInputButtonChangeKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("InjectedInputButtonChangeKind").field(&self.0).finish()
@@ -434,6 +429,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Inje
 }
 #[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct InjectedInputKeyOptions(pub u32);
 impl InjectedInputKeyOptions {
     pub const None: Self = Self(0u32);
@@ -451,12 +447,6 @@ impl ::core::clone::Clone for InjectedInputKeyOptions {
 unsafe impl ::windows::core::Abi for InjectedInputKeyOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for InjectedInputKeyOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InjectedInputKeyOptions {}
 impl ::core::fmt::Debug for InjectedInputKeyOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("InjectedInputKeyOptions").field(&self.0).finish()
@@ -758,6 +748,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Inje
 }
 #[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct InjectedInputMouseOptions(pub u32);
 impl InjectedInputMouseOptions {
     pub const None: Self = Self(0u32);
@@ -785,12 +776,6 @@ impl ::core::clone::Clone for InjectedInputMouseOptions {
 unsafe impl ::windows::core::Abi for InjectedInputMouseOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for InjectedInputMouseOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InjectedInputMouseOptions {}
 impl ::core::fmt::Debug for InjectedInputMouseOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("InjectedInputMouseOptions").field(&self.0).finish()
@@ -832,6 +817,7 @@ impl ::windows::core::DefaultType for InjectedInputMouseOptions {
 }
 #[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct InjectedInputPenButtons(pub u32);
 impl InjectedInputPenButtons {
     pub const None: Self = Self(0u32);
@@ -848,12 +834,6 @@ impl ::core::clone::Clone for InjectedInputPenButtons {
 unsafe impl ::windows::core::Abi for InjectedInputPenButtons {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for InjectedInputPenButtons {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InjectedInputPenButtons {}
 impl ::core::fmt::Debug for InjectedInputPenButtons {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("InjectedInputPenButtons").field(&self.0).finish()
@@ -1064,6 +1044,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Inje
 }
 #[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct InjectedInputPenParameters(pub u32);
 impl InjectedInputPenParameters {
     pub const None: Self = Self(0u32);
@@ -1081,12 +1062,6 @@ impl ::core::clone::Clone for InjectedInputPenParameters {
 unsafe impl ::windows::core::Abi for InjectedInputPenParameters {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for InjectedInputPenParameters {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InjectedInputPenParameters {}
 impl ::core::fmt::Debug for InjectedInputPenParameters {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("InjectedInputPenParameters").field(&self.0).finish()
@@ -1205,6 +1180,7 @@ impl ::core::default::Default for InjectedInputPointerInfo {
 }
 #[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct InjectedInputPointerOptions(pub u32);
 impl InjectedInputPointerOptions {
     pub const None: Self = Self(0u32);
@@ -1230,12 +1206,6 @@ impl ::core::clone::Clone for InjectedInputPointerOptions {
 unsafe impl ::windows::core::Abi for InjectedInputPointerOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for InjectedInputPointerOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InjectedInputPointerOptions {}
 impl ::core::fmt::Debug for InjectedInputPointerOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("InjectedInputPointerOptions").field(&self.0).finish()
@@ -1316,6 +1286,7 @@ impl ::core::default::Default for InjectedInputRectangle {
 }
 #[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct InjectedInputShortcut(pub i32);
 impl InjectedInputShortcut {
     pub const Back: Self = Self(0i32);
@@ -1331,12 +1302,6 @@ impl ::core::clone::Clone for InjectedInputShortcut {
 unsafe impl ::windows::core::Abi for InjectedInputShortcut {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for InjectedInputShortcut {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InjectedInputShortcut {}
 impl ::core::fmt::Debug for InjectedInputShortcut {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("InjectedInputShortcut").field(&self.0).finish()
@@ -1493,6 +1458,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Inje
 }
 #[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct InjectedInputTouchParameters(pub u32);
 impl InjectedInputTouchParameters {
     pub const None: Self = Self(0u32);
@@ -1509,12 +1475,6 @@ impl ::core::clone::Clone for InjectedInputTouchParameters {
 unsafe impl ::windows::core::Abi for InjectedInputTouchParameters {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for InjectedInputTouchParameters {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InjectedInputTouchParameters {}
 impl ::core::fmt::Debug for InjectedInputTouchParameters {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("InjectedInputTouchParameters").field(&self.0).finish()
@@ -1556,6 +1516,7 @@ impl ::windows::core::DefaultType for InjectedInputTouchParameters {
 }
 #[doc = "*Required features: 'UI_Input_Preview_Injection'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct InjectedInputVisualizationMode(pub i32);
 impl InjectedInputVisualizationMode {
     pub const None: Self = Self(0i32);
@@ -1571,12 +1532,6 @@ impl ::core::clone::Clone for InjectedInputVisualizationMode {
 unsafe impl ::windows::core::Abi for InjectedInputVisualizationMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for InjectedInputVisualizationMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InjectedInputVisualizationMode {}
 impl ::core::fmt::Debug for InjectedInputVisualizationMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("InjectedInputVisualizationMode").field(&self.0).finish()

@@ -4846,6 +4846,7 @@ unsafe impl ::core::marker::Send for LineBreak {}
 unsafe impl ::core::marker::Sync for LineBreak {}
 #[doc = "*Required features: 'UI_Xaml_Documents'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct LogicalDirection(pub i32);
 impl LogicalDirection {
     pub const Backward: Self = Self(0i32);
@@ -4860,12 +4861,6 @@ impl ::core::clone::Clone for LogicalDirection {
 unsafe impl ::windows::core::Abi for LogicalDirection {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LogicalDirection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LogicalDirection {}
 impl ::core::fmt::Debug for LogicalDirection {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LogicalDirection").field(&self.0).finish()
@@ -7510,6 +7505,7 @@ unsafe impl ::core::marker::Send for Underline {}
 unsafe impl ::core::marker::Sync for Underline {}
 #[doc = "*Required features: 'UI_Xaml_Documents'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UnderlineStyle(pub i32);
 impl UnderlineStyle {
     pub const None: Self = Self(0i32);
@@ -7524,12 +7520,6 @@ impl ::core::clone::Clone for UnderlineStyle {
 unsafe impl ::windows::core::Abi for UnderlineStyle {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UnderlineStyle {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UnderlineStyle {}
 impl ::core::fmt::Debug for UnderlineStyle {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UnderlineStyle").field(&self.0).finish()

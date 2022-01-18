@@ -114,6 +114,7 @@ impl ::windows::core::RuntimeName for LicenseManager {
 }
 #[doc = "*Required features: 'ApplicationModel_Store_LicenseManagement'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct LicenseRefreshOption(pub i32);
 impl LicenseRefreshOption {
     pub const RunningLicenses: Self = Self(0i32);
@@ -128,12 +129,6 @@ impl ::core::clone::Clone for LicenseRefreshOption {
 unsafe impl ::windows::core::Abi for LicenseRefreshOption {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LicenseRefreshOption {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LicenseRefreshOption {}
 impl ::core::fmt::Debug for LicenseRefreshOption {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LicenseRefreshOption").field(&self.0).finish()

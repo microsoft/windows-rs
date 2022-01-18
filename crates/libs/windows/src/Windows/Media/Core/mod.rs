@@ -3,6 +3,7 @@
 pub mod Preview;
 #[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AudioDecoderDegradation(pub i32);
 impl AudioDecoderDegradation {
     pub const None: Self = Self(0i32);
@@ -19,12 +20,6 @@ impl ::core::clone::Clone for AudioDecoderDegradation {
 unsafe impl ::windows::core::Abi for AudioDecoderDegradation {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AudioDecoderDegradation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioDecoderDegradation {}
 impl ::core::fmt::Debug for AudioDecoderDegradation {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AudioDecoderDegradation").field(&self.0).finish()
@@ -38,6 +33,7 @@ impl ::windows::core::DefaultType for AudioDecoderDegradation {
 }
 #[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AudioDecoderDegradationReason(pub i32);
 impl AudioDecoderDegradationReason {
     pub const None: Self = Self(0i32);
@@ -53,12 +49,6 @@ impl ::core::clone::Clone for AudioDecoderDegradationReason {
 unsafe impl ::windows::core::Abi for AudioDecoderDegradationReason {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AudioDecoderDegradationReason {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AudioDecoderDegradationReason {}
 impl ::core::fmt::Debug for AudioDecoderDegradationReason {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AudioDecoderDegradationReason").field(&self.0).finish()
@@ -821,6 +811,7 @@ unsafe impl ::core::marker::Send for ChapterCue {}
 unsafe impl ::core::marker::Sync for ChapterCue {}
 #[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CodecCategory(pub i32);
 impl CodecCategory {
     pub const Encoder: Self = Self(0i32);
@@ -835,12 +826,6 @@ impl ::core::clone::Clone for CodecCategory {
 unsafe impl ::windows::core::Abi for CodecCategory {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CodecCategory {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CodecCategory {}
 impl ::core::fmt::Debug for CodecCategory {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CodecCategory").field(&self.0).finish()
@@ -968,6 +953,7 @@ unsafe impl ::core::marker::Send for CodecInfo {}
 unsafe impl ::core::marker::Sync for CodecInfo {}
 #[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CodecKind(pub i32);
 impl CodecKind {
     pub const Audio: Self = Self(0i32);
@@ -982,12 +968,6 @@ impl ::core::clone::Clone for CodecKind {
 unsafe impl ::windows::core::Abi for CodecKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CodecKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CodecKind {}
 impl ::core::fmt::Debug for CodecKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CodecKind").field(&self.0).finish()
@@ -2241,6 +2221,7 @@ unsafe impl ::core::marker::Send for FaceDetectionEffectFrame {}
 unsafe impl ::core::marker::Sync for FaceDetectionEffectFrame {}
 #[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FaceDetectionMode(pub i32);
 impl FaceDetectionMode {
     pub const HighPerformance: Self = Self(0i32);
@@ -2256,12 +2237,6 @@ impl ::core::clone::Clone for FaceDetectionMode {
 unsafe impl ::windows::core::Abi for FaceDetectionMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for FaceDetectionMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FaceDetectionMode {}
 impl ::core::fmt::Debug for FaceDetectionMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FaceDetectionMode").field(&self.0).finish()
@@ -6221,6 +6196,7 @@ unsafe impl ::core::marker::Send for MediaCueEventArgs {}
 unsafe impl ::core::marker::Sync for MediaCueEventArgs {}
 #[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MediaDecoderStatus(pub i32);
 impl MediaDecoderStatus {
     pub const FullySupported: Self = Self(0i32);
@@ -6237,12 +6213,6 @@ impl ::core::clone::Clone for MediaDecoderStatus {
 unsafe impl ::windows::core::Abi for MediaDecoderStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MediaDecoderStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaDecoderStatus {}
 impl ::core::fmt::Debug for MediaDecoderStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MediaDecoderStatus").field(&self.0).finish()
@@ -6896,6 +6866,7 @@ unsafe impl ::core::marker::Send for MediaSourceOpenOperationCompletedEventArgs 
 unsafe impl ::core::marker::Sync for MediaSourceOpenOperationCompletedEventArgs {}
 #[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MediaSourceState(pub i32);
 impl MediaSourceState {
     pub const Initial: Self = Self(0i32);
@@ -6913,12 +6884,6 @@ impl ::core::clone::Clone for MediaSourceState {
 unsafe impl ::windows::core::Abi for MediaSourceState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MediaSourceState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaSourceState {}
 impl ::core::fmt::Debug for MediaSourceState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MediaSourceState").field(&self.0).finish()
@@ -7021,6 +6986,7 @@ unsafe impl ::core::marker::Send for MediaSourceStateChangedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaSourceStateChangedEventArgs {}
 #[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MediaSourceStatus(pub i32);
 impl MediaSourceStatus {
     pub const FullySupported: Self = Self(0i32);
@@ -7035,12 +7001,6 @@ impl ::core::clone::Clone for MediaSourceStatus {
 unsafe impl ::windows::core::Abi for MediaSourceStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MediaSourceStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaSourceStatus {}
 impl ::core::fmt::Debug for MediaSourceStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MediaSourceStatus").field(&self.0).finish()
@@ -8030,6 +7990,7 @@ unsafe impl ::core::marker::Send for MediaStreamSourceClosedEventArgs {}
 unsafe impl ::core::marker::Sync for MediaStreamSourceClosedEventArgs {}
 #[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MediaStreamSourceClosedReason(pub i32);
 impl MediaStreamSourceClosedReason {
     pub const Done: Self = Self(0i32);
@@ -8049,12 +8010,6 @@ impl ::core::clone::Clone for MediaStreamSourceClosedReason {
 unsafe impl ::windows::core::Abi for MediaStreamSourceClosedReason {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MediaStreamSourceClosedReason {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaStreamSourceClosedReason {}
 impl ::core::fmt::Debug for MediaStreamSourceClosedReason {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MediaStreamSourceClosedReason").field(&self.0).finish()
@@ -8149,6 +8104,7 @@ unsafe impl ::core::marker::Send for MediaStreamSourceClosedRequest {}
 unsafe impl ::core::marker::Sync for MediaStreamSourceClosedRequest {}
 #[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MediaStreamSourceErrorStatus(pub i32);
 impl MediaStreamSourceErrorStatus {
     pub const Other: Self = Self(0i32);
@@ -8169,12 +8125,6 @@ impl ::core::clone::Clone for MediaStreamSourceErrorStatus {
 unsafe impl ::windows::core::Abi for MediaStreamSourceErrorStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MediaStreamSourceErrorStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaStreamSourceErrorStatus {}
 impl ::core::fmt::Debug for MediaStreamSourceErrorStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MediaStreamSourceErrorStatus").field(&self.0).finish()
@@ -9047,6 +8997,7 @@ unsafe impl ::core::marker::Send for MediaStreamSourceSwitchStreamsRequestedEven
 unsafe impl ::core::marker::Sync for MediaStreamSourceSwitchStreamsRequestedEventArgs {}
 #[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MediaTrackKind(pub i32);
 impl MediaTrackKind {
     pub const Audio: Self = Self(0i32);
@@ -9062,12 +9013,6 @@ impl ::core::clone::Clone for MediaTrackKind {
 unsafe impl ::windows::core::Abi for MediaTrackKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MediaTrackKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MediaTrackKind {}
 impl ::core::fmt::Debug for MediaTrackKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MediaTrackKind").field(&self.0).finish()
@@ -9081,6 +9026,7 @@ impl ::windows::core::DefaultType for MediaTrackKind {
 }
 #[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MseAppendMode(pub i32);
 impl MseAppendMode {
     pub const Segments: Self = Self(0i32);
@@ -9095,12 +9041,6 @@ impl ::core::clone::Clone for MseAppendMode {
 unsafe impl ::windows::core::Abi for MseAppendMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MseAppendMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MseAppendMode {}
 impl ::core::fmt::Debug for MseAppendMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MseAppendMode").field(&self.0).finish()
@@ -9114,6 +9054,7 @@ impl ::windows::core::DefaultType for MseAppendMode {
 }
 #[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MseEndOfStreamStatus(pub i32);
 impl MseEndOfStreamStatus {
     pub const Success: Self = Self(0i32);
@@ -9130,12 +9071,6 @@ impl ::core::clone::Clone for MseEndOfStreamStatus {
 unsafe impl ::windows::core::Abi for MseEndOfStreamStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MseEndOfStreamStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MseEndOfStreamStatus {}
 impl ::core::fmt::Debug for MseEndOfStreamStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MseEndOfStreamStatus").field(&self.0).finish()
@@ -9149,6 +9084,7 @@ impl ::windows::core::DefaultType for MseEndOfStreamStatus {
 }
 #[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MseReadyState(pub i32);
 impl MseReadyState {
     pub const Closed: Self = Self(0i32);
@@ -9164,12 +9100,6 @@ impl ::core::clone::Clone for MseReadyState {
 unsafe impl ::windows::core::Abi for MseReadyState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MseReadyState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MseReadyState {}
 impl ::core::fmt::Debug for MseReadyState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MseReadyState").field(&self.0).finish()
@@ -10342,6 +10272,7 @@ unsafe impl ::core::marker::Send for SceneAnalysisEffectFrame {}
 unsafe impl ::core::marker::Sync for SceneAnalysisEffectFrame {}
 #[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SceneAnalysisRecommendation(pub i32);
 impl SceneAnalysisRecommendation {
     pub const Standard: Self = Self(0i32);
@@ -10357,12 +10288,6 @@ impl ::core::clone::Clone for SceneAnalysisRecommendation {
 unsafe impl ::windows::core::Abi for SceneAnalysisRecommendation {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SceneAnalysisRecommendation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SceneAnalysisRecommendation {}
 impl ::core::fmt::Debug for SceneAnalysisRecommendation {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SceneAnalysisRecommendation").field(&self.0).finish()
@@ -10645,6 +10570,7 @@ unsafe impl ::core::marker::Send for SpeechCue {}
 unsafe impl ::core::marker::Sync for SpeechCue {}
 #[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TimedMetadataKind(pub i32);
 impl TimedMetadataKind {
     pub const Caption: Self = Self(0i32);
@@ -10665,12 +10591,6 @@ impl ::core::clone::Clone for TimedMetadataKind {
 unsafe impl ::windows::core::Abi for TimedMetadataKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TimedMetadataKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TimedMetadataKind {}
 impl ::core::fmt::Debug for TimedMetadataKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TimedMetadataKind").field(&self.0).finish()
@@ -11217,6 +11137,7 @@ unsafe impl ::core::marker::Send for TimedMetadataTrackError {}
 unsafe impl ::core::marker::Sync for TimedMetadataTrackError {}
 #[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TimedMetadataTrackErrorCode(pub i32);
 impl TimedMetadataTrackErrorCode {
     pub const None: Self = Self(0i32);
@@ -11233,12 +11154,6 @@ impl ::core::clone::Clone for TimedMetadataTrackErrorCode {
 unsafe impl ::windows::core::Abi for TimedMetadataTrackErrorCode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TimedMetadataTrackErrorCode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TimedMetadataTrackErrorCode {}
 impl ::core::fmt::Debug for TimedMetadataTrackErrorCode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TimedMetadataTrackErrorCode").field(&self.0).finish()
@@ -11447,6 +11362,7 @@ unsafe impl ::core::marker::Send for TimedTextBouten {}
 unsafe impl ::core::marker::Sync for TimedTextBouten {}
 #[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TimedTextBoutenPosition(pub i32);
 impl TimedTextBoutenPosition {
     pub const Before: Self = Self(0i32);
@@ -11462,12 +11378,6 @@ impl ::core::clone::Clone for TimedTextBoutenPosition {
 unsafe impl ::windows::core::Abi for TimedTextBoutenPosition {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TimedTextBoutenPosition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TimedTextBoutenPosition {}
 impl ::core::fmt::Debug for TimedTextBoutenPosition {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TimedTextBoutenPosition").field(&self.0).finish()
@@ -11481,6 +11391,7 @@ impl ::windows::core::DefaultType for TimedTextBoutenPosition {
 }
 #[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TimedTextBoutenType(pub i32);
 impl TimedTextBoutenType {
     pub const None: Self = Self(0i32);
@@ -11501,12 +11412,6 @@ impl ::core::clone::Clone for TimedTextBoutenType {
 unsafe impl ::windows::core::Abi for TimedTextBoutenType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TimedTextBoutenType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TimedTextBoutenType {}
 impl ::core::fmt::Debug for TimedTextBoutenType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TimedTextBoutenType").field(&self.0).finish()
@@ -11700,6 +11605,7 @@ unsafe impl ::core::marker::Send for TimedTextCue {}
 unsafe impl ::core::marker::Sync for TimedTextCue {}
 #[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TimedTextDisplayAlignment(pub i32);
 impl TimedTextDisplayAlignment {
     pub const Before: Self = Self(0i32);
@@ -11715,12 +11621,6 @@ impl ::core::clone::Clone for TimedTextDisplayAlignment {
 unsafe impl ::windows::core::Abi for TimedTextDisplayAlignment {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TimedTextDisplayAlignment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TimedTextDisplayAlignment {}
 impl ::core::fmt::Debug for TimedTextDisplayAlignment {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TimedTextDisplayAlignment").field(&self.0).finish()
@@ -11771,6 +11671,7 @@ impl ::core::default::Default for TimedTextDouble {
 }
 #[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TimedTextFlowDirection(pub i32);
 impl TimedTextFlowDirection {
     pub const LeftToRight: Self = Self(0i32);
@@ -11785,12 +11686,6 @@ impl ::core::clone::Clone for TimedTextFlowDirection {
 unsafe impl ::windows::core::Abi for TimedTextFlowDirection {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TimedTextFlowDirection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TimedTextFlowDirection {}
 impl ::core::fmt::Debug for TimedTextFlowDirection {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TimedTextFlowDirection").field(&self.0).finish()
@@ -11804,6 +11699,7 @@ impl ::windows::core::DefaultType for TimedTextFlowDirection {
 }
 #[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TimedTextFontStyle(pub i32);
 impl TimedTextFontStyle {
     pub const Normal: Self = Self(0i32);
@@ -11819,12 +11715,6 @@ impl ::core::clone::Clone for TimedTextFontStyle {
 unsafe impl ::windows::core::Abi for TimedTextFontStyle {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TimedTextFontStyle {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TimedTextFontStyle {}
 impl ::core::fmt::Debug for TimedTextFontStyle {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TimedTextFontStyle").field(&self.0).finish()
@@ -11940,6 +11830,7 @@ unsafe impl ::core::marker::Send for TimedTextLine {}
 unsafe impl ::core::marker::Sync for TimedTextLine {}
 #[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TimedTextLineAlignment(pub i32);
 impl TimedTextLineAlignment {
     pub const Start: Self = Self(0i32);
@@ -11955,12 +11846,6 @@ impl ::core::clone::Clone for TimedTextLineAlignment {
 unsafe impl ::windows::core::Abi for TimedTextLineAlignment {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TimedTextLineAlignment {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TimedTextLineAlignment {}
 impl ::core::fmt::Debug for TimedTextLineAlignment {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TimedTextLineAlignment").field(&self.0).finish()
@@ -12415,6 +12300,7 @@ unsafe impl ::core::marker::Send for TimedTextRuby {}
 unsafe impl ::core::marker::Sync for TimedTextRuby {}
 #[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TimedTextRubyAlign(pub i32);
 impl TimedTextRubyAlign {
     pub const Center: Self = Self(0i32);
@@ -12433,12 +12319,6 @@ impl ::core::clone::Clone for TimedTextRubyAlign {
 unsafe impl ::windows::core::Abi for TimedTextRubyAlign {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TimedTextRubyAlign {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TimedTextRubyAlign {}
 impl ::core::fmt::Debug for TimedTextRubyAlign {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TimedTextRubyAlign").field(&self.0).finish()
@@ -12452,6 +12332,7 @@ impl ::windows::core::DefaultType for TimedTextRubyAlign {
 }
 #[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TimedTextRubyPosition(pub i32);
 impl TimedTextRubyPosition {
     pub const Before: Self = Self(0i32);
@@ -12467,12 +12348,6 @@ impl ::core::clone::Clone for TimedTextRubyPosition {
 unsafe impl ::windows::core::Abi for TimedTextRubyPosition {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TimedTextRubyPosition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TimedTextRubyPosition {}
 impl ::core::fmt::Debug for TimedTextRubyPosition {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TimedTextRubyPosition").field(&self.0).finish()
@@ -12486,6 +12361,7 @@ impl ::windows::core::DefaultType for TimedTextRubyPosition {
 }
 #[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TimedTextRubyReserve(pub i32);
 impl TimedTextRubyReserve {
     pub const None: Self = Self(0i32);
@@ -12503,12 +12379,6 @@ impl ::core::clone::Clone for TimedTextRubyReserve {
 unsafe impl ::windows::core::Abi for TimedTextRubyReserve {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TimedTextRubyReserve {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TimedTextRubyReserve {}
 impl ::core::fmt::Debug for TimedTextRubyReserve {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TimedTextRubyReserve").field(&self.0).finish()
@@ -12522,6 +12392,7 @@ impl ::windows::core::DefaultType for TimedTextRubyReserve {
 }
 #[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TimedTextScrollMode(pub i32);
 impl TimedTextScrollMode {
     pub const Popon: Self = Self(0i32);
@@ -12536,12 +12407,6 @@ impl ::core::clone::Clone for TimedTextScrollMode {
 unsafe impl ::windows::core::Abi for TimedTextScrollMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TimedTextScrollMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TimedTextScrollMode {}
 impl ::core::fmt::Debug for TimedTextScrollMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TimedTextScrollMode").field(&self.0).finish()
@@ -13300,6 +13165,7 @@ unsafe impl ::core::marker::Send for TimedTextSubformat {}
 unsafe impl ::core::marker::Sync for TimedTextSubformat {}
 #[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TimedTextUnit(pub i32);
 impl TimedTextUnit {
     pub const Pixels: Self = Self(0i32);
@@ -13314,12 +13180,6 @@ impl ::core::clone::Clone for TimedTextUnit {
 unsafe impl ::windows::core::Abi for TimedTextUnit {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TimedTextUnit {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TimedTextUnit {}
 impl ::core::fmt::Debug for TimedTextUnit {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TimedTextUnit").field(&self.0).finish()
@@ -13333,6 +13193,7 @@ impl ::windows::core::DefaultType for TimedTextUnit {
 }
 #[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TimedTextWeight(pub i32);
 impl TimedTextWeight {
     pub const Normal: Self = Self(400i32);
@@ -13347,12 +13208,6 @@ impl ::core::clone::Clone for TimedTextWeight {
 unsafe impl ::windows::core::Abi for TimedTextWeight {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TimedTextWeight {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TimedTextWeight {}
 impl ::core::fmt::Debug for TimedTextWeight {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TimedTextWeight").field(&self.0).finish()
@@ -13366,6 +13221,7 @@ impl ::windows::core::DefaultType for TimedTextWeight {
 }
 #[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TimedTextWrapping(pub i32);
 impl TimedTextWrapping {
     pub const NoWrap: Self = Self(0i32);
@@ -13380,12 +13236,6 @@ impl ::core::clone::Clone for TimedTextWrapping {
 unsafe impl ::windows::core::Abi for TimedTextWrapping {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TimedTextWrapping {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TimedTextWrapping {}
 impl ::core::fmt::Debug for TimedTextWrapping {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TimedTextWrapping").field(&self.0).finish()
@@ -13399,6 +13249,7 @@ impl ::windows::core::DefaultType for TimedTextWrapping {
 }
 #[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TimedTextWritingMode(pub i32);
 impl TimedTextWritingMode {
     pub const LeftRightTopBottom: Self = Self(0i32);
@@ -13418,12 +13269,6 @@ impl ::core::clone::Clone for TimedTextWritingMode {
 unsafe impl ::windows::core::Abi for TimedTextWritingMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TimedTextWritingMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TimedTextWritingMode {}
 impl ::core::fmt::Debug for TimedTextWritingMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TimedTextWritingMode").field(&self.0).finish()
@@ -13799,6 +13644,7 @@ unsafe impl ::core::marker::Send for VideoStabilizationEffectEnabledChangedEvent
 unsafe impl ::core::marker::Sync for VideoStabilizationEffectEnabledChangedEventArgs {}
 #[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct VideoStabilizationEffectEnabledChangedReason(pub i32);
 impl VideoStabilizationEffectEnabledChangedReason {
     pub const Programmatic: Self = Self(0i32);
@@ -13814,12 +13660,6 @@ impl ::core::clone::Clone for VideoStabilizationEffectEnabledChangedReason {
 unsafe impl ::windows::core::Abi for VideoStabilizationEffectEnabledChangedReason {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VideoStabilizationEffectEnabledChangedReason {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VideoStabilizationEffectEnabledChangedReason {}
 impl ::core::fmt::Debug for VideoStabilizationEffectEnabledChangedReason {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VideoStabilizationEffectEnabledChangedReason").field(&self.0).finish()

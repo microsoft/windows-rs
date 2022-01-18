@@ -1145,6 +1145,7 @@ unsafe impl ::core::marker::Send for FindNextElementOptions {}
 unsafe impl ::core::marker::Sync for FindNextElementOptions {}
 #[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FocusInputDeviceKind(pub i32);
 impl FocusInputDeviceKind {
     pub const None: Self = Self(0i32);
@@ -1163,12 +1164,6 @@ impl ::core::clone::Clone for FocusInputDeviceKind {
 unsafe impl ::windows::core::Abi for FocusInputDeviceKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for FocusInputDeviceKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FocusInputDeviceKind {}
 impl ::core::fmt::Debug for FocusInputDeviceKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FocusInputDeviceKind").field(&self.0).finish()
@@ -1696,6 +1691,7 @@ unsafe impl ::core::marker::Send for FocusMovementResult {}
 unsafe impl ::core::marker::Sync for FocusMovementResult {}
 #[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FocusNavigationDirection(pub i32);
 impl FocusNavigationDirection {
     pub const Next: Self = Self(0i32);
@@ -1715,12 +1711,6 @@ impl ::core::clone::Clone for FocusNavigationDirection {
 unsafe impl ::windows::core::Abi for FocusNavigationDirection {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for FocusNavigationDirection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FocusNavigationDirection {}
 impl ::core::fmt::Debug for FocusNavigationDirection {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FocusNavigationDirection").field(&self.0).finish()
@@ -4024,6 +4014,7 @@ unsafe impl ::core::marker::Send for InputScopeName {}
 unsafe impl ::core::marker::Sync for InputScopeName {}
 #[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct InputScopeNameValue(pub i32);
 impl InputScopeNameValue {
     pub const Default: Self = Self(0i32);
@@ -4080,12 +4071,6 @@ impl ::core::clone::Clone for InputScopeNameValue {
 unsafe impl ::windows::core::Abi for InputScopeNameValue {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for InputScopeNameValue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InputScopeNameValue {}
 impl ::core::fmt::Debug for InputScopeNameValue {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("InputScopeNameValue").field(&self.0).finish()
@@ -4318,6 +4303,7 @@ unsafe impl ::core::marker::Send for KeyRoutedEventArgs {}
 unsafe impl ::core::marker::Sync for KeyRoutedEventArgs {}
 #[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct KeyTipPlacementMode(pub i32);
 impl KeyTipPlacementMode {
     pub const Auto: Self = Self(0i32);
@@ -4337,12 +4323,6 @@ impl ::core::clone::Clone for KeyTipPlacementMode {
 unsafe impl ::windows::core::Abi for KeyTipPlacementMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for KeyTipPlacementMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for KeyTipPlacementMode {}
 impl ::core::fmt::Debug for KeyTipPlacementMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("KeyTipPlacementMode").field(&self.0).finish()
@@ -4667,6 +4647,7 @@ unsafe impl ::core::marker::Send for KeyboardAcceleratorInvokedEventArgs {}
 unsafe impl ::core::marker::Sync for KeyboardAcceleratorInvokedEventArgs {}
 #[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct KeyboardAcceleratorPlacementMode(pub i32);
 impl KeyboardAcceleratorPlacementMode {
     pub const Auto: Self = Self(0i32);
@@ -4681,12 +4662,6 @@ impl ::core::clone::Clone for KeyboardAcceleratorPlacementMode {
 unsafe impl ::windows::core::Abi for KeyboardAcceleratorPlacementMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for KeyboardAcceleratorPlacementMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for KeyboardAcceleratorPlacementMode {}
 impl ::core::fmt::Debug for KeyboardAcceleratorPlacementMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("KeyboardAcceleratorPlacementMode").field(&self.0).finish()
@@ -4700,6 +4675,7 @@ impl ::windows::core::DefaultType for KeyboardAcceleratorPlacementMode {
 }
 #[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct KeyboardNavigationMode(pub i32);
 impl KeyboardNavigationMode {
     pub const Local: Self = Self(0i32);
@@ -4715,12 +4691,6 @@ impl ::core::clone::Clone for KeyboardNavigationMode {
 unsafe impl ::windows::core::Abi for KeyboardNavigationMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for KeyboardNavigationMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for KeyboardNavigationMode {}
 impl ::core::fmt::Debug for KeyboardNavigationMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("KeyboardNavigationMode").field(&self.0).finish()
@@ -5696,6 +5666,7 @@ unsafe impl ::core::marker::Send for ManipulationInertiaStartingRoutedEventArgs 
 unsafe impl ::core::marker::Sync for ManipulationInertiaStartingRoutedEventArgs {}
 #[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ManipulationModes(pub u32);
 impl ManipulationModes {
     pub const None: Self = Self(0u32);
@@ -5720,12 +5691,6 @@ impl ::core::clone::Clone for ManipulationModes {
 unsafe impl ::windows::core::Abi for ManipulationModes {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ManipulationModes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ManipulationModes {}
 impl ::core::fmt::Debug for ManipulationModes {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ManipulationModes").field(&self.0).finish()
@@ -7301,6 +7266,7 @@ unsafe impl ::core::marker::Send for StandardUICommand {}
 unsafe impl ::core::marker::Sync for StandardUICommand {}
 #[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct StandardUICommandKind(pub i32);
 impl StandardUICommandKind {
     pub const None: Self = Self(0i32);
@@ -7330,12 +7296,6 @@ impl ::core::clone::Clone for StandardUICommandKind {
 unsafe impl ::windows::core::Abi for StandardUICommandKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for StandardUICommandKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StandardUICommandKind {}
 impl ::core::fmt::Debug for StandardUICommandKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("StandardUICommandKind").field(&self.0).finish()
@@ -7558,6 +7518,7 @@ unsafe impl ::core::marker::Send for TappedRoutedEventArgs {}
 unsafe impl ::core::marker::Sync for TappedRoutedEventArgs {}
 #[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct XYFocusKeyboardNavigationMode(pub i32);
 impl XYFocusKeyboardNavigationMode {
     pub const Auto: Self = Self(0i32);
@@ -7573,12 +7534,6 @@ impl ::core::clone::Clone for XYFocusKeyboardNavigationMode {
 unsafe impl ::windows::core::Abi for XYFocusKeyboardNavigationMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for XYFocusKeyboardNavigationMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XYFocusKeyboardNavigationMode {}
 impl ::core::fmt::Debug for XYFocusKeyboardNavigationMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("XYFocusKeyboardNavigationMode").field(&self.0).finish()
@@ -7592,6 +7547,7 @@ impl ::windows::core::DefaultType for XYFocusKeyboardNavigationMode {
 }
 #[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct XYFocusNavigationStrategy(pub i32);
 impl XYFocusNavigationStrategy {
     pub const Auto: Self = Self(0i32);
@@ -7608,12 +7564,6 @@ impl ::core::clone::Clone for XYFocusNavigationStrategy {
 unsafe impl ::windows::core::Abi for XYFocusNavigationStrategy {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for XYFocusNavigationStrategy {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XYFocusNavigationStrategy {}
 impl ::core::fmt::Debug for XYFocusNavigationStrategy {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("XYFocusNavigationStrategy").field(&self.0).finish()
@@ -7627,6 +7577,7 @@ impl ::windows::core::DefaultType for XYFocusNavigationStrategy {
 }
 #[doc = "*Required features: 'UI_Xaml_Input'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct XYFocusNavigationStrategyOverride(pub i32);
 impl XYFocusNavigationStrategyOverride {
     pub const None: Self = Self(0i32);
@@ -7644,12 +7595,6 @@ impl ::core::clone::Clone for XYFocusNavigationStrategyOverride {
 unsafe impl ::windows::core::Abi for XYFocusNavigationStrategyOverride {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for XYFocusNavigationStrategyOverride {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for XYFocusNavigationStrategyOverride {}
 impl ::core::fmt::Debug for XYFocusNavigationStrategyOverride {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("XYFocusNavigationStrategyOverride").field(&self.0).finish()

@@ -1506,6 +1506,7 @@ pub struct IVisualInteractionSourceStatics2_Vtbl {
 }
 #[doc = "*Required features: 'UI_Composition_Interactions'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct InteractionBindingAxisModes(pub u32);
 impl InteractionBindingAxisModes {
     pub const None: Self = Self(0u32);
@@ -1522,12 +1523,6 @@ impl ::core::clone::Clone for InteractionBindingAxisModes {
 unsafe impl ::windows::core::Abi for InteractionBindingAxisModes {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for InteractionBindingAxisModes {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InteractionBindingAxisModes {}
 impl ::core::fmt::Debug for InteractionBindingAxisModes {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("InteractionBindingAxisModes").field(&self.0).finish()
@@ -1569,6 +1564,7 @@ impl ::windows::core::DefaultType for InteractionBindingAxisModes {
 }
 #[doc = "*Required features: 'UI_Composition_Interactions'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct InteractionChainingMode(pub i32);
 impl InteractionChainingMode {
     pub const Auto: Self = Self(0i32);
@@ -1584,12 +1580,6 @@ impl ::core::clone::Clone for InteractionChainingMode {
 unsafe impl ::windows::core::Abi for InteractionChainingMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for InteractionChainingMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InteractionChainingMode {}
 impl ::core::fmt::Debug for InteractionChainingMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("InteractionChainingMode").field(&self.0).finish()
@@ -1882,6 +1872,7 @@ unsafe impl ::core::marker::Send for InteractionSourceConfiguration {}
 unsafe impl ::core::marker::Sync for InteractionSourceConfiguration {}
 #[doc = "*Required features: 'UI_Composition_Interactions'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct InteractionSourceMode(pub i32);
 impl InteractionSourceMode {
     pub const Disabled: Self = Self(0i32);
@@ -1897,12 +1888,6 @@ impl ::core::clone::Clone for InteractionSourceMode {
 unsafe impl ::windows::core::Abi for InteractionSourceMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for InteractionSourceMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InteractionSourceMode {}
 impl ::core::fmt::Debug for InteractionSourceMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("InteractionSourceMode").field(&self.0).finish()
@@ -1916,6 +1901,7 @@ impl ::windows::core::DefaultType for InteractionSourceMode {
 }
 #[doc = "*Required features: 'UI_Composition_Interactions'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct InteractionSourceRedirectionMode(pub i32);
 impl InteractionSourceRedirectionMode {
     pub const Disabled: Self = Self(0i32);
@@ -1930,12 +1916,6 @@ impl ::core::clone::Clone for InteractionSourceRedirectionMode {
 unsafe impl ::windows::core::Abi for InteractionSourceRedirectionMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for InteractionSourceRedirectionMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InteractionSourceRedirectionMode {}
 impl ::core::fmt::Debug for InteractionSourceRedirectionMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("InteractionSourceRedirectionMode").field(&self.0).finish()
@@ -2528,6 +2508,7 @@ unsafe impl ::core::marker::Send for InteractionTracker {}
 unsafe impl ::core::marker::Sync for InteractionTracker {}
 #[doc = "*Required features: 'UI_Composition_Interactions'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct InteractionTrackerClampingOption(pub i32);
 impl InteractionTrackerClampingOption {
     pub const Auto: Self = Self(0i32);
@@ -2542,12 +2523,6 @@ impl ::core::clone::Clone for InteractionTrackerClampingOption {
 unsafe impl ::windows::core::Abi for InteractionTrackerClampingOption {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for InteractionTrackerClampingOption {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InteractionTrackerClampingOption {}
 impl ::core::fmt::Debug for InteractionTrackerClampingOption {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("InteractionTrackerClampingOption").field(&self.0).finish()
@@ -4111,6 +4086,7 @@ unsafe impl ::core::marker::Send for InteractionTrackerInteractingStateEnteredAr
 unsafe impl ::core::marker::Sync for InteractionTrackerInteractingStateEnteredArgs {}
 #[doc = "*Required features: 'UI_Composition_Interactions'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct InteractionTrackerPositionUpdateOption(pub i32);
 impl InteractionTrackerPositionUpdateOption {
     pub const Default: Self = Self(0i32);
@@ -4125,12 +4101,6 @@ impl ::core::clone::Clone for InteractionTrackerPositionUpdateOption {
 unsafe impl ::windows::core::Abi for InteractionTrackerPositionUpdateOption {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for InteractionTrackerPositionUpdateOption {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for InteractionTrackerPositionUpdateOption {}
 impl ::core::fmt::Debug for InteractionTrackerPositionUpdateOption {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("InteractionTrackerPositionUpdateOption").field(&self.0).finish()
@@ -5367,6 +5337,7 @@ unsafe impl ::core::marker::Send for VisualInteractionSource {}
 unsafe impl ::core::marker::Sync for VisualInteractionSource {}
 #[doc = "*Required features: 'UI_Composition_Interactions'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct VisualInteractionSourceRedirectionMode(pub i32);
 impl VisualInteractionSourceRedirectionMode {
     pub const Off: Self = Self(0i32);
@@ -5383,12 +5354,6 @@ impl ::core::clone::Clone for VisualInteractionSourceRedirectionMode {
 unsafe impl ::windows::core::Abi for VisualInteractionSourceRedirectionMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for VisualInteractionSourceRedirectionMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for VisualInteractionSourceRedirectionMode {}
 impl ::core::fmt::Debug for VisualInteractionSourceRedirectionMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("VisualInteractionSourceRedirectionMode").field(&self.0).finish()

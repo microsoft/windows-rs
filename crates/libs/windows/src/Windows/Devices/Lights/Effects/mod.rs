@@ -1333,6 +1333,7 @@ unsafe impl ::core::marker::Send for LampArrayCustomEffect {}
 unsafe impl ::core::marker::Sync for LampArrayCustomEffect {}
 #[doc = "*Required features: 'Devices_Lights_Effects'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct LampArrayEffectCompletionBehavior(pub i32);
 impl LampArrayEffectCompletionBehavior {
     pub const ClearState: Self = Self(0i32);
@@ -1347,12 +1348,6 @@ impl ::core::clone::Clone for LampArrayEffectCompletionBehavior {
 unsafe impl ::windows::core::Abi for LampArrayEffectCompletionBehavior {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LampArrayEffectCompletionBehavior {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LampArrayEffectCompletionBehavior {}
 impl ::core::fmt::Debug for LampArrayEffectCompletionBehavior {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LampArrayEffectCompletionBehavior").field(&self.0).finish()
@@ -1643,6 +1638,7 @@ unsafe impl ::core::marker::Send for LampArrayEffectPlaylist {}
 unsafe impl ::core::marker::Sync for LampArrayEffectPlaylist {}
 #[doc = "*Required features: 'Devices_Lights_Effects'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct LampArrayEffectStartMode(pub i32);
 impl LampArrayEffectStartMode {
     pub const Sequential: Self = Self(0i32);
@@ -1657,12 +1653,6 @@ impl ::core::clone::Clone for LampArrayEffectStartMode {
 unsafe impl ::windows::core::Abi for LampArrayEffectStartMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LampArrayEffectStartMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LampArrayEffectStartMode {}
 impl ::core::fmt::Debug for LampArrayEffectStartMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LampArrayEffectStartMode").field(&self.0).finish()
@@ -1676,6 +1666,7 @@ impl ::windows::core::DefaultType for LampArrayEffectStartMode {
 }
 #[doc = "*Required features: 'Devices_Lights_Effects'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct LampArrayRepetitionMode(pub i32);
 impl LampArrayRepetitionMode {
     pub const Occurrences: Self = Self(0i32);
@@ -1690,12 +1681,6 @@ impl ::core::clone::Clone for LampArrayRepetitionMode {
 unsafe impl ::windows::core::Abi for LampArrayRepetitionMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LampArrayRepetitionMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LampArrayRepetitionMode {}
 impl ::core::fmt::Debug for LampArrayRepetitionMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LampArrayRepetitionMode").field(&self.0).finish()

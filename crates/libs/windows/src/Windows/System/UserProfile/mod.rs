@@ -2,6 +2,7 @@
 #[doc = "*Required features: 'System_UserProfile', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AccountPictureKind(pub i32);
 #[cfg(feature = "deprecated")]
 impl AccountPictureKind {
@@ -21,14 +22,6 @@ impl ::core::clone::Clone for AccountPictureKind {
 unsafe impl ::windows::core::Abi for AccountPictureKind {
     type Abi = Self;
 }
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for AccountPictureKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for AccountPictureKind {}
 #[cfg(feature = "deprecated")]
 impl ::core::fmt::Debug for AccountPictureKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1247,6 +1240,7 @@ impl ::windows::core::RuntimeName for LockScreen {
 #[doc = "*Required features: 'System_UserProfile', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SetAccountPictureResult(pub i32);
 #[cfg(feature = "deprecated")]
 impl SetAccountPictureResult {
@@ -1270,14 +1264,6 @@ unsafe impl ::windows::core::Abi for SetAccountPictureResult {
     type Abi = Self;
 }
 #[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for SetAccountPictureResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for SetAccountPictureResult {}
-#[cfg(feature = "deprecated")]
 impl ::core::fmt::Debug for SetAccountPictureResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SetAccountPictureResult").field(&self.0).finish()
@@ -1293,6 +1279,7 @@ impl ::windows::core::DefaultType for SetAccountPictureResult {
 }
 #[doc = "*Required features: 'System_UserProfile'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SetImageFeedResult(pub i32);
 impl SetImageFeedResult {
     pub const Success: Self = Self(0i32);
@@ -1308,12 +1295,6 @@ impl ::core::clone::Clone for SetImageFeedResult {
 unsafe impl ::windows::core::Abi for SetImageFeedResult {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SetImageFeedResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SetImageFeedResult {}
 impl ::core::fmt::Debug for SetImageFeedResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SetImageFeedResult").field(&self.0).finish()

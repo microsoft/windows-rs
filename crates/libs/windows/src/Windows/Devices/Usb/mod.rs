@@ -1233,6 +1233,7 @@ unsafe impl ::core::marker::Send for UsbConfigurationDescriptor {}
 unsafe impl ::core::marker::Sync for UsbConfigurationDescriptor {}
 #[doc = "*Required features: 'Devices_Usb'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UsbControlRecipient(pub i32);
 impl UsbControlRecipient {
     pub const Device: Self = Self(0i32);
@@ -1250,12 +1251,6 @@ impl ::core::clone::Clone for UsbControlRecipient {
 unsafe impl ::windows::core::Abi for UsbControlRecipient {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UsbControlRecipient {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UsbControlRecipient {}
 impl ::core::fmt::Debug for UsbControlRecipient {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UsbControlRecipient").field(&self.0).finish()
@@ -1401,6 +1396,7 @@ unsafe impl ::core::marker::Send for UsbControlRequestType {}
 unsafe impl ::core::marker::Sync for UsbControlRequestType {}
 #[doc = "*Required features: 'Devices_Usb'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UsbControlTransferType(pub i32);
 impl UsbControlTransferType {
     pub const Standard: Self = Self(0i32);
@@ -1416,12 +1412,6 @@ impl ::core::clone::Clone for UsbControlTransferType {
 unsafe impl ::windows::core::Abi for UsbControlTransferType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UsbControlTransferType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UsbControlTransferType {}
 impl ::core::fmt::Debug for UsbControlTransferType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UsbControlTransferType").field(&self.0).finish()
@@ -2269,6 +2259,7 @@ unsafe impl ::core::marker::Send for UsbEndpointDescriptor {}
 unsafe impl ::core::marker::Sync for UsbEndpointDescriptor {}
 #[doc = "*Required features: 'Devices_Usb'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UsbEndpointType(pub i32);
 impl UsbEndpointType {
     pub const Control: Self = Self(0i32);
@@ -2285,12 +2276,6 @@ impl ::core::clone::Clone for UsbEndpointType {
 unsafe impl ::windows::core::Abi for UsbEndpointType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UsbEndpointType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UsbEndpointType {}
 impl ::core::fmt::Debug for UsbEndpointType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UsbEndpointType").field(&self.0).finish()
@@ -3225,6 +3210,7 @@ unsafe impl ::core::marker::Send for UsbInterruptOutPipe {}
 unsafe impl ::core::marker::Sync for UsbInterruptOutPipe {}
 #[doc = "*Required features: 'Devices_Usb'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UsbReadOptions(pub u32);
 impl UsbReadOptions {
     pub const None: Self = Self(0u32);
@@ -3242,12 +3228,6 @@ impl ::core::clone::Clone for UsbReadOptions {
 unsafe impl ::windows::core::Abi for UsbReadOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UsbReadOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UsbReadOptions {}
 impl ::core::fmt::Debug for UsbReadOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UsbReadOptions").field(&self.0).finish()
@@ -3447,6 +3427,7 @@ unsafe impl ::core::marker::Send for UsbSetupPacket {}
 unsafe impl ::core::marker::Sync for UsbSetupPacket {}
 #[doc = "*Required features: 'Devices_Usb'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UsbTransferDirection(pub i32);
 impl UsbTransferDirection {
     pub const Out: Self = Self(0i32);
@@ -3461,12 +3442,6 @@ impl ::core::clone::Clone for UsbTransferDirection {
 unsafe impl ::windows::core::Abi for UsbTransferDirection {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UsbTransferDirection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UsbTransferDirection {}
 impl ::core::fmt::Debug for UsbTransferDirection {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UsbTransferDirection").field(&self.0).finish()
@@ -3480,6 +3455,7 @@ impl ::windows::core::DefaultType for UsbTransferDirection {
 }
 #[doc = "*Required features: 'Devices_Usb'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UsbWriteOptions(pub u32);
 impl UsbWriteOptions {
     pub const None: Self = Self(0u32);
@@ -3495,12 +3471,6 @@ impl ::core::clone::Clone for UsbWriteOptions {
 unsafe impl ::windows::core::Abi for UsbWriteOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UsbWriteOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UsbWriteOptions {}
 impl ::core::fmt::Debug for UsbWriteOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UsbWriteOptions").field(&self.0).finish()

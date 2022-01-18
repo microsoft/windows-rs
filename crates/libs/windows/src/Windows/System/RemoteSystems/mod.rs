@@ -1465,6 +1465,7 @@ unsafe impl ::core::marker::Send for RemoteSystem {}
 unsafe impl ::core::marker::Sync for RemoteSystem {}
 #[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct RemoteSystemAccessStatus(pub i32);
 impl RemoteSystemAccessStatus {
     pub const Unspecified: Self = Self(0i32);
@@ -1481,12 +1482,6 @@ impl ::core::clone::Clone for RemoteSystemAccessStatus {
 unsafe impl ::windows::core::Abi for RemoteSystemAccessStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RemoteSystemAccessStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemAccessStatus {}
 impl ::core::fmt::Debug for RemoteSystemAccessStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RemoteSystemAccessStatus").field(&self.0).finish()
@@ -1829,6 +1824,7 @@ unsafe impl ::core::marker::Send for RemoteSystemAppRegistration {}
 unsafe impl ::core::marker::Sync for RemoteSystemAppRegistration {}
 #[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct RemoteSystemAuthorizationKind(pub i32);
 impl RemoteSystemAuthorizationKind {
     pub const SameUser: Self = Self(0i32);
@@ -1843,12 +1839,6 @@ impl ::core::clone::Clone for RemoteSystemAuthorizationKind {
 unsafe impl ::windows::core::Abi for RemoteSystemAuthorizationKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RemoteSystemAuthorizationKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemAuthorizationKind {}
 impl ::core::fmt::Debug for RemoteSystemAuthorizationKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RemoteSystemAuthorizationKind").field(&self.0).finish()
@@ -2211,6 +2201,7 @@ unsafe impl ::core::marker::Send for RemoteSystemConnectionRequest {}
 unsafe impl ::core::marker::Sync for RemoteSystemConnectionRequest {}
 #[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct RemoteSystemDiscoveryType(pub i32);
 impl RemoteSystemDiscoveryType {
     pub const Any: Self = Self(0i32);
@@ -2227,12 +2218,6 @@ impl ::core::clone::Clone for RemoteSystemDiscoveryType {
 unsafe impl ::windows::core::Abi for RemoteSystemDiscoveryType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RemoteSystemDiscoveryType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemDiscoveryType {}
 impl ::core::fmt::Debug for RemoteSystemDiscoveryType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RemoteSystemDiscoveryType").field(&self.0).finish()
@@ -2623,6 +2608,7 @@ impl ::windows::core::RuntimeName for RemoteSystemKinds {
 }
 #[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct RemoteSystemPlatform(pub i32);
 impl RemoteSystemPlatform {
     pub const Unknown: Self = Self(0i32);
@@ -2640,12 +2626,6 @@ impl ::core::clone::Clone for RemoteSystemPlatform {
 unsafe impl ::windows::core::Abi for RemoteSystemPlatform {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RemoteSystemPlatform {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemPlatform {}
 impl ::core::fmt::Debug for RemoteSystemPlatform {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RemoteSystemPlatform").field(&self.0).finish()
@@ -3208,6 +3188,7 @@ unsafe impl ::core::marker::Send for RemoteSystemSessionCreationResult {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionCreationResult {}
 #[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct RemoteSystemSessionCreationStatus(pub i32);
 impl RemoteSystemSessionCreationStatus {
     pub const Success: Self = Self(0i32);
@@ -3223,12 +3204,6 @@ impl ::core::clone::Clone for RemoteSystemSessionCreationStatus {
 unsafe impl ::windows::core::Abi for RemoteSystemSessionCreationStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RemoteSystemSessionCreationStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionCreationStatus {}
 impl ::core::fmt::Debug for RemoteSystemSessionCreationStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RemoteSystemSessionCreationStatus").field(&self.0).finish()
@@ -3323,6 +3298,7 @@ unsafe impl ::core::marker::Send for RemoteSystemSessionDisconnectedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionDisconnectedEventArgs {}
 #[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct RemoteSystemSessionDisconnectedReason(pub i32);
 impl RemoteSystemSessionDisconnectedReason {
     pub const SessionUnavailable: Self = Self(0i32);
@@ -3338,12 +3314,6 @@ impl ::core::clone::Clone for RemoteSystemSessionDisconnectedReason {
 unsafe impl ::windows::core::Abi for RemoteSystemSessionDisconnectedReason {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RemoteSystemSessionDisconnectedReason {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionDisconnectedReason {}
 impl ::core::fmt::Debug for RemoteSystemSessionDisconnectedReason {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RemoteSystemSessionDisconnectedReason").field(&self.0).finish()
@@ -3985,6 +3955,7 @@ unsafe impl ::core::marker::Send for RemoteSystemSessionJoinResult {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionJoinResult {}
 #[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct RemoteSystemSessionJoinStatus(pub i32);
 impl RemoteSystemSessionJoinStatus {
     pub const Success: Self = Self(0i32);
@@ -4002,12 +3973,6 @@ impl ::core::clone::Clone for RemoteSystemSessionJoinStatus {
 unsafe impl ::windows::core::Abi for RemoteSystemSessionJoinStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RemoteSystemSessionJoinStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionJoinStatus {}
 impl ::core::fmt::Debug for RemoteSystemSessionJoinStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RemoteSystemSessionJoinStatus").field(&self.0).finish()
@@ -4163,6 +4128,7 @@ unsafe impl ::core::marker::Send for RemoteSystemSessionMessageChannel {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionMessageChannel {}
 #[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct RemoteSystemSessionMessageChannelReliability(pub i32);
 impl RemoteSystemSessionMessageChannelReliability {
     pub const Reliable: Self = Self(0i32);
@@ -4177,12 +4143,6 @@ impl ::core::clone::Clone for RemoteSystemSessionMessageChannelReliability {
 unsafe impl ::windows::core::Abi for RemoteSystemSessionMessageChannelReliability {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RemoteSystemSessionMessageChannelReliability {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionMessageChannelReliability {}
 impl ::core::fmt::Debug for RemoteSystemSessionMessageChannelReliability {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RemoteSystemSessionMessageChannelReliability").field(&self.0).finish()
@@ -4677,6 +4637,7 @@ unsafe impl ::core::marker::Send for RemoteSystemSessionParticipantWatcher {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionParticipantWatcher {}
 #[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct RemoteSystemSessionParticipantWatcherStatus(pub i32);
 impl RemoteSystemSessionParticipantWatcherStatus {
     pub const Created: Self = Self(0i32);
@@ -4695,12 +4656,6 @@ impl ::core::clone::Clone for RemoteSystemSessionParticipantWatcherStatus {
 unsafe impl ::windows::core::Abi for RemoteSystemSessionParticipantWatcherStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RemoteSystemSessionParticipantWatcherStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionParticipantWatcherStatus {}
 impl ::core::fmt::Debug for RemoteSystemSessionParticipantWatcherStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RemoteSystemSessionParticipantWatcherStatus").field(&self.0).finish()
@@ -5102,6 +5057,7 @@ unsafe impl ::core::marker::Send for RemoteSystemSessionWatcher {}
 unsafe impl ::core::marker::Sync for RemoteSystemSessionWatcher {}
 #[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct RemoteSystemSessionWatcherStatus(pub i32);
 impl RemoteSystemSessionWatcherStatus {
     pub const Created: Self = Self(0i32);
@@ -5120,12 +5076,6 @@ impl ::core::clone::Clone for RemoteSystemSessionWatcherStatus {
 unsafe impl ::windows::core::Abi for RemoteSystemSessionWatcherStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RemoteSystemSessionWatcherStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemSessionWatcherStatus {}
 impl ::core::fmt::Debug for RemoteSystemSessionWatcherStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RemoteSystemSessionWatcherStatus").field(&self.0).finish()
@@ -5139,6 +5089,7 @@ impl ::windows::core::DefaultType for RemoteSystemSessionWatcherStatus {
 }
 #[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct RemoteSystemStatus(pub i32);
 impl RemoteSystemStatus {
     pub const Unavailable: Self = Self(0i32);
@@ -5155,12 +5106,6 @@ impl ::core::clone::Clone for RemoteSystemStatus {
 unsafe impl ::windows::core::Abi for RemoteSystemStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RemoteSystemStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemStatus {}
 impl ::core::fmt::Debug for RemoteSystemStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RemoteSystemStatus").field(&self.0).finish()
@@ -5174,6 +5119,7 @@ impl ::windows::core::DefaultType for RemoteSystemStatus {
 }
 #[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct RemoteSystemStatusType(pub i32);
 impl RemoteSystemStatusType {
     pub const Any: Self = Self(0i32);
@@ -5188,12 +5134,6 @@ impl ::core::clone::Clone for RemoteSystemStatusType {
 unsafe impl ::windows::core::Abi for RemoteSystemStatusType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RemoteSystemStatusType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemStatusType {}
 impl ::core::fmt::Debug for RemoteSystemStatusType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RemoteSystemStatusType").field(&self.0).finish()
@@ -5569,6 +5509,7 @@ unsafe impl ::core::marker::Send for RemoteSystemWatcher {}
 unsafe impl ::core::marker::Sync for RemoteSystemWatcher {}
 #[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct RemoteSystemWatcherError(pub i32);
 impl RemoteSystemWatcherError {
     pub const Unknown: Self = Self(0i32);
@@ -5584,12 +5525,6 @@ impl ::core::clone::Clone for RemoteSystemWatcherError {
 unsafe impl ::windows::core::Abi for RemoteSystemWatcherError {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RemoteSystemWatcherError {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RemoteSystemWatcherError {}
 impl ::core::fmt::Debug for RemoteSystemWatcherError {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RemoteSystemWatcherError").field(&self.0).finish()

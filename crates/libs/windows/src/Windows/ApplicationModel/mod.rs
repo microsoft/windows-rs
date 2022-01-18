@@ -55,6 +55,7 @@ pub mod VoiceCommands;
 pub mod Wallet;
 #[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AddResourcePackageOptions(pub u32);
 impl AddResourcePackageOptions {
     pub const None: Self = Self(0u32);
@@ -70,12 +71,6 @@ impl ::core::clone::Clone for AddResourcePackageOptions {
 unsafe impl ::windows::core::Abi for AddResourcePackageOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AddResourcePackageOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AddResourcePackageOptions {}
 impl ::core::fmt::Debug for AddResourcePackageOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AddResourcePackageOptions").field(&self.0).finish()
@@ -215,6 +210,7 @@ unsafe impl ::core::marker::Send for AppDisplayInfo {}
 unsafe impl ::core::marker::Sync for AppDisplayInfo {}
 #[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppExecutionContext(pub i32);
 impl AppExecutionContext {
     pub const Unknown: Self = Self(0i32);
@@ -230,12 +226,6 @@ impl ::core::clone::Clone for AppExecutionContext {
 unsafe impl ::windows::core::Abi for AppExecutionContext {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppExecutionContext {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppExecutionContext {}
 impl ::core::fmt::Debug for AppExecutionContext {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppExecutionContext").field(&self.0).finish()
@@ -613,6 +603,7 @@ unsafe impl ::core::marker::Send for AppInstallerInfo {}
 unsafe impl ::core::marker::Sync for AppInstallerInfo {}
 #[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppInstallerPolicySource(pub i32);
 impl AppInstallerPolicySource {
     pub const Default: Self = Self(0i32);
@@ -627,12 +618,6 @@ impl ::core::clone::Clone for AppInstallerPolicySource {
 unsafe impl ::windows::core::Abi for AppInstallerPolicySource {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppInstallerPolicySource {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppInstallerPolicySource {}
 impl ::core::fmt::Debug for AppInstallerPolicySource {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppInstallerPolicySource").field(&self.0).finish()
@@ -930,6 +915,7 @@ unsafe impl ::core::marker::Send for EnteredBackgroundEventArgs {}
 unsafe impl ::core::marker::Sync for EnteredBackgroundEventArgs {}
 #[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FullTrustLaunchResult(pub i32);
 impl FullTrustLaunchResult {
     pub const Success: Self = Self(0i32);
@@ -946,12 +932,6 @@ impl ::core::clone::Clone for FullTrustLaunchResult {
 unsafe impl ::windows::core::Abi for FullTrustLaunchResult {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for FullTrustLaunchResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FullTrustLaunchResult {}
 impl ::core::fmt::Debug for FullTrustLaunchResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FullTrustLaunchResult").field(&self.0).finish()
@@ -2742,6 +2722,7 @@ unsafe impl ::core::marker::Send for LimitedAccessFeatureRequestResult {}
 unsafe impl ::core::marker::Sync for LimitedAccessFeatureRequestResult {}
 #[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct LimitedAccessFeatureStatus(pub i32);
 impl LimitedAccessFeatureStatus {
     pub const Unavailable: Self = Self(0i32);
@@ -2758,12 +2739,6 @@ impl ::core::clone::Clone for LimitedAccessFeatureStatus {
 unsafe impl ::windows::core::Abi for LimitedAccessFeatureStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LimitedAccessFeatureStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LimitedAccessFeatureStatus {}
 impl ::core::fmt::Debug for LimitedAccessFeatureStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LimitedAccessFeatureStatus").field(&self.0).finish()
@@ -4051,6 +4026,7 @@ unsafe impl ::core::marker::Send for PackageContentGroupStagingEventArgs {}
 unsafe impl ::core::marker::Sync for PackageContentGroupStagingEventArgs {}
 #[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PackageContentGroupState(pub i32);
 impl PackageContentGroupState {
     pub const NotStaged: Self = Self(0i32);
@@ -4067,12 +4043,6 @@ impl ::core::clone::Clone for PackageContentGroupState {
 unsafe impl ::windows::core::Abi for PackageContentGroupState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PackageContentGroupState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PackageContentGroupState {}
 impl ::core::fmt::Debug for PackageContentGroupState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PackageContentGroupState").field(&self.0).finish()
@@ -4389,6 +4359,7 @@ unsafe impl ::core::marker::Send for PackageInstallingEventArgs {}
 unsafe impl ::core::marker::Sync for PackageInstallingEventArgs {}
 #[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PackageSignatureKind(pub i32);
 impl PackageSignatureKind {
     pub const None: Self = Self(0i32);
@@ -4406,12 +4377,6 @@ impl ::core::clone::Clone for PackageSignatureKind {
 unsafe impl ::windows::core::Abi for PackageSignatureKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PackageSignatureKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PackageSignatureKind {}
 impl ::core::fmt::Debug for PackageSignatureKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PackageSignatureKind").field(&self.0).finish()
@@ -4909,6 +4874,7 @@ unsafe impl ::core::marker::Send for PackageUninstallingEventArgs {}
 unsafe impl ::core::marker::Sync for PackageUninstallingEventArgs {}
 #[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PackageUpdateAvailability(pub i32);
 impl PackageUpdateAvailability {
     pub const Unknown: Self = Self(0i32);
@@ -4926,12 +4892,6 @@ impl ::core::clone::Clone for PackageUpdateAvailability {
 unsafe impl ::windows::core::Abi for PackageUpdateAvailability {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PackageUpdateAvailability {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PackageUpdateAvailability {}
 impl ::core::fmt::Debug for PackageUpdateAvailability {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PackageUpdateAvailability").field(&self.0).finish()
@@ -5318,6 +5278,7 @@ unsafe impl ::core::marker::Send for StartupTask {}
 unsafe impl ::core::marker::Sync for StartupTask {}
 #[doc = "*Required features: 'ApplicationModel'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct StartupTaskState(pub i32);
 impl StartupTaskState {
     pub const Disabled: Self = Self(0i32);
@@ -5335,12 +5296,6 @@ impl ::core::clone::Clone for StartupTaskState {
 unsafe impl ::windows::core::Abi for StartupTaskState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for StartupTaskState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StartupTaskState {}
 impl ::core::fmt::Debug for StartupTaskState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("StartupTaskState").field(&self.0).finish()

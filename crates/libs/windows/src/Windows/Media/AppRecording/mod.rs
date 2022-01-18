@@ -236,6 +236,7 @@ unsafe impl ::core::marker::Send for AppRecordingResult {}
 unsafe impl ::core::marker::Sync for AppRecordingResult {}
 #[doc = "*Required features: 'Media_AppRecording'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppRecordingSaveScreenshotOption(pub i32);
 impl AppRecordingSaveScreenshotOption {
     pub const None: Self = Self(0i32);
@@ -250,12 +251,6 @@ impl ::core::clone::Clone for AppRecordingSaveScreenshotOption {
 unsafe impl ::windows::core::Abi for AppRecordingSaveScreenshotOption {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppRecordingSaveScreenshotOption {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppRecordingSaveScreenshotOption {}
 impl ::core::fmt::Debug for AppRecordingSaveScreenshotOption {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppRecordingSaveScreenshotOption").field(&self.0).finish()

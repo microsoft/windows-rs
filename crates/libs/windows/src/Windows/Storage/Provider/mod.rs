@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CachedFileOptions(pub u32);
 impl CachedFileOptions {
     pub const None: Self = Self(0u32);
@@ -17,12 +18,6 @@ impl ::core::clone::Clone for CachedFileOptions {
 unsafe impl ::windows::core::Abi for CachedFileOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CachedFileOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CachedFileOptions {}
 impl ::core::fmt::Debug for CachedFileOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CachedFileOptions").field(&self.0).finish()
@@ -64,6 +59,7 @@ impl ::windows::core::DefaultType for CachedFileOptions {
 }
 #[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CachedFileTarget(pub i32);
 impl CachedFileTarget {
     pub const Local: Self = Self(0i32);
@@ -78,12 +74,6 @@ impl ::core::clone::Clone for CachedFileTarget {
 unsafe impl ::windows::core::Abi for CachedFileTarget {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CachedFileTarget {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CachedFileTarget {}
 impl ::core::fmt::Debug for CachedFileTarget {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CachedFileTarget").field(&self.0).finish()
@@ -540,6 +530,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &File
 }
 #[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FileUpdateStatus(pub i32);
 impl FileUpdateStatus {
     pub const Incomplete: Self = Self(0i32);
@@ -558,12 +549,6 @@ impl ::core::clone::Clone for FileUpdateStatus {
 unsafe impl ::windows::core::Abi for FileUpdateStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for FileUpdateStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FileUpdateStatus {}
 impl ::core::fmt::Debug for FileUpdateStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FileUpdateStatus").field(&self.0).finish()
@@ -1470,6 +1455,7 @@ pub struct IStorageProviderUriSource_Vtbl {
 }
 #[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ReadActivationMode(pub i32);
 impl ReadActivationMode {
     pub const NotNeeded: Self = Self(0i32);
@@ -1484,12 +1470,6 @@ impl ::core::clone::Clone for ReadActivationMode {
 unsafe impl ::windows::core::Abi for ReadActivationMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ReadActivationMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ReadActivationMode {}
 impl ::core::fmt::Debug for ReadActivationMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ReadActivationMode").field(&self.0).finish()
@@ -2093,6 +2073,7 @@ unsafe impl ::core::marker::Send for StorageProviderGetPathForContentUriResult {
 unsafe impl ::core::marker::Sync for StorageProviderGetPathForContentUriResult {}
 #[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct StorageProviderHardlinkPolicy(pub u32);
 impl StorageProviderHardlinkPolicy {
     pub const None: Self = Self(0u32);
@@ -2107,12 +2088,6 @@ impl ::core::clone::Clone for StorageProviderHardlinkPolicy {
 unsafe impl ::windows::core::Abi for StorageProviderHardlinkPolicy {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for StorageProviderHardlinkPolicy {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorageProviderHardlinkPolicy {}
 impl ::core::fmt::Debug for StorageProviderHardlinkPolicy {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("StorageProviderHardlinkPolicy").field(&self.0).finish()
@@ -2154,6 +2129,7 @@ impl ::windows::core::DefaultType for StorageProviderHardlinkPolicy {
 }
 #[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct StorageProviderHydrationPolicy(pub i32);
 impl StorageProviderHydrationPolicy {
     pub const Partial: Self = Self(0i32);
@@ -2170,12 +2146,6 @@ impl ::core::clone::Clone for StorageProviderHydrationPolicy {
 unsafe impl ::windows::core::Abi for StorageProviderHydrationPolicy {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for StorageProviderHydrationPolicy {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorageProviderHydrationPolicy {}
 impl ::core::fmt::Debug for StorageProviderHydrationPolicy {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("StorageProviderHydrationPolicy").field(&self.0).finish()
@@ -2189,6 +2159,7 @@ impl ::windows::core::DefaultType for StorageProviderHydrationPolicy {
 }
 #[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct StorageProviderHydrationPolicyModifier(pub u32);
 impl StorageProviderHydrationPolicyModifier {
     pub const None: Self = Self(0u32);
@@ -2206,12 +2177,6 @@ impl ::core::clone::Clone for StorageProviderHydrationPolicyModifier {
 unsafe impl ::windows::core::Abi for StorageProviderHydrationPolicyModifier {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for StorageProviderHydrationPolicyModifier {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorageProviderHydrationPolicyModifier {}
 impl ::core::fmt::Debug for StorageProviderHydrationPolicyModifier {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("StorageProviderHydrationPolicyModifier").field(&self.0).finish()
@@ -2253,6 +2218,7 @@ impl ::windows::core::DefaultType for StorageProviderHydrationPolicyModifier {
 }
 #[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct StorageProviderInSyncPolicy(pub u32);
 impl StorageProviderInSyncPolicy {
     pub const Default: Self = Self(0u32);
@@ -2277,12 +2243,6 @@ impl ::core::clone::Clone for StorageProviderInSyncPolicy {
 unsafe impl ::windows::core::Abi for StorageProviderInSyncPolicy {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for StorageProviderInSyncPolicy {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorageProviderInSyncPolicy {}
 impl ::core::fmt::Debug for StorageProviderInSyncPolicy {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("StorageProviderInSyncPolicy").field(&self.0).finish()
@@ -2569,6 +2529,7 @@ unsafe impl ::core::marker::Send for StorageProviderItemPropertyDefinition {}
 unsafe impl ::core::marker::Sync for StorageProviderItemPropertyDefinition {}
 #[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct StorageProviderPopulationPolicy(pub i32);
 impl StorageProviderPopulationPolicy {
     pub const Full: Self = Self(1i32);
@@ -2583,12 +2544,6 @@ impl ::core::clone::Clone for StorageProviderPopulationPolicy {
 unsafe impl ::windows::core::Abi for StorageProviderPopulationPolicy {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for StorageProviderPopulationPolicy {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorageProviderPopulationPolicy {}
 impl ::core::fmt::Debug for StorageProviderPopulationPolicy {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("StorageProviderPopulationPolicy").field(&self.0).finish()
@@ -2602,6 +2557,7 @@ impl ::windows::core::DefaultType for StorageProviderPopulationPolicy {
 }
 #[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct StorageProviderProtectionMode(pub i32);
 impl StorageProviderProtectionMode {
     pub const Unknown: Self = Self(0i32);
@@ -2616,12 +2572,6 @@ impl ::core::clone::Clone for StorageProviderProtectionMode {
 unsafe impl ::windows::core::Abi for StorageProviderProtectionMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for StorageProviderProtectionMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorageProviderProtectionMode {}
 impl ::core::fmt::Debug for StorageProviderProtectionMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("StorageProviderProtectionMode").field(&self.0).finish()
@@ -2635,6 +2585,7 @@ impl ::windows::core::DefaultType for StorageProviderProtectionMode {
 }
 #[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct StorageProviderState(pub i32);
 impl StorageProviderState {
     pub const InSync: Self = Self(0i32);
@@ -2653,12 +2604,6 @@ impl ::core::clone::Clone for StorageProviderState {
 unsafe impl ::windows::core::Abi for StorageProviderState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for StorageProviderState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorageProviderState {}
 impl ::core::fmt::Debug for StorageProviderState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("StorageProviderState").field(&self.0).finish()
@@ -3154,6 +3099,7 @@ impl ::windows::core::RuntimeName for StorageProviderSyncRootManager {
 }
 #[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct StorageProviderUriSourceStatus(pub i32);
 impl StorageProviderUriSourceStatus {
     pub const Success: Self = Self(0i32);
@@ -3169,12 +3115,6 @@ impl ::core::clone::Clone for StorageProviderUriSourceStatus {
 unsafe impl ::windows::core::Abi for StorageProviderUriSourceStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for StorageProviderUriSourceStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for StorageProviderUriSourceStatus {}
 impl ::core::fmt::Debug for StorageProviderUriSourceStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("StorageProviderUriSourceStatus").field(&self.0).finish()
@@ -3188,6 +3128,7 @@ impl ::windows::core::DefaultType for StorageProviderUriSourceStatus {
 }
 #[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UIStatus(pub i32);
 impl UIStatus {
     pub const Unavailable: Self = Self(0i32);
@@ -3204,12 +3145,6 @@ impl ::core::clone::Clone for UIStatus {
 unsafe impl ::windows::core::Abi for UIStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UIStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UIStatus {}
 impl ::core::fmt::Debug for UIStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UIStatus").field(&self.0).finish()
@@ -3223,6 +3158,7 @@ impl ::windows::core::DefaultType for UIStatus {
 }
 #[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct WriteActivationMode(pub i32);
 impl WriteActivationMode {
     pub const ReadOnly: Self = Self(0i32);
@@ -3238,12 +3174,6 @@ impl ::core::clone::Clone for WriteActivationMode {
 unsafe impl ::windows::core::Abi for WriteActivationMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for WriteActivationMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for WriteActivationMode {}
 impl ::core::fmt::Debug for WriteActivationMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("WriteActivationMode").field(&self.0).finish()

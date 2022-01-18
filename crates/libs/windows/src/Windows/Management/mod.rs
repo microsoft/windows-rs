@@ -251,6 +251,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MdmA
 }
 #[doc = "*Required features: 'Management'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MdmAlertDataType(pub i32);
 impl MdmAlertDataType {
     pub const String: Self = Self(0i32);
@@ -267,12 +268,6 @@ impl ::core::clone::Clone for MdmAlertDataType {
 unsafe impl ::windows::core::Abi for MdmAlertDataType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MdmAlertDataType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MdmAlertDataType {}
 impl ::core::fmt::Debug for MdmAlertDataType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MdmAlertDataType").field(&self.0).finish()
@@ -286,6 +281,7 @@ impl ::windows::core::DefaultType for MdmAlertDataType {
 }
 #[doc = "*Required features: 'Management'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MdmAlertMark(pub i32);
 impl MdmAlertMark {
     pub const None: Self = Self(0i32);
@@ -303,12 +299,6 @@ impl ::core::clone::Clone for MdmAlertMark {
 unsafe impl ::windows::core::Abi for MdmAlertMark {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MdmAlertMark {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MdmAlertMark {}
 impl ::core::fmt::Debug for MdmAlertMark {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MdmAlertMark").field(&self.0).finish()
@@ -496,6 +486,7 @@ impl ::windows::core::RuntimeName for MdmSessionManager {
 }
 #[doc = "*Required features: 'Management'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MdmSessionState(pub i32);
 impl MdmSessionState {
     pub const NotStarted: Self = Self(0i32);
@@ -515,12 +506,6 @@ impl ::core::clone::Clone for MdmSessionState {
 unsafe impl ::windows::core::Abi for MdmSessionState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MdmSessionState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MdmSessionState {}
 impl ::core::fmt::Debug for MdmSessionState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MdmSessionState").field(&self.0).finish()

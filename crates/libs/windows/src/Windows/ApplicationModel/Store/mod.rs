@@ -328,6 +328,7 @@ impl ::windows::core::RuntimeName for CurrentAppSimulator {
 }
 #[doc = "*Required features: 'ApplicationModel_Store'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FulfillmentResult(pub i32);
 impl FulfillmentResult {
     pub const Succeeded: Self = Self(0i32);
@@ -345,12 +346,6 @@ impl ::core::clone::Clone for FulfillmentResult {
 unsafe impl ::windows::core::Abi for FulfillmentResult {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for FulfillmentResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FulfillmentResult {}
 impl ::core::fmt::Debug for FulfillmentResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FulfillmentResult").field(&self.0).finish()
@@ -1598,6 +1593,7 @@ unsafe impl ::core::marker::Send for ProductPurchaseDisplayProperties {}
 unsafe impl ::core::marker::Sync for ProductPurchaseDisplayProperties {}
 #[doc = "*Required features: 'ApplicationModel_Store'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ProductPurchaseStatus(pub i32);
 impl ProductPurchaseStatus {
     pub const Succeeded: Self = Self(0i32);
@@ -1614,12 +1610,6 @@ impl ::core::clone::Clone for ProductPurchaseStatus {
 unsafe impl ::windows::core::Abi for ProductPurchaseStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ProductPurchaseStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProductPurchaseStatus {}
 impl ::core::fmt::Debug for ProductPurchaseStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ProductPurchaseStatus").field(&self.0).finish()
@@ -1633,6 +1623,7 @@ impl ::windows::core::DefaultType for ProductPurchaseStatus {
 }
 #[doc = "*Required features: 'ApplicationModel_Store'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ProductType(pub i32);
 impl ProductType {
     pub const Unknown: Self = Self(0i32);
@@ -1648,12 +1639,6 @@ impl ::core::clone::Clone for ProductType {
 unsafe impl ::windows::core::Abi for ProductType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ProductType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProductType {}
 impl ::core::fmt::Debug for ProductType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ProductType").field(&self.0).finish()

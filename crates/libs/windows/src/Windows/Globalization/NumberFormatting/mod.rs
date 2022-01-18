@@ -492,6 +492,7 @@ unsafe impl ::core::marker::Send for CurrencyFormatter {}
 unsafe impl ::core::marker::Sync for CurrencyFormatter {}
 #[doc = "*Required features: 'Globalization_NumberFormatting'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CurrencyFormatterMode(pub i32);
 impl CurrencyFormatterMode {
     pub const UseSymbol: Self = Self(0i32);
@@ -506,12 +507,6 @@ impl ::core::clone::Clone for CurrencyFormatterMode {
 unsafe impl ::windows::core::Abi for CurrencyFormatterMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CurrencyFormatterMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CurrencyFormatterMode {}
 impl ::core::fmt::Debug for CurrencyFormatterMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CurrencyFormatterMode").field(&self.0).finish()
@@ -3265,6 +3260,7 @@ unsafe impl ::core::marker::Send for PermilleFormatter {}
 unsafe impl ::core::marker::Sync for PermilleFormatter {}
 #[doc = "*Required features: 'Globalization_NumberFormatting'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct RoundingAlgorithm(pub i32);
 impl RoundingAlgorithm {
     pub const None: Self = Self(0i32);
@@ -3288,12 +3284,6 @@ impl ::core::clone::Clone for RoundingAlgorithm {
 unsafe impl ::windows::core::Abi for RoundingAlgorithm {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RoundingAlgorithm {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RoundingAlgorithm {}
 impl ::core::fmt::Debug for RoundingAlgorithm {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RoundingAlgorithm").field(&self.0).finish()

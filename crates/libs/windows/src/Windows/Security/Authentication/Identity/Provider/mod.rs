@@ -500,6 +500,7 @@ unsafe impl ::core::marker::Sync for SecondaryAuthenticationFactorAuthentication
 #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SecondaryAuthenticationFactorAuthenticationMessage(pub i32);
 #[cfg(feature = "deprecated")]
 impl SecondaryAuthenticationFactorAuthenticationMessage {
@@ -545,14 +546,6 @@ impl ::core::clone::Clone for SecondaryAuthenticationFactorAuthenticationMessage
 unsafe impl ::windows::core::Abi for SecondaryAuthenticationFactorAuthenticationMessage {
     type Abi = Self;
 }
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for SecondaryAuthenticationFactorAuthenticationMessage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for SecondaryAuthenticationFactorAuthenticationMessage {}
 #[cfg(feature = "deprecated")]
 impl ::core::fmt::Debug for SecondaryAuthenticationFactorAuthenticationMessage {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -680,6 +673,7 @@ unsafe impl ::core::marker::Sync for SecondaryAuthenticationFactorAuthentication
 #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SecondaryAuthenticationFactorAuthenticationScenario(pub i32);
 #[cfg(feature = "deprecated")]
 impl SecondaryAuthenticationFactorAuthenticationScenario {
@@ -699,14 +693,6 @@ unsafe impl ::windows::core::Abi for SecondaryAuthenticationFactorAuthentication
     type Abi = Self;
 }
 #[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for SecondaryAuthenticationFactorAuthenticationScenario {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for SecondaryAuthenticationFactorAuthenticationScenario {}
-#[cfg(feature = "deprecated")]
 impl ::core::fmt::Debug for SecondaryAuthenticationFactorAuthenticationScenario {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SecondaryAuthenticationFactorAuthenticationScenario").field(&self.0).finish()
@@ -723,6 +709,7 @@ impl ::windows::core::DefaultType for SecondaryAuthenticationFactorAuthenticatio
 #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SecondaryAuthenticationFactorAuthenticationStage(pub i32);
 #[cfg(feature = "deprecated")]
 impl SecondaryAuthenticationFactorAuthenticationStage {
@@ -748,14 +735,6 @@ impl ::core::clone::Clone for SecondaryAuthenticationFactorAuthenticationStage {
 unsafe impl ::windows::core::Abi for SecondaryAuthenticationFactorAuthenticationStage {
     type Abi = Self;
 }
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for SecondaryAuthenticationFactorAuthenticationStage {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for SecondaryAuthenticationFactorAuthenticationStage {}
 #[cfg(feature = "deprecated")]
 impl ::core::fmt::Debug for SecondaryAuthenticationFactorAuthenticationStage {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -993,6 +972,7 @@ unsafe impl ::core::marker::Sync for SecondaryAuthenticationFactorAuthentication
 #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SecondaryAuthenticationFactorAuthenticationStatus(pub i32);
 #[cfg(feature = "deprecated")]
 impl SecondaryAuthenticationFactorAuthenticationStatus {
@@ -1015,14 +995,6 @@ unsafe impl ::windows::core::Abi for SecondaryAuthenticationFactorAuthentication
     type Abi = Self;
 }
 #[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for SecondaryAuthenticationFactorAuthenticationStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for SecondaryAuthenticationFactorAuthenticationStatus {}
-#[cfg(feature = "deprecated")]
 impl ::core::fmt::Debug for SecondaryAuthenticationFactorAuthenticationStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SecondaryAuthenticationFactorAuthenticationStatus").field(&self.0).finish()
@@ -1039,6 +1011,7 @@ impl ::windows::core::DefaultType for SecondaryAuthenticationFactorAuthenticatio
 #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SecondaryAuthenticationFactorDeviceCapabilities(pub u32);
 #[cfg(feature = "deprecated")]
 impl SecondaryAuthenticationFactorDeviceCapabilities {
@@ -1063,14 +1036,6 @@ impl ::core::clone::Clone for SecondaryAuthenticationFactorDeviceCapabilities {
 unsafe impl ::windows::core::Abi for SecondaryAuthenticationFactorDeviceCapabilities {
     type Abi = Self;
 }
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for SecondaryAuthenticationFactorDeviceCapabilities {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for SecondaryAuthenticationFactorDeviceCapabilities {}
 #[cfg(feature = "deprecated")]
 impl ::core::fmt::Debug for SecondaryAuthenticationFactorDeviceCapabilities {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1116,6 +1081,7 @@ impl ::windows::core::DefaultType for SecondaryAuthenticationFactorDeviceCapabil
 #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SecondaryAuthenticationFactorDeviceFindScope(pub i32);
 #[cfg(feature = "deprecated")]
 impl SecondaryAuthenticationFactorDeviceFindScope {
@@ -1135,14 +1101,6 @@ unsafe impl ::windows::core::Abi for SecondaryAuthenticationFactorDeviceFindScop
     type Abi = Self;
 }
 #[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for SecondaryAuthenticationFactorDeviceFindScope {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for SecondaryAuthenticationFactorDeviceFindScope {}
-#[cfg(feature = "deprecated")]
 impl ::core::fmt::Debug for SecondaryAuthenticationFactorDeviceFindScope {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SecondaryAuthenticationFactorDeviceFindScope").field(&self.0).finish()
@@ -1159,6 +1117,7 @@ impl ::windows::core::DefaultType for SecondaryAuthenticationFactorDeviceFindSco
 #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SecondaryAuthenticationFactorDevicePresence(pub i32);
 #[cfg(feature = "deprecated")]
 impl SecondaryAuthenticationFactorDevicePresence {
@@ -1178,14 +1137,6 @@ unsafe impl ::windows::core::Abi for SecondaryAuthenticationFactorDevicePresence
     type Abi = Self;
 }
 #[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for SecondaryAuthenticationFactorDevicePresence {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for SecondaryAuthenticationFactorDevicePresence {}
-#[cfg(feature = "deprecated")]
 impl ::core::fmt::Debug for SecondaryAuthenticationFactorDevicePresence {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SecondaryAuthenticationFactorDevicePresence").field(&self.0).finish()
@@ -1202,6 +1153,7 @@ impl ::windows::core::DefaultType for SecondaryAuthenticationFactorDevicePresenc
 #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SecondaryAuthenticationFactorDevicePresenceMonitoringMode(pub i32);
 #[cfg(feature = "deprecated")]
 impl SecondaryAuthenticationFactorDevicePresenceMonitoringMode {
@@ -1222,14 +1174,6 @@ unsafe impl ::windows::core::Abi for SecondaryAuthenticationFactorDevicePresence
     type Abi = Self;
 }
 #[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for SecondaryAuthenticationFactorDevicePresenceMonitoringMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for SecondaryAuthenticationFactorDevicePresenceMonitoringMode {}
-#[cfg(feature = "deprecated")]
 impl ::core::fmt::Debug for SecondaryAuthenticationFactorDevicePresenceMonitoringMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SecondaryAuthenticationFactorDevicePresenceMonitoringMode").field(&self.0).finish()
@@ -1246,6 +1190,7 @@ impl ::windows::core::DefaultType for SecondaryAuthenticationFactorDevicePresenc
 #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus(pub i32);
 #[cfg(feature = "deprecated")]
 impl SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus {
@@ -1266,14 +1211,6 @@ unsafe impl ::windows::core::Abi for SecondaryAuthenticationFactorDevicePresence
     type Abi = Self;
 }
 #[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus {}
-#[cfg(feature = "deprecated")]
 impl ::core::fmt::Debug for SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SecondaryAuthenticationFactorDevicePresenceMonitoringRegistrationStatus").field(&self.0).finish()
@@ -1290,6 +1227,7 @@ impl ::windows::core::DefaultType for SecondaryAuthenticationFactorDevicePresenc
 #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SecondaryAuthenticationFactorFinishAuthenticationStatus(pub i32);
 #[cfg(feature = "deprecated")]
 impl SecondaryAuthenticationFactorFinishAuthenticationStatus {
@@ -1309,14 +1247,6 @@ impl ::core::clone::Clone for SecondaryAuthenticationFactorFinishAuthenticationS
 unsafe impl ::windows::core::Abi for SecondaryAuthenticationFactorFinishAuthenticationStatus {
     type Abi = Self;
 }
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for SecondaryAuthenticationFactorFinishAuthenticationStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for SecondaryAuthenticationFactorFinishAuthenticationStatus {}
 #[cfg(feature = "deprecated")]
 impl ::core::fmt::Debug for SecondaryAuthenticationFactorFinishAuthenticationStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -1785,6 +1715,7 @@ unsafe impl ::core::marker::Sync for SecondaryAuthenticationFactorRegistrationRe
 #[doc = "*Required features: 'Security_Authentication_Identity_Provider', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SecondaryAuthenticationFactorRegistrationStatus(pub i32);
 #[cfg(feature = "deprecated")]
 impl SecondaryAuthenticationFactorRegistrationStatus {
@@ -1806,14 +1737,6 @@ impl ::core::clone::Clone for SecondaryAuthenticationFactorRegistrationStatus {
 unsafe impl ::windows::core::Abi for SecondaryAuthenticationFactorRegistrationStatus {
     type Abi = Self;
 }
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for SecondaryAuthenticationFactorRegistrationStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for SecondaryAuthenticationFactorRegistrationStatus {}
 #[cfg(feature = "deprecated")]
 impl ::core::fmt::Debug for SecondaryAuthenticationFactorRegistrationStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {

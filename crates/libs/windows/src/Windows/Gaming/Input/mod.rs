@@ -270,6 +270,7 @@ unsafe impl ::core::marker::Send for ArcadeStick {}
 unsafe impl ::core::marker::Sync for ArcadeStick {}
 #[doc = "*Required features: 'Gaming_Input'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ArcadeStickButtons(pub u32);
 impl ArcadeStickButtons {
     pub const None: Self = Self(0u32);
@@ -295,12 +296,6 @@ impl ::core::clone::Clone for ArcadeStickButtons {
 unsafe impl ::windows::core::Abi for ArcadeStickButtons {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ArcadeStickButtons {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ArcadeStickButtons {}
 impl ::core::fmt::Debug for ArcadeStickButtons {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ArcadeStickButtons").field(&self.0).finish()
@@ -645,6 +640,7 @@ unsafe impl ::core::marker::Send for FlightStick {}
 unsafe impl ::core::marker::Sync for FlightStick {}
 #[doc = "*Required features: 'Gaming_Input'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct FlightStickButtons(pub u32);
 impl FlightStickButtons {
     pub const None: Self = Self(0u32);
@@ -660,12 +656,6 @@ impl ::core::clone::Clone for FlightStickButtons {
 unsafe impl ::windows::core::Abi for FlightStickButtons {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for FlightStickButtons {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for FlightStickButtons {}
 impl ::core::fmt::Debug for FlightStickButtons {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("FlightStickButtons").field(&self.0).finish()
@@ -749,6 +739,7 @@ impl ::core::default::Default for FlightStickReading {
 }
 #[doc = "*Required features: 'Gaming_Input'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GameControllerButtonLabel(pub i32);
 impl GameControllerButtonLabel {
     pub const None: Self = Self(0i32);
@@ -830,12 +821,6 @@ impl ::core::clone::Clone for GameControllerButtonLabel {
 unsafe impl ::windows::core::Abi for GameControllerButtonLabel {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GameControllerButtonLabel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GameControllerButtonLabel {}
 impl ::core::fmt::Debug for GameControllerButtonLabel {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GameControllerButtonLabel").field(&self.0).finish()
@@ -849,6 +834,7 @@ impl ::windows::core::DefaultType for GameControllerButtonLabel {
 }
 #[doc = "*Required features: 'Gaming_Input'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GameControllerSwitchKind(pub i32);
 impl GameControllerSwitchKind {
     pub const TwoWay: Self = Self(0i32);
@@ -864,12 +850,6 @@ impl ::core::clone::Clone for GameControllerSwitchKind {
 unsafe impl ::windows::core::Abi for GameControllerSwitchKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GameControllerSwitchKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GameControllerSwitchKind {}
 impl ::core::fmt::Debug for GameControllerSwitchKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GameControllerSwitchKind").field(&self.0).finish()
@@ -883,6 +863,7 @@ impl ::windows::core::DefaultType for GameControllerSwitchKind {
 }
 #[doc = "*Required features: 'Gaming_Input'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GameControllerSwitchPosition(pub i32);
 impl GameControllerSwitchPosition {
     pub const Center: Self = Self(0i32);
@@ -904,12 +885,6 @@ impl ::core::clone::Clone for GameControllerSwitchPosition {
 unsafe impl ::windows::core::Abi for GameControllerSwitchPosition {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GameControllerSwitchPosition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GameControllerSwitchPosition {}
 impl ::core::fmt::Debug for GameControllerSwitchPosition {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GameControllerSwitchPosition").field(&self.0).finish()
@@ -1199,6 +1174,7 @@ unsafe impl ::core::marker::Send for Gamepad {}
 unsafe impl ::core::marker::Sync for Gamepad {}
 #[doc = "*Required features: 'Gaming_Input'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GamepadButtons(pub u32);
 impl GamepadButtons {
     pub const None: Self = Self(0u32);
@@ -1230,12 +1206,6 @@ impl ::core::clone::Clone for GamepadButtons {
 unsafe impl ::windows::core::Abi for GamepadButtons {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GamepadButtons {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GamepadButtons {}
 impl ::core::fmt::Debug for GamepadButtons {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GamepadButtons").field(&self.0).finish()
@@ -2135,6 +2105,7 @@ pub struct IUINavigationControllerStatics2_Vtbl {
 }
 #[doc = "*Required features: 'Gaming_Input'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct OptionalUINavigationButtons(pub u32);
 impl OptionalUINavigationButtons {
     pub const None: Self = Self(0u32);
@@ -2160,12 +2131,6 @@ impl ::core::clone::Clone for OptionalUINavigationButtons {
 unsafe impl ::windows::core::Abi for OptionalUINavigationButtons {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for OptionalUINavigationButtons {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for OptionalUINavigationButtons {}
 impl ::core::fmt::Debug for OptionalUINavigationButtons {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("OptionalUINavigationButtons").field(&self.0).finish()
@@ -2519,6 +2484,7 @@ unsafe impl ::core::marker::Send for RacingWheel {}
 unsafe impl ::core::marker::Sync for RacingWheel {}
 #[doc = "*Required features: 'Gaming_Input'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct RacingWheelButtons(pub u32);
 impl RacingWheelButtons {
     pub const None: Self = Self(0u32);
@@ -2554,12 +2520,6 @@ impl ::core::clone::Clone for RacingWheelButtons {
 unsafe impl ::windows::core::Abi for RacingWheelButtons {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RacingWheelButtons {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RacingWheelButtons {}
 impl ::core::fmt::Debug for RacingWheelButtons {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RacingWheelButtons").field(&self.0).finish()
@@ -2984,6 +2944,7 @@ unsafe impl ::core::marker::Send for RawGameController {}
 unsafe impl ::core::marker::Sync for RawGameController {}
 #[doc = "*Required features: 'Gaming_Input'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct RequiredUINavigationButtons(pub u32);
 impl RequiredUINavigationButtons {
     pub const None: Self = Self(0u32);
@@ -3005,12 +2966,6 @@ impl ::core::clone::Clone for RequiredUINavigationButtons {
 unsafe impl ::windows::core::Abi for RequiredUINavigationButtons {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RequiredUINavigationButtons {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RequiredUINavigationButtons {}
 impl ::core::fmt::Debug for RequiredUINavigationButtons {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RequiredUINavigationButtons").field(&self.0).finish()

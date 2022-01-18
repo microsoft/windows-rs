@@ -656,6 +656,7 @@ unsafe impl ::core::marker::Send for HttpDiagnosticProviderResponseReceivedEvent
 unsafe impl ::core::marker::Sync for HttpDiagnosticProviderResponseReceivedEventArgs {}
 #[doc = "*Required features: 'Web_Http_Diagnostics'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HttpDiagnosticRequestInitiator(pub i32);
 impl HttpDiagnosticRequestInitiator {
     pub const ParsedElement: Self = Self(0i32);
@@ -681,12 +682,6 @@ impl ::core::clone::Clone for HttpDiagnosticRequestInitiator {
 unsafe impl ::windows::core::Abi for HttpDiagnosticRequestInitiator {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for HttpDiagnosticRequestInitiator {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HttpDiagnosticRequestInitiator {}
 impl ::core::fmt::Debug for HttpDiagnosticRequestInitiator {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HttpDiagnosticRequestInitiator").field(&self.0).finish()

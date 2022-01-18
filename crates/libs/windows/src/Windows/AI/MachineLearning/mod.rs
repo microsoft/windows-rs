@@ -2377,6 +2377,7 @@ unsafe impl ::core::marker::Send for LearningModelDevice {}
 unsafe impl ::core::marker::Sync for LearningModelDevice {}
 #[doc = "*Required features: 'AI_MachineLearning'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct LearningModelDeviceKind(pub i32);
 impl LearningModelDeviceKind {
     pub const Default: Self = Self(0i32);
@@ -2394,12 +2395,6 @@ impl ::core::clone::Clone for LearningModelDeviceKind {
 unsafe impl ::windows::core::Abi for LearningModelDeviceKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LearningModelDeviceKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LearningModelDeviceKind {}
 impl ::core::fmt::Debug for LearningModelDeviceKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LearningModelDeviceKind").field(&self.0).finish()
@@ -2519,6 +2514,7 @@ unsafe impl ::core::marker::Send for LearningModelEvaluationResult {}
 unsafe impl ::core::marker::Sync for LearningModelEvaluationResult {}
 #[doc = "*Required features: 'AI_MachineLearning'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct LearningModelFeatureKind(pub i32);
 impl LearningModelFeatureKind {
     pub const Tensor: Self = Self(0i32);
@@ -2535,12 +2531,6 @@ impl ::core::clone::Clone for LearningModelFeatureKind {
 unsafe impl ::windows::core::Abi for LearningModelFeatureKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LearningModelFeatureKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LearningModelFeatureKind {}
 impl ::core::fmt::Debug for LearningModelFeatureKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LearningModelFeatureKind").field(&self.0).finish()
@@ -2554,6 +2544,7 @@ impl ::windows::core::DefaultType for LearningModelFeatureKind {
 }
 #[doc = "*Required features: 'AI_MachineLearning'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct LearningModelPixelRange(pub i32);
 impl LearningModelPixelRange {
     pub const ZeroTo255: Self = Self(0i32);
@@ -2569,12 +2560,6 @@ impl ::core::clone::Clone for LearningModelPixelRange {
 unsafe impl ::windows::core::Abi for LearningModelPixelRange {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for LearningModelPixelRange {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for LearningModelPixelRange {}
 impl ::core::fmt::Debug for LearningModelPixelRange {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("LearningModelPixelRange").field(&self.0).finish()
@@ -5509,6 +5494,7 @@ unsafe impl ::core::marker::Send for TensorInt8Bit {}
 unsafe impl ::core::marker::Sync for TensorInt8Bit {}
 #[doc = "*Required features: 'AI_MachineLearning'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TensorKind(pub i32);
 impl TensorKind {
     pub const Undefined: Self = Self(0i32);
@@ -5537,12 +5523,6 @@ impl ::core::clone::Clone for TensorKind {
 unsafe impl ::windows::core::Abi for TensorKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TensorKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TensorKind {}
 impl ::core::fmt::Debug for TensorKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TensorKind").field(&self.0).finish()

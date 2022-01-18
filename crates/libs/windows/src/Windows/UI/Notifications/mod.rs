@@ -3,6 +3,7 @@
 pub mod Management;
 #[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AdaptiveNotificationContentKind(pub i32);
 impl AdaptiveNotificationContentKind {
     pub const Text: Self = Self(0i32);
@@ -16,12 +17,6 @@ impl ::core::clone::Clone for AdaptiveNotificationContentKind {
 unsafe impl ::windows::core::Abi for AdaptiveNotificationContentKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AdaptiveNotificationContentKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AdaptiveNotificationContentKind {}
 impl ::core::fmt::Debug for AdaptiveNotificationContentKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AdaptiveNotificationContentKind").field(&self.0).finish()
@@ -290,6 +285,7 @@ unsafe impl ::core::marker::Send for BadgeNotification {}
 unsafe impl ::core::marker::Sync for BadgeNotification {}
 #[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct BadgeTemplateType(pub i32);
 impl BadgeTemplateType {
     pub const BadgeGlyph: Self = Self(0i32);
@@ -304,12 +300,6 @@ impl ::core::clone::Clone for BadgeTemplateType {
 unsafe impl ::windows::core::Abi for BadgeTemplateType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for BadgeTemplateType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for BadgeTemplateType {}
 impl ::core::fmt::Debug for BadgeTemplateType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("BadgeTemplateType").field(&self.0).finish()
@@ -2492,6 +2482,7 @@ unsafe impl ::core::marker::Send for NotificationData {}
 unsafe impl ::core::marker::Sync for NotificationData {}
 #[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct NotificationKinds(pub u32);
 impl NotificationKinds {
     pub const Unknown: Self = Self(0u32);
@@ -2506,12 +2497,6 @@ impl ::core::clone::Clone for NotificationKinds {
 unsafe impl ::windows::core::Abi for NotificationKinds {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for NotificationKinds {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for NotificationKinds {}
 impl ::core::fmt::Debug for NotificationKinds {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NotificationKinds").field(&self.0).finish()
@@ -2553,6 +2538,7 @@ impl ::windows::core::DefaultType for NotificationKinds {
 }
 #[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct NotificationMirroring(pub i32);
 impl NotificationMirroring {
     pub const Allowed: Self = Self(0i32);
@@ -2567,12 +2553,6 @@ impl ::core::clone::Clone for NotificationMirroring {
 unsafe impl ::windows::core::Abi for NotificationMirroring {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for NotificationMirroring {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for NotificationMirroring {}
 impl ::core::fmt::Debug for NotificationMirroring {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NotificationMirroring").field(&self.0).finish()
@@ -2586,6 +2566,7 @@ impl ::windows::core::DefaultType for NotificationMirroring {
 }
 #[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct NotificationSetting(pub i32);
 impl NotificationSetting {
     pub const Enabled: Self = Self(0i32);
@@ -2603,12 +2584,6 @@ impl ::core::clone::Clone for NotificationSetting {
 unsafe impl ::windows::core::Abi for NotificationSetting {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for NotificationSetting {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for NotificationSetting {}
 impl ::core::fmt::Debug for NotificationSetting {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NotificationSetting").field(&self.0).finish()
@@ -2622,6 +2597,7 @@ impl ::windows::core::DefaultType for NotificationSetting {
 }
 #[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct NotificationUpdateResult(pub i32);
 impl NotificationUpdateResult {
     pub const Succeeded: Self = Self(0i32);
@@ -2637,12 +2613,6 @@ impl ::core::clone::Clone for NotificationUpdateResult {
 unsafe impl ::windows::core::Abi for NotificationUpdateResult {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for NotificationUpdateResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for NotificationUpdateResult {}
 impl ::core::fmt::Debug for NotificationUpdateResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NotificationUpdateResult").field(&self.0).finish()
@@ -2759,6 +2729,7 @@ unsafe impl ::core::marker::Send for NotificationVisual {}
 unsafe impl ::core::marker::Sync for NotificationVisual {}
 #[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PeriodicUpdateRecurrence(pub i32);
 impl PeriodicUpdateRecurrence {
     pub const HalfHour: Self = Self(0i32);
@@ -2776,12 +2747,6 @@ impl ::core::clone::Clone for PeriodicUpdateRecurrence {
 unsafe impl ::windows::core::Abi for PeriodicUpdateRecurrence {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PeriodicUpdateRecurrence {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PeriodicUpdateRecurrence {}
 impl ::core::fmt::Debug for PeriodicUpdateRecurrence {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PeriodicUpdateRecurrence").field(&self.0).finish()
@@ -3456,6 +3421,7 @@ unsafe impl ::core::marker::Send for TileFlyoutNotification {}
 unsafe impl ::core::marker::Sync for TileFlyoutNotification {}
 #[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TileFlyoutTemplateType(pub i32);
 impl TileFlyoutTemplateType {
     pub const TileFlyoutTemplate01: Self = Self(0i32);
@@ -3469,12 +3435,6 @@ impl ::core::clone::Clone for TileFlyoutTemplateType {
 unsafe impl ::windows::core::Abi for TileFlyoutTemplateType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TileFlyoutTemplateType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TileFlyoutTemplateType {}
 impl ::core::fmt::Debug for TileFlyoutTemplateType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TileFlyoutTemplateType").field(&self.0).finish()
@@ -3758,6 +3718,7 @@ unsafe impl ::core::marker::Send for TileNotification {}
 unsafe impl ::core::marker::Sync for TileNotification {}
 #[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct TileTemplateType(pub i32);
 impl TileTemplateType {
     pub const TileSquareImage: Self = Self(0i32);
@@ -3896,12 +3857,6 @@ impl ::core::clone::Clone for TileTemplateType {
 unsafe impl ::windows::core::Abi for TileTemplateType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for TileTemplateType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for TileTemplateType {}
 impl ::core::fmt::Debug for TileTemplateType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("TileTemplateType").field(&self.0).finish()
@@ -4592,6 +4547,7 @@ unsafe impl ::core::marker::Send for ToastCollectionManager {}
 unsafe impl ::core::marker::Sync for ToastCollectionManager {}
 #[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ToastDismissalReason(pub i32);
 impl ToastDismissalReason {
     pub const UserCanceled: Self = Self(0i32);
@@ -4607,12 +4563,6 @@ impl ::core::clone::Clone for ToastDismissalReason {
 unsafe impl ::windows::core::Abi for ToastDismissalReason {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ToastDismissalReason {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ToastDismissalReason {}
 impl ::core::fmt::Debug for ToastDismissalReason {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ToastDismissalReason").field(&self.0).finish()
@@ -4788,6 +4738,7 @@ unsafe impl ::core::marker::Send for ToastFailedEventArgs {}
 unsafe impl ::core::marker::Sync for ToastFailedEventArgs {}
 #[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ToastHistoryChangedType(pub i32);
 impl ToastHistoryChangedType {
     pub const Cleared: Self = Self(0i32);
@@ -4804,12 +4755,6 @@ impl ::core::clone::Clone for ToastHistoryChangedType {
 unsafe impl ::windows::core::Abi for ToastHistoryChangedType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ToastHistoryChangedType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ToastHistoryChangedType {}
 impl ::core::fmt::Debug for ToastHistoryChangedType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ToastHistoryChangedType").field(&self.0).finish()
@@ -5596,6 +5541,7 @@ unsafe impl ::core::marker::Send for ToastNotificationManagerForUser {}
 unsafe impl ::core::marker::Sync for ToastNotificationManagerForUser {}
 #[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ToastNotificationPriority(pub i32);
 impl ToastNotificationPriority {
     pub const Default: Self = Self(0i32);
@@ -5610,12 +5556,6 @@ impl ::core::clone::Clone for ToastNotificationPriority {
 unsafe impl ::windows::core::Abi for ToastNotificationPriority {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ToastNotificationPriority {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ToastNotificationPriority {}
 impl ::core::fmt::Debug for ToastNotificationPriority {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ToastNotificationPriority").field(&self.0).finish()
@@ -5770,6 +5710,7 @@ unsafe impl ::core::marker::Send for ToastNotifier {}
 unsafe impl ::core::marker::Sync for ToastNotifier {}
 #[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ToastTemplateType(pub i32);
 impl ToastTemplateType {
     pub const ToastImageAndText01: Self = Self(0i32);
@@ -5790,12 +5731,6 @@ impl ::core::clone::Clone for ToastTemplateType {
 unsafe impl ::windows::core::Abi for ToastTemplateType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ToastTemplateType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ToastTemplateType {}
 impl ::core::fmt::Debug for ToastTemplateType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ToastTemplateType").field(&self.0).finish()
@@ -6005,6 +5940,7 @@ unsafe impl ::core::marker::Send for UserNotificationChangedEventArgs {}
 unsafe impl ::core::marker::Sync for UserNotificationChangedEventArgs {}
 #[doc = "*Required features: 'UI_Notifications'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserNotificationChangedKind(pub i32);
 impl UserNotificationChangedKind {
     pub const Added: Self = Self(0i32);
@@ -6019,12 +5955,6 @@ impl ::core::clone::Clone for UserNotificationChangedKind {
 unsafe impl ::windows::core::Abi for UserNotificationChangedKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UserNotificationChangedKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserNotificationChangedKind {}
 impl ::core::fmt::Debug for UserNotificationChangedKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserNotificationChangedKind").field(&self.0).finish()

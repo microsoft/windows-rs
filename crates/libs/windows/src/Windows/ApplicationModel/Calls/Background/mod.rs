@@ -95,6 +95,7 @@ pub struct IPhoneNewVoicemailMessageTriggerDetails_Vtbl {
 }
 #[doc = "*Required features: 'ApplicationModel_Calls_Background'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhoneCallBlockedReason(pub i32);
 impl PhoneCallBlockedReason {
     pub const InCallBlockingList: Self = Self(0i32);
@@ -110,12 +111,6 @@ impl ::core::clone::Clone for PhoneCallBlockedReason {
 unsafe impl ::windows::core::Abi for PhoneCallBlockedReason {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhoneCallBlockedReason {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneCallBlockedReason {}
 impl ::core::fmt::Debug for PhoneCallBlockedReason {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhoneCallBlockedReason").field(&self.0).finish()
@@ -315,6 +310,7 @@ unsafe impl ::core::marker::Send for PhoneCallOriginDataRequestTriggerDetails {}
 unsafe impl ::core::marker::Sync for PhoneCallOriginDataRequestTriggerDetails {}
 #[doc = "*Required features: 'ApplicationModel_Calls_Background'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhoneIncomingCallDismissedReason(pub i32);
 impl PhoneIncomingCallDismissedReason {
     pub const Unknown: Self = Self(0i32);
@@ -331,12 +327,6 @@ impl ::core::clone::Clone for PhoneIncomingCallDismissedReason {
 unsafe impl ::windows::core::Abi for PhoneIncomingCallDismissedReason {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhoneIncomingCallDismissedReason {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneIncomingCallDismissedReason {}
 impl ::core::fmt::Debug for PhoneIncomingCallDismissedReason {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhoneIncomingCallDismissedReason").field(&self.0).finish()
@@ -561,6 +551,7 @@ unsafe impl ::core::marker::Send for PhoneIncomingCallNotificationTriggerDetails
 unsafe impl ::core::marker::Sync for PhoneIncomingCallNotificationTriggerDetails {}
 #[doc = "*Required features: 'ApplicationModel_Calls_Background'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhoneLineChangeKind(pub i32);
 impl PhoneLineChangeKind {
     pub const Added: Self = Self(0i32);
@@ -576,12 +567,6 @@ impl ::core::clone::Clone for PhoneLineChangeKind {
 unsafe impl ::windows::core::Abi for PhoneLineChangeKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhoneLineChangeKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneLineChangeKind {}
 impl ::core::fmt::Debug for PhoneLineChangeKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhoneLineChangeKind").field(&self.0).finish()
@@ -692,6 +677,7 @@ unsafe impl ::core::marker::Send for PhoneLineChangedTriggerDetails {}
 unsafe impl ::core::marker::Sync for PhoneLineChangedTriggerDetails {}
 #[doc = "*Required features: 'ApplicationModel_Calls_Background'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhoneLineProperties(pub u32);
 impl PhoneLineProperties {
     pub const None: Self = Self(0u32);
@@ -714,12 +700,6 @@ impl ::core::clone::Clone for PhoneLineProperties {
 unsafe impl ::windows::core::Abi for PhoneLineProperties {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhoneLineProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneLineProperties {}
 impl ::core::fmt::Debug for PhoneLineProperties {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhoneLineProperties").field(&self.0).finish()
@@ -858,6 +838,7 @@ unsafe impl ::core::marker::Send for PhoneNewVoicemailMessageTriggerDetails {}
 unsafe impl ::core::marker::Sync for PhoneNewVoicemailMessageTriggerDetails {}
 #[doc = "*Required features: 'ApplicationModel_Calls_Background'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhoneTriggerType(pub i32);
 impl PhoneTriggerType {
     pub const NewVoicemailMessage: Self = Self(0i32);
@@ -878,12 +859,6 @@ impl ::core::clone::Clone for PhoneTriggerType {
 unsafe impl ::windows::core::Abi for PhoneTriggerType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhoneTriggerType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneTriggerType {}
 impl ::core::fmt::Debug for PhoneTriggerType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhoneTriggerType").field(&self.0).finish()

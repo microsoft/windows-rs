@@ -1886,6 +1886,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &NewW
 }
 #[doc = "*Required features: 'UI_WebUI'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PrintContent(pub i32);
 impl PrintContent {
     pub const AllPages: Self = Self(0i32);
@@ -1902,12 +1903,6 @@ impl ::core::clone::Clone for PrintContent {
 unsafe impl ::windows::core::Abi for PrintContent {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PrintContent {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PrintContent {}
 impl ::core::fmt::Debug for PrintContent {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PrintContent").field(&self.0).finish()

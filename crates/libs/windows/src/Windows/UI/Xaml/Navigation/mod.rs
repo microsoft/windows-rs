@@ -651,6 +651,7 @@ pub struct NavigatingCancelEventHandler_Vtbl {
 }
 #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct NavigationCacheMode(pub i32);
 impl NavigationCacheMode {
     pub const Disabled: Self = Self(0i32);
@@ -666,12 +667,6 @@ impl ::core::clone::Clone for NavigationCacheMode {
 unsafe impl ::windows::core::Abi for NavigationCacheMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for NavigationCacheMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for NavigationCacheMode {}
 impl ::core::fmt::Debug for NavigationCacheMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NavigationCacheMode").field(&self.0).finish()
@@ -996,6 +991,7 @@ pub struct NavigationFailedEventHandler_Vtbl {
 }
 #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct NavigationMode(pub i32);
 impl NavigationMode {
     pub const New: Self = Self(0i32);
@@ -1012,12 +1008,6 @@ impl ::core::clone::Clone for NavigationMode {
 unsafe impl ::windows::core::Abi for NavigationMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for NavigationMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for NavigationMode {}
 impl ::core::fmt::Debug for NavigationMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("NavigationMode").field(&self.0).finish()

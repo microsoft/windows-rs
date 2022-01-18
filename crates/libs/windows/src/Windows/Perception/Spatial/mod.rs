@@ -777,6 +777,7 @@ unsafe impl ::core::marker::Send for SpatialAnchor {}
 unsafe impl ::core::marker::Sync for SpatialAnchor {}
 #[doc = "*Required features: 'Perception_Spatial'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpatialAnchorExportPurpose(pub i32);
 impl SpatialAnchorExportPurpose {
     pub const Relocalization: Self = Self(0i32);
@@ -791,12 +792,6 @@ impl ::core::clone::Clone for SpatialAnchorExportPurpose {
 unsafe impl ::windows::core::Abi for SpatialAnchorExportPurpose {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SpatialAnchorExportPurpose {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialAnchorExportPurpose {}
 impl ::core::fmt::Debug for SpatialAnchorExportPurpose {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SpatialAnchorExportPurpose").field(&self.0).finish()
@@ -2276,6 +2271,7 @@ unsafe impl ::core::marker::Send for SpatialEntityWatcher {}
 unsafe impl ::core::marker::Sync for SpatialEntityWatcher {}
 #[doc = "*Required features: 'Perception_Spatial'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpatialEntityWatcherStatus(pub i32);
 impl SpatialEntityWatcherStatus {
     pub const Created: Self = Self(0i32);
@@ -2294,12 +2290,6 @@ impl ::core::clone::Clone for SpatialEntityWatcherStatus {
 unsafe impl ::windows::core::Abi for SpatialEntityWatcherStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SpatialEntityWatcherStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialEntityWatcherStatus {}
 impl ::core::fmt::Debug for SpatialEntityWatcherStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SpatialEntityWatcherStatus").field(&self.0).finish()
@@ -2313,6 +2303,7 @@ impl ::windows::core::DefaultType for SpatialEntityWatcherStatus {
 }
 #[doc = "*Required features: 'Perception_Spatial'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpatialLocatability(pub i32);
 impl SpatialLocatability {
     pub const Unavailable: Self = Self(0i32);
@@ -2330,12 +2321,6 @@ impl ::core::clone::Clone for SpatialLocatability {
 unsafe impl ::windows::core::Abi for SpatialLocatability {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SpatialLocatability {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialLocatability {}
 impl ::core::fmt::Debug for SpatialLocatability {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SpatialLocatability").field(&self.0).finish()
@@ -2906,6 +2891,7 @@ unsafe impl ::core::marker::Send for SpatialLocatorPositionalTrackingDeactivatin
 unsafe impl ::core::marker::Sync for SpatialLocatorPositionalTrackingDeactivatingEventArgs {}
 #[doc = "*Required features: 'Perception_Spatial'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpatialLookDirectionRange(pub i32);
 impl SpatialLookDirectionRange {
     pub const ForwardOnly: Self = Self(0i32);
@@ -2920,12 +2906,6 @@ impl ::core::clone::Clone for SpatialLookDirectionRange {
 unsafe impl ::windows::core::Abi for SpatialLookDirectionRange {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SpatialLookDirectionRange {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialLookDirectionRange {}
 impl ::core::fmt::Debug for SpatialLookDirectionRange {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SpatialLookDirectionRange").field(&self.0).finish()
@@ -2939,6 +2919,7 @@ impl ::windows::core::DefaultType for SpatialLookDirectionRange {
 }
 #[doc = "*Required features: 'Perception_Spatial'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpatialMovementRange(pub i32);
 impl SpatialMovementRange {
     pub const NoMovement: Self = Self(0i32);
@@ -2953,12 +2934,6 @@ impl ::core::clone::Clone for SpatialMovementRange {
 unsafe impl ::windows::core::Abi for SpatialMovementRange {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SpatialMovementRange {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialMovementRange {}
 impl ::core::fmt::Debug for SpatialMovementRange {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SpatialMovementRange").field(&self.0).finish()
@@ -2972,6 +2947,7 @@ impl ::windows::core::DefaultType for SpatialMovementRange {
 }
 #[doc = "*Required features: 'Perception_Spatial'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SpatialPerceptionAccessStatus(pub i32);
 impl SpatialPerceptionAccessStatus {
     pub const Unspecified: Self = Self(0i32);
@@ -2988,12 +2964,6 @@ impl ::core::clone::Clone for SpatialPerceptionAccessStatus {
 unsafe impl ::windows::core::Abi for SpatialPerceptionAccessStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SpatialPerceptionAccessStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SpatialPerceptionAccessStatus {}
 impl ::core::fmt::Debug for SpatialPerceptionAccessStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SpatialPerceptionAccessStatus").field(&self.0).finish()

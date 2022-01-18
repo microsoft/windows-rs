@@ -299,6 +299,7 @@ unsafe impl ::core::marker::Send for GattCharacteristic {}
 unsafe impl ::core::marker::Sync for GattCharacteristic {}
 #[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GattCharacteristicProperties(pub u32);
 impl GattCharacteristicProperties {
     pub const None: Self = Self(0u32);
@@ -322,12 +323,6 @@ impl ::core::clone::Clone for GattCharacteristicProperties {
 unsafe impl ::windows::core::Abi for GattCharacteristicProperties {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GattCharacteristicProperties {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattCharacteristicProperties {}
 impl ::core::fmt::Debug for GattCharacteristicProperties {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GattCharacteristicProperties").field(&self.0).finish()
@@ -1052,6 +1047,7 @@ unsafe impl ::core::marker::Send for GattCharacteristicsResult {}
 unsafe impl ::core::marker::Sync for GattCharacteristicsResult {}
 #[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GattClientCharacteristicConfigurationDescriptorValue(pub i32);
 impl GattClientCharacteristicConfigurationDescriptorValue {
     pub const None: Self = Self(0i32);
@@ -1067,12 +1063,6 @@ impl ::core::clone::Clone for GattClientCharacteristicConfigurationDescriptorVal
 unsafe impl ::windows::core::Abi for GattClientCharacteristicConfigurationDescriptorValue {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GattClientCharacteristicConfigurationDescriptorValue {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattClientCharacteristicConfigurationDescriptorValue {}
 impl ::core::fmt::Debug for GattClientCharacteristicConfigurationDescriptorValue {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GattClientCharacteristicConfigurationDescriptorValue").field(&self.0).finish()
@@ -1192,6 +1182,7 @@ unsafe impl ::core::marker::Send for GattClientNotificationResult {}
 unsafe impl ::core::marker::Sync for GattClientNotificationResult {}
 #[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GattCommunicationStatus(pub i32);
 impl GattCommunicationStatus {
     pub const Success: Self = Self(0i32);
@@ -1208,12 +1199,6 @@ impl ::core::clone::Clone for GattCommunicationStatus {
 unsafe impl ::windows::core::Abi for GattCommunicationStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GattCommunicationStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattCommunicationStatus {}
 impl ::core::fmt::Debug for GattCommunicationStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GattCommunicationStatus").field(&self.0).finish()
@@ -2916,6 +2901,7 @@ unsafe impl ::core::marker::Send for GattLocalService {}
 unsafe impl ::core::marker::Sync for GattLocalService {}
 #[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GattOpenStatus(pub i32);
 impl GattOpenStatus {
     pub const Unspecified: Self = Self(0i32);
@@ -2934,12 +2920,6 @@ impl ::core::clone::Clone for GattOpenStatus {
 unsafe impl ::windows::core::Abi for GattOpenStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GattOpenStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattOpenStatus {}
 impl ::core::fmt::Debug for GattOpenStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GattOpenStatus").field(&self.0).finish()
@@ -3291,6 +3271,7 @@ impl ::windows::core::RuntimeName for GattPresentationFormatTypes {
 }
 #[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GattProtectionLevel(pub i32);
 impl GattProtectionLevel {
     pub const Plain: Self = Self(0i32);
@@ -3307,12 +3288,6 @@ impl ::core::clone::Clone for GattProtectionLevel {
 unsafe impl ::windows::core::Abi for GattProtectionLevel {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GattProtectionLevel {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattProtectionLevel {}
 impl ::core::fmt::Debug for GattProtectionLevel {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GattProtectionLevel").field(&self.0).finish()
@@ -3980,6 +3955,7 @@ unsafe impl ::core::marker::Send for GattReliableWriteTransaction {}
 unsafe impl ::core::marker::Sync for GattReliableWriteTransaction {}
 #[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GattRequestState(pub i32);
 impl GattRequestState {
     pub const Pending: Self = Self(0i32);
@@ -3995,12 +3971,6 @@ impl ::core::clone::Clone for GattRequestState {
 unsafe impl ::windows::core::Abi for GattRequestState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GattRequestState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattRequestState {}
 impl ::core::fmt::Debug for GattRequestState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GattRequestState").field(&self.0).finish()
@@ -4235,6 +4205,7 @@ unsafe impl ::core::marker::Send for GattServiceProvider {}
 unsafe impl ::core::marker::Sync for GattServiceProvider {}
 #[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GattServiceProviderAdvertisementStatus(pub i32);
 impl GattServiceProviderAdvertisementStatus {
     pub const Created: Self = Self(0i32);
@@ -4252,12 +4223,6 @@ impl ::core::clone::Clone for GattServiceProviderAdvertisementStatus {
 unsafe impl ::windows::core::Abi for GattServiceProviderAdvertisementStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GattServiceProviderAdvertisementStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattServiceProviderAdvertisementStatus {}
 impl ::core::fmt::Debug for GattServiceProviderAdvertisementStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GattServiceProviderAdvertisementStatus").field(&self.0).finish()
@@ -4934,6 +4899,7 @@ unsafe impl ::core::marker::Send for GattSession {}
 unsafe impl ::core::marker::Sync for GattSession {}
 #[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GattSessionStatus(pub i32);
 impl GattSessionStatus {
     pub const Closed: Self = Self(0i32);
@@ -4948,12 +4914,6 @@ impl ::core::clone::Clone for GattSessionStatus {
 unsafe impl ::windows::core::Abi for GattSessionStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GattSessionStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattSessionStatus {}
 impl ::core::fmt::Debug for GattSessionStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GattSessionStatus").field(&self.0).finish()
@@ -5056,6 +5016,7 @@ unsafe impl ::core::marker::Send for GattSessionStatusChangedEventArgs {}
 unsafe impl ::core::marker::Sync for GattSessionStatusChangedEventArgs {}
 #[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GattSharingMode(pub i32);
 impl GattSharingMode {
     pub const Unspecified: Self = Self(0i32);
@@ -5072,12 +5033,6 @@ impl ::core::clone::Clone for GattSharingMode {
 unsafe impl ::windows::core::Abi for GattSharingMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GattSharingMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattSharingMode {}
 impl ::core::fmt::Debug for GattSharingMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GattSharingMode").field(&self.0).finish()
@@ -5286,6 +5241,7 @@ unsafe impl ::core::marker::Send for GattValueChangedEventArgs {}
 unsafe impl ::core::marker::Sync for GattValueChangedEventArgs {}
 #[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GattWriteOption(pub i32);
 impl GattWriteOption {
     pub const WriteWithResponse: Self = Self(0i32);
@@ -5300,12 +5256,6 @@ impl ::core::clone::Clone for GattWriteOption {
 unsafe impl ::windows::core::Abi for GattWriteOption {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GattWriteOption {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GattWriteOption {}
 impl ::core::fmt::Debug for GattWriteOption {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GattWriteOption").field(&self.0).finish()

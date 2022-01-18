@@ -105,6 +105,7 @@ pub struct ISystemUpdateManagerStatics_Vtbl {
 }
 #[doc = "*Required features: 'System_Update'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SystemUpdateAttentionRequiredReason(pub i32);
 impl SystemUpdateAttentionRequiredReason {
     pub const None: Self = Self(0i32);
@@ -122,12 +123,6 @@ impl ::core::clone::Clone for SystemUpdateAttentionRequiredReason {
 unsafe impl ::windows::core::Abi for SystemUpdateAttentionRequiredReason {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SystemUpdateAttentionRequiredReason {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SystemUpdateAttentionRequiredReason {}
 impl ::core::fmt::Debug for SystemUpdateAttentionRequiredReason {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SystemUpdateAttentionRequiredReason").field(&self.0).finish()
@@ -278,6 +273,7 @@ unsafe impl ::core::marker::Send for SystemUpdateItem {}
 unsafe impl ::core::marker::Sync for SystemUpdateItem {}
 #[doc = "*Required features: 'System_Update'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SystemUpdateItemState(pub i32);
 impl SystemUpdateItemState {
     pub const NotStarted: Self = Self(0i32);
@@ -299,12 +295,6 @@ impl ::core::clone::Clone for SystemUpdateItemState {
 unsafe impl ::windows::core::Abi for SystemUpdateItemState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SystemUpdateItemState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SystemUpdateItemState {}
 impl ::core::fmt::Debug for SystemUpdateItemState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SystemUpdateItemState").field(&self.0).finish()
@@ -594,6 +584,7 @@ impl ::windows::core::RuntimeName for SystemUpdateManager {
 }
 #[doc = "*Required features: 'System_Update'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SystemUpdateManagerState(pub i32);
 impl SystemUpdateManagerState {
     pub const Idle: Self = Self(0i32);
@@ -618,12 +609,6 @@ impl ::core::clone::Clone for SystemUpdateManagerState {
 unsafe impl ::windows::core::Abi for SystemUpdateManagerState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SystemUpdateManagerState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SystemUpdateManagerState {}
 impl ::core::fmt::Debug for SystemUpdateManagerState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SystemUpdateManagerState").field(&self.0).finish()
@@ -637,6 +622,7 @@ impl ::windows::core::DefaultType for SystemUpdateManagerState {
 }
 #[doc = "*Required features: 'System_Update'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SystemUpdateStartInstallAction(pub i32);
 impl SystemUpdateStartInstallAction {
     pub const UpToReboot: Self = Self(0i32);
@@ -651,12 +637,6 @@ impl ::core::clone::Clone for SystemUpdateStartInstallAction {
 unsafe impl ::windows::core::Abi for SystemUpdateStartInstallAction {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SystemUpdateStartInstallAction {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SystemUpdateStartInstallAction {}
 impl ::core::fmt::Debug for SystemUpdateStartInstallAction {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SystemUpdateStartInstallAction").field(&self.0).finish()

@@ -190,6 +190,7 @@ impl ::windows::core::RuntimeName for ComponentRenewal {
 }
 #[doc = "*Required features: 'Media_Protection'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct GraphicsTrustStatus(pub i32);
 impl GraphicsTrustStatus {
     pub const TrustNotRequired: Self = Self(0i32);
@@ -208,12 +209,6 @@ impl ::core::clone::Clone for GraphicsTrustStatus {
 unsafe impl ::windows::core::Abi for GraphicsTrustStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for GraphicsTrustStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for GraphicsTrustStatus {}
 impl ::core::fmt::Debug for GraphicsTrustStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("GraphicsTrustStatus").field(&self.0).finish()
@@ -227,6 +222,7 @@ impl ::windows::core::DefaultType for GraphicsTrustStatus {
 }
 #[doc = "*Required features: 'Media_Protection'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HdcpProtection(pub i32);
 impl HdcpProtection {
     pub const Off: Self = Self(0i32);
@@ -242,12 +238,6 @@ impl ::core::clone::Clone for HdcpProtection {
 unsafe impl ::windows::core::Abi for HdcpProtection {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for HdcpProtection {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HdcpProtection {}
 impl ::core::fmt::Debug for HdcpProtection {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HdcpProtection").field(&self.0).finish()
@@ -414,6 +404,7 @@ unsafe impl ::core::marker::Send for HdcpSession {}
 unsafe impl ::core::marker::Sync for HdcpSession {}
 #[doc = "*Required features: 'Media_Protection'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HdcpSetProtectionResult(pub i32);
 impl HdcpSetProtectionResult {
     pub const Success: Self = Self(0i32);
@@ -430,12 +421,6 @@ impl ::core::clone::Clone for HdcpSetProtectionResult {
 unsafe impl ::windows::core::Abi for HdcpSetProtectionResult {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for HdcpSetProtectionResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HdcpSetProtectionResult {}
 impl ::core::fmt::Debug for HdcpSetProtectionResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HdcpSetProtectionResult").field(&self.0).finish()
@@ -1155,6 +1140,7 @@ unsafe impl ::core::marker::Send for ProtectionCapabilities {}
 unsafe impl ::core::marker::Sync for ProtectionCapabilities {}
 #[doc = "*Required features: 'Media_Protection'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ProtectionCapabilityResult(pub i32);
 impl ProtectionCapabilityResult {
     pub const NotSupported: Self = Self(0i32);
@@ -1170,12 +1156,6 @@ impl ::core::clone::Clone for ProtectionCapabilityResult {
 unsafe impl ::windows::core::Abi for ProtectionCapabilityResult {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ProtectionCapabilityResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ProtectionCapabilityResult {}
 impl ::core::fmt::Debug for ProtectionCapabilityResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ProtectionCapabilityResult").field(&self.0).finish()
@@ -1267,6 +1247,7 @@ pub struct RebootNeededEventHandler_Vtbl {
 }
 #[doc = "*Required features: 'Media_Protection'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct RenewalStatus(pub i32);
 impl RenewalStatus {
     pub const NotStarted: Self = Self(0i32);
@@ -1284,12 +1265,6 @@ impl ::core::clone::Clone for RenewalStatus {
 unsafe impl ::windows::core::Abi for RenewalStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RenewalStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RenewalStatus {}
 impl ::core::fmt::Debug for RenewalStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RenewalStatus").field(&self.0).finish()
@@ -1498,6 +1473,7 @@ unsafe impl ::core::marker::Send for RevocationAndRenewalItem {}
 unsafe impl ::core::marker::Sync for RevocationAndRenewalItem {}
 #[doc = "*Required features: 'Media_Protection'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct RevocationAndRenewalReasons(pub u32);
 impl RevocationAndRenewalReasons {
     pub const UserModeComponentLoad: Self = Self(1u32);
@@ -1525,12 +1501,6 @@ impl ::core::clone::Clone for RevocationAndRenewalReasons {
 unsafe impl ::windows::core::Abi for RevocationAndRenewalReasons {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for RevocationAndRenewalReasons {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for RevocationAndRenewalReasons {}
 impl ::core::fmt::Debug for RevocationAndRenewalReasons {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("RevocationAndRenewalReasons").field(&self.0).finish()

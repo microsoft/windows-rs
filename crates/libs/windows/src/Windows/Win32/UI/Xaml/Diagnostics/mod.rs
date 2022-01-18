@@ -984,6 +984,7 @@ pub unsafe fn InitializeXamlDiagnosticsEx<'a, Param0: ::windows::core::IntoParam
 }
 #[doc = "*Required features: 'Win32_UI_Xaml_Diagnostics'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MetadataBit(pub i32);
 impl MetadataBit {
     pub const None: Self = Self(0i32);
@@ -1004,12 +1005,6 @@ impl ::core::clone::Clone for MetadataBit {
 unsafe impl ::windows::core::Abi for MetadataBit {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MetadataBit {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MetadataBit {}
 impl ::core::fmt::Debug for MetadataBit {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MetadataBit").field(&self.0).finish()

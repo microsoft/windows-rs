@@ -190,6 +190,7 @@ unsafe impl ::core::marker::Send for UserNotificationListener {}
 unsafe impl ::core::marker::Sync for UserNotificationListener {}
 #[doc = "*Required features: 'UI_Notifications_Management'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserNotificationListenerAccessStatus(pub i32);
 impl UserNotificationListenerAccessStatus {
     pub const Unspecified: Self = Self(0i32);
@@ -205,12 +206,6 @@ impl ::core::clone::Clone for UserNotificationListenerAccessStatus {
 unsafe impl ::windows::core::Abi for UserNotificationListenerAccessStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UserNotificationListenerAccessStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserNotificationListenerAccessStatus {}
 impl ::core::fmt::Debug for UserNotificationListenerAccessStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserNotificationListenerAccessStatus").field(&self.0).finish()

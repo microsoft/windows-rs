@@ -379,6 +379,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Mess
 }
 #[doc = "*Required features: 'UI_Popups'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct MessageDialogOptions(pub u32);
 impl MessageDialogOptions {
     pub const None: Self = Self(0u32);
@@ -393,12 +394,6 @@ impl ::core::clone::Clone for MessageDialogOptions {
 unsafe impl ::windows::core::Abi for MessageDialogOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for MessageDialogOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for MessageDialogOptions {}
 impl ::core::fmt::Debug for MessageDialogOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("MessageDialogOptions").field(&self.0).finish()
@@ -440,6 +435,7 @@ impl ::windows::core::DefaultType for MessageDialogOptions {
 }
 #[doc = "*Required features: 'UI_Popups'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct Placement(pub i32);
 impl Placement {
     pub const Default: Self = Self(0i32);
@@ -457,12 +453,6 @@ impl ::core::clone::Clone for Placement {
 unsafe impl ::windows::core::Abi for Placement {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for Placement {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Placement {}
 impl ::core::fmt::Debug for Placement {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("Placement").field(&self.0).finish()

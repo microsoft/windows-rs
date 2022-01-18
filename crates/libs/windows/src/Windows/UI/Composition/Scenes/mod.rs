@@ -491,6 +491,7 @@ pub struct ISceneVisualStatics_Vtbl {
 }
 #[doc = "*Required features: 'UI_Composition_Scenes'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SceneAlphaMode(pub i32);
 impl SceneAlphaMode {
     pub const Opaque: Self = Self(0i32);
@@ -506,12 +507,6 @@ impl ::core::clone::Clone for SceneAlphaMode {
 unsafe impl ::windows::core::Abi for SceneAlphaMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SceneAlphaMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SceneAlphaMode {}
 impl ::core::fmt::Debug for SceneAlphaMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SceneAlphaMode").field(&self.0).finish()
@@ -525,6 +520,7 @@ impl ::windows::core::DefaultType for SceneAlphaMode {
 }
 #[doc = "*Required features: 'UI_Composition_Scenes'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SceneAttributeSemantic(pub i32);
 impl SceneAttributeSemantic {
     pub const Index: Self = Self(0i32);
@@ -544,12 +540,6 @@ impl ::core::clone::Clone for SceneAttributeSemantic {
 unsafe impl ::windows::core::Abi for SceneAttributeSemantic {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SceneAttributeSemantic {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SceneAttributeSemantic {}
 impl ::core::fmt::Debug for SceneAttributeSemantic {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SceneAttributeSemantic").field(&self.0).finish()
@@ -1591,6 +1581,7 @@ unsafe impl ::core::marker::Send for SceneComponentCollection {}
 unsafe impl ::core::marker::Sync for SceneComponentCollection {}
 #[doc = "*Required features: 'UI_Composition_Scenes'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SceneComponentType(pub i32);
 impl SceneComponentType {
     pub const MeshRendererComponent: Self = Self(0i32);
@@ -1604,12 +1595,6 @@ impl ::core::clone::Clone for SceneComponentType {
 unsafe impl ::windows::core::Abi for SceneComponentType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SceneComponentType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SceneComponentType {}
 impl ::core::fmt::Debug for SceneComponentType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SceneComponentType").field(&self.0).finish()
@@ -6690,6 +6675,7 @@ unsafe impl ::core::marker::Send for SceneVisual {}
 unsafe impl ::core::marker::Sync for SceneVisual {}
 #[doc = "*Required features: 'UI_Composition_Scenes'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SceneWrappingMode(pub i32);
 impl SceneWrappingMode {
     pub const ClampToEdge: Self = Self(0i32);
@@ -6705,12 +6691,6 @@ impl ::core::clone::Clone for SceneWrappingMode {
 unsafe impl ::windows::core::Abi for SceneWrappingMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SceneWrappingMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SceneWrappingMode {}
 impl ::core::fmt::Debug for SceneWrappingMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SceneWrappingMode").field(&self.0).finish()

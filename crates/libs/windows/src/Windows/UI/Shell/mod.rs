@@ -331,6 +331,7 @@ pub struct ITaskbarManagerStatics_Vtbl {
 }
 #[doc = "*Required features: 'UI_Shell'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SecurityAppKind(pub i32);
 impl SecurityAppKind {
     pub const WebProtection: Self = Self(0i32);
@@ -344,12 +345,6 @@ impl ::core::clone::Clone for SecurityAppKind {
 unsafe impl ::windows::core::Abi for SecurityAppKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SecurityAppKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SecurityAppKind {}
 impl ::core::fmt::Debug for SecurityAppKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SecurityAppKind").field(&self.0).finish()
@@ -463,6 +458,7 @@ unsafe impl ::core::marker::Send for SecurityAppManager {}
 unsafe impl ::core::marker::Sync for SecurityAppManager {}
 #[doc = "*Required features: 'UI_Shell'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SecurityAppState(pub i32);
 impl SecurityAppState {
     pub const Disabled: Self = Self(0i32);
@@ -477,12 +473,6 @@ impl ::core::clone::Clone for SecurityAppState {
 unsafe impl ::windows::core::Abi for SecurityAppState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SecurityAppState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SecurityAppState {}
 impl ::core::fmt::Debug for SecurityAppState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SecurityAppState").field(&self.0).finish()
@@ -496,6 +486,7 @@ impl ::windows::core::DefaultType for SecurityAppState {
 }
 #[doc = "*Required features: 'UI_Shell'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SecurityAppSubstatus(pub i32);
 impl SecurityAppSubstatus {
     pub const Undetermined: Self = Self(0i32);
@@ -512,12 +503,6 @@ impl ::core::clone::Clone for SecurityAppSubstatus {
 unsafe impl ::windows::core::Abi for SecurityAppSubstatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SecurityAppSubstatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SecurityAppSubstatus {}
 impl ::core::fmt::Debug for SecurityAppSubstatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SecurityAppSubstatus").field(&self.0).finish()
@@ -531,6 +516,7 @@ impl ::windows::core::DefaultType for SecurityAppSubstatus {
 }
 #[doc = "*Required features: 'UI_Shell'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ShareWindowCommand(pub i32);
 impl ShareWindowCommand {
     pub const None: Self = Self(0i32);
@@ -546,12 +532,6 @@ impl ::core::clone::Clone for ShareWindowCommand {
 unsafe impl ::windows::core::Abi for ShareWindowCommand {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ShareWindowCommand {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ShareWindowCommand {}
 impl ::core::fmt::Debug for ShareWindowCommand {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ShareWindowCommand").field(&self.0).finish()

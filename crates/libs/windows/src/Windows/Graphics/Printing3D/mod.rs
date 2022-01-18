@@ -1136,6 +1136,7 @@ unsafe impl ::core::marker::Send for Print3DTaskCompletedEventArgs {}
 unsafe impl ::core::marker::Sync for Print3DTaskCompletedEventArgs {}
 #[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct Print3DTaskCompletion(pub i32);
 impl Print3DTaskCompletion {
     pub const Abandoned: Self = Self(0i32);
@@ -1153,12 +1154,6 @@ impl ::core::clone::Clone for Print3DTaskCompletion {
 unsafe impl ::windows::core::Abi for Print3DTaskCompletion {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for Print3DTaskCompletion {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Print3DTaskCompletion {}
 impl ::core::fmt::Debug for Print3DTaskCompletion {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("Print3DTaskCompletion").field(&self.0).finish()
@@ -1172,6 +1167,7 @@ impl ::windows::core::DefaultType for Print3DTaskCompletion {
 }
 #[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct Print3DTaskDetail(pub i32);
 impl Print3DTaskDetail {
     pub const Unknown: Self = Self(0i32);
@@ -1191,12 +1187,6 @@ impl ::core::clone::Clone for Print3DTaskDetail {
 unsafe impl ::windows::core::Abi for Print3DTaskDetail {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for Print3DTaskDetail {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Print3DTaskDetail {}
 impl ::core::fmt::Debug for Print3DTaskDetail {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("Print3DTaskDetail").field(&self.0).finish()
@@ -2058,6 +2048,7 @@ impl ::core::default::Default for Printing3DBufferDescription {
 }
 #[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct Printing3DBufferFormat(pub i32);
 impl Printing3DBufferFormat {
     pub const Unknown: Self = Self(0i32);
@@ -2077,12 +2068,6 @@ impl ::core::clone::Clone for Printing3DBufferFormat {
 unsafe impl ::windows::core::Abi for Printing3DBufferFormat {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for Printing3DBufferFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Printing3DBufferFormat {}
 impl ::core::fmt::Debug for Printing3DBufferFormat {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("Printing3DBufferFormat").field(&self.0).finish()
@@ -3266,6 +3251,7 @@ unsafe impl ::core::marker::Send for Printing3DMesh {}
 unsafe impl ::core::marker::Sync for Printing3DMesh {}
 #[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct Printing3DMeshVerificationMode(pub i32);
 impl Printing3DMeshVerificationMode {
     pub const FindFirstError: Self = Self(0i32);
@@ -3280,12 +3266,6 @@ impl ::core::clone::Clone for Printing3DMeshVerificationMode {
 unsafe impl ::windows::core::Abi for Printing3DMeshVerificationMode {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for Printing3DMeshVerificationMode {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Printing3DMeshVerificationMode {}
 impl ::core::fmt::Debug for Printing3DMeshVerificationMode {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("Printing3DMeshVerificationMode").field(&self.0).finish()
@@ -3765,6 +3745,7 @@ unsafe impl ::core::marker::Send for Printing3DModelTexture {}
 unsafe impl ::core::marker::Sync for Printing3DModelTexture {}
 #[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct Printing3DModelUnit(pub i32);
 impl Printing3DModelUnit {
     pub const Meter: Self = Self(0i32);
@@ -3783,12 +3764,6 @@ impl ::core::clone::Clone for Printing3DModelUnit {
 unsafe impl ::windows::core::Abi for Printing3DModelUnit {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for Printing3DModelUnit {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Printing3DModelUnit {}
 impl ::core::fmt::Debug for Printing3DModelUnit {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("Printing3DModelUnit").field(&self.0).finish()
@@ -4002,6 +3977,7 @@ unsafe impl ::core::marker::Send for Printing3DMultiplePropertyMaterialGroup {}
 unsafe impl ::core::marker::Sync for Printing3DMultiplePropertyMaterialGroup {}
 #[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct Printing3DObjectType(pub i32);
 impl Printing3DObjectType {
     pub const Model: Self = Self(0i32);
@@ -4017,12 +3993,6 @@ impl ::core::clone::Clone for Printing3DObjectType {
 unsafe impl ::windows::core::Abi for Printing3DObjectType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for Printing3DObjectType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Printing3DObjectType {}
 impl ::core::fmt::Debug for Printing3DObjectType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("Printing3DObjectType").field(&self.0).finish()
@@ -4036,6 +4006,7 @@ impl ::windows::core::DefaultType for Printing3DObjectType {
 }
 #[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct Printing3DPackageCompression(pub i32);
 impl Printing3DPackageCompression {
     pub const Low: Self = Self(0i32);
@@ -4051,12 +4022,6 @@ impl ::core::clone::Clone for Printing3DPackageCompression {
 unsafe impl ::windows::core::Abi for Printing3DPackageCompression {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for Printing3DPackageCompression {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Printing3DPackageCompression {}
 impl ::core::fmt::Debug for Printing3DPackageCompression {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("Printing3DPackageCompression").field(&self.0).finish()
@@ -4304,6 +4269,7 @@ unsafe impl ::core::marker::Send for Printing3DTexture2CoordMaterialGroup {}
 unsafe impl ::core::marker::Sync for Printing3DTexture2CoordMaterialGroup {}
 #[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct Printing3DTextureEdgeBehavior(pub i32);
 impl Printing3DTextureEdgeBehavior {
     pub const None: Self = Self(0i32);
@@ -4320,12 +4286,6 @@ impl ::core::clone::Clone for Printing3DTextureEdgeBehavior {
 unsafe impl ::windows::core::Abi for Printing3DTextureEdgeBehavior {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for Printing3DTextureEdgeBehavior {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for Printing3DTextureEdgeBehavior {}
 impl ::core::fmt::Debug for Printing3DTextureEdgeBehavior {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("Printing3DTextureEdgeBehavior").field(&self.0).finish()

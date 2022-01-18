@@ -4625,6 +4625,7 @@ unsafe impl ::core::marker::Sync for PerceptionDepthFrameSourceWatcher {}
 #[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PerceptionFrameSourceAccessStatus(pub i32);
 #[cfg(feature = "deprecated")]
 impl PerceptionFrameSourceAccessStatus {
@@ -4645,14 +4646,6 @@ impl ::core::clone::Clone for PerceptionFrameSourceAccessStatus {
 unsafe impl ::windows::core::Abi for PerceptionFrameSourceAccessStatus {
     type Abi = Self;
 }
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for PerceptionFrameSourceAccessStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for PerceptionFrameSourceAccessStatus {}
 #[cfg(feature = "deprecated")]
 impl ::core::fmt::Debug for PerceptionFrameSourceAccessStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
@@ -4890,6 +4883,7 @@ unsafe impl ::core::marker::Sync for PerceptionFrameSourcePropertyChangeResult {
 #[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
 #[cfg(feature = "deprecated")]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PerceptionFrameSourcePropertyChangeStatus(pub i32);
 #[cfg(feature = "deprecated")]
 impl PerceptionFrameSourcePropertyChangeStatus {
@@ -4912,14 +4906,6 @@ impl ::core::clone::Clone for PerceptionFrameSourcePropertyChangeStatus {
 unsafe impl ::windows::core::Abi for PerceptionFrameSourcePropertyChangeStatus {
     type Abi = Self;
 }
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::PartialEq for PerceptionFrameSourcePropertyChangeStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-#[cfg(feature = "deprecated")]
-impl ::core::cmp::Eq for PerceptionFrameSourcePropertyChangeStatus {}
 #[cfg(feature = "deprecated")]
 impl ::core::fmt::Debug for PerceptionFrameSourcePropertyChangeStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {

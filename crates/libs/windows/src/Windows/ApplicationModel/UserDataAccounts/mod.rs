@@ -547,6 +547,7 @@ unsafe impl ::core::marker::Send for UserDataAccount {}
 unsafe impl ::core::marker::Sync for UserDataAccount {}
 #[doc = "*Required features: 'ApplicationModel_UserDataAccounts'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserDataAccountContentKinds(pub u32);
 impl UserDataAccountContentKinds {
     pub const Email: Self = Self(1u32);
@@ -562,12 +563,6 @@ impl ::core::clone::Clone for UserDataAccountContentKinds {
 unsafe impl ::windows::core::Abi for UserDataAccountContentKinds {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UserDataAccountContentKinds {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataAccountContentKinds {}
 impl ::core::fmt::Debug for UserDataAccountContentKinds {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserDataAccountContentKinds").field(&self.0).finish()
@@ -757,6 +752,7 @@ unsafe impl ::core::marker::Send for UserDataAccountManagerForUser {}
 unsafe impl ::core::marker::Sync for UserDataAccountManagerForUser {}
 #[doc = "*Required features: 'ApplicationModel_UserDataAccounts'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserDataAccountOtherAppReadAccess(pub i32);
 impl UserDataAccountOtherAppReadAccess {
     pub const SystemOnly: Self = Self(0i32);
@@ -772,12 +768,6 @@ impl ::core::clone::Clone for UserDataAccountOtherAppReadAccess {
 unsafe impl ::windows::core::Abi for UserDataAccountOtherAppReadAccess {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UserDataAccountOtherAppReadAccess {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataAccountOtherAppReadAccess {}
 impl ::core::fmt::Debug for UserDataAccountOtherAppReadAccess {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserDataAccountOtherAppReadAccess").field(&self.0).finish()
@@ -924,6 +914,7 @@ unsafe impl ::core::marker::Send for UserDataAccountStore {}
 unsafe impl ::core::marker::Sync for UserDataAccountStore {}
 #[doc = "*Required features: 'ApplicationModel_UserDataAccounts'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UserDataAccountStoreAccessType(pub i32);
 impl UserDataAccountStoreAccessType {
     pub const AllAccountsReadOnly: Self = Self(0i32);
@@ -938,12 +929,6 @@ impl ::core::clone::Clone for UserDataAccountStoreAccessType {
 unsafe impl ::windows::core::Abi for UserDataAccountStoreAccessType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for UserDataAccountStoreAccessType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for UserDataAccountStoreAccessType {}
 impl ::core::fmt::Debug for UserDataAccountStoreAccessType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("UserDataAccountStoreAccessType").field(&self.0).finish()

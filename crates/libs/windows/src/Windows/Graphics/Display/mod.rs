@@ -168,6 +168,7 @@ unsafe impl ::core::marker::Send for AdvancedColorInfo {}
 unsafe impl ::core::marker::Sync for AdvancedColorInfo {}
 #[doc = "*Required features: 'Graphics_Display'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AdvancedColorKind(pub i32);
 impl AdvancedColorKind {
     pub const StandardDynamicRange: Self = Self(0i32);
@@ -183,12 +184,6 @@ impl ::core::clone::Clone for AdvancedColorKind {
 unsafe impl ::windows::core::Abi for AdvancedColorKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AdvancedColorKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AdvancedColorKind {}
 impl ::core::fmt::Debug for AdvancedColorKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AdvancedColorKind").field(&self.0).finish()
@@ -607,6 +602,7 @@ unsafe impl ::core::marker::Send for ColorOverrideSettings {}
 unsafe impl ::core::marker::Sync for ColorOverrideSettings {}
 #[doc = "*Required features: 'Graphics_Display'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DisplayBrightnessOverrideOptions(pub u32);
 impl DisplayBrightnessOverrideOptions {
     pub const None: Self = Self(0u32);
@@ -621,12 +617,6 @@ impl ::core::clone::Clone for DisplayBrightnessOverrideOptions {
 unsafe impl ::windows::core::Abi for DisplayBrightnessOverrideOptions {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DisplayBrightnessOverrideOptions {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DisplayBrightnessOverrideOptions {}
 impl ::core::fmt::Debug for DisplayBrightnessOverrideOptions {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DisplayBrightnessOverrideOptions").field(&self.0).finish()
@@ -668,6 +658,7 @@ impl ::windows::core::DefaultType for DisplayBrightnessOverrideOptions {
 }
 #[doc = "*Required features: 'Graphics_Display'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DisplayBrightnessOverrideScenario(pub i32);
 impl DisplayBrightnessOverrideScenario {
     pub const IdleBrightness: Self = Self(0i32);
@@ -683,12 +674,6 @@ impl ::core::clone::Clone for DisplayBrightnessOverrideScenario {
 unsafe impl ::windows::core::Abi for DisplayBrightnessOverrideScenario {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DisplayBrightnessOverrideScenario {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DisplayBrightnessOverrideScenario {}
 impl ::core::fmt::Debug for DisplayBrightnessOverrideScenario {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DisplayBrightnessOverrideScenario").field(&self.0).finish()
@@ -702,6 +687,7 @@ impl ::windows::core::DefaultType for DisplayBrightnessOverrideScenario {
 }
 #[doc = "*Required features: 'Graphics_Display'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DisplayBrightnessScenario(pub i32);
 impl DisplayBrightnessScenario {
     pub const DefaultBrightness: Self = Self(0i32);
@@ -718,12 +704,6 @@ impl ::core::clone::Clone for DisplayBrightnessScenario {
 unsafe impl ::windows::core::Abi for DisplayBrightnessScenario {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DisplayBrightnessScenario {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DisplayBrightnessScenario {}
 impl ::core::fmt::Debug for DisplayBrightnessScenario {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DisplayBrightnessScenario").field(&self.0).finish()
@@ -737,6 +717,7 @@ impl ::windows::core::DefaultType for DisplayBrightnessScenario {
 }
 #[doc = "*Required features: 'Graphics_Display'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DisplayColorOverrideScenario(pub i32);
 impl DisplayColorOverrideScenario {
     pub const Accurate: Self = Self(0i32);
@@ -750,12 +731,6 @@ impl ::core::clone::Clone for DisplayColorOverrideScenario {
 unsafe impl ::windows::core::Abi for DisplayColorOverrideScenario {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DisplayColorOverrideScenario {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DisplayColorOverrideScenario {}
 impl ::core::fmt::Debug for DisplayColorOverrideScenario {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DisplayColorOverrideScenario").field(&self.0).finish()
@@ -1428,6 +1403,7 @@ unsafe impl ::core::marker::Send for DisplayInformation {}
 unsafe impl ::core::marker::Sync for DisplayInformation {}
 #[doc = "*Required features: 'Graphics_Display'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DisplayOrientations(pub u32);
 impl DisplayOrientations {
     pub const None: Self = Self(0u32);
@@ -1445,12 +1421,6 @@ impl ::core::clone::Clone for DisplayOrientations {
 unsafe impl ::windows::core::Abi for DisplayOrientations {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DisplayOrientations {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DisplayOrientations {}
 impl ::core::fmt::Debug for DisplayOrientations {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DisplayOrientations").field(&self.0).finish()
@@ -1812,6 +1782,7 @@ unsafe impl ::core::marker::Send for DisplayServices {}
 unsafe impl ::core::marker::Sync for DisplayServices {}
 #[doc = "*Required features: 'Graphics_Display'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HdrMetadataFormat(pub i32);
 impl HdrMetadataFormat {
     pub const Hdr10: Self = Self(0i32);
@@ -1826,12 +1797,6 @@ impl ::core::clone::Clone for HdrMetadataFormat {
 unsafe impl ::windows::core::Abi for HdrMetadataFormat {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for HdrMetadataFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for HdrMetadataFormat {}
 impl ::core::fmt::Debug for HdrMetadataFormat {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("HdrMetadataFormat").field(&self.0).finish()
@@ -2378,6 +2343,7 @@ impl ::core::default::Default for NitRange {
 }
 #[doc = "*Required features: 'Graphics_Display'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ResolutionScale(pub i32);
 impl ResolutionScale {
     pub const Invalid: Self = Self(0i32);
@@ -2407,12 +2373,6 @@ impl ::core::clone::Clone for ResolutionScale {
 unsafe impl ::windows::core::Abi for ResolutionScale {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ResolutionScale {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ResolutionScale {}
 impl ::core::fmt::Debug for ResolutionScale {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ResolutionScale").field(&self.0).finish()

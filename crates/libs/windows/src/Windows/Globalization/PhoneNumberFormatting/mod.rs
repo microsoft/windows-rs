@@ -81,6 +81,7 @@ pub struct IPhoneNumberInfoStatics_Vtbl {
 }
 #[doc = "*Required features: 'Globalization_PhoneNumberFormatting'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhoneNumberFormat(pub i32);
 impl PhoneNumberFormat {
     pub const E164: Self = Self(0i32);
@@ -97,12 +98,6 @@ impl ::core::clone::Clone for PhoneNumberFormat {
 unsafe impl ::windows::core::Abi for PhoneNumberFormat {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhoneNumberFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneNumberFormat {}
 impl ::core::fmt::Debug for PhoneNumberFormat {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhoneNumberFormat").field(&self.0).finish()
@@ -469,6 +464,7 @@ unsafe impl ::core::marker::Send for PhoneNumberInfo {}
 unsafe impl ::core::marker::Sync for PhoneNumberInfo {}
 #[doc = "*Required features: 'Globalization_PhoneNumberFormatting'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhoneNumberMatchResult(pub i32);
 impl PhoneNumberMatchResult {
     pub const NoMatch: Self = Self(0i32);
@@ -485,12 +481,6 @@ impl ::core::clone::Clone for PhoneNumberMatchResult {
 unsafe impl ::windows::core::Abi for PhoneNumberMatchResult {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhoneNumberMatchResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneNumberMatchResult {}
 impl ::core::fmt::Debug for PhoneNumberMatchResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhoneNumberMatchResult").field(&self.0).finish()
@@ -504,6 +494,7 @@ impl ::windows::core::DefaultType for PhoneNumberMatchResult {
 }
 #[doc = "*Required features: 'Globalization_PhoneNumberFormatting'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PhoneNumberParseResult(pub i32);
 impl PhoneNumberParseResult {
     pub const Valid: Self = Self(0i32);
@@ -521,12 +512,6 @@ impl ::core::clone::Clone for PhoneNumberParseResult {
 unsafe impl ::windows::core::Abi for PhoneNumberParseResult {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PhoneNumberParseResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PhoneNumberParseResult {}
 impl ::core::fmt::Debug for PhoneNumberParseResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PhoneNumberParseResult").field(&self.0).finish()
@@ -540,6 +525,7 @@ impl ::windows::core::DefaultType for PhoneNumberParseResult {
 }
 #[doc = "*Required features: 'Globalization_PhoneNumberFormatting'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PredictedPhoneNumberKind(pub i32);
 impl PredictedPhoneNumberKind {
     pub const FixedLine: Self = Self(0i32);
@@ -564,12 +550,6 @@ impl ::core::clone::Clone for PredictedPhoneNumberKind {
 unsafe impl ::windows::core::Abi for PredictedPhoneNumberKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PredictedPhoneNumberKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PredictedPhoneNumberKind {}
 impl ::core::fmt::Debug for PredictedPhoneNumberKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PredictedPhoneNumberKind").field(&self.0).finish()

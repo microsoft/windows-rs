@@ -116,6 +116,7 @@ unsafe impl ::core::marker::Send for AppListEntry {}
 unsafe impl ::core::marker::Sync for AppListEntry {}
 #[doc = "*Required features: 'ApplicationModel_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct AppRestartFailureReason(pub i32);
 impl AppRestartFailureReason {
     pub const RestartPending: Self = Self(0i32);
@@ -132,12 +133,6 @@ impl ::core::clone::Clone for AppRestartFailureReason {
 unsafe impl ::windows::core::Abi for AppRestartFailureReason {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for AppRestartFailureReason {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for AppRestartFailureReason {}
 impl ::core::fmt::Debug for AppRestartFailureReason {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("AppRestartFailureReason").field(&self.0).finish()

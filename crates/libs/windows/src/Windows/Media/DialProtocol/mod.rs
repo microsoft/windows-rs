@@ -109,6 +109,7 @@ unsafe impl ::core::marker::Send for DialApp {}
 unsafe impl ::core::marker::Sync for DialApp {}
 #[doc = "*Required features: 'Media_DialProtocol'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DialAppLaunchResult(pub i32);
 impl DialAppLaunchResult {
     pub const Launched: Self = Self(0i32);
@@ -125,12 +126,6 @@ impl ::core::clone::Clone for DialAppLaunchResult {
 unsafe impl ::windows::core::Abi for DialAppLaunchResult {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DialAppLaunchResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DialAppLaunchResult {}
 impl ::core::fmt::Debug for DialAppLaunchResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DialAppLaunchResult").field(&self.0).finish()
@@ -144,6 +139,7 @@ impl ::windows::core::DefaultType for DialAppLaunchResult {
 }
 #[doc = "*Required features: 'Media_DialProtocol'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DialAppState(pub i32);
 impl DialAppState {
     pub const Unknown: Self = Self(0i32);
@@ -160,12 +156,6 @@ impl ::core::clone::Clone for DialAppState {
 unsafe impl ::windows::core::Abi for DialAppState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DialAppState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DialAppState {}
 impl ::core::fmt::Debug for DialAppState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DialAppState").field(&self.0).finish()
@@ -268,6 +258,7 @@ unsafe impl ::core::marker::Send for DialAppStateDetails {}
 unsafe impl ::core::marker::Sync for DialAppStateDetails {}
 #[doc = "*Required features: 'Media_DialProtocol'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DialAppStopResult(pub i32);
 impl DialAppStopResult {
     pub const Stopped: Self = Self(0i32);
@@ -284,12 +275,6 @@ impl ::core::clone::Clone for DialAppStopResult {
 unsafe impl ::windows::core::Abi for DialAppStopResult {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DialAppStopResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DialAppStopResult {}
 impl ::core::fmt::Debug for DialAppStopResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DialAppStopResult").field(&self.0).finish()
@@ -437,6 +422,7 @@ unsafe impl ::core::marker::Send for DialDevice {}
 unsafe impl ::core::marker::Sync for DialDevice {}
 #[doc = "*Required features: 'Media_DialProtocol'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DialDeviceDisplayStatus(pub i32);
 impl DialDeviceDisplayStatus {
     pub const None: Self = Self(0i32);
@@ -455,12 +441,6 @@ impl ::core::clone::Clone for DialDeviceDisplayStatus {
 unsafe impl ::windows::core::Abi for DialDeviceDisplayStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DialDeviceDisplayStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DialDeviceDisplayStatus {}
 impl ::core::fmt::Debug for DialDeviceDisplayStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DialDeviceDisplayStatus").field(&self.0).finish()

@@ -731,6 +731,7 @@ unsafe impl ::core::marker::Send for PdfPageRenderOptions {}
 unsafe impl ::core::marker::Sync for PdfPageRenderOptions {}
 #[doc = "*Required features: 'Data_Pdf'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PdfPageRotation(pub i32);
 impl PdfPageRotation {
     pub const Normal: Self = Self(0i32);
@@ -747,12 +748,6 @@ impl ::core::clone::Clone for PdfPageRotation {
 unsafe impl ::windows::core::Abi for PdfPageRotation {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for PdfPageRotation {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PdfPageRotation {}
 impl ::core::fmt::Debug for PdfPageRotation {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("PdfPageRotation").field(&self.0).finish()

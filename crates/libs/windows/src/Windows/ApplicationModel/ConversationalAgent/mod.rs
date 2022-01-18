@@ -427,6 +427,7 @@ unsafe impl ::core::marker::Send for ActivationSignalDetectionConfigurationCreat
 unsafe impl ::core::marker::Sync for ActivationSignalDetectionConfigurationCreationResult {}
 #[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ActivationSignalDetectionConfigurationCreationStatus(pub i32);
 impl ActivationSignalDetectionConfigurationCreationStatus {
     pub const Success: Self = Self(0i32);
@@ -447,12 +448,6 @@ impl ::core::clone::Clone for ActivationSignalDetectionConfigurationCreationStat
 unsafe impl ::windows::core::Abi for ActivationSignalDetectionConfigurationCreationStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ActivationSignalDetectionConfigurationCreationStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ActivationSignalDetectionConfigurationCreationStatus {}
 impl ::core::fmt::Debug for ActivationSignalDetectionConfigurationCreationStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ActivationSignalDetectionConfigurationCreationStatus").field(&self.0).finish()
@@ -466,6 +461,7 @@ impl ::windows::core::DefaultType for ActivationSignalDetectionConfigurationCrea
 }
 #[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ActivationSignalDetectionConfigurationRemovalResult(pub i32);
 impl ActivationSignalDetectionConfigurationRemovalResult {
     pub const Success: Self = Self(0i32);
@@ -482,12 +478,6 @@ impl ::core::clone::Clone for ActivationSignalDetectionConfigurationRemovalResul
 unsafe impl ::windows::core::Abi for ActivationSignalDetectionConfigurationRemovalResult {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ActivationSignalDetectionConfigurationRemovalResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ActivationSignalDetectionConfigurationRemovalResult {}
 impl ::core::fmt::Debug for ActivationSignalDetectionConfigurationRemovalResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ActivationSignalDetectionConfigurationRemovalResult").field(&self.0).finish()
@@ -501,6 +491,7 @@ impl ::windows::core::DefaultType for ActivationSignalDetectionConfigurationRemo
 }
 #[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ActivationSignalDetectionConfigurationSetModelDataResult(pub i32);
 impl ActivationSignalDetectionConfigurationSetModelDataResult {
     pub const Success: Self = Self(0i32);
@@ -521,12 +512,6 @@ impl ::core::clone::Clone for ActivationSignalDetectionConfigurationSetModelData
 unsafe impl ::windows::core::Abi for ActivationSignalDetectionConfigurationSetModelDataResult {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ActivationSignalDetectionConfigurationSetModelDataResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ActivationSignalDetectionConfigurationSetModelDataResult {}
 impl ::core::fmt::Debug for ActivationSignalDetectionConfigurationSetModelDataResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ActivationSignalDetectionConfigurationSetModelDataResult").field(&self.0).finish()
@@ -540,6 +525,7 @@ impl ::windows::core::DefaultType for ActivationSignalDetectionConfigurationSetM
 }
 #[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ActivationSignalDetectionConfigurationStateChangeResult(pub i32);
 impl ActivationSignalDetectionConfigurationStateChangeResult {
     pub const Success: Self = Self(0i32);
@@ -555,12 +541,6 @@ impl ::core::clone::Clone for ActivationSignalDetectionConfigurationStateChangeR
 unsafe impl ::windows::core::Abi for ActivationSignalDetectionConfigurationStateChangeResult {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ActivationSignalDetectionConfigurationStateChangeResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ActivationSignalDetectionConfigurationStateChangeResult {}
 impl ::core::fmt::Debug for ActivationSignalDetectionConfigurationStateChangeResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ActivationSignalDetectionConfigurationStateChangeResult").field(&self.0).finish()
@@ -574,6 +554,7 @@ impl ::windows::core::DefaultType for ActivationSignalDetectionConfigurationStat
 }
 #[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ActivationSignalDetectionTrainingDataFormat(pub i32);
 impl ActivationSignalDetectionTrainingDataFormat {
     pub const Voice8kHz8BitMono: Self = Self(0i32);
@@ -597,12 +578,6 @@ impl ::core::clone::Clone for ActivationSignalDetectionTrainingDataFormat {
 unsafe impl ::windows::core::Abi for ActivationSignalDetectionTrainingDataFormat {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ActivationSignalDetectionTrainingDataFormat {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ActivationSignalDetectionTrainingDataFormat {}
 impl ::core::fmt::Debug for ActivationSignalDetectionTrainingDataFormat {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ActivationSignalDetectionTrainingDataFormat").field(&self.0).finish()
@@ -881,6 +856,7 @@ unsafe impl ::core::marker::Send for ActivationSignalDetector {}
 unsafe impl ::core::marker::Sync for ActivationSignalDetector {}
 #[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ActivationSignalDetectorKind(pub i32);
 impl ActivationSignalDetectorKind {
     pub const AudioPattern: Self = Self(0i32);
@@ -896,12 +872,6 @@ impl ::core::clone::Clone for ActivationSignalDetectorKind {
 unsafe impl ::windows::core::Abi for ActivationSignalDetectorKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ActivationSignalDetectorKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ActivationSignalDetectorKind {}
 impl ::core::fmt::Debug for ActivationSignalDetectorKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ActivationSignalDetectorKind").field(&self.0).finish()
@@ -915,6 +885,7 @@ impl ::windows::core::DefaultType for ActivationSignalDetectorKind {
 }
 #[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ActivationSignalDetectorPowerState(pub i32);
 impl ActivationSignalDetectorPowerState {
     pub const HighPower: Self = Self(0i32);
@@ -930,12 +901,6 @@ impl ::core::clone::Clone for ActivationSignalDetectorPowerState {
 unsafe impl ::windows::core::Abi for ActivationSignalDetectorPowerState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ActivationSignalDetectorPowerState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ActivationSignalDetectorPowerState {}
 impl ::core::fmt::Debug for ActivationSignalDetectorPowerState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ActivationSignalDetectorPowerState").field(&self.0).finish()
@@ -949,6 +914,7 @@ impl ::windows::core::DefaultType for ActivationSignalDetectorPowerState {
 }
 #[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ConversationalAgentActivationKind(pub i32);
 impl ConversationalAgentActivationKind {
     pub const VoiceActivationPreview: Self = Self(0i32);
@@ -963,12 +929,6 @@ impl ::core::clone::Clone for ConversationalAgentActivationKind {
 unsafe impl ::windows::core::Abi for ConversationalAgentActivationKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ConversationalAgentActivationKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ConversationalAgentActivationKind {}
 impl ::core::fmt::Debug for ConversationalAgentActivationKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ConversationalAgentActivationKind").field(&self.0).finish()
@@ -982,6 +942,7 @@ impl ::windows::core::DefaultType for ConversationalAgentActivationKind {
 }
 #[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ConversationalAgentActivationResult(pub i32);
 impl ConversationalAgentActivationResult {
     pub const Success: Self = Self(0i32);
@@ -998,12 +959,6 @@ impl ::core::clone::Clone for ConversationalAgentActivationResult {
 unsafe impl ::windows::core::Abi for ConversationalAgentActivationResult {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ConversationalAgentActivationResult {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ConversationalAgentActivationResult {}
 impl ::core::fmt::Debug for ConversationalAgentActivationResult {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ConversationalAgentActivationResult").field(&self.0).finish()
@@ -1682,6 +1637,7 @@ unsafe impl ::core::marker::Send for ConversationalAgentSessionInterruptedEventA
 unsafe impl ::core::marker::Sync for ConversationalAgentSessionInterruptedEventArgs {}
 #[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ConversationalAgentSessionUpdateResponse(pub i32);
 impl ConversationalAgentSessionUpdateResponse {
     pub const Success: Self = Self(0i32);
@@ -1696,12 +1652,6 @@ impl ::core::clone::Clone for ConversationalAgentSessionUpdateResponse {
 unsafe impl ::windows::core::Abi for ConversationalAgentSessionUpdateResponse {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ConversationalAgentSessionUpdateResponse {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ConversationalAgentSessionUpdateResponse {}
 impl ::core::fmt::Debug for ConversationalAgentSessionUpdateResponse {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ConversationalAgentSessionUpdateResponse").field(&self.0).finish()
@@ -1958,6 +1908,7 @@ unsafe impl ::core::marker::Send for ConversationalAgentSignalDetectedEventArgs 
 unsafe impl ::core::marker::Sync for ConversationalAgentSignalDetectedEventArgs {}
 #[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ConversationalAgentState(pub i32);
 impl ConversationalAgentState {
     pub const Inactive: Self = Self(0i32);
@@ -1976,12 +1927,6 @@ impl ::core::clone::Clone for ConversationalAgentState {
 unsafe impl ::windows::core::Abi for ConversationalAgentState {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ConversationalAgentState {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ConversationalAgentState {}
 impl ::core::fmt::Debug for ConversationalAgentState {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ConversationalAgentState").field(&self.0).finish()
@@ -1995,6 +1940,7 @@ impl ::windows::core::DefaultType for ConversationalAgentState {
 }
 #[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ConversationalAgentSystemStateChangeType(pub i32);
 impl ConversationalAgentSystemStateChangeType {
     pub const UserAuthentication: Self = Self(0i32);
@@ -2011,12 +1957,6 @@ impl ::core::clone::Clone for ConversationalAgentSystemStateChangeType {
 unsafe impl ::windows::core::Abi for ConversationalAgentSystemStateChangeType {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ConversationalAgentSystemStateChangeType {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ConversationalAgentSystemStateChangeType {}
 impl ::core::fmt::Debug for ConversationalAgentSystemStateChangeType {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ConversationalAgentSystemStateChangeType").field(&self.0).finish()
@@ -2111,6 +2051,7 @@ unsafe impl ::core::marker::Send for ConversationalAgentSystemStateChangedEventA
 unsafe impl ::core::marker::Sync for ConversationalAgentSystemStateChangedEventArgs {}
 #[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct ConversationalAgentVoiceActivationPrerequisiteKind(pub i32);
 impl ConversationalAgentVoiceActivationPrerequisiteKind {
     pub const MicrophonePermission: Self = Self(0i32);
@@ -2129,12 +2070,6 @@ impl ::core::clone::Clone for ConversationalAgentVoiceActivationPrerequisiteKind
 unsafe impl ::windows::core::Abi for ConversationalAgentVoiceActivationPrerequisiteKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for ConversationalAgentVoiceActivationPrerequisiteKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for ConversationalAgentVoiceActivationPrerequisiteKind {}
 impl ::core::fmt::Debug for ConversationalAgentVoiceActivationPrerequisiteKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("ConversationalAgentVoiceActivationPrerequisiteKind").field(&self.0).finish()
@@ -2148,6 +2083,7 @@ impl ::windows::core::DefaultType for ConversationalAgentVoiceActivationPrerequi
 }
 #[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DetectionConfigurationAvailabilityChangeKind(pub i32);
 impl DetectionConfigurationAvailabilityChangeKind {
     pub const SystemResourceAccess: Self = Self(0i32);
@@ -2163,12 +2099,6 @@ impl ::core::clone::Clone for DetectionConfigurationAvailabilityChangeKind {
 unsafe impl ::windows::core::Abi for DetectionConfigurationAvailabilityChangeKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DetectionConfigurationAvailabilityChangeKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DetectionConfigurationAvailabilityChangeKind {}
 impl ::core::fmt::Debug for DetectionConfigurationAvailabilityChangeKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DetectionConfigurationAvailabilityChangeKind").field(&self.0).finish()
@@ -2377,6 +2307,7 @@ unsafe impl ::core::marker::Send for DetectionConfigurationAvailabilityInfo {}
 unsafe impl ::core::marker::Sync for DetectionConfigurationAvailabilityInfo {}
 #[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct DetectionConfigurationTrainingStatus(pub i32);
 impl DetectionConfigurationTrainingStatus {
     pub const Success: Self = Self(0i32);
@@ -2399,12 +2330,6 @@ impl ::core::clone::Clone for DetectionConfigurationTrainingStatus {
 unsafe impl ::windows::core::Abi for DetectionConfigurationTrainingStatus {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for DetectionConfigurationTrainingStatus {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for DetectionConfigurationTrainingStatus {}
 impl ::core::fmt::Debug for DetectionConfigurationTrainingStatus {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("DetectionConfigurationTrainingStatus").field(&self.0).finish()
@@ -2956,6 +2881,7 @@ pub struct IDetectionConfigurationAvailabilityInfo2_Vtbl {
 }
 #[doc = "*Required features: 'ApplicationModel_ConversationalAgent'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct SignalDetectorResourceKind(pub i32);
 impl SignalDetectorResourceKind {
     pub const ParallelModelSupport: Self = Self(0i32);
@@ -2982,12 +2908,6 @@ impl ::core::clone::Clone for SignalDetectorResourceKind {
 unsafe impl ::windows::core::Abi for SignalDetectorResourceKind {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for SignalDetectorResourceKind {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for SignalDetectorResourceKind {}
 impl ::core::fmt::Debug for SignalDetectorResourceKind {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("SignalDetectorResourceKind").field(&self.0).finish()

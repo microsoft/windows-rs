@@ -446,6 +446,7 @@ unsafe impl ::core::marker::Send for CoreInkPresenterHost {}
 unsafe impl ::core::marker::Sync for CoreInkPresenterHost {}
 #[doc = "*Required features: 'UI_Input_Inking_Core'*"]
 #[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct CoreWetStrokeDisposition(pub i32);
 impl CoreWetStrokeDisposition {
     pub const Inking: Self = Self(0i32);
@@ -461,12 +462,6 @@ impl ::core::clone::Clone for CoreWetStrokeDisposition {
 unsafe impl ::windows::core::Abi for CoreWetStrokeDisposition {
     type Abi = Self;
 }
-impl ::core::cmp::PartialEq for CoreWetStrokeDisposition {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for CoreWetStrokeDisposition {}
 impl ::core::fmt::Debug for CoreWetStrokeDisposition {
     fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
         f.debug_tuple("CoreWetStrokeDisposition").field(&self.0).finish()
