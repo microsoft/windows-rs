@@ -19,19 +19,19 @@ impl CustomMapTileDataSource {
         unsafe { (::windows::core::Interface::vtable(this).RemoveBitmapRequested)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
-    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<CustomMapTileDataSource> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::ICustomMapTileDataSourceFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<CustomMapTileDataSource>(result__)
-            })
-        } else {
-            Self::ICustomMapTileDataSourceFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<CustomMapTileDataSource>(result__)
-            })
-        }
+    pub fn new() -> ::windows::core::Result<CustomMapTileDataSource> {
+        Self::ICustomMapTileDataSourceFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<CustomMapTileDataSource>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
+    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<CustomMapTileDataSource> {
+        Self::ICustomMapTileDataSourceFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<CustomMapTileDataSource>(result__)
+        })
     }
     #[doc(hidden)]
     pub fn ICustomMapTileDataSourceFactory<R, F: FnOnce(&ICustomMapTileDataSourceFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -202,34 +202,34 @@ impl HttpMapTileDataSource {
         unsafe { (::windows::core::Interface::vtable(this).RemoveUriRequested)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
-    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<HttpMapTileDataSource> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::IHttpMapTileDataSourceFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<HttpMapTileDataSource>(result__)
-            })
-        } else {
-            Self::IHttpMapTileDataSourceFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<HttpMapTileDataSource>(result__)
-            })
-        }
+    pub fn new() -> ::windows::core::Result<HttpMapTileDataSource> {
+        Self::IHttpMapTileDataSourceFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<HttpMapTileDataSource>(result__)
+        })
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
-    pub fn CreateInstanceWithUriFormatString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, T: ::windows::core::Compose>(uriformatstring: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<HttpMapTileDataSource> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::IHttpMapTileDataSourceFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstanceWithUriFormatString)(::core::mem::transmute_copy(this), uriformatstring.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<HttpMapTileDataSource>(result__)
-            })
-        } else {
-            Self::IHttpMapTileDataSourceFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstanceWithUriFormatString)(::core::mem::transmute_copy(this), uriformatstring.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<HttpMapTileDataSource>(result__)
-            })
-        }
+    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<HttpMapTileDataSource> {
+        Self::IHttpMapTileDataSourceFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<HttpMapTileDataSource>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
+    pub fn CreateInstanceWithUriFormatString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(uriformatstring: Param0) -> ::windows::core::Result<HttpMapTileDataSource> {
+        Self::IHttpMapTileDataSourceFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstanceWithUriFormatString)(::core::mem::transmute_copy(this), uriformatstring.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<HttpMapTileDataSource>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
+    pub fn CreateInstanceWithUriFormatString_compose<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, T: ::windows::core::Compose>(uriformatstring: Param0, compose: T) -> ::windows::core::Result<HttpMapTileDataSource> {
+        Self::IHttpMapTileDataSourceFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstanceWithUriFormatString)(::core::mem::transmute_copy(this), uriformatstring.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<HttpMapTileDataSource>(result__)
+        })
     }
     #[doc(hidden)]
     pub fn IHttpMapTileDataSourceFactory<R, F: FnOnce(&IHttpMapTileDataSourceFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -2934,34 +2934,34 @@ impl LocalMapTileDataSource {
         unsafe { (::windows::core::Interface::vtable(this).RemoveUriRequested)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
-    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<LocalMapTileDataSource> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::ILocalMapTileDataSourceFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<LocalMapTileDataSource>(result__)
-            })
-        } else {
-            Self::ILocalMapTileDataSourceFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<LocalMapTileDataSource>(result__)
-            })
-        }
+    pub fn new() -> ::windows::core::Result<LocalMapTileDataSource> {
+        Self::ILocalMapTileDataSourceFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<LocalMapTileDataSource>(result__)
+        })
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
-    pub fn CreateInstanceWithUriFormatString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, T: ::windows::core::Compose>(uriformatstring: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<LocalMapTileDataSource> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::ILocalMapTileDataSourceFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstanceWithUriFormatString)(::core::mem::transmute_copy(this), uriformatstring.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<LocalMapTileDataSource>(result__)
-            })
-        } else {
-            Self::ILocalMapTileDataSourceFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstanceWithUriFormatString)(::core::mem::transmute_copy(this), uriformatstring.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<LocalMapTileDataSource>(result__)
-            })
-        }
+    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<LocalMapTileDataSource> {
+        Self::ILocalMapTileDataSourceFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<LocalMapTileDataSource>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
+    pub fn CreateInstanceWithUriFormatString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(uriformatstring: Param0) -> ::windows::core::Result<LocalMapTileDataSource> {
+        Self::ILocalMapTileDataSourceFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstanceWithUriFormatString)(::core::mem::transmute_copy(this), uriformatstring.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<LocalMapTileDataSource>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
+    pub fn CreateInstanceWithUriFormatString_compose<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, T: ::windows::core::Compose>(uriformatstring: Param0, compose: T) -> ::windows::core::Result<LocalMapTileDataSource> {
+        Self::ILocalMapTileDataSourceFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstanceWithUriFormatString)(::core::mem::transmute_copy(this), uriformatstring.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<LocalMapTileDataSource>(result__)
+        })
     }
     #[doc(hidden)]
     pub fn ILocalMapTileDataSourceFactory<R, F: FnOnce(&ILocalMapTileDataSourceFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -6464,19 +6464,19 @@ unsafe impl ::core::marker::Sync for MapControlTransitFeatureRightTappedEventArg
 pub struct MapCustomExperience(::windows::core::IUnknown);
 impl MapCustomExperience {
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
-    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<MapCustomExperience> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::IMapCustomExperienceFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapCustomExperience>(result__)
-            })
-        } else {
-            Self::IMapCustomExperienceFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapCustomExperience>(result__)
-            })
-        }
+    pub fn new() -> ::windows::core::Result<MapCustomExperience> {
+        Self::IMapCustomExperienceFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapCustomExperience>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
+    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<MapCustomExperience> {
+        Self::IMapCustomExperienceFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapCustomExperience>(result__)
+        })
     }
     #[doc(hidden)]
     pub fn IMapCustomExperienceFactory<R, F: FnOnce(&IMapCustomExperienceFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -6748,19 +6748,19 @@ impl MapElement {
         unsafe { (::windows::core::Interface::vtable(this).SetIsEnabled)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
-    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<MapElement> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::IMapElementFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapElement>(result__)
-            })
-        } else {
-            Self::IMapElementFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapElement>(result__)
-            })
-        }
+    pub fn new() -> ::windows::core::Result<MapElement> {
+        Self::IMapElementFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapElement>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
+    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<MapElement> {
+        Self::IMapElementFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapElement>(result__)
+        })
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
     pub fn ZIndexProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
@@ -8733,19 +8733,19 @@ impl MapLayer {
         unsafe { (::windows::core::Interface::vtable(this).SetZIndex)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
-    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<MapLayer> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::IMapLayerFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapLayer>(result__)
-            })
-        } else {
-            Self::IMapLayerFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapLayer>(result__)
-            })
-        }
+    pub fn new() -> ::windows::core::Result<MapLayer> {
+        Self::IMapLayerFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapLayer>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
+    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<MapLayer> {
+        Self::IMapLayerFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapLayer>(result__)
+        })
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
     pub fn MapTabIndexProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
@@ -8902,19 +8902,19 @@ impl ::windows::core::DefaultType for MapLoadingStatus {
 pub struct MapModel3D(::windows::core::IUnknown);
 impl MapModel3D {
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
-    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<MapModel3D> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::IMapModel3DFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapModel3D>(result__)
-            })
-        } else {
-            Self::IMapModel3DFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapModel3D>(result__)
-            })
-        }
+    pub fn new() -> ::windows::core::Result<MapModel3D> {
+        Self::IMapModel3DFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapModel3D>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
+    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<MapModel3D> {
+        Self::IMapModel3DFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapModel3D>(result__)
+        })
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps', 'Foundation', 'Storage_Streams'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
@@ -9670,19 +9670,20 @@ impl MapRouteView {
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps', 'Services_Maps'*"]
     #[cfg(feature = "Services_Maps")]
-    pub fn CreateInstanceWithMapRoute<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Services::Maps::MapRoute>, T: ::windows::core::Compose>(route: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<MapRouteView> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::IMapRouteViewFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstanceWithMapRoute)(::core::mem::transmute_copy(this), route.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapRouteView>(result__)
-            })
-        } else {
-            Self::IMapRouteViewFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstanceWithMapRoute)(::core::mem::transmute_copy(this), route.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapRouteView>(result__)
-            })
-        }
+    pub fn CreateInstanceWithMapRoute<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Services::Maps::MapRoute>>(route: Param0) -> ::windows::core::Result<MapRouteView> {
+        Self::IMapRouteViewFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstanceWithMapRoute)(::core::mem::transmute_copy(this), route.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapRouteView>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml_Controls_Maps', 'Services_Maps'*"]
+    #[cfg(feature = "Services_Maps")]
+    pub fn CreateInstanceWithMapRoute_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Services::Maps::MapRoute>, T: ::windows::core::Compose>(route: Param0, compose: T) -> ::windows::core::Result<MapRouteView> {
+        Self::IMapRouteViewFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstanceWithMapRoute)(::core::mem::transmute_copy(this), route.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapRouteView>(result__)
+        })
     }
     #[doc(hidden)]
     pub fn IMapRouteViewFactory<R, F: FnOnce(&IMapRouteViewFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -11097,19 +11098,19 @@ unsafe impl ::core::marker::Sync for MapTileBitmapRequestedEventArgs {}
 pub struct MapTileDataSource(::windows::core::IUnknown);
 impl MapTileDataSource {
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
-    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<MapTileDataSource> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::IMapTileDataSourceFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapTileDataSource>(result__)
-            })
-        } else {
-            Self::IMapTileDataSourceFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapTileDataSource>(result__)
-            })
-        }
+    pub fn new() -> ::windows::core::Result<MapTileDataSource> {
+        Self::IMapTileDataSourceFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapTileDataSource>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
+    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<MapTileDataSource> {
+        Self::IMapTileDataSourceFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapTileDataSource>(result__)
+        })
     }
     #[doc(hidden)]
     pub fn IMapTileDataSourceFactory<R, F: FnOnce(&IMapTileDataSourceFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -11450,81 +11451,83 @@ impl MapTileSource {
         unsafe { (::windows::core::Interface::vtable(this).Stop)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
-    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<MapTileSource> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::IMapTileSourceFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
-            })
-        } else {
-            Self::IMapTileSourceFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
-            })
-        }
+    pub fn new() -> ::windows::core::Result<MapTileSource> {
+        Self::IMapTileSourceFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
+        })
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
-    pub fn CreateInstanceWithDataSource<'a, Param0: ::windows::core::IntoParam<'a, MapTileDataSource>, T: ::windows::core::Compose>(datasource: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<MapTileSource> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::IMapTileSourceFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstanceWithDataSource)(::core::mem::transmute_copy(this), datasource.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
-            })
-        } else {
-            Self::IMapTileSourceFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstanceWithDataSource)(::core::mem::transmute_copy(this), datasource.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
-            })
-        }
+    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<MapTileSource> {
+        Self::IMapTileSourceFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
+        })
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
-    pub fn CreateInstanceWithDataSourceAndZoomRange<'a, Param0: ::windows::core::IntoParam<'a, MapTileDataSource>, Param1: ::windows::core::IntoParam<'a, MapZoomLevelRange>, T: ::windows::core::Compose>(datasource: Param0, zoomlevelrange: Param1, compose: ::core::option::Option<T>) -> ::windows::core::Result<MapTileSource> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::IMapTileSourceFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstanceWithDataSourceAndZoomRange)(::core::mem::transmute_copy(this), datasource.into_param().abi(), zoomlevelrange.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
-            })
-        } else {
-            Self::IMapTileSourceFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstanceWithDataSourceAndZoomRange)(::core::mem::transmute_copy(this), datasource.into_param().abi(), zoomlevelrange.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
-            })
-        }
+    pub fn CreateInstanceWithDataSource<'a, Param0: ::windows::core::IntoParam<'a, MapTileDataSource>>(datasource: Param0) -> ::windows::core::Result<MapTileSource> {
+        Self::IMapTileSourceFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstanceWithDataSource)(::core::mem::transmute_copy(this), datasource.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
+    pub fn CreateInstanceWithDataSource_compose<'a, Param0: ::windows::core::IntoParam<'a, MapTileDataSource>, T: ::windows::core::Compose>(datasource: Param0, compose: T) -> ::windows::core::Result<MapTileSource> {
+        Self::IMapTileSourceFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstanceWithDataSource)(::core::mem::transmute_copy(this), datasource.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
+    pub fn CreateInstanceWithDataSourceAndZoomRange<'a, Param0: ::windows::core::IntoParam<'a, MapTileDataSource>, Param1: ::windows::core::IntoParam<'a, MapZoomLevelRange>>(datasource: Param0, zoomlevelrange: Param1) -> ::windows::core::Result<MapTileSource> {
+        Self::IMapTileSourceFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstanceWithDataSourceAndZoomRange)(::core::mem::transmute_copy(this), datasource.into_param().abi(), zoomlevelrange.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
+    pub fn CreateInstanceWithDataSourceAndZoomRange_compose<'a, Param0: ::windows::core::IntoParam<'a, MapTileDataSource>, Param1: ::windows::core::IntoParam<'a, MapZoomLevelRange>, T: ::windows::core::Compose>(datasource: Param0, zoomlevelrange: Param1, compose: T) -> ::windows::core::Result<MapTileSource> {
+        Self::IMapTileSourceFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstanceWithDataSourceAndZoomRange)(::core::mem::transmute_copy(this), datasource.into_param().abi(), zoomlevelrange.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
+        })
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps', 'Devices_Geolocation'*"]
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn CreateInstanceWithDataSourceZoomRangeAndBounds<'a, Param0: ::windows::core::IntoParam<'a, MapTileDataSource>, Param1: ::windows::core::IntoParam<'a, MapZoomLevelRange>, Param2: ::windows::core::IntoParam<'a, super::super::super::super::Devices::Geolocation::GeoboundingBox>, T: ::windows::core::Compose>(datasource: Param0, zoomlevelrange: Param1, bounds: Param2, compose: ::core::option::Option<T>) -> ::windows::core::Result<MapTileSource> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::IMapTileSourceFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstanceWithDataSourceZoomRangeAndBounds)(::core::mem::transmute_copy(this), datasource.into_param().abi(), zoomlevelrange.into_param().abi(), bounds.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
-            })
-        } else {
-            Self::IMapTileSourceFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstanceWithDataSourceZoomRangeAndBounds)(::core::mem::transmute_copy(this), datasource.into_param().abi(), zoomlevelrange.into_param().abi(), bounds.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
-            })
-        }
+    pub fn CreateInstanceWithDataSourceZoomRangeAndBounds<'a, Param0: ::windows::core::IntoParam<'a, MapTileDataSource>, Param1: ::windows::core::IntoParam<'a, MapZoomLevelRange>, Param2: ::windows::core::IntoParam<'a, super::super::super::super::Devices::Geolocation::GeoboundingBox>>(datasource: Param0, zoomlevelrange: Param1, bounds: Param2) -> ::windows::core::Result<MapTileSource> {
+        Self::IMapTileSourceFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstanceWithDataSourceZoomRangeAndBounds)(::core::mem::transmute_copy(this), datasource.into_param().abi(), zoomlevelrange.into_param().abi(), bounds.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
+        })
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps', 'Devices_Geolocation'*"]
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn CreateInstanceWithDataSourceZoomRangeBoundsAndTileSize<'a, Param0: ::windows::core::IntoParam<'a, MapTileDataSource>, Param1: ::windows::core::IntoParam<'a, MapZoomLevelRange>, Param2: ::windows::core::IntoParam<'a, super::super::super::super::Devices::Geolocation::GeoboundingBox>, T: ::windows::core::Compose>(datasource: Param0, zoomlevelrange: Param1, bounds: Param2, tilesizeinpixels: i32, compose: ::core::option::Option<T>) -> ::windows::core::Result<MapTileSource> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::IMapTileSourceFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstanceWithDataSourceZoomRangeBoundsAndTileSize)(::core::mem::transmute_copy(this), datasource.into_param().abi(), zoomlevelrange.into_param().abi(), bounds.into_param().abi(), tilesizeinpixels, ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
-            })
-        } else {
-            Self::IMapTileSourceFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstanceWithDataSourceZoomRangeBoundsAndTileSize)(::core::mem::transmute_copy(this), datasource.into_param().abi(), zoomlevelrange.into_param().abi(), bounds.into_param().abi(), tilesizeinpixels, ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
-            })
-        }
+    pub fn CreateInstanceWithDataSourceZoomRangeAndBounds_compose<'a, Param0: ::windows::core::IntoParam<'a, MapTileDataSource>, Param1: ::windows::core::IntoParam<'a, MapZoomLevelRange>, Param2: ::windows::core::IntoParam<'a, super::super::super::super::Devices::Geolocation::GeoboundingBox>, T: ::windows::core::Compose>(datasource: Param0, zoomlevelrange: Param1, bounds: Param2, compose: T) -> ::windows::core::Result<MapTileSource> {
+        Self::IMapTileSourceFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstanceWithDataSourceZoomRangeAndBounds)(::core::mem::transmute_copy(this), datasource.into_param().abi(), zoomlevelrange.into_param().abi(), bounds.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml_Controls_Maps', 'Devices_Geolocation'*"]
+    #[cfg(feature = "Devices_Geolocation")]
+    pub fn CreateInstanceWithDataSourceZoomRangeBoundsAndTileSize<'a, Param0: ::windows::core::IntoParam<'a, MapTileDataSource>, Param1: ::windows::core::IntoParam<'a, MapZoomLevelRange>, Param2: ::windows::core::IntoParam<'a, super::super::super::super::Devices::Geolocation::GeoboundingBox>>(datasource: Param0, zoomlevelrange: Param1, bounds: Param2, tilesizeinpixels: i32) -> ::windows::core::Result<MapTileSource> {
+        Self::IMapTileSourceFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstanceWithDataSourceZoomRangeBoundsAndTileSize)(::core::mem::transmute_copy(this), datasource.into_param().abi(), zoomlevelrange.into_param().abi(), bounds.into_param().abi(), tilesizeinpixels, ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml_Controls_Maps', 'Devices_Geolocation'*"]
+    #[cfg(feature = "Devices_Geolocation")]
+    pub fn CreateInstanceWithDataSourceZoomRangeBoundsAndTileSize_compose<'a, Param0: ::windows::core::IntoParam<'a, MapTileDataSource>, Param1: ::windows::core::IntoParam<'a, MapZoomLevelRange>, Param2: ::windows::core::IntoParam<'a, super::super::super::super::Devices::Geolocation::GeoboundingBox>, T: ::windows::core::Compose>(datasource: Param0, zoomlevelrange: Param1, bounds: Param2, tilesizeinpixels: i32, compose: T) -> ::windows::core::Result<MapTileSource> {
+        Self::IMapTileSourceFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstanceWithDataSourceZoomRangeBoundsAndTileSize)(::core::mem::transmute_copy(this), datasource.into_param().abi(), zoomlevelrange.into_param().abi(), bounds.into_param().abi(), tilesizeinpixels, ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MapTileSource>(result__)
+        })
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
     pub fn DataSourceProperty() -> ::windows::core::Result<super::super::DependencyProperty> {

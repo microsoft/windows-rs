@@ -58,19 +58,19 @@ impl AdaptiveTrigger {
         unsafe { (::windows::core::Interface::vtable(this).SetMinWindowHeight)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml'*"]
-    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<AdaptiveTrigger> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::IAdaptiveTriggerFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<AdaptiveTrigger>(result__)
-            })
-        } else {
-            Self::IAdaptiveTriggerFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<AdaptiveTrigger>(result__)
-            })
-        }
+    pub fn new() -> ::windows::core::Result<AdaptiveTrigger> {
+        Self::IAdaptiveTriggerFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<AdaptiveTrigger>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml'*"]
+    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<AdaptiveTrigger> {
+        Self::IAdaptiveTriggerFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<AdaptiveTrigger>(result__)
+        })
     }
     #[doc = "*Required features: 'UI_Xaml'*"]
     pub fn MinWindowWidthProperty() -> ::windows::core::Result<DependencyProperty> {
@@ -363,19 +363,19 @@ impl Application {
         unsafe { (::windows::core::Interface::vtable(this).SetHighContrastAdjustment)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml'*"]
-    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<Application> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::IApplicationFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<Application>(result__)
-            })
-        } else {
-            Self::IApplicationFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<Application>(result__)
-            })
-        }
+    pub fn new() -> ::windows::core::Result<Application> {
+        Self::IApplicationFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<Application>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml'*"]
+    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<Application> {
+        Self::IApplicationFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<Application>(result__)
+        })
     }
     #[doc = "*Required features: 'UI_Xaml'*"]
     pub fn Current() -> ::windows::core::Result<Application> {
@@ -1333,19 +1333,19 @@ impl BrushTransition {
         unsafe { (::windows::core::Interface::vtable(this).SetDuration)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml'*"]
-    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<BrushTransition> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::IBrushTransitionFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<BrushTransition>(result__)
-            })
-        } else {
-            Self::IBrushTransitionFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<BrushTransition>(result__)
-            })
-        }
+    pub fn new() -> ::windows::core::Result<BrushTransition> {
+        Self::IBrushTransitionFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<BrushTransition>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml'*"]
+    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<BrushTransition> {
+        Self::IBrushTransitionFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<BrushTransition>(result__)
+        })
     }
     #[doc(hidden)]
     pub fn IBrushTransitionFactory<R, F: FnOnce(&IBrushTransitionFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -1831,19 +1831,19 @@ impl ColorPaletteResources {
         unsafe { (::windows::core::Interface::vtable(this).SetAccent)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml'*"]
-    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<ColorPaletteResources> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::IColorPaletteResourcesFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ColorPaletteResources>(result__)
-            })
-        } else {
-            Self::IColorPaletteResourcesFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ColorPaletteResources>(result__)
-            })
-        }
+    pub fn new() -> ::windows::core::Result<ColorPaletteResources> {
+        Self::IColorPaletteResourcesFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ColorPaletteResources>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml'*"]
+    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<ColorPaletteResources> {
+        Self::IColorPaletteResourcesFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ColorPaletteResources>(result__)
+        })
     }
     #[doc = "*Required features: 'UI_Xaml', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -2419,19 +2419,19 @@ impl DataTemplate {
         }
     }
     #[doc = "*Required features: 'UI_Xaml'*"]
-    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<DataTemplate> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::IDataTemplateFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<DataTemplate>(result__)
-            })
-        } else {
-            Self::IDataTemplateFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<DataTemplate>(result__)
-            })
-        }
+    pub fn new() -> ::windows::core::Result<DataTemplate> {
+        Self::IDataTemplateFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<DataTemplate>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml'*"]
+    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<DataTemplate> {
+        Self::IDataTemplateFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<DataTemplate>(result__)
+        })
     }
     #[doc = "*Required features: 'UI_Xaml'*"]
     pub fn ExtensionInstanceProperty() -> ::windows::core::Result<DependencyProperty> {
@@ -2623,34 +2623,34 @@ impl DataTemplateKey {
         unsafe { (::windows::core::Interface::vtable(this).SetDataType)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml'*"]
-    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<DataTemplateKey> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::IDataTemplateKeyFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<DataTemplateKey>(result__)
-            })
-        } else {
-            Self::IDataTemplateKeyFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<DataTemplateKey>(result__)
-            })
-        }
+    pub fn new() -> ::windows::core::Result<DataTemplateKey> {
+        Self::IDataTemplateKeyFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<DataTemplateKey>(result__)
+        })
     }
     #[doc = "*Required features: 'UI_Xaml'*"]
-    pub fn CreateInstanceWithType<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, T: ::windows::core::Compose>(datatype: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<DataTemplateKey> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::IDataTemplateKeyFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstanceWithType)(::core::mem::transmute_copy(this), datatype.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<DataTemplateKey>(result__)
-            })
-        } else {
-            Self::IDataTemplateKeyFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstanceWithType)(::core::mem::transmute_copy(this), datatype.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<DataTemplateKey>(result__)
-            })
-        }
+    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<DataTemplateKey> {
+        Self::IDataTemplateKeyFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<DataTemplateKey>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml'*"]
+    pub fn CreateInstanceWithType<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(datatype: Param0) -> ::windows::core::Result<DataTemplateKey> {
+        Self::IDataTemplateKeyFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstanceWithType)(::core::mem::transmute_copy(this), datatype.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<DataTemplateKey>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml'*"]
+    pub fn CreateInstanceWithType_compose<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, T: ::windows::core::Compose>(datatype: Param0, compose: T) -> ::windows::core::Result<DataTemplateKey> {
+        Self::IDataTemplateKeyFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstanceWithType)(::core::mem::transmute_copy(this), datatype.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<DataTemplateKey>(result__)
+        })
     }
     #[doc(hidden)]
     pub fn IDataTemplateKeyFactory<R, F: FnOnce(&IDataTemplateKeyFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -3029,19 +3029,20 @@ pub struct DependencyObjectCollection(::windows::core::IUnknown);
 impl DependencyObjectCollection {
     #[doc = "*Required features: 'UI_Xaml', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<DependencyObjectCollection> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::IDependencyObjectCollectionFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<DependencyObjectCollection>(result__)
-            })
-        } else {
-            Self::IDependencyObjectCollectionFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<DependencyObjectCollection>(result__)
-            })
-        }
+    pub fn new() -> ::windows::core::Result<DependencyObjectCollection> {
+        Self::IDependencyObjectCollectionFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<DependencyObjectCollection>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml', 'Foundation_Collections'*"]
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<DependencyObjectCollection> {
+        Self::IDependencyObjectCollectionFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<DependencyObjectCollection>(result__)
+        })
     }
     #[doc = "*Required features: 'UI_Xaml', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -3779,19 +3780,19 @@ impl DispatcherTimer {
         unsafe { (::windows::core::Interface::vtable(this).Stop)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml'*"]
-    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<DispatcherTimer> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::IDispatcherTimerFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<DispatcherTimer>(result__)
-            })
-        } else {
-            Self::IDispatcherTimerFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<DispatcherTimer>(result__)
-            })
-        }
+    pub fn new() -> ::windows::core::Result<DispatcherTimer> {
+        Self::IDispatcherTimerFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<DispatcherTimer>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml'*"]
+    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<DispatcherTimer> {
+        Self::IDispatcherTimerFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<DispatcherTimer>(result__)
+        })
     }
     #[doc(hidden)]
     pub fn IDispatcherTimerFactory<R, F: FnOnce(&IDispatcherTimerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -5080,19 +5081,19 @@ impl ElementFactoryGetArgs {
         unsafe { (::windows::core::Interface::vtable(this).SetParent)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml'*"]
-    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<ElementFactoryGetArgs> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::IElementFactoryGetArgsFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ElementFactoryGetArgs>(result__)
-            })
-        } else {
-            Self::IElementFactoryGetArgsFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ElementFactoryGetArgs>(result__)
-            })
-        }
+    pub fn new() -> ::windows::core::Result<ElementFactoryGetArgs> {
+        Self::IElementFactoryGetArgsFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ElementFactoryGetArgs>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml'*"]
+    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<ElementFactoryGetArgs> {
+        Self::IElementFactoryGetArgsFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ElementFactoryGetArgs>(result__)
+        })
     }
     #[doc(hidden)]
     pub fn IElementFactoryGetArgsFactory<R, F: FnOnce(&IElementFactoryGetArgsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -5199,19 +5200,19 @@ impl ElementFactoryRecycleArgs {
         unsafe { (::windows::core::Interface::vtable(this).SetParent)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml'*"]
-    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<ElementFactoryRecycleArgs> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::IElementFactoryRecycleArgsFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ElementFactoryRecycleArgs>(result__)
-            })
-        } else {
-            Self::IElementFactoryRecycleArgsFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ElementFactoryRecycleArgs>(result__)
-            })
-        }
+    pub fn new() -> ::windows::core::Result<ElementFactoryRecycleArgs> {
+        Self::IElementFactoryRecycleArgsFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ElementFactoryRecycleArgs>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml'*"]
+    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<ElementFactoryRecycleArgs> {
+        Self::IElementFactoryRecycleArgsFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ElementFactoryRecycleArgs>(result__)
+        })
     }
     #[doc(hidden)]
     pub fn IElementFactoryRecycleArgsFactory<R, F: FnOnce(&IElementFactoryRecycleArgsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -12423,34 +12424,34 @@ impl PropertyMetadata {
         }
     }
     #[doc = "*Required features: 'UI_Xaml'*"]
-    pub fn CreateInstanceWithDefaultValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, T: ::windows::core::Compose>(defaultvalue: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<PropertyMetadata> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::IPropertyMetadataFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstanceWithDefaultValue)(::core::mem::transmute_copy(this), defaultvalue.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<PropertyMetadata>(result__)
-            })
-        } else {
-            Self::IPropertyMetadataFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstanceWithDefaultValue)(::core::mem::transmute_copy(this), defaultvalue.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<PropertyMetadata>(result__)
-            })
-        }
+    pub fn CreateInstanceWithDefaultValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(defaultvalue: Param0) -> ::windows::core::Result<PropertyMetadata> {
+        Self::IPropertyMetadataFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstanceWithDefaultValue)(::core::mem::transmute_copy(this), defaultvalue.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<PropertyMetadata>(result__)
+        })
     }
     #[doc = "*Required features: 'UI_Xaml'*"]
-    pub fn CreateInstanceWithDefaultValueAndCallback<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, PropertyChangedCallback>, T: ::windows::core::Compose>(defaultvalue: Param0, propertychangedcallback: Param1, compose: ::core::option::Option<T>) -> ::windows::core::Result<PropertyMetadata> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::IPropertyMetadataFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstanceWithDefaultValueAndCallback)(::core::mem::transmute_copy(this), defaultvalue.into_param().abi(), propertychangedcallback.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<PropertyMetadata>(result__)
-            })
-        } else {
-            Self::IPropertyMetadataFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstanceWithDefaultValueAndCallback)(::core::mem::transmute_copy(this), defaultvalue.into_param().abi(), propertychangedcallback.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<PropertyMetadata>(result__)
-            })
-        }
+    pub fn CreateInstanceWithDefaultValue_compose<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, T: ::windows::core::Compose>(defaultvalue: Param0, compose: T) -> ::windows::core::Result<PropertyMetadata> {
+        Self::IPropertyMetadataFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstanceWithDefaultValue)(::core::mem::transmute_copy(this), defaultvalue.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<PropertyMetadata>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml'*"]
+    pub fn CreateInstanceWithDefaultValueAndCallback<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, PropertyChangedCallback>>(defaultvalue: Param0, propertychangedcallback: Param1) -> ::windows::core::Result<PropertyMetadata> {
+        Self::IPropertyMetadataFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstanceWithDefaultValueAndCallback)(::core::mem::transmute_copy(this), defaultvalue.into_param().abi(), propertychangedcallback.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<PropertyMetadata>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml'*"]
+    pub fn CreateInstanceWithDefaultValueAndCallback_compose<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, PropertyChangedCallback>, T: ::windows::core::Compose>(defaultvalue: Param0, propertychangedcallback: Param1, compose: T) -> ::windows::core::Result<PropertyMetadata> {
+        Self::IPropertyMetadataFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstanceWithDefaultValueAndCallback)(::core::mem::transmute_copy(this), defaultvalue.into_param().abi(), propertychangedcallback.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<PropertyMetadata>(result__)
+        })
     }
     #[doc = "*Required features: 'UI_Xaml'*"]
     pub fn CreateWithDefaultValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(defaultvalue: Param0) -> ::windows::core::Result<PropertyMetadata> {
@@ -12966,19 +12967,19 @@ impl ResourceDictionary {
         }
     }
     #[doc = "*Required features: 'UI_Xaml'*"]
-    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<ResourceDictionary> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::IResourceDictionaryFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ResourceDictionary>(result__)
-            })
-        } else {
-            Self::IResourceDictionaryFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ResourceDictionary>(result__)
-            })
-        }
+    pub fn new() -> ::windows::core::Result<ResourceDictionary> {
+        Self::IResourceDictionaryFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ResourceDictionary>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml'*"]
+    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<ResourceDictionary> {
+        Self::IResourceDictionaryFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ResourceDictionary>(result__)
+        })
     }
     #[doc(hidden)]
     pub fn IResourceDictionaryFactory<R, F: FnOnce(&IResourceDictionaryFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -13227,19 +13228,19 @@ impl RoutedEventArgs {
         }
     }
     #[doc = "*Required features: 'UI_Xaml'*"]
-    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<RoutedEventArgs> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::IRoutedEventArgsFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<RoutedEventArgs>(result__)
-            })
-        } else {
-            Self::IRoutedEventArgsFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<RoutedEventArgs>(result__)
-            })
-        }
+    pub fn new() -> ::windows::core::Result<RoutedEventArgs> {
+        Self::IRoutedEventArgsFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<RoutedEventArgs>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml'*"]
+    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<RoutedEventArgs> {
+        Self::IRoutedEventArgsFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<RoutedEventArgs>(result__)
+        })
     }
     #[doc(hidden)]
     pub fn IRoutedEventArgsFactory<R, F: FnOnce(&IRoutedEventArgsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -13413,19 +13414,19 @@ impl ScalarTransition {
         unsafe { (::windows::core::Interface::vtable(this).SetDuration)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml'*"]
-    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<ScalarTransition> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::IScalarTransitionFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ScalarTransition>(result__)
-            })
-        } else {
-            Self::IScalarTransitionFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ScalarTransition>(result__)
-            })
-        }
+    pub fn new() -> ::windows::core::Result<ScalarTransition> {
+        Self::IScalarTransitionFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ScalarTransition>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml'*"]
+    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<ScalarTransition> {
+        Self::IScalarTransitionFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ScalarTransition>(result__)
+        })
     }
     #[doc(hidden)]
     pub fn IScalarTransitionFactory<R, F: FnOnce(&IScalarTransitionFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -18136,19 +18137,19 @@ impl UIElementWeakCollection {
         }
     }
     #[doc = "*Required features: 'UI_Xaml'*"]
-    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<UIElementWeakCollection> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::IUIElementWeakCollectionFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<UIElementWeakCollection>(result__)
-            })
-        } else {
-            Self::IUIElementWeakCollectionFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<UIElementWeakCollection>(result__)
-            })
-        }
+    pub fn new() -> ::windows::core::Result<UIElementWeakCollection> {
+        Self::IUIElementWeakCollectionFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<UIElementWeakCollection>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml'*"]
+    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<UIElementWeakCollection> {
+        Self::IUIElementWeakCollectionFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<UIElementWeakCollection>(result__)
+        })
     }
     #[doc = "*Required features: 'UI_Xaml', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
@@ -18592,19 +18593,19 @@ impl Vector3Transition {
         unsafe { (::windows::core::Interface::vtable(this).SetComponents)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml'*"]
-    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<Vector3Transition> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::IVector3TransitionFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<Vector3Transition>(result__)
-            })
-        } else {
-            Self::IVector3TransitionFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<Vector3Transition>(result__)
-            })
-        }
+    pub fn new() -> ::windows::core::Result<Vector3Transition> {
+        Self::IVector3TransitionFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<Vector3Transition>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml'*"]
+    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<Vector3Transition> {
+        Self::IVector3TransitionFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<Vector3Transition>(result__)
+        })
     }
     #[doc(hidden)]
     pub fn IVector3TransitionFactory<R, F: FnOnce(&IVector3TransitionFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -19303,19 +19304,19 @@ unsafe impl ::core::marker::Sync for VisualStateGroup {}
 pub struct VisualStateManager(::windows::core::IUnknown);
 impl VisualStateManager {
     #[doc = "*Required features: 'UI_Xaml'*"]
-    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<VisualStateManager> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::IVisualStateManagerFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<VisualStateManager>(result__)
-            })
-        } else {
-            Self::IVisualStateManagerFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<VisualStateManager>(result__)
-            })
-        }
+    pub fn new() -> ::windows::core::Result<VisualStateManager> {
+        Self::IVisualStateManagerFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<VisualStateManager>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml'*"]
+    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<VisualStateManager> {
+        Self::IVisualStateManagerFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<VisualStateManager>(result__)
+        })
     }
     #[doc = "*Required features: 'UI_Xaml', 'UI_Xaml_Controls'*"]
     #[cfg(feature = "UI_Xaml_Controls")]
@@ -19538,19 +19539,19 @@ impl VisualTransition {
         unsafe { (::windows::core::Interface::vtable(this).SetStoryboard)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml'*"]
-    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<VisualTransition> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::IVisualTransitionFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<VisualTransition>(result__)
-            })
-        } else {
-            Self::IVisualTransitionFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<VisualTransition>(result__)
-            })
-        }
+    pub fn new() -> ::windows::core::Result<VisualTransition> {
+        Self::IVisualTransitionFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<VisualTransition>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml'*"]
+    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<VisualTransition> {
+        Self::IVisualTransitionFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<VisualTransition>(result__)
+        })
     }
     #[doc(hidden)]
     pub fn IVisualTransitionFactory<R, F: FnOnce(&IVisualTransitionFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {

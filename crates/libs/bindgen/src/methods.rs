@@ -10,6 +10,8 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
         method_names.add(method)
     };
 
+    let name_compose = name.join("_compose");
+
     let vname = virtual_names.add(method);
 
     let constraints = gen_param_constraints(params, gen);
@@ -110,13 +112,15 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
          InterfaceKind::Composable => {
             quote! {
                 #cfg
-                pub fn #name<#constraints T: ::windows::core::Compose>(#params  compose: ::core::option::Option<T>) -> ::windows::core::Result<#return_type_tokens> {
-                    if let ::core::option::Option::Some(compose) = compose {
-                        Self::#interface_name(|this| unsafe {                         let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                            #vcall })
-                    } else {
-                        Self::#interface_name(|this| unsafe { #vcall_none })
-                    }
+                pub fn #name<#constraints>(#params) -> ::windows::core::Result<#return_type_tokens> {
+                    Self::#interface_name(|this| unsafe { #vcall_none })
+                }
+                #cfg
+                pub fn #name_compose<#constraints T: ::windows::core::Compose>(#params  compose: T) -> ::windows::core::Result<#return_type_tokens> {
+                    Self::#interface_name(|this| unsafe {
+                        let (derived__, base__) = ::windows::core::Compose::compose(compose);
+                        #vcall
+                    })
                 }
             }
         }

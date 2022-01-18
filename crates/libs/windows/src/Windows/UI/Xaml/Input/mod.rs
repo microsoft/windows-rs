@@ -4410,19 +4410,19 @@ impl KeyboardAccelerator {
         unsafe { (::windows::core::Interface::vtable(this).RemoveInvoked)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml_Input'*"]
-    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<KeyboardAccelerator> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::IKeyboardAcceleratorFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<KeyboardAccelerator>(result__)
-            })
-        } else {
-            Self::IKeyboardAcceleratorFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<KeyboardAccelerator>(result__)
-            })
-        }
+    pub fn new() -> ::windows::core::Result<KeyboardAccelerator> {
+        Self::IKeyboardAcceleratorFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<KeyboardAccelerator>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml_Input'*"]
+    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<KeyboardAccelerator> {
+        Self::IKeyboardAcceleratorFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<KeyboardAccelerator>(result__)
+        })
     }
     #[doc = "*Required features: 'UI_Xaml_Input'*"]
     pub fn KeyProperty() -> ::windows::core::Result<super::DependencyProperty> {
@@ -5995,19 +5995,19 @@ impl ManipulationStartedRoutedEventArgs {
         unsafe { (::windows::core::Interface::vtable(this).Complete)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml_Input'*"]
-    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<ManipulationStartedRoutedEventArgs> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::IManipulationStartedRoutedEventArgsFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ManipulationStartedRoutedEventArgs>(result__)
-            })
-        } else {
-            Self::IManipulationStartedRoutedEventArgsFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ManipulationStartedRoutedEventArgs>(result__)
-            })
-        }
+    pub fn new() -> ::windows::core::Result<ManipulationStartedRoutedEventArgs> {
+        Self::IManipulationStartedRoutedEventArgsFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ManipulationStartedRoutedEventArgs>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml_Input'*"]
+    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<ManipulationStartedRoutedEventArgs> {
+        Self::IManipulationStartedRoutedEventArgsFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<ManipulationStartedRoutedEventArgs>(result__)
+        })
     }
     #[doc(hidden)]
     pub fn IManipulationStartedRoutedEventArgsFactory<R, F: FnOnce(&IManipulationStartedRoutedEventArgsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -7119,34 +7119,34 @@ impl StandardUICommand {
         unsafe { (::windows::core::Interface::vtable(this).SetKind)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml_Input'*"]
-    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<StandardUICommand> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::IStandardUICommandFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<StandardUICommand>(result__)
-            })
-        } else {
-            Self::IStandardUICommandFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<StandardUICommand>(result__)
-            })
-        }
+    pub fn new() -> ::windows::core::Result<StandardUICommand> {
+        Self::IStandardUICommandFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<StandardUICommand>(result__)
+        })
     }
     #[doc = "*Required features: 'UI_Xaml_Input'*"]
-    pub fn CreateInstanceWithKind<T: ::windows::core::Compose>(kind: StandardUICommandKind, compose: ::core::option::Option<T>) -> ::windows::core::Result<StandardUICommand> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::IStandardUICommandFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstanceWithKind)(::core::mem::transmute_copy(this), kind, ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<StandardUICommand>(result__)
-            })
-        } else {
-            Self::IStandardUICommandFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstanceWithKind)(::core::mem::transmute_copy(this), kind, ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<StandardUICommand>(result__)
-            })
-        }
+    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<StandardUICommand> {
+        Self::IStandardUICommandFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<StandardUICommand>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml_Input'*"]
+    pub fn CreateInstanceWithKind(kind: StandardUICommandKind) -> ::windows::core::Result<StandardUICommand> {
+        Self::IStandardUICommandFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstanceWithKind)(::core::mem::transmute_copy(this), kind, ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<StandardUICommand>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml_Input'*"]
+    pub fn CreateInstanceWithKind_compose<T: ::windows::core::Compose>(kind: StandardUICommandKind, compose: T) -> ::windows::core::Result<StandardUICommand> {
+        Self::IStandardUICommandFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstanceWithKind)(::core::mem::transmute_copy(this), kind, ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<StandardUICommand>(result__)
+        })
     }
     #[doc = "*Required features: 'UI_Xaml_Input'*"]
     pub fn KindProperty() -> ::windows::core::Result<super::DependencyProperty> {
@@ -7782,19 +7782,19 @@ impl XamlUICommand {
         unsafe { (::windows::core::Interface::vtable(this).NotifyCanExecuteChanged)(::core::mem::transmute_copy(this)).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml_Input'*"]
-    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<XamlUICommand> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::IXamlUICommandFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<XamlUICommand>(result__)
-            })
-        } else {
-            Self::IXamlUICommandFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<XamlUICommand>(result__)
-            })
-        }
+    pub fn new() -> ::windows::core::Result<XamlUICommand> {
+        Self::IXamlUICommandFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<XamlUICommand>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml_Input'*"]
+    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<XamlUICommand> {
+        Self::IXamlUICommandFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<XamlUICommand>(result__)
+        })
     }
     #[doc = "*Required features: 'UI_Xaml_Input'*"]
     pub fn LabelProperty() -> ::windows::core::Result<super::DependencyProperty> {

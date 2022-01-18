@@ -1230,19 +1230,19 @@ pub struct IXamlType2_Vtbl {
 pub struct MarkupExtension(::windows::core::IUnknown);
 impl MarkupExtension {
     #[doc = "*Required features: 'UI_Xaml_Markup'*"]
-    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<MarkupExtension> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::IMarkupExtensionFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MarkupExtension>(result__)
-            })
-        } else {
-            Self::IMarkupExtensionFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MarkupExtension>(result__)
-            })
-        }
+    pub fn new() -> ::windows::core::Result<MarkupExtension> {
+        Self::IMarkupExtensionFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MarkupExtension>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml_Markup'*"]
+    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<MarkupExtension> {
+        Self::IMarkupExtensionFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<MarkupExtension>(result__)
+        })
     }
     #[doc(hidden)]
     pub fn IMarkupExtensionFactory<R, F: FnOnce(&IMarkupExtensionFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {

@@ -124,6 +124,35 @@ pub fn gen(attributes: proc_macro::TokenStream, original_type: proc_macro::Token
                 remaining
             }
         }
+        impl ::windows::core::Compose for #original_ident {
+            unsafe fn compose<'a>(implementation: Self) -> (::windows::core::IInspectable, &'a mut ::core::option::Option<::windows::core::IInspectable>) {
+                let inspectable: ::windows::core::IInspectable = implementation.into();
+                let this = (&inspectable as *const _ as *mut ::windows::core::RawPtr).sub(1) as *mut #impl_ident;
+                (inspectable, &mut (*this).base)
+            }
+        }
+        impl From<#original_ident> for ::windows::core::IUnknown {
+            fn from(this: #original_ident) -> Self {
+                unsafe {
+                    let this = #impl_ident::new(this);
+                    let ptr = ::std::boxed::Box::into_raw(::std::boxed::Box::new(this));
+                    ::core::mem::transmute_copy(&::core::ptr::NonNull::new_unchecked(
+                        &mut (*ptr).identity as *mut _ as _
+                    ))
+                }
+            }
+        }
+        impl From<#original_ident> for ::windows::core::IInspectable {
+            fn from(this: #original_ident) -> Self {
+                unsafe {
+                    let this = #impl_ident::new(this);
+                    let ptr = ::std::boxed::Box::into_raw(::std::boxed::Box::new(this));
+                    ::core::mem::transmute_copy(&::core::ptr::NonNull::new_unchecked(
+                        &mut (*ptr).identity as *mut _ as _
+                    ))
+                }
+            }
+        }
         #(#froms)*
     };
 

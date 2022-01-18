@@ -1618,34 +1618,34 @@ unsafe impl ::core::marker::Sync for SoftwareBitmapSource {}
 pub struct SurfaceImageSource(::windows::core::IUnknown);
 impl SurfaceImageSource {
     #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
-    pub fn CreateInstanceWithDimensions<T: ::windows::core::Compose>(pixelwidth: i32, pixelheight: i32, compose: ::core::option::Option<T>) -> ::windows::core::Result<SurfaceImageSource> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::ISurfaceImageSourceFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstanceWithDimensions)(::core::mem::transmute_copy(this), pixelwidth, pixelheight, ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<SurfaceImageSource>(result__)
-            })
-        } else {
-            Self::ISurfaceImageSourceFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstanceWithDimensions)(::core::mem::transmute_copy(this), pixelwidth, pixelheight, ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<SurfaceImageSource>(result__)
-            })
-        }
+    pub fn CreateInstanceWithDimensions(pixelwidth: i32, pixelheight: i32) -> ::windows::core::Result<SurfaceImageSource> {
+        Self::ISurfaceImageSourceFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstanceWithDimensions)(::core::mem::transmute_copy(this), pixelwidth, pixelheight, ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<SurfaceImageSource>(result__)
+        })
     }
     #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
-    pub fn CreateInstanceWithDimensionsAndOpacity<T: ::windows::core::Compose>(pixelwidth: i32, pixelheight: i32, isopaque: bool, compose: ::core::option::Option<T>) -> ::windows::core::Result<SurfaceImageSource> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::ISurfaceImageSourceFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstanceWithDimensionsAndOpacity)(::core::mem::transmute_copy(this), pixelwidth, pixelheight, isopaque, ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<SurfaceImageSource>(result__)
-            })
-        } else {
-            Self::ISurfaceImageSourceFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstanceWithDimensionsAndOpacity)(::core::mem::transmute_copy(this), pixelwidth, pixelheight, isopaque, ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<SurfaceImageSource>(result__)
-            })
-        }
+    pub fn CreateInstanceWithDimensions_compose<T: ::windows::core::Compose>(pixelwidth: i32, pixelheight: i32, compose: T) -> ::windows::core::Result<SurfaceImageSource> {
+        Self::ISurfaceImageSourceFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstanceWithDimensions)(::core::mem::transmute_copy(this), pixelwidth, pixelheight, ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<SurfaceImageSource>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
+    pub fn CreateInstanceWithDimensionsAndOpacity(pixelwidth: i32, pixelheight: i32, isopaque: bool) -> ::windows::core::Result<SurfaceImageSource> {
+        Self::ISurfaceImageSourceFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstanceWithDimensionsAndOpacity)(::core::mem::transmute_copy(this), pixelwidth, pixelheight, isopaque, ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<SurfaceImageSource>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
+    pub fn CreateInstanceWithDimensionsAndOpacity_compose<T: ::windows::core::Compose>(pixelwidth: i32, pixelheight: i32, isopaque: bool, compose: T) -> ::windows::core::Result<SurfaceImageSource> {
+        Self::ISurfaceImageSourceFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstanceWithDimensionsAndOpacity)(::core::mem::transmute_copy(this), pixelwidth, pixelheight, isopaque, ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<SurfaceImageSource>(result__)
+        })
     }
     #[doc(hidden)]
     pub fn ISurfaceImageSourceFactory<R, F: FnOnce(&ISurfaceImageSourceFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -1846,35 +1846,36 @@ impl SvgImageSource {
         }
     }
     #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
-    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<SvgImageSource> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::ISvgImageSourceFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<SvgImageSource>(result__)
-            })
-        } else {
-            Self::ISvgImageSourceFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<SvgImageSource>(result__)
-            })
-        }
+    pub fn new() -> ::windows::core::Result<SvgImageSource> {
+        Self::ISvgImageSourceFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<SvgImageSource>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
+    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<SvgImageSource> {
+        Self::ISvgImageSourceFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<SvgImageSource>(result__)
+        })
     }
     #[doc = "*Required features: 'UI_Xaml_Media_Imaging', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
-    pub fn CreateInstanceWithUriSource<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Uri>, T: ::windows::core::Compose>(urisource: Param0, compose: ::core::option::Option<T>) -> ::windows::core::Result<SvgImageSource> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::ISvgImageSourceFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstanceWithUriSource)(::core::mem::transmute_copy(this), urisource.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<SvgImageSource>(result__)
-            })
-        } else {
-            Self::ISvgImageSourceFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstanceWithUriSource)(::core::mem::transmute_copy(this), urisource.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<SvgImageSource>(result__)
-            })
-        }
+    pub fn CreateInstanceWithUriSource<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Uri>>(urisource: Param0) -> ::windows::core::Result<SvgImageSource> {
+        Self::ISvgImageSourceFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstanceWithUriSource)(::core::mem::transmute_copy(this), urisource.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<SvgImageSource>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging', 'Foundation'*"]
+    #[cfg(feature = "Foundation")]
+    pub fn CreateInstanceWithUriSource_compose<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Uri>, T: ::windows::core::Compose>(urisource: Param0, compose: T) -> ::windows::core::Result<SvgImageSource> {
+        Self::ISvgImageSourceFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstanceWithUriSource)(::core::mem::transmute_copy(this), urisource.into_param().abi(), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<SvgImageSource>(result__)
+        })
     }
     #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn UriSourceProperty() -> ::windows::core::Result<super::super::DependencyProperty> {

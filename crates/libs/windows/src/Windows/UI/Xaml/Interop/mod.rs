@@ -976,19 +976,19 @@ impl NotifyCollectionChangedEventArgs {
         }
     }
     #[doc = "*Required features: 'UI_Xaml_Interop'*"]
-    pub fn CreateInstanceWithAllParameters<'a, Param1: ::windows::core::IntoParam<'a, IBindableVector>, Param2: ::windows::core::IntoParam<'a, IBindableVector>, T: ::windows::core::Compose>(action: NotifyCollectionChangedAction, newitems: Param1, olditems: Param2, newindex: i32, oldindex: i32, compose: ::core::option::Option<T>) -> ::windows::core::Result<NotifyCollectionChangedEventArgs> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::INotifyCollectionChangedEventArgsFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstanceWithAllParameters)(::core::mem::transmute_copy(this), action, newitems.into_param().abi(), olditems.into_param().abi(), newindex, oldindex, ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<NotifyCollectionChangedEventArgs>(result__)
-            })
-        } else {
-            Self::INotifyCollectionChangedEventArgsFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstanceWithAllParameters)(::core::mem::transmute_copy(this), action, newitems.into_param().abi(), olditems.into_param().abi(), newindex, oldindex, ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<NotifyCollectionChangedEventArgs>(result__)
-            })
-        }
+    pub fn CreateInstanceWithAllParameters<'a, Param1: ::windows::core::IntoParam<'a, IBindableVector>, Param2: ::windows::core::IntoParam<'a, IBindableVector>>(action: NotifyCollectionChangedAction, newitems: Param1, olditems: Param2, newindex: i32, oldindex: i32) -> ::windows::core::Result<NotifyCollectionChangedEventArgs> {
+        Self::INotifyCollectionChangedEventArgsFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstanceWithAllParameters)(::core::mem::transmute_copy(this), action, newitems.into_param().abi(), olditems.into_param().abi(), newindex, oldindex, ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<NotifyCollectionChangedEventArgs>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml_Interop'*"]
+    pub fn CreateInstanceWithAllParameters_compose<'a, Param1: ::windows::core::IntoParam<'a, IBindableVector>, Param2: ::windows::core::IntoParam<'a, IBindableVector>, T: ::windows::core::Compose>(action: NotifyCollectionChangedAction, newitems: Param1, olditems: Param2, newindex: i32, oldindex: i32, compose: T) -> ::windows::core::Result<NotifyCollectionChangedEventArgs> {
+        Self::INotifyCollectionChangedEventArgsFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstanceWithAllParameters)(::core::mem::transmute_copy(this), action, newitems.into_param().abi(), olditems.into_param().abi(), newindex, oldindex, ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<NotifyCollectionChangedEventArgs>(result__)
+        })
     }
     #[doc(hidden)]
     pub fn INotifyCollectionChangedEventArgsFactory<R, F: FnOnce(&INotifyCollectionChangedEventArgsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {

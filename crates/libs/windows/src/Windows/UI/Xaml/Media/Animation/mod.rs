@@ -269,19 +269,19 @@ unsafe impl ::core::marker::Sync for BackEase {}
 pub struct BasicConnectedAnimationConfiguration(::windows::core::IUnknown);
 impl BasicConnectedAnimationConfiguration {
     #[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
-    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<BasicConnectedAnimationConfiguration> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::IBasicConnectedAnimationConfigurationFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<BasicConnectedAnimationConfiguration>(result__)
-            })
-        } else {
-            Self::IBasicConnectedAnimationConfigurationFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<BasicConnectedAnimationConfiguration>(result__)
-            })
-        }
+    pub fn new() -> ::windows::core::Result<BasicConnectedAnimationConfiguration> {
+        Self::IBasicConnectedAnimationConfigurationFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<BasicConnectedAnimationConfiguration>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
+    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<BasicConnectedAnimationConfiguration> {
+        Self::IBasicConnectedAnimationConfigurationFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<BasicConnectedAnimationConfiguration>(result__)
+        })
     }
     #[doc(hidden)]
     pub fn IBasicConnectedAnimationConfigurationFactory<R, F: FnOnce(&IBasicConnectedAnimationConfigurationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -2653,19 +2653,19 @@ unsafe impl ::core::marker::Sync for CubicEase {}
 pub struct DirectConnectedAnimationConfiguration(::windows::core::IUnknown);
 impl DirectConnectedAnimationConfiguration {
     #[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
-    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<DirectConnectedAnimationConfiguration> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::IDirectConnectedAnimationConfigurationFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<DirectConnectedAnimationConfiguration>(result__)
-            })
-        } else {
-            Self::IDirectConnectedAnimationConfigurationFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<DirectConnectedAnimationConfiguration>(result__)
-            })
-        }
+    pub fn new() -> ::windows::core::Result<DirectConnectedAnimationConfiguration> {
+        Self::IDirectConnectedAnimationConfigurationFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<DirectConnectedAnimationConfiguration>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
+    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<DirectConnectedAnimationConfiguration> {
+        Self::IDirectConnectedAnimationConfigurationFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<DirectConnectedAnimationConfiguration>(result__)
+        })
     }
     #[doc(hidden)]
     pub fn IDirectConnectedAnimationConfigurationFactory<R, F: FnOnce(&IDirectConnectedAnimationConfigurationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
@@ -6747,19 +6747,19 @@ impl GravityConnectedAnimationConfiguration {
         unsafe { (::windows::core::Interface::vtable(this).SetIsShadowEnabled)(::core::mem::transmute_copy(this), value).ok() }
     }
     #[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
-    pub fn new<T: ::windows::core::Compose>(compose: ::core::option::Option<T>) -> ::windows::core::Result<GravityConnectedAnimationConfiguration> {
-        if let ::core::option::Option::Some(compose) = compose {
-            Self::IGravityConnectedAnimationConfigurationFactory(|this| unsafe {
-                let (derived__, base__) = ::windows::core::Compose::compose(compose);
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<GravityConnectedAnimationConfiguration>(result__)
-            })
-        } else {
-            Self::IGravityConnectedAnimationConfigurationFactory(|this| unsafe {
-                let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-                (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<GravityConnectedAnimationConfiguration>(result__)
-            })
-        }
+    pub fn new() -> ::windows::core::Result<GravityConnectedAnimationConfiguration> {
+        Self::IGravityConnectedAnimationConfigurationFactory(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<GravityConnectedAnimationConfiguration>(result__)
+        })
+    }
+    #[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
+    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<GravityConnectedAnimationConfiguration> {
+        Self::IGravityConnectedAnimationConfigurationFactory(|this| unsafe {
+            let (derived__, base__) = ::windows::core::Compose::compose(compose);
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).CreateInstance)(::core::mem::transmute_copy(this), ::core::mem::transmute_copy(&derived__), base__ as *mut _ as _, &mut result__).from_abi::<GravityConnectedAnimationConfiguration>(result__)
+        })
     }
     #[doc(hidden)]
     pub fn IGravityConnectedAnimationConfigurationFactory<R, F: FnOnce(&IGravityConnectedAnimationConfigurationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
