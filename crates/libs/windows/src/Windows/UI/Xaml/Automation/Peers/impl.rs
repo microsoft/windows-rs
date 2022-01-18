@@ -24,7 +24,9 @@ pub trait IAutomationPeerOverrides_Impl: Sized {
     fn IsOffscreenCore(&mut self) -> ::windows::core::Result<bool>;
     fn IsPasswordCore(&mut self) -> ::windows::core::Result<bool>;
     fn IsRequiredForFormCore(&mut self) -> ::windows::core::Result<bool>;
-    fn SetFocusCore(&mut self) -> ::windows::core::Result<()>;
+    fn SetFocusCore(&mut self) -> ::windows::core::Result<()> {
+        ::core::result::Result::Ok(())
+    }
     fn GetPeerFromPointCore(&mut self, point: &super::super::super::super::Foundation::Point) -> ::windows::core::Result<AutomationPeer>;
     fn GetLiveSettingCore(&mut self) -> ::windows::core::Result<AutomationLiveSetting>;
 }
@@ -362,7 +364,9 @@ impl IAutomationPeerOverrides_Vtbl {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait IAutomationPeerOverrides2_Impl: Sized {
-    fn ShowContextMenuCore(&mut self) -> ::windows::core::Result<()>;
+    fn ShowContextMenuCore(&mut self) -> ::windows::core::Result<()> {
+        ::core::result::Result::Ok(())
+    }
     fn GetControlledPeersCore(&mut self) -> ::windows::core::Result<super::super::super::super::Foundation::Collections::IVectorView<AutomationPeer>>;
 }
 #[cfg(feature = "Foundation_Collections")]

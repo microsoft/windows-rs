@@ -51,11 +51,18 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
     let method_traits = def.methods().map(|method| {
         let name = method_names.add(&method);
         let signature = gen_impl_signature(def, &method, gen);
-        // TODO: if this is an override then provide a default impl?
-        // TODO: just not obvious if its an override without looking for the class - 
-        // would have to see if its exclusive and then find its its exclusive class
-        // and then see if its an overridable interface.
-        quote! { fn #name #signature; }
+        // If it can be implemented but is exclusive and has no return value then
+        // it is a Xaml override so give it a default implementation to make it easier
+        // to override individual methods for Xaml notifications.
+        if def.is_exclusive() && method.signature(&def.generics).return_sig.is_none() {
+            quote! {
+                fn #name #signature {
+                    ::core::result::Result::Ok(())
+                } 
+            }
+        } else {
+            quote! { fn #name #signature; }
+        }
     });
 
     let mut method_names = MethodNames::new();

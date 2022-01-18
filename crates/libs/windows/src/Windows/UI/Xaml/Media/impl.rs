@@ -1,6 +1,8 @@
 #[cfg(feature = "UI_Composition")]
 pub trait IBrushOverrides2_Impl: Sized {
-    fn PopulatePropertyInfoOverride(&mut self, propertyname: &::windows::core::HSTRING, animationpropertyinfo: &::core::option::Option<super::super::Composition::AnimationPropertyInfo>) -> ::windows::core::Result<()>;
+    fn PopulatePropertyInfoOverride(&mut self, propertyname: &::windows::core::HSTRING, animationpropertyinfo: &::core::option::Option<super::super::Composition::AnimationPropertyInfo>) -> ::windows::core::Result<()> {
+        ::core::result::Result::Ok(())
+    }
 }
 #[cfg(feature = "UI_Composition")]
 impl ::windows::core::RuntimeName for IBrushOverrides2 {
@@ -80,8 +82,12 @@ impl IGeneralTransformOverrides_Vtbl {
     }
 }
 pub trait IXamlCompositionBrushBaseOverrides_Impl: Sized {
-    fn OnConnected(&mut self) -> ::windows::core::Result<()>;
-    fn OnDisconnected(&mut self) -> ::windows::core::Result<()>;
+    fn OnConnected(&mut self) -> ::windows::core::Result<()> {
+        ::core::result::Result::Ok(())
+    }
+    fn OnDisconnected(&mut self) -> ::windows::core::Result<()> {
+        ::core::result::Result::Ok(())
+    }
 }
 impl ::windows::core::RuntimeName for IXamlCompositionBrushBaseOverrides {
     const NAME: &'static str = "Windows.UI.Xaml.Media.IXamlCompositionBrushBaseOverrides";
@@ -108,8 +114,12 @@ impl IXamlCompositionBrushBaseOverrides_Vtbl {
 }
 pub trait IXamlLightOverrides_Impl: Sized {
     fn GetId(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn OnConnected(&mut self, newelement: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<()>;
-    fn OnDisconnected(&mut self, oldelement: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<()>;
+    fn OnConnected(&mut self, newelement: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<()> {
+        ::core::result::Result::Ok(())
+    }
+    fn OnDisconnected(&mut self, oldelement: &::core::option::Option<super::UIElement>) -> ::windows::core::Result<()> {
+        ::core::result::Result::Ok(())
+    }
 }
 impl ::windows::core::RuntimeName for IXamlLightOverrides {
     const NAME: &'static str = "Windows.UI.Xaml.Media.IXamlLightOverrides";

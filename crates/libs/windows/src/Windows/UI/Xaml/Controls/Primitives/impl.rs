@@ -28,7 +28,9 @@ impl IFlyoutBaseOverrides_Vtbl {
 }
 #[cfg(feature = "UI_Xaml_Input")]
 pub trait IFlyoutBaseOverrides4_Impl: Sized {
-    fn OnProcessKeyboardAccelerators(&mut self, args: &::core::option::Option<super::super::Input::ProcessKeyboardAcceleratorEventArgs>) -> ::windows::core::Result<()>;
+    fn OnProcessKeyboardAccelerators(&mut self, args: &::core::option::Option<super::super::Input::ProcessKeyboardAcceleratorEventArgs>) -> ::windows::core::Result<()> {
+        ::core::result::Result::Ok(())
+    }
 }
 #[cfg(feature = "UI_Xaml_Input")]
 impl ::windows::core::RuntimeName for IFlyoutBaseOverrides4 {
@@ -51,7 +53,9 @@ impl IFlyoutBaseOverrides4_Vtbl {
     }
 }
 pub trait IPickerFlyoutBaseOverrides_Impl: Sized {
-    fn OnConfirmed(&mut self) -> ::windows::core::Result<()>;
+    fn OnConfirmed(&mut self) -> ::windows::core::Result<()> {
+        ::core::result::Result::Ok(())
+    }
     fn ShouldShowConfirmationButtons(&mut self) -> ::windows::core::Result<bool>;
 }
 impl ::windows::core::RuntimeName for IPickerFlyoutBaseOverrides {
@@ -85,9 +89,15 @@ impl IPickerFlyoutBaseOverrides_Vtbl {
     }
 }
 pub trait IRangeBaseOverrides_Impl: Sized {
-    fn OnMinimumChanged(&mut self, oldminimum: f64, newminimum: f64) -> ::windows::core::Result<()>;
-    fn OnMaximumChanged(&mut self, oldmaximum: f64, newmaximum: f64) -> ::windows::core::Result<()>;
-    fn OnValueChanged(&mut self, oldvalue: f64, newvalue: f64) -> ::windows::core::Result<()>;
+    fn OnMinimumChanged(&mut self, oldminimum: f64, newminimum: f64) -> ::windows::core::Result<()> {
+        ::core::result::Result::Ok(())
+    }
+    fn OnMaximumChanged(&mut self, oldmaximum: f64, newmaximum: f64) -> ::windows::core::Result<()> {
+        ::core::result::Result::Ok(())
+    }
+    fn OnValueChanged(&mut self, oldvalue: f64, newvalue: f64) -> ::windows::core::Result<()> {
+        ::core::result::Result::Ok(())
+    }
 }
 impl ::windows::core::RuntimeName for IRangeBaseOverrides {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.IRangeBaseOverrides";
@@ -226,7 +236,9 @@ impl IScrollSnapPointsInfo_Vtbl {
     }
 }
 pub trait IToggleButtonOverrides_Impl: Sized {
-    fn OnToggle(&mut self) -> ::windows::core::Result<()>;
+    fn OnToggle(&mut self) -> ::windows::core::Result<()> {
+        ::core::result::Result::Ok(())
+    }
 }
 impl ::windows::core::RuntimeName for IToggleButtonOverrides {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.IToggleButtonOverrides";

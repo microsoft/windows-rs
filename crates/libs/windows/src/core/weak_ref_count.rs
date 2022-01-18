@@ -72,8 +72,8 @@ fn is_weak_ref(value: isize) -> bool {
 
 #[repr(C)]
 struct TearOff {
-    strong_vtable: *const IWeakReferenceSourceVtbl,
-    weak_vtable: *const IWeakReferenceVtbl,
+    strong_vtable: *const IWeakReferenceSource_Vtbl,
+    weak_vtable: *const IWeakReference_Vtbl,
     object: RawPtr,
     strong_count: RefCount,
     weak_count: RefCount,
@@ -97,9 +97,9 @@ impl TearOff {
         core::mem::transmute(tear_off)
     }
 
-    const STRONG_VTABLE: IWeakReferenceSourceVtbl = IWeakReferenceSourceVtbl(Self::StrongQueryInterface, Self::StrongAddRef, Self::StrongRelease, Self::StrongDowngrade);
+    const STRONG_VTABLE: IWeakReferenceSource_Vtbl = IWeakReferenceSource_Vtbl{ base: IUnknownVtbl{ QueryInterface: Self::StrongQueryInterface, AddRef: Self::StrongAddRef, Release: Self::StrongRelease}, GetWeakReference: Self::StrongDowngrade};
 
-    const WEAK_VTABLE: IWeakReferenceVtbl = IWeakReferenceVtbl(Self::WeakQueryInterface, Self::WeakAddRef, Self::WeakRelease, Self::WeakUpgrade);
+    const WEAK_VTABLE: IWeakReference_Vtbl = IWeakReference_Vtbl{base: IUnknownVtbl{ QueryInterface: Self::WeakQueryInterface, AddRef: Self::WeakAddRef, Release: Self::WeakRelease}, Resolve: Self::WeakUpgrade};
 
     unsafe fn from_strong_ptr<'a>(this: RawPtr) -> &'a mut Self {
         &mut *(this as *mut RawPtr as *mut Self)
@@ -200,7 +200,7 @@ impl TearOff {
         HRESULT(0)
     }
 
-    unsafe extern "system" fn WeakUpgrade(ptr: RawPtr, iid: &GUID, interface: *mut RawPtr) -> HRESULT {
+    unsafe extern "system" fn WeakUpgrade(ptr: RawPtr, iid: *const GUID, interface: *mut RawPtr) -> HRESULT {
         let this = Self::from_weak_ptr(ptr);
 
         this.strong_count
@@ -212,7 +212,7 @@ impl TearOff {
             })
             .map(|_| {
                 // Let the object respond to the upgrade query.
-                let result = this.query_interface(iid, interface);
+                let result = this.query_interface(&*iid, interface);
                 // Decrement the temporary reference account used to stabilize the object.
                 this.strong_count.0.fetch_sub(1, Ordering::Relaxed);
                 // Return the result of the query.

@@ -1,6 +1,8 @@
 pub trait INavigationTransitionInfoOverrides_Impl: Sized {
     fn GetNavigationStateCore(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
-    fn SetNavigationStateCore(&mut self, navigationstate: &::windows::core::HSTRING) -> ::windows::core::Result<()>;
+    fn SetNavigationStateCore(&mut self, navigationstate: &::windows::core::HSTRING) -> ::windows::core::Result<()> {
+        ::core::result::Result::Ok(())
+    }
 }
 impl ::windows::core::RuntimeName for INavigationTransitionInfoOverrides {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.INavigationTransitionInfoOverrides";

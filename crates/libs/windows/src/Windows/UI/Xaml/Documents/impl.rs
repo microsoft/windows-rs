@@ -1,5 +1,7 @@
 pub trait ITextElementOverrides_Impl: Sized {
-    fn OnDisconnectVisualChildren(&mut self) -> ::windows::core::Result<()>;
+    fn OnDisconnectVisualChildren(&mut self) -> ::windows::core::Result<()> {
+        ::core::result::Result::Ok(())
+    }
 }
 impl ::windows::core::RuntimeName for ITextElementOverrides {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.ITextElementOverrides";
