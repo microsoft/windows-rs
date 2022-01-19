@@ -1,7 +1,6 @@
 use std::convert::TryInto;
-use test_win32::*;
 use windows::core::HRESULT;
-use Windows::Win32::Foundation::*;
+use windows::Win32::Foundation::*;
 
 #[test]
 fn test_message() {
