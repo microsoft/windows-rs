@@ -80,10 +80,6 @@ pub type RawPtr = *mut core::ffi::c_void;
 #[cfg(feature = "implement")]
 pub use windows_macros::implement;
 
-// TODO: remove this
-#[cfg(feature = "build")]
-pub use windows_reader::workspace_dir;
-
 extern "C" {
     #[doc(hidden)]
     pub fn memcmp(left: *const core::ffi::c_void, right: *const core::ffi::c_void, len: usize) -> i32;

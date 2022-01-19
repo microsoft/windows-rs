@@ -3,15 +3,6 @@ members = [
     "crates/libs/*",
     "crates/targets/*",
     "crates/tools/*",
-    "crates/tests/legacy/*",
-    "crates/tests/metadata/*",
-    "crates/tests/winrt/*",
-    "crates/tests/win32/*",
-    "crates/tests/core",
-    "crates/tests/debug",
-    "crates/tests/enums",
-    "crates/tests/sys",
-    "crates/tests/handles",
-    "crates/tests/agile",
+    "crates/samples/*",
+   # "crates/tests/*",
 ]
-exclude = ["crates/tests/component"]

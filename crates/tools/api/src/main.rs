@@ -6,7 +6,7 @@ const EXCLUDE_NAMESPACES: [&str; 1] = ["Windows.Win32.Interop"];
 fn main() {
     let mut output = std::path::PathBuf::from(reader::workspace_dir());
     output.push("crates/libs/windows/src/Windows");
-    //let _ = std::fs::remove_dir_all(&output);
+    let _ = std::fs::remove_dir_all(&output);
     output.pop();
 
     let reader = reader::TypeReader::get_mut();
@@ -70,15 +70,12 @@ windows_x86_64_gnu = { path = "../../targets/x86_64_gnu", version = "0.30.0" }
 
 [dependencies]
 windows_macros = { path = "../macros",  version = "0.30.0", optional = true }
-windows_reader = { path = "../reader", version = "0.30.0", optional = true }
-windows_gen = { path = "../gen",  version = "0.30.0", optional = true }
 
 [features]
 default = []
 deprecated = []
 alloc = []
 implement = ["windows_macros"]
-build = ["windows_gen", "windows_macros", "windows_reader"]
 "#
         .as_bytes(),
     )
@@ -112,10 +109,6 @@ fn collect_trees<'a>(output: &std::path::Path, root: &'static str, tree: &'a rea
 }
 
 fn gen_tree(output: &std::path::Path, _root: &'static str, tree: &reader::TypeTree) {
-    // if tree.namespace != "Windows.UI.Xaml" {
-    //     return;
-    // }
-
     println!("{}", tree.namespace);
 
     let path = std::path::PathBuf::from(output).join(tree.namespace.replace('.', "/"));

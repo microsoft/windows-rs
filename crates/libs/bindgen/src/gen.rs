@@ -135,14 +135,14 @@ impl Gen<'_> {
     }
 
     fn type_requirements(&self, def: &TypeDef, namespaces: &mut BTreeSet<&'static str>, keys: &mut HashSet<Row>) {
-        if !keys.insert(def.row.clone()) {
-            return;
-        }
-
         self.add_namespace(def.namespace(), namespaces);
 
         for generic in &def.generics {
             self.element_requirements(generic, namespaces, keys);
+        }
+
+        if !keys.insert(def.row.clone()) {
+            return;
         }
 
         match def.kind() {

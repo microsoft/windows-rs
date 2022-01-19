@@ -10,12 +10,6 @@ repository = "https://github.com/microsoft/windows-rs"
 [lib]
 proc-macro = true
 
-# the macros crate should only include the implement macro so should maybe be renamed
-# and all these depednecies should be removed - the implement should be light and fast to compile
-# these dependencies are really slow to compile
-
 [dependencies]
-gen = { package = "windows_gen", path = "../gen", version = "0.30.0" }
-reader = { package = "windows_reader", path = "../reader", version = "0.30.0" }
 syn = { version = "1.0", default-features = false, features = ["parsing", "proc-macro", "printing", "full", "derive"] }
 quote = { package = "windows_quote", path = "../quote", version = "0.30.0" }

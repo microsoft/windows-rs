@@ -1,0 +1,23 @@
+[package]
+name = "direct3d12"
+version = "0.0.0"
+edition = "2018"
+
+[dependencies]
+array-init = "2.0.0"
+
+[dependencies.windows]
+path = "../../libs/windows"
+features = [
+    "alloc",
+    "Win32_Foundation",
+    "Win32_Graphics_Direct3D_Fxc",
+    "Win32_Graphics_Direct3D12",
+    "Win32_Graphics_Dxgi_Common",
+    "Win32_Graphics_Gdi",
+    "Win32_Security",
+    "Win32_System_LibraryLoader",
+    "Win32_System_Threading",
+    "Win32_System_WindowsProgramming",
+    "Win32_UI_WindowsAndMessaging",
+]
