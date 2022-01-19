@@ -1,11 +1,13 @@
-use test_data_object::*;
-use windows::core::*;
-use Windows::Win32::Foundation::*;
-use Windows::Win32::System::Com::*;
+#![allow(non_snake_case)]
 
-#[implement(Windows::Win32::System::Com::IDataObject)]
+use windows::{
+    core::*,
+    Win32::Foundation::*,
+    Win32::System::Com::*,
+};
+
+#[implement(IDataObject)]
 #[derive(Default)]
-#[allow(non_snake_case)]
 struct Test {
     GetData: bool,
     GetDataHere: bool,
@@ -18,8 +20,7 @@ struct Test {
     EnumDAdvise: bool,
 }
 
-#[allow(non_snake_case)]
-impl Test {
+impl IDataObject_Impl for Test {
     fn GetData(&mut self, _: *const FORMATETC) -> Result<STGMEDIUM> {
         self.GetData = true;
         Ok(STGMEDIUM { tymed: 0, Anonymous: STGMEDIUM_0 { pstg: core::ptr::null_mut() }, pUnkForRelease: None })
