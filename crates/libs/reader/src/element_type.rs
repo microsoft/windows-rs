@@ -136,24 +136,6 @@ impl ElementType {
         }
     }
 
-    pub fn include_dependencies(&self, include: TypeInclude) {
-        match self {
-            Self::MethodDef(t) => t.include_dependencies(),
-            Self::TypeDef(t) => t.include_dependencies(include),
-            Self::Field(t) => t.include_dependencies(None, include),
-            Self::Array((signature, _)) => signature.kind.include_dependencies(include),
-            _ => {}
-        }
-    }
-
-    pub fn include_definition(&self, include: TypeInclude) {
-        match self {
-            Self::TypeDef(t) => t.include_definition(include),
-            Self::Array((signature, _)) => signature.kind.include_definition(include),
-            _ => {}
-        }
-    }
-
     pub fn features(&self, features: &mut BTreeSet<&'static str>, keys: &mut std::collections::HashSet<Row>) {
         match self {
             Self::TypeDef(def) => def.features(features, keys),
