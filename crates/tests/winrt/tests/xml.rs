@@ -1,4 +1,4 @@
-use test_winrt::Windows::Data::Xml::Dom::XmlDocument;
+use windows::Data::Xml::Dom::XmlDocument;
 
 // Simple test to validate that default constructors are projected as static `new` methods.
 #[test]

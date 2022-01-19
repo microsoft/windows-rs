@@ -1,9 +1,9 @@
 use core::convert::*;
 use core::iter::FromIterator;
 
-use test_winrt::{
-    Windows::Foundation::Collections::{IIterable, IVectorView, PropertySet},
-    Windows::Foundation::{IWwwFormUrlDecoderEntry, Uri},
+use windows::{
+    Foundation::Collections::{IIterable, IVectorView, PropertySet},
+    Foundation::{IWwwFormUrlDecoderEntry, Uri},
 };
 
 #[test]

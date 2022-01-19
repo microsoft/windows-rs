@@ -1,4 +1,4 @@
-use test_winrt::Windows::Foundation::{PropertyValue, Uri};
+use windows::Foundation::{PropertyValue, Uri};
 use windows::core::Interface;
 
 #[test]

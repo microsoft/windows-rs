@@ -1,4 +1,4 @@
-use test_winrt::Windows::Foundation::Uri;
+use windows::Foundation::Uri;
 use windows::core::Array;
 
 #[test]

@@ -1,6 +1,6 @@
 #[test]
 fn async_get() -> windows::core::Result<()> {
-    use test_winrt::Windows::Storage::Streams::*;
+    use windows::Storage::Streams::*;
 
     let stream = &InMemoryRandomAccessStream::new()?;
 
@@ -25,7 +25,7 @@ fn async_get() -> windows::core::Result<()> {
 }
 
 async fn async_await() -> windows::core::Result<()> {
-    use test_winrt::Windows::Storage::Streams::*;
+    use windows::Storage::Streams::*;
 
     let stream = &InMemoryRandomAccessStream::new()?;
 

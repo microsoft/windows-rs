@@ -1,4 +1,4 @@
-use test_winrt::{Windows::ApplicationModel::Appointments::AppointmentDaysOfWeek, Windows::Foundation::AsyncStatus};
+use windows::{ApplicationModel::Appointments::AppointmentDaysOfWeek, Foundation::AsyncStatus};
 
 #[test]
 fn signed_enum() {

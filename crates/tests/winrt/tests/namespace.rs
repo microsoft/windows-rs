@@ -3,7 +3,7 @@
 
 #[test]
 fn namespace() -> windows::core::Result<()> {
-    use test_winrt::Windows::AI::MachineLearning::{TensorBoolean, TensorKind};
+    use windows::AI::MachineLearning::{TensorBoolean, TensorKind};
 
     let tensor = TensorBoolean::Create()?;
     assert!(tensor.TensorKind()? == TensorKind::Boolean);

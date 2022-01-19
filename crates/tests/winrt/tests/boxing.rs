@@ -1,5 +1,5 @@
 use core::convert::{TryFrom, TryInto};
-use test_winrt::Windows::Foundation::{IPropertyValue, PropertyValue};
+use windows::Foundation::{IPropertyValue, PropertyValue};
 use windows::core::{IInspectable, Interface, HSTRING};
 
 macro_rules! primitive_try_into_test {

@@ -1,4 +1,4 @@
-use test_winrt::Windows::Foundation::IStringable;
+use windows::Foundation::IStringable;
 use windows::core::Interface;
 
 #[test]

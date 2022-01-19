@@ -1,6 +1,6 @@
-use test_winrt::{
-    Windows::System::DispatcherQueueController,
-    Windows::Win32::System::WinRT::{CreateDispatcherQueueController, DispatcherQueueOptions, DQTAT_COM_NONE, DQTYPE_THREAD_CURRENT},
+use windows::{
+    System::DispatcherQueueController,
+    Win32::System::WinRT::{CreateDispatcherQueueController, DispatcherQueueOptions, DQTAT_COM_NONE, DQTYPE_THREAD_CURRENT},
 };
 
 fn create_dispatcher() -> DispatcherQueueController {
@@ -14,7 +14,7 @@ fn create_dispatcher() -> DispatcherQueueController {
 
 #[test]
 fn class_hierarchy_conversion() -> windows::core::Result<()> {
-    use test_winrt::Windows::UI::Composition::{Compositor, SpriteVisual, Visual};
+    use windows::UI::Composition::{Compositor, SpriteVisual, Visual};
 
     let _dispatcher = create_dispatcher();
     let compositor = Compositor::new()?;
@@ -54,9 +54,9 @@ fn class_hierarchy_conversion() -> windows::core::Result<()> {
 
 #[test]
 fn composition() -> windows::core::Result<()> {
-    use test_winrt::Windows::Foundation::Numerics::Vector3;
-    use test_winrt::Windows::UI::Composition::{CompositionColorBrush, Compositor};
-    use test_winrt::Windows::UI::{Color, Colors};
+    use windows::Foundation::Numerics::Vector3;
+    use windows::UI::Composition::{CompositionColorBrush, Compositor};
+    use windows::UI::{Color, Colors};
     use windows::core::Interface;
 
     let _dispatcher = create_dispatcher();

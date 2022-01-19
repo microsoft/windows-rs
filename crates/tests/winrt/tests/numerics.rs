@@ -1,4 +1,4 @@
-use test_winrt::Windows::Foundation::Numerics::*;
+use windows::Foundation::Numerics::*;
 
 macro_rules! test_with_same_type {
     ($value1:ident, $value2:ident, $op:tt, $expected:ident) => {
