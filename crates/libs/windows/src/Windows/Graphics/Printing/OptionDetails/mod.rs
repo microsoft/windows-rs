@@ -1311,7 +1311,7 @@ unsafe impl ::windows::core::RuntimeType for PrintBindingOptionDetails {
 }
 unsafe impl ::windows::core::Interface for PrintBindingOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x390686cf_d682_495f_adfe_d7333f5c1808);
+    const IID: ::windows::core::GUID = <IPrintOptionDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintBindingOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintBindingOptionDetails";
@@ -1521,7 +1521,7 @@ unsafe impl ::windows::core::RuntimeType for PrintBorderingOptionDetails {
 }
 unsafe impl ::windows::core::Interface for PrintBorderingOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x390686cf_d682_495f_adfe_d7333f5c1808);
+    const IID: ::windows::core::GUID = <IPrintOptionDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintBorderingOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintBorderingOptionDetails";
@@ -1731,7 +1731,7 @@ unsafe impl ::windows::core::RuntimeType for PrintCollationOptionDetails {
 }
 unsafe impl ::windows::core::Interface for PrintCollationOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x390686cf_d682_495f_adfe_d7333f5c1808);
+    const IID: ::windows::core::GUID = <IPrintOptionDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintCollationOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintCollationOptionDetails";
@@ -1941,7 +1941,7 @@ unsafe impl ::windows::core::RuntimeType for PrintColorModeOptionDetails {
 }
 unsafe impl ::windows::core::Interface for PrintColorModeOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x390686cf_d682_495f_adfe_d7333f5c1808);
+    const IID: ::windows::core::GUID = <IPrintOptionDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintColorModeOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintColorModeOptionDetails";
@@ -2158,7 +2158,7 @@ unsafe impl ::windows::core::RuntimeType for PrintCopiesOptionDetails {
 }
 unsafe impl ::windows::core::Interface for PrintCopiesOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x390686cf_d682_495f_adfe_d7333f5c1808);
+    const IID: ::windows::core::GUID = <IPrintOptionDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintCopiesOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintCopiesOptionDetails";
@@ -2296,7 +2296,7 @@ unsafe impl ::windows::core::RuntimeType for PrintCustomItemDetails {
 }
 unsafe impl ::windows::core::Interface for PrintCustomItemDetails {
     type Vtable = IPrintCustomItemDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5704b637_5c3a_449a_aa36_b3291b1192fd);
+    const IID: ::windows::core::GUID = <IPrintCustomItemDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintCustomItemDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintCustomItemDetails";
@@ -2486,7 +2486,7 @@ unsafe impl ::windows::core::RuntimeType for PrintCustomItemListOptionDetails {
 }
 unsafe impl ::windows::core::Interface for PrintCustomItemListOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x390686cf_d682_495f_adfe_d7333f5c1808);
+    const IID: ::windows::core::GUID = <IPrintOptionDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintCustomItemListOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintCustomItemListOptionDetails";
@@ -2735,7 +2735,7 @@ unsafe impl ::windows::core::RuntimeType for PrintCustomTextOptionDetails {
 }
 unsafe impl ::windows::core::Interface for PrintCustomTextOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x390686cf_d682_495f_adfe_d7333f5c1808);
+    const IID: ::windows::core::GUID = <IPrintOptionDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintCustomTextOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintCustomTextOptionDetails";
@@ -2949,7 +2949,7 @@ unsafe impl ::windows::core::RuntimeType for PrintCustomToggleOptionDetails {
 }
 unsafe impl ::windows::core::Interface for PrintCustomToggleOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x390686cf_d682_495f_adfe_d7333f5c1808);
+    const IID: ::windows::core::GUID = <IPrintOptionDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintCustomToggleOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintCustomToggleOptionDetails";
@@ -3159,7 +3159,7 @@ unsafe impl ::windows::core::RuntimeType for PrintDuplexOptionDetails {
 }
 unsafe impl ::windows::core::Interface for PrintDuplexOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x390686cf_d682_495f_adfe_d7333f5c1808);
+    const IID: ::windows::core::GUID = <IPrintOptionDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintDuplexOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintDuplexOptionDetails";
@@ -3369,7 +3369,7 @@ unsafe impl ::windows::core::RuntimeType for PrintHolePunchOptionDetails {
 }
 unsafe impl ::windows::core::Interface for PrintHolePunchOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x390686cf_d682_495f_adfe_d7333f5c1808);
+    const IID: ::windows::core::GUID = <IPrintOptionDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintHolePunchOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintHolePunchOptionDetails";
@@ -3579,7 +3579,7 @@ unsafe impl ::windows::core::RuntimeType for PrintMediaSizeOptionDetails {
 }
 unsafe impl ::windows::core::Interface for PrintMediaSizeOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x390686cf_d682_495f_adfe_d7333f5c1808);
+    const IID: ::windows::core::GUID = <IPrintOptionDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintMediaSizeOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintMediaSizeOptionDetails";
@@ -3789,7 +3789,7 @@ unsafe impl ::windows::core::RuntimeType for PrintMediaTypeOptionDetails {
 }
 unsafe impl ::windows::core::Interface for PrintMediaTypeOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x390686cf_d682_495f_adfe_d7333f5c1808);
+    const IID: ::windows::core::GUID = <IPrintOptionDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintMediaTypeOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintMediaTypeOptionDetails";
@@ -4087,7 +4087,7 @@ unsafe impl ::windows::core::RuntimeType for PrintOrientationOptionDetails {
 }
 unsafe impl ::windows::core::Interface for PrintOrientationOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x390686cf_d682_495f_adfe_d7333f5c1808);
+    const IID: ::windows::core::GUID = <IPrintOptionDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintOrientationOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintOrientationOptionDetails";
@@ -4288,7 +4288,7 @@ unsafe impl ::windows::core::RuntimeType for PrintPageRangeOptionDetails {
 }
 unsafe impl ::windows::core::Interface for PrintPageRangeOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x390686cf_d682_495f_adfe_d7333f5c1808);
+    const IID: ::windows::core::GUID = <IPrintOptionDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintPageRangeOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintPageRangeOptionDetails";
@@ -4476,7 +4476,7 @@ unsafe impl ::windows::core::RuntimeType for PrintQualityOptionDetails {
 }
 unsafe impl ::windows::core::Interface for PrintQualityOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x390686cf_d682_495f_adfe_d7333f5c1808);
+    const IID: ::windows::core::GUID = <IPrintOptionDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintQualityOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintQualityOptionDetails";
@@ -4686,7 +4686,7 @@ unsafe impl ::windows::core::RuntimeType for PrintStapleOptionDetails {
 }
 unsafe impl ::windows::core::Interface for PrintStapleOptionDetails {
     type Vtable = IPrintOptionDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x390686cf_d682_495f_adfe_d7333f5c1808);
+    const IID: ::windows::core::GUID = <IPrintOptionDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintStapleOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintStapleOptionDetails";
@@ -4811,7 +4811,7 @@ unsafe impl ::windows::core::RuntimeType for PrintTaskOptionChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for PrintTaskOptionChangedEventArgs {
     type Vtable = IPrintTaskOptionChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65197d05_a5ee_4307_9407_9acad147679c);
+    const IID: ::windows::core::GUID = <IPrintTaskOptionChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintTaskOptionChangedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintTaskOptionChangedEventArgs";
@@ -4977,7 +4977,7 @@ unsafe impl ::windows::core::RuntimeType for PrintTaskOptionDetails {
 }
 unsafe impl ::windows::core::Interface for PrintTaskOptionDetails {
     type Vtable = IPrintTaskOptionDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5720af1_a89e_42a6_81af_f8e010b38a68);
+    const IID: ::windows::core::GUID = <IPrintTaskOptionDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintTaskOptionDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.OptionDetails.PrintTaskOptionDetails";

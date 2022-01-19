@@ -50,7 +50,7 @@ unsafe impl ::windows::core::RuntimeType for FindAllAccountsResult {
 }
 unsafe impl ::windows::core::Interface for FindAllAccountsResult {
     type Vtable = IFindAllAccountsResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5812b5d_b72e_420c_86ab_aac0d7b7261f);
+    const IID: ::windows::core::GUID = <IFindAllAccountsResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FindAllAccountsResult {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.FindAllAccountsResult";
@@ -533,7 +533,7 @@ unsafe impl ::windows::core::RuntimeType for WebAccountEventArgs {
 }
 unsafe impl ::windows::core::Interface for WebAccountEventArgs {
     type Vtable = IWebAccountEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fb7037d_424e_44ec_977c_ef2415462a5a);
+    const IID: ::windows::core::GUID = <IWebAccountEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebAccountEventArgs {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebAccountEventArgs";
@@ -666,7 +666,7 @@ unsafe impl ::windows::core::RuntimeType for WebAccountMonitor {
 }
 unsafe impl ::windows::core::Interface for WebAccountMonitor {
     type Vtable = IWebAccountMonitor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7445f5fd_aa9d_4619_8d5d_c138a4ede3e5);
+    const IID: ::windows::core::GUID = <IWebAccountMonitor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebAccountMonitor {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebAccountMonitor";
@@ -915,7 +915,7 @@ unsafe impl ::windows::core::RuntimeType for WebProviderError {
 }
 unsafe impl ::windows::core::Interface for WebProviderError {
     type Vtable = IWebProviderError_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb191bb1_50c5_4809_8dca_09c99410245c);
+    const IID: ::windows::core::GUID = <IWebProviderError as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebProviderError {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebProviderError";
@@ -1089,7 +1089,7 @@ unsafe impl ::windows::core::RuntimeType for WebTokenRequest {
 }
 unsafe impl ::windows::core::Interface for WebTokenRequest {
     type Vtable = IWebTokenRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb77b4d68_adcb_4673_b364_0cf7b35caf97);
+    const IID: ::windows::core::GUID = <IWebTokenRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebTokenRequest {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebTokenRequest";
@@ -1224,7 +1224,7 @@ unsafe impl ::windows::core::RuntimeType for WebTokenRequestResult {
 }
 unsafe impl ::windows::core::Interface for WebTokenRequestResult {
     type Vtable = IWebTokenRequestResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc12a8305_d1f8_4483_8d54_38fe292784ff);
+    const IID: ::windows::core::GUID = <IWebTokenRequestResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebTokenRequestResult {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebTokenRequestResult";
@@ -1398,7 +1398,7 @@ unsafe impl ::windows::core::RuntimeType for WebTokenResponse {
 }
 unsafe impl ::windows::core::Interface for WebTokenResponse {
     type Vtable = IWebTokenResponse_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x67a7c5ca_83f6_44c6_a3b1_0eb69e41fa8a);
+    const IID: ::windows::core::GUID = <IWebTokenResponse as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebTokenResponse {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Core.WebTokenResponse";

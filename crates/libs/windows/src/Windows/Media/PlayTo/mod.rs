@@ -34,7 +34,7 @@ unsafe impl ::windows::core::RuntimeType for CurrentTimeChangeRequestedEventArgs
 }
 unsafe impl ::windows::core::Interface for CurrentTimeChangeRequestedEventArgs {
     type Vtable = ICurrentTimeChangeRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99711324_edc7_4bf5_91f6_3c8627db59e5);
+    const IID: ::windows::core::GUID = <ICurrentTimeChangeRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CurrentTimeChangeRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.CurrentTimeChangeRequestedEventArgs";
@@ -659,7 +659,7 @@ unsafe impl ::windows::core::RuntimeType for MuteChangeRequestedEventArgs {
 }
 unsafe impl ::windows::core::Interface for MuteChangeRequestedEventArgs {
     type Vtable = IMuteChangeRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4b4f5f6_af1f_4f1e_b437_7da32400e1d4);
+    const IID: ::windows::core::GUID = <IMuteChangeRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MuteChangeRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.MuteChangeRequestedEventArgs";
@@ -792,7 +792,7 @@ unsafe impl ::windows::core::RuntimeType for PlayToConnection {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PlayToConnection {
     type Vtable = IPlayToConnection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x112fbfc8_f235_4fde_8d41_9bf27c9e9a40);
+    const IID: ::windows::core::GUID = <IPlayToConnection as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PlayToConnection {
@@ -941,7 +941,7 @@ unsafe impl ::windows::core::RuntimeType for PlayToConnectionErrorEventArgs {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PlayToConnectionErrorEventArgs {
     type Vtable = IPlayToConnectionErrorEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf5eada6_88e6_445f_9d40_d9b9f8939896);
+    const IID: ::windows::core::GUID = <IPlayToConnectionErrorEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PlayToConnectionErrorEventArgs {
@@ -1088,7 +1088,7 @@ unsafe impl ::windows::core::RuntimeType for PlayToConnectionStateChangedEventAr
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PlayToConnectionStateChangedEventArgs {
     type Vtable = IPlayToConnectionStateChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68c4b50f_0c20_4980_8602_58c62238d423);
+    const IID: ::windows::core::GUID = <IPlayToConnectionStateChangedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PlayToConnectionStateChangedEventArgs {
@@ -1198,7 +1198,7 @@ unsafe impl ::windows::core::RuntimeType for PlayToConnectionTransferredEventArg
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PlayToConnectionTransferredEventArgs {
     type Vtable = IPlayToConnectionTransferredEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfae3193a_0683_47d9_8df0_18cbb48984d8);
+    const IID: ::windows::core::GUID = <IPlayToConnectionTransferredEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PlayToConnectionTransferredEventArgs {
@@ -1354,7 +1354,7 @@ unsafe impl ::windows::core::RuntimeType for PlayToManager {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PlayToManager {
     type Vtable = IPlayToManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf56a206e_1b77_42ef_8f0d_b949f8d9b260);
+    const IID: ::windows::core::GUID = <IPlayToManager as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PlayToManager {
@@ -1721,7 +1721,7 @@ unsafe impl ::windows::core::RuntimeType for PlayToReceiver {
 }
 unsafe impl ::windows::core::Interface for PlayToReceiver {
     type Vtable = IPlayToReceiver_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac15cf47_a162_4aa6_af1b_3aa35f3b9069);
+    const IID: ::windows::core::GUID = <IPlayToReceiver as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PlayToReceiver {
     const NAME: &'static str = "Windows.Media.PlayTo.PlayToReceiver";
@@ -1845,7 +1845,7 @@ unsafe impl ::windows::core::RuntimeType for PlayToSource {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PlayToSource {
     type Vtable = IPlayToSource_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f138a08_fbb7_4b09_8356_aa5f4e335c31);
+    const IID: ::windows::core::GUID = <IPlayToSource as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PlayToSource {
@@ -1943,7 +1943,7 @@ unsafe impl ::windows::core::RuntimeType for PlayToSourceDeferral {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PlayToSourceDeferral {
     type Vtable = IPlayToSourceDeferral_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4100891d_278e_4f29_859b_a9e501053e7d);
+    const IID: ::windows::core::GUID = <IPlayToSourceDeferral as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PlayToSourceDeferral {
@@ -2065,7 +2065,7 @@ unsafe impl ::windows::core::RuntimeType for PlayToSourceRequest {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PlayToSourceRequest {
     type Vtable = IPlayToSourceRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8584665_64f4_44a0_ac0d_468d2b8fda83);
+    const IID: ::windows::core::GUID = <IPlayToSourceRequest as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PlayToSourceRequest {
@@ -2166,7 +2166,7 @@ unsafe impl ::windows::core::RuntimeType for PlayToSourceRequestedEventArgs {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PlayToSourceRequestedEventArgs {
     type Vtable = IPlayToSourceRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5cdc330_29df_4ec6_9da9_9fbdfcfc1b3e);
+    const IID: ::windows::core::GUID = <IPlayToSourceRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PlayToSourceRequestedEventArgs {
@@ -2303,7 +2303,7 @@ unsafe impl ::windows::core::RuntimeType for PlayToSourceSelectedEventArgs {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PlayToSourceSelectedEventArgs {
     type Vtable = IPlayToSourceSelectedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c9d8511_5202_4dcb_8c67_abda12bb3c12);
+    const IID: ::windows::core::GUID = <IPlayToSourceSelectedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PlayToSourceSelectedEventArgs {
@@ -2395,7 +2395,7 @@ unsafe impl ::windows::core::RuntimeType for PlaybackRateChangeRequestedEventArg
 }
 unsafe impl ::windows::core::Interface for PlaybackRateChangeRequestedEventArgs {
     type Vtable = IPlaybackRateChangeRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f5661ae_2c88_4cca_8540_d586095d13a5);
+    const IID: ::windows::core::GUID = <IPlaybackRateChangeRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PlaybackRateChangeRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.PlaybackRateChangeRequestedEventArgs";
@@ -2551,7 +2551,7 @@ unsafe impl ::windows::core::RuntimeType for SourceChangeRequestedEventArgs {
 }
 unsafe impl ::windows::core::Interface for SourceChangeRequestedEventArgs {
     type Vtable = ISourceChangeRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb3f3a96_7aa6_4a8b_86e7_54f6c6d34f64);
+    const IID: ::windows::core::GUID = <ISourceChangeRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SourceChangeRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.SourceChangeRequestedEventArgs";
@@ -2630,7 +2630,7 @@ unsafe impl ::windows::core::RuntimeType for VolumeChangeRequestedEventArgs {
 }
 unsafe impl ::windows::core::Interface for VolumeChangeRequestedEventArgs {
     type Vtable = IVolumeChangeRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f026d5c_cf75_4c2b_913e_6d7c6c329179);
+    const IID: ::windows::core::GUID = <IVolumeChangeRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VolumeChangeRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.PlayTo.VolumeChangeRequestedEventArgs";

@@ -45,7 +45,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionDebugHeatMaps {
 }
 unsafe impl ::windows::core::Interface for CompositionDebugHeatMaps {
     type Vtable = ICompositionDebugHeatMaps_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe49c90ac_2ff3_5805_718c_b725ee07650f);
+    const IID: ::windows::core::GUID = <ICompositionDebugHeatMaps as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionDebugHeatMaps {
     const NAME: &'static str = "Windows.UI.Composition.Diagnostics.CompositionDebugHeatMaps";
@@ -201,7 +201,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionDebugSettings {
 }
 unsafe impl ::windows::core::Interface for CompositionDebugSettings {
     type Vtable = ICompositionDebugSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2831987e_1d82_4d38_b7b7_efd11c7bc3d1);
+    const IID: ::windows::core::GUID = <ICompositionDebugSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionDebugSettings {
     const NAME: &'static str = "Windows.UI.Composition.Diagnostics.CompositionDebugSettings";

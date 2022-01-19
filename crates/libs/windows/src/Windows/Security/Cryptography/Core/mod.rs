@@ -269,7 +269,7 @@ unsafe impl ::windows::core::RuntimeType for AsymmetricKeyAlgorithmProvider {
 }
 unsafe impl ::windows::core::Interface for AsymmetricKeyAlgorithmProvider {
     type Vtable = IAsymmetricKeyAlgorithmProvider_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8d2ff37_6259_4e88_b7e0_94191fde699e);
+    const IID: ::windows::core::GUID = <IAsymmetricKeyAlgorithmProvider as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AsymmetricKeyAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.AsymmetricKeyAlgorithmProvider";
@@ -498,7 +498,7 @@ unsafe impl ::windows::core::RuntimeType for CryptographicHash {
 }
 unsafe impl ::windows::core::Interface for CryptographicHash {
     type Vtable = IHashComputation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5904d1b6_ad31_4603_a3a4_b1bda98e2562);
+    const IID: ::windows::core::GUID = <IHashComputation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CryptographicHash {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.CryptographicHash";
@@ -615,7 +615,7 @@ unsafe impl ::windows::core::RuntimeType for CryptographicKey {
 }
 unsafe impl ::windows::core::Interface for CryptographicKey {
     type Vtable = ICryptographicKey_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed2a3b70_8e7b_4009_8401_ffd1a62eeb27);
+    const IID: ::windows::core::GUID = <ICryptographicKey as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CryptographicKey {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.CryptographicKey";
@@ -1133,7 +1133,7 @@ unsafe impl ::windows::core::RuntimeType for EncryptedAndAuthenticatedData {
 }
 unsafe impl ::windows::core::Interface for EncryptedAndAuthenticatedData {
     type Vtable = IEncryptedAndAuthenticatedData_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fa42fe7_1ecb_4b00_bea5_60b83f862f17);
+    const IID: ::windows::core::GUID = <IEncryptedAndAuthenticatedData as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EncryptedAndAuthenticatedData {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.EncryptedAndAuthenticatedData";
@@ -1298,7 +1298,7 @@ unsafe impl ::windows::core::RuntimeType for HashAlgorithmProvider {
 }
 unsafe impl ::windows::core::Interface for HashAlgorithmProvider {
     type Vtable = IHashAlgorithmProvider_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe9b3080_b2c3_422b_bce1_ec90efb5d7b5);
+    const IID: ::windows::core::GUID = <IHashAlgorithmProvider as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HashAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.HashAlgorithmProvider";
@@ -2203,7 +2203,7 @@ unsafe impl ::windows::core::RuntimeType for KeyDerivationAlgorithmProvider {
 }
 unsafe impl ::windows::core::Interface for KeyDerivationAlgorithmProvider {
     type Vtable = IKeyDerivationAlgorithmProvider_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe1fba83b_4671_43b7_9158_763aaa98b6bf);
+    const IID: ::windows::core::GUID = <IKeyDerivationAlgorithmProvider as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for KeyDerivationAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.KeyDerivationAlgorithmProvider";
@@ -2353,7 +2353,7 @@ unsafe impl ::windows::core::RuntimeType for KeyDerivationParameters {
 }
 unsafe impl ::windows::core::Interface for KeyDerivationParameters {
     type Vtable = IKeyDerivationParameters_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7bf05967_047b_4a8c_964a_469ffd5522e2);
+    const IID: ::windows::core::GUID = <IKeyDerivationParameters as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for KeyDerivationParameters {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.KeyDerivationParameters";
@@ -2526,7 +2526,7 @@ unsafe impl ::windows::core::RuntimeType for MacAlgorithmProvider {
 }
 unsafe impl ::windows::core::Interface for MacAlgorithmProvider {
     type Vtable = IMacAlgorithmProvider_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a3fc5c3_1cbd_41ce_a092_aa0bc5d2d2f5);
+    const IID: ::windows::core::GUID = <IMacAlgorithmProvider as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MacAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.MacAlgorithmProvider";
@@ -2809,7 +2809,7 @@ unsafe impl ::windows::core::RuntimeType for SymmetricKeyAlgorithmProvider {
 }
 unsafe impl ::windows::core::Interface for SymmetricKeyAlgorithmProvider {
     type Vtable = ISymmetricKeyAlgorithmProvider_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d7e4a33_3bd0_4902_8ac8_470d50d21376);
+    const IID: ::windows::core::GUID = <ISymmetricKeyAlgorithmProvider as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SymmetricKeyAlgorithmProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.Core.SymmetricKeyAlgorithmProvider";

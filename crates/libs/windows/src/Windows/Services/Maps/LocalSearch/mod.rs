@@ -326,7 +326,7 @@ unsafe impl ::windows::core::RuntimeType for LocalLocation {
 }
 unsafe impl ::windows::core::Interface for LocalLocation {
     type Vtable = ILocalLocation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb0fe9ab_4502_4f2c_94a9_0d60de0e2163);
+    const IID: ::windows::core::GUID = <ILocalLocation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LocalLocation {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalLocation";
@@ -436,7 +436,7 @@ unsafe impl ::windows::core::RuntimeType for LocalLocationFinderResult {
 }
 unsafe impl ::windows::core::Interface for LocalLocationFinderResult {
     type Vtable = ILocalLocationFinderResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd09b6cc6_f338_4191_9fd8_5440b9a68f52);
+    const IID: ::windows::core::GUID = <ILocalLocationFinderResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LocalLocationFinderResult {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalLocationFinderResult";
@@ -570,7 +570,7 @@ unsafe impl ::windows::core::RuntimeType for LocalLocationHoursOfOperationItem {
 }
 unsafe impl ::windows::core::Interface for LocalLocationHoursOfOperationItem {
     type Vtable = ILocalLocationHoursOfOperationItem_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23548c72_a1c7_43f1_a4f0_1091c39ec640);
+    const IID: ::windows::core::GUID = <ILocalLocationHoursOfOperationItem as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LocalLocationHoursOfOperationItem {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalLocationHoursOfOperationItem";
@@ -669,7 +669,7 @@ unsafe impl ::windows::core::RuntimeType for LocalLocationRatingInfo {
 }
 unsafe impl ::windows::core::Interface for LocalLocationRatingInfo {
     type Vtable = ILocalLocationRatingInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb1dab56_3354_4311_8bc0_a2d4d5eb806e);
+    const IID: ::windows::core::GUID = <ILocalLocationRatingInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LocalLocationRatingInfo {
     const NAME: &'static str = "Windows.Services.Maps.LocalSearch.LocalLocationRatingInfo";

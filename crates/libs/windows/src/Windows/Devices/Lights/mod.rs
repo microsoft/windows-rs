@@ -326,7 +326,7 @@ unsafe impl ::windows::core::RuntimeType for Lamp {
 }
 unsafe impl ::windows::core::Interface for Lamp {
     type Vtable = ILamp_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x047d5b9a_ea45_4b2b_b1a2_14dff00bde7b);
+    const IID: ::windows::core::GUID = <ILamp as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Lamp {
     const NAME: &'static str = "Windows.Devices.Lights.Lamp";
@@ -638,7 +638,7 @@ unsafe impl ::windows::core::RuntimeType for LampArray {
 }
 unsafe impl ::windows::core::Interface for LampArray {
     type Vtable = ILampArray_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ace9787_c8a0_4e95_a1e0_d58676538649);
+    const IID: ::windows::core::GUID = <ILampArray as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LampArray {
     const NAME: &'static str = "Windows.Devices.Lights.LampArray";
@@ -756,7 +756,7 @@ unsafe impl ::windows::core::RuntimeType for LampAvailabilityChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for LampAvailabilityChangedEventArgs {
     type Vtable = ILampAvailabilityChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f6e3ded_07a2_499d_9260_67e304532ba4);
+    const IID: ::windows::core::GUID = <ILampAvailabilityChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LampAvailabilityChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Lights.LampAvailabilityChangedEventArgs";
@@ -913,7 +913,7 @@ unsafe impl ::windows::core::RuntimeType for LampInfo {
 }
 unsafe impl ::windows::core::Interface for LampInfo {
     type Vtable = ILampInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30bb521c_0acf_49da_8c10_150b9cf62713);
+    const IID: ::windows::core::GUID = <ILampInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LampInfo {
     const NAME: &'static str = "Windows.Devices.Lights.LampInfo";

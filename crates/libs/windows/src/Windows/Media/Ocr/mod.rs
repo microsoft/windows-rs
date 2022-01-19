@@ -187,7 +187,7 @@ unsafe impl ::windows::core::RuntimeType for OcrEngine {
 }
 unsafe impl ::windows::core::Interface for OcrEngine {
     type Vtable = IOcrEngine_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a14bc41_5b76_3140_b680_8825562683ac);
+    const IID: ::windows::core::GUID = <IOcrEngine as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for OcrEngine {
     const NAME: &'static str = "Windows.Media.Ocr.OcrEngine";
@@ -277,7 +277,7 @@ unsafe impl ::windows::core::RuntimeType for OcrLine {
 }
 unsafe impl ::windows::core::Interface for OcrLine {
     type Vtable = IOcrLine_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0043a16f_e31f_3a24_899c_d444bd088124);
+    const IID: ::windows::core::GUID = <IOcrLine as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for OcrLine {
     const NAME: &'static str = "Windows.Media.Ocr.OcrLine";
@@ -376,7 +376,7 @@ unsafe impl ::windows::core::RuntimeType for OcrResult {
 }
 unsafe impl ::windows::core::Interface for OcrResult {
     type Vtable = IOcrResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bd235b2_175b_3d6a_92e2_388c206e2f63);
+    const IID: ::windows::core::GUID = <IOcrResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for OcrResult {
     const NAME: &'static str = "Windows.Media.Ocr.OcrResult";
@@ -466,7 +466,7 @@ unsafe impl ::windows::core::RuntimeType for OcrWord {
 }
 unsafe impl ::windows::core::Interface for OcrWord {
     type Vtable = IOcrWord_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c2a477a_5cd9_3525_ba2a_23d1e0a68a1d);
+    const IID: ::windows::core::GUID = <IOcrWord as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for OcrWord {
     const NAME: &'static str = "Windows.Media.Ocr.OcrWord";

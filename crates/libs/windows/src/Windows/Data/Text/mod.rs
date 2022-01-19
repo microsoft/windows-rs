@@ -80,7 +80,7 @@ unsafe impl ::windows::core::RuntimeType for AlternateWordForm {
 }
 unsafe impl ::windows::core::Interface for AlternateWordForm {
     type Vtable = IAlternateWordForm_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47396c1e_51b9_4207_9146_248e636a1d1d);
+    const IID: ::windows::core::GUID = <IAlternateWordForm as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AlternateWordForm {
     const NAME: &'static str = "Windows.Data.Text.AlternateWordForm";
@@ -508,7 +508,7 @@ unsafe impl ::windows::core::RuntimeType for SelectableWordSegment {
 }
 unsafe impl ::windows::core::Interface for SelectableWordSegment {
     type Vtable = ISelectableWordSegment_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x916a4cb7_8aa7_4c78_b374_5dedb752e60b);
+    const IID: ::windows::core::GUID = <ISelectableWordSegment as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SelectableWordSegment {
     const NAME: &'static str = "Windows.Data.Text.SelectableWordSegment";
@@ -721,7 +721,7 @@ unsafe impl ::windows::core::RuntimeType for SelectableWordsSegmenter {
 }
 unsafe impl ::windows::core::Interface for SelectableWordsSegmenter {
     type Vtable = ISelectableWordsSegmenter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6dc31e7_4b13_45c5_8897_7d71269e085d);
+    const IID: ::windows::core::GUID = <ISelectableWordsSegmenter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SelectableWordsSegmenter {
     const NAME: &'static str = "Windows.Data.Text.SelectableWordsSegmenter";
@@ -831,7 +831,7 @@ unsafe impl ::windows::core::RuntimeType for SemanticTextQuery {
 }
 unsafe impl ::windows::core::Interface for SemanticTextQuery {
     type Vtable = ISemanticTextQuery_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a1cab51_1fb2_4909_80b8_35731a2b3e7f);
+    const IID: ::windows::core::GUID = <ISemanticTextQuery as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SemanticTextQuery {
     const NAME: &'static str = "Windows.Data.Text.SemanticTextQuery";
@@ -950,7 +950,7 @@ unsafe impl ::windows::core::RuntimeType for TextConversionGenerator {
 }
 unsafe impl ::windows::core::Interface for TextConversionGenerator {
     type Vtable = ITextConversionGenerator_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03606a5e_2aa9_4ab6_af8b_a562b63a8992);
+    const IID: ::windows::core::GUID = <ITextConversionGenerator as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TextConversionGenerator {
     const NAME: &'static str = "Windows.Data.Text.TextConversionGenerator";
@@ -1039,7 +1039,7 @@ unsafe impl ::windows::core::RuntimeType for TextPhoneme {
 }
 unsafe impl ::windows::core::Interface for TextPhoneme {
     type Vtable = ITextPhoneme_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9362a40a_9b7a_4569_94cf_d84f2f38cf9b);
+    const IID: ::windows::core::GUID = <ITextPhoneme as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TextPhoneme {
     const NAME: &'static str = "Windows.Data.Text.TextPhoneme";
@@ -1191,7 +1191,7 @@ unsafe impl ::windows::core::RuntimeType for TextPredictionGenerator {
 }
 unsafe impl ::windows::core::Interface for TextPredictionGenerator {
     type Vtable = ITextPredictionGenerator_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5eacab07_abf1_4cb6_9d9e_326f2b468756);
+    const IID: ::windows::core::GUID = <ITextPredictionGenerator as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TextPredictionGenerator {
     const NAME: &'static str = "Windows.Data.Text.TextPredictionGenerator";
@@ -1367,7 +1367,7 @@ unsafe impl ::windows::core::RuntimeType for TextReverseConversionGenerator {
 }
 unsafe impl ::windows::core::Interface for TextReverseConversionGenerator {
     type Vtable = ITextReverseConversionGenerator_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51e7f514_9c51_4d86_ae1b_b498fbad8313);
+    const IID: ::windows::core::GUID = <ITextReverseConversionGenerator as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TextReverseConversionGenerator {
     const NAME: &'static str = "Windows.Data.Text.TextReverseConversionGenerator";
@@ -1716,7 +1716,7 @@ unsafe impl ::windows::core::RuntimeType for WordSegment {
 }
 unsafe impl ::windows::core::Interface for WordSegment {
     type Vtable = IWordSegment_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2d4ba6d_987c_4cc0_b6bd_d49a11b38f9a);
+    const IID: ::windows::core::GUID = <IWordSegment as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WordSegment {
     const NAME: &'static str = "Windows.Data.Text.WordSegment";
@@ -1925,7 +1925,7 @@ unsafe impl ::windows::core::RuntimeType for WordsSegmenter {
 }
 unsafe impl ::windows::core::Interface for WordsSegmenter {
     type Vtable = IWordsSegmenter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86b4d4d1_b2fe_4e34_a81d_66640300454f);
+    const IID: ::windows::core::GUID = <IWordsSegmenter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WordsSegmenter {
     const NAME: &'static str = "Windows.Data.Text.WordsSegmenter";

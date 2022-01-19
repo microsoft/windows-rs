@@ -42,7 +42,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayRequest {
 }
 unsafe impl ::windows::core::Interface for DisplayRequest {
     type Vtable = IDisplayRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5732044_f49f_4b60_8dd4_5e7e3a632ac0);
+    const IID: ::windows::core::GUID = <IDisplayRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DisplayRequest {
     const NAME: &'static str = "Windows.System.Display.DisplayRequest";

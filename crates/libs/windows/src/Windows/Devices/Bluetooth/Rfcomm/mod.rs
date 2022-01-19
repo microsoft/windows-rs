@@ -377,7 +377,7 @@ unsafe impl ::windows::core::RuntimeType for RfcommDeviceService {
 }
 unsafe impl ::windows::core::Interface for RfcommDeviceService {
     type Vtable = IRfcommDeviceService_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae81ff1f_c5a1_4c40_8c28_f3efd69062f3);
+    const IID: ::windows::core::GUID = <IRfcommDeviceService as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RfcommDeviceService {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceService";
@@ -493,7 +493,7 @@ unsafe impl ::windows::core::RuntimeType for RfcommDeviceServicesResult {
 }
 unsafe impl ::windows::core::Interface for RfcommDeviceServicesResult {
     type Vtable = IRfcommDeviceServicesResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b48388c_7ccf_488e_9625_d259a5732d55);
+    const IID: ::windows::core::GUID = <IRfcommDeviceServicesResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RfcommDeviceServicesResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceServicesResult";
@@ -651,7 +651,7 @@ unsafe impl ::windows::core::RuntimeType for RfcommServiceId {
 }
 unsafe impl ::windows::core::Interface for RfcommServiceId {
     type Vtable = IRfcommServiceId_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22629204_7e02_4017_8136_da1b6a1b9bbf);
+    const IID: ::windows::core::GUID = <IRfcommServiceId as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RfcommServiceId {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Rfcomm.RfcommServiceId";
@@ -771,7 +771,7 @@ unsafe impl ::windows::core::RuntimeType for RfcommServiceProvider {
 }
 unsafe impl ::windows::core::Interface for RfcommServiceProvider {
     type Vtable = IRfcommServiceProvider_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeadbfdc4_b1f6_44ff_9f7c_e7a82ab86821);
+    const IID: ::windows::core::GUID = <IRfcommServiceProvider as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RfcommServiceProvider {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Rfcomm.RfcommServiceProvider";

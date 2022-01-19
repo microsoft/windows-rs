@@ -65,7 +65,7 @@ unsafe impl ::windows::core::RuntimeType for ChatCapabilities {
 }
 unsafe impl ::windows::core::Interface for ChatCapabilities {
     type Vtable = IChatCapabilities_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3aff77bc_39c9_4dd1_ad2d_3964dd9d403f);
+    const IID: ::windows::core::GUID = <IChatCapabilities as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ChatCapabilities {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatCapabilities";
@@ -344,7 +344,7 @@ unsafe impl ::windows::core::RuntimeType for ChatConversation {
 }
 unsafe impl ::windows::core::Interface for ChatConversation {
     type Vtable = IChatConversation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa58c080d_1a6f_46dc_8f3d_f5028660b6ee);
+    const IID: ::windows::core::GUID = <IChatConversation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ChatConversation {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatConversation";
@@ -457,7 +457,7 @@ unsafe impl ::windows::core::RuntimeType for ChatConversationReader {
 }
 unsafe impl ::windows::core::Interface for ChatConversationReader {
     type Vtable = IChatConversationReader_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x055136d2_de32_4a47_a93a_b3dc0833852b);
+    const IID: ::windows::core::GUID = <IChatConversationReader as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ChatConversationReader {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatConversationReader";
@@ -598,7 +598,7 @@ unsafe impl ::windows::core::RuntimeType for ChatConversationThreadingInfo {
 }
 unsafe impl ::windows::core::Interface for ChatConversationThreadingInfo {
     type Vtable = IChatConversationThreadingInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x331c21dc_7a07_4422_a32c_24be7c6dab24);
+    const IID: ::windows::core::GUID = <IChatConversationThreadingInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ChatConversationThreadingInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatConversationThreadingInfo";
@@ -1076,7 +1076,7 @@ unsafe impl ::windows::core::RuntimeType for ChatMessage {
 }
 unsafe impl ::windows::core::Interface for ChatMessage {
     type Vtable = IChatMessage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b39052a_1142_5089_76da_f2db3d17cd05);
+    const IID: ::windows::core::GUID = <IChatMessage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ChatMessage {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessage";
@@ -1279,7 +1279,7 @@ unsafe impl ::windows::core::RuntimeType for ChatMessageAttachment {
 }
 unsafe impl ::windows::core::Interface for ChatMessageAttachment {
     type Vtable = IChatMessageAttachment_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7c4fd74_bf63_58eb_508c_8b863ff16b67);
+    const IID: ::windows::core::GUID = <IChatMessageAttachment as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ChatMessageAttachment {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageAttachment";
@@ -1388,7 +1388,7 @@ unsafe impl ::windows::core::RuntimeType for ChatMessageChange {
 }
 unsafe impl ::windows::core::Interface for ChatMessageChange {
     type Vtable = IChatMessageChange_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c18c355_421e_54b8_6d38_6b3a6c82fccc);
+    const IID: ::windows::core::GUID = <IChatMessageChange as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ChatMessageChange {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageChange";
@@ -1480,7 +1480,7 @@ unsafe impl ::windows::core::RuntimeType for ChatMessageChangeReader {
 }
 unsafe impl ::windows::core::Interface for ChatMessageChangeReader {
     type Vtable = IChatMessageChangeReader_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14267020_28ce_5f26_7b05_9a5c7cce87ca);
+    const IID: ::windows::core::GUID = <IChatMessageChangeReader as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ChatMessageChangeReader {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageChangeReader";
@@ -1571,7 +1571,7 @@ unsafe impl ::windows::core::RuntimeType for ChatMessageChangeTracker {
 }
 unsafe impl ::windows::core::Interface for ChatMessageChangeTracker {
     type Vtable = IChatMessageChangeTracker_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60b7f066_70a0_5224_508c_242ef7c1d06f);
+    const IID: ::windows::core::GUID = <IChatMessageChangeTracker as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ChatMessageChangeTracker {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageChangeTracker";
@@ -1679,7 +1679,7 @@ unsafe impl ::windows::core::RuntimeType for ChatMessageChangedDeferral {
 }
 unsafe impl ::windows::core::Interface for ChatMessageChangedDeferral {
     type Vtable = IChatMessageChangedDeferral_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbc6b30c_788c_4dcc_ace7_6282382968cf);
+    const IID: ::windows::core::GUID = <IChatMessageChangedDeferral as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ChatMessageChangedDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageChangedDeferral";
@@ -1760,7 +1760,7 @@ unsafe impl ::windows::core::RuntimeType for ChatMessageChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for ChatMessageChangedEventArgs {
     type Vtable = IChatMessageChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6b73e2d_691c_4edf_8660_6eb9896892e3);
+    const IID: ::windows::core::GUID = <IChatMessageChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ChatMessageChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageChangedEventArgs";
@@ -1980,7 +1980,7 @@ unsafe impl ::windows::core::RuntimeType for ChatMessageNotificationTriggerDetai
 }
 unsafe impl ::windows::core::Interface for ChatMessageNotificationTriggerDetails {
     type Vtable = IChatMessageNotificationTriggerDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd344dfb_3063_4e17_8586_c6c08262e6c0);
+    const IID: ::windows::core::GUID = <IChatMessageNotificationTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ChatMessageNotificationTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageNotificationTriggerDetails";
@@ -2101,7 +2101,7 @@ unsafe impl ::windows::core::RuntimeType for ChatMessageReader {
 }
 unsafe impl ::windows::core::Interface for ChatMessageReader {
     type Vtable = IChatMessageReader_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6ea78ce_4489_56f9_76aa_e204682514cf);
+    const IID: ::windows::core::GUID = <IChatMessageReader as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ChatMessageReader {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageReader";
@@ -2473,7 +2473,7 @@ unsafe impl ::windows::core::RuntimeType for ChatMessageStore {
 }
 unsafe impl ::windows::core::Interface for ChatMessageStore {
     type Vtable = IChatMessageStore_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31f2fd01_ccf6_580b_4976_0a07dd5d3b47);
+    const IID: ::windows::core::GUID = <IChatMessageStore as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ChatMessageStore {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageStore";
@@ -2562,7 +2562,7 @@ unsafe impl ::windows::core::RuntimeType for ChatMessageStoreChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for ChatMessageStoreChangedEventArgs {
     type Vtable = IChatMessageStoreChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65c66fac_fe8c_46d4_9119_57b8410311d5);
+    const IID: ::windows::core::GUID = <IChatMessageStoreChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ChatMessageStoreChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageStoreChangedEventArgs";
@@ -2692,7 +2692,7 @@ unsafe impl ::windows::core::RuntimeType for ChatMessageTransport {
 }
 unsafe impl ::windows::core::Interface for ChatMessageTransport {
     type Vtable = IChatMessageTransport_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63a9dbf8_e6b3_5c9a_5f85_d47925b9bd18);
+    const IID: ::windows::core::GUID = <IChatMessageTransport as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ChatMessageTransport {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageTransport";
@@ -2807,7 +2807,7 @@ unsafe impl ::windows::core::RuntimeType for ChatMessageTransportConfiguration {
 }
 unsafe impl ::windows::core::Interface for ChatMessageTransportConfiguration {
     type Vtable = IChatMessageTransportConfiguration_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x879ff725_1a08_4aca_a075_3355126312e6);
+    const IID: ::windows::core::GUID = <IChatMessageTransportConfiguration as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ChatMessageTransportConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageTransportConfiguration";
@@ -2945,7 +2945,7 @@ unsafe impl ::windows::core::RuntimeType for ChatMessageValidationResult {
 }
 unsafe impl ::windows::core::Interface for ChatMessageValidationResult {
     type Vtable = IChatMessageValidationResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25e93a03_28ec_5889_569b_7e486b126f18);
+    const IID: ::windows::core::GUID = <IChatMessageValidationResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ChatMessageValidationResult {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatMessageValidationResult";
@@ -3078,7 +3078,7 @@ unsafe impl ::windows::core::RuntimeType for ChatQueryOptions {
 }
 unsafe impl ::windows::core::Interface for ChatQueryOptions {
     type Vtable = IChatQueryOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2fd364a6_bf36_42f7_b7e7_923c0aabfe16);
+    const IID: ::windows::core::GUID = <IChatQueryOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ChatQueryOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatQueryOptions";
@@ -3241,7 +3241,7 @@ unsafe impl ::windows::core::RuntimeType for ChatRecipientDeliveryInfo {
 }
 unsafe impl ::windows::core::Interface for ChatRecipientDeliveryInfo {
     type Vtable = IChatRecipientDeliveryInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffc7b2a2_283c_4c0a_8a0e_8c33bdbf0545);
+    const IID: ::windows::core::GUID = <IChatRecipientDeliveryInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ChatRecipientDeliveryInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatRecipientDeliveryInfo";
@@ -3361,7 +3361,7 @@ unsafe impl ::windows::core::RuntimeType for ChatSearchReader {
 }
 unsafe impl ::windows::core::Interface for ChatSearchReader {
     type Vtable = IChatSearchReader_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4665fe49_9020_4752_980d_39612325f589);
+    const IID: ::windows::core::GUID = <IChatSearchReader as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ChatSearchReader {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatSearchReader";
@@ -3494,7 +3494,7 @@ unsafe impl ::windows::core::RuntimeType for ChatSyncConfiguration {
 }
 unsafe impl ::windows::core::Interface for ChatSyncConfiguration {
     type Vtable = IChatSyncConfiguration_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09f869b2_69f4_4aff_82b6_06992ff402d2);
+    const IID: ::windows::core::GUID = <IChatSyncConfiguration as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ChatSyncConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatSyncConfiguration";
@@ -3616,7 +3616,7 @@ unsafe impl ::windows::core::RuntimeType for ChatSyncManager {
 }
 unsafe impl ::windows::core::Interface for ChatSyncManager {
     type Vtable = IChatSyncManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ba52c63_2650_486f_b4b4_6bd9d3d63c84);
+    const IID: ::windows::core::GUID = <IChatSyncManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ChatSyncManager {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.ChatSyncManager";
@@ -5017,7 +5017,7 @@ unsafe impl ::windows::core::RuntimeType for RcsEndUserMessage {
 }
 unsafe impl ::windows::core::Interface for RcsEndUserMessage {
     type Vtable = IRcsEndUserMessage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7cda5eb_cbd7_4f3b_8526_b506dec35c53);
+    const IID: ::windows::core::GUID = <IRcsEndUserMessage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RcsEndUserMessage {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsEndUserMessage";
@@ -5098,7 +5098,7 @@ unsafe impl ::windows::core::RuntimeType for RcsEndUserMessageAction {
 }
 unsafe impl ::windows::core::Interface for RcsEndUserMessageAction {
     type Vtable = IRcsEndUserMessageAction_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92378737_9b42_46d3_9d5e_3c1b2dae7cb8);
+    const IID: ::windows::core::GUID = <IRcsEndUserMessageAction as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RcsEndUserMessageAction {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsEndUserMessageAction";
@@ -5187,7 +5187,7 @@ unsafe impl ::windows::core::RuntimeType for RcsEndUserMessageAvailableEventArgs
 }
 unsafe impl ::windows::core::Interface for RcsEndUserMessageAvailableEventArgs {
     type Vtable = IRcsEndUserMessageAvailableEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d45ae01_3f89_41ea_9702_9e9ed411aa98);
+    const IID: ::windows::core::GUID = <IRcsEndUserMessageAvailableEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RcsEndUserMessageAvailableEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsEndUserMessageAvailableEventArgs";
@@ -5276,7 +5276,7 @@ unsafe impl ::windows::core::RuntimeType for RcsEndUserMessageAvailableTriggerDe
 }
 unsafe impl ::windows::core::Interface for RcsEndUserMessageAvailableTriggerDetails {
     type Vtable = IRcsEndUserMessageAvailableTriggerDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b97742d_351f_4692_b41e_1b035dc18986);
+    const IID: ::windows::core::GUID = <IRcsEndUserMessageAvailableTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RcsEndUserMessageAvailableTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsEndUserMessageAvailableTriggerDetails";
@@ -5364,7 +5364,7 @@ unsafe impl ::windows::core::RuntimeType for RcsEndUserMessageManager {
 }
 unsafe impl ::windows::core::Interface for RcsEndUserMessageManager {
     type Vtable = IRcsEndUserMessageManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3054ae5a_4d1f_4b59_9433_126c734e86a6);
+    const IID: ::windows::core::GUID = <IRcsEndUserMessageManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RcsEndUserMessageManager {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsEndUserMessageManager";
@@ -5536,7 +5536,7 @@ unsafe impl ::windows::core::RuntimeType for RcsServiceKindSupportedChangedEvent
 }
 unsafe impl ::windows::core::Interface for RcsServiceKindSupportedChangedEventArgs {
     type Vtable = IRcsServiceKindSupportedChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf47ea244_e783_4866_b3a7_4e5ccf023070);
+    const IID: ::windows::core::GUID = <IRcsServiceKindSupportedChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RcsServiceKindSupportedChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsServiceKindSupportedChangedEventArgs";
@@ -5681,7 +5681,7 @@ unsafe impl ::windows::core::RuntimeType for RcsTransport {
 }
 unsafe impl ::windows::core::Interface for RcsTransport {
     type Vtable = IRcsTransport_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfea34759_f37c_4319_8546_ec84d21d30ff);
+    const IID: ::windows::core::GUID = <IRcsTransport as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RcsTransport {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsTransport";
@@ -5802,7 +5802,7 @@ unsafe impl ::windows::core::RuntimeType for RcsTransportConfiguration {
 }
 unsafe impl ::windows::core::Interface for RcsTransportConfiguration {
     type Vtable = IRcsTransportConfiguration_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1fccb102_2472_4bb9_9988_c1211c83e8a9);
+    const IID: ::windows::core::GUID = <IRcsTransportConfiguration as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RcsTransportConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RcsTransportConfiguration";
@@ -5899,7 +5899,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteParticipantComposingChangedEv
 }
 unsafe impl ::windows::core::Interface for RemoteParticipantComposingChangedEventArgs {
     type Vtable = IRemoteParticipantComposingChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ec045a7_cfc9_45c9_9876_449f2bc180f5);
+    const IID: ::windows::core::GUID = <IRemoteParticipantComposingChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoteParticipantComposingChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Chat.RemoteParticipantComposingChangedEventArgs";

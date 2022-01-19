@@ -1190,7 +1190,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialGestureRecognizer {
 }
 unsafe impl ::windows::core::Interface for SpatialGestureRecognizer {
     type Vtable = ISpatialGestureRecognizer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71605bcc_0c35_4673_adbd_cc04caa6ef45);
+    const IID: ::windows::core::GUID = <ISpatialGestureRecognizer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialGestureRecognizer {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialGestureRecognizer";
@@ -1336,7 +1336,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialHoldCanceledEventArgs {
 }
 unsafe impl ::windows::core::Interface for SpatialHoldCanceledEventArgs {
     type Vtable = ISpatialHoldCanceledEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5dfcb667_4caa_4093_8c35_b601a839f31b);
+    const IID: ::windows::core::GUID = <ISpatialHoldCanceledEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialHoldCanceledEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialHoldCanceledEventArgs";
@@ -1417,7 +1417,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialHoldCompletedEventArgs {
 }
 unsafe impl ::windows::core::Interface for SpatialHoldCompletedEventArgs {
     type Vtable = ISpatialHoldCompletedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f64470b_4cfd_43da_8dc4_e64552173971);
+    const IID: ::windows::core::GUID = <ISpatialHoldCompletedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialHoldCompletedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialHoldCompletedEventArgs";
@@ -1507,7 +1507,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialHoldStartedEventArgs {
 }
 unsafe impl ::windows::core::Interface for SpatialHoldStartedEventArgs {
     type Vtable = ISpatialHoldStartedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e343d79_acb6_4144_8615_2cfba8a3cb3f);
+    const IID: ::windows::core::GUID = <ISpatialHoldStartedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialHoldStartedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialHoldStartedEventArgs";
@@ -1588,7 +1588,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialInteraction {
 }
 unsafe impl ::windows::core::Interface for SpatialInteraction {
     type Vtable = ISpatialInteraction_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc967639_88e6_4646_9112_4344aaec9dfa);
+    const IID: ::windows::core::GUID = <ISpatialInteraction as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialInteraction {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteraction";
@@ -1728,7 +1728,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialInteractionController {
 }
 unsafe impl ::windows::core::Interface for SpatialInteractionController {
     type Vtable = ISpatialInteractionController_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f0e5ba3_0954_4e97_86c5_e7f30b114dfd);
+    const IID: ::windows::core::GUID = <ISpatialInteractionController as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialInteractionController {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionController";
@@ -1857,7 +1857,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialInteractionControllerPropert
 }
 unsafe impl ::windows::core::Interface for SpatialInteractionControllerProperties {
     type Vtable = ISpatialInteractionControllerProperties_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61056fb1_7ba9_4e35_b93f_9272cba9b28b);
+    const IID: ::windows::core::GUID = <ISpatialInteractionControllerProperties as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialInteractionControllerProperties {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionControllerProperties";
@@ -1963,7 +1963,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialInteractionDetectedEventArgs
 }
 unsafe impl ::windows::core::Interface for SpatialInteractionDetectedEventArgs {
     type Vtable = ISpatialInteractionDetectedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x075878e4_5961_3b41_9dfb_cea5d89cc38a);
+    const IID: ::windows::core::GUID = <ISpatialInteractionDetectedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialInteractionDetectedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionDetectedEventArgs";
@@ -2159,7 +2159,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialInteractionManager {
 }
 unsafe impl ::windows::core::Interface for SpatialInteractionManager {
     type Vtable = ISpatialInteractionManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32a64ea8_a15a_3995_b8bd_80513cb5adef);
+    const IID: ::windows::core::GUID = <ISpatialInteractionManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialInteractionManager {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionManager";
@@ -2347,7 +2347,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialInteractionSource {
 }
 unsafe impl ::windows::core::Interface for SpatialInteractionSource {
     type Vtable = ISpatialInteractionSource_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb5433ba_b0b3_3148_9f3b_e9f5de568f5d);
+    const IID: ::windows::core::GUID = <ISpatialInteractionSource as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialInteractionSource {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionSource";
@@ -2436,7 +2436,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialInteractionSourceEventArgs {
 }
 unsafe impl ::windows::core::Interface for SpatialInteractionSourceEventArgs {
     type Vtable = ISpatialInteractionSourceEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23b786cf_ec23_3979_b27c_eb0e12feb7c7);
+    const IID: ::windows::core::GUID = <ISpatialInteractionSourceEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialInteractionSourceEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionSourceEventArgs";
@@ -2620,7 +2620,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialInteractionSourceLocation {
 }
 unsafe impl ::windows::core::Interface for SpatialInteractionSourceLocation {
     type Vtable = ISpatialInteractionSourceLocation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea4696c4_7e8b_30ca_bcc5_c77189cea30a);
+    const IID: ::windows::core::GUID = <ISpatialInteractionSourceLocation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialInteractionSourceLocation {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionSourceLocation";
@@ -2747,7 +2747,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialInteractionSourceProperties 
 }
 unsafe impl ::windows::core::Interface for SpatialInteractionSourceProperties {
     type Vtable = ISpatialInteractionSourceProperties_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05604542_3ef7_3222_9f53_63c9cb7e3bc7);
+    const IID: ::windows::core::GUID = <ISpatialInteractionSourceProperties as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialInteractionSourceProperties {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionSourceProperties";
@@ -2911,7 +2911,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialInteractionSourceState {
 }
 unsafe impl ::windows::core::Interface for SpatialInteractionSourceState {
     type Vtable = ISpatialInteractionSourceState_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5c475ef_4b63_37ec_98b9_9fc652b9d2f2);
+    const IID: ::windows::core::GUID = <ISpatialInteractionSourceState as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialInteractionSourceState {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialInteractionSourceState";
@@ -2992,7 +2992,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialManipulationCanceledEventArg
 }
 unsafe impl ::windows::core::Interface for SpatialManipulationCanceledEventArgs {
     type Vtable = ISpatialManipulationCanceledEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d40d1cb_e7da_4220_b0bf_819301674780);
+    const IID: ::windows::core::GUID = <ISpatialManipulationCanceledEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialManipulationCanceledEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialManipulationCanceledEventArgs";
@@ -3082,7 +3082,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialManipulationCompletedEventAr
 }
 unsafe impl ::windows::core::Interface for SpatialManipulationCompletedEventArgs {
     type Vtable = ISpatialManipulationCompletedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05086802_f301_4343_9250_2fbaa5f87a37);
+    const IID: ::windows::core::GUID = <ISpatialManipulationCompletedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialManipulationCompletedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialManipulationCompletedEventArgs";
@@ -3164,7 +3164,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialManipulationDelta {
 }
 unsafe impl ::windows::core::Interface for SpatialManipulationDelta {
     type Vtable = ISpatialManipulationDelta_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7ec967a_d123_3a81_a15b_992923dcbe91);
+    const IID: ::windows::core::GUID = <ISpatialManipulationDelta as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialManipulationDelta {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialManipulationDelta";
@@ -3254,7 +3254,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialManipulationStartedEventArgs
 }
 unsafe impl ::windows::core::Interface for SpatialManipulationStartedEventArgs {
     type Vtable = ISpatialManipulationStartedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1d6bbce_42a5_377b_ada6_d28e3d384737);
+    const IID: ::windows::core::GUID = <ISpatialManipulationStartedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialManipulationStartedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialManipulationStartedEventArgs";
@@ -3344,7 +3344,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialManipulationUpdatedEventArgs
 }
 unsafe impl ::windows::core::Interface for SpatialManipulationUpdatedEventArgs {
     type Vtable = ISpatialManipulationUpdatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f230b9b_60c6_4dc6_bdc9_9f4a6f15fe49);
+    const IID: ::windows::core::GUID = <ISpatialManipulationUpdatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialManipulationUpdatedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialManipulationUpdatedEventArgs";
@@ -3425,7 +3425,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialNavigationCanceledEventArgs 
 }
 unsafe impl ::windows::core::Interface for SpatialNavigationCanceledEventArgs {
     type Vtable = ISpatialNavigationCanceledEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce503edc_e8a5_46f0_92d4_3c122b35112a);
+    const IID: ::windows::core::GUID = <ISpatialNavigationCanceledEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialNavigationCanceledEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialNavigationCanceledEventArgs";
@@ -3515,7 +3515,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialNavigationCompletedEventArgs
 }
 unsafe impl ::windows::core::Interface for SpatialNavigationCompletedEventArgs {
     type Vtable = ISpatialNavigationCompletedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x012e80b7_af3b_42c2_9e41_baaa0e721f3a);
+    const IID: ::windows::core::GUID = <ISpatialNavigationCompletedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialNavigationCompletedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialNavigationCompletedEventArgs";
@@ -3629,7 +3629,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialNavigationStartedEventArgs {
 }
 unsafe impl ::windows::core::Interface for SpatialNavigationStartedEventArgs {
     type Vtable = ISpatialNavigationStartedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x754a348a_fb64_4656_8ebd_9deecaafe475);
+    const IID: ::windows::core::GUID = <ISpatialNavigationStartedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialNavigationStartedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialNavigationStartedEventArgs";
@@ -3719,7 +3719,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialNavigationUpdatedEventArgs {
 }
 unsafe impl ::windows::core::Interface for SpatialNavigationUpdatedEventArgs {
     type Vtable = ISpatialNavigationUpdatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b713fd7_839d_4a74_8732_45466fc044b5);
+    const IID: ::windows::core::GUID = <ISpatialNavigationUpdatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialNavigationUpdatedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialNavigationUpdatedEventArgs";
@@ -3836,7 +3836,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialPointerInteractionSourcePose
 }
 unsafe impl ::windows::core::Interface for SpatialPointerInteractionSourcePose {
     type Vtable = ISpatialPointerInteractionSourcePose_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7104307_2c2b_4d3a_92a7_80ced7c4a0d0);
+    const IID: ::windows::core::GUID = <ISpatialPointerInteractionSourcePose as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialPointerInteractionSourcePose {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialPointerInteractionSourcePose";
@@ -3965,7 +3965,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialPointerPose {
 }
 unsafe impl ::windows::core::Interface for SpatialPointerPose {
     type Vtable = ISpatialPointerPose_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6953a42e_c17e_357d_97a1_7269d0ed2d10);
+    const IID: ::windows::core::GUID = <ISpatialPointerPose as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialPointerPose {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialPointerPose";
@@ -4046,7 +4046,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialRecognitionEndedEventArgs {
 }
 unsafe impl ::windows::core::Interface for SpatialRecognitionEndedEventArgs {
     type Vtable = ISpatialRecognitionEndedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e35f5cb_3f75_43f3_ac81_d1dc2df9b1fb);
+    const IID: ::windows::core::GUID = <ISpatialRecognitionEndedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialRecognitionEndedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialRecognitionEndedEventArgs";
@@ -4144,7 +4144,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialRecognitionStartedEventArgs 
 }
 unsafe impl ::windows::core::Interface for SpatialRecognitionStartedEventArgs {
     type Vtable = ISpatialRecognitionStartedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24da128f_0008_4a6d_aa50_2a76f9cfb264);
+    const IID: ::windows::core::GUID = <ISpatialRecognitionStartedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialRecognitionStartedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialRecognitionStartedEventArgs";
@@ -4242,7 +4242,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialTappedEventArgs {
 }
 unsafe impl ::windows::core::Interface for SpatialTappedEventArgs {
     type Vtable = ISpatialTappedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x296d83de_f444_4aa1_b2bf_9dc88d567da6);
+    const IID: ::windows::core::GUID = <ISpatialTappedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialTappedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Spatial.SpatialTappedEventArgs";

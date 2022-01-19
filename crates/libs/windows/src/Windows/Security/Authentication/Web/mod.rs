@@ -284,7 +284,7 @@ unsafe impl ::windows::core::RuntimeType for WebAuthenticationResult {
 }
 unsafe impl ::windows::core::Interface for WebAuthenticationResult {
     type Vtable = IWebAuthenticationResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64002b4b_ede9_470a_a5cd_0323faf6e262);
+    const IID: ::windows::core::GUID = <IWebAuthenticationResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebAuthenticationResult {
     const NAME: &'static str = "Windows.Security.Authentication.Web.WebAuthenticationResult";

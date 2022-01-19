@@ -1226,7 +1226,7 @@ unsafe impl ::windows::core::RuntimeType for SyndicationAttribute {
 }
 unsafe impl ::windows::core::Interface for SyndicationAttribute {
     type Vtable = ISyndicationAttribute_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71e8f969_526e_4001_9a91_e84f83161ab1);
+    const IID: ::windows::core::GUID = <ISyndicationAttribute as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SyndicationAttribute {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationAttribute";
@@ -1458,7 +1458,7 @@ unsafe impl ::windows::core::RuntimeType for SyndicationCategory {
 }
 unsafe impl ::windows::core::Interface for SyndicationCategory {
     type Vtable = ISyndicationCategory_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8715626f_0cba_4a7f_89ff_ecb5281423b6);
+    const IID: ::windows::core::GUID = <ISyndicationCategory as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SyndicationCategory {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationCategory";
@@ -1656,7 +1656,7 @@ unsafe impl ::windows::core::RuntimeType for SyndicationClient {
 }
 unsafe impl ::windows::core::Interface for SyndicationClient {
     type Vtable = ISyndicationClient_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e18a9b7_7249_4b45_b229_7df895a5a1f5);
+    const IID: ::windows::core::GUID = <ISyndicationClient as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SyndicationClient {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationClient";
@@ -1928,7 +1928,7 @@ unsafe impl ::windows::core::RuntimeType for SyndicationContent {
 }
 unsafe impl ::windows::core::Interface for SyndicationContent {
     type Vtable = ISyndicationContent_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4641fefe_0e55_40d0_b8d0_6a2ccba9fc7c);
+    const IID: ::windows::core::GUID = <ISyndicationContent as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SyndicationContent {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationContent";
@@ -2420,7 +2420,7 @@ unsafe impl ::windows::core::RuntimeType for SyndicationFeed {
 }
 unsafe impl ::windows::core::Interface for SyndicationFeed {
     type Vtable = ISyndicationFeed_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ffe3cd2_5b66_4d62_8403_1bc10d910d6b);
+    const IID: ::windows::core::GUID = <ISyndicationFeed as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SyndicationFeed {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationFeed";
@@ -2701,7 +2701,7 @@ unsafe impl ::windows::core::RuntimeType for SyndicationGenerator {
 }
 unsafe impl ::windows::core::Interface for SyndicationGenerator {
     type Vtable = ISyndicationGenerator_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9768b379_fb2b_4f6d_b41c_088a5868825c);
+    const IID: ::windows::core::GUID = <ISyndicationGenerator as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SyndicationGenerator {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationGenerator";
@@ -3115,7 +3115,7 @@ unsafe impl ::windows::core::RuntimeType for SyndicationItem {
 }
 unsafe impl ::windows::core::Interface for SyndicationItem {
     type Vtable = ISyndicationItem_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x548db883_c384_45c1_8ae8_a378c4ec486c);
+    const IID: ::windows::core::GUID = <ISyndicationItem as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SyndicationItem {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationItem";
@@ -3412,7 +3412,7 @@ unsafe impl ::windows::core::RuntimeType for SyndicationLink {
 }
 unsafe impl ::windows::core::Interface for SyndicationLink {
     type Vtable = ISyndicationLink_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27553abd_a10e_41b5_86bd_9759086eb0c5);
+    const IID: ::windows::core::GUID = <ISyndicationLink as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SyndicationLink {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationLink";
@@ -3620,7 +3620,7 @@ unsafe impl ::windows::core::RuntimeType for SyndicationNode {
 }
 unsafe impl ::windows::core::Interface for SyndicationNode {
     type Vtable = ISyndicationNode_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x753cef78_51f8_45c0_a9f5_f1719dec3fb2);
+    const IID: ::windows::core::GUID = <ISyndicationNode as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SyndicationNode {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationNode";
@@ -3877,7 +3877,7 @@ unsafe impl ::windows::core::RuntimeType for SyndicationPerson {
 }
 unsafe impl ::windows::core::Interface for SyndicationPerson {
     type Vtable = ISyndicationPerson_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa1ee5da_a7c6_4517_a096_0143faf29327);
+    const IID: ::windows::core::GUID = <ISyndicationPerson as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SyndicationPerson {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationPerson";
@@ -4133,7 +4133,7 @@ unsafe impl ::windows::core::RuntimeType for SyndicationText {
 }
 unsafe impl ::windows::core::Interface for SyndicationText {
     type Vtable = ISyndicationText_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9cc5e80_313a_4091_a2a6_243e0ee923f9);
+    const IID: ::windows::core::GUID = <ISyndicationText as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SyndicationText {
     const NAME: &'static str = "Windows.Web.Syndication.SyndicationText";

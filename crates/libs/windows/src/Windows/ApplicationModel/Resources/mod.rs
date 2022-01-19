@@ -239,7 +239,7 @@ unsafe impl ::windows::core::RuntimeType for ResourceLoader {
 }
 unsafe impl ::windows::core::Interface for ResourceLoader {
     type Vtable = IResourceLoader_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08524908_16ef_45ad_a602_293637d7e61a);
+    const IID: ::windows::core::GUID = <IResourceLoader as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ResourceLoader {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.ResourceLoader";

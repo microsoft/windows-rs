@@ -354,7 +354,7 @@ unsafe impl ::windows::core::RuntimeType for SimpleHapticsController {
 }
 unsafe impl ::windows::core::Interface for SimpleHapticsController {
     type Vtable = ISimpleHapticsController_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577ef9_4cee_11e6_b535_001bdc06ab3b);
+    const IID: ::windows::core::GUID = <ISimpleHapticsController as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SimpleHapticsController {
     const NAME: &'static str = "Windows.Devices.Haptics.SimpleHapticsController";
@@ -444,7 +444,7 @@ unsafe impl ::windows::core::RuntimeType for SimpleHapticsControllerFeedback {
 }
 unsafe impl ::windows::core::Interface for SimpleHapticsControllerFeedback {
     type Vtable = ISimpleHapticsControllerFeedback_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577ef8_4cee_11e6_b535_001bdc06ab3b);
+    const IID: ::windows::core::GUID = <ISimpleHapticsControllerFeedback as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SimpleHapticsControllerFeedback {
     const NAME: &'static str = "Windows.Devices.Haptics.SimpleHapticsControllerFeedback";
@@ -607,7 +607,7 @@ unsafe impl ::windows::core::RuntimeType for VibrationDevice {
 }
 unsafe impl ::windows::core::Interface for VibrationDevice {
     type Vtable = IVibrationDevice_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40f21a3e_8844_47ff_b312_06185a3844da);
+    const IID: ::windows::core::GUID = <IVibrationDevice as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VibrationDevice {
     const NAME: &'static str = "Windows.Devices.Haptics.VibrationDevice";

@@ -174,7 +174,7 @@ unsafe impl ::windows::core::RuntimeType for BarcodeScanner {
 }
 unsafe impl ::windows::core::Interface for BarcodeScanner {
     type Vtable = IBarcodeScanner_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbea33e06_b264_4f03_a9c1_45b20f01134f);
+    const IID: ::windows::core::GUID = <IBarcodeScanner as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BarcodeScanner {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeScanner";
@@ -321,7 +321,7 @@ unsafe impl ::windows::core::RuntimeType for BarcodeScannerCapabilities {
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerCapabilities {
     type Vtable = IBarcodeScannerCapabilities_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc60691e4_f2c8_4420_a307_b12ef6622857);
+    const IID: ::windows::core::GUID = <IBarcodeScannerCapabilities as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BarcodeScannerCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeScannerCapabilities";
@@ -402,7 +402,7 @@ unsafe impl ::windows::core::RuntimeType for BarcodeScannerDataReceivedEventArgs
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerDataReceivedEventArgs {
     type Vtable = IBarcodeScannerDataReceivedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4234a7e2_ed97_467d_ad2b_01e44313a929);
+    const IID: ::windows::core::GUID = <IBarcodeScannerDataReceivedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BarcodeScannerDataReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeScannerDataReceivedEventArgs";
@@ -499,7 +499,7 @@ unsafe impl ::windows::core::RuntimeType for BarcodeScannerErrorOccurredEventArg
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerErrorOccurredEventArgs {
     type Vtable = IBarcodeScannerErrorOccurredEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd2602f_cf3a_4002_a75a_c5ec468f0a20);
+    const IID: ::windows::core::GUID = <IBarcodeScannerErrorOccurredEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BarcodeScannerErrorOccurredEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeScannerErrorOccurredEventArgs";
@@ -581,7 +581,7 @@ unsafe impl ::windows::core::RuntimeType for BarcodeScannerImagePreviewReceivedE
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerImagePreviewReceivedEventArgs {
     type Vtable = IBarcodeScannerImagePreviewReceivedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3b7de85_6e8b_434e_9f58_06ef26bc4baf);
+    const IID: ::windows::core::GUID = <IBarcodeScannerImagePreviewReceivedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BarcodeScannerImagePreviewReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeScannerImagePreviewReceivedEventArgs";
@@ -693,7 +693,7 @@ unsafe impl ::windows::core::RuntimeType for BarcodeScannerReport {
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerReport {
     type Vtable = IBarcodeScannerReport_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ce4d8b0_a489_4b96_86c4_f0bf8a37753d);
+    const IID: ::windows::core::GUID = <IBarcodeScannerReport as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BarcodeScannerReport {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeScannerReport";
@@ -813,7 +813,7 @@ unsafe impl ::windows::core::RuntimeType for BarcodeScannerStatusUpdatedEventArg
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerStatusUpdatedEventArgs {
     type Vtable = IBarcodeScannerStatusUpdatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x355d8586_9c43_462b_a91a_816dc97f452c);
+    const IID: ::windows::core::GUID = <IBarcodeScannerStatusUpdatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BarcodeScannerStatusUpdatedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeScannerStatusUpdatedEventArgs";
@@ -1657,7 +1657,7 @@ unsafe impl ::windows::core::RuntimeType for BarcodeSymbologyAttributes {
 }
 unsafe impl ::windows::core::Interface for BarcodeSymbologyAttributes {
     type Vtable = IBarcodeSymbologyAttributes_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66413a78_ab7a_4ada_8ece_936014b2ead7);
+    const IID: ::windows::core::GUID = <IBarcodeSymbologyAttributes as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BarcodeSymbologyAttributes {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeSymbologyAttributes";
@@ -1887,7 +1887,7 @@ unsafe impl ::windows::core::RuntimeType for CashDrawer {
 }
 unsafe impl ::windows::core::Interface for CashDrawer {
     type Vtable = ICashDrawer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f88f5c8_de54_4aee_a890_920bcbfe30fc);
+    const IID: ::windows::core::GUID = <ICashDrawer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CashDrawer {
     const NAME: &'static str = "Windows.Devices.PointOfService.CashDrawer";
@@ -2034,7 +2034,7 @@ unsafe impl ::windows::core::RuntimeType for CashDrawerCapabilities {
 }
 unsafe impl ::windows::core::Interface for CashDrawerCapabilities {
     type Vtable = ICashDrawerCapabilities_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0bc6de0b_e8e7_4b1f_b1d1_3e501ad08247);
+    const IID: ::windows::core::GUID = <ICashDrawerCapabilities as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CashDrawerCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.CashDrawerCapabilities";
@@ -2189,7 +2189,7 @@ unsafe impl ::windows::core::RuntimeType for CashDrawerCloseAlarm {
 }
 unsafe impl ::windows::core::Interface for CashDrawerCloseAlarm {
     type Vtable = ICashDrawerCloseAlarm_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6bf88cc7_6f63_430e_ab3b_95d75ffbe87f);
+    const IID: ::windows::core::GUID = <ICashDrawerCloseAlarm as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CashDrawerCloseAlarm {
     const NAME: &'static str = "Windows.Devices.PointOfService.CashDrawerCloseAlarm";
@@ -2270,7 +2270,7 @@ unsafe impl ::windows::core::RuntimeType for CashDrawerClosedEventArgs {
 }
 unsafe impl ::windows::core::Interface for CashDrawerClosedEventArgs {
     type Vtable = ICashDrawerEventSourceEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69cb3bc1_147f_421c_9c23_090123bb786c);
+    const IID: ::windows::core::GUID = <ICashDrawerEventSourceEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CashDrawerClosedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.CashDrawerClosedEventArgs";
@@ -2395,7 +2395,7 @@ unsafe impl ::windows::core::RuntimeType for CashDrawerEventSource {
 }
 unsafe impl ::windows::core::Interface for CashDrawerEventSource {
     type Vtable = ICashDrawerEventSource_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe006e46c_f2f9_442f_8dd6_06c10a4227ba);
+    const IID: ::windows::core::GUID = <ICashDrawerEventSource as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CashDrawerEventSource {
     const NAME: &'static str = "Windows.Devices.PointOfService.CashDrawerEventSource";
@@ -2476,7 +2476,7 @@ unsafe impl ::windows::core::RuntimeType for CashDrawerOpenedEventArgs {
 }
 unsafe impl ::windows::core::Interface for CashDrawerOpenedEventArgs {
     type Vtable = ICashDrawerEventSourceEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69cb3bc1_147f_421c_9c23_090123bb786c);
+    const IID: ::windows::core::GUID = <ICashDrawerEventSourceEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CashDrawerOpenedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.CashDrawerOpenedEventArgs";
@@ -2587,7 +2587,7 @@ unsafe impl ::windows::core::RuntimeType for CashDrawerStatus {
 }
 unsafe impl ::windows::core::Interface for CashDrawerStatus {
     type Vtable = ICashDrawerStatus_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6bbd78bf_dca1_4e06_99eb_5af6a5aec108);
+    const IID: ::windows::core::GUID = <ICashDrawerStatus as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CashDrawerStatus {
     const NAME: &'static str = "Windows.Devices.PointOfService.CashDrawerStatus";
@@ -2699,7 +2699,7 @@ unsafe impl ::windows::core::RuntimeType for CashDrawerStatusUpdatedEventArgs {
 }
 unsafe impl ::windows::core::Interface for CashDrawerStatusUpdatedEventArgs {
     type Vtable = ICashDrawerStatusUpdatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30aae98a_0d70_459c_9553_87e124c52488);
+    const IID: ::windows::core::GUID = <ICashDrawerStatusUpdatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CashDrawerStatusUpdatedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.CashDrawerStatusUpdatedEventArgs";
@@ -3047,7 +3047,7 @@ unsafe impl ::windows::core::RuntimeType for ClaimedBarcodeScanner {
 }
 unsafe impl ::windows::core::Interface for ClaimedBarcodeScanner {
     type Vtable = IClaimedBarcodeScanner_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a63b49c_8fa4_4332_bb26_945d11d81e0f);
+    const IID: ::windows::core::GUID = <IClaimedBarcodeScanner as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ClaimedBarcodeScanner {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedBarcodeScanner";
@@ -3145,7 +3145,7 @@ unsafe impl ::windows::core::RuntimeType for ClaimedBarcodeScannerClosedEventArg
 }
 unsafe impl ::windows::core::Interface for ClaimedBarcodeScannerClosedEventArgs {
     type Vtable = IClaimedBarcodeScannerClosedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf7d5489_a22c_4c65_a901_88d77d833954);
+    const IID: ::windows::core::GUID = <IClaimedBarcodeScannerClosedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ClaimedBarcodeScannerClosedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedBarcodeScannerClosedEventArgs";
@@ -3340,7 +3340,7 @@ unsafe impl ::windows::core::RuntimeType for ClaimedCashDrawer {
 }
 unsafe impl ::windows::core::Interface for ClaimedCashDrawer {
     type Vtable = IClaimedCashDrawer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca3f99af_abb8_42c1_8a84_5c66512f5a75);
+    const IID: ::windows::core::GUID = <IClaimedCashDrawer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ClaimedCashDrawer {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedCashDrawer";
@@ -3438,7 +3438,7 @@ unsafe impl ::windows::core::RuntimeType for ClaimedCashDrawerClosedEventArgs {
 }
 unsafe impl ::windows::core::Interface for ClaimedCashDrawerClosedEventArgs {
     type Vtable = IClaimedCashDrawerClosedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc573f33_3f34_4c5c_baae_deadf16cd7fa);
+    const IID: ::windows::core::GUID = <IClaimedCashDrawerClosedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ClaimedCashDrawerClosedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedCashDrawerClosedEventArgs";
@@ -3656,7 +3656,7 @@ unsafe impl ::windows::core::RuntimeType for ClaimedJournalPrinter {
 }
 unsafe impl ::windows::core::Interface for ClaimedJournalPrinter {
     type Vtable = IClaimedJournalPrinter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x67ea0630_517d_487f_9fdf_d2e0a0a264a5);
+    const IID: ::windows::core::GUID = <IClaimedJournalPrinter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ClaimedJournalPrinter {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedJournalPrinter";
@@ -4031,7 +4031,7 @@ unsafe impl ::windows::core::RuntimeType for ClaimedLineDisplay {
 }
 unsafe impl ::windows::core::Interface for ClaimedLineDisplay {
     type Vtable = IClaimedLineDisplay_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x120ac970_9a75_4acf_aae7_09972bcf8794);
+    const IID: ::windows::core::GUID = <IClaimedLineDisplay as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ClaimedLineDisplay {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedLineDisplay";
@@ -4129,7 +4129,7 @@ unsafe impl ::windows::core::RuntimeType for ClaimedLineDisplayClosedEventArgs {
 }
 unsafe impl ::windows::core::Interface for ClaimedLineDisplayClosedEventArgs {
     type Vtable = IClaimedLineDisplayClosedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf915f364_d3d5_4f10_b511_90939edfacd8);
+    const IID: ::windows::core::GUID = <IClaimedLineDisplayClosedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ClaimedLineDisplayClosedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedLineDisplayClosedEventArgs";
@@ -4469,7 +4469,7 @@ unsafe impl ::windows::core::RuntimeType for ClaimedMagneticStripeReader {
 }
 unsafe impl ::windows::core::Interface for ClaimedMagneticStripeReader {
     type Vtable = IClaimedMagneticStripeReader_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x475ca8f3_9417_48bc_b9d7_4163a7844c02);
+    const IID: ::windows::core::GUID = <IClaimedMagneticStripeReader as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ClaimedMagneticStripeReader {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedMagneticStripeReader";
@@ -4567,7 +4567,7 @@ unsafe impl ::windows::core::RuntimeType for ClaimedMagneticStripeReaderClosedEv
 }
 unsafe impl ::windows::core::Interface for ClaimedMagneticStripeReaderClosedEventArgs {
     type Vtable = IClaimedMagneticStripeReaderClosedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14ada93a_adcd_4c80_acda_c3eaed2647e1);
+    const IID: ::windows::core::GUID = <IClaimedMagneticStripeReaderClosedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ClaimedMagneticStripeReaderClosedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedMagneticStripeReaderClosedEventArgs";
@@ -4808,7 +4808,7 @@ unsafe impl ::windows::core::RuntimeType for ClaimedPosPrinter {
 }
 unsafe impl ::windows::core::Interface for ClaimedPosPrinter {
     type Vtable = IClaimedPosPrinter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d64ce0c_e03e_4b14_a38e_c28c34b86353);
+    const IID: ::windows::core::GUID = <IClaimedPosPrinter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ClaimedPosPrinter {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedPosPrinter";
@@ -4906,7 +4906,7 @@ unsafe impl ::windows::core::RuntimeType for ClaimedPosPrinterClosedEventArgs {
 }
 unsafe impl ::windows::core::Interface for ClaimedPosPrinterClosedEventArgs {
     type Vtable = IClaimedPosPrinterClosedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2b7a27b_4d40_471d_92ed_63375b18c788);
+    const IID: ::windows::core::GUID = <IClaimedPosPrinterClosedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ClaimedPosPrinterClosedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedPosPrinterClosedEventArgs";
@@ -5166,7 +5166,7 @@ unsafe impl ::windows::core::RuntimeType for ClaimedReceiptPrinter {
 }
 unsafe impl ::windows::core::Interface for ClaimedReceiptPrinter {
     type Vtable = IClaimedReceiptPrinter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ad27a74_dd61_4ee2_9837_5b5d72d538b9);
+    const IID: ::windows::core::GUID = <IClaimedReceiptPrinter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ClaimedReceiptPrinter {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedReceiptPrinter";
@@ -5497,7 +5497,7 @@ unsafe impl ::windows::core::RuntimeType for ClaimedSlipPrinter {
 }
 unsafe impl ::windows::core::Interface for ClaimedSlipPrinter {
     type Vtable = IClaimedSlipPrinter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd5deff2_af90_4e8a_b77b_e3ae9ca63a7f);
+    const IID: ::windows::core::GUID = <IClaimedSlipPrinter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ClaimedSlipPrinter {
     const NAME: &'static str = "Windows.Devices.PointOfService.ClaimedSlipPrinter";
@@ -9123,7 +9123,7 @@ unsafe impl ::windows::core::RuntimeType for JournalPrintJob {
 }
 unsafe impl ::windows::core::Interface for JournalPrintJob {
     type Vtable = IPosPrinterJob_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a94005c_0615_4591_a58f_30f87edfe2e4);
+    const IID: ::windows::core::GUID = <IPosPrinterJob as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for JournalPrintJob {
     const NAME: &'static str = "Windows.Devices.PointOfService.JournalPrintJob";
@@ -9371,7 +9371,7 @@ unsafe impl ::windows::core::RuntimeType for JournalPrinterCapabilities {
 }
 unsafe impl ::windows::core::Interface for JournalPrinterCapabilities {
     type Vtable = IJournalPrinterCapabilities_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b5ccc43_e047_4463_bb58_17b5ba1d8056);
+    const IID: ::windows::core::GUID = <IJournalPrinterCapabilities as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for JournalPrinterCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.JournalPrinterCapabilities";
@@ -9593,7 +9593,7 @@ unsafe impl ::windows::core::RuntimeType for LineDisplay {
 }
 unsafe impl ::windows::core::Interface for LineDisplay {
     type Vtable = ILineDisplay_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24f5df4e_3c99_44e2_b73f_e51be3637a8c);
+    const IID: ::windows::core::GUID = <ILineDisplay as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LineDisplay {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplay";
@@ -9787,7 +9787,7 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayAttributes {
 }
 unsafe impl ::windows::core::Interface for LineDisplayAttributes {
     type Vtable = ILineDisplayAttributes_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc17de99c_229a_4c14_a6f1_b4e4b1fead92);
+    const IID: ::windows::core::GUID = <ILineDisplayAttributes as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LineDisplayAttributes {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayAttributes";
@@ -10004,7 +10004,7 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayCapabilities {
 }
 unsafe impl ::windows::core::Interface for LineDisplayCapabilities {
     type Vtable = ILineDisplayCapabilities_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a15b5d1_8dc5_4b9c_9172_303e47b70c55);
+    const IID: ::windows::core::GUID = <ILineDisplayCapabilities as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LineDisplayCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayCapabilities";
@@ -10150,7 +10150,7 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayCursor {
 }
 unsafe impl ::windows::core::Interface for LineDisplayCursor {
     type Vtable = ILineDisplayCursor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecdffc45_754a_4e3b_ab2b_151181085605);
+    const IID: ::windows::core::GUID = <ILineDisplayCursor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LineDisplayCursor {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayCursor";
@@ -10277,7 +10277,7 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayCursorAttributes {
 }
 unsafe impl ::windows::core::Interface for LineDisplayCursorAttributes {
     type Vtable = ILineDisplayCursorAttributes_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e2d54fe_4ffd_4190_aae1_ce285f20c896);
+    const IID: ::windows::core::GUID = <ILineDisplayCursorAttributes as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LineDisplayCursorAttributes {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayCursorAttributes";
@@ -10409,7 +10409,7 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayCustomGlyphs {
 }
 unsafe impl ::windows::core::Interface for LineDisplayCustomGlyphs {
     type Vtable = ILineDisplayCustomGlyphs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2257f63c_f263_44f1_a1a0_e750a6a0ec54);
+    const IID: ::windows::core::GUID = <ILineDisplayCustomGlyphs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LineDisplayCustomGlyphs {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayCustomGlyphs";
@@ -10601,7 +10601,7 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayMarquee {
 }
 unsafe impl ::windows::core::Interface for LineDisplayMarquee {
     type Vtable = ILineDisplayMarquee_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3d33e3e_f46a_4b7a_bc21_53eb3b57f8b4);
+    const IID: ::windows::core::GUID = <ILineDisplayMarquee as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LineDisplayMarquee {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayMarquee";
@@ -10788,7 +10788,7 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayStatisticsCategorySelect
 }
 unsafe impl ::windows::core::Interface for LineDisplayStatisticsCategorySelector {
     type Vtable = ILineDisplayStatisticsCategorySelector_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb521c46b_9274_4d24_94f3_b6017b832444);
+    const IID: ::windows::core::GUID = <ILineDisplayStatisticsCategorySelector as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LineDisplayStatisticsCategorySelector {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayStatisticsCategorySelector";
@@ -10869,7 +10869,7 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayStatusUpdatedEventArgs {
 }
 unsafe impl ::windows::core::Interface for LineDisplayStatusUpdatedEventArgs {
     type Vtable = ILineDisplayStatusUpdatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xddd57c1a_86fb_4eba_93d1_6f5eda52b752);
+    const IID: ::windows::core::GUID = <ILineDisplayStatusUpdatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LineDisplayStatusUpdatedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayStatusUpdatedEventArgs";
@@ -10959,7 +10959,7 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayStoredBitmap {
 }
 unsafe impl ::windows::core::Interface for LineDisplayStoredBitmap {
     type Vtable = ILineDisplayStoredBitmap_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf621515b_d81e_43ba_bf1b_bcfa3c785ba0);
+    const IID: ::windows::core::GUID = <ILineDisplayStoredBitmap as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LineDisplayStoredBitmap {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayStoredBitmap";
@@ -11283,7 +11283,7 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayWindow {
 }
 unsafe impl ::windows::core::Interface for LineDisplayWindow {
     type Vtable = ILineDisplayWindow_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd21feef4_2364_4be5_bee1_851680af4964);
+    const IID: ::windows::core::GUID = <ILineDisplayWindow as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LineDisplayWindow {
     const NAME: &'static str = "Windows.Devices.PointOfService.LineDisplayWindow";
@@ -11510,7 +11510,7 @@ unsafe impl ::windows::core::RuntimeType for MagneticStripeReader {
 }
 unsafe impl ::windows::core::Interface for MagneticStripeReader {
     type Vtable = IMagneticStripeReader_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a92b015_47c3_468a_9333_0c6517574883);
+    const IID: ::windows::core::GUID = <IMagneticStripeReader as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MagneticStripeReader {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReader";
@@ -11761,7 +11761,7 @@ unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderAamvaCardDataRe
 }
 unsafe impl ::windows::core::Interface for MagneticStripeReaderAamvaCardDataReceivedEventArgs {
     type Vtable = IMagneticStripeReaderAamvaCardDataReceivedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a4bbd51_c316_4910_87f3_7a62ba862d31);
+    const IID: ::windows::core::GUID = <IMagneticStripeReaderAamvaCardDataReceivedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MagneticStripeReaderAamvaCardDataReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderAamvaCardDataReceivedEventArgs";
@@ -11963,7 +11963,7 @@ unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderBankCardDataRec
 }
 unsafe impl ::windows::core::Interface for MagneticStripeReaderBankCardDataReceivedEventArgs {
     type Vtable = IMagneticStripeReaderBankCardDataReceivedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e958823_a31a_4763_882c_23725e39b08e);
+    const IID: ::windows::core::GUID = <IMagneticStripeReaderBankCardDataReceivedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MagneticStripeReaderBankCardDataReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderBankCardDataReceivedEventArgs";
@@ -12124,7 +12124,7 @@ unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderCapabilities {
 }
 unsafe impl ::windows::core::Interface for MagneticStripeReaderCapabilities {
     type Vtable = IMagneticStripeReaderCapabilities_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7128809c_c440_44a2_a467_469175d02896);
+    const IID: ::windows::core::GUID = <IMagneticStripeReaderCapabilities as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MagneticStripeReaderCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderCapabilities";
@@ -12318,7 +12318,7 @@ unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderErrorOccurredEv
 }
 unsafe impl ::windows::core::Interface for MagneticStripeReaderErrorOccurredEventArgs {
     type Vtable = IMagneticStripeReaderErrorOccurredEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1fedf95d_2c84_41ad_b778_f2356a789ab1);
+    const IID: ::windows::core::GUID = <IMagneticStripeReaderErrorOccurredEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MagneticStripeReaderErrorOccurredEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderErrorOccurredEventArgs";
@@ -12494,7 +12494,7 @@ unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderReport {
 }
 unsafe impl ::windows::core::Interface for MagneticStripeReaderReport {
     type Vtable = IMagneticStripeReaderReport_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a5b6047_99b0_4188_bef1_eddf79f78fe6);
+    const IID: ::windows::core::GUID = <IMagneticStripeReaderReport as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MagneticStripeReaderReport {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderReport";
@@ -12612,7 +12612,7 @@ unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderStatusUpdatedEv
 }
 unsafe impl ::windows::core::Interface for MagneticStripeReaderStatusUpdatedEventArgs {
     type Vtable = IMagneticStripeReaderStatusUpdatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09cc6bb0_3262_401d_9e8a_e80d6358906b);
+    const IID: ::windows::core::GUID = <IMagneticStripeReaderStatusUpdatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MagneticStripeReaderStatusUpdatedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderStatusUpdatedEventArgs";
@@ -12712,7 +12712,7 @@ unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderTrackData {
 }
 unsafe impl ::windows::core::Interface for MagneticStripeReaderTrackData {
     type Vtable = IMagneticStripeReaderTrackData_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x104cf671_4a9d_446e_abc5_20402307ba36);
+    const IID: ::windows::core::GUID = <IMagneticStripeReaderTrackData as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MagneticStripeReaderTrackData {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderTrackData";
@@ -12856,7 +12856,7 @@ unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderVendorSpecificC
 }
 unsafe impl ::windows::core::Interface for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
     type Vtable = IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf0a5514_59cc_4a60_99e8_99a53dace5aa);
+    const IID: ::windows::core::GUID = <IMagneticStripeReaderVendorSpecificCardDataReceivedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs";
@@ -13134,7 +13134,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinter {
 }
 unsafe impl ::windows::core::Interface for PosPrinter {
     type Vtable = IPosPrinter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a03c10e_9a19_4a01_994f_12dfad6adcbf);
+    const IID: ::windows::core::GUID = <IPosPrinter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PosPrinter {
     const NAME: &'static str = "Windows.Devices.PointOfService.PosPrinter";
@@ -13371,7 +13371,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterCapabilities {
 }
 unsafe impl ::windows::core::Interface for PosPrinterCapabilities {
     type Vtable = IPosPrinterCapabilities_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcde95721_4380_4985_adc5_39db30cd93bc);
+    const IID: ::windows::core::GUID = <IPosPrinterCapabilities as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PosPrinterCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.PosPrinterCapabilities";
@@ -13664,7 +13664,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterFontProperty {
 }
 unsafe impl ::windows::core::Interface for PosPrinterFontProperty {
     type Vtable = IPosPrinterFontProperty_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7f4e93a_f8ac_5f04_84d2_29b16d8a633c);
+    const IID: ::windows::core::GUID = <IPosPrinterFontProperty as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PosPrinterFontProperty {
     const NAME: &'static str = "Windows.Devices.PointOfService.PosPrinterFontProperty";
@@ -14090,7 +14090,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterPrintOptions {
 }
 unsafe impl ::windows::core::Interface for PosPrinterPrintOptions {
     type Vtable = IPosPrinterPrintOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a2e16fd_1d02_5a58_9d59_bfcde76fde86);
+    const IID: ::windows::core::GUID = <IPosPrinterPrintOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PosPrinterPrintOptions {
     const NAME: &'static str = "Windows.Devices.PointOfService.PosPrinterPrintOptions";
@@ -14191,7 +14191,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterReleaseDeviceRequestedEve
 }
 unsafe impl ::windows::core::Interface for PosPrinterReleaseDeviceRequestedEventArgs {
     type Vtable = IPosPrinterReleaseDeviceRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bcba359_1cef_40b2_9ecb_f927f856ae3c);
+    const IID: ::windows::core::GUID = <IPosPrinterReleaseDeviceRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PosPrinterReleaseDeviceRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.PosPrinterReleaseDeviceRequestedEventArgs";
@@ -14367,7 +14367,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterStatus {
 }
 unsafe impl ::windows::core::Interface for PosPrinterStatus {
     type Vtable = IPosPrinterStatus_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1f0c730_da40_4328_bf76_5156fa33b747);
+    const IID: ::windows::core::GUID = <IPosPrinterStatus as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PosPrinterStatus {
     const NAME: &'static str = "Windows.Devices.PointOfService.PosPrinterStatus";
@@ -14479,7 +14479,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterStatusUpdatedEventArgs {
 }
 unsafe impl ::windows::core::Interface for PosPrinterStatusUpdatedEventArgs {
     type Vtable = IPosPrinterStatusUpdatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2edb87df_13a6_428d_ba81_b0e7c3e5a3cd);
+    const IID: ::windows::core::GUID = <IPosPrinterStatusUpdatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PosPrinterStatusUpdatedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.PosPrinterStatusUpdatedEventArgs";
@@ -14695,7 +14695,7 @@ unsafe impl ::windows::core::RuntimeType for ReceiptPrintJob {
 }
 unsafe impl ::windows::core::Interface for ReceiptPrintJob {
     type Vtable = IReceiptPrintJob_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa96066e_acad_4b79_9d0f_c0cfc08dc77b);
+    const IID: ::windows::core::GUID = <IReceiptPrintJob as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ReceiptPrintJob {
     const NAME: &'static str = "Windows.Devices.PointOfService.ReceiptPrintJob";
@@ -15063,7 +15063,7 @@ unsafe impl ::windows::core::RuntimeType for ReceiptPrinterCapabilities {
 }
 unsafe impl ::windows::core::Interface for ReceiptPrinterCapabilities {
     type Vtable = IReceiptPrinterCapabilities_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8f0b58f_51a8_43fc_9bd5_8de272a6415b);
+    const IID: ::windows::core::GUID = <IReceiptPrinterCapabilities as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ReceiptPrinterCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.ReceiptPrinterCapabilities";
@@ -15340,7 +15340,7 @@ unsafe impl ::windows::core::RuntimeType for SlipPrintJob {
 }
 unsafe impl ::windows::core::Interface for SlipPrintJob {
     type Vtable = IReceiptOrSlipJob_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x532199be_c8c3_4dc2_89e9_5c4a37b34ddc);
+    const IID: ::windows::core::GUID = <IReceiptOrSlipJob as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SlipPrintJob {
     const NAME: &'static str = "Windows.Devices.PointOfService.SlipPrintJob";
@@ -15700,7 +15700,7 @@ unsafe impl ::windows::core::RuntimeType for SlipPrinterCapabilities {
 }
 unsafe impl ::windows::core::Interface for SlipPrinterCapabilities {
     type Vtable = ISlipPrinterCapabilities_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99b16399_488c_4157_8ac2_9f57f708d3db);
+    const IID: ::windows::core::GUID = <ISlipPrinterCapabilities as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SlipPrinterCapabilities {
     const NAME: &'static str = "Windows.Devices.PointOfService.SlipPrinterCapabilities";
@@ -15861,7 +15861,7 @@ unsafe impl ::windows::core::RuntimeType for UnifiedPosErrorData {
 }
 unsafe impl ::windows::core::Interface for UnifiedPosErrorData {
     type Vtable = IUnifiedPosErrorData_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b998c3a_555c_4889_8ed8_c599bb3a712a);
+    const IID: ::windows::core::GUID = <IUnifiedPosErrorData as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UnifiedPosErrorData {
     const NAME: &'static str = "Windows.Devices.PointOfService.UnifiedPosErrorData";

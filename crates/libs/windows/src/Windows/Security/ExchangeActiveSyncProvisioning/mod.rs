@@ -96,7 +96,7 @@ unsafe impl ::windows::core::RuntimeType for EasClientDeviceInformation {
 }
 unsafe impl ::windows::core::Interface for EasClientDeviceInformation {
     type Vtable = IEasClientDeviceInformation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54dfd981_1968_4ca3_b958_e595d16505eb);
+    const IID: ::windows::core::GUID = <IEasClientDeviceInformation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EasClientDeviceInformation {
     const NAME: &'static str = "Windows.Security.ExchangeActiveSyncProvisioning.EasClientDeviceInformation";
@@ -299,7 +299,7 @@ unsafe impl ::windows::core::RuntimeType for EasClientSecurityPolicy {
 }
 unsafe impl ::windows::core::Interface for EasClientSecurityPolicy {
     type Vtable = IEasClientSecurityPolicy_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45b72362_dfba_4a9b_aced_6fe2adcb6420);
+    const IID: ::windows::core::GUID = <IEasClientSecurityPolicy as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EasClientSecurityPolicy {
     const NAME: &'static str = "Windows.Security.ExchangeActiveSyncProvisioning.EasClientSecurityPolicy";
@@ -450,7 +450,7 @@ unsafe impl ::windows::core::RuntimeType for EasComplianceResults {
 }
 unsafe impl ::windows::core::Interface for EasComplianceResults {
     type Vtable = IEasComplianceResults_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x463c299c_7f19_4c66_b403_cb45dd57a2b3);
+    const IID: ::windows::core::GUID = <IEasComplianceResults as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EasComplianceResults {
     const NAME: &'static str = "Windows.Security.ExchangeActiveSyncProvisioning.EasComplianceResults";

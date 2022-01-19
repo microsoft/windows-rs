@@ -230,7 +230,7 @@ unsafe impl ::windows::core::RuntimeType for AtomPubClient {
 }
 unsafe impl ::windows::core::Interface for AtomPubClient {
     type Vtable = IAtomPubClient_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35392c38_cded_4d4c_9637_05f15c1c9406);
+    const IID: ::windows::core::GUID = <IAtomPubClient as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AtomPubClient {
     const NAME: &'static str = "Windows.Web.AtomPub.AtomPubClient";
@@ -600,7 +600,7 @@ unsafe impl ::windows::core::RuntimeType for ResourceCollection {
 }
 unsafe impl ::windows::core::Interface for ResourceCollection {
     type Vtable = IResourceCollection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f5fd609_bc88_41d4_88fa_3de6704d428e);
+    const IID: ::windows::core::GUID = <IResourceCollection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ResourceCollection {
     const NAME: &'static str = "Windows.Web.AtomPub.ResourceCollection";
@@ -810,7 +810,7 @@ unsafe impl ::windows::core::RuntimeType for ServiceDocument {
 }
 unsafe impl ::windows::core::Interface for ServiceDocument {
     type Vtable = IServiceDocument_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b7ec771_2ab3_4dbe_8bcc_778f92b75e51);
+    const IID: ::windows::core::GUID = <IServiceDocument as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ServiceDocument {
     const NAME: &'static str = "Windows.Web.AtomPub.ServiceDocument";
@@ -1029,7 +1029,7 @@ unsafe impl ::windows::core::RuntimeType for Workspace {
 }
 unsafe impl ::windows::core::Interface for Workspace {
     type Vtable = IWorkspace_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb41da63b_a4b8_4036_89c5_83c31266ba49);
+    const IID: ::windows::core::GUID = <IWorkspace as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Workspace {
     const NAME: &'static str = "Windows.Web.AtomPub.Workspace";

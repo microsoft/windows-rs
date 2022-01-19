@@ -61,7 +61,7 @@ unsafe impl ::windows::core::RuntimeType for EnhancedWaypoint {
 }
 unsafe impl ::windows::core::Interface for EnhancedWaypoint {
     type Vtable = IEnhancedWaypoint_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed268c74_5913_11e6_8b77_86f30ca893d3);
+    const IID: ::windows::core::GUID = <IEnhancedWaypoint as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EnhancedWaypoint {
     const NAME: &'static str = "Windows.Services.Maps.EnhancedWaypoint";
@@ -801,7 +801,7 @@ unsafe impl ::windows::core::RuntimeType for ManeuverWarning {
 }
 unsafe impl ::windows::core::Interface for ManeuverWarning {
     type Vtable = IManeuverWarning_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1a36d8a_2630_4378_9e4a_6e44253dceba);
+    const IID: ::windows::core::GUID = <IManeuverWarning as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ManeuverWarning {
     const NAME: &'static str = "Windows.Services.Maps.ManeuverWarning";
@@ -1095,7 +1095,7 @@ unsafe impl ::windows::core::RuntimeType for MapAddress {
 }
 unsafe impl ::windows::core::Interface for MapAddress {
     type Vtable = IMapAddress_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfa7a973_a3b4_4494_b3ff_cba94db69699);
+    const IID: ::windows::core::GUID = <IMapAddress as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapAddress {
     const NAME: &'static str = "Windows.Services.Maps.MapAddress";
@@ -1201,7 +1201,7 @@ unsafe impl ::windows::core::RuntimeType for MapLocation {
 }
 unsafe impl ::windows::core::Interface for MapLocation {
     type Vtable = IMapLocation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c073f57_0da4_42e8_9ee2_a96fcf2371dc);
+    const IID: ::windows::core::GUID = <IMapLocation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapLocation {
     const NAME: &'static str = "Windows.Services.Maps.MapLocation";
@@ -1368,7 +1368,7 @@ unsafe impl ::windows::core::RuntimeType for MapLocationFinderResult {
 }
 unsafe impl ::windows::core::Interface for MapLocationFinderResult {
     type Vtable = IMapLocationFinderResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43f1f179_e8cc_45f6_bed2_54ccbf965d9a);
+    const IID: ::windows::core::GUID = <IMapLocationFinderResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapLocationFinderResult {
     const NAME: &'static str = "Windows.Services.Maps.MapLocationFinderResult";
@@ -1644,7 +1644,7 @@ unsafe impl ::windows::core::RuntimeType for MapRoute {
 }
 unsafe impl ::windows::core::Interface for MapRoute {
     type Vtable = IMapRoute_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb07b732_584d_4583_9c60_641fea274349);
+    const IID: ::windows::core::GUID = <IMapRoute as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapRoute {
     const NAME: &'static str = "Windows.Services.Maps.MapRoute";
@@ -1793,7 +1793,7 @@ unsafe impl ::windows::core::RuntimeType for MapRouteDrivingOptions {
 }
 unsafe impl ::windows::core::Interface for MapRouteDrivingOptions {
     type Vtable = IMapRouteDrivingOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6815364d_c6dc_4697_a452_b18f8f0b67a1);
+    const IID: ::windows::core::GUID = <IMapRouteDrivingOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapRouteDrivingOptions {
     const NAME: &'static str = "Windows.Services.Maps.MapRouteDrivingOptions";
@@ -2017,7 +2017,7 @@ unsafe impl ::windows::core::RuntimeType for MapRouteFinderResult {
 }
 unsafe impl ::windows::core::Interface for MapRouteFinderResult {
     type Vtable = IMapRouteFinderResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa868a31a_9422_46ac_8ca1_b1614d4bfbe2);
+    const IID: ::windows::core::GUID = <IMapRouteFinderResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapRouteFinderResult {
     const NAME: &'static str = "Windows.Services.Maps.MapRouteFinderResult";
@@ -2187,7 +2187,7 @@ unsafe impl ::windows::core::RuntimeType for MapRouteLeg {
 }
 unsafe impl ::windows::core::Interface for MapRouteLeg {
     type Vtable = IMapRouteLeg_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96f8b2f6_5bba_4d17_9db6_1a263fec7471);
+    const IID: ::windows::core::GUID = <IMapRouteLeg as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapRouteLeg {
     const NAME: &'static str = "Windows.Services.Maps.MapRouteLeg";
@@ -2342,7 +2342,7 @@ unsafe impl ::windows::core::RuntimeType for MapRouteManeuver {
 }
 unsafe impl ::windows::core::Interface for MapRouteManeuver {
     type Vtable = IMapRouteManeuver_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed5c17f0_a6ab_4d65_a086_fa8a7e340df2);
+    const IID: ::windows::core::GUID = <IMapRouteManeuver as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapRouteManeuver {
     const NAME: &'static str = "Windows.Services.Maps.MapRouteManeuver";
@@ -2762,7 +2762,7 @@ unsafe impl ::windows::core::RuntimeType for PlaceInfo {
 }
 unsafe impl ::windows::core::Interface for PlaceInfo {
     type Vtable = IPlaceInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a0810b6_31c8_4f6a_9f18_950b4c38951a);
+    const IID: ::windows::core::GUID = <IPlaceInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PlaceInfo {
     const NAME: &'static str = "Windows.Services.Maps.PlaceInfo";
@@ -2868,7 +2868,7 @@ unsafe impl ::windows::core::RuntimeType for PlaceInfoCreateOptions {
 }
 unsafe impl ::windows::core::Interface for PlaceInfoCreateOptions {
     type Vtable = IPlaceInfoCreateOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd33c125_67f1_4bb3_9907_ecce939b0399);
+    const IID: ::windows::core::GUID = <IPlaceInfoCreateOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PlaceInfoCreateOptions {
     const NAME: &'static str = "Windows.Services.Maps.PlaceInfoCreateOptions";

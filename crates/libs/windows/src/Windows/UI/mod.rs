@@ -118,7 +118,7 @@ unsafe impl ::windows::core::RuntimeType for ColorHelper {
 }
 unsafe impl ::windows::core::Interface for ColorHelper {
     type Vtable = IColorHelper_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x193cfbe7_65c7_4540_ad08_6283ba76879a);
+    const IID: ::windows::core::GUID = <IColorHelper as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ColorHelper {
     const NAME: &'static str = "Windows.UI.ColorHelper";
@@ -1183,7 +1183,7 @@ unsafe impl ::windows::core::RuntimeType for Colors {
 }
 unsafe impl ::windows::core::Interface for Colors {
     type Vtable = IColors_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b8c9326_4ca6_4ce5_8994_9eff65cabdcc);
+    const IID: ::windows::core::GUID = <IColors as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Colors {
     const NAME: &'static str = "Windows.UI.Colors";
@@ -1492,7 +1492,7 @@ unsafe impl ::windows::core::RuntimeType for UIContentRoot {
 }
 unsafe impl ::windows::core::Interface for UIContentRoot {
     type Vtable = IUIContentRoot_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dfcbac6_b36b_5cb9_9bc5_2b7a0eddc378);
+    const IID: ::windows::core::GUID = <IUIContentRoot as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UIContentRoot {
     const NAME: &'static str = "Windows.UI.UIContentRoot";
@@ -1564,7 +1564,7 @@ unsafe impl ::windows::core::RuntimeType for UIContext {
 }
 unsafe impl ::windows::core::Interface for UIContext {
     type Vtable = IUIContext_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb5cfacd_5bd8_59d0_a59e_1c17a4d6d243);
+    const IID: ::windows::core::GUID = <IUIContext as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UIContext {
     const NAME: &'static str = "Windows.UI.UIContext";

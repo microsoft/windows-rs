@@ -277,7 +277,7 @@ unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorAuthenti
 }
 unsafe impl ::windows::core::Interface for MicrosoftAccountMultiFactorAuthenticationManager {
     type Vtable = IMicrosoftAccountMultiFactorAuthenticationManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0fd340a5_f574_4320_a08e_0a19a82322aa);
+    const IID: ::windows::core::GUID = <IMicrosoftAccountMultiFactorAuthenticationManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MicrosoftAccountMultiFactorAuthenticationManager {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorAuthenticationManager";
@@ -395,7 +395,7 @@ unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorGetSessi
 }
 unsafe impl ::windows::core::Interface for MicrosoftAccountMultiFactorGetSessionsResult {
     type Vtable = IMicrosoftAccountMultiFactorGetSessionsResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e23a9a0_e9fa_497a_95de_6d5747bf974c);
+    const IID: ::windows::core::GUID = <IMicrosoftAccountMultiFactorGetSessionsResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MicrosoftAccountMultiFactorGetSessionsResult {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorGetSessionsResult";
@@ -502,7 +502,7 @@ unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorOneTimeC
 }
 unsafe impl ::windows::core::Interface for MicrosoftAccountMultiFactorOneTimeCodedInfo {
     type Vtable = IMicrosoftAccountMultiFactorOneTimeCodedInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82ba264b_d87c_4668_a976_40cfae547d08);
+    const IID: ::windows::core::GUID = <IMicrosoftAccountMultiFactorOneTimeCodedInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MicrosoftAccountMultiFactorOneTimeCodedInfo {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorOneTimeCodedInfo";
@@ -738,7 +738,7 @@ unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorSessionI
 }
 unsafe impl ::windows::core::Interface for MicrosoftAccountMultiFactorSessionInfo {
     type Vtable = IMicrosoftAccountMultiFactorSessionInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f7eabb4_a278_4635_b765_b494eb260af4);
+    const IID: ::windows::core::GUID = <IMicrosoftAccountMultiFactorSessionInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MicrosoftAccountMultiFactorSessionInfo {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorSessionInfo";
@@ -837,7 +837,7 @@ unsafe impl ::windows::core::RuntimeType for MicrosoftAccountMultiFactorUnregist
 }
 unsafe impl ::windows::core::Interface for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
     type Vtable = IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa7ec5fb_da3f_4088_a20d_5618afadb2e5);
+    const IID: ::windows::core::GUID = <IMicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo {
     const NAME: &'static str = "Windows.Security.Authentication.Identity.Core.MicrosoftAccountMultiFactorUnregisteredAccountsAndSessionInfo";

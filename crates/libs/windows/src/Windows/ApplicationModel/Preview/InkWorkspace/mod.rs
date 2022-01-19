@@ -75,7 +75,7 @@ unsafe impl ::windows::core::RuntimeType for InkWorkspaceHostedAppManager {
 }
 unsafe impl ::windows::core::Interface for InkWorkspaceHostedAppManager {
     type Vtable = IInkWorkspaceHostedAppManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe0a7990_5e59_4bb7_8a63_7d218cd96300);
+    const IID: ::windows::core::GUID = <IInkWorkspaceHostedAppManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InkWorkspaceHostedAppManager {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.InkWorkspace.InkWorkspaceHostedAppManager";

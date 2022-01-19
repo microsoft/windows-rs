@@ -106,7 +106,7 @@ unsafe impl ::windows::core::RuntimeType for I2cConnectionSettings {
 }
 unsafe impl ::windows::core::Interface for I2cConnectionSettings {
     type Vtable = II2cConnectionSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2db1307_ab6f_4639_a767_54536dc3460f);
+    const IID: ::windows::core::GUID = <II2cConnectionSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for I2cConnectionSettings {
     const NAME: &'static str = "Windows.Devices.I2c.I2cConnectionSettings";
@@ -208,7 +208,7 @@ unsafe impl ::windows::core::RuntimeType for I2cController {
 }
 unsafe impl ::windows::core::Interface for I2cController {
     type Vtable = II2cController_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc48ab1b2_87a0_4166_8e3e_b4b8f97cd729);
+    const IID: ::windows::core::GUID = <II2cController as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for I2cController {
     const NAME: &'static str = "Windows.Devices.I2c.I2cController";
@@ -369,7 +369,7 @@ unsafe impl ::windows::core::RuntimeType for I2cDevice {
 }
 unsafe impl ::windows::core::Interface for I2cDevice {
     type Vtable = II2cDevice_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8636c136_b9c5_4f70_9449_cc46dc6f57eb);
+    const IID: ::windows::core::GUID = <II2cDevice as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for I2cDevice {
     const NAME: &'static str = "Windows.Devices.I2c.I2cDevice";

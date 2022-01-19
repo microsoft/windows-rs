@@ -41,7 +41,7 @@ unsafe impl ::windows::core::RuntimeType for CharacterGrouping {
 }
 unsafe impl ::windows::core::Interface for CharacterGrouping {
     type Vtable = ICharacterGrouping_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfae761bb_805d_4bb0_95bb_c1f7c3e8eb8e);
+    const IID: ::windows::core::GUID = <ICharacterGrouping as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CharacterGrouping {
     const NAME: &'static str = "Windows.Globalization.Collation.CharacterGrouping";
@@ -186,7 +186,7 @@ unsafe impl ::windows::core::RuntimeType for CharacterGroupings {
 }
 unsafe impl ::windows::core::Interface for CharacterGroupings {
     type Vtable = ICharacterGroupings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8d20a75_d4cf_4055_80e5_ce169c226496);
+    const IID: ::windows::core::GUID = <ICharacterGroupings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CharacterGroupings {
     const NAME: &'static str = "Windows.Globalization.Collation.CharacterGroupings";

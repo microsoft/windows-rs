@@ -129,7 +129,7 @@ unsafe impl ::windows::core::RuntimeType for HttpBufferContent {
 }
 unsafe impl ::windows::core::Interface for HttpBufferContent {
     type Vtable = IHttpContent_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b14a441_fba7_4bd2_af0a_839de7c295da);
+    const IID: ::windows::core::GUID = <IHttpContent as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpBufferContent {
     const NAME: &'static str = "Windows.Web.Http.HttpBufferContent";
@@ -500,7 +500,7 @@ unsafe impl ::windows::core::RuntimeType for HttpClient {
 }
 unsafe impl ::windows::core::Interface for HttpClient {
     type Vtable = IHttpClient_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fda1151_3574_4880_a8ba_e6b1e0061f3d);
+    const IID: ::windows::core::GUID = <IHttpClient as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpClient {
     const NAME: &'static str = "Windows.Web.Http.HttpClient";
@@ -752,7 +752,7 @@ unsafe impl ::windows::core::RuntimeType for HttpCookie {
 }
 unsafe impl ::windows::core::Interface for HttpCookie {
     type Vtable = IHttpCookie_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f5488e2_cc2d_4779_86a7_88f10687d249);
+    const IID: ::windows::core::GUID = <IHttpCookie as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpCookie {
     const NAME: &'static str = "Windows.Web.Http.HttpCookie";
@@ -904,7 +904,7 @@ unsafe impl ::windows::core::RuntimeType for HttpCookieCollection {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for HttpCookieCollection {
     type Vtable = super::super::Foundation::Collections::IVectorView_Vtbl<HttpCookie>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::Foundation::Collections::IVectorView<HttpCookie> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for HttpCookieCollection {
@@ -1086,7 +1086,7 @@ unsafe impl ::windows::core::RuntimeType for HttpCookieManager {
 }
 unsafe impl ::windows::core::Interface for HttpCookieManager {
     type Vtable = IHttpCookieManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a431780_cd4f_4e57_a84a_5b0a53d6bb96);
+    const IID: ::windows::core::GUID = <IHttpCookieManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpCookieManager {
     const NAME: &'static str = "Windows.Web.Http.HttpCookieManager";
@@ -1249,7 +1249,7 @@ unsafe impl ::windows::core::RuntimeType for HttpFormUrlEncodedContent {
 }
 unsafe impl ::windows::core::Interface for HttpFormUrlEncodedContent {
     type Vtable = IHttpContent_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b14a441_fba7_4bd2_af0a_839de7c295da);
+    const IID: ::windows::core::GUID = <IHttpContent as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpFormUrlEncodedContent {
     const NAME: &'static str = "Windows.Web.Http.HttpFormUrlEncodedContent";
@@ -1452,7 +1452,7 @@ unsafe impl ::windows::core::RuntimeType for HttpGetBufferResult {
 }
 unsafe impl ::windows::core::Interface for HttpGetBufferResult {
     type Vtable = IHttpGetBufferResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53d08e7c_e209_404e_9a49_742d8236fd3a);
+    const IID: ::windows::core::GUID = <IHttpGetBufferResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpGetBufferResult {
     const NAME: &'static str = "Windows.Web.Http.HttpGetBufferResult";
@@ -1633,7 +1633,7 @@ unsafe impl ::windows::core::RuntimeType for HttpGetInputStreamResult {
 }
 unsafe impl ::windows::core::Interface for HttpGetInputStreamResult {
     type Vtable = IHttpGetInputStreamResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5d63463_13aa_4ee0_be95_a0c39fe91203);
+    const IID: ::windows::core::GUID = <IHttpGetInputStreamResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpGetInputStreamResult {
     const NAME: &'static str = "Windows.Web.Http.HttpGetInputStreamResult";
@@ -1813,7 +1813,7 @@ unsafe impl ::windows::core::RuntimeType for HttpGetStringResult {
 }
 unsafe impl ::windows::core::Interface for HttpGetStringResult {
     type Vtable = IHttpGetStringResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bac466d_8509_4775_b16d_8953f47a7f5f);
+    const IID: ::windows::core::GUID = <IHttpGetStringResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpGetStringResult {
     const NAME: &'static str = "Windows.Web.Http.HttpGetStringResult";
@@ -2021,7 +2021,7 @@ unsafe impl ::windows::core::RuntimeType for HttpMethod {
 }
 unsafe impl ::windows::core::Interface for HttpMethod {
     type Vtable = IHttpMethod_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728d4022_700d_4fe0_afa5_40299c58dbfd);
+    const IID: ::windows::core::GUID = <IHttpMethod as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpMethod {
     const NAME: &'static str = "Windows.Web.Http.HttpMethod";
@@ -2237,7 +2237,7 @@ unsafe impl ::windows::core::RuntimeType for HttpMultipartContent {
 }
 unsafe impl ::windows::core::Interface for HttpMultipartContent {
     type Vtable = IHttpContent_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b14a441_fba7_4bd2_af0a_839de7c295da);
+    const IID: ::windows::core::GUID = <IHttpContent as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpMultipartContent {
     const NAME: &'static str = "Windows.Web.Http.HttpMultipartContent";
@@ -2546,7 +2546,7 @@ unsafe impl ::windows::core::RuntimeType for HttpMultipartFormDataContent {
 }
 unsafe impl ::windows::core::Interface for HttpMultipartFormDataContent {
     type Vtable = IHttpContent_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b14a441_fba7_4bd2_af0a_839de7c295da);
+    const IID: ::windows::core::GUID = <IHttpContent as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpMultipartFormDataContent {
     const NAME: &'static str = "Windows.Web.Http.HttpMultipartFormDataContent";
@@ -2929,7 +2929,7 @@ unsafe impl ::windows::core::RuntimeType for HttpRequestMessage {
 }
 unsafe impl ::windows::core::Interface for HttpRequestMessage {
     type Vtable = IHttpRequestMessage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5762b3c_74d4_4811_b5dc_9f8b4e2f9abf);
+    const IID: ::windows::core::GUID = <IHttpRequestMessage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpRequestMessage {
     const NAME: &'static str = "Windows.Web.Http.HttpRequestMessage";
@@ -3101,7 +3101,7 @@ unsafe impl ::windows::core::RuntimeType for HttpRequestResult {
 }
 unsafe impl ::windows::core::Interface for HttpRequestResult {
     type Vtable = IHttpRequestResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6acf4da8_b5eb_4a35_a902_4217fbe820c5);
+    const IID: ::windows::core::GUID = <IHttpRequestResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpRequestResult {
     const NAME: &'static str = "Windows.Web.Http.HttpRequestResult";
@@ -3363,7 +3363,7 @@ unsafe impl ::windows::core::RuntimeType for HttpResponseMessage {
 }
 unsafe impl ::windows::core::Interface for HttpResponseMessage {
     type Vtable = IHttpResponseMessage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfee200fb_8664_44e0_95d9_42696199bffc);
+    const IID: ::windows::core::GUID = <IHttpResponseMessage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpResponseMessage {
     const NAME: &'static str = "Windows.Web.Http.HttpResponseMessage";
@@ -3691,7 +3691,7 @@ unsafe impl ::windows::core::RuntimeType for HttpStreamContent {
 }
 unsafe impl ::windows::core::Interface for HttpStreamContent {
     type Vtable = IHttpContent_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b14a441_fba7_4bd2_af0a_839de7c295da);
+    const IID: ::windows::core::GUID = <IHttpContent as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpStreamContent {
     const NAME: &'static str = "Windows.Web.Http.HttpStreamContent";
@@ -3943,7 +3943,7 @@ unsafe impl ::windows::core::RuntimeType for HttpStringContent {
 }
 unsafe impl ::windows::core::Interface for HttpStringContent {
     type Vtable = IHttpContent_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b14a441_fba7_4bd2_af0a_839de7c295da);
+    const IID: ::windows::core::GUID = <IHttpContent as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpStringContent {
     const NAME: &'static str = "Windows.Web.Http.HttpStringContent";
@@ -4135,7 +4135,7 @@ unsafe impl ::windows::core::RuntimeType for HttpTransportInformation {
 }
 unsafe impl ::windows::core::Interface for HttpTransportInformation {
     type Vtable = IHttpTransportInformation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70127198_c6a7_4ed0_833a_83fd8b8f178d);
+    const IID: ::windows::core::GUID = <IHttpTransportInformation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpTransportInformation {
     const NAME: &'static str = "Windows.Web.Http.HttpTransportInformation";

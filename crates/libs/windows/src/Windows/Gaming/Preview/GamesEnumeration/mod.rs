@@ -332,7 +332,7 @@ unsafe impl ::windows::core::RuntimeType for GameListEntry {
 }
 unsafe impl ::windows::core::Interface for GameListEntry {
     type Vtable = IGameListEntry_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x735924d3_811f_4494_b69c_c641a0c61543);
+    const IID: ::windows::core::GUID = <IGameListEntry as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GameListEntry {
     const NAME: &'static str = "Windows.Gaming.Preview.GamesEnumeration.GameListEntry";
@@ -669,7 +669,7 @@ unsafe impl ::windows::core::RuntimeType for GameModeConfiguration {
 }
 unsafe impl ::windows::core::Interface for GameModeConfiguration {
     type Vtable = IGameModeConfiguration_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78e591af_b142_4ef0_8830_55bc2be4f5ea);
+    const IID: ::windows::core::GUID = <IGameModeConfiguration as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GameModeConfiguration {
     const NAME: &'static str = "Windows.Gaming.Preview.GamesEnumeration.GameModeConfiguration";
@@ -772,7 +772,7 @@ unsafe impl ::windows::core::RuntimeType for GameModeUserConfiguration {
 }
 unsafe impl ::windows::core::Interface for GameModeUserConfiguration {
     type Vtable = IGameModeUserConfiguration_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72d34af4_756b_470f_a0c2_ba62a90795db);
+    const IID: ::windows::core::GUID = <IGameModeUserConfiguration as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GameModeUserConfiguration {
     const NAME: &'static str = "Windows.Gaming.Preview.GamesEnumeration.GameModeUserConfiguration";

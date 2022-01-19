@@ -382,7 +382,7 @@ unsafe impl ::windows::core::RuntimeType for InjectedInputGamepadInfo {
 }
 unsafe impl ::windows::core::Interface for InjectedInputGamepadInfo {
     type Vtable = IInjectedInputGamepadInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20ae9a3f_df11_4572_a9ab_d75b8a5e48ad);
+    const IID: ::windows::core::GUID = <IInjectedInputGamepadInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InjectedInputGamepadInfo {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InjectedInputGamepadInfo";
@@ -558,7 +558,7 @@ unsafe impl ::windows::core::RuntimeType for InjectedInputKeyboardInfo {
 }
 unsafe impl ::windows::core::Interface for InjectedInputKeyboardInfo {
     type Vtable = IInjectedInputKeyboardInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b46d140_2b6a_5ffa_7eae_bd077b052acd);
+    const IID: ::windows::core::GUID = <IInjectedInputKeyboardInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InjectedInputKeyboardInfo {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InjectedInputKeyboardInfo";
@@ -701,7 +701,7 @@ unsafe impl ::windows::core::RuntimeType for InjectedInputMouseInfo {
 }
 unsafe impl ::windows::core::Interface for InjectedInputMouseInfo {
     type Vtable = IInjectedInputMouseInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96f56e6b_e47a_5cf4_418d_8a5fb9670c7d);
+    const IID: ::windows::core::GUID = <IInjectedInputMouseInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InjectedInputMouseInfo {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InjectedInputMouseInfo";
@@ -997,7 +997,7 @@ unsafe impl ::windows::core::RuntimeType for InjectedInputPenInfo {
 }
 unsafe impl ::windows::core::Interface for InjectedInputPenInfo {
     type Vtable = IInjectedInputPenInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b40ad03_ca1e_5527_7e02_2828540bb1d4);
+    const IID: ::windows::core::GUID = <IInjectedInputPenInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InjectedInputPenInfo {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InjectedInputPenInfo";
@@ -1411,7 +1411,7 @@ unsafe impl ::windows::core::RuntimeType for InjectedInputTouchInfo {
 }
 unsafe impl ::windows::core::Interface for InjectedInputTouchInfo {
     type Vtable = IInjectedInputTouchInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x224fd1df_43e8_5ef5_510a_69ca8c9b4c28);
+    const IID: ::windows::core::GUID = <IInjectedInputTouchInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InjectedInputTouchInfo {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InjectedInputTouchInfo";
@@ -1656,7 +1656,7 @@ unsafe impl ::windows::core::RuntimeType for InputInjector {
 }
 unsafe impl ::windows::core::Interface for InputInjector {
     type Vtable = IInputInjector_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ec26f84_0b02_4bd2_ad7a_3d4658be3e18);
+    const IID: ::windows::core::GUID = <IInputInjector as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InputInjector {
     const NAME: &'static str = "Windows.UI.Input.Preview.Injection.InputInjector";

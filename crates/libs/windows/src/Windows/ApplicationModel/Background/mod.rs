@@ -71,7 +71,7 @@ unsafe impl ::windows::core::RuntimeType for ActivitySensorTrigger {
 }
 unsafe impl ::windows::core::Interface for ActivitySensorTrigger {
     type Vtable = IActivitySensorTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0dd4342_e37b_4823_a5fe_6b31dfefdeb0);
+    const IID: ::windows::core::GUID = <IActivitySensorTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ActivitySensorTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ActivitySensorTrigger";
@@ -248,7 +248,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastTrigger {
 }
 unsafe impl ::windows::core::Interface for AppBroadcastTrigger {
     type Vtable = IAppBroadcastTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74d4f496_8d37_44ec_9481_2a0b9854eb48);
+    const IID: ::windows::core::GUID = <IAppBroadcastTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppBroadcastTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.AppBroadcastTrigger";
@@ -423,7 +423,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastTriggerProviderInfo {
 }
 unsafe impl ::windows::core::Interface for AppBroadcastTriggerProviderInfo {
     type Vtable = IAppBroadcastTriggerProviderInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf219352d_9de8_4420_9ce2_5eff8f17376b);
+    const IID: ::windows::core::GUID = <IAppBroadcastTriggerProviderInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppBroadcastTriggerProviderInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo";
@@ -521,7 +521,7 @@ unsafe impl ::windows::core::RuntimeType for ApplicationTrigger {
 }
 unsafe impl ::windows::core::Interface for ApplicationTrigger {
     type Vtable = IApplicationTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b468630_9574_492c_9e93_1a3ae6335fe9);
+    const IID: ::windows::core::GUID = <IApplicationTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ApplicationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ApplicationTrigger";
@@ -625,7 +625,7 @@ unsafe impl ::windows::core::RuntimeType for ApplicationTriggerDetails {
 }
 unsafe impl ::windows::core::Interface for ApplicationTriggerDetails {
     type Vtable = IApplicationTriggerDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dc6ab2_2219_4a9e_9c5e_41d047f76e82);
+    const IID: ::windows::core::GUID = <IApplicationTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ApplicationTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ApplicationTriggerDetails";
@@ -735,7 +735,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentStoreNotificationTrigger
 }
 unsafe impl ::windows::core::Interface for AppointmentStoreNotificationTrigger {
     type Vtable = IAppointmentStoreNotificationTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64d4040c_c201_42ad_aa2a_e21ba3425b6d);
+    const IID: ::windows::core::GUID = <IAppointmentStoreNotificationTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppointmentStoreNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.AppointmentStoreNotificationTrigger";
@@ -1077,7 +1077,7 @@ unsafe impl ::windows::core::RuntimeType for BackgroundTaskBuilder {
 }
 unsafe impl ::windows::core::Interface for BackgroundTaskBuilder {
     type Vtable = IBackgroundTaskBuilder_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0351550e_3e64_4572_a93a_84075a37c917);
+    const IID: ::windows::core::GUID = <IBackgroundTaskBuilder as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BackgroundTaskBuilder {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskBuilder";
@@ -1277,7 +1277,7 @@ unsafe impl ::windows::core::RuntimeType for BackgroundTaskCompletedEventArgs {
 }
 unsafe impl ::windows::core::Interface for BackgroundTaskCompletedEventArgs {
     type Vtable = IBackgroundTaskCompletedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x565d25cf_f209_48f4_9967_2b184f7bfbf0);
+    const IID: ::windows::core::GUID = <IBackgroundTaskCompletedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BackgroundTaskCompletedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskCompletedEventArgs";
@@ -1433,7 +1433,7 @@ unsafe impl ::windows::core::RuntimeType for BackgroundTaskDeferral {
 }
 unsafe impl ::windows::core::Interface for BackgroundTaskDeferral {
     type Vtable = IBackgroundTaskDeferral_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93cc156d_af27_4dd3_846e_24ee40cadd25);
+    const IID: ::windows::core::GUID = <IBackgroundTaskDeferral as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BackgroundTaskDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskDeferral";
@@ -1522,7 +1522,7 @@ unsafe impl ::windows::core::RuntimeType for BackgroundTaskProgressEventArgs {
 }
 unsafe impl ::windows::core::Interface for BackgroundTaskProgressEventArgs {
     type Vtable = IBackgroundTaskProgressEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb1468ac_8332_4d0a_9532_03eae684da31);
+    const IID: ::windows::core::GUID = <IBackgroundTaskProgressEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BackgroundTaskProgressEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskProgressEventArgs";
@@ -1773,7 +1773,7 @@ unsafe impl ::windows::core::RuntimeType for BackgroundTaskRegistration {
 }
 unsafe impl ::windows::core::Interface for BackgroundTaskRegistration {
     type Vtable = IBackgroundTaskRegistration_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10654cc2_a26e_43bf_8c12_1fb40dbfbfa0);
+    const IID: ::windows::core::GUID = <IBackgroundTaskRegistration as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BackgroundTaskRegistration {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskRegistration";
@@ -1971,7 +1971,7 @@ unsafe impl ::windows::core::RuntimeType for BackgroundTaskRegistrationGroup {
 }
 unsafe impl ::windows::core::Interface for BackgroundTaskRegistrationGroup {
     type Vtable = IBackgroundTaskRegistrationGroup_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ab1919a_871b_4167_8a76_055cd67b5b23);
+    const IID: ::windows::core::GUID = <IBackgroundTaskRegistrationGroup as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BackgroundTaskRegistrationGroup {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BackgroundTaskRegistrationGroup";
@@ -2191,7 +2191,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementPublisherTr
 }
 unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementPublisherTrigger {
     type Vtable = IBluetoothLEAdvertisementPublisherTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab3e2612_25d3_48ae_8724_d81877ae6129);
+    const IID: ::windows::core::GUID = <IBluetoothLEAdvertisementPublisherTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BluetoothLEAdvertisementPublisherTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BluetoothLEAdvertisementPublisherTrigger";
@@ -2372,7 +2372,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementWatcherTrig
 }
 unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementWatcherTrigger {
     type Vtable = IBluetoothLEAdvertisementWatcherTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1aab1819_bce1_48eb_a827_59fb7cee52a6);
+    const IID: ::windows::core::GUID = <IBluetoothLEAdvertisementWatcherTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BluetoothLEAdvertisementWatcherTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.BluetoothLEAdvertisementWatcherTrigger";
@@ -2474,7 +2474,7 @@ unsafe impl ::windows::core::RuntimeType for CachedFileUpdaterTrigger {
 }
 unsafe impl ::windows::core::Interface for CachedFileUpdaterTrigger {
     type Vtable = ICachedFileUpdaterTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe21caeeb_32f2_4d31_b553_b9e01bde37e0);
+    const IID: ::windows::core::GUID = <ICachedFileUpdaterTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CachedFileUpdaterTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.CachedFileUpdaterTrigger";
@@ -2595,7 +2595,7 @@ unsafe impl ::windows::core::RuntimeType for CachedFileUpdaterTriggerDetails {
 }
 unsafe impl ::windows::core::Interface for CachedFileUpdaterTriggerDetails {
     type Vtable = ICachedFileUpdaterTriggerDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71838c13_1314_47b4_9597_dc7e248c17cc);
+    const IID: ::windows::core::GUID = <ICachedFileUpdaterTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CachedFileUpdaterTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Background.CachedFileUpdaterTriggerDetails";
@@ -2675,7 +2675,7 @@ unsafe impl ::windows::core::RuntimeType for ChatMessageNotificationTrigger {
 }
 unsafe impl ::windows::core::Interface for ChatMessageNotificationTrigger {
     type Vtable = IChatMessageNotificationTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x513b43bf_1d40_5c5d_78f5_c923fee3739e);
+    const IID: ::windows::core::GUID = <IChatMessageNotificationTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ChatMessageNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ChatMessageNotificationTrigger";
@@ -2777,7 +2777,7 @@ unsafe impl ::windows::core::RuntimeType for ChatMessageReceivedNotificationTrig
 }
 unsafe impl ::windows::core::Interface for ChatMessageReceivedNotificationTrigger {
     type Vtable = IChatMessageReceivedNotificationTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ea3760e_baf5_4077_88e9_060cf6f0c6d5);
+    const IID: ::windows::core::GUID = <IChatMessageReceivedNotificationTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ChatMessageReceivedNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ChatMessageReceivedNotificationTrigger";
@@ -2879,7 +2879,7 @@ unsafe impl ::windows::core::RuntimeType for CommunicationBlockingAppSetAsActive
 }
 unsafe impl ::windows::core::Interface for CommunicationBlockingAppSetAsActiveTrigger {
     type Vtable = ICommunicationBlockingAppSetAsActiveTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb91f28a_16a5_486d_974c_7835a8477be2);
+    const IID: ::windows::core::GUID = <ICommunicationBlockingAppSetAsActiveTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CommunicationBlockingAppSetAsActiveTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.CommunicationBlockingAppSetAsActiveTrigger";
@@ -2981,7 +2981,7 @@ unsafe impl ::windows::core::RuntimeType for ContactStoreNotificationTrigger {
 }
 unsafe impl ::windows::core::Interface for ContactStoreNotificationTrigger {
     type Vtable = IContactStoreNotificationTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc833419b_4705_4571_9a16_06b997bf9c96);
+    const IID: ::windows::core::GUID = <IContactStoreNotificationTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactStoreNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ContactStoreNotificationTrigger";
@@ -3105,7 +3105,7 @@ unsafe impl ::windows::core::RuntimeType for ContentPrefetchTrigger {
 }
 unsafe impl ::windows::core::Interface for ContentPrefetchTrigger {
     type Vtable = IContentPrefetchTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x710627ee_04fa_440b_80c0_173202199e5d);
+    const IID: ::windows::core::GUID = <IContentPrefetchTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContentPrefetchTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ContentPrefetchTrigger";
@@ -3205,7 +3205,7 @@ unsafe impl ::windows::core::RuntimeType for ConversationalAgentTrigger {
 }
 unsafe impl ::windows::core::Interface for ConversationalAgentTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
+    const IID: ::windows::core::GUID = <IBackgroundTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ConversationalAgentTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ConversationalAgentTrigger";
@@ -3326,7 +3326,7 @@ unsafe impl ::windows::core::RuntimeType for CustomSystemEventTrigger {
 }
 unsafe impl ::windows::core::Interface for CustomSystemEventTrigger {
     type Vtable = ICustomSystemEventTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3596798_cf6b_4ef4_a0ca_29cf4a278c87);
+    const IID: ::windows::core::GUID = <ICustomSystemEventTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CustomSystemEventTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.CustomSystemEventTrigger";
@@ -3489,7 +3489,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceConnectionChangeTrigger {
 }
 unsafe impl ::windows::core::Interface for DeviceConnectionChangeTrigger {
     type Vtable = IDeviceConnectionChangeTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90875e64_3cdd_4efb_ab1c_5b3b6a60ce34);
+    const IID: ::windows::core::GUID = <IDeviceConnectionChangeTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DeviceConnectionChangeTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.DeviceConnectionChangeTrigger";
@@ -3624,7 +3624,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceManufacturerNotificationTrigg
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for DeviceManufacturerNotificationTrigger {
     type Vtable = IDeviceManufacturerNotificationTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81278ab5_41ab_16da_86c2_7f7bf0912f5b);
+    const IID: ::windows::core::GUID = <IDeviceManufacturerNotificationTrigger as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for DeviceManufacturerNotificationTrigger {
@@ -3755,7 +3755,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceServicingTrigger {
 }
 unsafe impl ::windows::core::Interface for DeviceServicingTrigger {
     type Vtable = IDeviceServicingTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ab217ad_6e34_49d3_9e6f_17f1b6dfa881);
+    const IID: ::windows::core::GUID = <IDeviceServicingTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DeviceServicingTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.DeviceServicingTrigger";
@@ -3905,7 +3905,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceUseTrigger {
 }
 unsafe impl ::windows::core::Interface for DeviceUseTrigger {
     type Vtable = IDeviceUseTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0da68011_334f_4d57_b6ec_6dca64b412e4);
+    const IID: ::windows::core::GUID = <IDeviceUseTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DeviceUseTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.DeviceUseTrigger";
@@ -3999,7 +3999,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceWatcherTrigger {
 }
 unsafe impl ::windows::core::Interface for DeviceWatcherTrigger {
     type Vtable = IDeviceWatcherTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4617fdd_8573_4260_befc_5bec89cb693d);
+    const IID: ::windows::core::GUID = <IDeviceWatcherTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DeviceWatcherTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.DeviceWatcherTrigger";
@@ -4099,7 +4099,7 @@ unsafe impl ::windows::core::RuntimeType for EmailStoreNotificationTrigger {
 }
 unsafe impl ::windows::core::Interface for EmailStoreNotificationTrigger {
     type Vtable = IEmailStoreNotificationTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x986d06da_47eb_4268_a4f2_f3f77188388a);
+    const IID: ::windows::core::GUID = <IEmailStoreNotificationTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EmailStoreNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.EmailStoreNotificationTrigger";
@@ -4238,7 +4238,7 @@ unsafe impl ::windows::core::RuntimeType for GattCharacteristicNotificationTrigg
 }
 unsafe impl ::windows::core::Interface for GattCharacteristicNotificationTrigger {
     type Vtable = IGattCharacteristicNotificationTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe25f8fc8_0696_474f_a732_f292b0cebc5d);
+    const IID: ::windows::core::GUID = <IGattCharacteristicNotificationTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GattCharacteristicNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.GattCharacteristicNotificationTrigger";
@@ -4378,7 +4378,7 @@ unsafe impl ::windows::core::RuntimeType for GattServiceProviderTrigger {
 }
 unsafe impl ::windows::core::Interface for GattServiceProviderTrigger {
     type Vtable = IGattServiceProviderTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xddc6a3e9_1557_4bd8_8542_468aa0c696f6);
+    const IID: ::windows::core::GUID = <IGattServiceProviderTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GattServiceProviderTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.GattServiceProviderTrigger";
@@ -4490,7 +4490,7 @@ unsafe impl ::windows::core::RuntimeType for GattServiceProviderTriggerResult {
 }
 unsafe impl ::windows::core::Interface for GattServiceProviderTriggerResult {
     type Vtable = IGattServiceProviderTriggerResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c4691b1_b198_4e84_bad4_cf4ad299ed3a);
+    const IID: ::windows::core::GUID = <IGattServiceProviderTriggerResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GattServiceProviderTriggerResult {
     const NAME: &'static str = "Windows.ApplicationModel.Background.GattServiceProviderTriggerResult";
@@ -4585,7 +4585,7 @@ unsafe impl ::windows::core::RuntimeType for GeovisitTrigger {
 }
 unsafe impl ::windows::core::Interface for GeovisitTrigger {
     type Vtable = IGeovisitTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4818edaa_04e1_4127_9a4c_19351b8a80a4);
+    const IID: ::windows::core::GUID = <IGeovisitTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GeovisitTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.GeovisitTrigger";
@@ -7297,7 +7297,7 @@ unsafe impl ::windows::core::RuntimeType for LocationTrigger {
 }
 unsafe impl ::windows::core::Interface for LocationTrigger {
     type Vtable = ILocationTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47666a1c_6877_481e_8026_ff7e14a811a0);
+    const IID: ::windows::core::GUID = <ILocationTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LocationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.LocationTrigger";
@@ -7447,7 +7447,7 @@ unsafe impl ::windows::core::RuntimeType for MaintenanceTrigger {
 }
 unsafe impl ::windows::core::Interface for MaintenanceTrigger {
     type Vtable = IMaintenanceTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68184c83_fc22_4ce5_841a_7239a9810047);
+    const IID: ::windows::core::GUID = <IMaintenanceTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MaintenanceTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MaintenanceTrigger";
@@ -7565,7 +7565,7 @@ unsafe impl ::windows::core::RuntimeType for MediaProcessingTrigger {
 }
 unsafe impl ::windows::core::Interface for MediaProcessingTrigger {
     type Vtable = IMediaProcessingTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a95be65_8a52_4b30_9011_cf38040ea8b0);
+    const IID: ::windows::core::GUID = <IMediaProcessingTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaProcessingTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MediaProcessingTrigger";
@@ -7695,7 +7695,7 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandDeviceServiceNotific
 }
 unsafe impl ::windows::core::Interface for MobileBroadbandDeviceServiceNotificationTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
+    const IID: ::windows::core::GUID = <IBackgroundTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandDeviceServiceNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandDeviceServiceNotificationTrigger";
@@ -7797,7 +7797,7 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandPcoDataChangeTrigger
 }
 unsafe impl ::windows::core::Interface for MobileBroadbandPcoDataChangeTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
+    const IID: ::windows::core::GUID = <IBackgroundTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandPcoDataChangeTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandPcoDataChangeTrigger";
@@ -7899,7 +7899,7 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandPinLockStateChangeTr
 }
 unsafe impl ::windows::core::Interface for MobileBroadbandPinLockStateChangeTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
+    const IID: ::windows::core::GUID = <IBackgroundTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandPinLockStateChangeTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandPinLockStateChangeTrigger";
@@ -8001,7 +8001,7 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandRadioStateChangeTrig
 }
 unsafe impl ::windows::core::Interface for MobileBroadbandRadioStateChangeTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
+    const IID: ::windows::core::GUID = <IBackgroundTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandRadioStateChangeTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandRadioStateChangeTrigger";
@@ -8103,7 +8103,7 @@ unsafe impl ::windows::core::RuntimeType for MobileBroadbandRegistrationStateCha
 }
 unsafe impl ::windows::core::Interface for MobileBroadbandRegistrationStateChangeTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
+    const IID: ::windows::core::GUID = <IBackgroundTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MobileBroadbandRegistrationStateChangeTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.MobileBroadbandRegistrationStateChangeTrigger";
@@ -8205,7 +8205,7 @@ unsafe impl ::windows::core::RuntimeType for NetworkOperatorDataUsageTrigger {
 }
 unsafe impl ::windows::core::Interface for NetworkOperatorDataUsageTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
+    const IID: ::windows::core::GUID = <IBackgroundTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for NetworkOperatorDataUsageTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.NetworkOperatorDataUsageTrigger";
@@ -8307,7 +8307,7 @@ unsafe impl ::windows::core::RuntimeType for NetworkOperatorHotspotAuthenticatio
 }
 unsafe impl ::windows::core::Interface for NetworkOperatorHotspotAuthenticationTrigger {
     type Vtable = INetworkOperatorHotspotAuthenticationTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe756c791_3001_4de5_83c7_de61d88831d0);
+    const IID: ::windows::core::GUID = <INetworkOperatorHotspotAuthenticationTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for NetworkOperatorHotspotAuthenticationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.NetworkOperatorHotspotAuthenticationTrigger";
@@ -8420,7 +8420,7 @@ unsafe impl ::windows::core::RuntimeType for NetworkOperatorNotificationTrigger 
 }
 unsafe impl ::windows::core::Interface for NetworkOperatorNotificationTrigger {
     type Vtable = INetworkOperatorNotificationTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90089cc6_63cd_480c_95d1_6e6aef801e4a);
+    const IID: ::windows::core::GUID = <INetworkOperatorNotificationTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for NetworkOperatorNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.NetworkOperatorNotificationTrigger";
@@ -8520,7 +8520,7 @@ unsafe impl ::windows::core::RuntimeType for PaymentAppCanMakePaymentTrigger {
 }
 unsafe impl ::windows::core::Interface for PaymentAppCanMakePaymentTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
+    const IID: ::windows::core::GUID = <IBackgroundTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PaymentAppCanMakePaymentTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.PaymentAppCanMakePaymentTrigger";
@@ -8645,7 +8645,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneTrigger {
 }
 unsafe impl ::windows::core::Interface for PhoneTrigger {
     type Vtable = IPhoneTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8dcfe99b_d4c5_49f1_b7d3_82e87a0e9dde);
+    const IID: ::windows::core::GUID = <IPhoneTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PhoneTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.PhoneTrigger";
@@ -8759,7 +8759,7 @@ unsafe impl ::windows::core::RuntimeType for PushNotificationTrigger {
 }
 unsafe impl ::windows::core::Interface for PushNotificationTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
+    const IID: ::windows::core::GUID = <IBackgroundTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PushNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.PushNotificationTrigger";
@@ -8861,7 +8861,7 @@ unsafe impl ::windows::core::RuntimeType for RcsEndUserMessageAvailableTrigger {
 }
 unsafe impl ::windows::core::Interface for RcsEndUserMessageAvailableTrigger {
     type Vtable = IRcsEndUserMessageAvailableTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x986d0d6a_b2f6_467f_a978_a44091c11a66);
+    const IID: ::windows::core::GUID = <IRcsEndUserMessageAvailableTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RcsEndUserMessageAvailableTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.RcsEndUserMessageAvailableTrigger";
@@ -9024,7 +9024,7 @@ unsafe impl ::windows::core::RuntimeType for RfcommConnectionTrigger {
 }
 unsafe impl ::windows::core::Interface for RfcommConnectionTrigger {
     type Vtable = IRfcommConnectionTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8c4cae2_0b53_4464_9394_fd875654de64);
+    const IID: ::windows::core::GUID = <IRfcommConnectionTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RfcommConnectionTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.RfcommConnectionTrigger";
@@ -9134,7 +9134,7 @@ unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorAuthen
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SecondaryAuthenticationFactorAuthenticationTrigger {
     type Vtable = ISecondaryAuthenticationFactorAuthenticationTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf237f327_5181_4f24_96a7_700a4e5fac62);
+    const IID: ::windows::core::GUID = <ISecondaryAuthenticationFactorAuthenticationTrigger as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for SecondaryAuthenticationFactorAuthenticationTrigger {
@@ -9253,7 +9253,7 @@ unsafe impl ::windows::core::RuntimeType for SensorDataThresholdTrigger {
 }
 unsafe impl ::windows::core::Interface for SensorDataThresholdTrigger {
     type Vtable = ISensorDataThresholdTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bc0f372_d48b_4b7f_abec_15f9bacc12e2);
+    const IID: ::windows::core::GUID = <ISensorDataThresholdTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SensorDataThresholdTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SensorDataThresholdTrigger";
@@ -9370,7 +9370,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardTrigger {
 }
 unsafe impl ::windows::core::Interface for SmartCardTrigger {
     type Vtable = ISmartCardTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf53bc5ac_84ca_4972_8ce9_e58f97b37a50);
+    const IID: ::windows::core::GUID = <ISmartCardTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SmartCardTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SmartCardTrigger";
@@ -9476,7 +9476,7 @@ unsafe impl ::windows::core::RuntimeType for SmsMessageReceivedTrigger {
 }
 unsafe impl ::windows::core::Interface for SmsMessageReceivedTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
+    const IID: ::windows::core::GUID = <IBackgroundTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SmsMessageReceivedTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SmsMessageReceivedTrigger";
@@ -9586,7 +9586,7 @@ unsafe impl ::windows::core::RuntimeType for SocketActivityTrigger {
 }
 unsafe impl ::windows::core::Interface for SocketActivityTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
+    const IID: ::windows::core::GUID = <IBackgroundTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SocketActivityTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SocketActivityTrigger";
@@ -9694,7 +9694,7 @@ unsafe impl ::windows::core::RuntimeType for StorageLibraryChangeTrackerTrigger 
 }
 unsafe impl ::windows::core::Interface for StorageLibraryChangeTrackerTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
+    const IID: ::windows::core::GUID = <IBackgroundTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StorageLibraryChangeTrackerTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.StorageLibraryChangeTrackerTrigger";
@@ -9810,7 +9810,7 @@ unsafe impl ::windows::core::RuntimeType for StorageLibraryContentChangedTrigger
 }
 unsafe impl ::windows::core::Interface for StorageLibraryContentChangedTrigger {
     type Vtable = IStorageLibraryContentChangedTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1637e0a7_829c_45bc_929b_a1e7ea78d89b);
+    const IID: ::windows::core::GUID = <IStorageLibraryContentChangedTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StorageLibraryContentChangedTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.StorageLibraryContentChangedTrigger";
@@ -9923,7 +9923,7 @@ unsafe impl ::windows::core::RuntimeType for SystemCondition {
 }
 unsafe impl ::windows::core::Interface for SystemCondition {
     type Vtable = ISystemCondition_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc15fb476_89c5_420b_abd3_fb3030472128);
+    const IID: ::windows::core::GUID = <ISystemCondition as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SystemCondition {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SystemCondition";
@@ -10079,7 +10079,7 @@ unsafe impl ::windows::core::RuntimeType for SystemTrigger {
 }
 unsafe impl ::windows::core::Interface for SystemTrigger {
     type Vtable = ISystemTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d80c776_3748_4463_8d7e_276dc139ac1c);
+    const IID: ::windows::core::GUID = <ISystemTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SystemTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SystemTrigger";
@@ -10221,7 +10221,7 @@ unsafe impl ::windows::core::RuntimeType for TetheringEntitlementCheckTrigger {
 }
 unsafe impl ::windows::core::Interface for TetheringEntitlementCheckTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
+    const IID: ::windows::core::GUID = <IBackgroundTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TetheringEntitlementCheckTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.TetheringEntitlementCheckTrigger";
@@ -10344,7 +10344,7 @@ unsafe impl ::windows::core::RuntimeType for TimeTrigger {
 }
 unsafe impl ::windows::core::Interface for TimeTrigger {
     type Vtable = ITimeTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x656e5556_0b2a_4377_ba70_3b45a935547f);
+    const IID: ::windows::core::GUID = <ITimeTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TimeTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.TimeTrigger";
@@ -10456,7 +10456,7 @@ unsafe impl ::windows::core::RuntimeType for ToastNotificationActionTrigger {
 }
 unsafe impl ::windows::core::Interface for ToastNotificationActionTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
+    const IID: ::windows::core::GUID = <IBackgroundTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ToastNotificationActionTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ToastNotificationActionTrigger";
@@ -10570,7 +10570,7 @@ unsafe impl ::windows::core::RuntimeType for ToastNotificationHistoryChangedTrig
 }
 unsafe impl ::windows::core::Interface for ToastNotificationHistoryChangedTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
+    const IID: ::windows::core::GUID = <IBackgroundTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ToastNotificationHistoryChangedTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.ToastNotificationHistoryChangedTrigger";
@@ -10678,7 +10678,7 @@ unsafe impl ::windows::core::RuntimeType for UserNotificationChangedTrigger {
 }
 unsafe impl ::windows::core::Interface for UserNotificationChangedTrigger {
     type Vtable = IBackgroundTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84b3a058_6027_4b87_9790_bdf3f757dbd7);
+    const IID: ::windows::core::GUID = <IBackgroundTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserNotificationChangedTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.UserNotificationChangedTrigger";

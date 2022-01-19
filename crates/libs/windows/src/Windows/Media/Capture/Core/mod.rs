@@ -137,7 +137,7 @@ unsafe impl ::windows::core::RuntimeType for VariablePhotoCapturedEventArgs {
 }
 unsafe impl ::windows::core::Interface for VariablePhotoCapturedEventArgs {
     type Vtable = IVariablePhotoCapturedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1eb4c5c_1b53_4e4a_8b5c_db7887ac949b);
+    const IID: ::windows::core::GUID = <IVariablePhotoCapturedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VariablePhotoCapturedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.Core.VariablePhotoCapturedEventArgs";
@@ -276,7 +276,7 @@ unsafe impl ::windows::core::RuntimeType for VariablePhotoSequenceCapture {
 }
 unsafe impl ::windows::core::Interface for VariablePhotoSequenceCapture {
     type Vtable = IVariablePhotoSequenceCapture_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0112d1d_031e_4041_a6d6_bd742476a8ee);
+    const IID: ::windows::core::GUID = <IVariablePhotoSequenceCapture as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VariablePhotoSequenceCapture {
     const NAME: &'static str = "Windows.Media.Capture.Core.VariablePhotoSequenceCapture";

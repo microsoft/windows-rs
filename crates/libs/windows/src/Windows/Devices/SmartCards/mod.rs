@@ -33,7 +33,7 @@ unsafe impl ::windows::core::RuntimeType for CardAddedEventArgs {
 }
 unsafe impl ::windows::core::Interface for CardAddedEventArgs {
     type Vtable = ICardAddedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18bbef98_f18b_4dd3_b118_dfb2c8e23cc6);
+    const IID: ::windows::core::GUID = <ICardAddedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CardAddedEventArgs {
     const NAME: &'static str = "Windows.Devices.SmartCards.CardAddedEventArgs";
@@ -114,7 +114,7 @@ unsafe impl ::windows::core::RuntimeType for CardRemovedEventArgs {
 }
 unsafe impl ::windows::core::Interface for CardRemovedEventArgs {
     type Vtable = ICardRemovedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15331aaf_22d7_4945_afc9_03b46f42a6cd);
+    const IID: ::windows::core::GUID = <ICardRemovedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CardRemovedEventArgs {
     const NAME: &'static str = "Windows.Devices.SmartCards.CardRemovedEventArgs";
@@ -1397,7 +1397,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCard {
 }
 unsafe impl ::windows::core::Interface for SmartCard {
     type Vtable = ISmartCard_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b718871_6434_43f4_b55a_6a29623870aa);
+    const IID: ::windows::core::GUID = <ISmartCard as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SmartCard {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCard";
@@ -1641,7 +1641,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardAppletIdGroup {
 }
 unsafe impl ::windows::core::Interface for SmartCardAppletIdGroup {
     type Vtable = ISmartCardAppletIdGroup_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7db165e6_6264_56f4_5e03_c86385395eb1);
+    const IID: ::windows::core::GUID = <ISmartCardAppletIdGroup as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SmartCardAppletIdGroup {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardAppletIdGroup";
@@ -1802,7 +1802,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardAppletIdGroupRegistration 
 }
 unsafe impl ::windows::core::Interface for SmartCardAppletIdGroupRegistration {
     type Vtable = ISmartCardAppletIdGroupRegistration_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf1208d1_31bb_5596_43b1_6d69a0257b3a);
+    const IID: ::windows::core::GUID = <ISmartCardAppletIdGroupRegistration as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SmartCardAppletIdGroupRegistration {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardAppletIdGroupRegistration";
@@ -2004,7 +2004,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardAutomaticResponseApdu {
 }
 unsafe impl ::windows::core::Interface for SmartCardAutomaticResponseApdu {
     type Vtable = ISmartCardAutomaticResponseApdu_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52152bab_c63e_4531_a857_d756d99b986a);
+    const IID: ::windows::core::GUID = <ISmartCardAutomaticResponseApdu as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SmartCardAutomaticResponseApdu {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardAutomaticResponseApdu";
@@ -2157,7 +2157,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardChallengeContext {
 }
 unsafe impl ::windows::core::Interface for SmartCardChallengeContext {
     type Vtable = ISmartCardChallengeContext_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x192a5319_c9c4_4947_81cc_44794a61ef91);
+    const IID: ::windows::core::GUID = <ISmartCardChallengeContext as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SmartCardChallengeContext {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardChallengeContext";
@@ -2271,7 +2271,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardConnection {
 }
 unsafe impl ::windows::core::Interface for SmartCardConnection {
     type Vtable = ISmartCardConnection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7edb991a_a81a_47bc_a649_156be6b7f231);
+    const IID: ::windows::core::GUID = <ISmartCardConnection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SmartCardConnection {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardConnection";
@@ -2583,7 +2583,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramGenerator {
 }
 unsafe impl ::windows::core::Interface for SmartCardCryptogramGenerator {
     type Vtable = ISmartCardCryptogramGenerator_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe39f587b_edd3_4e49_b594_0ff5e4d0c76f);
+    const IID: ::windows::core::GUID = <ISmartCardCryptogramGenerator as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SmartCardCryptogramGenerator {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramGenerator";
@@ -2720,7 +2720,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramGetAllCryptogram
 }
 unsafe impl ::windows::core::Interface for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
     type Vtable = ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2798e029_d687_4c92_86c6_399e9a0ecb09);
+    const IID: ::windows::core::GUID = <ISmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramGetAllCryptogramMaterialCharacteristicsResult";
@@ -2817,7 +2817,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramGetAllCryptogram
 }
 unsafe impl ::windows::core::Interface for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
     type Vtable = ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e6a8a5c_9773_46c4_a32f_b1e543159e04);
+    const IID: ::windows::core::GUID = <ISmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramGetAllCryptogramMaterialPackageCharacteristicsResult";
@@ -2914,7 +2914,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramGetAllCryptogram
 }
 unsafe impl ::windows::core::Interface for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
     type Vtable = ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c7ce857_a7e7_489d_b9d6_368061515012);
+    const IID: ::windows::core::GUID = <ISmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramGetAllCryptogramStorageKeyCharacteristicsResult";
@@ -3061,7 +3061,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramMaterialCharacte
 }
 unsafe impl ::windows::core::Interface for SmartCardCryptogramMaterialCharacteristics {
     type Vtable = ISmartCardCryptogramMaterialCharacteristics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc9ac5cc_c1d7_4153_923b_a2d43c6c8d49);
+    const IID: ::windows::core::GUID = <ISmartCardCryptogramMaterialCharacteristics as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SmartCardCryptogramMaterialCharacteristics {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramMaterialCharacteristics";
@@ -3174,7 +3174,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramMaterialPackageC
 }
 unsafe impl ::windows::core::Interface for SmartCardCryptogramMaterialPackageCharacteristics {
     type Vtable = ISmartCardCryptogramMaterialPackageCharacteristics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffb58e1f_0692_4c47_93cf_34d91f9dcd00);
+    const IID: ::windows::core::GUID = <ISmartCardCryptogramMaterialPackageCharacteristics as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SmartCardCryptogramMaterialPackageCharacteristics {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramMaterialPackageCharacteristics";
@@ -3320,7 +3320,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramMaterialPossessi
 }
 unsafe impl ::windows::core::Interface for SmartCardCryptogramMaterialPossessionProof {
     type Vtable = ISmartCardCryptogramMaterialPossessionProof_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5b9ab8c_a141_4135_9add_b0d2e3aa1fc9);
+    const IID: ::windows::core::GUID = <ISmartCardCryptogramMaterialPossessionProof as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SmartCardCryptogramMaterialPossessionProof {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramMaterialPossessionProof";
@@ -3635,7 +3635,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramPlacementStep {
 }
 unsafe impl ::windows::core::Interface for SmartCardCryptogramPlacementStep {
     type Vtable = ISmartCardCryptogramPlacementStep_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x947b03eb_8342_4792_a2e5_925636378a53);
+    const IID: ::windows::core::GUID = <ISmartCardCryptogramPlacementStep as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SmartCardCryptogramPlacementStep {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramPlacementStep";
@@ -3833,7 +3833,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramStorageKeyCharac
 }
 unsafe impl ::windows::core::Interface for SmartCardCryptogramStorageKeyCharacteristics {
     type Vtable = ISmartCardCryptogramStorageKeyCharacteristics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8552546e_4457_4825_b464_635471a39f5c);
+    const IID: ::windows::core::GUID = <ISmartCardCryptogramStorageKeyCharacteristics as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SmartCardCryptogramStorageKeyCharacteristics {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramStorageKeyCharacteristics";
@@ -3974,7 +3974,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardCryptogramStorageKeyInfo {
 }
 unsafe impl ::windows::core::Interface for SmartCardCryptogramStorageKeyInfo {
     type Vtable = ISmartCardCryptogramStorageKeyInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77b0f00d_b097_4f61_a26a_9561639c9c3a);
+    const IID: ::windows::core::GUID = <ISmartCardCryptogramStorageKeyInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SmartCardCryptogramStorageKeyInfo {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardCryptogramStorageKeyInfo";
@@ -4250,7 +4250,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardEmulator {
 }
 unsafe impl ::windows::core::Interface for SmartCardEmulator {
     type Vtable = ISmartCardEmulator_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdfb906b2_875e_47e5_8077_e8bff1b1c6fb);
+    const IID: ::windows::core::GUID = <ISmartCardEmulator as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SmartCardEmulator {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardEmulator";
@@ -4392,7 +4392,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardEmulatorApduReceivedEventA
 }
 unsafe impl ::windows::core::Interface for SmartCardEmulatorApduReceivedEventArgs {
     type Vtable = ISmartCardEmulatorApduReceivedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd55d1576_69d2_5333_5b5f_f8c0d6e9f09f);
+    const IID: ::windows::core::GUID = <ISmartCardEmulatorApduReceivedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SmartCardEmulatorApduReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardEmulatorApduReceivedEventArgs";
@@ -4481,7 +4481,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardEmulatorConnectionDeactiva
 }
 unsafe impl ::windows::core::Interface for SmartCardEmulatorConnectionDeactivatedEventArgs {
     type Vtable = ISmartCardEmulatorConnectionDeactivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2186d8d3_c5eb_5262_43df_62a0a1b55557);
+    const IID: ::windows::core::GUID = <ISmartCardEmulatorConnectionDeactivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SmartCardEmulatorConnectionDeactivatedEventArgs {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardEmulatorConnectionDeactivatedEventArgs";
@@ -4598,7 +4598,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardEmulatorConnectionProperti
 }
 unsafe impl ::windows::core::Interface for SmartCardEmulatorConnectionProperties {
     type Vtable = ISmartCardEmulatorConnectionProperties_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e2ca5ee_f969_507d_6cf9_34e2d18df311);
+    const IID: ::windows::core::GUID = <ISmartCardEmulatorConnectionProperties as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SmartCardEmulatorConnectionProperties {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardEmulatorConnectionProperties";
@@ -4871,7 +4871,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardPinPolicy {
 }
 unsafe impl ::windows::core::Interface for SmartCardPinPolicy {
     type Vtable = ISmartCardPinPolicy_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x183ce184_4db6_4841_ac9e_2ac1f39b7304);
+    const IID: ::windows::core::GUID = <ISmartCardPinPolicy as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SmartCardPinPolicy {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardPinPolicy";
@@ -4949,7 +4949,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardPinResetDeferral {
 }
 unsafe impl ::windows::core::Interface for SmartCardPinResetDeferral {
     type Vtable = ISmartCardPinResetDeferral_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18c94aac_7805_4004_85e4_bbefac8f6884);
+    const IID: ::windows::core::GUID = <ISmartCardPinResetDeferral as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SmartCardPinResetDeferral {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardPinResetDeferral";
@@ -5132,7 +5132,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardPinResetRequest {
 }
 unsafe impl ::windows::core::Interface for SmartCardPinResetRequest {
     type Vtable = ISmartCardPinResetRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12fe3c4d_5fb9_4e8e_9ff6_61f475124fef);
+    const IID: ::windows::core::GUID = <ISmartCardPinResetRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SmartCardPinResetRequest {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardPinResetRequest";
@@ -5325,7 +5325,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardProvisioning {
 }
 unsafe impl ::windows::core::Interface for SmartCardProvisioning {
     type Vtable = ISmartCardProvisioning_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19eeedbd_1fab_477c_b712_1a2c5af1fd6e);
+    const IID: ::windows::core::GUID = <ISmartCardProvisioning as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SmartCardProvisioning {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardProvisioning";
@@ -5497,7 +5497,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardReader {
 }
 unsafe impl ::windows::core::Interface for SmartCardReader {
     type Vtable = ISmartCardReader_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1074b4e0_54c2_4df0_817a_14c14378f06c);
+    const IID: ::windows::core::GUID = <ISmartCardReader as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SmartCardReader {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardReader";
@@ -5722,7 +5722,7 @@ unsafe impl ::windows::core::RuntimeType for SmartCardTriggerDetails {
 }
 unsafe impl ::windows::core::Interface for SmartCardTriggerDetails {
     type Vtable = ISmartCardTriggerDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f9bf11e_39ef_4f2b_b44f_0a9155b177bc);
+    const IID: ::windows::core::GUID = <ISmartCardTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SmartCardTriggerDetails {
     const NAME: &'static str = "Windows.Devices.SmartCards.SmartCardTriggerDetails";

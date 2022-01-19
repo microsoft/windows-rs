@@ -1736,7 +1736,7 @@ unsafe impl ::windows::core::RuntimeType for InkDrawingAttributes {
 }
 unsafe impl ::windows::core::Interface for InkDrawingAttributes {
     type Vtable = IInkDrawingAttributes_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97a2176c_6774_48ad_84f0_48f5a9be74f9);
+    const IID: ::windows::core::GUID = <IInkDrawingAttributes as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InkDrawingAttributes {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkDrawingAttributes";
@@ -1850,7 +1850,7 @@ unsafe impl ::windows::core::RuntimeType for InkDrawingAttributesPencilPropertie
 }
 unsafe impl ::windows::core::Interface for InkDrawingAttributesPencilProperties {
     type Vtable = IInkDrawingAttributesPencilProperties_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f2534cb_2d86_41bb_b0e8_e4c2a0253c52);
+    const IID: ::windows::core::GUID = <IInkDrawingAttributesPencilProperties as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InkDrawingAttributesPencilProperties {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkDrawingAttributesPencilProperties";
@@ -1991,7 +1991,7 @@ unsafe impl ::windows::core::RuntimeType for InkInputConfiguration {
 }
 unsafe impl ::windows::core::Interface for InkInputConfiguration {
     type Vtable = IInkInputConfiguration_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93a68dc4_0b7b_49d7_b34f_9901e524dcf2);
+    const IID: ::windows::core::GUID = <IInkInputConfiguration as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InkInputConfiguration {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkInputConfiguration";
@@ -2090,7 +2090,7 @@ unsafe impl ::windows::core::RuntimeType for InkInputProcessingConfiguration {
 }
 unsafe impl ::windows::core::Interface for InkInputProcessingConfiguration {
     type Vtable = IInkInputProcessingConfiguration_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2778d85e_33ca_4b06_a6d3_ac3945116d37);
+    const IID: ::windows::core::GUID = <IInkInputProcessingConfiguration as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InkInputProcessingConfiguration {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkInputProcessingConfiguration";
@@ -2413,7 +2413,7 @@ unsafe impl ::windows::core::RuntimeType for InkManager {
 }
 unsafe impl ::windows::core::Interface for InkManager {
     type Vtable = IInkManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4744737d_671b_4163_9c95_4e8d7a035fe1);
+    const IID: ::windows::core::GUID = <IInkManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InkManager {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkManager";
@@ -2598,7 +2598,7 @@ unsafe impl ::windows::core::RuntimeType for InkModelerAttributes {
 }
 unsafe impl ::windows::core::Interface for InkModelerAttributes {
     type Vtable = IInkModelerAttributes_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbad31f27_0cd9_4bfd_b6f3_9e03ba8d7454);
+    const IID: ::windows::core::GUID = <IInkModelerAttributes as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InkModelerAttributes {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkModelerAttributes";
@@ -2766,7 +2766,7 @@ unsafe impl ::windows::core::RuntimeType for InkPoint {
 }
 unsafe impl ::windows::core::Interface for InkPoint {
     type Vtable = IInkPoint_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f87272b_858c_46a5_9b41_d195970459fd);
+    const IID: ::windows::core::GUID = <IInkPoint as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InkPoint {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkPoint";
@@ -2981,7 +2981,7 @@ unsafe impl ::windows::core::RuntimeType for InkPresenter {
 }
 unsafe impl ::windows::core::Interface for InkPresenter {
     type Vtable = IInkPresenter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa69b70e2_887b_458f_b173_4fe4438930a3);
+    const IID: ::windows::core::GUID = <IInkPresenter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InkPresenter {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkPresenter";
@@ -3247,7 +3247,7 @@ unsafe impl ::windows::core::RuntimeType for InkPresenterProtractor {
 }
 unsafe impl ::windows::core::Interface for InkPresenterProtractor {
     type Vtable = IInkPresenterProtractor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7de3f2aa_ef6c_4e91_a73b_5b70d56fbd17);
+    const IID: ::windows::core::GUID = <IInkPresenterProtractor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InkPresenterProtractor {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkPresenterProtractor";
@@ -3468,7 +3468,7 @@ unsafe impl ::windows::core::RuntimeType for InkPresenterRuler {
 }
 unsafe impl ::windows::core::Interface for InkPresenterRuler {
     type Vtable = IInkPresenterRuler_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6cda7d5a_dec7_4dd7_877a_2133f183d48a);
+    const IID: ::windows::core::GUID = <IInkPresenterRuler as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InkPresenterRuler {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkPresenterRuler";
@@ -3619,7 +3619,7 @@ unsafe impl ::windows::core::RuntimeType for InkRecognitionResult {
 }
 unsafe impl ::windows::core::Interface for InkRecognitionResult {
     type Vtable = IInkRecognitionResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36461a94_5068_40ef_8a05_2c2fb60908a2);
+    const IID: ::windows::core::GUID = <IInkRecognitionResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InkRecognitionResult {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkRecognitionResult";
@@ -3729,7 +3729,7 @@ unsafe impl ::windows::core::RuntimeType for InkRecognizer {
 }
 unsafe impl ::windows::core::Interface for InkRecognizer {
     type Vtable = IInkRecognizer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x077ccea3_904d_442a_b151_aaca3631c43b);
+    const IID: ::windows::core::GUID = <IInkRecognizer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InkRecognizer {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkRecognizer";
@@ -3830,7 +3830,7 @@ unsafe impl ::windows::core::RuntimeType for InkRecognizerContainer {
 }
 unsafe impl ::windows::core::Interface for InkRecognizerContainer {
     type Vtable = IInkRecognizerContainer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa74d9a31_8047_4698_a912_f82a5085012f);
+    const IID: ::windows::core::GUID = <IInkRecognizerContainer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InkRecognizerContainer {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkRecognizerContainer";
@@ -4053,7 +4053,7 @@ unsafe impl ::windows::core::RuntimeType for InkStroke {
 }
 unsafe impl ::windows::core::Interface for InkStroke {
     type Vtable = IInkStroke_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15144d60_cce3_4fcf_9d52_11518ab6afd4);
+    const IID: ::windows::core::GUID = <IInkStroke as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InkStroke {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkStroke";
@@ -4186,7 +4186,7 @@ unsafe impl ::windows::core::RuntimeType for InkStrokeBuilder {
 }
 unsafe impl ::windows::core::Interface for InkStrokeBuilder {
     type Vtable = IInkStrokeBuilder_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82bbd1dc_1c63_41dc_9e07_4b4a70ced801);
+    const IID: ::windows::core::GUID = <IInkStrokeBuilder as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InkStrokeBuilder {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkStrokeBuilder";
@@ -4406,7 +4406,7 @@ unsafe impl ::windows::core::RuntimeType for InkStrokeContainer {
 }
 unsafe impl ::windows::core::Interface for InkStrokeContainer {
     type Vtable = IInkStrokeContainer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22accbc6_faa9_4f14_b68c_f6cee670ae16);
+    const IID: ::windows::core::GUID = <IInkStrokeContainer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InkStrokeContainer {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkStrokeContainer";
@@ -4567,7 +4567,7 @@ unsafe impl ::windows::core::RuntimeType for InkStrokeInput {
 }
 unsafe impl ::windows::core::Interface for InkStrokeInput {
     type Vtable = IInkStrokeInput_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf2ffe7b_5e10_43c6_a080_88f26e1dc67d);
+    const IID: ::windows::core::GUID = <IInkStrokeInput as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InkStrokeInput {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkStrokeInput";
@@ -4699,7 +4699,7 @@ unsafe impl ::windows::core::RuntimeType for InkStrokeRenderingSegment {
 }
 unsafe impl ::windows::core::Interface for InkStrokeRenderingSegment {
     type Vtable = IInkStrokeRenderingSegment_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68510f1f_88e3_477a_a2fa_569f5f1f9bd5);
+    const IID: ::windows::core::GUID = <IInkStrokeRenderingSegment as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InkStrokeRenderingSegment {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkStrokeRenderingSegment";
@@ -4781,7 +4781,7 @@ unsafe impl ::windows::core::RuntimeType for InkStrokesCollectedEventArgs {
 }
 unsafe impl ::windows::core::Interface for InkStrokesCollectedEventArgs {
     type Vtable = IInkStrokesCollectedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4f3f229_1938_495c_b4d9_6de4b08d4811);
+    const IID: ::windows::core::GUID = <IInkStrokesCollectedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InkStrokesCollectedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkStrokesCollectedEventArgs";
@@ -4861,7 +4861,7 @@ unsafe impl ::windows::core::RuntimeType for InkStrokesErasedEventArgs {
 }
 unsafe impl ::windows::core::Interface for InkStrokesErasedEventArgs {
     type Vtable = IInkStrokesErasedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4216a22_1503_4ebf_8ff5_2de84584a8aa);
+    const IID: ::windows::core::GUID = <IInkStrokesErasedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InkStrokesErasedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkStrokesErasedEventArgs";
@@ -4946,7 +4946,7 @@ unsafe impl ::windows::core::RuntimeType for InkSynchronizer {
 }
 unsafe impl ::windows::core::Interface for InkSynchronizer {
     type Vtable = IInkSynchronizer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b9ea160_ae9b_45f9_8407_4b493b163661);
+    const IID: ::windows::core::GUID = <IInkSynchronizer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InkSynchronizer {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkSynchronizer";
@@ -5130,7 +5130,7 @@ unsafe impl ::windows::core::RuntimeType for InkUnprocessedInput {
 }
 unsafe impl ::windows::core::Interface for InkUnprocessedInput {
     type Vtable = IInkUnprocessedInput_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb4445e0_8398_4921_ac3b_ab978c5ba256);
+    const IID: ::windows::core::GUID = <IInkUnprocessedInput as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InkUnprocessedInput {
     const NAME: &'static str = "Windows.UI.Input.Inking.InkUnprocessedInput";
@@ -5268,7 +5268,7 @@ unsafe impl ::windows::core::RuntimeType for PenAndInkSettings {
 }
 unsafe impl ::windows::core::Interface for PenAndInkSettings {
     type Vtable = IPenAndInkSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc2ceb8f_0066_44a8_bb7a_b839b3deb8f5);
+    const IID: ::windows::core::GUID = <IPenAndInkSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PenAndInkSettings {
     const NAME: &'static str = "Windows.UI.Input.Inking.PenAndInkSettings";

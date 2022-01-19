@@ -32,7 +32,7 @@ unsafe impl ::windows::core::RuntimeType for Ellipse {
 }
 unsafe impl ::windows::core::Interface for Ellipse {
     type Vtable = IEllipse_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70e05ac4_d38d_4bab_831f_4a22ef52ac86);
+    const IID: ::windows::core::GUID = <IEllipse as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Ellipse {
     const NAME: &'static str = "Windows.UI.Xaml.Shapes.Ellipse";
@@ -675,7 +675,7 @@ unsafe impl ::windows::core::RuntimeType for Line {
 }
 unsafe impl ::windows::core::Interface for Line {
     type Vtable = ILine_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46a5433d_4ffb_48df_8732_4e15c834816b);
+    const IID: ::windows::core::GUID = <ILine as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Line {
     const NAME: &'static str = "Windows.UI.Xaml.Shapes.Line";
@@ -927,7 +927,7 @@ unsafe impl ::windows::core::RuntimeType for Path {
 }
 unsafe impl ::windows::core::Interface for Path {
     type Vtable = IPath_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78883609_3d57_4f3c_b8a5_6cabcac9711f);
+    const IID: ::windows::core::GUID = <IPath as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Path {
     const NAME: &'static str = "Windows.UI.Xaml.Shapes.Path";
@@ -1188,7 +1188,7 @@ unsafe impl ::windows::core::RuntimeType for Polygon {
 }
 unsafe impl ::windows::core::Interface for Polygon {
     type Vtable = IPolygon_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3755c19_2e4d_4bcc_8d34_86871957fa01);
+    const IID: ::windows::core::GUID = <IPolygon as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Polygon {
     const NAME: &'static str = "Windows.UI.Xaml.Shapes.Polygon";
@@ -1449,7 +1449,7 @@ unsafe impl ::windows::core::RuntimeType for Polyline {
 }
 unsafe impl ::windows::core::Interface for Polyline {
     type Vtable = IPolyline_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91dc62f8_42b3_47f3_8476_c55124a7c4c6);
+    const IID: ::windows::core::GUID = <IPolyline as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Polyline {
     const NAME: &'static str = "Windows.UI.Xaml.Shapes.Polyline";
@@ -1706,7 +1706,7 @@ unsafe impl ::windows::core::RuntimeType for Rectangle {
 }
 unsafe impl ::windows::core::Interface for Rectangle {
     type Vtable = IRectangle_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x855bc230_8a11_4e18_a136_4bc21c7827b0);
+    const IID: ::windows::core::GUID = <IRectangle as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Rectangle {
     const NAME: &'static str = "Windows.UI.Xaml.Shapes.Rectangle";
@@ -2170,7 +2170,7 @@ unsafe impl ::windows::core::RuntimeType for Shape {
 }
 unsafe impl ::windows::core::Interface for Shape {
     type Vtable = IShape_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x786f2b75_9aa0_454d_ae06_a2466e37c832);
+    const IID: ::windows::core::GUID = <IShape as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Shape {
     const NAME: &'static str = "Windows.UI.Xaml.Shapes.Shape";

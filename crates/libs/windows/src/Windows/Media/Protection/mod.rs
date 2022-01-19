@@ -43,7 +43,7 @@ unsafe impl ::windows::core::RuntimeType for ComponentLoadFailedEventArgs {
 }
 unsafe impl ::windows::core::Interface for ComponentLoadFailedEventArgs {
     type Vtable = IComponentLoadFailedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95972e93_7746_417e_8495_f031bbc5862c);
+    const IID: ::windows::core::GUID = <IComponentLoadFailedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ComponentLoadFailedEventArgs {
     const NAME: &'static str = "Windows.Media.Protection.ComponentLoadFailedEventArgs";
@@ -329,7 +329,7 @@ unsafe impl ::windows::core::RuntimeType for HdcpSession {
 }
 unsafe impl ::windows::core::Interface for HdcpSession {
     type Vtable = IHdcpSession_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x718845e9_64d7_426d_809b_1be461941a2a);
+    const IID: ::windows::core::GUID = <IHdcpSession as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HdcpSession {
     const NAME: &'static str = "Windows.Media.Protection.HdcpSession";
@@ -830,7 +830,7 @@ unsafe impl ::windows::core::RuntimeType for MediaProtectionManager {
 }
 unsafe impl ::windows::core::Interface for MediaProtectionManager {
     type Vtable = IMediaProtectionManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45694947_c741_434b_a79e_474c12d93d2f);
+    const IID: ::windows::core::GUID = <IMediaProtectionManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaProtectionManager {
     const NAME: &'static str = "Windows.Media.Protection.MediaProtectionManager";
@@ -925,7 +925,7 @@ unsafe impl ::windows::core::RuntimeType for MediaProtectionPMPServer {
 }
 unsafe impl ::windows::core::Interface for MediaProtectionPMPServer {
     type Vtable = IMediaProtectionPMPServer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c111226_7b26_4d31_95bb_9c1b08ef7fc0);
+    const IID: ::windows::core::GUID = <IMediaProtectionPMPServer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaProtectionPMPServer {
     const NAME: &'static str = "Windows.Media.Protection.MediaProtectionPMPServer";
@@ -1003,7 +1003,7 @@ unsafe impl ::windows::core::RuntimeType for MediaProtectionServiceCompletion {
 }
 unsafe impl ::windows::core::Interface for MediaProtectionServiceCompletion {
     type Vtable = IMediaProtectionServiceCompletion_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b5cca18_cfd5_44ee_a2ed_df76010c14b5);
+    const IID: ::windows::core::GUID = <IMediaProtectionServiceCompletion as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaProtectionServiceCompletion {
     const NAME: &'static str = "Windows.Media.Protection.MediaProtectionServiceCompletion";
@@ -1091,7 +1091,7 @@ unsafe impl ::windows::core::RuntimeType for ProtectionCapabilities {
 }
 unsafe impl ::windows::core::Interface for ProtectionCapabilities {
     type Vtable = IProtectionCapabilities_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7ac5d7e_7480_4d29_a464_7bcd913dd8e4);
+    const IID: ::windows::core::GUID = <IProtectionCapabilities as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ProtectionCapabilities {
     const NAME: &'static str = "Windows.Media.Protection.ProtectionCapabilities";
@@ -1311,7 +1311,7 @@ unsafe impl ::windows::core::RuntimeType for RevocationAndRenewalInformation {
 }
 unsafe impl ::windows::core::Interface for RevocationAndRenewalInformation {
     type Vtable = IRevocationAndRenewalInformation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3a1937b_2501_439e_a6e7_6fc95e175fcf);
+    const IID: ::windows::core::GUID = <IRevocationAndRenewalInformation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RevocationAndRenewalInformation {
     const NAME: &'static str = "Windows.Media.Protection.RevocationAndRenewalInformation";
@@ -1424,7 +1424,7 @@ unsafe impl ::windows::core::RuntimeType for RevocationAndRenewalItem {
 }
 unsafe impl ::windows::core::Interface for RevocationAndRenewalItem {
     type Vtable = IRevocationAndRenewalItem_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3099c20c_3cf0_49ea_902d_caf32d2dde2c);
+    const IID: ::windows::core::GUID = <IRevocationAndRenewalItem as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RevocationAndRenewalItem {
     const NAME: &'static str = "Windows.Media.Protection.RevocationAndRenewalItem";
@@ -1591,7 +1591,7 @@ unsafe impl ::windows::core::RuntimeType for ServiceRequestedEventArgs {
 }
 unsafe impl ::windows::core::Interface for ServiceRequestedEventArgs {
     type Vtable = IServiceRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34283baf_abb4_4fc1_bd89_93f106573a49);
+    const IID: ::windows::core::GUID = <IServiceRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ServiceRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.Protection.ServiceRequestedEventArgs";

@@ -131,7 +131,7 @@ unsafe impl ::windows::core::RuntimeType for FileExtensionVector {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for FileExtensionVector {
     type Vtable = super::super::Foundation::Collections::IVector_Vtbl<::windows::core::HSTRING>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::Foundation::Collections::IVector<::windows::core::HSTRING> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for FileExtensionVector {
@@ -434,7 +434,7 @@ unsafe impl ::windows::core::RuntimeType for FileOpenPicker {
 }
 unsafe impl ::windows::core::Interface for FileOpenPicker {
     type Vtable = IFileOpenPicker_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ca8278a_12c5_4c5f_8977_94547793c241);
+    const IID: ::windows::core::GUID = <IFileOpenPicker as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FileOpenPicker {
     const NAME: &'static str = "Windows.Storage.Pickers.FileOpenPicker";
@@ -581,7 +581,7 @@ unsafe impl ::windows::core::RuntimeType for FilePickerFileTypesOrderedMap {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for FilePickerFileTypesOrderedMap {
     type Vtable = super::super::Foundation::Collections::IMap_Vtbl<::windows::core::HSTRING, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::Foundation::Collections::IMap<::windows::core::HSTRING, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for FilePickerFileTypesOrderedMap {
@@ -786,7 +786,7 @@ unsafe impl ::windows::core::RuntimeType for FilePickerSelectedFilesArray {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for FilePickerSelectedFilesArray {
     type Vtable = super::super::Foundation::Collections::IVectorView_Vtbl<super::StorageFile>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::Foundation::Collections::IVectorView<super::StorageFile> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for FilePickerSelectedFilesArray {
@@ -1091,7 +1091,7 @@ unsafe impl ::windows::core::RuntimeType for FileSavePicker {
 }
 unsafe impl ::windows::core::Interface for FileSavePicker {
     type Vtable = IFileSavePicker_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3286ffcb_617f_4cc5_af6a_b3fdf29ad145);
+    const IID: ::windows::core::GUID = <IFileSavePicker as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FileSavePicker {
     const NAME: &'static str = "Windows.Storage.Pickers.FileSavePicker";
@@ -1278,7 +1278,7 @@ unsafe impl ::windows::core::RuntimeType for FolderPicker {
 }
 unsafe impl ::windows::core::Interface for FolderPicker {
     type Vtable = IFolderPicker_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x084f7799_f3fb_400a_99b1_7b4a772fd60d);
+    const IID: ::windows::core::GUID = <IFolderPicker as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FolderPicker {
     const NAME: &'static str = "Windows.Storage.Pickers.FolderPicker";

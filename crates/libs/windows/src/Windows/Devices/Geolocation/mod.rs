@@ -137,7 +137,7 @@ unsafe impl ::windows::core::RuntimeType for CivicAddress {
 }
 unsafe impl ::windows::core::Interface for CivicAddress {
     type Vtable = ICivicAddress_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8567a1a_64f4_4d48_bcea_f6b008eca34c);
+    const IID: ::windows::core::GUID = <ICivicAddress as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CivicAddress {
     const NAME: &'static str = "Windows.Devices.Geolocation.CivicAddress";
@@ -329,7 +329,7 @@ unsafe impl ::windows::core::RuntimeType for GeoboundingBox {
 }
 unsafe impl ::windows::core::Interface for GeoboundingBox {
     type Vtable = IGeoboundingBox_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0896c80b_274f_43da_9a06_cbfcdaeb4ec2);
+    const IID: ::windows::core::GUID = <IGeoboundingBox as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GeoboundingBox {
     const NAME: &'static str = "Windows.Devices.Geolocation.GeoboundingBox";
@@ -490,7 +490,7 @@ unsafe impl ::windows::core::RuntimeType for Geocircle {
 }
 unsafe impl ::windows::core::Interface for Geocircle {
     type Vtable = IGeocircle_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39e45843_a7f9_4e63_92a7_ba0c28d124b1);
+    const IID: ::windows::core::GUID = <IGeocircle as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Geocircle {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geocircle";
@@ -697,7 +697,7 @@ unsafe impl ::windows::core::RuntimeType for Geocoordinate {
 }
 unsafe impl ::windows::core::Interface for Geocoordinate {
     type Vtable = IGeocoordinate_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee21a3aa_976a_4c70_803d_083ea55bcbc4);
+    const IID: ::windows::core::GUID = <IGeocoordinate as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Geocoordinate {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geocoordinate";
@@ -815,7 +815,7 @@ unsafe impl ::windows::core::RuntimeType for GeocoordinateSatelliteData {
 }
 unsafe impl ::windows::core::Interface for GeocoordinateSatelliteData {
     type Vtable = IGeocoordinateSatelliteData_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc32a74d9_2608_474c_912c_06dd490f4af7);
+    const IID: ::windows::core::GUID = <IGeocoordinateSatelliteData as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GeocoordinateSatelliteData {
     const NAME: &'static str = "Windows.Devices.Geolocation.GeocoordinateSatelliteData";
@@ -1093,7 +1093,7 @@ unsafe impl ::windows::core::RuntimeType for Geolocator {
 }
 unsafe impl ::windows::core::Interface for Geolocator {
     type Vtable = IGeolocator_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9c3bf62_4524_4989_8aa9_de019d2e551f);
+    const IID: ::windows::core::GUID = <IGeolocator as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Geolocator {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geolocator";
@@ -1228,7 +1228,7 @@ unsafe impl ::windows::core::RuntimeType for Geopath {
 }
 unsafe impl ::windows::core::Interface for Geopath {
     type Vtable = IGeopath_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe53fd7b9_2da4_4714_a652_de8593289898);
+    const IID: ::windows::core::GUID = <IGeopath as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Geopath {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geopath";
@@ -1381,7 +1381,7 @@ unsafe impl ::windows::core::RuntimeType for Geopoint {
 }
 unsafe impl ::windows::core::Interface for Geopoint {
     type Vtable = IGeopoint_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6bfa00eb_e56e_49bb_9caf_cbaa78a8bcef);
+    const IID: ::windows::core::GUID = <IGeopoint as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Geopoint {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geopoint";
@@ -1500,7 +1500,7 @@ unsafe impl ::windows::core::RuntimeType for Geoposition {
 }
 unsafe impl ::windows::core::Interface for Geoposition {
     type Vtable = IGeoposition_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc18d0454_7d41_4ff7_a957_9dffb4ef7f5b);
+    const IID: ::windows::core::GUID = <IGeoposition as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Geoposition {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geoposition";
@@ -1628,7 +1628,7 @@ unsafe impl ::windows::core::RuntimeType for Geovisit {
 }
 unsafe impl ::windows::core::Interface for Geovisit {
     type Vtable = IGeovisit_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1877a76_9ef6_41ab_a0dd_793ece76e2de);
+    const IID: ::windows::core::GUID = <IGeovisit as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Geovisit {
     const NAME: &'static str = "Windows.Devices.Geolocation.Geovisit";
@@ -1754,7 +1754,7 @@ unsafe impl ::windows::core::RuntimeType for GeovisitMonitor {
 }
 unsafe impl ::windows::core::Interface for GeovisitMonitor {
     type Vtable = IGeovisitMonitor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80118aaf_5944_4591_83c1_396647f54f2c);
+    const IID: ::windows::core::GUID = <IGeovisitMonitor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GeovisitMonitor {
     const NAME: &'static str = "Windows.Devices.Geolocation.GeovisitMonitor";
@@ -1835,7 +1835,7 @@ unsafe impl ::windows::core::RuntimeType for GeovisitStateChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for GeovisitStateChangedEventArgs {
     type Vtable = IGeovisitStateChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xceb4d1ff_8b53_4968_beed_4cecd029ce15);
+    const IID: ::windows::core::GUID = <IGeovisitStateChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GeovisitStateChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Geolocation.GeovisitStateChangedEventArgs";
@@ -1917,7 +1917,7 @@ unsafe impl ::windows::core::RuntimeType for GeovisitTriggerDetails {
 }
 unsafe impl ::windows::core::Interface for GeovisitTriggerDetails {
     type Vtable = IGeovisitTriggerDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea770d9e_d1c9_454b_99b7_b2f8cdd2482f);
+    const IID: ::windows::core::GUID = <IGeovisitTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GeovisitTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Geolocation.GeovisitTriggerDetails";
@@ -2714,7 +2714,7 @@ unsafe impl ::windows::core::RuntimeType for PositionChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for PositionChangedEventArgs {
     type Vtable = IPositionChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x37859ce5_9d1e_46c5_bf3b_6ad8cac1a093);
+    const IID: ::windows::core::GUID = <IPositionChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PositionChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Geolocation.PositionChangedEventArgs";
@@ -2860,7 +2860,7 @@ unsafe impl ::windows::core::RuntimeType for StatusChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for StatusChangedEventArgs {
     type Vtable = IStatusChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3453d2da_8c93_4111_a205_9aecfc9be5c0);
+    const IID: ::windows::core::GUID = <IStatusChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StatusChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Geolocation.StatusChangedEventArgs";
@@ -2949,7 +2949,7 @@ unsafe impl ::windows::core::RuntimeType for VenueData {
 }
 unsafe impl ::windows::core::Interface for VenueData {
     type Vtable = IVenueData_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66f39187_60e3_4b2f_b527_4f53f1c3c677);
+    const IID: ::windows::core::GUID = <IVenueData as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VenueData {
     const NAME: &'static str = "Windows.Devices.Geolocation.VenueData";

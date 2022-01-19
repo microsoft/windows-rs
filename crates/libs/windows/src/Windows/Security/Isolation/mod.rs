@@ -752,7 +752,7 @@ unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironment {
 }
 unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironment {
     type Vtable = IIsolatedWindowsEnvironment_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41d24597_c328_4467_b37f_4dfc6f60b6bc);
+    const IID: ::windows::core::GUID = <IIsolatedWindowsEnvironment as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for IsolatedWindowsEnvironment {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironment";
@@ -1087,7 +1087,7 @@ unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentCreateRes
 }
 unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentCreateResult {
     type Vtable = IIsolatedWindowsEnvironmentCreateResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef9a5e58_dcd7_45c2_9c85_ab642a715e8e);
+    const IID: ::windows::core::GUID = <IIsolatedWindowsEnvironmentCreateResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for IsolatedWindowsEnvironmentCreateResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentCreateResult";
@@ -1226,7 +1226,7 @@ unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentFile {
 }
 unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentFile {
     type Vtable = IIsolatedWindowsEnvironmentFile_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d5ae1ef_029f_4101_8c35_fe91bf9cd5f0);
+    const IID: ::windows::core::GUID = <IIsolatedWindowsEnvironmentFile as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for IsolatedWindowsEnvironmentFile {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentFile";
@@ -1381,7 +1381,7 @@ unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentLaunchFil
 }
 unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentLaunchFileResult {
     type Vtable = IIsolatedWindowsEnvironmentLaunchFileResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x685d4176_f6e0_4569_b1aa_215c0ff5b257);
+    const IID: ::windows::core::GUID = <IIsolatedWindowsEnvironmentLaunchFileResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for IsolatedWindowsEnvironmentLaunchFileResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentLaunchFileResult";
@@ -1618,7 +1618,7 @@ unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentOptions {
 }
 unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentOptions {
     type Vtable = IIsolatedWindowsEnvironmentOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb71d98f7_61f0_4008_b207_0bf9eb2d76f2);
+    const IID: ::windows::core::GUID = <IIsolatedWindowsEnvironmentOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for IsolatedWindowsEnvironmentOptions {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentOptions";
@@ -1757,7 +1757,7 @@ unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentOwnerRegi
 }
 unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentOwnerRegistrationData {
     type Vtable = IIsolatedWindowsEnvironmentOwnerRegistrationData_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf888ec22_e8cf_56c0_b1df_90af4ad80e84);
+    const IID: ::windows::core::GUID = <IIsolatedWindowsEnvironmentOwnerRegistrationData as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for IsolatedWindowsEnvironmentOwnerRegistrationData {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistrationData";
@@ -1846,7 +1846,7 @@ unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentOwnerRegi
 }
 unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentOwnerRegistrationResult {
     type Vtable = IIsolatedWindowsEnvironmentOwnerRegistrationResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6dab9451_6169_55df_8f51_790e99d7277d);
+    const IID: ::windows::core::GUID = <IIsolatedWindowsEnvironmentOwnerRegistrationResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for IsolatedWindowsEnvironmentOwnerRegistrationResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentOwnerRegistrationResult";
@@ -1966,7 +1966,7 @@ unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentPostMessa
 }
 unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentPostMessageResult {
     type Vtable = IIsolatedWindowsEnvironmentPostMessageResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0dfa28fa_2ef0_4d8f_b341_3171b2df93b1);
+    const IID: ::windows::core::GUID = <IIsolatedWindowsEnvironmentPostMessageResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for IsolatedWindowsEnvironmentPostMessageResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentPostMessageResult";
@@ -2103,7 +2103,7 @@ unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentProcess {
 }
 unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentProcess {
     type Vtable = IIsolatedWindowsEnvironmentProcess_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa858c3ef_8172_4f10_af93_cbe60af88d09);
+    const IID: ::windows::core::GUID = <IIsolatedWindowsEnvironmentProcess as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for IsolatedWindowsEnvironmentProcess {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentProcess";
@@ -2254,7 +2254,7 @@ unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentShareFile
 }
 unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentShareFileRequestOptions {
     type Vtable = IIsolatedWindowsEnvironmentShareFileRequestOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9190ed8_0fd0_4946_bb88_117a60737b61);
+    const IID: ::windows::core::GUID = <IIsolatedWindowsEnvironmentShareFileRequestOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for IsolatedWindowsEnvironmentShareFileRequestOptions {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileRequestOptions";
@@ -2351,7 +2351,7 @@ unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentShareFile
 }
 unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentShareFileResult {
     type Vtable = IIsolatedWindowsEnvironmentShareFileResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaec7caa7_9ac6_4bf5_8b91_5c1adf0d7d00);
+    const IID: ::windows::core::GUID = <IIsolatedWindowsEnvironmentShareFileResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for IsolatedWindowsEnvironmentShareFileResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFileResult";
@@ -2476,7 +2476,7 @@ unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentShareFold
 }
 unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentShareFolderRequestOptions {
     type Vtable = IIsolatedWindowsEnvironmentShareFolderRequestOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc405eb7d_7053_4f6a_9b87_746846ed19b2);
+    const IID: ::windows::core::GUID = <IIsolatedWindowsEnvironmentShareFolderRequestOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for IsolatedWindowsEnvironmentShareFolderRequestOptions {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFolderRequestOptions";
@@ -2565,7 +2565,7 @@ unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentShareFold
 }
 unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentShareFolderResult {
     type Vtable = IIsolatedWindowsEnvironmentShareFolderResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x556ba72e_ca9d_4211_b143_1cedc86eb2fe);
+    const IID: ::windows::core::GUID = <IIsolatedWindowsEnvironmentShareFolderResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for IsolatedWindowsEnvironmentShareFolderResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentShareFolderResult";
@@ -2693,7 +2693,7 @@ unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentStartProc
 }
 unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentStartProcessResult {
     type Vtable = IIsolatedWindowsEnvironmentStartProcessResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fa1dc2f_57da_4bb5_9c06_fa072d2032e2);
+    const IID: ::windows::core::GUID = <IIsolatedWindowsEnvironmentStartProcessResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for IsolatedWindowsEnvironmentStartProcessResult {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentStartProcessResult";
@@ -2817,7 +2817,7 @@ unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentTelemetry
 }
 unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentTelemetryParameters {
     type Vtable = IIsolatedWindowsEnvironmentTelemetryParameters_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xebdb3cab_7a3a_4524_a0f4_f96e284d33cd);
+    const IID: ::windows::core::GUID = <IIsolatedWindowsEnvironmentTelemetryParameters as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for IsolatedWindowsEnvironmentTelemetryParameters {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentTelemetryParameters";
@@ -2915,7 +2915,7 @@ unsafe impl ::windows::core::RuntimeType for IsolatedWindowsEnvironmentUserInfo 
 }
 unsafe impl ::windows::core::Interface for IsolatedWindowsEnvironmentUserInfo {
     type Vtable = IIsolatedWindowsEnvironmentUserInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a9c75ae_69ba_4001_96fc_19a02703b340);
+    const IID: ::windows::core::GUID = <IIsolatedWindowsEnvironmentUserInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for IsolatedWindowsEnvironmentUserInfo {
     const NAME: &'static str = "Windows.Security.Isolation.IsolatedWindowsEnvironmentUserInfo";

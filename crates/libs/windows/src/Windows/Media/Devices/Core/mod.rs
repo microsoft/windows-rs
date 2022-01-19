@@ -159,7 +159,7 @@ unsafe impl ::windows::core::RuntimeType for CameraIntrinsics {
 }
 unsafe impl ::windows::core::Interface for CameraIntrinsics {
     type Vtable = ICameraIntrinsics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0aa6ed32_6589_49da_afde_594270ca0aac);
+    const IID: ::windows::core::GUID = <ICameraIntrinsics as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CameraIntrinsics {
     const NAME: &'static str = "Windows.Media.Devices.Core.CameraIntrinsics";
@@ -268,7 +268,7 @@ unsafe impl ::windows::core::RuntimeType for DepthCorrelatedCoordinateMapper {
 }
 unsafe impl ::windows::core::Interface for DepthCorrelatedCoordinateMapper {
     type Vtable = IDepthCorrelatedCoordinateMapper_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf95d89fb_8af0_4cb0_926d_696866e5046a);
+    const IID: ::windows::core::GUID = <IDepthCorrelatedCoordinateMapper as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DepthCorrelatedCoordinateMapper {
     const NAME: &'static str = "Windows.Media.Devices.Core.DepthCorrelatedCoordinateMapper";
@@ -415,7 +415,7 @@ unsafe impl ::windows::core::RuntimeType for FrameControlCapabilities {
 }
 unsafe impl ::windows::core::Interface for FrameControlCapabilities {
     type Vtable = IFrameControlCapabilities_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8ffae60_4e9e_4377_a789_e24c4ae7e544);
+    const IID: ::windows::core::GUID = <IFrameControlCapabilities as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FrameControlCapabilities {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameControlCapabilities";
@@ -548,7 +548,7 @@ unsafe impl ::windows::core::RuntimeType for FrameController {
 }
 unsafe impl ::windows::core::Interface for FrameController {
     type Vtable = IFrameController_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc16459d9_baef_4052_9177_48aff2af7522);
+    const IID: ::windows::core::GUID = <IFrameController as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FrameController {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameController";
@@ -656,7 +656,7 @@ unsafe impl ::windows::core::RuntimeType for FrameExposureCapabilities {
 }
 unsafe impl ::windows::core::Interface for FrameExposureCapabilities {
     type Vtable = IFrameExposureCapabilities_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbdbe9ce3_3985_4e72_97c2_0590d61307a1);
+    const IID: ::windows::core::GUID = <IFrameExposureCapabilities as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FrameExposureCapabilities {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameExposureCapabilities";
@@ -759,7 +759,7 @@ unsafe impl ::windows::core::RuntimeType for FrameExposureCompensationCapabiliti
 }
 unsafe impl ::windows::core::Interface for FrameExposureCompensationCapabilities {
     type Vtable = IFrameExposureCompensationCapabilities_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb988a823_8065_41ee_b04f_722265954500);
+    const IID: ::windows::core::GUID = <IFrameExposureCompensationCapabilities as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FrameExposureCompensationCapabilities {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameExposureCompensationCapabilities";
@@ -845,7 +845,7 @@ unsafe impl ::windows::core::RuntimeType for FrameExposureCompensationControl {
 }
 unsafe impl ::windows::core::Interface for FrameExposureCompensationControl {
     type Vtable = IFrameExposureCompensationControl_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe95896c9_f7f9_48ca_8591_a26531cb1578);
+    const IID: ::windows::core::GUID = <IFrameExposureCompensationControl as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FrameExposureCompensationControl {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameExposureCompensationControl";
@@ -944,7 +944,7 @@ unsafe impl ::windows::core::RuntimeType for FrameExposureControl {
 }
 unsafe impl ::windows::core::Interface for FrameExposureControl {
     type Vtable = IFrameExposureControl_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1605a61_ffaf_4752_b621_f5b6f117f432);
+    const IID: ::windows::core::GUID = <IFrameExposureControl as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FrameExposureControl {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameExposureControl";
@@ -1039,7 +1039,7 @@ unsafe impl ::windows::core::RuntimeType for FrameFlashCapabilities {
 }
 unsafe impl ::windows::core::Interface for FrameFlashCapabilities {
     type Vtable = IFrameFlashCapabilities_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb9341a2_5ebe_4f62_8223_0e2b05bfbbd0);
+    const IID: ::windows::core::GUID = <IFrameFlashCapabilities as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FrameFlashCapabilities {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameFlashCapabilities";
@@ -1162,7 +1162,7 @@ unsafe impl ::windows::core::RuntimeType for FrameFlashControl {
 }
 unsafe impl ::windows::core::Interface for FrameFlashControl {
     type Vtable = IFrameFlashControl_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75d5f6c7_bd45_4fab_9375_45ac04b332c2);
+    const IID: ::windows::core::GUID = <IFrameFlashControl as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FrameFlashControl {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameFlashControl";
@@ -1294,7 +1294,7 @@ unsafe impl ::windows::core::RuntimeType for FrameFocusCapabilities {
 }
 unsafe impl ::windows::core::Interface for FrameFocusCapabilities {
     type Vtable = IFrameFocusCapabilities_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b25cd58_01c0_4065_9c40_c1a721425c1a);
+    const IID: ::windows::core::GUID = <IFrameFocusCapabilities as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FrameFocusCapabilities {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameFocusCapabilities";
@@ -1380,7 +1380,7 @@ unsafe impl ::windows::core::RuntimeType for FrameFocusControl {
 }
 unsafe impl ::windows::core::Interface for FrameFocusControl {
     type Vtable = IFrameFocusControl_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x272df1d0_d912_4214_a67b_e38a8d48d8c6);
+    const IID: ::windows::core::GUID = <IFrameFocusControl as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FrameFocusControl {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameFocusControl";
@@ -1483,7 +1483,7 @@ unsafe impl ::windows::core::RuntimeType for FrameIsoSpeedCapabilities {
 }
 unsafe impl ::windows::core::Interface for FrameIsoSpeedCapabilities {
     type Vtable = IFrameIsoSpeedCapabilities_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16bdff61_6df6_4ac9_b92a_9f6ecd1ad2fa);
+    const IID: ::windows::core::GUID = <IFrameIsoSpeedCapabilities as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FrameIsoSpeedCapabilities {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameIsoSpeedCapabilities";
@@ -1582,7 +1582,7 @@ unsafe impl ::windows::core::RuntimeType for FrameIsoSpeedControl {
 }
 unsafe impl ::windows::core::Interface for FrameIsoSpeedControl {
     type Vtable = IFrameIsoSpeedControl_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a03efed_786a_4c75_a557_7ab9a85f588c);
+    const IID: ::windows::core::GUID = <IFrameIsoSpeedControl as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FrameIsoSpeedControl {
     const NAME: &'static str = "Windows.Media.Devices.Core.FrameIsoSpeedControl";
@@ -2127,7 +2127,7 @@ unsafe impl ::windows::core::RuntimeType for VariablePhotoSequenceController {
 }
 unsafe impl ::windows::core::Interface for VariablePhotoSequenceController {
     type Vtable = IVariablePhotoSequenceController_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fbff880_ed8c_43fd_a7c3_b35809e4229a);
+    const IID: ::windows::core::GUID = <IVariablePhotoSequenceController as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VariablePhotoSequenceController {
     const NAME: &'static str = "Windows.Media.Devices.Core.VariablePhotoSequenceController";

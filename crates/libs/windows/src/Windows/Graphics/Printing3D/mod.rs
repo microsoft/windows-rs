@@ -872,7 +872,7 @@ unsafe impl ::windows::core::RuntimeType for Print3DManager {
 }
 unsafe impl ::windows::core::Interface for Print3DManager {
     type Vtable = IPrint3DManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d2fcb0a_7366_4971_8bd5_17c4e3e8c6c0);
+    const IID: ::windows::core::GUID = <IPrint3DManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Print3DManager {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Print3DManager";
@@ -998,7 +998,7 @@ unsafe impl ::windows::core::RuntimeType for Print3DTask {
 }
 unsafe impl ::windows::core::Interface for Print3DTask {
     type Vtable = IPrint3DTask_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ce3d080_2118_4c28_80de_f426d70191ae);
+    const IID: ::windows::core::GUID = <IPrint3DTask as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Print3DTask {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Print3DTask";
@@ -1087,7 +1087,7 @@ unsafe impl ::windows::core::RuntimeType for Print3DTaskCompletedEventArgs {
 }
 unsafe impl ::windows::core::Interface for Print3DTaskCompletedEventArgs {
     type Vtable = IPrint3DTaskCompletedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc1914af_2614_4f1d_accc_d6fc4fda5455);
+    const IID: ::windows::core::GUID = <IPrint3DTaskCompletedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Print3DTaskCompletedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Print3DTaskCompletedEventArgs";
@@ -1232,7 +1232,7 @@ unsafe impl ::windows::core::RuntimeType for Print3DTaskRequest {
 }
 unsafe impl ::windows::core::Interface for Print3DTaskRequest {
     type Vtable = IPrint3DTaskRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2595c46f_2245_4c5a_8731_0d604dc6bc3c);
+    const IID: ::windows::core::GUID = <IPrint3DTaskRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Print3DTaskRequest {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Print3DTaskRequest";
@@ -1313,7 +1313,7 @@ unsafe impl ::windows::core::RuntimeType for Print3DTaskRequestedEventArgs {
 }
 unsafe impl ::windows::core::Interface for Print3DTaskRequestedEventArgs {
     type Vtable = IPrint3DTaskRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x150cb77f_18c5_40d7_9f40_fab3096e05a9);
+    const IID: ::windows::core::GUID = <IPrint3DTaskRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Print3DTaskRequestedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Print3DTaskRequestedEventArgs";
@@ -1394,7 +1394,7 @@ unsafe impl ::windows::core::RuntimeType for Print3DTaskSourceChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for Print3DTaskSourceChangedEventArgs {
     type Vtable = IPrint3DTaskSourceChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bcd34af_24e9_4c10_8d07_14c346ba3fcf);
+    const IID: ::windows::core::GUID = <IPrint3DTaskSourceChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Print3DTaskSourceChangedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Print3DTaskSourceChangedEventArgs";
@@ -1472,7 +1472,7 @@ unsafe impl ::windows::core::RuntimeType for Print3DTaskSourceRequestedArgs {
 }
 unsafe impl ::windows::core::Interface for Print3DTaskSourceRequestedArgs {
     type Vtable = IPrint3DTaskSourceRequestedArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc77c9aba_24af_424d_a3bf_92250c355602);
+    const IID: ::windows::core::GUID = <IPrint3DTaskSourceRequestedArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Print3DTaskSourceRequestedArgs {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Print3DTaskSourceRequestedArgs";
@@ -1735,7 +1735,7 @@ unsafe impl ::windows::core::RuntimeType for Printing3D3MFPackage {
 }
 unsafe impl ::windows::core::Interface for Printing3D3MFPackage {
     type Vtable = IPrinting3D3MFPackage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf64dd5c8_2ab7_45a9_a1b7_267e948d5b18);
+    const IID: ::windows::core::GUID = <IPrinting3D3MFPackage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Printing3D3MFPackage {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3D3MFPackage";
@@ -1860,7 +1860,7 @@ unsafe impl ::windows::core::RuntimeType for Printing3DBaseMaterial {
 }
 unsafe impl ::windows::core::Interface for Printing3DBaseMaterial {
     type Vtable = IPrinting3DBaseMaterial_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0f0e743_c50c_4bcb_9d04_fc16adcea2c9);
+    const IID: ::windows::core::GUID = <IPrinting3DBaseMaterial as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Printing3DBaseMaterial {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DBaseMaterial";
@@ -1962,7 +1962,7 @@ unsafe impl ::windows::core::RuntimeType for Printing3DBaseMaterialGroup {
 }
 unsafe impl ::windows::core::Interface for Printing3DBaseMaterialGroup {
     type Vtable = IPrinting3DBaseMaterialGroup_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94f070b8_2515_4a8d_a1f0_d0fc13d06021);
+    const IID: ::windows::core::GUID = <IPrinting3DBaseMaterialGroup as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Printing3DBaseMaterialGroup {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DBaseMaterialGroup";
@@ -2140,7 +2140,7 @@ unsafe impl ::windows::core::RuntimeType for Printing3DColorMaterial {
 }
 unsafe impl ::windows::core::Interface for Printing3DColorMaterial {
     type Vtable = IPrinting3DColorMaterial_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe1899928_7ce7_4285_a35d_f145c9510c7b);
+    const IID: ::windows::core::GUID = <IPrinting3DColorMaterial as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Printing3DColorMaterial {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DColorMaterial";
@@ -2242,7 +2242,7 @@ unsafe impl ::windows::core::RuntimeType for Printing3DColorMaterialGroup {
 }
 unsafe impl ::windows::core::Interface for Printing3DColorMaterialGroup {
     type Vtable = IPrinting3DColorMaterialGroup_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x001a6bd0_aadf_4226_afe9_f369a0b45004);
+    const IID: ::windows::core::GUID = <IPrinting3DColorMaterialGroup as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Printing3DColorMaterialGroup {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DColorMaterialGroup";
@@ -2396,7 +2396,7 @@ unsafe impl ::windows::core::RuntimeType for Printing3DComponent {
 }
 unsafe impl ::windows::core::Interface for Printing3DComponent {
     type Vtable = IPrinting3DComponent_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e287845_bf7f_4cdb_a27f_30a01437fede);
+    const IID: ::windows::core::GUID = <IPrinting3DComponent as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Printing3DComponent {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DComponent";
@@ -2504,7 +2504,7 @@ unsafe impl ::windows::core::RuntimeType for Printing3DComponentWithMatrix {
 }
 unsafe impl ::windows::core::Interface for Printing3DComponentWithMatrix {
     type Vtable = IPrinting3DComponentWithMatrix_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3279f335_0ef0_456b_9a21_49bebe8b51c2);
+    const IID: ::windows::core::GUID = <IPrinting3DComponentWithMatrix as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Printing3DComponentWithMatrix {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DComponentWithMatrix";
@@ -2593,7 +2593,7 @@ unsafe impl ::windows::core::RuntimeType for Printing3DCompositeMaterial {
 }
 unsafe impl ::windows::core::Interface for Printing3DCompositeMaterial {
     type Vtable = IPrinting3DCompositeMaterial_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x462238dd_562e_4f6c_882d_f4d841fd63c7);
+    const IID: ::windows::core::GUID = <IPrinting3DCompositeMaterial as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Printing3DCompositeMaterial {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DCompositeMaterial";
@@ -2717,7 +2717,7 @@ unsafe impl ::windows::core::RuntimeType for Printing3DCompositeMaterialGroup {
 }
 unsafe impl ::windows::core::Interface for Printing3DCompositeMaterialGroup {
     type Vtable = IPrinting3DCompositeMaterialGroup_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d946a5b_40f1_496d_a5fb_340a5a678e30);
+    const IID: ::windows::core::GUID = <IPrinting3DCompositeMaterialGroup as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Printing3DCompositeMaterialGroup {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DCompositeMaterialGroup";
@@ -2836,7 +2836,7 @@ unsafe impl ::windows::core::RuntimeType for Printing3DFaceReductionOptions {
 }
 unsafe impl ::windows::core::Interface for Printing3DFaceReductionOptions {
     type Vtable = IPrinting3DFaceReductionOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbbfed397_2d74_46f7_be85_99a67bbb6629);
+    const IID: ::windows::core::GUID = <IPrinting3DFaceReductionOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Printing3DFaceReductionOptions {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DFaceReductionOptions";
@@ -2961,7 +2961,7 @@ unsafe impl ::windows::core::RuntimeType for Printing3DMaterial {
 }
 unsafe impl ::windows::core::Interface for Printing3DMaterial {
     type Vtable = IPrinting3DMaterial_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x378db256_ed62_4952_b85b_03567d7c465e);
+    const IID: ::windows::core::GUID = <IPrinting3DMaterial as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Printing3DMaterial {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DMaterial";
@@ -3202,7 +3202,7 @@ unsafe impl ::windows::core::RuntimeType for Printing3DMesh {
 }
 unsafe impl ::windows::core::Interface for Printing3DMesh {
     type Vtable = IPrinting3DMesh_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x192e90dc_0228_2e01_bc20_c5290cbf32c4);
+    const IID: ::windows::core::GUID = <IPrinting3DMesh as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Printing3DMesh {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DMesh";
@@ -3329,7 +3329,7 @@ unsafe impl ::windows::core::RuntimeType for Printing3DMeshVerificationResult {
 }
 unsafe impl ::windows::core::Interface for Printing3DMeshVerificationResult {
     type Vtable = IPrinting3DMeshVerificationResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x195671ba_e93a_4e8a_a46f_dea8e852197e);
+    const IID: ::windows::core::GUID = <IPrinting3DMeshVerificationResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Printing3DMeshVerificationResult {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DMeshVerificationResult";
@@ -3577,7 +3577,7 @@ unsafe impl ::windows::core::RuntimeType for Printing3DModel {
 }
 unsafe impl ::windows::core::Interface for Printing3DModel {
     type Vtable = IPrinting3DModel_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d012ef0_52fb_919a_77b0_4b1a3b80324f);
+    const IID: ::windows::core::GUID = <IPrinting3DModel as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Printing3DModel {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DModel";
@@ -3696,7 +3696,7 @@ unsafe impl ::windows::core::RuntimeType for Printing3DModelTexture {
 }
 unsafe impl ::windows::core::Interface for Printing3DModelTexture {
     type Vtable = IPrinting3DModelTexture_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5dafcf01_b59d_483c_97bb_a4d546d1c75c);
+    const IID: ::windows::core::GUID = <IPrinting3DModelTexture as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Printing3DModelTexture {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DModelTexture";
@@ -3817,7 +3817,7 @@ unsafe impl ::windows::core::RuntimeType for Printing3DMultiplePropertyMaterial 
 }
 unsafe impl ::windows::core::Interface for Printing3DMultiplePropertyMaterial {
     type Vtable = IPrinting3DMultiplePropertyMaterial_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25a6254b_c6e9_484d_a214_a25e5776ba62);
+    const IID: ::windows::core::GUID = <IPrinting3DMultiplePropertyMaterial as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Printing3DMultiplePropertyMaterial {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DMultiplePropertyMaterial";
@@ -3928,7 +3928,7 @@ unsafe impl ::windows::core::RuntimeType for Printing3DMultiplePropertyMaterialG
 }
 unsafe impl ::windows::core::Interface for Printing3DMultiplePropertyMaterialGroup {
     type Vtable = IPrinting3DMultiplePropertyMaterialGroup_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0950519_aeb9_4515_a39b_a088fbbb277c);
+    const IID: ::windows::core::GUID = <IPrinting3DMultiplePropertyMaterialGroup as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Printing3DMultiplePropertyMaterialGroup {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DMultiplePropertyMaterialGroup";
@@ -4105,7 +4105,7 @@ unsafe impl ::windows::core::RuntimeType for Printing3DTexture2CoordMaterial {
 }
 unsafe impl ::windows::core::Interface for Printing3DTexture2CoordMaterial {
     type Vtable = IPrinting3DTexture2CoordMaterial_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d844bfb_07e9_4986_9833_8dd3d48c6859);
+    const IID: ::windows::core::GUID = <IPrinting3DTexture2CoordMaterial as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Printing3DTexture2CoordMaterial {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DTexture2CoordMaterial";
@@ -4220,7 +4220,7 @@ unsafe impl ::windows::core::RuntimeType for Printing3DTexture2CoordMaterialGrou
 }
 unsafe impl ::windows::core::Interface for Printing3DTexture2CoordMaterialGroup {
     type Vtable = IPrinting3DTexture2CoordMaterialGroup_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x627d7ca7_6d90_4fb9_9fc4_9feff3dfa892);
+    const IID: ::windows::core::GUID = <IPrinting3DTexture2CoordMaterialGroup as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Printing3DTexture2CoordMaterialGroup {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DTexture2CoordMaterialGroup";
@@ -4358,7 +4358,7 @@ unsafe impl ::windows::core::RuntimeType for Printing3DTextureResource {
 }
 unsafe impl ::windows::core::Interface for Printing3DTextureResource {
     type Vtable = IPrinting3DTextureResource_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa70df32d_6ab1_44ae_bc45_a27382c0d38c);
+    const IID: ::windows::core::GUID = <IPrinting3DTextureResource as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Printing3DTextureResource {
     const NAME: &'static str = "Windows.Graphics.Printing3D.Printing3DTextureResource";

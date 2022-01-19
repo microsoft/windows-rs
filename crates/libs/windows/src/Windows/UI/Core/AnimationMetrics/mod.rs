@@ -80,7 +80,7 @@ unsafe impl ::windows::core::RuntimeType for AnimationDescription {
 }
 unsafe impl ::windows::core::Interface for AnimationDescription {
     type Vtable = IAnimationDescription_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d11a549_be3d_41de_b081_05c149962f9b);
+    const IID: ::windows::core::GUID = <IAnimationDescription as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AnimationDescription {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.AnimationDescription";
@@ -538,7 +538,7 @@ unsafe impl ::windows::core::RuntimeType for OpacityAnimation {
 }
 unsafe impl ::windows::core::Interface for OpacityAnimation {
     type Vtable = IOpacityAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x803aabe5_ee7e_455f_84e9_2506afb8d2b4);
+    const IID: ::windows::core::GUID = <IOpacityAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for OpacityAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.OpacityAnimation";
@@ -677,7 +677,7 @@ unsafe impl ::windows::core::RuntimeType for PropertyAnimation {
 }
 unsafe impl ::windows::core::Interface for PropertyAnimation {
     type Vtable = IPropertyAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a01b4da_4d8c_411e_b615_1ade683a9903);
+    const IID: ::windows::core::GUID = <IPropertyAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PropertyAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.PropertyAnimation";
@@ -888,7 +888,7 @@ unsafe impl ::windows::core::RuntimeType for ScaleAnimation {
 }
 unsafe impl ::windows::core::Interface for ScaleAnimation {
     type Vtable = IScaleAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x023552c7_71ab_428c_9c9f_d31780964995);
+    const IID: ::windows::core::GUID = <IScaleAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ScaleAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.ScaleAnimation";
@@ -1027,7 +1027,7 @@ unsafe impl ::windows::core::RuntimeType for TranslationAnimation {
 }
 unsafe impl ::windows::core::Interface for TranslationAnimation {
     type Vtable = IPropertyAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a01b4da_4d8c_411e_b615_1ade683a9903);
+    const IID: ::windows::core::GUID = <IPropertyAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TranslationAnimation {
     const NAME: &'static str = "Windows.UI.Core.AnimationMetrics.TranslationAnimation";

@@ -120,7 +120,7 @@ unsafe impl ::windows::core::RuntimeType for Compressor {
 }
 unsafe impl ::windows::core::Interface for Compressor {
     type Vtable = ICompressor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ac3645a_57ac_4ee1_b702_84d39d5424e0);
+    const IID: ::windows::core::GUID = <ICompressor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Compressor {
     const NAME: &'static str = "Windows.Storage.Compression.Compressor";
@@ -282,7 +282,7 @@ unsafe impl ::windows::core::RuntimeType for Decompressor {
 }
 unsafe impl ::windows::core::Interface for Decompressor {
     type Vtable = IDecompressor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb883fe46_d68a_4c8b_ada0_4ee813fc5283);
+    const IID: ::windows::core::GUID = <IDecompressor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Decompressor {
     const NAME: &'static str = "Windows.Storage.Compression.Decompressor";

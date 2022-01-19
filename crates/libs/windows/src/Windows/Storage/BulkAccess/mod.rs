@@ -430,7 +430,7 @@ unsafe impl ::windows::core::RuntimeType for FileInformation {
 }
 unsafe impl ::windows::core::Interface for FileInformation {
     type Vtable = IStorageItemInformation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87a5cb8b_8972_4f40_8de0_d86fb179d8fa);
+    const IID: ::windows::core::GUID = <IStorageItemInformation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FileInformation {
     const NAME: &'static str = "Windows.Storage.BulkAccess.FileInformation";
@@ -844,7 +844,7 @@ unsafe impl ::windows::core::RuntimeType for FileInformationFactory {
 }
 unsafe impl ::windows::core::Interface for FileInformationFactory {
     type Vtable = IFileInformationFactory_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x401d88be_960f_4d6d_a7d0_1a3861e76c83);
+    const IID: ::windows::core::GUID = <IFileInformationFactory as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FileInformationFactory {
     const NAME: &'static str = "Windows.Storage.BulkAccess.FileInformationFactory";
@@ -1424,7 +1424,7 @@ unsafe impl ::windows::core::RuntimeType for FolderInformation {
 }
 unsafe impl ::windows::core::Interface for FolderInformation {
     type Vtable = IStorageItemInformation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87a5cb8b_8972_4f40_8de0_d86fb179d8fa);
+    const IID: ::windows::core::GUID = <IStorageItemInformation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FolderInformation {
     const NAME: &'static str = "Windows.Storage.BulkAccess.FolderInformation";

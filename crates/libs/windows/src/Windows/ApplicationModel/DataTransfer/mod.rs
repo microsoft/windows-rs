@@ -218,7 +218,7 @@ unsafe impl ::windows::core::RuntimeType for ClipboardContentOptions {
 }
 unsafe impl ::windows::core::Interface for ClipboardContentOptions {
     type Vtable = IClipboardContentOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe888a98c_ad4b_5447_a056_ab3556276d2b);
+    const IID: ::windows::core::GUID = <IClipboardContentOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ClipboardContentOptions {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ClipboardContentOptions";
@@ -290,7 +290,7 @@ unsafe impl ::windows::core::RuntimeType for ClipboardHistoryChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for ClipboardHistoryChangedEventArgs {
     type Vtable = IClipboardHistoryChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0be453f_8ea2_53ce_9aba_8d2212573452);
+    const IID: ::windows::core::GUID = <IClipboardHistoryChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ClipboardHistoryChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ClipboardHistoryChangedEventArgs";
@@ -388,7 +388,7 @@ unsafe impl ::windows::core::RuntimeType for ClipboardHistoryItem {
 }
 unsafe impl ::windows::core::Interface for ClipboardHistoryItem {
     type Vtable = IClipboardHistoryItem_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0173bd8a_afff_5c50_ab92_3d19f481ec58);
+    const IID: ::windows::core::GUID = <IClipboardHistoryItem as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ClipboardHistoryItem {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ClipboardHistoryItem";
@@ -478,7 +478,7 @@ unsafe impl ::windows::core::RuntimeType for ClipboardHistoryItemsResult {
 }
 unsafe impl ::windows::core::Interface for ClipboardHistoryItemsResult {
     type Vtable = IClipboardHistoryItemsResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6dfdee6_0ee2_52e3_852b_f295db65939a);
+    const IID: ::windows::core::GUID = <IClipboardHistoryItemsResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ClipboardHistoryItemsResult {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ClipboardHistoryItemsResult";
@@ -746,7 +746,7 @@ unsafe impl ::windows::core::RuntimeType for DataPackage {
 }
 unsafe impl ::windows::core::Interface for DataPackage {
     type Vtable = IDataPackage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61ebf5c7_efea_4346_9554_981d7e198ffe);
+    const IID: ::windows::core::GUID = <IDataPackage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DataPackage {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataPackage";
@@ -1120,7 +1120,7 @@ unsafe impl ::windows::core::RuntimeType for DataPackagePropertySet {
 }
 unsafe impl ::windows::core::Interface for DataPackagePropertySet {
     type Vtable = IDataPackagePropertySet_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd1c93eb_4c4c_443a_a8d3_f5c241e91689);
+    const IID: ::windows::core::GUID = <IDataPackagePropertySet as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DataPackagePropertySet {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataPackagePropertySet";
@@ -1422,7 +1422,7 @@ unsafe impl ::windows::core::RuntimeType for DataPackagePropertySetView {
 }
 unsafe impl ::windows::core::Interface for DataPackagePropertySetView {
     type Vtable = IDataPackagePropertySetView_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb94cec01_0c1a_4c57_be55_75d01289735d);
+    const IID: ::windows::core::GUID = <IDataPackagePropertySetView as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DataPackagePropertySetView {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataPackagePropertySetView";
@@ -1732,7 +1732,7 @@ unsafe impl ::windows::core::RuntimeType for DataPackageView {
 }
 unsafe impl ::windows::core::Interface for DataPackageView {
     type Vtable = IDataPackageView_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b840471_5900_4d85_a90b_10cb85fe3552);
+    const IID: ::windows::core::GUID = <IDataPackageView as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DataPackageView {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataPackageView";
@@ -1810,7 +1810,7 @@ unsafe impl ::windows::core::RuntimeType for DataProviderDeferral {
 }
 unsafe impl ::windows::core::Interface for DataProviderDeferral {
     type Vtable = IDataProviderDeferral_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2cf2373_2d26_43d9_b69d_dcb86d03f6da);
+    const IID: ::windows::core::GUID = <IDataProviderDeferral as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DataProviderDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataProviderDeferral";
@@ -1991,7 +1991,7 @@ unsafe impl ::windows::core::RuntimeType for DataProviderRequest {
 }
 unsafe impl ::windows::core::Interface for DataProviderRequest {
     type Vtable = IDataProviderRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xebbc7157_d3c8_47da_acde_f82388d5f716);
+    const IID: ::windows::core::GUID = <IDataProviderRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DataProviderRequest {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataProviderRequest";
@@ -2099,7 +2099,7 @@ unsafe impl ::windows::core::RuntimeType for DataRequest {
 }
 unsafe impl ::windows::core::Interface for DataRequest {
     type Vtable = IDataRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4341ae3b_fc12_4e53_8c02_ac714c415a27);
+    const IID: ::windows::core::GUID = <IDataRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DataRequest {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataRequest";
@@ -2177,7 +2177,7 @@ unsafe impl ::windows::core::RuntimeType for DataRequestDeferral {
 }
 unsafe impl ::windows::core::Interface for DataRequestDeferral {
     type Vtable = IDataRequestDeferral_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6dc4b89f_0386_4263_87c1_ed7dce30890e);
+    const IID: ::windows::core::GUID = <IDataRequestDeferral as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DataRequestDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataRequestDeferral";
@@ -2258,7 +2258,7 @@ unsafe impl ::windows::core::RuntimeType for DataRequestedEventArgs {
 }
 unsafe impl ::windows::core::Interface for DataRequestedEventArgs {
     type Vtable = IDataRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb8ba807_6ac5_43c9_8ac5_9ba232163182);
+    const IID: ::windows::core::GUID = <IDataRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DataRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataRequestedEventArgs";
@@ -2413,7 +2413,7 @@ unsafe impl ::windows::core::RuntimeType for DataTransferManager {
 }
 unsafe impl ::windows::core::Interface for DataTransferManager {
     type Vtable = IDataTransferManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5caee9b_8708_49d1_8d36_67d25a8da00c);
+    const IID: ::windows::core::GUID = <IDataTransferManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DataTransferManager {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DataTransferManager";
@@ -3516,7 +3516,7 @@ unsafe impl ::windows::core::RuntimeType for OperationCompletedEventArgs {
 }
 unsafe impl ::windows::core::Interface for OperationCompletedEventArgs {
     type Vtable = IOperationCompletedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7af329d_051d_4fab_b1a9_47fd77f70a41);
+    const IID: ::windows::core::GUID = <IOperationCompletedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for OperationCompletedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.OperationCompletedEventArgs";
@@ -3626,7 +3626,7 @@ unsafe impl ::windows::core::RuntimeType for ShareCompletedEventArgs {
 }
 unsafe impl ::windows::core::Interface for ShareCompletedEventArgs {
     type Vtable = IShareCompletedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4574c442_f913_4f60_9df7_cc4060ab1916);
+    const IID: ::windows::core::GUID = <IShareCompletedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ShareCompletedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareCompletedEventArgs";
@@ -3751,7 +3751,7 @@ unsafe impl ::windows::core::RuntimeType for ShareProvider {
 }
 unsafe impl ::windows::core::Interface for ShareProvider {
     type Vtable = IShareProvider_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2fabe026_443e_4cda_af25_8d81070efd80);
+    const IID: ::windows::core::GUID = <IShareProvider as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ShareProvider {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareProvider";
@@ -3923,7 +3923,7 @@ unsafe impl ::windows::core::RuntimeType for ShareProviderOperation {
 }
 unsafe impl ::windows::core::Interface for ShareProviderOperation {
     type Vtable = IShareProviderOperation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19cef937_d435_4179_b6af_14e0492b69f6);
+    const IID: ::windows::core::GUID = <IShareProviderOperation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ShareProviderOperation {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareProviderOperation";
@@ -4022,7 +4022,7 @@ unsafe impl ::windows::core::RuntimeType for ShareProvidersRequestedEventArgs {
 }
 unsafe impl ::windows::core::Interface for ShareProvidersRequestedEventArgs {
     type Vtable = IShareProvidersRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf888f356_a3f8_4fce_85e4_8826e63be799);
+    const IID: ::windows::core::GUID = <IShareProvidersRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ShareProvidersRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareProvidersRequestedEventArgs";
@@ -4111,7 +4111,7 @@ unsafe impl ::windows::core::RuntimeType for ShareTargetInfo {
 }
 unsafe impl ::windows::core::Interface for ShareTargetInfo {
     type Vtable = IShareTargetInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x385be607_c6e8_4114_b294_28f3bb6f9904);
+    const IID: ::windows::core::GUID = <IShareTargetInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ShareTargetInfo {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareTargetInfo";
@@ -4219,7 +4219,7 @@ unsafe impl ::windows::core::RuntimeType for ShareUIOptions {
 }
 unsafe impl ::windows::core::Interface for ShareUIOptions {
     type Vtable = IShareUIOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72fa8a80_342f_4d90_9551_2ae04e37680c);
+    const IID: ::windows::core::GUID = <IShareUIOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ShareUIOptions {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareUIOptions";
@@ -4447,7 +4447,7 @@ unsafe impl ::windows::core::RuntimeType for TargetApplicationChosenEventArgs {
 }
 unsafe impl ::windows::core::Interface for TargetApplicationChosenEventArgs {
     type Vtable = ITargetApplicationChosenEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca6fb8ac_2987_4ee3_9c54_d8afbcb86c1d);
+    const IID: ::windows::core::GUID = <ITargetApplicationChosenEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TargetApplicationChosenEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.TargetApplicationChosenEventArgs";

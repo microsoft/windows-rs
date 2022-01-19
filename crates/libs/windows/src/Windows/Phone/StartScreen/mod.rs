@@ -148,7 +148,7 @@ unsafe impl ::windows::core::RuntimeType for DualSimTile {
 }
 unsafe impl ::windows::core::Interface for DualSimTile {
     type Vtable = IDualSimTile_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x143ab213_d05f_4041_a18c_3e3fcb75b41e);
+    const IID: ::windows::core::GUID = <IDualSimTile as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DualSimTile {
     const NAME: &'static str = "Windows.Phone.StartScreen.DualSimTile";

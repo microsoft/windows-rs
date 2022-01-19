@@ -192,7 +192,7 @@ unsafe impl ::windows::core::RuntimeType for OfflineMapPackage {
 }
 unsafe impl ::windows::core::Interface for OfflineMapPackage {
     type Vtable = IOfflineMapPackage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa797673b_a5b5_4144_b525_e68c8862664b);
+    const IID: ::windows::core::GUID = <IOfflineMapPackage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for OfflineMapPackage {
     const NAME: &'static str = "Windows.Services.Maps.OfflineMaps.OfflineMapPackage";
@@ -282,7 +282,7 @@ unsafe impl ::windows::core::RuntimeType for OfflineMapPackageQueryResult {
 }
 unsafe impl ::windows::core::Interface for OfflineMapPackageQueryResult {
     type Vtable = IOfflineMapPackageQueryResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55585411_39e1_4e41_a4e1_5f4872bee199);
+    const IID: ::windows::core::GUID = <IOfflineMapPackageQueryResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for OfflineMapPackageQueryResult {
     const NAME: &'static str = "Windows.Services.Maps.OfflineMaps.OfflineMapPackageQueryResult";
@@ -393,7 +393,7 @@ unsafe impl ::windows::core::RuntimeType for OfflineMapPackageStartDownloadResul
 }
 unsafe impl ::windows::core::Interface for OfflineMapPackageStartDownloadResult {
     type Vtable = IOfflineMapPackageStartDownloadResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd965b918_d4d6_4afe_9378_3ec71ef11c3d);
+    const IID: ::windows::core::GUID = <IOfflineMapPackageStartDownloadResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for OfflineMapPackageStartDownloadResult {
     const NAME: &'static str = "Windows.Services.Maps.OfflineMaps.OfflineMapPackageStartDownloadResult";

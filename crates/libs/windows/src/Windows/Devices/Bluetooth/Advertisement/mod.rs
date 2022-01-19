@@ -105,7 +105,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisement {
 }
 unsafe impl ::windows::core::Interface for BluetoothLEAdvertisement {
     type Vtable = IBluetoothLEAdvertisement_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x066fb2b7_33d1_4e7d_8367_cf81d0f79653);
+    const IID: ::windows::core::GUID = <IBluetoothLEAdvertisement as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BluetoothLEAdvertisement {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisement";
@@ -239,7 +239,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementBytePattern
 }
 unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementBytePattern {
     type Vtable = IBluetoothLEAdvertisementBytePattern_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbfad7f2_b9c5_4a08_bc51_502f8ef68a79);
+    const IID: ::windows::core::GUID = <IBluetoothLEAdvertisementBytePattern as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BluetoothLEAdvertisementBytePattern {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementBytePattern";
@@ -360,7 +360,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementDataSection
 }
 unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementDataSection {
     type Vtable = IBluetoothLEAdvertisementDataSection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7213314_3a43_40f9_b6f0_92bfefc34ae3);
+    const IID: ::windows::core::GUID = <IBluetoothLEAdvertisementDataSection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BluetoothLEAdvertisementDataSection {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataSection";
@@ -628,7 +628,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementFilter {
 }
 unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementFilter {
     type Vtable = IBluetoothLEAdvertisementFilter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x131eb0d3_d04e_47b1_837e_49405bf6f80f);
+    const IID: ::windows::core::GUID = <IBluetoothLEAdvertisementFilter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BluetoothLEAdvertisementFilter {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementFilter";
@@ -875,7 +875,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementPublisher {
 }
 unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementPublisher {
     type Vtable = IBluetoothLEAdvertisementPublisher_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcde820f9_d9fa_43d6_a264_ddd8b7da8b78);
+    const IID: ::windows::core::GUID = <IBluetoothLEAdvertisementPublisher as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BluetoothLEAdvertisementPublisher {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementPublisher";
@@ -1005,7 +1005,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementPublisherSt
 }
 unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementPublisherStatusChangedEventArgs {
     type Vtable = IBluetoothLEAdvertisementPublisherStatusChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09c2bd9f_2dff_4b23_86ee_0d14fb94aeae);
+    const IID: ::windows::core::GUID = <IBluetoothLEAdvertisementPublisherStatusChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BluetoothLEAdvertisementPublisherStatusChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementPublisherStatusChangedEventArgs";
@@ -1176,7 +1176,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementReceivedEve
 }
 unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementReceivedEventArgs {
     type Vtable = IBluetoothLEAdvertisementReceivedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27987ddf_e596_41be_8d43_9e6731d4a913);
+    const IID: ::windows::core::GUID = <IBluetoothLEAdvertisementReceivedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BluetoothLEAdvertisementReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementReceivedEventArgs";
@@ -1436,7 +1436,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementWatcher {
 }
 unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementWatcher {
     type Vtable = IBluetoothLEAdvertisementWatcher_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6ac336f_f3d3_4297_8d6c_c81ea6623f40);
+    const IID: ::windows::core::GUID = <IBluetoothLEAdvertisementWatcher as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BluetoothLEAdvertisementWatcher {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementWatcher";
@@ -1548,7 +1548,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementWatcherStop
 }
 unsafe impl ::windows::core::Interface for BluetoothLEAdvertisementWatcherStoppedEventArgs {
     type Vtable = IBluetoothLEAdvertisementWatcherStoppedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd40f84d_e7b9_43e3_9c04_0685d085fd8c);
+    const IID: ::windows::core::GUID = <IBluetoothLEAdvertisementWatcherStoppedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BluetoothLEAdvertisementWatcherStoppedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementWatcherStoppedEventArgs";
@@ -1669,7 +1669,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothLEManufacturerData {
 }
 unsafe impl ::windows::core::Interface for BluetoothLEManufacturerData {
     type Vtable = IBluetoothLEManufacturerData_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x912dba18_6963_4533_b061_4694dafb34e5);
+    const IID: ::windows::core::GUID = <IBluetoothLEManufacturerData as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BluetoothLEManufacturerData {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEManufacturerData";

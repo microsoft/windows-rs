@@ -113,7 +113,7 @@ unsafe impl ::windows::core::RuntimeType for DevicePortalConnection {
 }
 unsafe impl ::windows::core::Interface for DevicePortalConnection {
     type Vtable = IDevicePortalConnection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f447f51_1198_4da1_8d54_bdef393e09b6);
+    const IID: ::windows::core::GUID = <IDevicePortalConnection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DevicePortalConnection {
     const NAME: &'static str = "Windows.System.Diagnostics.DevicePortal.DevicePortalConnection";
@@ -194,7 +194,7 @@ unsafe impl ::windows::core::RuntimeType for DevicePortalConnectionClosedEventAr
 }
 unsafe impl ::windows::core::Interface for DevicePortalConnectionClosedEventArgs {
     type Vtable = IDevicePortalConnectionClosedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcf70e38_7032_428c_9f50_945c15a9f0cb);
+    const IID: ::windows::core::GUID = <IDevicePortalConnectionClosedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DevicePortalConnectionClosedEventArgs {
     const NAME: &'static str = "Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionClosedEventArgs";
@@ -343,7 +343,7 @@ unsafe impl ::windows::core::RuntimeType for DevicePortalConnectionRequestReceiv
 }
 unsafe impl ::windows::core::Interface for DevicePortalConnectionRequestReceivedEventArgs {
     type Vtable = IDevicePortalConnectionRequestReceivedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64dae045_6fda_4459_9ebd_ecce22e38559);
+    const IID: ::windows::core::GUID = <IDevicePortalConnectionRequestReceivedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DevicePortalConnectionRequestReceivedEventArgs {
     const NAME: &'static str = "Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionRequestReceivedEventArgs";

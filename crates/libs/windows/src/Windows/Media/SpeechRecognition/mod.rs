@@ -708,7 +708,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechContinuousRecognitionComplete
 }
 unsafe impl ::windows::core::Interface for SpeechContinuousRecognitionCompletedEventArgs {
     type Vtable = ISpeechContinuousRecognitionCompletedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3d069bb_e30c_5e18_424b_7fbe81f8fbd0);
+    const IID: ::windows::core::GUID = <ISpeechContinuousRecognitionCompletedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpeechContinuousRecognitionCompletedEventArgs {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechContinuousRecognitionCompletedEventArgs";
@@ -817,7 +817,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechContinuousRecognitionResultGe
 }
 unsafe impl ::windows::core::Interface for SpeechContinuousRecognitionResultGeneratedEventArgs {
     type Vtable = ISpeechContinuousRecognitionResultGeneratedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19091e1e_6e7e_5a46_40fb_76594f786504);
+    const IID: ::windows::core::GUID = <ISpeechContinuousRecognitionResultGeneratedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpeechContinuousRecognitionResultGeneratedEventArgs {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechContinuousRecognitionResultGeneratedEventArgs";
@@ -985,7 +985,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechContinuousRecognitionSession 
 }
 unsafe impl ::windows::core::Interface for SpeechContinuousRecognitionSession {
     type Vtable = ISpeechContinuousRecognitionSession_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a213c04_6614_49f8_99a2_b5e9b3a085c8);
+    const IID: ::windows::core::GUID = <ISpeechContinuousRecognitionSession as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpeechContinuousRecognitionSession {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechContinuousRecognitionSession";
@@ -1099,7 +1099,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechRecognitionCompilationResult 
 }
 unsafe impl ::windows::core::Interface for SpeechRecognitionCompilationResult {
     type Vtable = ISpeechRecognitionCompilationResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x407e6c5d_6ac7_4da4_9cc1_2fce32cf7489);
+    const IID: ::windows::core::GUID = <ISpeechRecognitionCompilationResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpeechRecognitionCompilationResult {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionCompilationResult";
@@ -1338,7 +1338,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechRecognitionGrammarFileConstra
 }
 unsafe impl ::windows::core::Interface for SpeechRecognitionGrammarFileConstraint {
     type Vtable = ISpeechRecognitionGrammarFileConstraint_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5031a8f_85ca_4fa4_b11a_474fc41b3835);
+    const IID: ::windows::core::GUID = <ISpeechRecognitionGrammarFileConstraint as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpeechRecognitionGrammarFileConstraint {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionGrammarFileConstraint";
@@ -1441,7 +1441,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechRecognitionHypothesis {
 }
 unsafe impl ::windows::core::Interface for SpeechRecognitionHypothesis {
     type Vtable = ISpeechRecognitionHypothesis_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a7b25b0_99c5_4f7d_bf84_10aa1302b634);
+    const IID: ::windows::core::GUID = <ISpeechRecognitionHypothesis as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpeechRecognitionHypothesis {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionHypothesis";
@@ -1522,7 +1522,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechRecognitionHypothesisGenerate
 }
 unsafe impl ::windows::core::Interface for SpeechRecognitionHypothesisGeneratedEventArgs {
     type Vtable = ISpeechRecognitionHypothesisGeneratedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55161a7a_8023_5866_411d_1213bb271476);
+    const IID: ::windows::core::GUID = <ISpeechRecognitionHypothesisGeneratedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpeechRecognitionHypothesisGeneratedEventArgs {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionHypothesisGeneratedEventArgs";
@@ -1672,7 +1672,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechRecognitionListConstraint {
 }
 unsafe impl ::windows::core::Interface for SpeechRecognitionListConstraint {
     type Vtable = ISpeechRecognitionListConstraint_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09c487e9_e4ad_4526_81f2_4946fb481d98);
+    const IID: ::windows::core::GUID = <ISpeechRecognitionListConstraint as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpeechRecognitionListConstraint {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionListConstraint";
@@ -1775,7 +1775,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechRecognitionQualityDegradingEv
 }
 unsafe impl ::windows::core::Interface for SpeechRecognitionQualityDegradingEventArgs {
     type Vtable = ISpeechRecognitionQualityDegradingEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4fe24105_8c3a_4c7e_8d0a_5bd4f5b14ad8);
+    const IID: ::windows::core::GUID = <ISpeechRecognitionQualityDegradingEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpeechRecognitionQualityDegradingEventArgs {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionQualityDegradingEventArgs";
@@ -1932,7 +1932,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechRecognitionResult {
 }
 unsafe impl ::windows::core::Interface for SpeechRecognitionResult {
     type Vtable = ISpeechRecognitionResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e303157_034e_4652_857e_d0454cc4beec);
+    const IID: ::windows::core::GUID = <ISpeechRecognitionResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpeechRecognitionResult {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionResult";
@@ -2080,7 +2080,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechRecognitionSemanticInterpreta
 }
 unsafe impl ::windows::core::Interface for SpeechRecognitionSemanticInterpretation {
     type Vtable = ISpeechRecognitionSemanticInterpretation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaae1da9b_7e32_4c1f_89fe_0c65f486f52e);
+    const IID: ::windows::core::GUID = <ISpeechRecognitionSemanticInterpretation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpeechRecognitionSemanticInterpretation {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionSemanticInterpretation";
@@ -2235,7 +2235,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechRecognitionTopicConstraint {
 }
 unsafe impl ::windows::core::Interface for SpeechRecognitionTopicConstraint {
     type Vtable = ISpeechRecognitionTopicConstraint_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf6fdf19_825d_4e69_a681_36e48cf1c93e);
+    const IID: ::windows::core::GUID = <ISpeechRecognitionTopicConstraint as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpeechRecognitionTopicConstraint {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionTopicConstraint";
@@ -2377,7 +2377,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechRecognitionVoiceCommandDefini
 }
 unsafe impl ::windows::core::Interface for SpeechRecognitionVoiceCommandDefinitionConstraint {
     type Vtable = ISpeechRecognitionVoiceCommandDefinitionConstraint_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2791c2b_1ef4_4ae7_9d77_b6ff10b8a3c2);
+    const IID: ::windows::core::GUID = <ISpeechRecognitionVoiceCommandDefinitionConstraint as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpeechRecognitionVoiceCommandDefinitionConstraint {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognitionVoiceCommandDefinitionConstraint";
@@ -2671,7 +2671,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechRecognizer {
 }
 unsafe impl ::windows::core::Interface for SpeechRecognizer {
     type Vtable = ISpeechRecognizer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0bc3c9cb_c26a_40f2_aeb5_8096b2e48073);
+    const IID: ::windows::core::GUID = <ISpeechRecognizer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpeechRecognizer {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognizer";
@@ -2811,7 +2811,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechRecognizerStateChangedEventAr
 }
 unsafe impl ::windows::core::Interface for SpeechRecognizerStateChangedEventArgs {
     type Vtable = ISpeechRecognizerStateChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x563d4f09_ba03_4bad_ad81_ddc6c4dab0c3);
+    const IID: ::windows::core::GUID = <ISpeechRecognizerStateChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpeechRecognizerStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognizerStateChangedEventArgs";
@@ -2929,7 +2929,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechRecognizerTimeouts {
 }
 unsafe impl ::windows::core::Interface for SpeechRecognizerTimeouts {
     type Vtable = ISpeechRecognizerTimeouts_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ef76fca_6a3c_4dca_a153_df1bc88a79af);
+    const IID: ::windows::core::GUID = <ISpeechRecognizerTimeouts as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpeechRecognizerTimeouts {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognizerTimeouts";
@@ -3054,7 +3054,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechRecognizerUIOptions {
 }
 unsafe impl ::windows::core::Interface for SpeechRecognizerUIOptions {
     type Vtable = ISpeechRecognizerUIOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7888d641_b92b_44ba_a25f_d1864630641f);
+    const IID: ::windows::core::GUID = <ISpeechRecognizerUIOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpeechRecognizerUIOptions {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.SpeechRecognizerUIOptions";
@@ -3180,7 +3180,7 @@ unsafe impl ::windows::core::RuntimeType for VoiceCommandSet {
 }
 unsafe impl ::windows::core::Interface for VoiceCommandSet {
     type Vtable = IVoiceCommandSet_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0bedda75_46e6_4b11_a088_5c68632899b5);
+    const IID: ::windows::core::GUID = <IVoiceCommandSet as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VoiceCommandSet {
     const NAME: &'static str = "Windows.Media.SpeechRecognition.VoiceCommandSet";

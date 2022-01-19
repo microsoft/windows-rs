@@ -161,7 +161,7 @@ unsafe impl ::windows::core::RuntimeType for Radio {
 }
 unsafe impl ::windows::core::Interface for Radio {
     type Vtable = IRadio_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x252118df_b33e_416a_875f_1cf38ae2d83e);
+    const IID: ::windows::core::GUID = <IRadio as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Radio {
     const NAME: &'static str = "Windows.Devices.Radios.Radio";

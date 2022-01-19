@@ -172,7 +172,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallBlockedTriggerDetails {
 }
 unsafe impl ::windows::core::Interface for PhoneCallBlockedTriggerDetails {
     type Vtable = IPhoneCallBlockedTriggerDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4a690a2_e4c1_427f_864e_e470477ddb67);
+    const IID: ::windows::core::GUID = <IPhoneCallBlockedTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PhoneCallBlockedTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Background.PhoneCallBlockedTriggerDetails";
@@ -261,7 +261,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallOriginDataRequestTriggerDe
 }
 unsafe impl ::windows::core::Interface for PhoneCallOriginDataRequestTriggerDetails {
     type Vtable = IPhoneCallOriginDataRequestTriggerDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e9b5b3f_c54b_4e82_4cc9_e329a4184592);
+    const IID: ::windows::core::GUID = <IPhoneCallOriginDataRequestTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PhoneCallOriginDataRequestTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Background.PhoneCallOriginDataRequestTriggerDetails";
@@ -413,7 +413,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneIncomingCallDismissedTriggerDe
 }
 unsafe impl ::windows::core::Interface for PhoneIncomingCallDismissedTriggerDetails {
     type Vtable = IPhoneIncomingCallDismissedTriggerDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbad30276_83b6_5732_9c38_0c206546196a);
+    const IID: ::windows::core::GUID = <IPhoneIncomingCallDismissedTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PhoneIncomingCallDismissedTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Background.PhoneIncomingCallDismissedTriggerDetails";
@@ -502,7 +502,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneIncomingCallNotificationTrigge
 }
 unsafe impl ::windows::core::Interface for PhoneIncomingCallNotificationTriggerDetails {
     type Vtable = IPhoneIncomingCallNotificationTriggerDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b0e6044_9b32_5d42_8222_d2812e39fb21);
+    const IID: ::windows::core::GUID = <IPhoneIncomingCallNotificationTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PhoneIncomingCallNotificationTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Background.PhoneIncomingCallNotificationTriggerDetails";
@@ -628,7 +628,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneLineChangedTriggerDetails {
 }
 unsafe impl ::windows::core::Interface for PhoneLineChangedTriggerDetails {
     type Vtable = IPhoneLineChangedTriggerDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6d321e7_d11d_40d8_b2b7_e40a01d66249);
+    const IID: ::windows::core::GUID = <IPhoneLineChangedTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PhoneLineChangedTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Background.PhoneLineChangedTriggerDetails";
@@ -789,7 +789,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneNewVoicemailMessageTriggerDeta
 }
 unsafe impl ::windows::core::Interface for PhoneNewVoicemailMessageTriggerDetails {
     type Vtable = IPhoneNewVoicemailMessageTriggerDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13a8c01b_b831_48d3_8ba9_8d22a6580dcf);
+    const IID: ::windows::core::GUID = <IPhoneNewVoicemailMessageTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PhoneNewVoicemailMessageTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Background.PhoneNewVoicemailMessageTriggerDetails";

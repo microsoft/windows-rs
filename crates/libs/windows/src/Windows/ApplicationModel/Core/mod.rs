@@ -67,7 +67,7 @@ unsafe impl ::windows::core::RuntimeType for AppListEntry {
 }
 unsafe impl ::windows::core::Interface for AppListEntry {
     type Vtable = IAppListEntry_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef00f07f_2108_490a_877a_8a9f17c25fad);
+    const IID: ::windows::core::GUID = <IAppListEntry as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppListEntry {
     const NAME: &'static str = "Windows.ApplicationModel.Core.AppListEntry";
@@ -510,7 +510,7 @@ unsafe impl ::windows::core::RuntimeType for CoreApplicationView {
 }
 unsafe impl ::windows::core::Interface for CoreApplicationView {
     type Vtable = ICoreApplicationView_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x638bb2db_451d_4661_b099_414f34ffb9f1);
+    const IID: ::windows::core::GUID = <ICoreApplicationView as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CoreApplicationView {
     const NAME: &'static str = "Windows.ApplicationModel.Core.CoreApplicationView";
@@ -656,7 +656,7 @@ unsafe impl ::windows::core::RuntimeType for CoreApplicationViewTitleBar {
 }
 unsafe impl ::windows::core::Interface for CoreApplicationViewTitleBar {
     type Vtable = ICoreApplicationViewTitleBar_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x006d35e3_e1f1_431b_9508_29b96926ac53);
+    const IID: ::windows::core::GUID = <ICoreApplicationViewTitleBar as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CoreApplicationViewTitleBar {
     const NAME: &'static str = "Windows.ApplicationModel.Core.CoreApplicationViewTitleBar";
@@ -736,7 +736,7 @@ unsafe impl ::windows::core::RuntimeType for HostedViewClosingEventArgs {
 }
 unsafe impl ::windows::core::Interface for HostedViewClosingEventArgs {
     type Vtable = IHostedViewClosingEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd238943c_b24e_4790_acb5_3e4243c4ff87);
+    const IID: ::windows::core::GUID = <IHostedViewClosingEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HostedViewClosingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Core.HostedViewClosingEventArgs";
@@ -1514,7 +1514,7 @@ unsafe impl ::windows::core::RuntimeType for UnhandledError {
 }
 unsafe impl ::windows::core::Interface for UnhandledError {
     type Vtable = IUnhandledError_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9459b726_53b5_4686_9eaf_fa8162dc3980);
+    const IID: ::windows::core::GUID = <IUnhandledError as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UnhandledError {
     const NAME: &'static str = "Windows.ApplicationModel.Core.UnhandledError";
@@ -1595,7 +1595,7 @@ unsafe impl ::windows::core::RuntimeType for UnhandledErrorDetectedEventArgs {
 }
 unsafe impl ::windows::core::Interface for UnhandledErrorDetectedEventArgs {
     type Vtable = IUnhandledErrorDetectedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x679ab78b_b336_4822_ac40_0d750f0b7a2b);
+    const IID: ::windows::core::GUID = <IUnhandledErrorDetectedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UnhandledErrorDetectedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Core.UnhandledErrorDetectedEventArgs";

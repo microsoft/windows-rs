@@ -66,7 +66,7 @@ unsafe impl ::windows::core::RuntimeType for AttributedNetworkUsage {
 }
 unsafe impl ::windows::core::Interface for AttributedNetworkUsage {
     type Vtable = IAttributedNetworkUsage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf769b039_eca2_45eb_ade1_b0368b756c49);
+    const IID: ::windows::core::GUID = <IAttributedNetworkUsage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AttributedNetworkUsage {
     const NAME: &'static str = "Windows.Networking.Connectivity.AttributedNetworkUsage";
@@ -267,7 +267,7 @@ unsafe impl ::windows::core::RuntimeType for CellularApnContext {
 }
 unsafe impl ::windows::core::Interface for CellularApnContext {
     type Vtable = ICellularApnContext_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fa529f4_effd_4542_9ab2_705bbf94943a);
+    const IID: ::windows::core::GUID = <ICellularApnContext as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CellularApnContext {
     const NAME: &'static str = "Windows.Networking.Connectivity.CellularApnContext";
@@ -380,7 +380,7 @@ unsafe impl ::windows::core::RuntimeType for ConnectionCost {
 }
 unsafe impl ::windows::core::Interface for ConnectionCost {
     type Vtable = IConnectionCost_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbad7d829_3416_4b10_a202_bac0b075bdae);
+    const IID: ::windows::core::GUID = <IConnectionCost as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ConnectionCost {
     const NAME: &'static str = "Windows.Networking.Connectivity.ConnectionCost";
@@ -639,7 +639,7 @@ unsafe impl ::windows::core::RuntimeType for ConnectionProfile {
 }
 unsafe impl ::windows::core::Interface for ConnectionProfile {
     type Vtable = IConnectionProfile_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71ba143c_598e_49d0_84eb_8febaedcc195);
+    const IID: ::windows::core::GUID = <IConnectionProfile as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ConnectionProfile {
     const NAME: &'static str = "Windows.Networking.Connectivity.ConnectionProfile";
@@ -885,7 +885,7 @@ unsafe impl ::windows::core::RuntimeType for ConnectionProfileFilter {
 }
 unsafe impl ::windows::core::Interface for ConnectionProfileFilter {
     type Vtable = IConnectionProfileFilter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x204c7cc8_bd2d_4e8d_a4b3_455ec337388a);
+    const IID: ::windows::core::GUID = <IConnectionProfileFilter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ConnectionProfileFilter {
     const NAME: &'static str = "Windows.Networking.Connectivity.ConnectionProfileFilter";
@@ -972,7 +972,7 @@ unsafe impl ::windows::core::RuntimeType for ConnectionSession {
 }
 unsafe impl ::windows::core::Interface for ConnectionSession {
     type Vtable = IConnectionSession_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff905d4c_f83b_41b0_8a0c_1462d9c56b73);
+    const IID: ::windows::core::GUID = <IConnectionSession as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ConnectionSession {
     const NAME: &'static str = "Windows.Networking.Connectivity.ConnectionSession";
@@ -1089,7 +1089,7 @@ unsafe impl ::windows::core::RuntimeType for ConnectivityInterval {
 }
 unsafe impl ::windows::core::Interface for ConnectivityInterval {
     type Vtable = IConnectivityInterval_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4faa3fff_6746_4824_a964_eed8e87f8709);
+    const IID: ::windows::core::GUID = <IConnectivityInterval as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ConnectivityInterval {
     const NAME: &'static str = "Windows.Networking.Connectivity.ConnectivityInterval";
@@ -1243,7 +1243,7 @@ unsafe impl ::windows::core::RuntimeType for DataPlanStatus {
 }
 unsafe impl ::windows::core::Interface for DataPlanStatus {
     type Vtable = IDataPlanStatus_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x977a8b8c_3885_40f3_8851_42cd2bd568bb);
+    const IID: ::windows::core::GUID = <IDataPlanStatus as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DataPlanStatus {
     const NAME: &'static str = "Windows.Networking.Connectivity.DataPlanStatus";
@@ -1333,7 +1333,7 @@ unsafe impl ::windows::core::RuntimeType for DataPlanUsage {
 }
 unsafe impl ::windows::core::Interface for DataPlanUsage {
     type Vtable = IDataPlanUsage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb921492d_3b44_47ff_b361_be59e69ed1b0);
+    const IID: ::windows::core::GUID = <IDataPlanUsage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DataPlanUsage {
     const NAME: &'static str = "Windows.Networking.Connectivity.DataPlanUsage";
@@ -1432,7 +1432,7 @@ unsafe impl ::windows::core::RuntimeType for DataUsage {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for DataUsage {
     type Vtable = IDataUsage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1431dd3_b146_4d39_b959_0c69b096c512);
+    const IID: ::windows::core::GUID = <IDataUsage as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for DataUsage {
@@ -2208,7 +2208,7 @@ unsafe impl ::windows::core::RuntimeType for IPInformation {
 }
 unsafe impl ::windows::core::Interface for IPInformation {
     type Vtable = IIPInformation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd85145e0_138f_47d7_9b3a_36bb488cef33);
+    const IID: ::windows::core::GUID = <IIPInformation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for IPInformation {
     const NAME: &'static str = "Windows.Networking.Connectivity.IPInformation";
@@ -2411,7 +2411,7 @@ unsafe impl ::windows::core::RuntimeType for LanIdentifier {
 }
 unsafe impl ::windows::core::Interface for LanIdentifier {
     type Vtable = ILanIdentifier_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48aa53aa_1108_4546_a6cb_9a74da4b7ba0);
+    const IID: ::windows::core::GUID = <ILanIdentifier as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LanIdentifier {
     const NAME: &'static str = "Windows.Networking.Connectivity.LanIdentifier";
@@ -2501,7 +2501,7 @@ unsafe impl ::windows::core::RuntimeType for LanIdentifierData {
 }
 unsafe impl ::windows::core::Interface for LanIdentifierData {
     type Vtable = ILanIdentifierData_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa74e83c3_d639_45be_a36a_c4e4aeaf6d9b);
+    const IID: ::windows::core::GUID = <ILanIdentifierData as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LanIdentifierData {
     const NAME: &'static str = "Windows.Networking.Connectivity.LanIdentifierData";
@@ -2623,7 +2623,7 @@ unsafe impl ::windows::core::RuntimeType for NetworkAdapter {
 }
 unsafe impl ::windows::core::Interface for NetworkAdapter {
     type Vtable = INetworkAdapter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b542e03_5388_496c_a8a3_affd39aec2e6);
+    const IID: ::windows::core::GUID = <INetworkAdapter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for NetworkAdapter {
     const NAME: &'static str = "Windows.Networking.Connectivity.NetworkAdapter";
@@ -2936,7 +2936,7 @@ unsafe impl ::windows::core::RuntimeType for NetworkItem {
 }
 unsafe impl ::windows::core::Interface for NetworkItem {
     type Vtable = INetworkItem_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01bc4d39_f5e0_4567_a28c_42080c831b2b);
+    const IID: ::windows::core::GUID = <INetworkItem as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for NetworkItem {
     const NAME: &'static str = "Windows.Networking.Connectivity.NetworkItem";
@@ -3025,7 +3025,7 @@ unsafe impl ::windows::core::RuntimeType for NetworkSecuritySettings {
 }
 unsafe impl ::windows::core::Interface for NetworkSecuritySettings {
     type Vtable = INetworkSecuritySettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ca07e8d_917b_4b5f_b84d_28f7a5ac5402);
+    const IID: ::windows::core::GUID = <INetworkSecuritySettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for NetworkSecuritySettings {
     const NAME: &'static str = "Windows.Networking.Connectivity.NetworkSecuritySettings";
@@ -3162,7 +3162,7 @@ unsafe impl ::windows::core::RuntimeType for NetworkStateChangeEventDetails {
 }
 unsafe impl ::windows::core::Interface for NetworkStateChangeEventDetails {
     type Vtable = INetworkStateChangeEventDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f0cf333_d7a6_44dd_a4e9_687c476b903d);
+    const IID: ::windows::core::GUID = <INetworkStateChangeEventDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for NetworkStateChangeEventDetails {
     const NAME: &'static str = "Windows.Networking.Connectivity.NetworkStateChangeEventDetails";
@@ -3395,7 +3395,7 @@ unsafe impl ::windows::core::RuntimeType for NetworkUsage {
 }
 unsafe impl ::windows::core::Interface for NetworkUsage {
     type Vtable = INetworkUsage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49da8fce_9985_4927_bf5b_072b5c65f8d9);
+    const IID: ::windows::core::GUID = <INetworkUsage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for NetworkUsage {
     const NAME: &'static str = "Windows.Networking.Connectivity.NetworkUsage";
@@ -3529,7 +3529,7 @@ unsafe impl ::windows::core::RuntimeType for ProviderNetworkUsage {
 }
 unsafe impl ::windows::core::Interface for ProviderNetworkUsage {
     type Vtable = IProviderNetworkUsage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ec69e04_7931_48c8_b8f3_46300fa42728);
+    const IID: ::windows::core::GUID = <IProviderNetworkUsage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ProviderNetworkUsage {
     const NAME: &'static str = "Windows.Networking.Connectivity.ProviderNetworkUsage";
@@ -3619,7 +3619,7 @@ unsafe impl ::windows::core::RuntimeType for ProxyConfiguration {
 }
 unsafe impl ::windows::core::Interface for ProxyConfiguration {
     type Vtable = IProxyConfiguration_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef3a60b4_9004_4dd6_b7d8_b3e502f4aad0);
+    const IID: ::windows::core::GUID = <IProxyConfiguration as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ProxyConfiguration {
     const NAME: &'static str = "Windows.Networking.Connectivity.ProxyConfiguration";
@@ -3785,7 +3785,7 @@ unsafe impl ::windows::core::RuntimeType for RoutePolicy {
 }
 unsafe impl ::windows::core::Interface for RoutePolicy {
     type Vtable = IRoutePolicy_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11abc4ac_0fc7_42e4_8742_569923b1ca11);
+    const IID: ::windows::core::GUID = <IRoutePolicy as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RoutePolicy {
     const NAME: &'static str = "Windows.Networking.Connectivity.RoutePolicy";
@@ -3895,7 +3895,7 @@ unsafe impl ::windows::core::RuntimeType for WlanConnectionProfileDetails {
 }
 unsafe impl ::windows::core::Interface for WlanConnectionProfileDetails {
     type Vtable = IWlanConnectionProfileDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x562098cb_b35a_4bf1_a884_b7557e88ff86);
+    const IID: ::windows::core::GUID = <IWlanConnectionProfileDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WlanConnectionProfileDetails {
     const NAME: &'static str = "Windows.Networking.Connectivity.WlanConnectionProfileDetails";
@@ -4017,7 +4017,7 @@ unsafe impl ::windows::core::RuntimeType for WwanConnectionProfileDetails {
 }
 unsafe impl ::windows::core::Interface for WwanConnectionProfileDetails {
     type Vtable = IWwanConnectionProfileDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e4da8fe_835f_4df3_82fd_df556ebc09ef);
+    const IID: ::windows::core::GUID = <IWwanConnectionProfileDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WwanConnectionProfileDetails {
     const NAME: &'static str = "Windows.Networking.Connectivity.WwanConnectionProfileDetails";

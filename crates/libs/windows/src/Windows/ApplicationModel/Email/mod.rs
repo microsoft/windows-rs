@@ -182,7 +182,7 @@ unsafe impl ::windows::core::RuntimeType for EmailAttachment {
 }
 unsafe impl ::windows::core::Interface for EmailAttachment {
     type Vtable = IEmailAttachment_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf353caf9_57c8_4adb_b992_60fceb584f54);
+    const IID: ::windows::core::GUID = <IEmailAttachment as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EmailAttachment {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailAttachment";
@@ -474,7 +474,7 @@ unsafe impl ::windows::core::RuntimeType for EmailConversation {
 }
 unsafe impl ::windows::core::Interface for EmailConversation {
     type Vtable = IEmailConversation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda18c248_a0bc_4349_902d_90f66389f51b);
+    const IID: ::windows::core::GUID = <IEmailConversation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EmailConversation {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailConversation";
@@ -564,7 +564,7 @@ unsafe impl ::windows::core::RuntimeType for EmailConversationBatch {
 }
 unsafe impl ::windows::core::Interface for EmailConversationBatch {
     type Vtable = IEmailConversationBatch_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8c1ab81_01c5_432a_9df1_fe85d98a279a);
+    const IID: ::windows::core::GUID = <IEmailConversationBatch as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EmailConversationBatch {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailConversationBatch";
@@ -646,7 +646,7 @@ unsafe impl ::windows::core::RuntimeType for EmailConversationReader {
 }
 unsafe impl ::windows::core::Interface for EmailConversationReader {
     type Vtable = IEmailConversationReader_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4630f82_2875_44c8_9b8c_85beb3a3c653);
+    const IID: ::windows::core::GUID = <IEmailConversationReader as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EmailConversationReader {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailConversationReader";
@@ -948,7 +948,7 @@ unsafe impl ::windows::core::RuntimeType for EmailFolder {
 }
 unsafe impl ::windows::core::Interface for EmailFolder {
     type Vtable = IEmailFolder_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa24f7771_996c_4864_b1ba_ed1240e57d11);
+    const IID: ::windows::core::GUID = <IEmailFolder as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EmailFolder {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailFolder";
@@ -1228,7 +1228,7 @@ unsafe impl ::windows::core::RuntimeType for EmailIrmInfo {
 }
 unsafe impl ::windows::core::Interface for EmailIrmInfo {
     type Vtable = IEmailIrmInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90f52193_b1a0_4ebd_a6b6_ddca55606e0e);
+    const IID: ::windows::core::GUID = <IEmailIrmInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EmailIrmInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailIrmInfo";
@@ -1359,7 +1359,7 @@ unsafe impl ::windows::core::RuntimeType for EmailIrmTemplate {
 }
 unsafe impl ::windows::core::Interface for EmailIrmTemplate {
     type Vtable = IEmailIrmTemplate_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf327758d_546d_4bea_a963_54a38b2cc016);
+    const IID: ::windows::core::GUID = <IEmailIrmTemplate as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EmailIrmTemplate {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailIrmTemplate";
@@ -1464,7 +1464,7 @@ unsafe impl ::windows::core::RuntimeType for EmailItemCounts {
 }
 unsafe impl ::windows::core::Interface for EmailItemCounts {
     type Vtable = IEmailItemCounts_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bd13321_fec8_4bab_83ba_0baf3c1f6cbd);
+    const IID: ::windows::core::GUID = <IEmailItemCounts as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EmailItemCounts {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailItemCounts";
@@ -2037,7 +2037,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailbox {
 }
 unsafe impl ::windows::core::Interface for EmailMailbox {
     type Vtable = IEmailMailbox_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8790649_cf5b_411b_80b1_4a6a1484ce25);
+    const IID: ::windows::core::GUID = <IEmailMailbox as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EmailMailbox {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailbox";
@@ -2126,7 +2126,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxAction {
 }
 unsafe impl ::windows::core::Interface for EmailMailboxAction {
     type Vtable = IEmailMailboxAction_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac9889fa_21fa_4927_9210_d410582fdf3e);
+    const IID: ::windows::core::GUID = <IEmailMailboxAction as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EmailMailboxAction {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxAction";
@@ -2291,7 +2291,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxAutoReply {
 }
 unsafe impl ::windows::core::Interface for EmailMailboxAutoReply {
     type Vtable = IEmailMailboxAutoReply_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe223254c_8ab4_485b_b31f_04d15476bd59);
+    const IID: ::windows::core::GUID = <IEmailMailboxAutoReply as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EmailMailboxAutoReply {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxAutoReply";
@@ -2479,7 +2479,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxAutoReplySettings {
 }
 unsafe impl ::windows::core::Interface for EmailMailboxAutoReplySettings {
     type Vtable = IEmailMailboxAutoReplySettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa87a9fa8_0ac6_4b77_ba77_a6b99e9a27b8);
+    const IID: ::windows::core::GUID = <IEmailMailboxAutoReplySettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EmailMailboxAutoReplySettings {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxAutoReplySettings";
@@ -2734,7 +2734,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxCapabilities {
 }
 unsafe impl ::windows::core::Interface for EmailMailboxCapabilities {
     type Vtable = IEmailMailboxCapabilities_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeedec3a6_89db_4305_82c4_439e0a33da11);
+    const IID: ::windows::core::GUID = <IEmailMailboxCapabilities as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EmailMailboxCapabilities {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxCapabilities";
@@ -2840,7 +2840,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxChange {
 }
 unsafe impl ::windows::core::Interface for EmailMailboxChange {
     type Vtable = IEmailMailboxChange_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61edf54b_11ef_400c_adde_8cde65c85e66);
+    const IID: ::windows::core::GUID = <IEmailMailboxChange as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EmailMailboxChange {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxChange";
@@ -2932,7 +2932,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxChangeReader {
 }
 unsafe impl ::windows::core::Interface for EmailMailboxChangeReader {
     type Vtable = IEmailMailboxChangeReader_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbdbd0ebb_c53d_4331_97be_be75a2146a75);
+    const IID: ::windows::core::GUID = <IEmailMailboxChangeReader as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EmailMailboxChangeReader {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxChangeReader";
@@ -3031,7 +3031,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxChangeTracker {
 }
 unsafe impl ::windows::core::Interface for EmailMailboxChangeTracker {
     type Vtable = IEmailMailboxChangeTracker_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ae48638_5166_42b7_8882_fd21c92bdd4b);
+    const IID: ::windows::core::GUID = <IEmailMailboxChangeTracker as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EmailMailboxChangeTracker {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxChangeTracker";
@@ -3142,7 +3142,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxChangedDeferral {
 }
 unsafe impl ::windows::core::Interface for EmailMailboxChangedDeferral {
     type Vtable = IEmailMailboxChangedDeferral_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x779a74c1_97c5_4b54_b30d_306232623e6d);
+    const IID: ::windows::core::GUID = <IEmailMailboxChangedDeferral as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EmailMailboxChangedDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxChangedDeferral";
@@ -3223,7 +3223,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for EmailMailboxChangedEventArgs {
     type Vtable = IEmailMailboxChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cfd5f6e_01d4_4e4a_a44c_b22dd42ec207);
+    const IID: ::windows::core::GUID = <IEmailMailboxChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EmailMailboxChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxChangedEventArgs";
@@ -3312,7 +3312,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxCreateFolderResult {
 }
 unsafe impl ::windows::core::Interface for EmailMailboxCreateFolderResult {
     type Vtable = IEmailMailboxCreateFolderResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb228557f_2885_4998_b595_8a2d374ce950);
+    const IID: ::windows::core::GUID = <IEmailMailboxCreateFolderResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EmailMailboxCreateFolderResult {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxCreateFolderResult";
@@ -3621,7 +3621,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxPolicies {
 }
 unsafe impl ::windows::core::Interface for EmailMailboxPolicies {
     type Vtable = IEmailMailboxPolicies_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f3345c5_1c3b_4dc7_b410_6373783e545d);
+    const IID: ::windows::core::GUID = <IEmailMailboxPolicies as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EmailMailboxPolicies {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxPolicies";
@@ -3822,7 +3822,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMailboxSyncManager {
 }
 unsafe impl ::windows::core::Interface for EmailMailboxSyncManager {
     type Vtable = IEmailMailboxSyncManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x517ac55a_3591_4b5d_85bc_c71dde862263);
+    const IID: ::windows::core::GUID = <IEmailMailboxSyncManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EmailMailboxSyncManager {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMailboxSyncManager";
@@ -4001,7 +4001,7 @@ unsafe impl ::windows::core::RuntimeType for EmailManagerForUser {
 }
 unsafe impl ::windows::core::Interface for EmailManagerForUser {
     type Vtable = IEmailManagerForUser_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf773de9f_3ca5_4b0f_90c1_156e40174ce5);
+    const IID: ::windows::core::GUID = <IEmailManagerForUser as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EmailManagerForUser {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailManagerForUser";
@@ -4272,7 +4272,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMeetingInfo {
 }
 unsafe impl ::windows::core::Interface for EmailMeetingInfo {
     type Vtable = IEmailMeetingInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31c03fa9_7933_415f_a275_d165ba07026b);
+    const IID: ::windows::core::GUID = <IEmailMeetingInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EmailMeetingInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMeetingInfo";
@@ -4806,7 +4806,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMessage {
 }
 unsafe impl ::windows::core::Interface for EmailMessage {
     type Vtable = IEmailMessage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c6d948d_80b5_48f8_b0b1_e04e430f44e5);
+    const IID: ::windows::core::GUID = <IEmailMessage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EmailMessage {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMessage";
@@ -4896,7 +4896,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMessageBatch {
 }
 unsafe impl ::windows::core::Interface for EmailMessageBatch {
     type Vtable = IEmailMessageBatch_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x605cd08f_25d9_4f1b_9e51_0514c0149653);
+    const IID: ::windows::core::GUID = <IEmailMessageBatch as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EmailMessageBatch {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMessageBatch";
@@ -5036,7 +5036,7 @@ unsafe impl ::windows::core::RuntimeType for EmailMessageReader {
 }
 unsafe impl ::windows::core::Interface for EmailMessageReader {
     type Vtable = IEmailMessageReader_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f4abe9f_6213_4a85_a3b0_f92d1a839d19);
+    const IID: ::windows::core::GUID = <IEmailMessageReader as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EmailMessageReader {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailMessageReader";
@@ -5283,7 +5283,7 @@ unsafe impl ::windows::core::RuntimeType for EmailQueryOptions {
 }
 unsafe impl ::windows::core::Interface for EmailQueryOptions {
     type Vtable = IEmailQueryOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45504b9b_3e7f_4d52_b6dd_d6fd4e1fbd9a);
+    const IID: ::windows::core::GUID = <IEmailQueryOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EmailQueryOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailQueryOptions";
@@ -5538,7 +5538,7 @@ unsafe impl ::windows::core::RuntimeType for EmailQueryTextSearch {
 }
 unsafe impl ::windows::core::Interface for EmailQueryTextSearch {
     type Vtable = IEmailQueryTextSearch_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fa0a288_3c5d_46a5_a6e2_31d6fd17e540);
+    const IID: ::windows::core::GUID = <IEmailQueryTextSearch as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EmailQueryTextSearch {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailQueryTextSearch";
@@ -5663,7 +5663,7 @@ unsafe impl ::windows::core::RuntimeType for EmailRecipient {
 }
 unsafe impl ::windows::core::Interface for EmailRecipient {
     type Vtable = IEmailRecipient_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcae825b3_4478_4814_b900_c902b5e19b53);
+    const IID: ::windows::core::GUID = <IEmailRecipient as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EmailRecipient {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailRecipient";
@@ -5771,7 +5771,7 @@ unsafe impl ::windows::core::RuntimeType for EmailRecipientResolutionResult {
 }
 unsafe impl ::windows::core::Interface for EmailRecipientResolutionResult {
     type Vtable = IEmailRecipientResolutionResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x918338fa_8d8d_4573_80d1_07172a34b98d);
+    const IID: ::windows::core::GUID = <IEmailRecipientResolutionResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EmailRecipientResolutionResult {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailRecipientResolutionResult";
@@ -6006,7 +6006,7 @@ unsafe impl ::windows::core::RuntimeType for EmailStore {
 }
 unsafe impl ::windows::core::Interface for EmailStore {
     type Vtable = IEmailStore_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf803226e_9137_4f8b_a470_279ac3058eb6);
+    const IID: ::windows::core::GUID = <IEmailStore as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EmailStore {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailStore";
@@ -6106,7 +6106,7 @@ unsafe impl ::windows::core::RuntimeType for EmailStoreNotificationTriggerDetail
 }
 unsafe impl ::windows::core::Interface for EmailStoreNotificationTriggerDetails {
     type Vtable = IEmailStoreNotificationTriggerDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce17563c_46e6_43c9_96f7_facf7dd710cb);
+    const IID: ::windows::core::GUID = <IEmailStoreNotificationTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EmailStoreNotificationTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Email.EmailStoreNotificationTriggerDetails";

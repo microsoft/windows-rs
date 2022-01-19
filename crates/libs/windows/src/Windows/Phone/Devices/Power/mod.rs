@@ -69,7 +69,7 @@ unsafe impl ::windows::core::RuntimeType for Battery {
 }
 unsafe impl ::windows::core::Interface for Battery {
     type Vtable = IBattery_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x972adbdd_6720_4702_a476_b9d38a0070e3);
+    const IID: ::windows::core::GUID = <IBattery as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Battery {
     const NAME: &'static str = "Windows.Phone.Devices.Power.Battery";

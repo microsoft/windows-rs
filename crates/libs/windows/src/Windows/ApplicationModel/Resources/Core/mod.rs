@@ -356,7 +356,7 @@ unsafe impl ::windows::core::RuntimeType for NamedResource {
 }
 unsafe impl ::windows::core::Interface for NamedResource {
     type Vtable = INamedResource_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c98c219_0b13_4240_89a5_d495dc189a00);
+    const IID: ::windows::core::GUID = <INamedResource as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for NamedResource {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.NamedResource";
@@ -504,7 +504,7 @@ unsafe impl ::windows::core::RuntimeType for ResourceCandidate {
 }
 unsafe impl ::windows::core::Interface for ResourceCandidate {
     type Vtable = IResourceCandidate_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf5207d9_c433_4764_b3fd_8fa6bfbcbadc);
+    const IID: ::windows::core::GUID = <IResourceCandidate as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ResourceCandidate {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.ResourceCandidate";
@@ -659,7 +659,7 @@ unsafe impl ::windows::core::RuntimeType for ResourceCandidateVectorView {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for ResourceCandidateVectorView {
     type Vtable = super::super::super::Foundation::Collections::IVectorView_Vtbl<ResourceCandidate>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::super::Foundation::Collections::IVectorView<ResourceCandidate> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for ResourceCandidateVectorView {
@@ -934,7 +934,7 @@ unsafe impl ::windows::core::RuntimeType for ResourceContext {
 }
 unsafe impl ::windows::core::Interface for ResourceContext {
     type Vtable = IResourceContext_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2fa22f4b_707e_4b27_ad0d_d0d8cd468fd2);
+    const IID: ::windows::core::GUID = <IResourceContext as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ResourceContext {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.ResourceContext";
@@ -1060,7 +1060,7 @@ unsafe impl ::windows::core::RuntimeType for ResourceContextLanguagesVectorView 
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for ResourceContextLanguagesVectorView {
     type Vtable = super::super::super::Foundation::Collections::IVectorView_Vtbl<::windows::core::HSTRING>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for ResourceContextLanguagesVectorView {
@@ -1326,7 +1326,7 @@ unsafe impl ::windows::core::RuntimeType for ResourceManager {
 }
 unsafe impl ::windows::core::Interface for ResourceManager {
     type Vtable = IResourceManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf744d97b_9988_44fb_abd6_5378844cfa8b);
+    const IID: ::windows::core::GUID = <IResourceManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ResourceManager {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.ResourceManager";
@@ -1474,7 +1474,7 @@ unsafe impl ::windows::core::RuntimeType for ResourceMap {
 }
 unsafe impl ::windows::core::Interface for ResourceMap {
     type Vtable = IResourceMap_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72284824_db8c_42f8_b08c_53ff357dad82);
+    const IID: ::windows::core::GUID = <IResourceMap as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ResourceMap {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.ResourceMap";
@@ -1659,7 +1659,7 @@ unsafe impl ::windows::core::RuntimeType for ResourceMapIterator {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for ResourceMapIterator {
     type Vtable = super::super::super::Foundation::Collections::IIterator_Vtbl<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, NamedResource>>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, NamedResource>> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for ResourceMapIterator {
@@ -1819,7 +1819,7 @@ unsafe impl ::windows::core::RuntimeType for ResourceMapMapView {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for ResourceMapMapView {
     type Vtable = super::super::super::Foundation::Collections::IMapView_Vtbl<::windows::core::HSTRING, ResourceMap>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ResourceMap> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for ResourceMapMapView {
@@ -2015,7 +2015,7 @@ unsafe impl ::windows::core::RuntimeType for ResourceMapMapViewIterator {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for ResourceMapMapViewIterator {
     type Vtable = super::super::super::Foundation::Collections::IIterator_Vtbl<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ResourceMap>>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::super::Foundation::Collections::IIterator<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ResourceMap>> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for ResourceMapMapViewIterator {
@@ -2165,7 +2165,7 @@ unsafe impl ::windows::core::RuntimeType for ResourceQualifier {
 }
 unsafe impl ::windows::core::Interface for ResourceQualifier {
     type Vtable = IResourceQualifier_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x785da5b2_4afd_4376_a888_c5f9a6b7a05c);
+    const IID: ::windows::core::GUID = <IResourceQualifier as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ResourceQualifier {
     const NAME: &'static str = "Windows.ApplicationModel.Resources.Core.ResourceQualifier";
@@ -2288,7 +2288,7 @@ unsafe impl ::windows::core::RuntimeType for ResourceQualifierMapView {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for ResourceQualifierMapView {
     type Vtable = super::super::super::Foundation::Collections::IMapView_Vtbl<::windows::core::HSTRING, ::windows::core::HSTRING>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for ResourceQualifierMapView {
@@ -2529,7 +2529,7 @@ unsafe impl ::windows::core::RuntimeType for ResourceQualifierObservableMap {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for ResourceQualifierObservableMap {
     type Vtable = super::super::super::Foundation::Collections::IObservableMap_Vtbl<::windows::core::HSTRING, ::windows::core::HSTRING>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::super::Foundation::Collections::IObservableMap<::windows::core::HSTRING, ::windows::core::HSTRING> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for ResourceQualifierObservableMap {
@@ -2788,7 +2788,7 @@ unsafe impl ::windows::core::RuntimeType for ResourceQualifierVectorView {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for ResourceQualifierVectorView {
     type Vtable = super::super::super::Foundation::Collections::IVectorView_Vtbl<ResourceQualifier>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::super::Foundation::Collections::IVectorView<ResourceQualifier> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for ResourceQualifierVectorView {

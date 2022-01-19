@@ -63,7 +63,7 @@ unsafe impl ::windows::core::RuntimeType for AdvancedCapturedPhoto {
 }
 unsafe impl ::windows::core::Interface for AdvancedCapturedPhoto {
     type Vtable = IAdvancedCapturedPhoto_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf072728b_b292_4491_9d41_99807a550bbf);
+    const IID: ::windows::core::GUID = <IAdvancedCapturedPhoto as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AdvancedCapturedPhoto {
     const NAME: &'static str = "Windows.Media.Capture.AdvancedCapturedPhoto";
@@ -193,7 +193,7 @@ unsafe impl ::windows::core::RuntimeType for AdvancedPhotoCapture {
 }
 unsafe impl ::windows::core::Interface for AdvancedPhotoCapture {
     type Vtable = IAdvancedPhotoCapture_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83ffaafa_6667_44dc_973c_a6bce596aa0f);
+    const IID: ::windows::core::GUID = <IAdvancedPhotoCapture as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AdvancedPhotoCapture {
     const NAME: &'static str = "Windows.Media.Capture.AdvancedPhotoCapture";
@@ -438,7 +438,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastBackgroundService {
 }
 unsafe impl ::windows::core::Interface for AppBroadcastBackgroundService {
     type Vtable = IAppBroadcastBackgroundService_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbad1e72a_fa94_46f9_95fc_d71511cda70b);
+    const IID: ::windows::core::GUID = <IAppBroadcastBackgroundService as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppBroadcastBackgroundService {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastBackgroundService";
@@ -599,7 +599,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastBackgroundServiceSignIn
 }
 unsafe impl ::windows::core::Interface for AppBroadcastBackgroundServiceSignInInfo {
     type Vtable = IAppBroadcastBackgroundServiceSignInInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e735275_88c8_4eca_89ba_4825985db880);
+    const IID: ::windows::core::GUID = <IAppBroadcastBackgroundServiceSignInInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppBroadcastBackgroundServiceSignInInfo {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastBackgroundServiceSignInInfo";
@@ -775,7 +775,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastBackgroundServiceStream
 }
 unsafe impl ::windows::core::Interface for AppBroadcastBackgroundServiceStreamInfo {
     type Vtable = IAppBroadcastBackgroundServiceStreamInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31dc02bc_990a_4904_aa96_fe364381f136);
+    const IID: ::windows::core::GUID = <IAppBroadcastBackgroundServiceStreamInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppBroadcastBackgroundServiceStreamInfo {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastBackgroundServiceStreamInfo";
@@ -891,7 +891,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastCameraCaptureStateChang
 }
 unsafe impl ::windows::core::Interface for AppBroadcastCameraCaptureStateChangedEventArgs {
     type Vtable = IAppBroadcastCameraCaptureStateChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e334cd0_b882_4b88_8692_05999aceb70f);
+    const IID: ::windows::core::GUID = <IAppBroadcastCameraCaptureStateChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppBroadcastCameraCaptureStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastCameraCaptureStateChangedEventArgs";
@@ -1248,7 +1248,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastGlobalSettings {
 }
 unsafe impl ::windows::core::Interface for AppBroadcastGlobalSettings {
     type Vtable = IAppBroadcastGlobalSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2cb27a5_70fc_4e17_80bd_6ba0fd3ff3a0);
+    const IID: ::windows::core::GUID = <IAppBroadcastGlobalSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppBroadcastGlobalSettings {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastGlobalSettings";
@@ -1332,7 +1332,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastHeartbeatRequestedEvent
 }
 unsafe impl ::windows::core::Interface for AppBroadcastHeartbeatRequestedEventArgs {
     type Vtable = IAppBroadcastHeartbeatRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcea54283_ee51_4dbf_9472_79a9ed4e2165);
+    const IID: ::windows::core::GUID = <IAppBroadcastHeartbeatRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppBroadcastHeartbeatRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastHeartbeatRequestedEventArgs";
@@ -1482,7 +1482,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastMicrophoneCaptureStateC
 }
 unsafe impl ::windows::core::Interface for AppBroadcastMicrophoneCaptureStateChangedEventArgs {
     type Vtable = IAppBroadcastMicrophoneCaptureStateChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa86ad5e9_9440_4908_9d09_65b7e315d795);
+    const IID: ::windows::core::GUID = <IAppBroadcastMicrophoneCaptureStateChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppBroadcastMicrophoneCaptureStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastMicrophoneCaptureStateChangedEventArgs";
@@ -1588,7 +1588,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastPlugIn {
 }
 unsafe impl ::windows::core::Interface for AppBroadcastPlugIn {
     type Vtable = IAppBroadcastPlugIn_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x520c1e66_6513_4574_ac54_23b79729615b);
+    const IID: ::windows::core::GUID = <IAppBroadcastPlugIn as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppBroadcastPlugIn {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastPlugIn";
@@ -1711,7 +1711,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastPlugInManager {
 }
 unsafe impl ::windows::core::Interface for AppBroadcastPlugInManager {
     type Vtable = IAppBroadcastPlugInManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe550d979_27a1_49a7_bbf4_d7a9e9d07668);
+    const IID: ::windows::core::GUID = <IAppBroadcastPlugInManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppBroadcastPlugInManager {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastPlugInManager";
@@ -1825,7 +1825,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastPlugInStateChangedEvent
 }
 unsafe impl ::windows::core::Interface for AppBroadcastPlugInStateChangedEventArgs {
     type Vtable = IAppBroadcastPlugInStateChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4881d0f2_abc5_4fc6_84b0_89370bb47212);
+    const IID: ::windows::core::GUID = <IAppBroadcastPlugInStateChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppBroadcastPlugInStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastPlugInStateChangedEventArgs";
@@ -1943,7 +1943,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastPreview {
 }
 unsafe impl ::windows::core::Interface for AppBroadcastPreview {
     type Vtable = IAppBroadcastPreview_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14b60f5a_6e4a_4b80_a14f_67ee77d153e7);
+    const IID: ::windows::core::GUID = <IAppBroadcastPreview as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppBroadcastPreview {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastPreview";
@@ -2061,7 +2061,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastPreviewStateChangedEven
 }
 unsafe impl ::windows::core::Interface for AppBroadcastPreviewStateChangedEventArgs {
     type Vtable = IAppBroadcastPreviewStateChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a57f2de_8dea_4e86_90ad_03fc26b9653c);
+    const IID: ::windows::core::GUID = <IAppBroadcastPreviewStateChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppBroadcastPreviewStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastPreviewStateChangedEventArgs";
@@ -2199,7 +2199,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastPreviewStreamReader {
 }
 unsafe impl ::windows::core::Interface for AppBroadcastPreviewStreamReader {
     type Vtable = IAppBroadcastPreviewStreamReader_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92228d50_db3f_40a8_8cd4_f4e371ddab37);
+    const IID: ::windows::core::GUID = <IAppBroadcastPreviewStreamReader as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppBroadcastPreviewStreamReader {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastPreviewStreamReader";
@@ -2289,7 +2289,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastPreviewStreamVideoFrame
 }
 unsafe impl ::windows::core::Interface for AppBroadcastPreviewStreamVideoFrame {
     type Vtable = IAppBroadcastPreviewStreamVideoFrame_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x010fbea1_94fe_4499_b8c0_8d244279fb12);
+    const IID: ::windows::core::GUID = <IAppBroadcastPreviewStreamVideoFrame as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppBroadcastPreviewStreamVideoFrame {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastPreviewStreamVideoFrame";
@@ -2397,7 +2397,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastPreviewStreamVideoHeade
 }
 unsafe impl ::windows::core::Interface for AppBroadcastPreviewStreamVideoHeader {
     type Vtable = IAppBroadcastPreviewStreamVideoHeader_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8bef6113_da84_4499_a7ab_87118cb4a157);
+    const IID: ::windows::core::GUID = <IAppBroadcastPreviewStreamVideoHeader as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppBroadcastPreviewStreamVideoHeader {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastPreviewStreamVideoHeader";
@@ -2561,7 +2561,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastProviderSettings {
 }
 unsafe impl ::windows::core::Interface for AppBroadcastProviderSettings {
     type Vtable = IAppBroadcastProviderSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc30bdf62_9948_458f_ad50_aa06ec03da08);
+    const IID: ::windows::core::GUID = <IAppBroadcastProviderSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppBroadcastProviderSettings {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastProviderSettings";
@@ -2733,7 +2733,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastServices {
 }
 unsafe impl ::windows::core::Interface for AppBroadcastServices {
     type Vtable = IAppBroadcastServices_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8660b4d6_969b_4e3c_ac3a_8b042ee4ee63);
+    const IID: ::windows::core::GUID = <IAppBroadcastServices as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppBroadcastServices {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastServices";
@@ -2884,7 +2884,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastSignInStateChangedEvent
 }
 unsafe impl ::windows::core::Interface for AppBroadcastSignInStateChangedEventArgs {
     type Vtable = IAppBroadcastSignInStateChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02b692a4_5919_4a9e_8d5e_c9bb0dd3377a);
+    const IID: ::windows::core::GUID = <IAppBroadcastSignInStateChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppBroadcastSignInStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastSignInStateChangedEventArgs";
@@ -3216,7 +3216,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastState {
 }
 unsafe impl ::windows::core::Interface for AppBroadcastState {
     type Vtable = IAppBroadcastState_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee08056d_8099_4ddd_922e_c56dac58abfb);
+    const IID: ::windows::core::GUID = <IAppBroadcastState as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppBroadcastState {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastState";
@@ -3306,7 +3306,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastStreamAudioFrame {
 }
 unsafe impl ::windows::core::Interface for AppBroadcastStreamAudioFrame {
     type Vtable = IAppBroadcastStreamAudioFrame_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefab4ac8_21ba_453f_8bb7_5e938a2e9a74);
+    const IID: ::windows::core::GUID = <IAppBroadcastStreamAudioFrame as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppBroadcastStreamAudioFrame {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastStreamAudioFrame";
@@ -3420,7 +3420,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastStreamAudioHeader {
 }
 unsafe impl ::windows::core::Interface for AppBroadcastStreamAudioHeader {
     type Vtable = IAppBroadcastStreamAudioHeader_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf21a570_6b78_4216_9f07_5aff5256f1b7);
+    const IID: ::windows::core::GUID = <IAppBroadcastStreamAudioHeader as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppBroadcastStreamAudioHeader {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastStreamAudioHeader";
@@ -3594,7 +3594,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastStreamReader {
 }
 unsafe impl ::windows::core::Interface for AppBroadcastStreamReader {
     type Vtable = IAppBroadcastStreamReader_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb338bcf9_3364_4460_b5f1_3cc2796a8aa2);
+    const IID: ::windows::core::GUID = <IAppBroadcastStreamReader as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppBroadcastStreamReader {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastStreamReader";
@@ -3704,7 +3704,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastStreamStateChangedEvent
 }
 unsafe impl ::windows::core::Interface for AppBroadcastStreamStateChangedEventArgs {
     type Vtable = IAppBroadcastStreamStateChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5108a733_d008_4a89_93be_58aed961374e);
+    const IID: ::windows::core::GUID = <IAppBroadcastStreamStateChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppBroadcastStreamStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastStreamStateChangedEventArgs";
@@ -3792,7 +3792,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastStreamVideoFrame {
 }
 unsafe impl ::windows::core::Interface for AppBroadcastStreamVideoFrame {
     type Vtable = IAppBroadcastStreamVideoFrame_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f97cf2b_c9e4_4e88_8194_d814cbd585d8);
+    const IID: ::windows::core::GUID = <IAppBroadcastStreamVideoFrame as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppBroadcastStreamVideoFrame {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastStreamVideoFrame";
@@ -3914,7 +3914,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastStreamVideoHeader {
 }
 unsafe impl ::windows::core::Interface for AppBroadcastStreamVideoHeader {
     type Vtable = IAppBroadcastStreamVideoHeader_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b9ebece_7e32_432d_8ca2_36bf10b9f462);
+    const IID: ::windows::core::GUID = <IAppBroadcastStreamVideoHeader as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppBroadcastStreamVideoHeader {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastStreamVideoHeader";
@@ -4029,7 +4029,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastTriggerDetails {
 }
 unsafe impl ::windows::core::Interface for AppBroadcastTriggerDetails {
     type Vtable = IAppBroadcastTriggerDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdeebab35_ec5e_4d8f_b1c0_5da6e8c75638);
+    const IID: ::windows::core::GUID = <IAppBroadcastTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppBroadcastTriggerDetails {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastTriggerDetails";
@@ -4164,7 +4164,7 @@ unsafe impl ::windows::core::RuntimeType for AppBroadcastViewerCountChangedEvent
 }
 unsafe impl ::windows::core::Interface for AppBroadcastViewerCountChangedEventArgs {
     type Vtable = IAppBroadcastViewerCountChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6e11825_5401_4ade_8bd2_c14ecee6807d);
+    const IID: ::windows::core::GUID = <IAppBroadcastViewerCountChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppBroadcastViewerCountChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppBroadcastViewerCountChangedEventArgs";
@@ -4293,7 +4293,7 @@ unsafe impl ::windows::core::RuntimeType for AppCapture {
 }
 unsafe impl ::windows::core::Interface for AppCapture {
     type Vtable = IAppCapture_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9749d453_a29a_45ed_8f29_22d09942cff7);
+    const IID: ::windows::core::GUID = <IAppCapture as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppCapture {
     const NAME: &'static str = "Windows.Media.Capture.AppCapture";
@@ -4604,7 +4604,7 @@ unsafe impl ::windows::core::RuntimeType for AppCaptureAlternateShortcutKeys {
 }
 unsafe impl ::windows::core::Interface for AppCaptureAlternateShortcutKeys {
     type Vtable = IAppCaptureAlternateShortcutKeys_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19e8e0ef_236c_40f9_b38f_9b7dd65d1ccc);
+    const IID: ::windows::core::GUID = <IAppCaptureAlternateShortcutKeys as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppCaptureAlternateShortcutKeys {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureAlternateShortcutKeys";
@@ -4684,7 +4684,7 @@ unsafe impl ::windows::core::RuntimeType for AppCaptureDurationGeneratedEventArg
 }
 unsafe impl ::windows::core::Interface for AppCaptureDurationGeneratedEventArgs {
     type Vtable = IAppCaptureDurationGeneratedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1f5563b_ffa1_44c9_975f_27fbeb553b35);
+    const IID: ::windows::core::GUID = <IAppCaptureDurationGeneratedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppCaptureDurationGeneratedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureDurationGeneratedEventArgs";
@@ -4766,7 +4766,7 @@ unsafe impl ::windows::core::RuntimeType for AppCaptureFileGeneratedEventArgs {
 }
 unsafe impl ::windows::core::Interface for AppCaptureFileGeneratedEventArgs {
     type Vtable = IAppCaptureFileGeneratedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4189fbf4_465e_45bf_907f_165b3fb23758);
+    const IID: ::windows::core::GUID = <IAppCaptureFileGeneratedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppCaptureFileGeneratedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureFileGeneratedEventArgs";
@@ -4994,7 +4994,7 @@ unsafe impl ::windows::core::RuntimeType for AppCaptureMetadataWriter {
 }
 unsafe impl ::windows::core::Interface for AppCaptureMetadataWriter {
     type Vtable = IAppCaptureMetadataWriter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0ce4877_9aaf_46b4_ad31_6a60b441c780);
+    const IID: ::windows::core::GUID = <IAppCaptureMetadataWriter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppCaptureMetadataWriter {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureMetadataWriter";
@@ -5138,7 +5138,7 @@ unsafe impl ::windows::core::RuntimeType for AppCaptureMicrophoneCaptureStateCha
 }
 unsafe impl ::windows::core::Interface for AppCaptureMicrophoneCaptureStateChangedEventArgs {
     type Vtable = IAppCaptureMicrophoneCaptureStateChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x324d249e_45bc_4c35_bc35_e469fc7a69e0);
+    const IID: ::windows::core::GUID = <IAppCaptureMicrophoneCaptureStateChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppCaptureMicrophoneCaptureStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureMicrophoneCaptureStateChangedEventArgs";
@@ -5305,7 +5305,7 @@ unsafe impl ::windows::core::RuntimeType for AppCaptureRecordOperation {
 }
 unsafe impl ::windows::core::Interface for AppCaptureRecordOperation {
     type Vtable = IAppCaptureRecordOperation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc66020a9_1538_495c_9bbb_2ba870ec5861);
+    const IID: ::windows::core::GUID = <IAppCaptureRecordOperation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppCaptureRecordOperation {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureRecordOperation";
@@ -5423,7 +5423,7 @@ unsafe impl ::windows::core::RuntimeType for AppCaptureRecordingStateChangedEven
 }
 unsafe impl ::windows::core::Interface for AppCaptureRecordingStateChangedEventArgs {
     type Vtable = IAppCaptureRecordingStateChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24fc8712_e305_490d_b415_6b1c9049736b);
+    const IID: ::windows::core::GUID = <IAppCaptureRecordingStateChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppCaptureRecordingStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureRecordingStateChangedEventArgs";
@@ -5529,7 +5529,7 @@ unsafe impl ::windows::core::RuntimeType for AppCaptureServices {
 }
 unsafe impl ::windows::core::Interface for AppCaptureServices {
     type Vtable = IAppCaptureServices_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44fec0b5_34f5_4f18_ae8c_b9123abbfc0d);
+    const IID: ::windows::core::GUID = <IAppCaptureServices as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppCaptureServices {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureServices";
@@ -5955,7 +5955,7 @@ unsafe impl ::windows::core::RuntimeType for AppCaptureSettings {
 }
 unsafe impl ::windows::core::Interface for AppCaptureSettings {
     type Vtable = IAppCaptureSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14683a86_8807_48d3_883a_970ee4532a39);
+    const IID: ::windows::core::GUID = <IAppCaptureSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppCaptureSettings {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureSettings";
@@ -6106,7 +6106,7 @@ unsafe impl ::windows::core::RuntimeType for AppCaptureState {
 }
 unsafe impl ::windows::core::Interface for AppCaptureState {
     type Vtable = IAppCaptureState_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73134372_d4eb_44ce_9538_465f506ac4ea);
+    const IID: ::windows::core::GUID = <IAppCaptureState as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppCaptureState {
     const NAME: &'static str = "Windows.Media.Capture.AppCaptureState";
@@ -6297,7 +6297,7 @@ unsafe impl ::windows::core::RuntimeType for CameraCaptureUI {
 }
 unsafe impl ::windows::core::Interface for CameraCaptureUI {
     type Vtable = ICameraCaptureUI_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48587540_6f93_4bb4_b8f3_e89e48948c91);
+    const IID: ::windows::core::GUID = <ICameraCaptureUI as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CameraCaptureUI {
     const NAME: &'static str = "Windows.Media.Capture.CameraCaptureUI";
@@ -6528,7 +6528,7 @@ unsafe impl ::windows::core::RuntimeType for CameraCaptureUIPhotoCaptureSettings
 }
 unsafe impl ::windows::core::Interface for CameraCaptureUIPhotoCaptureSettings {
     type Vtable = ICameraCaptureUIPhotoCaptureSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9f5be97_3472_46a8_8a9e_04ce42ccc97d);
+    const IID: ::windows::core::GUID = <ICameraCaptureUIPhotoCaptureSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CameraCaptureUIPhotoCaptureSettings {
     const NAME: &'static str = "Windows.Media.Capture.CameraCaptureUIPhotoCaptureSettings";
@@ -6682,7 +6682,7 @@ unsafe impl ::windows::core::RuntimeType for CameraCaptureUIVideoCaptureSettings
 }
 unsafe impl ::windows::core::Interface for CameraCaptureUIVideoCaptureSettings {
     type Vtable = ICameraCaptureUIVideoCaptureSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64e92d1f_a28d_425a_b84f_e568335ff24e);
+    const IID: ::windows::core::GUID = <ICameraCaptureUIVideoCaptureSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CameraCaptureUIVideoCaptureSettings {
     const NAME: &'static str = "Windows.Media.Capture.CameraCaptureUIVideoCaptureSettings";
@@ -6958,7 +6958,7 @@ unsafe impl ::windows::core::RuntimeType for CapturedFrame {
 }
 unsafe impl ::windows::core::Interface for CapturedFrame {
     type Vtable = ICapturedFrame_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dd2de1f_571b_44d8_8e80_a08a1578766e);
+    const IID: ::windows::core::GUID = <ICapturedFrame as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CapturedFrame {
     const NAME: &'static str = "Windows.Media.Capture.CapturedFrame";
@@ -7313,7 +7313,7 @@ unsafe impl ::windows::core::RuntimeType for CapturedFrameControlValues {
 }
 unsafe impl ::windows::core::Interface for CapturedFrameControlValues {
     type Vtable = ICapturedFrameControlValues_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90c65b7f_4e0d_4ca4_882d_7a144fed0a90);
+    const IID: ::windows::core::GUID = <ICapturedFrameControlValues as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CapturedFrameControlValues {
     const NAME: &'static str = "Windows.Media.Capture.CapturedFrameControlValues";
@@ -7402,7 +7402,7 @@ unsafe impl ::windows::core::RuntimeType for CapturedPhoto {
 }
 unsafe impl ::windows::core::Interface for CapturedPhoto {
     type Vtable = ICapturedPhoto_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0ce7e5a_cfcc_4d6c_8ad1_0869208aca16);
+    const IID: ::windows::core::GUID = <ICapturedPhoto as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CapturedPhoto {
     const NAME: &'static str = "Windows.Media.Capture.CapturedPhoto";
@@ -7637,7 +7637,7 @@ unsafe impl ::windows::core::RuntimeType for GameBarServices {
 }
 unsafe impl ::windows::core::Interface for GameBarServices {
     type Vtable = IGameBarServices_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2dbead57_50a6_499e_8c6c_d330a7311796);
+    const IID: ::windows::core::GUID = <IGameBarServices as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GameBarServices {
     const NAME: &'static str = "Windows.Media.Capture.GameBarServices";
@@ -7726,7 +7726,7 @@ unsafe impl ::windows::core::RuntimeType for GameBarServicesCommandEventArgs {
 }
 unsafe impl ::windows::core::Interface for GameBarServicesCommandEventArgs {
     type Vtable = IGameBarServicesCommandEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa74226b2_f176_4fcf_8fbb_cf698b2eb8e0);
+    const IID: ::windows::core::GUID = <IGameBarServicesCommandEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GameBarServicesCommandEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.GameBarServicesCommandEventArgs";
@@ -7854,7 +7854,7 @@ unsafe impl ::windows::core::RuntimeType for GameBarServicesManager {
 }
 unsafe impl ::windows::core::Interface for GameBarServicesManager {
     type Vtable = IGameBarServicesManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a4b9cfa_7f8b_4c60_9dbb_0bcd262dffc6);
+    const IID: ::windows::core::GUID = <IGameBarServicesManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GameBarServicesManager {
     const NAME: &'static str = "Windows.Media.Capture.GameBarServicesManager";
@@ -7935,7 +7935,7 @@ unsafe impl ::windows::core::RuntimeType for GameBarServicesManagerGameBarServic
 }
 unsafe impl ::windows::core::Interface for GameBarServicesManagerGameBarServicesCreatedEventArgs {
     type Vtable = IGameBarServicesManagerGameBarServicesCreatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xededbd9c_143e_49a3_a5ea_0b1995c8d46e);
+    const IID: ::windows::core::GUID = <IGameBarServicesManagerGameBarServicesCreatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GameBarServicesManagerGameBarServicesCreatedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.GameBarServicesManagerGameBarServicesCreatedEventArgs";
@@ -8040,7 +8040,7 @@ unsafe impl ::windows::core::RuntimeType for GameBarServicesTargetInfo {
 }
 unsafe impl ::windows::core::Interface for GameBarServicesTargetInfo {
     type Vtable = IGameBarServicesTargetInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4202f92_1611_4e05_b6ef_dfd737ae33b0);
+    const IID: ::windows::core::GUID = <IGameBarServicesTargetInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GameBarServicesTargetInfo {
     const NAME: &'static str = "Windows.Media.Capture.GameBarServicesTargetInfo";
@@ -11013,7 +11013,7 @@ unsafe impl ::windows::core::RuntimeType for LowLagMediaRecording {
 }
 unsafe impl ::windows::core::Interface for LowLagMediaRecording {
     type Vtable = ILowLagMediaRecording_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41c8baf7_ff3f_49f0_a477_f195e3ce5108);
+    const IID: ::windows::core::GUID = <ILowLagMediaRecording as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LowLagMediaRecording {
     const NAME: &'static str = "Windows.Media.Capture.LowLagMediaRecording";
@@ -11102,7 +11102,7 @@ unsafe impl ::windows::core::RuntimeType for LowLagPhotoCapture {
 }
 unsafe impl ::windows::core::Interface for LowLagPhotoCapture {
     type Vtable = ILowLagPhotoCapture_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa37251b7_6b44_473d_8f24_f703d6c0ec44);
+    const IID: ::windows::core::GUID = <ILowLagPhotoCapture as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LowLagPhotoCapture {
     const NAME: &'static str = "Windows.Media.Capture.LowLagPhotoCapture";
@@ -11215,7 +11215,7 @@ unsafe impl ::windows::core::RuntimeType for LowLagPhotoSequenceCapture {
 }
 unsafe impl ::windows::core::Interface for LowLagPhotoSequenceCapture {
     type Vtable = ILowLagPhotoSequenceCapture_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7cc346bb_b9a9_4c91_8ffa_287e9c668669);
+    const IID: ::windows::core::GUID = <ILowLagPhotoSequenceCapture as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LowLagPhotoSequenceCapture {
     const NAME: &'static str = "Windows.Media.Capture.LowLagPhotoSequenceCapture";
@@ -11886,7 +11886,7 @@ unsafe impl ::windows::core::RuntimeType for MediaCapture {
 }
 unsafe impl ::windows::core::Interface for MediaCapture {
     type Vtable = IMediaCapture_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc61afbb4_fb10_4a34_ac18_ca80d9c8e7ee);
+    const IID: ::windows::core::GUID = <IMediaCapture as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaCapture {
     const NAME: &'static str = "Windows.Media.Capture.MediaCapture";
@@ -12027,7 +12027,7 @@ unsafe impl ::windows::core::RuntimeType for MediaCaptureDeviceExclusiveControlS
 }
 unsafe impl ::windows::core::Interface for MediaCaptureDeviceExclusiveControlStatusChangedEventArgs {
     type Vtable = IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d2f920d_a588_43c6_89d6_5ad322af006a);
+    const IID: ::windows::core::GUID = <IMediaCaptureDeviceExclusiveControlStatusChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaCaptureDeviceExclusiveControlStatusChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureDeviceExclusiveControlStatusChangedEventArgs";
@@ -12116,7 +12116,7 @@ unsafe impl ::windows::core::RuntimeType for MediaCaptureFailedEventArgs {
 }
 unsafe impl ::windows::core::Interface for MediaCaptureFailedEventArgs {
     type Vtable = IMediaCaptureFailedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80fde3f4_54c4_42c0_8d19_cea1a87ca18b);
+    const IID: ::windows::core::GUID = <IMediaCaptureFailedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaCaptureFailedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureFailedEventArgs";
@@ -12274,7 +12274,7 @@ unsafe impl ::windows::core::RuntimeType for MediaCaptureFocusChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for MediaCaptureFocusChangedEventArgs {
     type Vtable = IMediaCaptureFocusChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81e1bc7f_2277_493e_abee_d3f44ff98c04);
+    const IID: ::windows::core::GUID = <IMediaCaptureFocusChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaCaptureFocusChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureFocusChangedEventArgs";
@@ -12598,7 +12598,7 @@ unsafe impl ::windows::core::RuntimeType for MediaCaptureInitializationSettings 
 }
 unsafe impl ::windows::core::Interface for MediaCaptureInitializationSettings {
     type Vtable = IMediaCaptureInitializationSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9782ba70_ea65_4900_9356_8ca887726884);
+    const IID: ::windows::core::GUID = <IMediaCaptureInitializationSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaCaptureInitializationSettings {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureInitializationSettings";
@@ -12722,7 +12722,7 @@ unsafe impl ::windows::core::RuntimeType for MediaCapturePauseResult {
 }
 unsafe impl ::windows::core::Interface for MediaCapturePauseResult {
     type Vtable = IMediaCapturePauseResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaec47ca3_4477_4b04_a06f_2c1c5182fe9d);
+    const IID: ::windows::core::GUID = <IMediaCapturePauseResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaCapturePauseResult {
     const NAME: &'static str = "Windows.Media.Capture.MediaCapturePauseResult";
@@ -12859,7 +12859,7 @@ unsafe impl ::windows::core::RuntimeType for MediaCaptureRelativePanelWatcher {
 }
 unsafe impl ::windows::core::Interface for MediaCaptureRelativePanelWatcher {
     type Vtable = IMediaCaptureRelativePanelWatcher_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d896566_04be_5b89_b30e_bd34a9f12db0);
+    const IID: ::windows::core::GUID = <IMediaCaptureRelativePanelWatcher as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaCaptureRelativePanelWatcher {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureRelativePanelWatcher";
@@ -13074,7 +13074,7 @@ unsafe impl ::windows::core::RuntimeType for MediaCaptureSettings {
 }
 unsafe impl ::windows::core::Interface for MediaCaptureSettings {
     type Vtable = IMediaCaptureSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d83aafe_6d45_4477_8dc4_ac5bc01c4091);
+    const IID: ::windows::core::GUID = <IMediaCaptureSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaCaptureSettings {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureSettings";
@@ -13196,7 +13196,7 @@ unsafe impl ::windows::core::RuntimeType for MediaCaptureStopResult {
 }
 unsafe impl ::windows::core::Interface for MediaCaptureStopResult {
     type Vtable = IMediaCaptureStopResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9db6a2a_a092_4ad1_97d4_f201f9d082db);
+    const IID: ::windows::core::GUID = <IMediaCaptureStopResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaCaptureStopResult {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureStopResult";
@@ -13391,7 +13391,7 @@ unsafe impl ::windows::core::RuntimeType for MediaCaptureVideoProfile {
 }
 unsafe impl ::windows::core::Interface for MediaCaptureVideoProfile {
     type Vtable = IMediaCaptureVideoProfile_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x21a073bf_a3ee_4ecf_9ef6_50b0bc4e1305);
+    const IID: ::windows::core::GUID = <IMediaCaptureVideoProfile as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaCaptureVideoProfile {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureVideoProfile";
@@ -13523,7 +13523,7 @@ unsafe impl ::windows::core::RuntimeType for MediaCaptureVideoProfileMediaDescri
 }
 unsafe impl ::windows::core::Interface for MediaCaptureVideoProfileMediaDescription {
     type Vtable = IMediaCaptureVideoProfileMediaDescription_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8012afef_b691_49ff_83f2_c1e76eaaea1b);
+    const IID: ::windows::core::GUID = <IMediaCaptureVideoProfileMediaDescription as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaCaptureVideoProfileMediaDescription {
     const NAME: &'static str = "Windows.Media.Capture.MediaCaptureVideoProfileMediaDescription";
@@ -13677,7 +13677,7 @@ unsafe impl ::windows::core::RuntimeType for OptionalReferencePhotoCapturedEvent
 }
 unsafe impl ::windows::core::Interface for OptionalReferencePhotoCapturedEventArgs {
     type Vtable = IOptionalReferencePhotoCapturedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x470f88b3_1e6d_4051_9c8b_f1d85af047b7);
+    const IID: ::windows::core::GUID = <IOptionalReferencePhotoCapturedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for OptionalReferencePhotoCapturedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.OptionalReferencePhotoCapturedEventArgs";
@@ -13804,7 +13804,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoCapturedEventArgs {
 }
 unsafe impl ::windows::core::Interface for PhotoCapturedEventArgs {
     type Vtable = IPhotoCapturedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x373bfbc1_984e_4ff0_bf85_1c00aabc5a45);
+    const IID: ::windows::core::GUID = <IPhotoCapturedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PhotoCapturedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.PhotoCapturedEventArgs";
@@ -13894,7 +13894,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoConfirmationCapturedEventArgs 
 }
 unsafe impl ::windows::core::Interface for PhotoConfirmationCapturedEventArgs {
     type Vtable = IPhotoConfirmationCapturedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab473672_c28a_4827_8f8d_3636d3beb51e);
+    const IID: ::windows::core::GUID = <IPhotoConfirmationCapturedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PhotoConfirmationCapturedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.PhotoConfirmationCapturedEventArgs";
@@ -14136,7 +14136,7 @@ unsafe impl ::windows::core::RuntimeType for ScreenCapture {
 }
 unsafe impl ::windows::core::Interface for ScreenCapture {
     type Vtable = IScreenCapture_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89179ef7_cd12_4e0e_a6d4_5b3de98b2e9b);
+    const IID: ::windows::core::GUID = <IScreenCapture as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ScreenCapture {
     const NAME: &'static str = "Windows.Media.Capture.ScreenCapture";
@@ -14225,7 +14225,7 @@ unsafe impl ::windows::core::RuntimeType for SourceSuspensionChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for SourceSuspensionChangedEventArgs {
     type Vtable = ISourceSuspensionChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ece7b5e_d49b_4394_bc32_f97d6cedec1c);
+    const IID: ::windows::core::GUID = <ISourceSuspensionChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SourceSuspensionChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.SourceSuspensionChangedEventArgs";
@@ -14406,7 +14406,7 @@ unsafe impl ::windows::core::RuntimeType for VideoStreamConfiguration {
 }
 unsafe impl ::windows::core::Interface for VideoStreamConfiguration {
     type Vtable = IVideoStreamConfiguration_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8770a6f_4390_4b5e_ad3e_0f8af0963490);
+    const IID: ::windows::core::GUID = <IVideoStreamConfiguration as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VideoStreamConfiguration {
     const NAME: &'static str = "Windows.Media.Capture.VideoStreamConfiguration";

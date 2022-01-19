@@ -90,7 +90,7 @@ unsafe impl ::windows::core::RuntimeType for AnalyticsVersionInfo {
 }
 unsafe impl ::windows::core::Interface for AnalyticsVersionInfo {
     type Vtable = IAnalyticsVersionInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x926130b8_9955_4c74_bdc1_7cd0decf9b03);
+    const IID: ::windows::core::GUID = <IAnalyticsVersionInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AnalyticsVersionInfo {
     const NAME: &'static str = "Windows.System.Profile.AnalyticsVersionInfo";
@@ -249,7 +249,7 @@ unsafe impl ::windows::core::RuntimeType for HardwareToken {
 }
 unsafe impl ::windows::core::Interface for HardwareToken {
     type Vtable = IHardwareToken_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28f6d4c0_fb12_40a4_8167_7f4e03d2724c);
+    const IID: ::windows::core::GUID = <IHardwareToken as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HardwareToken {
     const NAME: &'static str = "Windows.System.Profile.HardwareToken";
@@ -973,7 +973,7 @@ unsafe impl ::windows::core::RuntimeType for SystemIdentificationInfo {
 }
 unsafe impl ::windows::core::Interface for SystemIdentificationInfo {
     type Vtable = ISystemIdentificationInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c659e7d_c3c2_4d33_a2df_21bc41916eb3);
+    const IID: ::windows::core::GUID = <ISystemIdentificationInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SystemIdentificationInfo {
     const NAME: &'static str = "Windows.System.Profile.SystemIdentificationInfo";
@@ -1153,7 +1153,7 @@ unsafe impl ::windows::core::RuntimeType for UnsupportedAppRequirement {
 }
 unsafe impl ::windows::core::Interface for UnsupportedAppRequirement {
     type Vtable = IUnsupportedAppRequirement_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6182445c_894b_5cbc_8976_a98e0a9b998d);
+    const IID: ::windows::core::GUID = <IUnsupportedAppRequirement as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UnsupportedAppRequirement {
     const NAME: &'static str = "Windows.System.Profile.UnsupportedAppRequirement";

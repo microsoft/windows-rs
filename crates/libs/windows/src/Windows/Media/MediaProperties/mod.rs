@@ -199,7 +199,7 @@ unsafe impl ::windows::core::RuntimeType for AudioEncodingProperties {
 }
 unsafe impl ::windows::core::Interface for AudioEncodingProperties {
     type Vtable = IAudioEncodingProperties_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62bc7a16_005c_4b3b_8a0b_0a090e9687f3);
+    const IID: ::windows::core::GUID = <IAudioEncodingProperties as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AudioEncodingProperties {
     const NAME: &'static str = "Windows.Media.MediaProperties.AudioEncodingProperties";
@@ -369,7 +369,7 @@ unsafe impl ::windows::core::RuntimeType for ContainerEncodingProperties {
 }
 unsafe impl ::windows::core::Interface for ContainerEncodingProperties {
     type Vtable = IContainerEncodingProperties_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59ac2a57_b32a_479e_8a61_4b7f2e9e7ea0);
+    const IID: ::windows::core::GUID = <IContainerEncodingProperties as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContainerEncodingProperties {
     const NAME: &'static str = "Windows.Media.MediaProperties.ContainerEncodingProperties";
@@ -1404,7 +1404,7 @@ unsafe impl ::windows::core::RuntimeType for ImageEncodingProperties {
 }
 unsafe impl ::windows::core::Interface for ImageEncodingProperties {
     type Vtable = IImageEncodingProperties_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78625635_f331_4189_b1c3_b48d5ae034f1);
+    const IID: ::windows::core::GUID = <IImageEncodingProperties as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ImageEncodingProperties {
     const NAME: &'static str = "Windows.Media.MediaProperties.ImageEncodingProperties";
@@ -1691,7 +1691,7 @@ unsafe impl ::windows::core::RuntimeType for MediaEncodingProfile {
 }
 unsafe impl ::windows::core::Interface for MediaEncodingProfile {
     type Vtable = IMediaEncodingProfile_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7dbf5a8_1db9_4783_876b_3dfe12acfdb3);
+    const IID: ::windows::core::GUID = <IMediaEncodingProfile as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaEncodingProfile {
     const NAME: &'static str = "Windows.Media.MediaProperties.MediaEncodingProfile";
@@ -2332,7 +2332,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPropertySet {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for MediaPropertySet {
     type Vtable = super::super::Foundation::Collections::IMap_Vtbl<::windows::core::GUID, ::windows::core::IInspectable>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::Foundation::Collections::IMap<::windows::core::GUID, ::windows::core::IInspectable> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for MediaPropertySet {
@@ -2510,7 +2510,7 @@ unsafe impl ::windows::core::RuntimeType for MediaRatio {
 }
 unsafe impl ::windows::core::Interface for MediaRatio {
     type Vtable = IMediaRatio_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2d0fee5_8929_401d_ac78_7d357e378163);
+    const IID: ::windows::core::GUID = <IMediaRatio as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaRatio {
     const NAME: &'static str = "Windows.Media.MediaProperties.MediaRatio";
@@ -2834,7 +2834,7 @@ unsafe impl ::windows::core::RuntimeType for TimedMetadataEncodingProperties {
 }
 unsafe impl ::windows::core::Interface for TimedMetadataEncodingProperties {
     type Vtable = IMediaEncodingProperties_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4002af6_acd4_4e5a_a24b_5d7498a8b8c4);
+    const IID: ::windows::core::GUID = <IMediaEncodingProperties as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TimedMetadataEncodingProperties {
     const NAME: &'static str = "Windows.Media.MediaProperties.TimedMetadataEncodingProperties";
@@ -3106,7 +3106,7 @@ unsafe impl ::windows::core::RuntimeType for VideoEncodingProperties {
 }
 unsafe impl ::windows::core::Interface for VideoEncodingProperties {
     type Vtable = IVideoEncodingProperties_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76ee6c9a_37c2_4f2a_880a_1282bbb4373d);
+    const IID: ::windows::core::GUID = <IVideoEncodingProperties as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VideoEncodingProperties {
     const NAME: &'static str = "Windows.Media.MediaProperties.VideoEncodingProperties";

@@ -188,7 +188,7 @@ unsafe impl ::windows::core::RuntimeType for Binding {
 }
 unsafe impl ::windows::core::Interface for Binding {
     type Vtable = IBinding_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f7a0c6b_d00f_4730_8c1d_48e16c46f9ca);
+    const IID: ::windows::core::GUID = <IBinding as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Binding {
     const NAME: &'static str = "Windows.UI.Xaml.Data.Binding";
@@ -321,7 +321,7 @@ unsafe impl ::windows::core::RuntimeType for BindingBase {
 }
 unsafe impl ::windows::core::Interface for BindingBase {
     type Vtable = IBindingBase_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1589a2ab_3d15_49bc_a447_8a5448e58870);
+    const IID: ::windows::core::GUID = <IBindingBase as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BindingBase {
     const NAME: &'static str = "Windows.UI.Xaml.Data.BindingBase";
@@ -435,7 +435,7 @@ unsafe impl ::windows::core::RuntimeType for BindingExpression {
 }
 unsafe impl ::windows::core::Interface for BindingExpression {
     type Vtable = IBindingExpression_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x516a19a5_c2fd_4a9e_9fd3_9aa42f995a3c);
+    const IID: ::windows::core::GUID = <IBindingExpression as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BindingExpression {
     const NAME: &'static str = "Windows.UI.Xaml.Data.BindingExpression";
@@ -527,7 +527,7 @@ unsafe impl ::windows::core::RuntimeType for BindingExpressionBase {
 }
 unsafe impl ::windows::core::Interface for BindingExpressionBase {
     type Vtable = IBindingExpressionBase_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfded3154_e954_4f67_8fb6_6ed79b3a1cb3);
+    const IID: ::windows::core::GUID = <IBindingExpressionBase as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BindingExpressionBase {
     const NAME: &'static str = "Windows.UI.Xaml.Data.BindingExpressionBase";
@@ -638,7 +638,7 @@ unsafe impl ::windows::core::RuntimeType for BindingOperations {
 }
 unsafe impl ::windows::core::Interface for BindingOperations {
     type Vtable = IBindingOperations_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fffd738_9839_419c_a17a_4b3604e1524e);
+    const IID: ::windows::core::GUID = <IBindingOperations as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BindingOperations {
     const NAME: &'static str = "Windows.UI.Xaml.Data.BindingOperations";
@@ -798,7 +798,7 @@ unsafe impl ::windows::core::RuntimeType for CollectionViewSource {
 }
 unsafe impl ::windows::core::Interface for CollectionViewSource {
     type Vtable = ICollectionViewSource_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa66a1146_d2fb_4ead_be9f_3578a466dcfe);
+    const IID: ::windows::core::GUID = <ICollectionViewSource as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CollectionViewSource {
     const NAME: &'static str = "Windows.UI.Xaml.Data.CollectionViewSource";
@@ -947,7 +947,7 @@ unsafe impl ::windows::core::RuntimeType for CurrentChangingEventArgs {
 }
 unsafe impl ::windows::core::Interface for CurrentChangingEventArgs {
     type Vtable = ICurrentChangingEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9891e29_51cc_47dd_a5b9_35dc4914af69);
+    const IID: ::windows::core::GUID = <ICurrentChangingEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CurrentChangingEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Data.CurrentChangingEventArgs";
@@ -2845,7 +2845,7 @@ unsafe impl ::windows::core::RuntimeType for ItemIndexRange {
 }
 unsafe impl ::windows::core::Interface for ItemIndexRange {
     type Vtable = IItemIndexRange_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83b834be_0583_4a26_9b64_8bf4a2f65704);
+    const IID: ::windows::core::GUID = <IItemIndexRange as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ItemIndexRange {
     const NAME: &'static str = "Windows.UI.Xaml.Data.ItemIndexRange";
@@ -2982,7 +2982,7 @@ unsafe impl ::windows::core::RuntimeType for PropertyChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for PropertyChangedEventArgs {
     type Vtable = IPropertyChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f33a9a0_5cf4_47a4_b16f_d7faaf17457e);
+    const IID: ::windows::core::GUID = <IPropertyChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PropertyChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Data.PropertyChangedEventArgs";
@@ -3166,7 +3166,7 @@ unsafe impl ::windows::core::RuntimeType for RelativeSource {
 }
 unsafe impl ::windows::core::Interface for RelativeSource {
     type Vtable = IRelativeSource_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2397ce84_2822_483a_b499_d0f031e06c6b);
+    const IID: ::windows::core::GUID = <IRelativeSource as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RelativeSource {
     const NAME: &'static str = "Windows.UI.Xaml.Data.RelativeSource";

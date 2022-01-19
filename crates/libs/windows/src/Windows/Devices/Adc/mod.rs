@@ -57,7 +57,7 @@ unsafe impl ::windows::core::RuntimeType for AdcChannel {
 }
 unsafe impl ::windows::core::Interface for AdcChannel {
     type Vtable = IAdcChannel_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x040bf414_2588_4a56_abef_73a260acc60a);
+    const IID: ::windows::core::GUID = <IAdcChannel as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AdcChannel {
     const NAME: &'static str = "Windows.Devices.Adc.AdcChannel";
@@ -271,7 +271,7 @@ unsafe impl ::windows::core::RuntimeType for AdcController {
 }
 unsafe impl ::windows::core::Interface for AdcController {
     type Vtable = IAdcController_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a76e4b0_a896_4219_86b6_ea8cdce98f56);
+    const IID: ::windows::core::GUID = <IAdcController as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AdcController {
     const NAME: &'static str = "Windows.Devices.Adc.AdcController";

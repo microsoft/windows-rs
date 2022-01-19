@@ -109,7 +109,7 @@ unsafe impl ::windows::core::RuntimeType for AdvertisingManagerForUser {
 }
 unsafe impl ::windows::core::Interface for AdvertisingManagerForUser {
     type Vtable = IAdvertisingManagerForUser_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x928bf3d0_cf7c_4ab0_a7dc_6dc5bcd44252);
+    const IID: ::windows::core::GUID = <IAdvertisingManagerForUser as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AdvertisingManagerForUser {
     const NAME: &'static str = "Windows.System.UserProfile.AdvertisingManagerForUser";
@@ -225,7 +225,7 @@ unsafe impl ::windows::core::RuntimeType for AssignedAccessSettings {
 }
 unsafe impl ::windows::core::Interface for AssignedAccessSettings {
     type Vtable = IAssignedAccessSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bc57f1c_e971_5757_b8e0_512f8b8c46d2);
+    const IID: ::windows::core::GUID = <IAssignedAccessSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AssignedAccessSettings {
     const NAME: &'static str = "Windows.System.UserProfile.AssignedAccessSettings";
@@ -333,7 +333,7 @@ unsafe impl ::windows::core::RuntimeType for DiagnosticsSettings {
 }
 unsafe impl ::windows::core::Interface for DiagnosticsSettings {
     type Vtable = IDiagnosticsSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5e9eccd_2711_44e0_973c_491d78048d24);
+    const IID: ::windows::core::GUID = <IDiagnosticsSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DiagnosticsSettings {
     const NAME: &'static str = "Windows.System.UserProfile.DiagnosticsSettings";
@@ -460,7 +460,7 @@ unsafe impl ::windows::core::RuntimeType for FirstSignInSettings {
 }
 unsafe impl ::windows::core::Interface for FirstSignInSettings {
     type Vtable = IFirstSignInSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e945153_3a5e_452e_a601_f5baad2a4870);
+    const IID: ::windows::core::GUID = <IFirstSignInSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FirstSignInSettings {
     const NAME: &'static str = "Windows.System.UserProfile.FirstSignInSettings";
@@ -753,7 +753,7 @@ unsafe impl ::windows::core::RuntimeType for GlobalizationPreferencesForUser {
 }
 unsafe impl ::windows::core::Interface for GlobalizationPreferencesForUser {
     type Vtable = IGlobalizationPreferencesForUser_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x150f0795_4f6e_40ba_a010_e27d81bda7f5);
+    const IID: ::windows::core::GUID = <IGlobalizationPreferencesForUser as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GlobalizationPreferencesForUser {
     const NAME: &'static str = "Windows.System.UserProfile.GlobalizationPreferencesForUser";
@@ -1502,7 +1502,7 @@ unsafe impl ::windows::core::RuntimeType for UserProfilePersonalizationSettings 
 }
 unsafe impl ::windows::core::Interface for UserProfilePersonalizationSettings {
     type Vtable = IUserProfilePersonalizationSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ceddab4_7998_46d5_8dd3_184f1c5f9ab9);
+    const IID: ::windows::core::GUID = <IUserProfilePersonalizationSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserProfilePersonalizationSettings {
     const NAME: &'static str = "Windows.System.UserProfile.UserProfilePersonalizationSettings";

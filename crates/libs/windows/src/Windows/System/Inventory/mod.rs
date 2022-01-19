@@ -111,7 +111,7 @@ unsafe impl ::windows::core::RuntimeType for InstalledDesktopApp {
 }
 unsafe impl ::windows::core::Interface for InstalledDesktopApp {
     type Vtable = IInstalledDesktopApp_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75eab8ed_c0bc_5364_4c28_166e0545167a);
+    const IID: ::windows::core::GUID = <IInstalledDesktopApp as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InstalledDesktopApp {
     const NAME: &'static str = "Windows.System.Inventory.InstalledDesktopApp";

@@ -145,7 +145,7 @@ unsafe impl ::windows::core::RuntimeType for DesktopWindowTarget {
 }
 unsafe impl ::windows::core::Interface for DesktopWindowTarget {
     type Vtable = IDesktopWindowTarget_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6329d6ca_3366_490e_9db3_25312929ac51);
+    const IID: ::windows::core::GUID = <IDesktopWindowTarget as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DesktopWindowTarget {
     const NAME: &'static str = "Windows.UI.Composition.Desktop.DesktopWindowTarget";

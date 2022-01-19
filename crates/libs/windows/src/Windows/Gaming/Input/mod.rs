@@ -177,7 +177,7 @@ unsafe impl ::windows::core::RuntimeType for ArcadeStick {
 }
 unsafe impl ::windows::core::Interface for ArcadeStick {
     type Vtable = IArcadeStick_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb14a539d_befb_4c81_8051_15ecf3b13036);
+    const IID: ::windows::core::GUID = <IArcadeStick as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ArcadeStick {
     const NAME: &'static str = "Windows.Gaming.Input.ArcadeStick";
@@ -547,7 +547,7 @@ unsafe impl ::windows::core::RuntimeType for FlightStick {
 }
 unsafe impl ::windows::core::Interface for FlightStick {
     type Vtable = IFlightStick_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4a2c01c_b83b_4459_a1a9_97b03c33da7c);
+    const IID: ::windows::core::GUID = <IFlightStick as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FlightStick {
     const NAME: &'static str = "Windows.Gaming.Input.FlightStick";
@@ -1081,7 +1081,7 @@ unsafe impl ::windows::core::RuntimeType for Gamepad {
 }
 unsafe impl ::windows::core::Interface for Gamepad {
     type Vtable = IGamepad_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc7bb43c_0a69_3903_9e9d_a50f86a45de5);
+    const IID: ::windows::core::GUID = <IGamepad as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Gamepad {
     const NAME: &'static str = "Windows.Gaming.Input.Gamepad";
@@ -1378,7 +1378,7 @@ unsafe impl ::windows::core::RuntimeType for Headset {
 }
 unsafe impl ::windows::core::Interface for Headset {
     type Vtable = IHeadset_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3fd156ef_6925_3fa8_9181_029c5223ae3b);
+    const IID: ::windows::core::GUID = <IHeadset as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Headset {
     const NAME: &'static str = "Windows.Gaming.Input.Headset";
@@ -2391,7 +2391,7 @@ unsafe impl ::windows::core::RuntimeType for RacingWheel {
 }
 unsafe impl ::windows::core::Interface for RacingWheel {
     type Vtable = IRacingWheel_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf546656f_e106_4c82_a90f_554012904b85);
+    const IID: ::windows::core::GUID = <IRacingWheel as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RacingWheel {
     const NAME: &'static str = "Windows.Gaming.Input.RacingWheel";
@@ -2851,7 +2851,7 @@ unsafe impl ::windows::core::RuntimeType for RawGameController {
 }
 unsafe impl ::windows::core::Interface for RawGameController {
     type Vtable = IRawGameController_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7cad6d91_a7e1_4f71_9a78_33e9c5dfea62);
+    const IID: ::windows::core::GUID = <IRawGameController as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RawGameController {
     const NAME: &'static str = "Windows.Gaming.Input.RawGameController";
@@ -3185,7 +3185,7 @@ unsafe impl ::windows::core::RuntimeType for UINavigationController {
 }
 unsafe impl ::windows::core::Interface for UINavigationController {
     type Vtable = IUINavigationController_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5aeefdd_f50e_4a55_8cdc_d33229548175);
+    const IID: ::windows::core::GUID = <IUINavigationController as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UINavigationController {
     const NAME: &'static str = "Windows.Gaming.Input.UINavigationController";

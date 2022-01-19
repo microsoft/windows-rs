@@ -104,7 +104,7 @@ unsafe impl ::windows::core::RuntimeType for AdaptiveNotificationText {
 }
 unsafe impl ::windows::core::Interface for AdaptiveNotificationText {
     type Vtable = IAdaptiveNotificationText_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46d4a3be_609a_4326_a40b_bfde872034a3);
+    const IID: ::windows::core::GUID = <IAdaptiveNotificationText as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AdaptiveNotificationText {
     const NAME: &'static str = "Windows.UI.Notifications.AdaptiveNotificationText";
@@ -236,7 +236,7 @@ unsafe impl ::windows::core::RuntimeType for BadgeNotification {
 }
 unsafe impl ::windows::core::Interface for BadgeNotification {
     type Vtable = IBadgeNotification_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x075cb4ca_d08a_4e2f_9233_7e289c1f7722);
+    const IID: ::windows::core::GUID = <IBadgeNotification as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BadgeNotification {
     const NAME: &'static str = "Windows.UI.Notifications.BadgeNotification";
@@ -424,7 +424,7 @@ unsafe impl ::windows::core::RuntimeType for BadgeUpdateManagerForUser {
 }
 unsafe impl ::windows::core::Interface for BadgeUpdateManagerForUser {
     type Vtable = IBadgeUpdateManagerForUser_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x996b21bc_0386_44e5_ba8d_0c1077a62e92);
+    const IID: ::windows::core::GUID = <IBadgeUpdateManagerForUser as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BadgeUpdateManagerForUser {
     const NAME: &'static str = "Windows.UI.Notifications.BadgeUpdateManagerForUser";
@@ -524,7 +524,7 @@ unsafe impl ::windows::core::RuntimeType for BadgeUpdater {
 }
 unsafe impl ::windows::core::Interface for BadgeUpdater {
     type Vtable = IBadgeUpdater_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5fa1fd4_7562_4f6c_bfa3_1b6ed2e57f2f);
+    const IID: ::windows::core::GUID = <IBadgeUpdater as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BadgeUpdater {
     const NAME: &'static str = "Windows.UI.Notifications.BadgeUpdater";
@@ -2193,7 +2193,7 @@ unsafe impl ::windows::core::RuntimeType for Notification {
 }
 unsafe impl ::windows::core::Interface for Notification {
     type Vtable = INotification_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x108037fe_eb76_4f82_97bc_da07530a2e20);
+    const IID: ::windows::core::GUID = <INotification as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Notification {
     const NAME: &'static str = "Windows.UI.Notifications.Notification";
@@ -2310,7 +2310,7 @@ unsafe impl ::windows::core::RuntimeType for NotificationBinding {
 }
 unsafe impl ::windows::core::Interface for NotificationBinding {
     type Vtable = INotificationBinding_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf29e4b85_0370_4ad3_b4ea_da9e35e7eabf);
+    const IID: ::windows::core::GUID = <INotificationBinding as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for NotificationBinding {
     const NAME: &'static str = "Windows.UI.Notifications.NotificationBinding";
@@ -2433,7 +2433,7 @@ unsafe impl ::windows::core::RuntimeType for NotificationData {
 }
 unsafe impl ::windows::core::Interface for NotificationData {
     type Vtable = INotificationData_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ffd2312_9d6a_4aaf_b6ac_ff17f0c1f280);
+    const IID: ::windows::core::GUID = <INotificationData as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for NotificationData {
     const NAME: &'static str = "Windows.UI.Notifications.NotificationData";
@@ -2680,7 +2680,7 @@ unsafe impl ::windows::core::RuntimeType for NotificationVisual {
 }
 unsafe impl ::windows::core::Interface for NotificationVisual {
     type Vtable = INotificationVisual_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68835b8e_aa56_4e11_86d3_5f9a6957bc5b);
+    const IID: ::windows::core::GUID = <INotificationVisual as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for NotificationVisual {
     const NAME: &'static str = "Windows.UI.Notifications.NotificationVisual";
@@ -2856,7 +2856,7 @@ unsafe impl ::windows::core::RuntimeType for ScheduledTileNotification {
 }
 unsafe impl ::windows::core::Interface for ScheduledTileNotification {
     type Vtable = IScheduledTileNotification_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0abca6d5_99dc_4c78_a11c_c9e7f86d7ef7);
+    const IID: ::windows::core::GUID = <IScheduledTileNotification as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ScheduledTileNotification {
     const NAME: &'static str = "Windows.UI.Notifications.ScheduledTileNotification";
@@ -3078,7 +3078,7 @@ unsafe impl ::windows::core::RuntimeType for ScheduledToastNotification {
 }
 unsafe impl ::windows::core::Interface for ScheduledToastNotification {
     type Vtable = IScheduledToastNotification_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79f577f8_0de7_48cd_9740_9b370490c838);
+    const IID: ::windows::core::GUID = <IScheduledToastNotification as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ScheduledToastNotification {
     const NAME: &'static str = "Windows.UI.Notifications.ScheduledToastNotification";
@@ -3181,7 +3181,7 @@ unsafe impl ::windows::core::RuntimeType for ScheduledToastNotificationShowingEv
 }
 unsafe impl ::windows::core::Interface for ScheduledToastNotificationShowingEventArgs {
     type Vtable = IScheduledToastNotificationShowingEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6173f6b4_412a_5e2c_a6ed_a0209aef9a09);
+    const IID: ::windows::core::GUID = <IScheduledToastNotificationShowingEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ScheduledToastNotificationShowingEventArgs {
     const NAME: &'static str = "Windows.UI.Notifications.ScheduledToastNotificationShowingEventArgs";
@@ -3262,7 +3262,7 @@ unsafe impl ::windows::core::RuntimeType for ShownTileNotification {
 }
 unsafe impl ::windows::core::Interface for ShownTileNotification {
     type Vtable = IShownTileNotification_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x342d8988_5af2_481a_a6a3_f2fdc78de88e);
+    const IID: ::windows::core::GUID = <IShownTileNotification as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ShownTileNotification {
     const NAME: &'static str = "Windows.UI.Notifications.ShownTileNotification";
@@ -3372,7 +3372,7 @@ unsafe impl ::windows::core::RuntimeType for TileFlyoutNotification {
 }
 unsafe impl ::windows::core::Interface for TileFlyoutNotification {
     type Vtable = ITileFlyoutNotification_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a53b261_c70c_42be_b2f3_f42aa97d34e5);
+    const IID: ::windows::core::GUID = <ITileFlyoutNotification as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TileFlyoutNotification {
     const NAME: &'static str = "Windows.UI.Notifications.TileFlyoutNotification";
@@ -3548,7 +3548,7 @@ unsafe impl ::windows::core::RuntimeType for TileFlyoutUpdater {
 }
 unsafe impl ::windows::core::Interface for TileFlyoutUpdater {
     type Vtable = ITileFlyoutUpdater_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d40c76a_c465_4052_a740_5c2654c1a089);
+    const IID: ::windows::core::GUID = <ITileFlyoutUpdater as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TileFlyoutUpdater {
     const NAME: &'static str = "Windows.UI.Notifications.TileFlyoutUpdater";
@@ -3669,7 +3669,7 @@ unsafe impl ::windows::core::RuntimeType for TileNotification {
 }
 unsafe impl ::windows::core::Interface for TileNotification {
     type Vtable = ITileNotification_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xebaec8fa_50ec_4c18_b4d0_3af02e5540ab);
+    const IID: ::windows::core::GUID = <ITileNotification as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TileNotification {
     const NAME: &'static str = "Windows.UI.Notifications.TileNotification";
@@ -3981,7 +3981,7 @@ unsafe impl ::windows::core::RuntimeType for TileUpdateManagerForUser {
 }
 unsafe impl ::windows::core::Interface for TileUpdateManagerForUser {
     type Vtable = ITileUpdateManagerForUser_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55141348_2ee2_4e2d_9cc1_216a20decc9f);
+    const IID: ::windows::core::GUID = <ITileUpdateManagerForUser as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TileUpdateManagerForUser {
     const NAME: &'static str = "Windows.UI.Notifications.TileUpdateManagerForUser";
@@ -4140,7 +4140,7 @@ unsafe impl ::windows::core::RuntimeType for TileUpdater {
 }
 unsafe impl ::windows::core::Interface for TileUpdater {
     type Vtable = ITileUpdater_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0942a48b_1d91_44ec_9243_c1e821c29a20);
+    const IID: ::windows::core::GUID = <ITileUpdater as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TileUpdater {
     const NAME: &'static str = "Windows.UI.Notifications.TileUpdater";
@@ -4230,7 +4230,7 @@ unsafe impl ::windows::core::RuntimeType for ToastActivatedEventArgs {
 }
 unsafe impl ::windows::core::Interface for ToastActivatedEventArgs {
     type Vtable = IToastActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3bf92f3_c197_436f_8265_0625824f8dac);
+    const IID: ::windows::core::GUID = <IToastActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ToastActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.Notifications.ToastActivatedEventArgs";
@@ -4363,7 +4363,7 @@ unsafe impl ::windows::core::RuntimeType for ToastCollection {
 }
 unsafe impl ::windows::core::Interface for ToastCollection {
     type Vtable = IToastCollection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a8bc3b0_e0be_4858_bc2a_89dfe0b32863);
+    const IID: ::windows::core::GUID = <IToastCollection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ToastCollection {
     const NAME: &'static str = "Windows.UI.Notifications.ToastCollection";
@@ -4498,7 +4498,7 @@ unsafe impl ::windows::core::RuntimeType for ToastCollectionManager {
 }
 unsafe impl ::windows::core::Interface for ToastCollectionManager {
     type Vtable = IToastCollectionManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a1821fe_179d_49bc_b79d_a527920d3665);
+    const IID: ::windows::core::GUID = <IToastCollectionManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ToastCollectionManager {
     const NAME: &'static str = "Windows.UI.Notifications.ToastCollectionManager";
@@ -4608,7 +4608,7 @@ unsafe impl ::windows::core::RuntimeType for ToastDismissedEventArgs {
 }
 unsafe impl ::windows::core::Interface for ToastDismissedEventArgs {
     type Vtable = IToastDismissedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f89d935_d9cb_4538_a0f0_ffe7659938f8);
+    const IID: ::windows::core::GUID = <IToastDismissedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ToastDismissedEventArgs {
     const NAME: &'static str = "Windows.UI.Notifications.ToastDismissedEventArgs";
@@ -4689,7 +4689,7 @@ unsafe impl ::windows::core::RuntimeType for ToastFailedEventArgs {
 }
 unsafe impl ::windows::core::Interface for ToastFailedEventArgs {
     type Vtable = IToastFailedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35176862_cfd4_44f8_ad64_f500fd896c3b);
+    const IID: ::windows::core::GUID = <IToastFailedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ToastFailedEventArgs {
     const NAME: &'static str = "Windows.UI.Notifications.ToastFailedEventArgs";
@@ -4978,7 +4978,7 @@ unsafe impl ::windows::core::RuntimeType for ToastNotification {
 }
 unsafe impl ::windows::core::Interface for ToastNotification {
     type Vtable = IToastNotification_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x997e2675_059e_4e60_8b06_1760917c8b80);
+    const IID: ::windows::core::GUID = <IToastNotification as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ToastNotification {
     const NAME: &'static str = "Windows.UI.Notifications.ToastNotification";
@@ -5068,7 +5068,7 @@ unsafe impl ::windows::core::RuntimeType for ToastNotificationActionTriggerDetai
 }
 unsafe impl ::windows::core::Interface for ToastNotificationActionTriggerDetail {
     type Vtable = IToastNotificationActionTriggerDetail_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9445135a_38f3_42f6_96aa_7955b0f03da2);
+    const IID: ::windows::core::GUID = <IToastNotificationActionTriggerDetail as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ToastNotificationActionTriggerDetail {
     const NAME: &'static str = "Windows.UI.Notifications.ToastNotificationActionTriggerDetail";
@@ -5192,7 +5192,7 @@ unsafe impl ::windows::core::RuntimeType for ToastNotificationHistory {
 }
 unsafe impl ::windows::core::Interface for ToastNotificationHistory {
     type Vtable = IToastNotificationHistory_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5caddc63_01d3_4c97_986f_0533483fee14);
+    const IID: ::windows::core::GUID = <IToastNotificationHistory as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ToastNotificationHistory {
     const NAME: &'static str = "Windows.UI.Notifications.ToastNotificationHistory";
@@ -5279,7 +5279,7 @@ unsafe impl ::windows::core::RuntimeType for ToastNotificationHistoryChangedTrig
 }
 unsafe impl ::windows::core::Interface for ToastNotificationHistoryChangedTriggerDetail {
     type Vtable = IToastNotificationHistoryChangedTriggerDetail_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb037ffa_0068_412c_9c83_267c37f65670);
+    const IID: ::windows::core::GUID = <IToastNotificationHistoryChangedTriggerDetail as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ToastNotificationHistoryChangedTriggerDetail {
     const NAME: &'static str = "Windows.UI.Notifications.ToastNotificationHistoryChangedTriggerDetail";
@@ -5492,7 +5492,7 @@ unsafe impl ::windows::core::RuntimeType for ToastNotificationManagerForUser {
 }
 unsafe impl ::windows::core::Interface for ToastNotificationManagerForUser {
     type Vtable = IToastNotificationManagerForUser_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79ab57f6_43fe_487b_8a7f_99567200ae94);
+    const IID: ::windows::core::GUID = <IToastNotificationManagerForUser as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ToastNotificationManagerForUser {
     const NAME: &'static str = "Windows.UI.Notifications.ToastNotificationManagerForUser";
@@ -5661,7 +5661,7 @@ unsafe impl ::windows::core::RuntimeType for ToastNotifier {
 }
 unsafe impl ::windows::core::Interface for ToastNotifier {
     type Vtable = IToastNotifier_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75927b93_03f3_41ec_91d3_6e5bac1b38e7);
+    const IID: ::windows::core::GUID = <IToastNotifier as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ToastNotifier {
     const NAME: &'static str = "Windows.UI.Notifications.ToastNotifier";
@@ -5802,7 +5802,7 @@ unsafe impl ::windows::core::RuntimeType for UserNotification {
 }
 unsafe impl ::windows::core::Interface for UserNotification {
     type Vtable = IUserNotification_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xadf7e52f_4e53_42d5_9c33_eb5ea515b23e);
+    const IID: ::windows::core::GUID = <IUserNotification as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserNotification {
     const NAME: &'static str = "Windows.UI.Notifications.UserNotification";
@@ -5891,7 +5891,7 @@ unsafe impl ::windows::core::RuntimeType for UserNotificationChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for UserNotificationChangedEventArgs {
     type Vtable = IUserNotificationChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6bd6839_79cf_4b25_82c0_0ce1eef81f8c);
+    const IID: ::windows::core::GUID = <IUserNotificationChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserNotificationChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Notifications.UserNotificationChangedEventArgs";

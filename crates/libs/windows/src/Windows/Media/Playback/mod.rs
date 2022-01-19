@@ -152,7 +152,7 @@ unsafe impl ::windows::core::RuntimeType for CurrentMediaPlaybackItemChangedEven
 }
 unsafe impl ::windows::core::Interface for CurrentMediaPlaybackItemChangedEventArgs {
     type Vtable = ICurrentMediaPlaybackItemChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1743a892_5c43_4a15_967a_572d2d0f26c6);
+    const IID: ::windows::core::GUID = <ICurrentMediaPlaybackItemChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CurrentMediaPlaybackItemChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.CurrentMediaPlaybackItemChangedEventArgs";
@@ -2242,7 +2242,7 @@ unsafe impl ::windows::core::RuntimeType for MediaBreak {
 }
 unsafe impl ::windows::core::Interface for MediaBreak {
     type Vtable = IMediaBreak_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x714be270_0def_4ebc_a489_6b34930e1558);
+    const IID: ::windows::core::GUID = <IMediaBreak as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaBreak {
     const NAME: &'static str = "Windows.Media.Playback.MediaBreak";
@@ -2323,7 +2323,7 @@ unsafe impl ::windows::core::RuntimeType for MediaBreakEndedEventArgs {
 }
 unsafe impl ::windows::core::Interface for MediaBreakEndedEventArgs {
     type Vtable = IMediaBreakEndedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32b93276_1c5d_4fee_8732_236dc3a88580);
+    const IID: ::windows::core::GUID = <IMediaBreakEndedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaBreakEndedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaBreakEndedEventArgs";
@@ -2510,7 +2510,7 @@ unsafe impl ::windows::core::RuntimeType for MediaBreakManager {
 }
 unsafe impl ::windows::core::Interface for MediaBreakManager {
     type Vtable = IMediaBreakManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa854ddb1_feb4_4d9b_9d97_0fdbe58e5e39);
+    const IID: ::windows::core::GUID = <IMediaBreakManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaBreakManager {
     const NAME: &'static str = "Windows.Media.Playback.MediaBreakManager";
@@ -2651,7 +2651,7 @@ unsafe impl ::windows::core::RuntimeType for MediaBreakSchedule {
 }
 unsafe impl ::windows::core::Interface for MediaBreakSchedule {
     type Vtable = IMediaBreakSchedule_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa19a5813_98b6_41d8_83da_f971d22b7bba);
+    const IID: ::windows::core::GUID = <IMediaBreakSchedule as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaBreakSchedule {
     const NAME: &'static str = "Windows.Media.Playback.MediaBreakSchedule";
@@ -2751,7 +2751,7 @@ unsafe impl ::windows::core::RuntimeType for MediaBreakSeekedOverEventArgs {
 }
 unsafe impl ::windows::core::Interface for MediaBreakSeekedOverEventArgs {
     type Vtable = IMediaBreakSeekedOverEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5aa6746_0606_4492_b9d3_c3c8fde0a4ea);
+    const IID: ::windows::core::GUID = <IMediaBreakSeekedOverEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaBreakSeekedOverEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaBreakSeekedOverEventArgs";
@@ -2832,7 +2832,7 @@ unsafe impl ::windows::core::RuntimeType for MediaBreakSkippedEventArgs {
 }
 unsafe impl ::windows::core::Interface for MediaBreakSkippedEventArgs {
     type Vtable = IMediaBreakSkippedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ee94c05_2f54_4a3e_a3ab_24c3b270b4a3);
+    const IID: ::windows::core::GUID = <IMediaBreakSkippedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaBreakSkippedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaBreakSkippedEventArgs";
@@ -2913,7 +2913,7 @@ unsafe impl ::windows::core::RuntimeType for MediaBreakStartedEventArgs {
 }
 unsafe impl ::windows::core::Interface for MediaBreakStartedEventArgs {
     type Vtable = IMediaBreakStartedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa87efe71_dfd4_454a_956e_0a4a648395f8);
+    const IID: ::windows::core::GUID = <IMediaBreakStartedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaBreakStartedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaBreakStartedEventArgs";
@@ -3064,7 +3064,7 @@ unsafe impl ::windows::core::RuntimeType for MediaItemDisplayProperties {
 }
 unsafe impl ::windows::core::Interface for MediaItemDisplayProperties {
     type Vtable = IMediaItemDisplayProperties_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e3c1b48_7097_4384_a217_c1291dfa8c16);
+    const IID: ::windows::core::GUID = <IMediaItemDisplayProperties as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaItemDisplayProperties {
     const NAME: &'static str = "Windows.Media.Playback.MediaItemDisplayProperties";
@@ -3220,7 +3220,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlaybackAudioTrackList {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for MediaPlaybackAudioTrackList {
     type Vtable = super::super::Foundation::Collections::IVectorView_Vtbl<super::Core::AudioTrack>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::Foundation::Collections::IVectorView<super::Core::AudioTrack> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for MediaPlaybackAudioTrackList {
@@ -3649,7 +3649,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlaybackCommandManager {
 }
 unsafe impl ::windows::core::Interface for MediaPlaybackCommandManager {
     type Vtable = IMediaPlaybackCommandManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5acee5a6_5cb6_4a5a_8521_cc86b1c1ed37);
+    const IID: ::windows::core::GUID = <IMediaPlaybackCommandManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaPlaybackCommandManager {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManager";
@@ -3752,7 +3752,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlaybackCommandManagerAutoRepe
 }
 unsafe impl ::windows::core::Interface for MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d6f4f23_5230_4411_a0e9_bad94c2a045c);
+    const IID: ::windows::core::GUID = <IMediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs";
@@ -3869,7 +3869,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlaybackCommandManagerCommandB
 }
 unsafe impl ::windows::core::Interface for MediaPlaybackCommandManagerCommandBehavior {
     type Vtable = IMediaPlaybackCommandManagerCommandBehavior_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x786c1e78_ce78_4a10_afd6_843fcbb90c2e);
+    const IID: ::windows::core::GUID = <IMediaPlaybackCommandManagerCommandBehavior as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaPlaybackCommandManagerCommandBehavior {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerCommandBehavior";
@@ -3964,7 +3964,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlaybackCommandManagerFastForw
 }
 unsafe impl ::windows::core::Interface for MediaPlaybackCommandManagerFastForwardReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerFastForwardReceivedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30f064d9_b491_4d0a_bc21_3098bd1332e9);
+    const IID: ::windows::core::GUID = <IMediaPlaybackCommandManagerFastForwardReceivedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaPlaybackCommandManagerFastForwardReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerFastForwardReceivedEventArgs";
@@ -4059,7 +4059,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlaybackCommandManagerNextRece
 }
 unsafe impl ::windows::core::Interface for MediaPlaybackCommandManagerNextReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerNextReceivedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe1504433_a2b0_45d4_b9de_5f42ac14a839);
+    const IID: ::windows::core::GUID = <IMediaPlaybackCommandManagerNextReceivedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaPlaybackCommandManagerNextReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerNextReceivedEventArgs";
@@ -4154,7 +4154,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlaybackCommandManagerPauseRec
 }
 unsafe impl ::windows::core::Interface for MediaPlaybackCommandManagerPauseReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerPauseReceivedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ceccd1c_c25c_4221_b16c_c3c98ce012d6);
+    const IID: ::windows::core::GUID = <IMediaPlaybackCommandManagerPauseReceivedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaPlaybackCommandManagerPauseReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerPauseReceivedEventArgs";
@@ -4249,7 +4249,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlaybackCommandManagerPlayRece
 }
 unsafe impl ::windows::core::Interface for MediaPlaybackCommandManagerPlayReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerPlayReceivedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9af0004e_578b_4c56_a006_16159d888a48);
+    const IID: ::windows::core::GUID = <IMediaPlaybackCommandManagerPlayReceivedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaPlaybackCommandManagerPlayReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerPlayReceivedEventArgs";
@@ -4353,7 +4353,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlaybackCommandManagerPosition
 }
 unsafe impl ::windows::core::Interface for MediaPlaybackCommandManagerPositionReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerPositionReceivedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5591a754_d627_4bdd_a90d_86a015b24902);
+    const IID: ::windows::core::GUID = <IMediaPlaybackCommandManagerPositionReceivedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaPlaybackCommandManagerPositionReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerPositionReceivedEventArgs";
@@ -4448,7 +4448,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlaybackCommandManagerPrevious
 }
 unsafe impl ::windows::core::Interface for MediaPlaybackCommandManagerPreviousReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerPreviousReceivedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x525e3081_4632_4f76_99b1_d771623f6287);
+    const IID: ::windows::core::GUID = <IMediaPlaybackCommandManagerPreviousReceivedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaPlaybackCommandManagerPreviousReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerPreviousReceivedEventArgs";
@@ -4551,7 +4551,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlaybackCommandManagerRateRece
 }
 unsafe impl ::windows::core::Interface for MediaPlaybackCommandManagerRateReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerRateReceivedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18ea3939_4a16_4169_8b05_3eb9f5ff78eb);
+    const IID: ::windows::core::GUID = <IMediaPlaybackCommandManagerRateReceivedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaPlaybackCommandManagerRateReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerRateReceivedEventArgs";
@@ -4646,7 +4646,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlaybackCommandManagerRewindRe
 }
 unsafe impl ::windows::core::Interface for MediaPlaybackCommandManagerRewindReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerRewindReceivedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f085947_a3c0_425d_aaef_97ba7898b141);
+    const IID: ::windows::core::GUID = <IMediaPlaybackCommandManagerRewindReceivedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaPlaybackCommandManagerRewindReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerRewindReceivedEventArgs";
@@ -4749,7 +4749,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlaybackCommandManagerShuffleR
 }
 unsafe impl ::windows::core::Interface for MediaPlaybackCommandManagerShuffleReceivedEventArgs {
     type Vtable = IMediaPlaybackCommandManagerShuffleReceivedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50a05cef_63ee_4a96_b7b5_fee08b9ff90c);
+    const IID: ::windows::core::GUID = <IMediaPlaybackCommandManagerShuffleReceivedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaPlaybackCommandManagerShuffleReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackCommandManagerShuffleReceivedEventArgs";
@@ -5036,7 +5036,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlaybackItem {
 }
 unsafe impl ::windows::core::Interface for MediaPlaybackItem {
     type Vtable = IMediaPlaybackItem_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x047097d2_e4af_48ab_b283_6929e674ece2);
+    const IID: ::windows::core::GUID = <IMediaPlaybackItem as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaPlaybackItem {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackItem";
@@ -5177,7 +5177,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlaybackItemError {
 }
 unsafe impl ::windows::core::Interface for MediaPlaybackItemError {
     type Vtable = IMediaPlaybackItemError_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69fbef2b_dcd6_4df9_a450_dbf4c6f1c2c2);
+    const IID: ::windows::core::GUID = <IMediaPlaybackItemError as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaPlaybackItemError {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackItemError";
@@ -5298,7 +5298,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlaybackItemFailedEventArgs {
 }
 unsafe impl ::windows::core::Interface for MediaPlaybackItemFailedEventArgs {
     type Vtable = IMediaPlaybackItemFailedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7703134a_e9a7_47c3_862c_c656d30683d4);
+    const IID: ::windows::core::GUID = <IMediaPlaybackItemFailedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaPlaybackItemFailedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackItemFailedEventArgs";
@@ -5379,7 +5379,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlaybackItemOpenedEventArgs {
 }
 unsafe impl ::windows::core::Interface for MediaPlaybackItemOpenedEventArgs {
     type Vtable = IMediaPlaybackItemOpenedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcbd9bd82_3037_4fbe_ae8f_39fc39edf4ef);
+    const IID: ::windows::core::GUID = <IMediaPlaybackItemOpenedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaPlaybackItemOpenedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackItemOpenedEventArgs";
@@ -5637,7 +5637,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlaybackList {
 }
 unsafe impl ::windows::core::Interface for MediaPlaybackList {
     type Vtable = IMediaPlaybackList_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f77ee9c_dc42_4e26_a98d_7850df8ec925);
+    const IID: ::windows::core::GUID = <IMediaPlaybackList as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaPlaybackList {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackList";
@@ -6160,7 +6160,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlaybackSession {
 }
 unsafe impl ::windows::core::Interface for MediaPlaybackSession {
     type Vtable = IMediaPlaybackSession_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc32b683d_0407_41ba_8946_8b345a5a5435);
+    const IID: ::windows::core::GUID = <IMediaPlaybackSession as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaPlaybackSession {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackSession";
@@ -6241,7 +6241,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlaybackSessionBufferingStarte
 }
 unsafe impl ::windows::core::Interface for MediaPlaybackSessionBufferingStartedEventArgs {
     type Vtable = IMediaPlaybackSessionBufferingStartedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd6aafed_74e2_43b5_b115_76236c33791a);
+    const IID: ::windows::core::GUID = <IMediaPlaybackSessionBufferingStartedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaPlaybackSessionBufferingStartedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackSessionBufferingStartedEventArgs";
@@ -6322,7 +6322,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlaybackSessionOutputDegradati
 }
 unsafe impl ::windows::core::Interface for MediaPlaybackSessionOutputDegradationPolicyState {
     type Vtable = IMediaPlaybackSessionOutputDegradationPolicyState_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x558e727d_f633_49f9_965a_abaa1db709be);
+    const IID: ::windows::core::GUID = <IMediaPlaybackSessionOutputDegradationPolicyState as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaPlaybackSessionOutputDegradationPolicyState {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackSessionOutputDegradationPolicyState";
@@ -6497,7 +6497,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlaybackSphericalVideoProjecti
 }
 unsafe impl ::windows::core::Interface for MediaPlaybackSphericalVideoProjection {
     type Vtable = IMediaPlaybackSphericalVideoProjection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd405b37c_6f0e_4661_b8ee_d487ba9752d5);
+    const IID: ::windows::core::GUID = <IMediaPlaybackSphericalVideoProjection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaPlaybackSphericalVideoProjection {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlaybackSphericalVideoProjection";
@@ -6682,7 +6682,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlaybackTimedMetadataTrackList
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for MediaPlaybackTimedMetadataTrackList {
     type Vtable = super::super::Foundation::Collections::IVectorView_Vtbl<super::Core::TimedMetadataTrack>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::Foundation::Collections::IVectorView<super::Core::TimedMetadataTrack> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for MediaPlaybackTimedMetadataTrackList {
@@ -6917,7 +6917,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlaybackVideoTrackList {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for MediaPlaybackVideoTrackList {
     type Vtable = super::super::Foundation::Collections::IVectorView_Vtbl<super::Core::VideoTrack>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::Foundation::Collections::IVectorView<super::Core::VideoTrack> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for MediaPlaybackVideoTrackList {
@@ -7774,7 +7774,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlayer {
 }
 unsafe impl ::windows::core::Interface for MediaPlayer {
     type Vtable = IMediaPlayer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x381a83cb_6fff_499b_8d64_2885dfc1249e);
+    const IID: ::windows::core::GUID = <IMediaPlayer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaPlayer {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlayer";
@@ -7947,7 +7947,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlayerDataReceivedEventArgs {
 }
 unsafe impl ::windows::core::Interface for MediaPlayerDataReceivedEventArgs {
     type Vtable = IMediaPlayerDataReceivedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc75a9405_c801_412a_835b_83fc0e622a8e);
+    const IID: ::windows::core::GUID = <IMediaPlayerDataReceivedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaPlayerDataReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlayerDataReceivedEventArgs";
@@ -8075,7 +8075,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlayerFailedEventArgs {
 }
 unsafe impl ::windows::core::Interface for MediaPlayerFailedEventArgs {
     type Vtable = IMediaPlayerFailedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2744e9b9_a7e3_4f16_bac4_7914ebc08301);
+    const IID: ::windows::core::GUID = <IMediaPlayerFailedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaPlayerFailedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlayerFailedEventArgs";
@@ -8156,7 +8156,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlayerRateChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for MediaPlayerRateChangedEventArgs {
     type Vtable = IMediaPlayerRateChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40600d58_3b61_4bb2_989f_fc65608b6cab);
+    const IID: ::windows::core::GUID = <IMediaPlayerRateChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaPlayerRateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlayerRateChangedEventArgs";
@@ -8301,7 +8301,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlayerSurface {
 }
 unsafe impl ::windows::core::Interface for MediaPlayerSurface {
     type Vtable = IMediaPlayerSurface_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ed653bc_b736_49c3_830b_764a3845313a);
+    const IID: ::windows::core::GUID = <IMediaPlayerSurface as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaPlayerSurface {
     const NAME: &'static str = "Windows.Media.Playback.MediaPlayerSurface";
@@ -8446,7 +8446,7 @@ unsafe impl ::windows::core::RuntimeType for PlaybackMediaMarker {
 }
 unsafe impl ::windows::core::Interface for PlaybackMediaMarker {
     type Vtable = IPlaybackMediaMarker_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4d22f5c_3c1c_4444_b6b9_778b0422d41a);
+    const IID: ::windows::core::GUID = <IPlaybackMediaMarker as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PlaybackMediaMarker {
     const NAME: &'static str = "Windows.Media.Playback.PlaybackMediaMarker";
@@ -8527,7 +8527,7 @@ unsafe impl ::windows::core::RuntimeType for PlaybackMediaMarkerReachedEventArgs
 }
 unsafe impl ::windows::core::Interface for PlaybackMediaMarkerReachedEventArgs {
     type Vtable = IPlaybackMediaMarkerReachedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x578cd1b9_90e2_4e60_abc4_8740b01f6196);
+    const IID: ::windows::core::GUID = <IPlaybackMediaMarkerReachedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PlaybackMediaMarkerReachedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.PlaybackMediaMarkerReachedEventArgs";
@@ -8627,7 +8627,7 @@ unsafe impl ::windows::core::RuntimeType for PlaybackMediaMarkerSequence {
 }
 unsafe impl ::windows::core::Interface for PlaybackMediaMarkerSequence {
     type Vtable = IPlaybackMediaMarkerSequence_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2810cee_638b_46cf_8817_1d111fe9d8c4);
+    const IID: ::windows::core::GUID = <IPlaybackMediaMarkerSequence as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PlaybackMediaMarkerSequence {
     const NAME: &'static str = "Windows.Media.Playback.PlaybackMediaMarkerSequence";
@@ -8823,7 +8823,7 @@ unsafe impl ::windows::core::RuntimeType for TimedMetadataPresentationModeChange
 }
 unsafe impl ::windows::core::Interface for TimedMetadataPresentationModeChangedEventArgs {
     type Vtable = ITimedMetadataPresentationModeChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1636099_65df_45ae_8cef_dc0b53fdc2bb);
+    const IID: ::windows::core::GUID = <ITimedMetadataPresentationModeChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TimedMetadataPresentationModeChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Playback.TimedMetadataPresentationModeChangedEventArgs";

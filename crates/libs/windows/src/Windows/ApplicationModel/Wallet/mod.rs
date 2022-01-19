@@ -513,7 +513,7 @@ unsafe impl ::windows::core::RuntimeType for WalletBarcode {
 }
 unsafe impl ::windows::core::Interface for WalletBarcode {
     type Vtable = IWalletBarcode_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f857b29_de80_4ea4_a1cd_81cd084dac27);
+    const IID: ::windows::core::GUID = <IWalletBarcode as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WalletBarcode {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletBarcode";
@@ -1056,7 +1056,7 @@ unsafe impl ::windows::core::RuntimeType for WalletItem {
 }
 unsafe impl ::windows::core::Interface for WalletItem {
     type Vtable = IWalletItem_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20b54be8_118d_4ec4_996c_b963e7bd3e74);
+    const IID: ::windows::core::GUID = <IWalletItem as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WalletItem {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletItem";
@@ -1206,7 +1206,7 @@ unsafe impl ::windows::core::RuntimeType for WalletItemCustomProperty {
 }
 unsafe impl ::windows::core::Interface for WalletItemCustomProperty {
     type Vtable = IWalletItemCustomProperty_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb94b40f3_fa00_40fd_98dc_9de46697f1e7);
+    const IID: ::windows::core::GUID = <IWalletItemCustomProperty as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WalletItemCustomProperty {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletItemCustomProperty";
@@ -1402,7 +1402,7 @@ unsafe impl ::windows::core::RuntimeType for WalletItemStore {
 }
 unsafe impl ::windows::core::Interface for WalletItemStore {
     type Vtable = IWalletItemStore_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7160484b_6d49_48f8_91a9_40a1d0f13ef4);
+    const IID: ::windows::core::GUID = <IWalletItemStore as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WalletItemStore {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletItemStore";
@@ -1530,7 +1530,7 @@ unsafe impl ::windows::core::RuntimeType for WalletRelevantLocation {
 }
 unsafe impl ::windows::core::Interface for WalletRelevantLocation {
     type Vtable = IWalletRelevantLocation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fd8782a_e3f9_4de1_bab3_bb192e46b3f3);
+    const IID: ::windows::core::GUID = <IWalletRelevantLocation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WalletRelevantLocation {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletRelevantLocation";
@@ -1719,7 +1719,7 @@ unsafe impl ::windows::core::RuntimeType for WalletTransaction {
 }
 unsafe impl ::windows::core::Interface for WalletTransaction {
     type Vtable = IWalletTransaction_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40e1e940_2606_4519_81cb_bff1c60d1f79);
+    const IID: ::windows::core::GUID = <IWalletTransaction as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WalletTransaction {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletTransaction";
@@ -1817,7 +1817,7 @@ unsafe impl ::windows::core::RuntimeType for WalletVerb {
 }
 unsafe impl ::windows::core::Interface for WalletVerb {
     type Vtable = IWalletVerb_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17b826d6_e3c1_4c74_8a94_217aadbc4884);
+    const IID: ::windows::core::GUID = <IWalletVerb as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WalletVerb {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.WalletVerb";

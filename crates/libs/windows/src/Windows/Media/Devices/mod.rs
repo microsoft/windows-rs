@@ -47,7 +47,7 @@ unsafe impl ::windows::core::RuntimeType for AdvancedPhotoCaptureSettings {
 }
 unsafe impl ::windows::core::Interface for AdvancedPhotoCaptureSettings {
     type Vtable = IAdvancedPhotoCaptureSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08f3863a_0018_445b_93d2_646d1c5ed05c);
+    const IID: ::windows::core::GUID = <IAdvancedPhotoCaptureSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AdvancedPhotoCaptureSettings {
     const NAME: &'static str = "Windows.Media.Devices.AdvancedPhotoCaptureSettings";
@@ -150,7 +150,7 @@ unsafe impl ::windows::core::RuntimeType for AdvancedPhotoControl {
 }
 unsafe impl ::windows::core::Interface for AdvancedPhotoControl {
     type Vtable = IAdvancedPhotoControl_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5b15486_9001_4682_9309_68eae0080eec);
+    const IID: ::windows::core::GUID = <IAdvancedPhotoControl as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AdvancedPhotoControl {
     const NAME: &'static str = "Windows.Media.Devices.AdvancedPhotoControl";
@@ -306,7 +306,7 @@ unsafe impl ::windows::core::RuntimeType for AudioDeviceController {
 }
 unsafe impl ::windows::core::Interface for AudioDeviceController {
     type Vtable = IAudioDeviceController_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xedd4a388_79c7_4f7c_90e8_ef934b21580a);
+    const IID: ::windows::core::GUID = <IAudioDeviceController as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AudioDeviceController {
     const NAME: &'static str = "Windows.Media.Devices.AudioDeviceController";
@@ -448,7 +448,7 @@ unsafe impl ::windows::core::RuntimeType for AudioDeviceModule {
 }
 unsafe impl ::windows::core::Interface for AudioDeviceModule {
     type Vtable = IAudioDeviceModule_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86cfac36_47c1_4b33_9852_8773ec4be123);
+    const IID: ::windows::core::GUID = <IAudioDeviceModule as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AudioDeviceModule {
     const NAME: &'static str = "Windows.Media.Devices.AudioDeviceModule";
@@ -536,7 +536,7 @@ unsafe impl ::windows::core::RuntimeType for AudioDeviceModuleNotificationEventA
 }
 unsafe impl ::windows::core::Interface for AudioDeviceModuleNotificationEventArgs {
     type Vtable = IAudioDeviceModuleNotificationEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3e3ccaf_224c_48be_956b_9a13134e96e8);
+    const IID: ::windows::core::GUID = <IAudioDeviceModuleNotificationEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AudioDeviceModuleNotificationEventArgs {
     const NAME: &'static str = "Windows.Media.Devices.AudioDeviceModuleNotificationEventArgs";
@@ -654,7 +654,7 @@ unsafe impl ::windows::core::RuntimeType for AudioDeviceModulesManager {
 }
 unsafe impl ::windows::core::Interface for AudioDeviceModulesManager {
     type Vtable = IAudioDeviceModulesManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6aa40c4d_960a_4d1c_b318_0022604547ed);
+    const IID: ::windows::core::GUID = <IAudioDeviceModulesManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AudioDeviceModulesManager {
     const NAME: &'static str = "Windows.Media.Devices.AudioDeviceModulesManager";
@@ -927,7 +927,7 @@ unsafe impl ::windows::core::RuntimeType for CallControl {
 }
 unsafe impl ::windows::core::Interface for CallControl {
     type Vtable = ICallControl_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa520d0d6_ae8d_45db_8011_ca49d3b3e578);
+    const IID: ::windows::core::GUID = <ICallControl as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CallControl {
     const NAME: &'static str = "Windows.Media.Devices.CallControl";
@@ -1109,7 +1109,7 @@ unsafe impl ::windows::core::RuntimeType for CameraOcclusionInfo {
 }
 unsafe impl ::windows::core::Interface for CameraOcclusionInfo {
     type Vtable = ICameraOcclusionInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf6c4ad0_a84d_5db6_be58_a5da21cfe011);
+    const IID: ::windows::core::GUID = <ICameraOcclusionInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CameraOcclusionInfo {
     const NAME: &'static str = "Windows.Media.Devices.CameraOcclusionInfo";
@@ -1226,7 +1226,7 @@ unsafe impl ::windows::core::RuntimeType for CameraOcclusionState {
 }
 unsafe impl ::windows::core::Interface for CameraOcclusionState {
     type Vtable = ICameraOcclusionState_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x430adeb8_6842_5e55_9bde_04b4ef3a8a57);
+    const IID: ::windows::core::GUID = <ICameraOcclusionState as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CameraOcclusionState {
     const NAME: &'static str = "Windows.Media.Devices.CameraOcclusionState";
@@ -1307,7 +1307,7 @@ unsafe impl ::windows::core::RuntimeType for CameraOcclusionStateChangedEventArg
 }
 unsafe impl ::windows::core::Interface for CameraOcclusionStateChangedEventArgs {
     type Vtable = ICameraOcclusionStateChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8512d848_c0de_57ca_a1ca_fb2c3d23df55);
+    const IID: ::windows::core::GUID = <ICameraOcclusionStateChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CameraOcclusionStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Devices.CameraOcclusionStateChangedEventArgs";
@@ -1528,7 +1528,7 @@ unsafe impl ::windows::core::RuntimeType for DefaultAudioCaptureDeviceChangedEve
 }
 unsafe impl ::windows::core::Interface for DefaultAudioCaptureDeviceChangedEventArgs {
     type Vtable = IDefaultAudioDeviceChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x110f882f_1c05_4657_a18e_47c9b69f07ab);
+    const IID: ::windows::core::GUID = <IDefaultAudioDeviceChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DefaultAudioCaptureDeviceChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Devices.DefaultAudioCaptureDeviceChangedEventArgs";
@@ -1639,7 +1639,7 @@ unsafe impl ::windows::core::RuntimeType for DefaultAudioRenderDeviceChangedEven
 }
 unsafe impl ::windows::core::Interface for DefaultAudioRenderDeviceChangedEventArgs {
     type Vtable = IDefaultAudioDeviceChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x110f882f_1c05_4657_a18e_47c9b69f07ab);
+    const IID: ::windows::core::GUID = <IDefaultAudioDeviceChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DefaultAudioRenderDeviceChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Devices.DefaultAudioRenderDeviceChangedEventArgs";
@@ -1747,7 +1747,7 @@ unsafe impl ::windows::core::RuntimeType for DialRequestedEventArgs {
 }
 unsafe impl ::windows::core::Interface for DialRequestedEventArgs {
     type Vtable = IDialRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x037b929e_953c_4286_8866_4f0f376c855a);
+    const IID: ::windows::core::GUID = <IDialRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DialRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.Devices.DialRequestedEventArgs";
@@ -1944,7 +1944,7 @@ unsafe impl ::windows::core::RuntimeType for DigitalWindowBounds {
 }
 unsafe impl ::windows::core::Interface for DigitalWindowBounds {
     type Vtable = IDigitalWindowBounds_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd4f21dd_d173_5c6b_8c25_bdd26d5122b1);
+    const IID: ::windows::core::GUID = <IDigitalWindowBounds as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DigitalWindowBounds {
     const NAME: &'static str = "Windows.Media.Devices.DigitalWindowBounds";
@@ -2066,7 +2066,7 @@ unsafe impl ::windows::core::RuntimeType for DigitalWindowCapability {
 }
 unsafe impl ::windows::core::Interface for DigitalWindowCapability {
     type Vtable = IDigitalWindowCapability_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd78bad2c_f721_5244_a196_b56ccbec606c);
+    const IID: ::windows::core::GUID = <IDigitalWindowCapability as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DigitalWindowCapability {
     const NAME: &'static str = "Windows.Media.Devices.DigitalWindowCapability";
@@ -2198,7 +2198,7 @@ unsafe impl ::windows::core::RuntimeType for DigitalWindowControl {
 }
 unsafe impl ::windows::core::Interface for DigitalWindowControl {
     type Vtable = IDigitalWindowControl_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23b69eff_65d2_53ea_8780_de582b48b544);
+    const IID: ::windows::core::GUID = <IDigitalWindowControl as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DigitalWindowControl {
     const NAME: &'static str = "Windows.Media.Devices.DigitalWindowControl";
@@ -2349,7 +2349,7 @@ unsafe impl ::windows::core::RuntimeType for ExposureCompensationControl {
 }
 unsafe impl ::windows::core::Interface for ExposureCompensationControl {
     type Vtable = IExposureCompensationControl_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81c8e834_dcec_4011_a610_1f3847e64aca);
+    const IID: ::windows::core::GUID = <IExposureCompensationControl as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ExposureCompensationControl {
     const NAME: &'static str = "Windows.Media.Devices.ExposureCompensationControl";
@@ -2490,7 +2490,7 @@ unsafe impl ::windows::core::RuntimeType for ExposureControl {
 }
 unsafe impl ::windows::core::Interface for ExposureControl {
     type Vtable = IExposureControl_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09e8cbe2_ad96_4f28_a0e0_96ed7e1b5fd2);
+    const IID: ::windows::core::GUID = <IExposureControl as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ExposureControl {
     const NAME: &'static str = "Windows.Media.Devices.ExposureControl";
@@ -2582,7 +2582,7 @@ unsafe impl ::windows::core::RuntimeType for ExposurePriorityVideoControl {
 }
 unsafe impl ::windows::core::Interface for ExposurePriorityVideoControl {
     type Vtable = IExposurePriorityVideoControl_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cb240a3_5168_4271_9ea5_47621a98a352);
+    const IID: ::windows::core::GUID = <IExposurePriorityVideoControl as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ExposurePriorityVideoControl {
     const NAME: &'static str = "Windows.Media.Devices.ExposurePriorityVideoControl";
@@ -2752,7 +2752,7 @@ unsafe impl ::windows::core::RuntimeType for FlashControl {
 }
 unsafe impl ::windows::core::Interface for FlashControl {
     type Vtable = IFlashControl_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdef41dbe_7d68_45e3_8c0f_be7bb32837d0);
+    const IID: ::windows::core::GUID = <IFlashControl as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FlashControl {
     const NAME: &'static str = "Windows.Media.Devices.FlashControl";
@@ -2998,7 +2998,7 @@ unsafe impl ::windows::core::RuntimeType for FocusControl {
 }
 unsafe impl ::windows::core::Interface for FocusControl {
     type Vtable = IFocusControl_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0d889f6_5228_4453_b153_85606592b238);
+    const IID: ::windows::core::GUID = <IFocusControl as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FocusControl {
     const NAME: &'static str = "Windows.Media.Devices.FocusControl";
@@ -3220,7 +3220,7 @@ unsafe impl ::windows::core::RuntimeType for FocusSettings {
 }
 unsafe impl ::windows::core::Interface for FocusSettings {
     type Vtable = IFocusSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79958f6b_3263_4275_85d6_aeae891c96ee);
+    const IID: ::windows::core::GUID = <IFocusSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FocusSettings {
     const NAME: &'static str = "Windows.Media.Devices.FocusSettings";
@@ -3323,7 +3323,7 @@ unsafe impl ::windows::core::RuntimeType for HdrVideoControl {
 }
 unsafe impl ::windows::core::Interface for HdrVideoControl {
     type Vtable = IHdrVideoControl_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55d8e2d0_30c0_43bf_9b9a_9799d70ced94);
+    const IID: ::windows::core::GUID = <IHdrVideoControl as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HdrVideoControl {
     const NAME: &'static str = "Windows.Media.Devices.HdrVideoControl";
@@ -5006,7 +5006,7 @@ unsafe impl ::windows::core::RuntimeType for InfraredTorchControl {
 }
 unsafe impl ::windows::core::Interface for InfraredTorchControl {
     type Vtable = IInfraredTorchControl_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1cba2c83_6cb6_5a04_a6fc_3be7b33ff056);
+    const IID: ::windows::core::GUID = <IInfraredTorchControl as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InfraredTorchControl {
     const NAME: &'static str = "Windows.Media.Devices.InfraredTorchControl";
@@ -5201,7 +5201,7 @@ unsafe impl ::windows::core::RuntimeType for IsoSpeedControl {
 }
 unsafe impl ::windows::core::Interface for IsoSpeedControl {
     type Vtable = IIsoSpeedControl_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27b6c322_25ad_4f1b_aaab_524ab376ca33);
+    const IID: ::windows::core::GUID = <IIsoSpeedControl as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for IsoSpeedControl {
     const NAME: &'static str = "Windows.Media.Devices.IsoSpeedControl";
@@ -5326,7 +5326,7 @@ unsafe impl ::windows::core::RuntimeType for KeypadPressedEventArgs {
 }
 unsafe impl ::windows::core::Interface for KeypadPressedEventArgs {
     type Vtable = IKeypadPressedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3a43900_b4fa_49cd_9442_89af6568f601);
+    const IID: ::windows::core::GUID = <IKeypadPressedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for KeypadPressedEventArgs {
     const NAME: &'static str = "Windows.Media.Devices.KeypadPressedEventArgs";
@@ -5544,7 +5544,7 @@ unsafe impl ::windows::core::RuntimeType for LowLagPhotoControl {
 }
 unsafe impl ::windows::core::Interface for LowLagPhotoControl {
     type Vtable = ILowLagPhotoControl_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d5c4dd0_fadf_415d_aee6_3baa529300c9);
+    const IID: ::windows::core::GUID = <ILowLagPhotoControl as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LowLagPhotoControl {
     const NAME: &'static str = "Windows.Media.Devices.LowLagPhotoControl";
@@ -5732,7 +5732,7 @@ unsafe impl ::windows::core::RuntimeType for LowLagPhotoSequenceControl {
 }
 unsafe impl ::windows::core::Interface for LowLagPhotoSequenceControl {
     type Vtable = ILowLagPhotoSequenceControl_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3dcf909d_6d16_409c_bafe_b9a594c6fde6);
+    const IID: ::windows::core::GUID = <ILowLagPhotoSequenceControl as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LowLagPhotoSequenceControl {
     const NAME: &'static str = "Windows.Media.Devices.LowLagPhotoSequenceControl";
@@ -6037,7 +6037,7 @@ unsafe impl ::windows::core::RuntimeType for MediaDeviceControl {
 }
 unsafe impl ::windows::core::Interface for MediaDeviceControl {
     type Vtable = IMediaDeviceControl_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefa8dfa9_6f75_4863_ba0b_583f3036b4de);
+    const IID: ::windows::core::GUID = <IMediaDeviceControl as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaDeviceControl {
     const NAME: &'static str = "Windows.Media.Devices.MediaDeviceControl";
@@ -6156,7 +6156,7 @@ unsafe impl ::windows::core::RuntimeType for MediaDeviceControlCapabilities {
 }
 unsafe impl ::windows::core::Interface for MediaDeviceControlCapabilities {
     type Vtable = IMediaDeviceControlCapabilities_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23005816_eb85_43e2_b92b_8240d5ee70ec);
+    const IID: ::windows::core::GUID = <IMediaDeviceControlCapabilities as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaDeviceControlCapabilities {
     const NAME: &'static str = "Windows.Media.Devices.MediaDeviceControlCapabilities";
@@ -6244,7 +6244,7 @@ unsafe impl ::windows::core::RuntimeType for ModuleCommandResult {
 }
 unsafe impl ::windows::core::Interface for ModuleCommandResult {
     type Vtable = IModuleCommandResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x520d1eb4_1374_4c7d_b1e4_39dcdf3eae4e);
+    const IID: ::windows::core::GUID = <IModuleCommandResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ModuleCommandResult {
     const NAME: &'static str = "Windows.Media.Devices.ModuleCommandResult";
@@ -6345,7 +6345,7 @@ unsafe impl ::windows::core::RuntimeType for OpticalImageStabilizationControl {
 }
 unsafe impl ::windows::core::Interface for OpticalImageStabilizationControl {
     type Vtable = IOpticalImageStabilizationControl_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfad9c1d_00bc_423b_8eb2_a0178ca94247);
+    const IID: ::windows::core::GUID = <IOpticalImageStabilizationControl as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for OpticalImageStabilizationControl {
     const NAME: &'static str = "Windows.Media.Devices.OpticalImageStabilizationControl";
@@ -6470,7 +6470,7 @@ unsafe impl ::windows::core::RuntimeType for PanelBasedOptimizationControl {
 }
 unsafe impl ::windows::core::Interface for PanelBasedOptimizationControl {
     type Vtable = IPanelBasedOptimizationControl_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33323223_6247_5419_a5a4_3d808645d917);
+    const IID: ::windows::core::GUID = <IPanelBasedOptimizationControl as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PanelBasedOptimizationControl {
     const NAME: &'static str = "Windows.Media.Devices.PanelBasedOptimizationControl";
@@ -6579,7 +6579,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoConfirmationControl {
 }
 unsafe impl ::windows::core::Interface for PhotoConfirmationControl {
     type Vtable = IPhotoConfirmationControl_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8f3f363_ff5e_4582_a9a8_0550f85a4a76);
+    const IID: ::windows::core::GUID = <IPhotoConfirmationControl as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PhotoConfirmationControl {
     const NAME: &'static str = "Windows.Media.Devices.PhotoConfirmationControl";
@@ -6655,7 +6655,7 @@ unsafe impl ::windows::core::RuntimeType for RedialRequestedEventArgs {
 }
 unsafe impl ::windows::core::Interface for RedialRequestedEventArgs {
     type Vtable = IRedialRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7eb55209_76ab_4c31_b40e_4b58379d580c);
+    const IID: ::windows::core::GUID = <IRedialRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RedialRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.Devices.RedialRequestedEventArgs";
@@ -6906,7 +6906,7 @@ unsafe impl ::windows::core::RuntimeType for RegionOfInterest {
 }
 unsafe impl ::windows::core::Interface for RegionOfInterest {
     type Vtable = IRegionOfInterest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5ecc834_ce66_4e05_a78f_cf391a5ec2d1);
+    const IID: ::windows::core::GUID = <IRegionOfInterest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RegionOfInterest {
     const NAME: &'static str = "Windows.Media.Devices.RegionOfInterest";
@@ -7066,7 +7066,7 @@ unsafe impl ::windows::core::RuntimeType for RegionsOfInterestControl {
 }
 unsafe impl ::windows::core::Interface for RegionsOfInterestControl {
     type Vtable = IRegionsOfInterestControl_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc323f527_ab0b_4558_8b5b_df5693db0378);
+    const IID: ::windows::core::GUID = <IRegionsOfInterestControl as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RegionsOfInterestControl {
     const NAME: &'static str = "Windows.Media.Devices.RegionsOfInterestControl";
@@ -7163,7 +7163,7 @@ unsafe impl ::windows::core::RuntimeType for SceneModeControl {
 }
 unsafe impl ::windows::core::Interface for SceneModeControl {
     type Vtable = ISceneModeControl_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd48e5af7_8d59_4854_8c62_12c70ba89b7c);
+    const IID: ::windows::core::GUID = <ISceneModeControl as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SceneModeControl {
     const NAME: &'static str = "Windows.Media.Devices.SceneModeControl";
@@ -7346,7 +7346,7 @@ unsafe impl ::windows::core::RuntimeType for TorchControl {
 }
 unsafe impl ::windows::core::Interface for TorchControl {
     type Vtable = ITorchControl_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6053665_8250_416c_919a_724296afa306);
+    const IID: ::windows::core::GUID = <ITorchControl as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TorchControl {
     const NAME: &'static str = "Windows.Media.Devices.TorchControl";
@@ -7816,7 +7816,7 @@ unsafe impl ::windows::core::RuntimeType for VideoDeviceController {
 }
 unsafe impl ::windows::core::Interface for VideoDeviceController {
     type Vtable = IVideoDeviceController_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99555575_2e2e_40b8_b6c7_f82d10013210);
+    const IID: ::windows::core::GUID = <IVideoDeviceController as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VideoDeviceController {
     const NAME: &'static str = "Windows.Media.Devices.VideoDeviceController";
@@ -7925,7 +7925,7 @@ unsafe impl ::windows::core::RuntimeType for VideoDeviceControllerGetDevicePrope
 }
 unsafe impl ::windows::core::Interface for VideoDeviceControllerGetDevicePropertyResult {
     type Vtable = IVideoDeviceControllerGetDevicePropertyResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5d88395_6ed5_4790_8b5d_0ef13935d0f8);
+    const IID: ::windows::core::GUID = <IVideoDeviceControllerGetDevicePropertyResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VideoDeviceControllerGetDevicePropertyResult {
     const NAME: &'static str = "Windows.Media.Devices.VideoDeviceControllerGetDevicePropertyResult";
@@ -8093,7 +8093,7 @@ unsafe impl ::windows::core::RuntimeType for VideoTemporalDenoisingControl {
 }
 unsafe impl ::windows::core::Interface for VideoTemporalDenoisingControl {
     type Vtable = IVideoTemporalDenoisingControl_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ab34735_3e2a_4a32_baff_4358c4fbdd57);
+    const IID: ::windows::core::GUID = <IVideoTemporalDenoisingControl as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VideoTemporalDenoisingControl {
     const NAME: &'static str = "Windows.Media.Devices.VideoTemporalDenoisingControl";
@@ -8261,7 +8261,7 @@ unsafe impl ::windows::core::RuntimeType for WhiteBalanceControl {
 }
 unsafe impl ::windows::core::Interface for WhiteBalanceControl {
     type Vtable = IWhiteBalanceControl_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x781f047e_7162_49c8_a8f9_9481c565363e);
+    const IID: ::windows::core::GUID = <IWhiteBalanceControl as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WhiteBalanceControl {
     const NAME: &'static str = "Windows.Media.Devices.WhiteBalanceControl";
@@ -8399,7 +8399,7 @@ unsafe impl ::windows::core::RuntimeType for ZoomControl {
 }
 unsafe impl ::windows::core::Interface for ZoomControl {
     type Vtable = IZoomControl_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a1e0b12_32da_4c17_bfd7_8d0c73c8f5a5);
+    const IID: ::windows::core::GUID = <IZoomControl as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ZoomControl {
     const NAME: &'static str = "Windows.Media.Devices.ZoomControl";
@@ -8503,7 +8503,7 @@ unsafe impl ::windows::core::RuntimeType for ZoomSettings {
 }
 unsafe impl ::windows::core::Interface for ZoomSettings {
     type Vtable = IZoomSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ad66b24_14b4_4bfd_b18f_88fe24463b52);
+    const IID: ::windows::core::GUID = <IZoomSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ZoomSettings {
     const NAME: &'static str = "Windows.Media.Devices.ZoomSettings";

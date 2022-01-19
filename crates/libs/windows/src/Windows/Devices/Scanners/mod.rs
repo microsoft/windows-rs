@@ -729,7 +729,7 @@ unsafe impl ::windows::core::RuntimeType for ImageScanner {
 }
 unsafe impl ::windows::core::Interface for ImageScanner {
     type Vtable = IImageScanner_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53a88f78_5298_48a0_8da3_8087519665e0);
+    const IID: ::windows::core::GUID = <IImageScanner as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ImageScanner {
     const NAME: &'static str = "Windows.Devices.Scanners.ImageScanner";
@@ -831,7 +831,7 @@ unsafe impl ::windows::core::RuntimeType for ImageScannerAutoConfiguration {
 }
 unsafe impl ::windows::core::Interface for ImageScannerAutoConfiguration {
     type Vtable = IImageScannerFormatConfiguration_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae275d11_dadf_4010_bf10_cca5c83dcbb0);
+    const IID: ::windows::core::GUID = <IImageScannerFormatConfiguration as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ImageScannerAutoConfiguration {
     const NAME: &'static str = "Windows.Devices.Scanners.ImageScannerAutoConfiguration";
@@ -1356,7 +1356,7 @@ unsafe impl ::windows::core::RuntimeType for ImageScannerFeederConfiguration {
 }
 unsafe impl ::windows::core::Interface for ImageScannerFeederConfiguration {
     type Vtable = IImageScannerFormatConfiguration_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae275d11_dadf_4010_bf10_cca5c83dcbb0);
+    const IID: ::windows::core::GUID = <IImageScannerFormatConfiguration as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ImageScannerFeederConfiguration {
     const NAME: &'static str = "Windows.Devices.Scanners.ImageScannerFeederConfiguration";
@@ -1720,7 +1720,7 @@ unsafe impl ::windows::core::RuntimeType for ImageScannerFlatbedConfiguration {
 }
 unsafe impl ::windows::core::Interface for ImageScannerFlatbedConfiguration {
     type Vtable = IImageScannerFormatConfiguration_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae275d11_dadf_4010_bf10_cca5c83dcbb0);
+    const IID: ::windows::core::GUID = <IImageScannerFormatConfiguration as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ImageScannerFlatbedConfiguration {
     const NAME: &'static str = "Windows.Devices.Scanners.ImageScannerFlatbedConfiguration";
@@ -1886,7 +1886,7 @@ unsafe impl ::windows::core::RuntimeType for ImageScannerPreviewResult {
 }
 unsafe impl ::windows::core::Interface for ImageScannerPreviewResult {
     type Vtable = IImageScannerPreviewResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08b7fe8e_8891_441d_be9c_176fa109c8bb);
+    const IID: ::windows::core::GUID = <IImageScannerPreviewResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ImageScannerPreviewResult {
     const NAME: &'static str = "Windows.Devices.Scanners.ImageScannerPreviewResult";
@@ -2005,7 +2005,7 @@ unsafe impl ::windows::core::RuntimeType for ImageScannerScanResult {
 }
 unsafe impl ::windows::core::Interface for ImageScannerScanResult {
     type Vtable = IImageScannerScanResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc91624cd_9037_4e48_84c1_ac0975076bc5);
+    const IID: ::windows::core::GUID = <IImageScannerScanResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ImageScannerScanResult {
     const NAME: &'static str = "Windows.Devices.Scanners.ImageScannerScanResult";

@@ -130,7 +130,7 @@ unsafe impl ::windows::core::RuntimeType for LanguageFont {
 }
 unsafe impl ::windows::core::Interface for LanguageFont {
     type Vtable = ILanguageFont_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb12e5c3a_b76d_459b_beeb_901151cd77d1);
+    const IID: ::windows::core::GUID = <ILanguageFont as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LanguageFont {
     const NAME: &'static str = "Windows.Globalization.Fonts.LanguageFont";
@@ -303,7 +303,7 @@ unsafe impl ::windows::core::RuntimeType for LanguageFontGroup {
 }
 unsafe impl ::windows::core::Interface for LanguageFontGroup {
     type Vtable = ILanguageFontGroup_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf33a7fc3_3a5c_4aea_b9ff_b39fb242f7f6);
+    const IID: ::windows::core::GUID = <ILanguageFontGroup as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LanguageFontGroup {
     const NAME: &'static str = "Windows.Globalization.Fonts.LanguageFontGroup";

@@ -166,7 +166,7 @@ unsafe impl ::windows::core::RuntimeType for NotePlacementChangedPreviewEventArg
 }
 unsafe impl ::windows::core::Interface for NotePlacementChangedPreviewEventArgs {
     type Vtable = INotePlacementChangedPreviewEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x491d57b7_f780_4e7f_a939_9a4caf965214);
+    const IID: ::windows::core::GUID = <INotePlacementChangedPreviewEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for NotePlacementChangedPreviewEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.Notes.NotePlacementChangedPreviewEventArgs";
@@ -255,7 +255,7 @@ unsafe impl ::windows::core::RuntimeType for NoteVisibilityChangedPreviewEventAr
 }
 unsafe impl ::windows::core::Interface for NoteVisibilityChangedPreviewEventArgs {
     type Vtable = INoteVisibilityChangedPreviewEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e34649e_3815_4ff6_83b3_a14d17120e24);
+    const IID: ::windows::core::GUID = <INoteVisibilityChangedPreviewEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for NoteVisibilityChangedPreviewEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.Notes.NoteVisibilityChangedPreviewEventArgs";
@@ -471,7 +471,7 @@ unsafe impl ::windows::core::RuntimeType for NotesWindowManagerPreview {
 }
 unsafe impl ::windows::core::Interface for NotesWindowManagerPreview {
     type Vtable = INotesWindowManagerPreview_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc2ac23e_4850_4f13_9cc7_ff487efdfcde);
+    const IID: ::windows::core::GUID = <INotesWindowManagerPreview as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for NotesWindowManagerPreview {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.Notes.NotesWindowManagerPreview";
@@ -564,7 +564,7 @@ unsafe impl ::windows::core::RuntimeType for NotesWindowManagerPreviewShowNoteOp
 }
 unsafe impl ::windows::core::Interface for NotesWindowManagerPreviewShowNoteOptions {
     type Vtable = INotesWindowManagerPreviewShowNoteOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x886b09d6_a6ae_4007_a56d_1ca70c84c0d2);
+    const IID: ::windows::core::GUID = <INotesWindowManagerPreviewShowNoteOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for NotesWindowManagerPreviewShowNoteOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Preview.Notes.NotesWindowManagerPreviewShowNoteOptions";

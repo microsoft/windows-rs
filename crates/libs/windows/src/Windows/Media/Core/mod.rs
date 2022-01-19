@@ -193,7 +193,7 @@ unsafe impl ::windows::core::RuntimeType for AudioStreamDescriptor {
 }
 unsafe impl ::windows::core::Interface for AudioStreamDescriptor {
     type Vtable = IAudioStreamDescriptor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e3692e4_4027_4847_a70b_df1d9a2a7b04);
+    const IID: ::windows::core::GUID = <IAudioStreamDescriptor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AudioStreamDescriptor {
     const NAME: &'static str = "Windows.Media.Core.AudioStreamDescriptor";
@@ -396,7 +396,7 @@ unsafe impl ::windows::core::RuntimeType for AudioTrack {
 }
 unsafe impl ::windows::core::Interface for AudioTrack {
     type Vtable = IMediaTrack_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03e1fafc_c931_491a_b46b_c10ee8c256b7);
+    const IID: ::windows::core::GUID = <IMediaTrack as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AudioTrack {
     const NAME: &'static str = "Windows.Media.Core.AudioTrack";
@@ -499,7 +499,7 @@ unsafe impl ::windows::core::RuntimeType for AudioTrackOpenFailedEventArgs {
 }
 unsafe impl ::windows::core::Interface for AudioTrackOpenFailedEventArgs {
     type Vtable = IAudioTrackOpenFailedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeeddb9b9_bb7c_4112_bf76_9384676f824b);
+    const IID: ::windows::core::GUID = <IAudioTrackOpenFailedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AudioTrackOpenFailedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.AudioTrackOpenFailedEventArgs";
@@ -604,7 +604,7 @@ unsafe impl ::windows::core::RuntimeType for AudioTrackSupportInfo {
 }
 unsafe impl ::windows::core::Interface for AudioTrackSupportInfo {
     type Vtable = IAudioTrackSupportInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x178beff7_cc39_44a6_b951_4a5653f073fa);
+    const IID: ::windows::core::GUID = <IAudioTrackSupportInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AudioTrackSupportInfo {
     const NAME: &'static str = "Windows.Media.Core.AudioTrackSupportInfo";
@@ -740,7 +740,7 @@ unsafe impl ::windows::core::RuntimeType for ChapterCue {
 }
 unsafe impl ::windows::core::Interface for ChapterCue {
     type Vtable = IChapterCue_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72a98001_d38a_4c0a_8fa6_75cddaf4664c);
+    const IID: ::windows::core::GUID = <IChapterCue as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ChapterCue {
     const NAME: &'static str = "Windows.Media.Core.ChapterCue";
@@ -904,7 +904,7 @@ unsafe impl ::windows::core::RuntimeType for CodecInfo {
 }
 unsafe impl ::windows::core::Interface for CodecInfo {
     type Vtable = ICodecInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51e89f85_ea97_499c_86ac_4ce5e73f3a42);
+    const IID: ::windows::core::GUID = <ICodecInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CodecInfo {
     const NAME: &'static str = "Windows.Media.Core.CodecInfo";
@@ -1021,7 +1021,7 @@ unsafe impl ::windows::core::RuntimeType for CodecQuery {
 }
 unsafe impl ::windows::core::Interface for CodecQuery {
     type Vtable = ICodecQuery_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x222a953a_af61_4e04_808a_a4634e2f3ac4);
+    const IID: ::windows::core::GUID = <ICodecQuery as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CodecQuery {
     const NAME: &'static str = "Windows.Media.Core.CodecQuery";
@@ -1537,7 +1537,7 @@ unsafe impl ::windows::core::RuntimeType for DataCue {
 }
 unsafe impl ::windows::core::Interface for DataCue {
     type Vtable = IDataCue_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c7f676d_1fbc_4e2d_9a87_ee38bd1dc637);
+    const IID: ::windows::core::GUID = <IDataCue as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DataCue {
     const NAME: &'static str = "Windows.Media.Core.DataCue";
@@ -1640,7 +1640,7 @@ unsafe impl ::windows::core::RuntimeType for FaceDetectedEventArgs {
 }
 unsafe impl ::windows::core::Interface for FaceDetectedEventArgs {
     type Vtable = IFaceDetectedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19918426_c65b_46ba_85f8_13880576c90a);
+    const IID: ::windows::core::GUID = <IFaceDetectedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FaceDetectedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.FaceDetectedEventArgs";
@@ -1762,7 +1762,7 @@ unsafe impl ::windows::core::RuntimeType for FaceDetectionEffect {
 }
 unsafe impl ::windows::core::Interface for FaceDetectionEffect {
     type Vtable = IFaceDetectionEffect_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae15ebd2_0542_42a9_bc90_f283a29f46c1);
+    const IID: ::windows::core::GUID = <IFaceDetectionEffect as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FaceDetectionEffect {
     const NAME: &'static str = "Windows.Media.Core.FaceDetectionEffect";
@@ -1916,7 +1916,7 @@ unsafe impl ::windows::core::RuntimeType for FaceDetectionEffectDefinition {
 #[cfg(feature = "Media_Effects")]
 unsafe impl ::windows::core::Interface for FaceDetectionEffectDefinition {
     type Vtable = super::Effects::IVideoEffectDefinition_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39f38cf0_8d0f_4f3e_84fc_2d46a5297943);
+    const IID: ::windows::core::GUID = <super::Effects::IVideoEffectDefinition as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Media_Effects")]
 impl ::windows::core::RuntimeName for FaceDetectionEffectDefinition {
@@ -2124,7 +2124,7 @@ unsafe impl ::windows::core::RuntimeType for FaceDetectionEffectFrame {
 }
 unsafe impl ::windows::core::Interface for FaceDetectionEffectFrame {
     type Vtable = IFaceDetectionEffectFrame_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ab08993_5dc8_447b_a247_5270bd802ece);
+    const IID: ::windows::core::GUID = <IFaceDetectionEffectFrame as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FaceDetectionEffectFrame {
     const NAME: &'static str = "Windows.Media.Core.FaceDetectionEffectFrame";
@@ -2287,7 +2287,7 @@ unsafe impl ::windows::core::RuntimeType for HighDynamicRangeControl {
 }
 unsafe impl ::windows::core::Interface for HighDynamicRangeControl {
     type Vtable = IHighDynamicRangeControl_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55f1a7ae_d957_4dc9_9d1c_8553a82a7d99);
+    const IID: ::windows::core::GUID = <IHighDynamicRangeControl as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HighDynamicRangeControl {
     const NAME: &'static str = "Windows.Media.Core.HighDynamicRangeControl";
@@ -2377,7 +2377,7 @@ unsafe impl ::windows::core::RuntimeType for HighDynamicRangeOutput {
 }
 unsafe impl ::windows::core::Interface for HighDynamicRangeOutput {
     type Vtable = IHighDynamicRangeOutput_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f57806b_253b_4119_bb40_3a90e51384f7);
+    const IID: ::windows::core::GUID = <IHighDynamicRangeOutput as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HighDynamicRangeOutput {
     const NAME: &'static str = "Windows.Media.Core.HighDynamicRangeOutput";
@@ -5539,7 +5539,7 @@ unsafe impl ::windows::core::RuntimeType for ImageCue {
 }
 unsafe impl ::windows::core::Interface for ImageCue {
     type Vtable = IImageCue_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52828282_367b_440b_9116_3c84570dd270);
+    const IID: ::windows::core::GUID = <IImageCue as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ImageCue {
     const NAME: &'static str = "Windows.Media.Core.ImageCue";
@@ -5660,7 +5660,7 @@ unsafe impl ::windows::core::RuntimeType for InitializeMediaStreamSourceRequeste
 }
 unsafe impl ::windows::core::Interface for InitializeMediaStreamSourceRequestedEventArgs {
     type Vtable = IInitializeMediaStreamSourceRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25bc45e1_9b08_4c2e_a855_4542f1a75deb);
+    const IID: ::windows::core::GUID = <IInitializeMediaStreamSourceRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InitializeMediaStreamSourceRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.InitializeMediaStreamSourceRequestedEventArgs";
@@ -5783,7 +5783,7 @@ unsafe impl ::windows::core::RuntimeType for LowLightFusionResult {
 }
 unsafe impl ::windows::core::Interface for LowLightFusionResult {
     type Vtable = ILowLightFusionResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78edbe35_27a0_42e0_9cd3_738d2089de9c);
+    const IID: ::windows::core::GUID = <ILowLightFusionResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LowLightFusionResult {
     const NAME: &'static str = "Windows.Media.Core.LowLightFusionResult";
@@ -5925,7 +5925,7 @@ unsafe impl ::windows::core::RuntimeType for MediaBinder {
 }
 unsafe impl ::windows::core::Interface for MediaBinder {
     type Vtable = IMediaBinder_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b7e40aa_de07_424f_83f1_f1de46c4fa2e);
+    const IID: ::windows::core::GUID = <IMediaBinder as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaBinder {
     const NAME: &'static str = "Windows.Media.Core.MediaBinder";
@@ -6066,7 +6066,7 @@ unsafe impl ::windows::core::RuntimeType for MediaBindingEventArgs {
 }
 unsafe impl ::windows::core::Interface for MediaBindingEventArgs {
     type Vtable = IMediaBindingEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb61cb25a_1b6d_4630_a86d_2f0837f712e5);
+    const IID: ::windows::core::GUID = <IMediaBindingEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaBindingEventArgs {
     const NAME: &'static str = "Windows.Media.Core.MediaBindingEventArgs";
@@ -6147,7 +6147,7 @@ unsafe impl ::windows::core::RuntimeType for MediaCueEventArgs {
 }
 unsafe impl ::windows::core::Interface for MediaCueEventArgs {
     type Vtable = IMediaCueEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd12f47f7_5fa4_4e68_9fe5_32160dcee57e);
+    const IID: ::windows::core::GUID = <IMediaCueEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaCueEventArgs {
     const NAME: &'static str = "Windows.Media.Core.MediaCueEventArgs";
@@ -6499,7 +6499,7 @@ unsafe impl ::windows::core::RuntimeType for MediaSource {
 }
 unsafe impl ::windows::core::Interface for MediaSource {
     type Vtable = IMediaSource2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2eb61048_655f_4c37_b813_b4e45dfa0abe);
+    const IID: ::windows::core::GUID = <IMediaSource2 as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaSource {
     const NAME: &'static str = "Windows.Media.Core.MediaSource";
@@ -6657,7 +6657,7 @@ unsafe impl ::windows::core::RuntimeType for MediaSourceAppServiceConnection {
 }
 unsafe impl ::windows::core::Interface for MediaSourceAppServiceConnection {
     type Vtable = IMediaSourceAppServiceConnection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61e1ea97_1916_4810_b7f4_b642be829596);
+    const IID: ::windows::core::GUID = <IMediaSourceAppServiceConnection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaSourceAppServiceConnection {
     const NAME: &'static str = "Windows.Media.Core.MediaSourceAppServiceConnection";
@@ -6736,7 +6736,7 @@ unsafe impl ::windows::core::RuntimeType for MediaSourceError {
 }
 unsafe impl ::windows::core::Interface for MediaSourceError {
     type Vtable = IMediaSourceError_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c0a8965_37c5_4e9d_8d21_1cdee90cecc6);
+    const IID: ::windows::core::GUID = <IMediaSourceError as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaSourceError {
     const NAME: &'static str = "Windows.Media.Core.MediaSourceError";
@@ -6817,7 +6817,7 @@ unsafe impl ::windows::core::RuntimeType for MediaSourceOpenOperationCompletedEv
 }
 unsafe impl ::windows::core::Interface for MediaSourceOpenOperationCompletedEventArgs {
     type Vtable = IMediaSourceOpenOperationCompletedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc682ceb_e281_477c_a8e0_1acd654114c8);
+    const IID: ::windows::core::GUID = <IMediaSourceOpenOperationCompletedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaSourceOpenOperationCompletedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.MediaSourceOpenOperationCompletedEventArgs";
@@ -6937,7 +6937,7 @@ unsafe impl ::windows::core::RuntimeType for MediaSourceStateChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for MediaSourceStateChangedEventArgs {
     type Vtable = IMediaSourceStateChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a30af82_9071_4bac_bc39_ca2a93b717a9);
+    const IID: ::windows::core::GUID = <IMediaSourceStateChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaSourceStateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.MediaSourceStateChangedEventArgs";
@@ -7187,7 +7187,7 @@ unsafe impl ::windows::core::RuntimeType for MediaStreamSample {
 }
 unsafe impl ::windows::core::Interface for MediaStreamSample {
     type Vtable = IMediaStreamSample_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c8db627_4b80_4361_9837_6cb7481ad9d6);
+    const IID: ::windows::core::GUID = <IMediaStreamSample as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaStreamSample {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSample";
@@ -7334,7 +7334,7 @@ unsafe impl ::windows::core::RuntimeType for MediaStreamSamplePropertySet {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for MediaStreamSamplePropertySet {
     type Vtable = super::super::Foundation::Collections::IMap_Vtbl<::windows::core::GUID, ::windows::core::IInspectable>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::Foundation::Collections::IMap<::windows::core::GUID, ::windows::core::IInspectable> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for MediaStreamSamplePropertySet {
@@ -7516,7 +7516,7 @@ unsafe impl ::windows::core::RuntimeType for MediaStreamSampleProtectionProperti
 }
 unsafe impl ::windows::core::Interface for MediaStreamSampleProtectionProperties {
     type Vtable = IMediaStreamSampleProtectionProperties_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4eb88292_ecdf_493e_841d_dd4add7caca2);
+    const IID: ::windows::core::GUID = <IMediaStreamSampleProtectionProperties as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaStreamSampleProtectionProperties {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSampleProtectionProperties";
@@ -7838,7 +7838,7 @@ unsafe impl ::windows::core::RuntimeType for MediaStreamSource {
 }
 unsafe impl ::windows::core::Interface for MediaStreamSource {
     type Vtable = IMediaStreamSource_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3712d543_45eb_4138_aa62_c01e26f3843f);
+    const IID: ::windows::core::GUID = <IMediaStreamSource as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaStreamSource {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSource";
@@ -7941,7 +7941,7 @@ unsafe impl ::windows::core::RuntimeType for MediaStreamSourceClosedEventArgs {
 }
 unsafe impl ::windows::core::Interface for MediaStreamSourceClosedEventArgs {
     type Vtable = IMediaStreamSourceClosedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd8c7eb2_4816_4e24_88f0_491ef7386406);
+    const IID: ::windows::core::GUID = <IMediaStreamSourceClosedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaStreamSourceClosedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceClosedEventArgs";
@@ -8055,7 +8055,7 @@ unsafe impl ::windows::core::RuntimeType for MediaStreamSourceClosedRequest {
 }
 unsafe impl ::windows::core::Interface for MediaStreamSourceClosedRequest {
     type Vtable = IMediaStreamSourceClosedRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x907c00e9_18a3_4951_887a_2c1eebd5c69e);
+    const IID: ::windows::core::GUID = <IMediaStreamSourceClosedRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaStreamSourceClosedRequest {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceClosedRequest";
@@ -8171,7 +8171,7 @@ unsafe impl ::windows::core::RuntimeType for MediaStreamSourceSampleRenderedEven
 }
 unsafe impl ::windows::core::Interface for MediaStreamSourceSampleRenderedEventArgs {
     type Vtable = IMediaStreamSourceSampleRenderedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d697b05_d4f2_4c7a_9dfe_8d6cd0b3ee84);
+    const IID: ::windows::core::GUID = <IMediaStreamSourceSampleRenderedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaStreamSourceSampleRenderedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceSampleRenderedEventArgs";
@@ -8278,7 +8278,7 @@ unsafe impl ::windows::core::RuntimeType for MediaStreamSourceSampleRequest {
 }
 unsafe impl ::windows::core::Interface for MediaStreamSourceSampleRequest {
     type Vtable = IMediaStreamSourceSampleRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4db341a9_3501_4d9b_83f9_8f235c822532);
+    const IID: ::windows::core::GUID = <IMediaStreamSourceSampleRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaStreamSourceSampleRequest {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceSampleRequest";
@@ -8356,7 +8356,7 @@ unsafe impl ::windows::core::RuntimeType for MediaStreamSourceSampleRequestDefer
 }
 unsafe impl ::windows::core::Interface for MediaStreamSourceSampleRequestDeferral {
     type Vtable = IMediaStreamSourceSampleRequestDeferral_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7895cc02_f982_43c8_9d16_c62d999319be);
+    const IID: ::windows::core::GUID = <IMediaStreamSourceSampleRequestDeferral as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaStreamSourceSampleRequestDeferral {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceSampleRequestDeferral";
@@ -8437,7 +8437,7 @@ unsafe impl ::windows::core::RuntimeType for MediaStreamSourceSampleRequestedEve
 }
 unsafe impl ::windows::core::Interface for MediaStreamSourceSampleRequestedEventArgs {
     type Vtable = IMediaStreamSourceSampleRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10f9bb9e_71c5_492f_847f_0da1f35e81f8);
+    const IID: ::windows::core::GUID = <IMediaStreamSourceSampleRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaStreamSourceSampleRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceSampleRequestedEventArgs";
@@ -8518,7 +8518,7 @@ unsafe impl ::windows::core::RuntimeType for MediaStreamSourceStartingEventArgs 
 }
 unsafe impl ::windows::core::Interface for MediaStreamSourceStartingEventArgs {
     type Vtable = IMediaStreamSourceStartingEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf41468f2_c274_4940_a5bb_28a572452fa7);
+    const IID: ::windows::core::GUID = <IMediaStreamSourceStartingEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaStreamSourceStartingEventArgs {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceStartingEventArgs";
@@ -8614,7 +8614,7 @@ unsafe impl ::windows::core::RuntimeType for MediaStreamSourceStartingRequest {
 }
 unsafe impl ::windows::core::Interface for MediaStreamSourceStartingRequest {
     type Vtable = IMediaStreamSourceStartingRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a9093e4_35c4_4b1b_a791_0d99db56dd1d);
+    const IID: ::windows::core::GUID = <IMediaStreamSourceStartingRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaStreamSourceStartingRequest {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceStartingRequest";
@@ -8692,7 +8692,7 @@ unsafe impl ::windows::core::RuntimeType for MediaStreamSourceStartingRequestDef
 }
 unsafe impl ::windows::core::Interface for MediaStreamSourceStartingRequestDeferral {
     type Vtable = IMediaStreamSourceStartingRequestDeferral_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f1356a5_6340_4dc4_9910_068ed9f598f8);
+    const IID: ::windows::core::GUID = <IMediaStreamSourceStartingRequestDeferral as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaStreamSourceStartingRequestDeferral {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceStartingRequestDeferral";
@@ -8789,7 +8789,7 @@ unsafe impl ::windows::core::RuntimeType for MediaStreamSourceSwitchStreamsReque
 }
 unsafe impl ::windows::core::Interface for MediaStreamSourceSwitchStreamsRequest {
     type Vtable = IMediaStreamSourceSwitchStreamsRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41b8808e_38a9_4ec3_9ba0_b69b85501e90);
+    const IID: ::windows::core::GUID = <IMediaStreamSourceSwitchStreamsRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaStreamSourceSwitchStreamsRequest {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceSwitchStreamsRequest";
@@ -8867,7 +8867,7 @@ unsafe impl ::windows::core::RuntimeType for MediaStreamSourceSwitchStreamsReque
 }
 unsafe impl ::windows::core::Interface for MediaStreamSourceSwitchStreamsRequestDeferral {
     type Vtable = IMediaStreamSourceSwitchStreamsRequestDeferral_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbee3d835_a505_4f9a_b943_2b8cb1b4bbd9);
+    const IID: ::windows::core::GUID = <IMediaStreamSourceSwitchStreamsRequestDeferral as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaStreamSourceSwitchStreamsRequestDeferral {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceSwitchStreamsRequestDeferral";
@@ -8948,7 +8948,7 @@ unsafe impl ::windows::core::RuntimeType for MediaStreamSourceSwitchStreamsReque
 }
 unsafe impl ::windows::core::Interface for MediaStreamSourceSwitchStreamsRequestedEventArgs {
     type Vtable = IMediaStreamSourceSwitchStreamsRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42202b72_6ea1_4677_981e_350a0da412aa);
+    const IID: ::windows::core::GUID = <IMediaStreamSourceSwitchStreamsRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaStreamSourceSwitchStreamsRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSourceSwitchStreamsRequestedEventArgs";
@@ -9316,7 +9316,7 @@ unsafe impl ::windows::core::RuntimeType for MseSourceBuffer {
 }
 unsafe impl ::windows::core::Interface for MseSourceBuffer {
     type Vtable = IMseSourceBuffer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c1aa3e3_df8d_4079_a3fe_6849184b4e2f);
+    const IID: ::windows::core::GUID = <IMseSourceBuffer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MseSourceBuffer {
     const NAME: &'static str = "Windows.Media.Core.MseSourceBuffer";
@@ -9428,7 +9428,7 @@ unsafe impl ::windows::core::RuntimeType for MseSourceBufferList {
 }
 unsafe impl ::windows::core::Interface for MseSourceBufferList {
     type Vtable = IMseSourceBufferList_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95fae8e7_a8e7_4ebf_8927_145e940ba511);
+    const IID: ::windows::core::GUID = <IMseSourceBufferList as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MseSourceBufferList {
     const NAME: &'static str = "Windows.Media.Core.MseSourceBufferList";
@@ -9637,7 +9637,7 @@ unsafe impl ::windows::core::RuntimeType for MseStreamSource {
 }
 unsafe impl ::windows::core::Interface for MseStreamSource {
     type Vtable = IMseStreamSource_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0b4198d_02f4_4923_88dd_81bc3f360ffa);
+    const IID: ::windows::core::GUID = <IMseStreamSource as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MseStreamSource {
     const NAME: &'static str = "Windows.Media.Core.MseStreamSource";
@@ -9823,7 +9823,7 @@ unsafe impl ::windows::core::RuntimeType for SceneAnalysisEffect {
 }
 unsafe impl ::windows::core::Interface for SceneAnalysisEffect {
     type Vtable = ISceneAnalysisEffect_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc04ba319_ca41_4813_bffd_7b08b0ed2557);
+    const IID: ::windows::core::GUID = <ISceneAnalysisEffect as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SceneAnalysisEffect {
     const NAME: &'static str = "Windows.Media.Core.SceneAnalysisEffect";
@@ -9951,7 +9951,7 @@ unsafe impl ::windows::core::RuntimeType for SceneAnalysisEffectDefinition {
 #[cfg(feature = "Media_Effects")]
 unsafe impl ::windows::core::Interface for SceneAnalysisEffectDefinition {
     type Vtable = super::Effects::IVideoEffectDefinition_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39f38cf0_8d0f_4f3e_84fc_2d46a5297943);
+    const IID: ::windows::core::GUID = <super::Effects::IVideoEffectDefinition as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Media_Effects")]
 impl ::windows::core::RuntimeName for SceneAnalysisEffectDefinition {
@@ -10175,7 +10175,7 @@ unsafe impl ::windows::core::RuntimeType for SceneAnalysisEffectFrame {
 }
 unsafe impl ::windows::core::Interface for SceneAnalysisEffectFrame {
     type Vtable = ISceneAnalysisEffectFrame_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8b10e4c_7fd9_42e1_85eb_6572c297c987);
+    const IID: ::windows::core::GUID = <ISceneAnalysisEffectFrame as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SceneAnalysisEffectFrame {
     const NAME: &'static str = "Windows.Media.Core.SceneAnalysisEffectFrame";
@@ -10333,7 +10333,7 @@ unsafe impl ::windows::core::RuntimeType for SceneAnalyzedEventArgs {
 }
 unsafe impl ::windows::core::Interface for SceneAnalyzedEventArgs {
     type Vtable = ISceneAnalyzedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x146b9588_2851_45e4_ad55_44cf8df8db4d);
+    const IID: ::windows::core::GUID = <ISceneAnalyzedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SceneAnalyzedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.SceneAnalyzedEventArgs";
@@ -10499,7 +10499,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechCue {
 }
 unsafe impl ::windows::core::Interface for SpeechCue {
     type Vtable = ISpeechCue_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaee254dc_1725_4bad_8043_a98499b017a2);
+    const IID: ::windows::core::GUID = <ISpeechCue as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpeechCue {
     const NAME: &'static str = "Windows.Media.Core.SpeechCue";
@@ -10705,7 +10705,7 @@ unsafe impl ::windows::core::RuntimeType for TimedMetadataStreamDescriptor {
 }
 unsafe impl ::windows::core::Interface for TimedMetadataStreamDescriptor {
     type Vtable = IMediaStreamDescriptor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80f16e6e_92f7_451e_97d2_afd80742da70);
+    const IID: ::windows::core::GUID = <IMediaStreamDescriptor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TimedMetadataStreamDescriptor {
     const NAME: &'static str = "Windows.Media.Core.TimedMetadataStreamDescriptor";
@@ -10977,7 +10977,7 @@ unsafe impl ::windows::core::RuntimeType for TimedMetadataTrack {
 }
 unsafe impl ::windows::core::Interface for TimedMetadataTrack {
     type Vtable = ITimedMetadataTrack_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e6aed9e_f67a_49a9_b330_cf03b0e9cf07);
+    const IID: ::windows::core::GUID = <ITimedMetadataTrack as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TimedMetadataTrack {
     const NAME: &'static str = "Windows.Media.Core.TimedMetadataTrack";
@@ -11088,7 +11088,7 @@ unsafe impl ::windows::core::RuntimeType for TimedMetadataTrackError {
 }
 unsafe impl ::windows::core::Interface for TimedMetadataTrackError {
     type Vtable = ITimedMetadataTrackError_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3767915_4114_4819_b9d9_dd76089e72f8);
+    const IID: ::windows::core::GUID = <ITimedMetadataTrackError as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TimedMetadataTrackError {
     const NAME: &'static str = "Windows.Media.Core.TimedMetadataTrackError";
@@ -11199,7 +11199,7 @@ unsafe impl ::windows::core::RuntimeType for TimedMetadataTrackFailedEventArgs {
 }
 unsafe impl ::windows::core::Interface for TimedMetadataTrackFailedEventArgs {
     type Vtable = ITimedMetadataTrackFailedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa57fc9d1_6789_4d4d_b07f_84b4f31acb70);
+    const IID: ::windows::core::GUID = <ITimedMetadataTrackFailedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TimedMetadataTrackFailedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.TimedMetadataTrackFailedEventArgs";
@@ -11313,7 +11313,7 @@ unsafe impl ::windows::core::RuntimeType for TimedTextBouten {
 }
 unsafe impl ::windows::core::Interface for TimedTextBouten {
     type Vtable = ITimedTextBouten_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9062783_5597_5092_820c_8f738e0f774a);
+    const IID: ::windows::core::GUID = <ITimedTextBouten as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TimedTextBouten {
     const NAME: &'static str = "Windows.Media.Core.TimedTextBouten";
@@ -11534,7 +11534,7 @@ unsafe impl ::windows::core::RuntimeType for TimedTextCue {
 }
 unsafe impl ::windows::core::Interface for TimedTextCue {
     type Vtable = ITimedTextCue_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51c79e51_3b86_494d_b359_bb2ea7aca9a9);
+    const IID: ::windows::core::GUID = <ITimedTextCue as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TimedTextCue {
     const NAME: &'static str = "Windows.Media.Core.TimedTextCue";
@@ -11781,7 +11781,7 @@ unsafe impl ::windows::core::RuntimeType for TimedTextLine {
 }
 unsafe impl ::windows::core::Interface for TimedTextLine {
     type Vtable = ITimedTextLine_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x978d7ce2_7308_4c66_be50_65777289f5df);
+    const IID: ::windows::core::GUID = <ITimedTextLine as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TimedTextLine {
     const NAME: &'static str = "Windows.Media.Core.TimedTextLine";
@@ -12126,7 +12126,7 @@ unsafe impl ::windows::core::RuntimeType for TimedTextRegion {
 }
 unsafe impl ::windows::core::Interface for TimedTextRegion {
     type Vtable = ITimedTextRegion_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ed0881f_8a06_4222_9f59_b21bf40124b4);
+    const IID: ::windows::core::GUID = <ITimedTextRegion as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TimedTextRegion {
     const NAME: &'static str = "Windows.Media.Core.TimedTextRegion";
@@ -12251,7 +12251,7 @@ unsafe impl ::windows::core::RuntimeType for TimedTextRuby {
 }
 unsafe impl ::windows::core::Interface for TimedTextRuby {
     type Vtable = ITimedTextRuby_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10335c29_5b3c_5693_9959_d05a0bd24628);
+    const IID: ::windows::core::GUID = <ITimedTextRuby as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TimedTextRuby {
     const NAME: &'static str = "Windows.Media.Core.TimedTextRuby";
@@ -12571,7 +12571,7 @@ unsafe impl ::windows::core::RuntimeType for TimedTextSource {
 }
 unsafe impl ::windows::core::Interface for TimedTextSource {
     type Vtable = ITimedTextSource_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4ed9ba6_101f_404d_a949_82f33fcd93b7);
+    const IID: ::windows::core::GUID = <ITimedTextSource as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TimedTextSource {
     const NAME: &'static str = "Windows.Media.Core.TimedTextSource";
@@ -12661,7 +12661,7 @@ unsafe impl ::windows::core::RuntimeType for TimedTextSourceResolveResultEventAr
 }
 unsafe impl ::windows::core::Interface for TimedTextSourceResolveResultEventArgs {
     type Vtable = ITimedTextSourceResolveResultEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48907c9c_dcd8_4c33_9ad3_6cdce7b1c566);
+    const IID: ::windows::core::GUID = <ITimedTextSourceResolveResultEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TimedTextSourceResolveResultEventArgs {
     const NAME: &'static str = "Windows.Media.Core.TimedTextSourceResolveResultEventArgs";
@@ -12997,7 +12997,7 @@ unsafe impl ::windows::core::RuntimeType for TimedTextStyle {
 }
 unsafe impl ::windows::core::Interface for TimedTextStyle {
     type Vtable = ITimedTextStyle_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bb2384d_a825_40c2_a7f5_281eaedf3b55);
+    const IID: ::windows::core::GUID = <ITimedTextStyle as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TimedTextStyle {
     const NAME: &'static str = "Windows.Media.Core.TimedTextStyle";
@@ -13116,7 +13116,7 @@ unsafe impl ::windows::core::RuntimeType for TimedTextSubformat {
 }
 unsafe impl ::windows::core::Interface for TimedTextSubformat {
     type Vtable = ITimedTextSubformat_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd713502f_3261_4722_a0c2_b937b2390f14);
+    const IID: ::windows::core::GUID = <ITimedTextSubformat as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TimedTextSubformat {
     const NAME: &'static str = "Windows.Media.Core.TimedTextSubformat";
@@ -13349,7 +13349,7 @@ unsafe impl ::windows::core::RuntimeType for VideoStabilizationEffect {
 }
 unsafe impl ::windows::core::Interface for VideoStabilizationEffect {
     type Vtable = IVideoStabilizationEffect_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0808a650_9698_4e57_877b_bd7cb2ee0f8a);
+    const IID: ::windows::core::GUID = <IVideoStabilizationEffect as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VideoStabilizationEffect {
     const NAME: &'static str = "Windows.Media.Core.VideoStabilizationEffect";
@@ -13477,7 +13477,7 @@ unsafe impl ::windows::core::RuntimeType for VideoStabilizationEffectDefinition 
 #[cfg(feature = "Media_Effects")]
 unsafe impl ::windows::core::Interface for VideoStabilizationEffectDefinition {
     type Vtable = super::Effects::IVideoEffectDefinition_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39f38cf0_8d0f_4f3e_84fc_2d46a5297943);
+    const IID: ::windows::core::GUID = <super::Effects::IVideoEffectDefinition as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Media_Effects")]
 impl ::windows::core::RuntimeName for VideoStabilizationEffectDefinition {
@@ -13595,7 +13595,7 @@ unsafe impl ::windows::core::RuntimeType for VideoStabilizationEffectEnabledChan
 }
 unsafe impl ::windows::core::Interface for VideoStabilizationEffectEnabledChangedEventArgs {
     type Vtable = IVideoStabilizationEffectEnabledChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x187eff28_67bb_4713_b900_4168da164529);
+    const IID: ::windows::core::GUID = <IVideoStabilizationEffectEnabledChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VideoStabilizationEffectEnabledChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.VideoStabilizationEffectEnabledChangedEventArgs";
@@ -13774,7 +13774,7 @@ unsafe impl ::windows::core::RuntimeType for VideoStreamDescriptor {
 }
 unsafe impl ::windows::core::Interface for VideoStreamDescriptor {
     type Vtable = IVideoStreamDescriptor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12ee0d55_9c2b_4440_8057_2c7a90f0cbec);
+    const IID: ::windows::core::GUID = <IVideoStreamDescriptor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VideoStreamDescriptor {
     const NAME: &'static str = "Windows.Media.Core.VideoStreamDescriptor";
@@ -13977,7 +13977,7 @@ unsafe impl ::windows::core::RuntimeType for VideoTrack {
 }
 unsafe impl ::windows::core::Interface for VideoTrack {
     type Vtable = IMediaTrack_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03e1fafc_c931_491a_b46b_c10ee8c256b7);
+    const IID: ::windows::core::GUID = <IMediaTrack as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VideoTrack {
     const NAME: &'static str = "Windows.Media.Core.VideoTrack";
@@ -14080,7 +14080,7 @@ unsafe impl ::windows::core::RuntimeType for VideoTrackOpenFailedEventArgs {
 }
 unsafe impl ::windows::core::Interface for VideoTrackOpenFailedEventArgs {
     type Vtable = IVideoTrackOpenFailedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7679e231_04f9_4c82_a4ee_8602c8bb4754);
+    const IID: ::windows::core::GUID = <IVideoTrackOpenFailedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VideoTrackOpenFailedEventArgs {
     const NAME: &'static str = "Windows.Media.Core.VideoTrackOpenFailedEventArgs";
@@ -14169,7 +14169,7 @@ unsafe impl ::windows::core::RuntimeType for VideoTrackSupportInfo {
 }
 unsafe impl ::windows::core::Interface for VideoTrackSupportInfo {
     type Vtable = IVideoTrackSupportInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4bb534a0_fc5f_450d_8ff0_778d590486de);
+    const IID: ::windows::core::GUID = <IVideoTrackSupportInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VideoTrackSupportInfo {
     const NAME: &'static str = "Windows.Media.Core.VideoTrackSupportInfo";

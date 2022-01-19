@@ -143,7 +143,7 @@ unsafe impl ::windows::core::RuntimeType for AudioDeviceInputNode {
 }
 unsafe impl ::windows::core::Interface for AudioDeviceInputNode {
     type Vtable = IAudioDeviceInputNode_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb01b6be1_6f4e_49e2_ac01_559d62beb3a9);
+    const IID: ::windows::core::GUID = <IAudioDeviceInputNode as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AudioDeviceInputNode {
     const NAME: &'static str = "Windows.Media.Audio.AudioDeviceInputNode";
@@ -438,7 +438,7 @@ unsafe impl ::windows::core::RuntimeType for AudioDeviceOutputNode {
 }
 unsafe impl ::windows::core::Interface for AudioDeviceOutputNode {
     type Vtable = IAudioDeviceOutputNode_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x362edbff_ff1c_4434_9e0f_bd2ef522ac82);
+    const IID: ::windows::core::GUID = <IAudioDeviceOutputNode as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AudioDeviceOutputNode {
     const NAME: &'static str = "Windows.Media.Audio.AudioDeviceOutputNode";
@@ -796,7 +796,7 @@ unsafe impl ::windows::core::RuntimeType for AudioFileInputNode {
 }
 unsafe impl ::windows::core::Interface for AudioFileInputNode {
     type Vtable = IAudioFileInputNode_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x905b67c8_6f65_4cd4_8890_4694843c276d);
+    const IID: ::windows::core::GUID = <IAudioFileInputNode as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AudioFileInputNode {
     const NAME: &'static str = "Windows.Media.Audio.AudioFileInputNode";
@@ -1096,7 +1096,7 @@ unsafe impl ::windows::core::RuntimeType for AudioFileOutputNode {
 }
 unsafe impl ::windows::core::Interface for AudioFileOutputNode {
     type Vtable = IAudioFileOutputNode_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50e01980_5166_4093_80f8_ada00089e9cf);
+    const IID: ::windows::core::GUID = <IAudioFileOutputNode as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AudioFileOutputNode {
     const NAME: &'static str = "Windows.Media.Audio.AudioFileOutputNode";
@@ -1225,7 +1225,7 @@ unsafe impl ::windows::core::RuntimeType for AudioFrameCompletedEventArgs {
 }
 unsafe impl ::windows::core::Interface for AudioFrameCompletedEventArgs {
     type Vtable = IAudioFrameCompletedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc7c829e_0208_4504_a5a8_f0f268920a65);
+    const IID: ::windows::core::GUID = <IAudioFrameCompletedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AudioFrameCompletedEventArgs {
     const NAME: &'static str = "Windows.Media.Audio.AudioFrameCompletedEventArgs";
@@ -1468,7 +1468,7 @@ unsafe impl ::windows::core::RuntimeType for AudioFrameInputNode {
 }
 unsafe impl ::windows::core::Interface for AudioFrameInputNode {
     type Vtable = IAudioFrameInputNode_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01b266c7_fd96_4ff5_a3c5_d27a9bf44237);
+    const IID: ::windows::core::GUID = <IAudioFrameInputNode as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AudioFrameInputNode {
     const NAME: &'static str = "Windows.Media.Audio.AudioFrameInputNode";
@@ -1718,7 +1718,7 @@ unsafe impl ::windows::core::RuntimeType for AudioFrameOutputNode {
 }
 unsafe impl ::windows::core::Interface for AudioFrameOutputNode {
     type Vtable = IAudioFrameOutputNode_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb847371b_3299_45f5_88b3_c9d12a3f1cc8);
+    const IID: ::windows::core::GUID = <IAudioFrameOutputNode as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AudioFrameOutputNode {
     const NAME: &'static str = "Windows.Media.Audio.AudioFrameOutputNode";
@@ -2145,7 +2145,7 @@ unsafe impl ::windows::core::RuntimeType for AudioGraph {
 }
 unsafe impl ::windows::core::Interface for AudioGraph {
     type Vtable = IAudioGraph_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ad46eed_e48c_4e14_9660_2c4f83e9cdd8);
+    const IID: ::windows::core::GUID = <IAudioGraph as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AudioGraph {
     const NAME: &'static str = "Windows.Media.Audio.AudioGraph";
@@ -2258,7 +2258,7 @@ unsafe impl ::windows::core::RuntimeType for AudioGraphBatchUpdater {
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::core::Interface for AudioGraphBatchUpdater {
     type Vtable = super::super::Foundation::IClosable_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30d5a829_7fa4_4026_83bb_d75bae4ea99e);
+    const IID: ::windows::core::GUID = <super::super::Foundation::IClosable as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for AudioGraphBatchUpdater {
@@ -2389,7 +2389,7 @@ unsafe impl ::windows::core::RuntimeType for AudioGraphConnection {
 }
 unsafe impl ::windows::core::Interface for AudioGraphConnection {
     type Vtable = IAudioGraphConnection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x763070ed_d04e_4fac_b233_600b42edd469);
+    const IID: ::windows::core::GUID = <IAudioGraphConnection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AudioGraphConnection {
     const NAME: &'static str = "Windows.Media.Audio.AudioGraphConnection";
@@ -2602,7 +2602,7 @@ unsafe impl ::windows::core::RuntimeType for AudioGraphSettings {
 }
 unsafe impl ::windows::core::Interface for AudioGraphSettings {
     type Vtable = IAudioGraphSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d59647f_e6fe_4628_84f8_9d8bdba25785);
+    const IID: ::windows::core::GUID = <IAudioGraphSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AudioGraphSettings {
     const NAME: &'static str = "Windows.Media.Audio.AudioGraphSettings";
@@ -2713,7 +2713,7 @@ unsafe impl ::windows::core::RuntimeType for AudioGraphUnrecoverableErrorOccurre
 }
 unsafe impl ::windows::core::Interface for AudioGraphUnrecoverableErrorOccurredEventArgs {
     type Vtable = IAudioGraphUnrecoverableErrorOccurredEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3d9cbe0_3ff6_4fb3_b262_50d435c55423);
+    const IID: ::windows::core::GUID = <IAudioGraphUnrecoverableErrorOccurredEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AudioGraphUnrecoverableErrorOccurredEventArgs {
     const NAME: &'static str = "Windows.Media.Audio.AudioGraphUnrecoverableErrorOccurredEventArgs";
@@ -2926,7 +2926,7 @@ unsafe impl ::windows::core::RuntimeType for AudioNodeEmitter {
 }
 unsafe impl ::windows::core::Interface for AudioNodeEmitter {
     type Vtable = IAudioNodeEmitter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3676971d_880a_47b8_adf7_1323a9d965be);
+    const IID: ::windows::core::GUID = <IAudioNodeEmitter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AudioNodeEmitter {
     const NAME: &'static str = "Windows.Media.Audio.AudioNodeEmitter";
@@ -3023,7 +3023,7 @@ unsafe impl ::windows::core::RuntimeType for AudioNodeEmitterConeProperties {
 }
 unsafe impl ::windows::core::Interface for AudioNodeEmitterConeProperties {
     type Vtable = IAudioNodeEmitterConeProperties_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe99b2cee_02ca_4375_9326_0c6ae4bcdfb5);
+    const IID: ::windows::core::GUID = <IAudioNodeEmitterConeProperties as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AudioNodeEmitterConeProperties {
     const NAME: &'static str = "Windows.Media.Audio.AudioNodeEmitterConeProperties";
@@ -3175,7 +3175,7 @@ unsafe impl ::windows::core::RuntimeType for AudioNodeEmitterDecayModel {
 }
 unsafe impl ::windows::core::Interface for AudioNodeEmitterDecayModel {
     type Vtable = IAudioNodeEmitterDecayModel_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d1d5af7_0d53_4fa9_bd84_d5816a86f3ff);
+    const IID: ::windows::core::GUID = <IAudioNodeEmitterDecayModel as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AudioNodeEmitterDecayModel {
     const NAME: &'static str = "Windows.Media.Audio.AudioNodeEmitterDecayModel";
@@ -3264,7 +3264,7 @@ unsafe impl ::windows::core::RuntimeType for AudioNodeEmitterNaturalDecayModelPr
 }
 unsafe impl ::windows::core::Interface for AudioNodeEmitterNaturalDecayModelProperties {
     type Vtable = IAudioNodeEmitterNaturalDecayModelProperties_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48934bcf_cf2c_4efc_9331_75bd22df1f0c);
+    const IID: ::windows::core::GUID = <IAudioNodeEmitterNaturalDecayModelProperties as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AudioNodeEmitterNaturalDecayModelProperties {
     const NAME: &'static str = "Windows.Media.Audio.AudioNodeEmitterNaturalDecayModelProperties";
@@ -3428,7 +3428,7 @@ unsafe impl ::windows::core::RuntimeType for AudioNodeEmitterShape {
 }
 unsafe impl ::windows::core::Interface for AudioNodeEmitterShape {
     type Vtable = IAudioNodeEmitterShape_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea0311c5_e73d_44bc_859c_45553bbc4828);
+    const IID: ::windows::core::GUID = <IAudioNodeEmitterShape as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AudioNodeEmitterShape {
     const NAME: &'static str = "Windows.Media.Audio.AudioNodeEmitterShape";
@@ -3594,7 +3594,7 @@ unsafe impl ::windows::core::RuntimeType for AudioNodeListener {
 }
 unsafe impl ::windows::core::Interface for AudioNodeListener {
     type Vtable = IAudioNodeListener_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9722e16_0c0a_41da_b755_6c77835fb1eb);
+    const IID: ::windows::core::GUID = <IAudioNodeListener as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AudioNodeListener {
     const NAME: &'static str = "Windows.Media.Audio.AudioNodeListener";
@@ -3754,7 +3754,7 @@ unsafe impl ::windows::core::RuntimeType for AudioPlaybackConnection {
 }
 unsafe impl ::windows::core::Interface for AudioPlaybackConnection {
     type Vtable = IAudioPlaybackConnection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a4c1dea_cafc_50e7_8718_ea3f81cbfa51);
+    const IID: ::windows::core::GUID = <IAudioPlaybackConnection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AudioPlaybackConnection {
     const NAME: &'static str = "Windows.Media.Audio.AudioPlaybackConnection";
@@ -3869,7 +3869,7 @@ unsafe impl ::windows::core::RuntimeType for AudioPlaybackConnectionOpenResult {
 }
 unsafe impl ::windows::core::Interface for AudioPlaybackConnectionOpenResult {
     type Vtable = IAudioPlaybackConnectionOpenResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e656aef_39f9_5fc9_a519_a5bbfd9fe921);
+    const IID: ::windows::core::GUID = <IAudioPlaybackConnectionOpenResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AudioPlaybackConnectionOpenResult {
     const NAME: &'static str = "Windows.Media.Audio.AudioPlaybackConnectionOpenResult";
@@ -4090,7 +4090,7 @@ unsafe impl ::windows::core::RuntimeType for AudioStateMonitor {
 }
 unsafe impl ::windows::core::Interface for AudioStateMonitor {
     type Vtable = IAudioStateMonitor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d13d136_0199_4cdc_b84e_e72c2b581ece);
+    const IID: ::windows::core::GUID = <IAudioStateMonitor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AudioStateMonitor {
     const NAME: &'static str = "Windows.Media.Audio.AudioStateMonitor";
@@ -4272,7 +4272,7 @@ unsafe impl ::windows::core::RuntimeType for AudioSubmixNode {
 }
 unsafe impl ::windows::core::Interface for AudioSubmixNode {
     type Vtable = IAudioInputNode_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd148005c_8428_4784_b7fd_a99d468c5d20);
+    const IID: ::windows::core::GUID = <IAudioInputNode as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AudioSubmixNode {
     const NAME: &'static str = "Windows.Media.Audio.AudioSubmixNode";
@@ -4461,7 +4461,7 @@ unsafe impl ::windows::core::RuntimeType for CreateAudioDeviceInputNodeResult {
 }
 unsafe impl ::windows::core::Interface for CreateAudioDeviceInputNodeResult {
     type Vtable = ICreateAudioDeviceInputNodeResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16eec7a8_1ca7_40ef_91a4_d346e0aa1bba);
+    const IID: ::windows::core::GUID = <ICreateAudioDeviceInputNodeResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CreateAudioDeviceInputNodeResult {
     const NAME: &'static str = "Windows.Media.Audio.CreateAudioDeviceInputNodeResult";
@@ -4558,7 +4558,7 @@ unsafe impl ::windows::core::RuntimeType for CreateAudioDeviceOutputNodeResult {
 }
 unsafe impl ::windows::core::Interface for CreateAudioDeviceOutputNodeResult {
     type Vtable = ICreateAudioDeviceOutputNodeResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7776d27_1d9a_47f7_9cd4_2859cc1b7bff);
+    const IID: ::windows::core::GUID = <ICreateAudioDeviceOutputNodeResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CreateAudioDeviceOutputNodeResult {
     const NAME: &'static str = "Windows.Media.Audio.CreateAudioDeviceOutputNodeResult";
@@ -4655,7 +4655,7 @@ unsafe impl ::windows::core::RuntimeType for CreateAudioFileInputNodeResult {
 }
 unsafe impl ::windows::core::Interface for CreateAudioFileInputNodeResult {
     type Vtable = ICreateAudioFileInputNodeResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce83d61c_e297_4c50_9ce7_1c7a69d6bd09);
+    const IID: ::windows::core::GUID = <ICreateAudioFileInputNodeResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CreateAudioFileInputNodeResult {
     const NAME: &'static str = "Windows.Media.Audio.CreateAudioFileInputNodeResult";
@@ -4752,7 +4752,7 @@ unsafe impl ::windows::core::RuntimeType for CreateAudioFileOutputNodeResult {
 }
 unsafe impl ::windows::core::Interface for CreateAudioFileOutputNodeResult {
     type Vtable = ICreateAudioFileOutputNodeResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47d6ba7b_e909_453f_866e_5540cda734ff);
+    const IID: ::windows::core::GUID = <ICreateAudioFileOutputNodeResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CreateAudioFileOutputNodeResult {
     const NAME: &'static str = "Windows.Media.Audio.CreateAudioFileOutputNodeResult";
@@ -4849,7 +4849,7 @@ unsafe impl ::windows::core::RuntimeType for CreateAudioGraphResult {
 }
 unsafe impl ::windows::core::Interface for CreateAudioGraphResult {
     type Vtable = ICreateAudioGraphResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5453ef7e_7bde_4b76_bb5d_48f79cfc8c0b);
+    const IID: ::windows::core::GUID = <ICreateAudioGraphResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CreateAudioGraphResult {
     const NAME: &'static str = "Windows.Media.Audio.CreateAudioGraphResult";
@@ -4946,7 +4946,7 @@ unsafe impl ::windows::core::RuntimeType for CreateMediaSourceAudioInputNodeResu
 }
 unsafe impl ::windows::core::Interface for CreateMediaSourceAudioInputNodeResult {
     type Vtable = ICreateMediaSourceAudioInputNodeResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46a658a3_53c0_4d59_9e51_cc1d1044a4c4);
+    const IID: ::windows::core::GUID = <ICreateMediaSourceAudioInputNodeResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CreateMediaSourceAudioInputNodeResult {
     const NAME: &'static str = "Windows.Media.Audio.CreateMediaSourceAudioInputNodeResult";
@@ -5088,7 +5088,7 @@ unsafe impl ::windows::core::RuntimeType for EchoEffectDefinition {
 }
 unsafe impl ::windows::core::Interface for EchoEffectDefinition {
     type Vtable = IEchoEffectDefinition_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e4d3faa_36b8_4c91_b9da_11f44a8a6610);
+    const IID: ::windows::core::GUID = <IEchoEffectDefinition as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EchoEffectDefinition {
     const NAME: &'static str = "Windows.Media.Audio.EchoEffectDefinition";
@@ -5226,7 +5226,7 @@ unsafe impl ::windows::core::RuntimeType for EqualizerBand {
 }
 unsafe impl ::windows::core::Interface for EqualizerBand {
     type Vtable = IEqualizerBand_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc00a5a6a_262d_4b85_9bb7_43280b62ed0c);
+    const IID: ::windows::core::GUID = <IEqualizerBand as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EqualizerBand {
     const NAME: &'static str = "Windows.Media.Audio.EqualizerBand";
@@ -5338,7 +5338,7 @@ unsafe impl ::windows::core::RuntimeType for EqualizerEffectDefinition {
 }
 unsafe impl ::windows::core::Interface for EqualizerEffectDefinition {
     type Vtable = IEqualizerEffectDefinition_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x023f6f1f_83fe_449a_a822_c696442d16b0);
+    const IID: ::windows::core::GUID = <IEqualizerEffectDefinition as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EqualizerEffectDefinition {
     const NAME: &'static str = "Windows.Media.Audio.EqualizerEffectDefinition";
@@ -5445,7 +5445,7 @@ unsafe impl ::windows::core::RuntimeType for FrameInputNodeQuantumStartedEventAr
 }
 unsafe impl ::windows::core::Interface for FrameInputNodeQuantumStartedEventArgs {
     type Vtable = IFrameInputNodeQuantumStartedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d9bd498_a306_4f06_bd9f_e9efc8226304);
+    const IID: ::windows::core::GUID = <IFrameInputNodeQuantumStartedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FrameInputNodeQuantumStartedEventArgs {
     const NAME: &'static str = "Windows.Media.Audio.FrameInputNodeQuantumStartedEventArgs";
@@ -7759,7 +7759,7 @@ unsafe impl ::windows::core::RuntimeType for LimiterEffectDefinition {
 }
 unsafe impl ::windows::core::Interface for LimiterEffectDefinition {
     type Vtable = ILimiterEffectDefinition_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b755d19_2603_47ba_bdeb_39055e3486dc);
+    const IID: ::windows::core::GUID = <ILimiterEffectDefinition as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LimiterEffectDefinition {
     const NAME: &'static str = "Windows.Media.Audio.LimiterEffectDefinition";
@@ -8073,7 +8073,7 @@ unsafe impl ::windows::core::RuntimeType for MediaSourceAudioInputNode {
 }
 unsafe impl ::windows::core::Interface for MediaSourceAudioInputNode {
     type Vtable = IMediaSourceAudioInputNode_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99d8983b_a88a_4041_8e4f_ddbac0c91fd3);
+    const IID: ::windows::core::GUID = <IMediaSourceAudioInputNode as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaSourceAudioInputNode {
     const NAME: &'static str = "Windows.Media.Audio.MediaSourceAudioInputNode";
@@ -8654,7 +8654,7 @@ unsafe impl ::windows::core::RuntimeType for ReverbEffectDefinition {
 }
 unsafe impl ::windows::core::Interface for ReverbEffectDefinition {
     type Vtable = IReverbEffectDefinition_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4606aa89_f563_4d0a_8f6e_f0cddff35d84);
+    const IID: ::windows::core::GUID = <IReverbEffectDefinition as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ReverbEffectDefinition {
     const NAME: &'static str = "Windows.Media.Audio.ReverbEffectDefinition";
@@ -8761,7 +8761,7 @@ unsafe impl ::windows::core::RuntimeType for SetDefaultSpatialAudioFormatResult 
 }
 unsafe impl ::windows::core::Interface for SetDefaultSpatialAudioFormatResult {
     type Vtable = ISetDefaultSpatialAudioFormatResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c2aa511_1400_5e70_9ea9_ae151241e8ea);
+    const IID: ::windows::core::GUID = <ISetDefaultSpatialAudioFormatResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SetDefaultSpatialAudioFormatResult {
     const NAME: &'static str = "Windows.Media.Audio.SetDefaultSpatialAudioFormatResult";
@@ -8942,7 +8942,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialAudioDeviceConfiguration {
 }
 unsafe impl ::windows::core::Interface for SpatialAudioDeviceConfiguration {
     type Vtable = ISpatialAudioDeviceConfiguration_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee830034_61cf_5749_9da4_10f0fe028199);
+    const IID: ::windows::core::GUID = <ISpatialAudioDeviceConfiguration as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialAudioDeviceConfiguration {
     const NAME: &'static str = "Windows.Media.Audio.SpatialAudioDeviceConfiguration";
@@ -9058,7 +9058,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialAudioFormatConfiguration {
 }
 unsafe impl ::windows::core::Interface for SpatialAudioFormatConfiguration {
     type Vtable = ISpatialAudioFormatConfiguration_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32df09a8_50f0_5395_9923_7d44ca71ed6d);
+    const IID: ::windows::core::GUID = <ISpatialAudioFormatConfiguration as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialAudioFormatConfiguration {
     const NAME: &'static str = "Windows.Media.Audio.SpatialAudioFormatConfiguration";

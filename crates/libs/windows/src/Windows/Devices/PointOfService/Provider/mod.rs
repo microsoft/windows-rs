@@ -61,7 +61,7 @@ unsafe impl ::windows::core::RuntimeType for BarcodeScannerDisableScannerRequest
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerDisableScannerRequest {
     type Vtable = IBarcodeScannerDisableScannerRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88ecf7c0_37b9_4275_8e77_c8e52ae5a9c8);
+    const IID: ::windows::core::GUID = <IBarcodeScannerDisableScannerRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BarcodeScannerDisableScannerRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerDisableScannerRequest";
@@ -151,7 +151,7 @@ unsafe impl ::windows::core::RuntimeType for BarcodeScannerDisableScannerRequest
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerDisableScannerRequestEventArgs {
     type Vtable = IBarcodeScannerDisableScannerRequestEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7006e142_e802_46f5_b604_352a15ce9232);
+    const IID: ::windows::core::GUID = <IBarcodeScannerDisableScannerRequestEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BarcodeScannerDisableScannerRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerDisableScannerRequestEventArgs";
@@ -260,7 +260,7 @@ unsafe impl ::windows::core::RuntimeType for BarcodeScannerEnableScannerRequest 
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerEnableScannerRequest {
     type Vtable = IBarcodeScannerEnableScannerRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0b3e9ba_816a_452b_bd77_b7e453ec446d);
+    const IID: ::windows::core::GUID = <IBarcodeScannerEnableScannerRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BarcodeScannerEnableScannerRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerEnableScannerRequest";
@@ -350,7 +350,7 @@ unsafe impl ::windows::core::RuntimeType for BarcodeScannerEnableScannerRequestE
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerEnableScannerRequestEventArgs {
     type Vtable = IBarcodeScannerEnableScannerRequestEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x956c9419_7b4e_4451_8c41_8e10cfbc5b41);
+    const IID: ::windows::core::GUID = <IBarcodeScannerEnableScannerRequestEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BarcodeScannerEnableScannerRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerEnableScannerRequestEventArgs";
@@ -479,7 +479,7 @@ unsafe impl ::windows::core::RuntimeType for BarcodeScannerFrameReader {
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerFrameReader {
     type Vtable = IBarcodeScannerFrameReader_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdbc72b07_64c3_482b_93c8_65fb33c22208);
+    const IID: ::windows::core::GUID = <IBarcodeScannerFrameReader as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BarcodeScannerFrameReader {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerFrameReader";
@@ -587,7 +587,7 @@ unsafe impl ::windows::core::RuntimeType for BarcodeScannerFrameReaderFrameArriv
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerFrameReaderFrameArrivedEventArgs {
     type Vtable = IBarcodeScannerFrameReaderFrameArrivedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0bbd604_54fd_436d_8629_712e787223dd);
+    const IID: ::windows::core::GUID = <IBarcodeScannerFrameReaderFrameArrivedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BarcodeScannerFrameReaderFrameArrivedEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerFrameReaderFrameArrivedEventArgs";
@@ -704,7 +704,7 @@ unsafe impl ::windows::core::RuntimeType for BarcodeScannerGetSymbologyAttribute
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerGetSymbologyAttributesRequest {
     type Vtable = IBarcodeScannerGetSymbologyAttributesRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9774c46a_58e4_4c5f_b8e9_e41467632700);
+    const IID: ::windows::core::GUID = <IBarcodeScannerGetSymbologyAttributesRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BarcodeScannerGetSymbologyAttributesRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerGetSymbologyAttributesRequest";
@@ -794,7 +794,7 @@ unsafe impl ::windows::core::RuntimeType for BarcodeScannerGetSymbologyAttribute
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerGetSymbologyAttributesRequestEventArgs {
     type Vtable = IBarcodeScannerGetSymbologyAttributesRequestEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f89de3e_fb5d_493c_b402_356b24d574a6);
+    const IID: ::windows::core::GUID = <IBarcodeScannerGetSymbologyAttributesRequestEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BarcodeScannerGetSymbologyAttributesRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerGetSymbologyAttributesRequestEventArgs";
@@ -903,7 +903,7 @@ unsafe impl ::windows::core::RuntimeType for BarcodeScannerHideVideoPreviewReque
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerHideVideoPreviewRequest {
     type Vtable = IBarcodeScannerHideVideoPreviewRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa4ebe7f_6670_40e1_b90b_bb10d8d425fa);
+    const IID: ::windows::core::GUID = <IBarcodeScannerHideVideoPreviewRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BarcodeScannerHideVideoPreviewRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerHideVideoPreviewRequest";
@@ -993,7 +993,7 @@ unsafe impl ::windows::core::RuntimeType for BarcodeScannerHideVideoPreviewReque
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerHideVideoPreviewRequestEventArgs {
     type Vtable = IBarcodeScannerHideVideoPreviewRequestEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16a281fc_d6be_4bc7_9df1_33741f3eadea);
+    const IID: ::windows::core::GUID = <IBarcodeScannerHideVideoPreviewRequestEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BarcodeScannerHideVideoPreviewRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerHideVideoPreviewRequestEventArgs";
@@ -1324,7 +1324,7 @@ unsafe impl ::windows::core::RuntimeType for BarcodeScannerProviderConnection {
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerProviderConnection {
     type Vtable = IBarcodeScannerProviderConnection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb44acbed_0b3a_4fa3_86c5_491ea30780eb);
+    const IID: ::windows::core::GUID = <IBarcodeScannerProviderConnection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BarcodeScannerProviderConnection {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerProviderConnection";
@@ -1431,7 +1431,7 @@ unsafe impl ::windows::core::RuntimeType for BarcodeScannerProviderTriggerDetail
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerProviderTriggerDetails {
     type Vtable = IBarcodeScannerProviderTriggerDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50856d82_24e3_48ce_99c7_70aac1cbc9f7);
+    const IID: ::windows::core::GUID = <IBarcodeScannerProviderTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BarcodeScannerProviderTriggerDetails {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerProviderTriggerDetails";
@@ -1549,7 +1549,7 @@ unsafe impl ::windows::core::RuntimeType for BarcodeScannerSetActiveSymbologiesR
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerSetActiveSymbologiesRequest {
     type Vtable = IBarcodeScannerSetActiveSymbologiesRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb3f32b9_f7da_41a1_9f79_07bcd95f0bdf);
+    const IID: ::windows::core::GUID = <IBarcodeScannerSetActiveSymbologiesRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BarcodeScannerSetActiveSymbologiesRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerSetActiveSymbologiesRequest";
@@ -1639,7 +1639,7 @@ unsafe impl ::windows::core::RuntimeType for BarcodeScannerSetActiveSymbologiesR
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerSetActiveSymbologiesRequestEventArgs {
     type Vtable = IBarcodeScannerSetActiveSymbologiesRequestEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06305afa_7bf6_4d52_801a_330272f60ae1);
+    const IID: ::windows::core::GUID = <IBarcodeScannerSetActiveSymbologiesRequestEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BarcodeScannerSetActiveSymbologiesRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerSetActiveSymbologiesRequestEventArgs";
@@ -1764,7 +1764,7 @@ unsafe impl ::windows::core::RuntimeType for BarcodeScannerSetSymbologyAttribute
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerSetSymbologyAttributesRequest {
     type Vtable = IBarcodeScannerSetSymbologyAttributesRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32fb814f_a37f_48b0_acea_dce1480f12ae);
+    const IID: ::windows::core::GUID = <IBarcodeScannerSetSymbologyAttributesRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BarcodeScannerSetSymbologyAttributesRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerSetSymbologyAttributesRequest";
@@ -1854,7 +1854,7 @@ unsafe impl ::windows::core::RuntimeType for BarcodeScannerSetSymbologyAttribute
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerSetSymbologyAttributesRequestEventArgs {
     type Vtable = IBarcodeScannerSetSymbologyAttributesRequestEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2b89809_9824_47d4_85bd_d0077baa7bd2);
+    const IID: ::windows::core::GUID = <IBarcodeScannerSetSymbologyAttributesRequestEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BarcodeScannerSetSymbologyAttributesRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerSetSymbologyAttributesRequestEventArgs";
@@ -1963,7 +1963,7 @@ unsafe impl ::windows::core::RuntimeType for BarcodeScannerStartSoftwareTriggerR
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerStartSoftwareTriggerRequest {
     type Vtable = IBarcodeScannerStartSoftwareTriggerRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3fa7b27_ff62_4454_af4a_cb6144a3e3f7);
+    const IID: ::windows::core::GUID = <IBarcodeScannerStartSoftwareTriggerRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BarcodeScannerStartSoftwareTriggerRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerStartSoftwareTriggerRequest";
@@ -2053,7 +2053,7 @@ unsafe impl ::windows::core::RuntimeType for BarcodeScannerStartSoftwareTriggerR
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerStartSoftwareTriggerRequestEventArgs {
     type Vtable = IBarcodeScannerStartSoftwareTriggerRequestEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2305d843_c88f_4f3b_8c3b_d3df071051ec);
+    const IID: ::windows::core::GUID = <IBarcodeScannerStartSoftwareTriggerRequestEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BarcodeScannerStartSoftwareTriggerRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerStartSoftwareTriggerRequestEventArgs";
@@ -2162,7 +2162,7 @@ unsafe impl ::windows::core::RuntimeType for BarcodeScannerStopSoftwareTriggerRe
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerStopSoftwareTriggerRequest {
     type Vtable = IBarcodeScannerStopSoftwareTriggerRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f9faf35_e287_4ca8_b70d_5a91d694f668);
+    const IID: ::windows::core::GUID = <IBarcodeScannerStopSoftwareTriggerRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BarcodeScannerStopSoftwareTriggerRequest {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerStopSoftwareTriggerRequest";
@@ -2252,7 +2252,7 @@ unsafe impl ::windows::core::RuntimeType for BarcodeScannerStopSoftwareTriggerRe
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerStopSoftwareTriggerRequestEventArgs {
     type Vtable = IBarcodeScannerStopSoftwareTriggerRequestEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeac34450_4eb7_481a_9273_147a273b99b8);
+    const IID: ::windows::core::GUID = <IBarcodeScannerStopSoftwareTriggerRequestEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BarcodeScannerStopSoftwareTriggerRequestEventArgs {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerStopSoftwareTriggerRequestEventArgs";
@@ -2393,7 +2393,7 @@ unsafe impl ::windows::core::RuntimeType for BarcodeScannerVideoFrame {
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerVideoFrame {
     type Vtable = IBarcodeScannerVideoFrame_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e585248_9df7_4121_a175_801d8000112e);
+    const IID: ::windows::core::GUID = <IBarcodeScannerVideoFrame as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BarcodeScannerVideoFrame {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeScannerVideoFrame";
@@ -2546,7 +2546,7 @@ unsafe impl ::windows::core::RuntimeType for BarcodeSymbologyAttributesBuilder {
 }
 unsafe impl ::windows::core::Interface for BarcodeSymbologyAttributesBuilder {
     type Vtable = IBarcodeSymbologyAttributesBuilder_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc57b0cbf_e4f5_40b9_84cf_e63fbaea42b4);
+    const IID: ::windows::core::GUID = <IBarcodeSymbologyAttributesBuilder as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BarcodeSymbologyAttributesBuilder {
     const NAME: &'static str = "Windows.Devices.PointOfService.Provider.BarcodeSymbologyAttributesBuilder";

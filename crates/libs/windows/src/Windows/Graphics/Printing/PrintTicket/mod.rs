@@ -395,7 +395,7 @@ unsafe impl ::windows::core::RuntimeType for PrintTicketCapabilities {
 }
 unsafe impl ::windows::core::Interface for PrintTicketCapabilities {
     type Vtable = IPrintTicketCapabilities_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c45508b_bbdc_4256_a142_2fd615ecb416);
+    const IID: ::windows::core::GUID = <IPrintTicketCapabilities as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintTicketCapabilities {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.PrintTicketCapabilities";
@@ -539,7 +539,7 @@ unsafe impl ::windows::core::RuntimeType for PrintTicketFeature {
 }
 unsafe impl ::windows::core::Interface for PrintTicketFeature {
     type Vtable = IPrintTicketFeature_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7607d6a_59f5_4103_8858_b97710963d39);
+    const IID: ::windows::core::GUID = <IPrintTicketFeature as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintTicketFeature {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.PrintTicketFeature";
@@ -707,7 +707,7 @@ unsafe impl ::windows::core::RuntimeType for PrintTicketOption {
 }
 unsafe impl ::windows::core::Interface for PrintTicketOption {
     type Vtable = IPrintTicketOption_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb086cf90_b367_4e4b_bd48_9c78a0bb31ce);
+    const IID: ::windows::core::GUID = <IPrintTicketOption as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintTicketOption {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.PrintTicketOption";
@@ -866,7 +866,7 @@ unsafe impl ::windows::core::RuntimeType for PrintTicketParameterDefinition {
 }
 unsafe impl ::windows::core::Interface for PrintTicketParameterDefinition {
     type Vtable = IPrintTicketParameterDefinition_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6bab4e4_2962_4c01_b7f3_9a9294eb8335);
+    const IID: ::windows::core::GUID = <IPrintTicketParameterDefinition as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintTicketParameterDefinition {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.PrintTicketParameterDefinition";
@@ -977,7 +977,7 @@ unsafe impl ::windows::core::RuntimeType for PrintTicketParameterInitializer {
 }
 unsafe impl ::windows::core::Interface for PrintTicketParameterInitializer {
     type Vtable = IPrintTicketParameterInitializer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e3335bb_a0a5_48b1_9d5c_07116ddc597a);
+    const IID: ::windows::core::GUID = <IPrintTicketParameterInitializer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintTicketParameterInitializer {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.PrintTicketParameterInitializer";
@@ -1074,7 +1074,7 @@ unsafe impl ::windows::core::RuntimeType for PrintTicketValue {
 }
 unsafe impl ::windows::core::Interface for PrintTicketValue {
     type Vtable = IPrintTicketValue_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66b30a32_244d_4e22_a98b_bb3cf1f2dd91);
+    const IID: ::windows::core::GUID = <IPrintTicketValue as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintTicketValue {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.PrintTicketValue";
@@ -1387,7 +1387,7 @@ unsafe impl ::windows::core::RuntimeType for WorkflowPrintTicket {
 }
 unsafe impl ::windows::core::Interface for WorkflowPrintTicket {
     type Vtable = IWorkflowPrintTicket_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41d52285_35e8_448e_a8c5_e4b6a2cf826c);
+    const IID: ::windows::core::GUID = <IWorkflowPrintTicket as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WorkflowPrintTicket {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.WorkflowPrintTicket";
@@ -1476,7 +1476,7 @@ unsafe impl ::windows::core::RuntimeType for WorkflowPrintTicketValidationResult
 }
 unsafe impl ::windows::core::Interface for WorkflowPrintTicketValidationResult {
     type Vtable = IWorkflowPrintTicketValidationResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ad1f392_da7b_4a36_bf36_6a99a62e2059);
+    const IID: ::windows::core::GUID = <IWorkflowPrintTicketValidationResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WorkflowPrintTicketValidationResult {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTicket.WorkflowPrintTicketValidationResult";

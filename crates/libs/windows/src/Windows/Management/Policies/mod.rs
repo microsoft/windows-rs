@@ -211,7 +211,7 @@ unsafe impl ::windows::core::RuntimeType for NamedPolicyData {
 }
 unsafe impl ::windows::core::Interface for NamedPolicyData {
     type Vtable = INamedPolicyData_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38dcb198_95ac_4077_a643_8078cae26400);
+    const IID: ::windows::core::GUID = <INamedPolicyData as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for NamedPolicyData {
     const NAME: &'static str = "Windows.Management.Policies.NamedPolicyData";

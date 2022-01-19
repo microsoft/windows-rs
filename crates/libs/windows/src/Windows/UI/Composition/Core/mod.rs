@@ -75,7 +75,7 @@ unsafe impl ::windows::core::RuntimeType for CompositorController {
 }
 unsafe impl ::windows::core::Interface for CompositorController {
     type Vtable = ICompositorController_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d75f35a_70a7_4395_ba2d_cef0b18399f9);
+    const IID: ::windows::core::GUID = <ICompositorController as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositorController {
     const NAME: &'static str = "Windows.UI.Composition.Core.CompositorController";

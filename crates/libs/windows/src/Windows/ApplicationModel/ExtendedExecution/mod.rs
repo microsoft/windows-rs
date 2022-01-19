@@ -92,7 +92,7 @@ unsafe impl ::windows::core::RuntimeType for ExtendedExecutionRevokedEventArgs {
 }
 unsafe impl ::windows::core::Interface for ExtendedExecutionRevokedEventArgs {
     type Vtable = IExtendedExecutionRevokedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfbc9f16_63b5_4c0b_aad6_828af5373ec3);
+    const IID: ::windows::core::GUID = <IExtendedExecutionRevokedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ExtendedExecutionRevokedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionRevokedEventArgs";
@@ -269,7 +269,7 @@ unsafe impl ::windows::core::RuntimeType for ExtendedExecutionSession {
 }
 unsafe impl ::windows::core::Interface for ExtendedExecutionSession {
     type Vtable = IExtendedExecutionSession_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf908a2d_118b_48f1_9308_0c4fc41e200f);
+    const IID: ::windows::core::GUID = <IExtendedExecutionSession as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ExtendedExecutionSession {
     const NAME: &'static str = "Windows.ApplicationModel.ExtendedExecution.ExtendedExecutionSession";

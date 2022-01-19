@@ -277,7 +277,7 @@ unsafe impl ::windows::core::RuntimeType for CompositeTransform3D {
 }
 unsafe impl ::windows::core::Interface for CompositeTransform3D {
     type Vtable = ICompositeTransform3D_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8977cb01_af8d_4af5_b084_c08eb9704abe);
+    const IID: ::windows::core::GUID = <ICompositeTransform3D as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositeTransform3D {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Media3D.CompositeTransform3D";
@@ -636,7 +636,7 @@ unsafe impl ::windows::core::RuntimeType for Matrix3DHelper {
 }
 unsafe impl ::windows::core::Interface for Matrix3DHelper {
     type Vtable = IMatrix3DHelper_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe48c10ef_9927_4c9b_8213_07775512ba04);
+    const IID: ::windows::core::GUID = <IMatrix3DHelper as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Matrix3DHelper {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Media3D.Matrix3DHelper";
@@ -781,7 +781,7 @@ unsafe impl ::windows::core::RuntimeType for PerspectiveTransform3D {
 }
 unsafe impl ::windows::core::Interface for PerspectiveTransform3D {
     type Vtable = IPerspectiveTransform3D_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a7b532a_30f9_40a1_96c9_c59d87f95ac3);
+    const IID: ::windows::core::GUID = <IPerspectiveTransform3D as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PerspectiveTransform3D {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Media3D.PerspectiveTransform3D";
@@ -893,7 +893,7 @@ unsafe impl ::windows::core::RuntimeType for Transform3D {
 }
 unsafe impl ::windows::core::Interface for Transform3D {
     type Vtable = ITransform3D_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae3ed43a_a9fc_4c31_86cd_56d9ca251a69);
+    const IID: ::windows::core::GUID = <ITransform3D as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Transform3D {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Media3D.Transform3D";

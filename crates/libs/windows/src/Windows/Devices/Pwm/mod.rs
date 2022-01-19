@@ -216,7 +216,7 @@ unsafe impl ::windows::core::RuntimeType for PwmController {
 }
 unsafe impl ::windows::core::Interface for PwmController {
     type Vtable = IPwmController_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc45f5c85_d2e8_42cf_9bd6_cf5ed029e6a7);
+    const IID: ::windows::core::GUID = <IPwmController as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PwmController {
     const NAME: &'static str = "Windows.Devices.Pwm.PwmController";
@@ -347,7 +347,7 @@ unsafe impl ::windows::core::RuntimeType for PwmPin {
 }
 unsafe impl ::windows::core::Interface for PwmPin {
     type Vtable = IPwmPin_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22972dc8_c6cf_4821_b7f9_c6454fb6af79);
+    const IID: ::windows::core::GUID = <IPwmPin as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PwmPin {
     const NAME: &'static str = "Windows.Devices.Pwm.PwmPin";

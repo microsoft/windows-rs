@@ -196,7 +196,7 @@ unsafe impl ::windows::core::RuntimeType for ThreadPoolTimer {
 }
 unsafe impl ::windows::core::Interface for ThreadPoolTimer {
     type Vtable = IThreadPoolTimer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x594ebe78_55ea_4a88_a50d_3402ae1f9cf2);
+    const IID: ::windows::core::GUID = <IThreadPoolTimer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ThreadPoolTimer {
     const NAME: &'static str = "Windows.System.Threading.ThreadPoolTimer";

@@ -93,7 +93,7 @@ unsafe impl ::windows::core::RuntimeType for HttpDiagnosticProvider {
 }
 unsafe impl ::windows::core::Interface for HttpDiagnosticProvider {
     type Vtable = IHttpDiagnosticProvider_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd811501_a056_4d39_b174_833b7b03b02c);
+    const IID: ::windows::core::GUID = <IHttpDiagnosticProvider as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpDiagnosticProvider {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticProvider";
@@ -224,7 +224,7 @@ unsafe impl ::windows::core::RuntimeType for HttpDiagnosticProviderRequestRespon
 }
 unsafe impl ::windows::core::Interface for HttpDiagnosticProviderRequestResponseCompletedEventArgs {
     type Vtable = IHttpDiagnosticProviderRequestResponseCompletedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x735f98ee_94f6_4532_b26e_61e1b1e4efd4);
+    const IID: ::windows::core::GUID = <IHttpDiagnosticProviderRequestResponseCompletedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpDiagnosticProviderRequestResponseCompletedEventArgs {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestResponseCompletedEventArgs";
@@ -378,7 +378,7 @@ unsafe impl ::windows::core::RuntimeType for HttpDiagnosticProviderRequestRespon
 }
 unsafe impl ::windows::core::Interface for HttpDiagnosticProviderRequestResponseTimestamps {
     type Vtable = IHttpDiagnosticProviderRequestResponseTimestamps_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0afde10_55cf_4c01_91d4_a20557d849f0);
+    const IID: ::windows::core::GUID = <IHttpDiagnosticProviderRequestResponseTimestamps as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpDiagnosticProviderRequestResponseTimestamps {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestResponseTimestamps";
@@ -509,7 +509,7 @@ unsafe impl ::windows::core::RuntimeType for HttpDiagnosticProviderRequestSentEv
 }
 unsafe impl ::windows::core::Interface for HttpDiagnosticProviderRequestSentEventArgs {
     type Vtable = IHttpDiagnosticProviderRequestSentEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f5196d0_4c1f_4ebe_a57a_06930771c50d);
+    const IID: ::windows::core::GUID = <IHttpDiagnosticProviderRequestSentEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpDiagnosticProviderRequestSentEventArgs {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticProviderRequestSentEventArgs";
@@ -607,7 +607,7 @@ unsafe impl ::windows::core::RuntimeType for HttpDiagnosticProviderResponseRecei
 }
 unsafe impl ::windows::core::Interface for HttpDiagnosticProviderResponseReceivedEventArgs {
     type Vtable = IHttpDiagnosticProviderResponseReceivedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0a2566c_ab5f_4d66_bb2d_084cf41635d0);
+    const IID: ::windows::core::GUID = <IHttpDiagnosticProviderResponseReceivedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpDiagnosticProviderResponseReceivedEventArgs {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticProviderResponseReceivedEventArgs";
@@ -744,7 +744,7 @@ unsafe impl ::windows::core::RuntimeType for HttpDiagnosticSourceLocation {
 }
 unsafe impl ::windows::core::Interface for HttpDiagnosticSourceLocation {
     type Vtable = IHttpDiagnosticSourceLocation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54a9d260_8860_423f_b6fa_d77716f647a7);
+    const IID: ::windows::core::GUID = <IHttpDiagnosticSourceLocation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpDiagnosticSourceLocation {
     const NAME: &'static str = "Windows.Web.Http.Diagnostics.HttpDiagnosticSourceLocation";

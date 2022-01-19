@@ -74,7 +74,7 @@ unsafe impl ::windows::core::RuntimeType for CoreFrameworkInputView {
 }
 unsafe impl ::windows::core::Interface for CoreFrameworkInputView {
     type Vtable = ICoreFrameworkInputView_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd77c94ae_46b8_5d4a_9489_8ddec3d639a6);
+    const IID: ::windows::core::GUID = <ICoreFrameworkInputView as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CoreFrameworkInputView {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreFrameworkInputView";
@@ -173,7 +173,7 @@ unsafe impl ::windows::core::RuntimeType for CoreFrameworkInputViewAnimationStar
 }
 unsafe impl ::windows::core::Interface for CoreFrameworkInputViewAnimationStartingEventArgs {
     type Vtable = ICoreFrameworkInputViewAnimationStartingEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0ec901c_bba4_501b_ae8b_65c9e756a719);
+    const IID: ::windows::core::GUID = <ICoreFrameworkInputViewAnimationStartingEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CoreFrameworkInputViewAnimationStartingEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreFrameworkInputViewAnimationStartingEventArgs";
@@ -263,7 +263,7 @@ unsafe impl ::windows::core::RuntimeType for CoreFrameworkInputViewOcclusionsCha
 }
 unsafe impl ::windows::core::Interface for CoreFrameworkInputViewOcclusionsChangedEventArgs {
     type Vtable = ICoreFrameworkInputViewOcclusionsChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf36f4949_c82c_53d1_a75d_2b2baf0d9b0d);
+    const IID: ::windows::core::GUID = <ICoreFrameworkInputViewOcclusionsChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CoreFrameworkInputViewOcclusionsChangedEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreFrameworkInputViewOcclusionsChangedEventArgs";
@@ -531,7 +531,7 @@ unsafe impl ::windows::core::RuntimeType for CoreInputView {
 }
 unsafe impl ::windows::core::Interface for CoreInputView {
     type Vtable = ICoreInputView_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc770cd7a_7001_4c32_bf94_25c1f554cbf1);
+    const IID: ::windows::core::GUID = <ICoreInputView as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CoreInputView {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreInputView";
@@ -635,7 +635,7 @@ unsafe impl ::windows::core::RuntimeType for CoreInputViewAnimationStartingEvent
 }
 unsafe impl ::windows::core::Interface for CoreInputViewAnimationStartingEventArgs {
     type Vtable = ICoreInputViewAnimationStartingEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9144af2_b55c_5ea1_b8ab_5340f3e94897);
+    const IID: ::windows::core::GUID = <ICoreInputViewAnimationStartingEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CoreInputViewAnimationStartingEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreInputViewAnimationStartingEventArgs";
@@ -716,7 +716,7 @@ unsafe impl ::windows::core::RuntimeType for CoreInputViewHidingEventArgs {
 }
 unsafe impl ::windows::core::Interface for CoreInputViewHidingEventArgs {
     type Vtable = ICoreInputViewHidingEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeada47bd_bac5_5336_848d_41083584daad);
+    const IID: ::windows::core::GUID = <ICoreInputViewHidingEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CoreInputViewHidingEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreInputViewHidingEventArgs";
@@ -839,7 +839,7 @@ unsafe impl ::windows::core::RuntimeType for CoreInputViewOcclusion {
 }
 unsafe impl ::windows::core::Interface for CoreInputViewOcclusion {
     type Vtable = ICoreInputViewOcclusion_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc36ce06_3865_4177_b5f5_8b65e0b9ce84);
+    const IID: ::windows::core::GUID = <ICoreInputViewOcclusion as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CoreInputViewOcclusion {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreInputViewOcclusion";
@@ -963,7 +963,7 @@ unsafe impl ::windows::core::RuntimeType for CoreInputViewOcclusionsChangedEvent
 }
 unsafe impl ::windows::core::Interface for CoreInputViewOcclusionsChangedEventArgs {
     type Vtable = ICoreInputViewOcclusionsChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe1027e8_b3ee_4df7_9554_89cdc66082c2);
+    const IID: ::windows::core::GUID = <ICoreInputViewOcclusionsChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CoreInputViewOcclusionsChangedEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreInputViewOcclusionsChangedEventArgs";
@@ -1044,7 +1044,7 @@ unsafe impl ::windows::core::RuntimeType for CoreInputViewShowingEventArgs {
 }
 unsafe impl ::windows::core::Interface for CoreInputViewShowingEventArgs {
     type Vtable = ICoreInputViewShowingEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca52261b_fb9e_5daf_a98c_262b8b76af50);
+    const IID: ::windows::core::GUID = <ICoreInputViewShowingEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CoreInputViewShowingEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreInputViewShowingEventArgs";
@@ -1160,7 +1160,7 @@ unsafe impl ::windows::core::RuntimeType for CoreInputViewTransferringXYFocusEve
 }
 unsafe impl ::windows::core::Interface for CoreInputViewTransferringXYFocusEventArgs {
     type Vtable = ICoreInputViewTransferringXYFocusEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04de169f_ba02_4850_8b55_d82d03ba6d7f);
+    const IID: ::windows::core::GUID = <ICoreInputViewTransferringXYFocusEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CoreInputViewTransferringXYFocusEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.CoreInputViewTransferringXYFocusEventArgs";
@@ -1674,7 +1674,7 @@ unsafe impl ::windows::core::RuntimeType for UISettingsController {
 }
 unsafe impl ::windows::core::Interface for UISettingsController {
     type Vtable = IUISettingsController_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78a51ac4_15c0_5a1b_a75b_acbf9cb8bb9e);
+    const IID: ::windows::core::GUID = <IUISettingsController as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UISettingsController {
     const NAME: &'static str = "Windows.UI.ViewManagement.Core.UISettingsController";

@@ -195,7 +195,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynAboutData {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for AllJoynAboutData {
     type Vtable = IAllJoynAboutData_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5a9bf00_1fa2_4839_93ef_f9df404890f7);
+    const IID: ::windows::core::GUID = <IAllJoynAboutData as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for AllJoynAboutData {
@@ -453,7 +453,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynAboutDataView {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for AllJoynAboutDataView {
     type Vtable = IAllJoynAboutDataView_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6823111f_6212_4934_9c48_e19ca4984288);
+    const IID: ::windows::core::GUID = <IAllJoynAboutDataView as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for AllJoynAboutDataView {
@@ -610,7 +610,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynAcceptSessionJoinerEventArgs
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for AllJoynAcceptSessionJoinerEventArgs {
     type Vtable = IAllJoynAcceptSessionJoinerEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4efb5365_3e8a_4257_8f10_539ce0d56c0f);
+    const IID: ::windows::core::GUID = <IAllJoynAcceptSessionJoinerEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for AllJoynAcceptSessionJoinerEventArgs {
@@ -729,7 +729,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynAuthenticationCompleteEventA
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for AllJoynAuthenticationCompleteEventArgs {
     type Vtable = IAllJoynAuthenticationCompleteEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97b4701c_15dc_4b53_b6a4_7d134300d7bf);
+    const IID: ::windows::core::GUID = <IAllJoynAuthenticationCompleteEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for AllJoynAuthenticationCompleteEventArgs {
@@ -1079,7 +1079,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynBusAttachment {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for AllJoynBusAttachment {
     type Vtable = IAllJoynBusAttachment_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf309f153_1eed_42c3_a20e_436d41fe62f6);
+    const IID: ::windows::core::GUID = <IAllJoynBusAttachment as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for AllJoynBusAttachment {
@@ -1227,7 +1227,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynBusAttachmentStateChangedEve
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for AllJoynBusAttachmentStateChangedEventArgs {
     type Vtable = IAllJoynBusAttachmentStateChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd82e75f4_c02a_41ec_a8d5_eab1558953aa);
+    const IID: ::windows::core::GUID = <IAllJoynBusAttachmentStateChangedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for AllJoynBusAttachmentStateChangedEventArgs {
@@ -1399,7 +1399,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynBusObject {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for AllJoynBusObject {
     type Vtable = IAllJoynBusObject_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8fd825e_f73a_490c_8804_04e026643047);
+    const IID: ::windows::core::GUID = <IAllJoynBusObject as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for AllJoynBusObject {
@@ -1514,7 +1514,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynBusObjectStoppedEventArgs {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for AllJoynBusObjectStoppedEventArgs {
     type Vtable = IAllJoynBusObjectStoppedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde102115_ef8e_4d42_b93b_a2ae74519766);
+    const IID: ::windows::core::GUID = <IAllJoynBusObjectStoppedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for AllJoynBusObjectStoppedEventArgs {
@@ -1660,7 +1660,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynCredentials {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for AllJoynCredentials {
     type Vtable = IAllJoynCredentials_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x824650f2_a190_40b1_abab_349ec244dfaa);
+    const IID: ::windows::core::GUID = <IAllJoynCredentials as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for AllJoynCredentials {
@@ -1797,7 +1797,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynCredentialsRequestedEventArg
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for AllJoynCredentialsRequestedEventArgs {
     type Vtable = IAllJoynCredentialsRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a87e34e_b069_4b80_9e1a_41bc837c65d2);
+    const IID: ::windows::core::GUID = <IAllJoynCredentialsRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for AllJoynCredentialsRequestedEventArgs {
@@ -1958,7 +1958,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynCredentialsVerificationReque
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for AllJoynCredentialsVerificationRequestedEventArgs {
     type Vtable = IAllJoynCredentialsVerificationRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x800a7612_b805_44af_a2e1_792ab655a2d0);
+    const IID: ::windows::core::GUID = <IAllJoynCredentialsVerificationRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for AllJoynCredentialsVerificationRequestedEventArgs {
@@ -2073,7 +2073,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynMessageInfo {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for AllJoynMessageInfo {
     type Vtable = IAllJoynMessageInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff2b0127_2c12_4859_aa3a_c74461ee814c);
+    const IID: ::windows::core::GUID = <IAllJoynMessageInfo as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for AllJoynMessageInfo {
@@ -2188,7 +2188,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynProducerStoppedEventArgs {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for AllJoynProducerStoppedEventArgs {
     type Vtable = IAllJoynProducerStoppedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51309770_4937_492d_8080_236439987ceb);
+    const IID: ::windows::core::GUID = <IAllJoynProducerStoppedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for AllJoynProducerStoppedEventArgs {
@@ -2335,7 +2335,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynServiceInfo {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for AllJoynServiceInfo {
     type Vtable = IAllJoynServiceInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4cbe8209_b93e_4182_999b_ddd000f9c575);
+    const IID: ::windows::core::GUID = <IAllJoynServiceInfo as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for AllJoynServiceInfo {
@@ -2450,7 +2450,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynServiceInfoRemovedEventArgs 
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for AllJoynServiceInfoRemovedEventArgs {
     type Vtable = IAllJoynServiceInfoRemovedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3057a95f_1d3f_41f3_8969_e32792627396);
+    const IID: ::windows::core::GUID = <IAllJoynServiceInfoRemovedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for AllJoynServiceInfoRemovedEventArgs {
@@ -2636,7 +2636,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynSession {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for AllJoynSession {
     type Vtable = IAllJoynSession_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8d11b0c_c0d4_406c_88a9_a93efa85d4b1);
+    const IID: ::windows::core::GUID = <IAllJoynSession as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for AllJoynSession {
@@ -2751,7 +2751,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynSessionJoinedEventArgs {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for AllJoynSessionJoinedEventArgs {
     type Vtable = IAllJoynSessionJoinedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e9f5bd0_b5d7_47c5_8dab_b040cc192871);
+    const IID: ::windows::core::GUID = <IAllJoynSessionJoinedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for AllJoynSessionJoinedEventArgs {
@@ -2866,7 +2866,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynSessionLostEventArgs {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for AllJoynSessionLostEventArgs {
     type Vtable = IAllJoynSessionLostEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe766a48a_8bb8_4954_ae67_d2fa43d1f96b);
+    const IID: ::windows::core::GUID = <IAllJoynSessionLostEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for AllJoynSessionLostEventArgs {
@@ -3021,7 +3021,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynSessionMemberAddedEventArgs 
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for AllJoynSessionMemberAddedEventArgs {
     type Vtable = IAllJoynSessionMemberAddedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49a2798a_0dd1_46c1_9cd6_27190e503a5e);
+    const IID: ::windows::core::GUID = <IAllJoynSessionMemberAddedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for AllJoynSessionMemberAddedEventArgs {
@@ -3136,7 +3136,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynSessionMemberRemovedEventArg
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for AllJoynSessionMemberRemovedEventArgs {
     type Vtable = IAllJoynSessionMemberRemovedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x409a219f_aa4a_4893_b430_baa1b63c6219);
+    const IID: ::windows::core::GUID = <IAllJoynSessionMemberRemovedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for AllJoynSessionMemberRemovedEventArgs {
@@ -3449,7 +3449,7 @@ unsafe impl ::windows::core::RuntimeType for AllJoynWatcherStoppedEventArgs {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for AllJoynWatcherStoppedEventArgs {
     type Vtable = IAllJoynWatcherStoppedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9fca03b_701d_4aa8_97dd_a2bb0a8f5fa3);
+    const IID: ::windows::core::GUID = <IAllJoynWatcherStoppedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for AllJoynWatcherStoppedEventArgs {

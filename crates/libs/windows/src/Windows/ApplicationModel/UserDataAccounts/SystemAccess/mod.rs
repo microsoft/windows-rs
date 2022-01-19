@@ -644,7 +644,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceAccountConfiguration {
 }
 unsafe impl ::windows::core::Interface for DeviceAccountConfiguration {
     type Vtable = IDeviceAccountConfiguration_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad0123a3_fbdc_4d1b_be43_5a27ea4a1b63);
+    const IID: ::windows::core::GUID = <IDeviceAccountConfiguration as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DeviceAccountConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountConfiguration";

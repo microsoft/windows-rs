@@ -32,7 +32,7 @@ unsafe impl ::windows::core::RuntimeType for AddDeleteThemeTransition {
 }
 unsafe impl ::windows::core::Interface for AddDeleteThemeTransition {
     type Vtable = IAddDeleteThemeTransition_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xadec852e_4424_4dab_99c1_3a04e36a3c48);
+    const IID: ::windows::core::GUID = <IAddDeleteThemeTransition as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AddDeleteThemeTransition {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.AddDeleteThemeTransition";
@@ -177,7 +177,7 @@ unsafe impl ::windows::core::RuntimeType for BackEase {
 }
 unsafe impl ::windows::core::Interface for BackEase {
     type Vtable = IBackEase_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe47796e7_f805_4a8f_81c9_38e6472caa94);
+    const IID: ::windows::core::GUID = <IBackEase as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BackEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.BackEase";
@@ -310,7 +310,7 @@ unsafe impl ::windows::core::RuntimeType for BasicConnectedAnimationConfiguratio
 }
 unsafe impl ::windows::core::Interface for BasicConnectedAnimationConfiguration {
     type Vtable = IBasicConnectedAnimationConfiguration_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe675f9b5_a4d6_5353_83e6_c89e7cf8d456);
+    const IID: ::windows::core::GUID = <IBasicConnectedAnimationConfiguration as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BasicConnectedAnimationConfiguration {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.BasicConnectedAnimationConfiguration";
@@ -435,7 +435,7 @@ unsafe impl ::windows::core::RuntimeType for BeginStoryboard {
 }
 unsafe impl ::windows::core::Interface for BeginStoryboard {
     type Vtable = IBeginStoryboard_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64189fcd_49ec_4e52_a6f6_55324c921053);
+    const IID: ::windows::core::GUID = <IBeginStoryboard as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BeginStoryboard {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.BeginStoryboard";
@@ -600,7 +600,7 @@ unsafe impl ::windows::core::RuntimeType for BounceEase {
 }
 unsafe impl ::windows::core::Interface for BounceEase {
     type Vtable = IBounceEase_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bf1464e_fc71_47ed_85a1_3ba9577718b4);
+    const IID: ::windows::core::GUID = <IBounceEase as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BounceEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.BounceEase";
@@ -720,7 +720,7 @@ unsafe impl ::windows::core::RuntimeType for CircleEase {
 }
 unsafe impl ::windows::core::Interface for CircleEase {
     type Vtable = ICircleEase_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53a3bdb2_9177_4e6e_a043_5082d889ab1f);
+    const IID: ::windows::core::GUID = <ICircleEase as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CircleEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.CircleEase";
@@ -980,7 +980,7 @@ unsafe impl ::windows::core::RuntimeType for ColorAnimation {
 }
 unsafe impl ::windows::core::Interface for ColorAnimation {
     type Vtable = IColorAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8ae8a15_0f63_4694_9467_bdafac1253ea);
+    const IID: ::windows::core::GUID = <IColorAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ColorAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ColorAnimation";
@@ -1134,7 +1134,7 @@ unsafe impl ::windows::core::RuntimeType for ColorAnimationUsingKeyFrames {
 }
 unsafe impl ::windows::core::Interface for ColorAnimationUsingKeyFrames {
     type Vtable = IColorAnimationUsingKeyFrames_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5c82640_13c3_42aa_9ae2_7e6b51c92f95);
+    const IID: ::windows::core::GUID = <IColorAnimationUsingKeyFrames as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ColorAnimationUsingKeyFrames {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ColorAnimationUsingKeyFrames";
@@ -1294,7 +1294,7 @@ unsafe impl ::windows::core::RuntimeType for ColorKeyFrame {
 }
 unsafe impl ::windows::core::Interface for ColorKeyFrame {
     type Vtable = IColorKeyFrame_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb51d82d9_0910_4589_a284_b0c9205858e9);
+    const IID: ::windows::core::GUID = <IColorKeyFrame as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ColorKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ColorKeyFrame";
@@ -1498,7 +1498,7 @@ unsafe impl ::windows::core::RuntimeType for ColorKeyFrameCollection {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for ColorKeyFrameCollection {
     type Vtable = super::super::super::super::Foundation::Collections::IVector_Vtbl<ColorKeyFrame>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::super::super::Foundation::Collections::IVector<ColorKeyFrame> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for ColorKeyFrameCollection {
@@ -1700,7 +1700,7 @@ unsafe impl ::windows::core::RuntimeType for CommonNavigationTransitionInfo {
 }
 unsafe impl ::windows::core::Interface for CommonNavigationTransitionInfo {
     type Vtable = ICommonNavigationTransitionInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50345692_a555_4624_a361_0a91c1706473);
+    const IID: ::windows::core::GUID = <ICommonNavigationTransitionInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CommonNavigationTransitionInfo {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.CommonNavigationTransitionInfo";
@@ -1882,7 +1882,7 @@ unsafe impl ::windows::core::RuntimeType for ConnectedAnimation {
 }
 unsafe impl ::windows::core::Interface for ConnectedAnimation {
     type Vtable = IConnectedAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3518628c_f387_4c25_ac98_44e86c3cadf0);
+    const IID: ::windows::core::GUID = <IConnectedAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ConnectedAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ConnectedAnimation";
@@ -1984,7 +1984,7 @@ unsafe impl ::windows::core::RuntimeType for ConnectedAnimationConfiguration {
 }
 unsafe impl ::windows::core::Interface for ConnectedAnimationConfiguration {
     type Vtable = IConnectedAnimationConfiguration_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00218aae_cd8c_5651_92a0_c1db95c03998);
+    const IID: ::windows::core::GUID = <IConnectedAnimationConfiguration as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ConnectedAnimationConfiguration {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ConnectedAnimationConfiguration";
@@ -2115,7 +2115,7 @@ unsafe impl ::windows::core::RuntimeType for ConnectedAnimationService {
 }
 unsafe impl ::windows::core::Interface for ConnectedAnimationService {
     type Vtable = IConnectedAnimationService_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c6875c9_19bb_4d47_b9aa_66c802dcb9ff);
+    const IID: ::windows::core::GUID = <IConnectedAnimationService as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ConnectedAnimationService {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ConnectedAnimationService";
@@ -2240,7 +2240,7 @@ unsafe impl ::windows::core::RuntimeType for ContentThemeTransition {
 }
 unsafe impl ::windows::core::Interface for ContentThemeTransition {
     type Vtable = IContentThemeTransition_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf66fc5c3_5915_437d_8e3b_adf8e7f0ab57);
+    const IID: ::windows::core::GUID = <IContentThemeTransition as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContentThemeTransition {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ContentThemeTransition";
@@ -2441,7 +2441,7 @@ unsafe impl ::windows::core::RuntimeType for ContinuumNavigationTransitionInfo {
 }
 unsafe impl ::windows::core::Interface for ContinuumNavigationTransitionInfo {
     type Vtable = IContinuumNavigationTransitionInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4be1dbad_8ba6_4004_8438_8a9017978543);
+    const IID: ::windows::core::GUID = <IContinuumNavigationTransitionInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContinuumNavigationTransitionInfo {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo";
@@ -2561,7 +2561,7 @@ unsafe impl ::windows::core::RuntimeType for CubicEase {
 }
 unsafe impl ::windows::core::Interface for CubicEase {
     type Vtable = ICubicEase_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b94fc76_dad7_4354_b1a2_7969fbf6a70d);
+    const IID: ::windows::core::GUID = <ICubicEase as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CubicEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.CubicEase";
@@ -2694,7 +2694,7 @@ unsafe impl ::windows::core::RuntimeType for DirectConnectedAnimationConfigurati
 }
 unsafe impl ::windows::core::Interface for DirectConnectedAnimationConfiguration {
     type Vtable = IDirectConnectedAnimationConfiguration_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee5d736f_5738_5d86_b770_151948cf365e);
+    const IID: ::windows::core::GUID = <IDirectConnectedAnimationConfiguration as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DirectConnectedAnimationConfiguration {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DirectConnectedAnimationConfiguration";
@@ -2794,7 +2794,7 @@ unsafe impl ::windows::core::RuntimeType for DiscreteColorKeyFrame {
 }
 unsafe impl ::windows::core::Interface for DiscreteColorKeyFrame {
     type Vtable = IDiscreteColorKeyFrame_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x230c08f4_e062_4cb1_8e2a_14093d73ed8c);
+    const IID: ::windows::core::GUID = <IDiscreteColorKeyFrame as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DiscreteColorKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DiscreteColorKeyFrame";
@@ -2914,7 +2914,7 @@ unsafe impl ::windows::core::RuntimeType for DiscreteDoubleKeyFrame {
 }
 unsafe impl ::windows::core::Interface for DiscreteDoubleKeyFrame {
     type Vtable = IDiscreteDoubleKeyFrame_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5f51f3a_ad11_49ce_8e1c_08fdf1447446);
+    const IID: ::windows::core::GUID = <IDiscreteDoubleKeyFrame as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DiscreteDoubleKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DiscreteDoubleKeyFrame";
@@ -3034,7 +3034,7 @@ unsafe impl ::windows::core::RuntimeType for DiscreteObjectKeyFrame {
 }
 unsafe impl ::windows::core::Interface for DiscreteObjectKeyFrame {
     type Vtable = IDiscreteObjectKeyFrame_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7dcde89_f12d_4a9c_8199_e7a9ece3a473);
+    const IID: ::windows::core::GUID = <IDiscreteObjectKeyFrame as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DiscreteObjectKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DiscreteObjectKeyFrame";
@@ -3154,7 +3154,7 @@ unsafe impl ::windows::core::RuntimeType for DiscretePointKeyFrame {
 }
 unsafe impl ::windows::core::Interface for DiscretePointKeyFrame {
     type Vtable = IDiscretePointKeyFrame_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0a9070d_4c42_4a90_983a_75f5a83a2fbe);
+    const IID: ::windows::core::GUID = <IDiscretePointKeyFrame as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DiscretePointKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DiscretePointKeyFrame";
@@ -3385,7 +3385,7 @@ unsafe impl ::windows::core::RuntimeType for DoubleAnimation {
 }
 unsafe impl ::windows::core::Interface for DoubleAnimation {
     type Vtable = IDoubleAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e9f3d59_0f07_4bc9_977d_03763ff8154f);
+    const IID: ::windows::core::GUID = <IDoubleAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DoubleAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DoubleAnimation";
@@ -3539,7 +3539,7 @@ unsafe impl ::windows::core::RuntimeType for DoubleAnimationUsingKeyFrames {
 }
 unsafe impl ::windows::core::Interface for DoubleAnimationUsingKeyFrames {
     type Vtable = IDoubleAnimationUsingKeyFrames_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4fee628f_bfee_4f75_83c2_a93b39488473);
+    const IID: ::windows::core::GUID = <IDoubleAnimationUsingKeyFrames as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DoubleAnimationUsingKeyFrames {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DoubleAnimationUsingKeyFrames";
@@ -3699,7 +3699,7 @@ unsafe impl ::windows::core::RuntimeType for DoubleKeyFrame {
 }
 unsafe impl ::windows::core::Interface for DoubleKeyFrame {
     type Vtable = IDoubleKeyFrame_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x674456fd_e81e_4f4e_b4ad_0acfed9ecd68);
+    const IID: ::windows::core::GUID = <IDoubleKeyFrame as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DoubleKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DoubleKeyFrame";
@@ -3903,7 +3903,7 @@ unsafe impl ::windows::core::RuntimeType for DoubleKeyFrameCollection {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for DoubleKeyFrameCollection {
     type Vtable = super::super::super::super::Foundation::Collections::IVector_Vtbl<DoubleKeyFrame>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::super::super::Foundation::Collections::IVector<DoubleKeyFrame> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for DoubleKeyFrameCollection {
@@ -4087,7 +4087,7 @@ unsafe impl ::windows::core::RuntimeType for DragItemThemeAnimation {
 }
 unsafe impl ::windows::core::Interface for DragItemThemeAnimation {
     type Vtable = IDragItemThemeAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c7d5db5_7ed6_4949_b4e6_a78c9f4f978d);
+    const IID: ::windows::core::GUID = <IDragItemThemeAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DragItemThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DragItemThemeAnimation";
@@ -4274,7 +4274,7 @@ unsafe impl ::windows::core::RuntimeType for DragOverThemeAnimation {
 }
 unsafe impl ::windows::core::Interface for DragOverThemeAnimation {
     type Vtable = IDragOverThemeAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72f762f7_7e51_4a6b_b937_dc4b4c1c5458);
+    const IID: ::windows::core::GUID = <IDragOverThemeAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DragOverThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DragOverThemeAnimation";
@@ -4394,7 +4394,7 @@ unsafe impl ::windows::core::RuntimeType for DrillInNavigationTransitionInfo {
 }
 unsafe impl ::windows::core::Interface for DrillInNavigationTransitionInfo {
     type Vtable = IDrillInNavigationTransitionInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b86201a_45d3_463b_939e_c8595f439bcc);
+    const IID: ::windows::core::GUID = <IDrillInNavigationTransitionInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DrillInNavigationTransitionInfo {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DrillInNavigationTransitionInfo";
@@ -4599,7 +4599,7 @@ unsafe impl ::windows::core::RuntimeType for DrillInThemeAnimation {
 }
 unsafe impl ::windows::core::Interface for DrillInThemeAnimation {
     type Vtable = IDrillInThemeAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb090b824_f1d2_41b8_87ba_78034126594c);
+    const IID: ::windows::core::GUID = <IDrillInThemeAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DrillInThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DrillInThemeAnimation";
@@ -4804,7 +4804,7 @@ unsafe impl ::windows::core::RuntimeType for DrillOutThemeAnimation {
 }
 unsafe impl ::windows::core::Interface for DrillOutThemeAnimation {
     type Vtable = IDrillOutThemeAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd890ccdf_06d3_4f7e_8e4a_4fb76e256139);
+    const IID: ::windows::core::GUID = <IDrillOutThemeAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DrillOutThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DrillOutThemeAnimation";
@@ -4949,7 +4949,7 @@ unsafe impl ::windows::core::RuntimeType for DropTargetItemThemeAnimation {
 }
 unsafe impl ::windows::core::Interface for DropTargetItemThemeAnimation {
     type Vtable = IDropTargetItemThemeAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1881c968_1824_462b_87e8_c357212b977b);
+    const IID: ::windows::core::GUID = <IDropTargetItemThemeAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DropTargetItemThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DropTargetItemThemeAnimation";
@@ -5094,7 +5094,7 @@ unsafe impl ::windows::core::RuntimeType for EasingColorKeyFrame {
 }
 unsafe impl ::windows::core::Interface for EasingColorKeyFrame {
     type Vtable = IEasingColorKeyFrame_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc733d630_f4b9_4934_9bdd_27ac5ed1cfd8);
+    const IID: ::windows::core::GUID = <IEasingColorKeyFrame as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EasingColorKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.EasingColorKeyFrame";
@@ -5239,7 +5239,7 @@ unsafe impl ::windows::core::RuntimeType for EasingDoubleKeyFrame {
 }
 unsafe impl ::windows::core::Interface for EasingDoubleKeyFrame {
     type Vtable = IEasingDoubleKeyFrame_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x965adb8d_9a54_4108_b4ff_b5a5212cb338);
+    const IID: ::windows::core::GUID = <IEasingDoubleKeyFrame as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EasingDoubleKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.EasingDoubleKeyFrame";
@@ -5385,7 +5385,7 @@ unsafe impl ::windows::core::RuntimeType for EasingFunctionBase {
 }
 unsafe impl ::windows::core::Interface for EasingFunctionBase {
     type Vtable = IEasingFunctionBase_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc108383f_2c02_4151_8ecd_68ddaa3f0d9b);
+    const IID: ::windows::core::GUID = <IEasingFunctionBase as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EasingFunctionBase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.EasingFunctionBase";
@@ -5539,7 +5539,7 @@ unsafe impl ::windows::core::RuntimeType for EasingPointKeyFrame {
 }
 unsafe impl ::windows::core::Interface for EasingPointKeyFrame {
     type Vtable = IEasingPointKeyFrame_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3c91380_6868_4225_a70b_3981cc0b2947);
+    const IID: ::windows::core::GUID = <IEasingPointKeyFrame as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EasingPointKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.EasingPointKeyFrame";
@@ -5686,7 +5686,7 @@ unsafe impl ::windows::core::RuntimeType for EdgeUIThemeTransition {
 }
 unsafe impl ::windows::core::Interface for EdgeUIThemeTransition {
     type Vtable = IEdgeUIThemeTransition_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c86c19b_49d7_19ec_cf19_83a73c6de75e);
+    const IID: ::windows::core::GUID = <IEdgeUIThemeTransition as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EdgeUIThemeTransition {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.EdgeUIThemeTransition";
@@ -5851,7 +5851,7 @@ unsafe impl ::windows::core::RuntimeType for ElasticEase {
 }
 unsafe impl ::windows::core::Interface for ElasticEase {
     type Vtable = IElasticEase_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef5ba58c_b0b6_4a6c_9ca8_fb4233f12459);
+    const IID: ::windows::core::GUID = <IElasticEase as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ElasticEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ElasticEase";
@@ -5994,7 +5994,7 @@ unsafe impl ::windows::core::RuntimeType for EntranceNavigationTransitionInfo {
 }
 unsafe impl ::windows::core::Interface for EntranceNavigationTransitionInfo {
     type Vtable = IEntranceNavigationTransitionInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x720a256b_1c8a_41ee_82ec_8a87c0cf47da);
+    const IID: ::windows::core::GUID = <IEntranceNavigationTransitionInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EntranceNavigationTransitionInfo {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.EntranceNavigationTransitionInfo";
@@ -6179,7 +6179,7 @@ unsafe impl ::windows::core::RuntimeType for EntranceThemeTransition {
 }
 unsafe impl ::windows::core::Interface for EntranceThemeTransition {
     type Vtable = IEntranceThemeTransition_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07698c09_a8e3_419a_a01d_7410a0ae8ec8);
+    const IID: ::windows::core::GUID = <IEntranceThemeTransition as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EntranceThemeTransition {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.EntranceThemeTransition";
@@ -6324,7 +6324,7 @@ unsafe impl ::windows::core::RuntimeType for ExponentialEase {
 }
 unsafe impl ::windows::core::Interface for ExponentialEase {
     type Vtable = IExponentialEase_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7cb9e41d_f0bb_4bca_9da5_9ba3a11734c4);
+    const IID: ::windows::core::GUID = <IExponentialEase as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ExponentialEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ExponentialEase";
@@ -6469,7 +6469,7 @@ unsafe impl ::windows::core::RuntimeType for FadeInThemeAnimation {
 }
 unsafe impl ::windows::core::Interface for FadeInThemeAnimation {
     type Vtable = IFadeInThemeAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d4bc8f5_a918_4477_8078_554c68812ab8);
+    const IID: ::windows::core::GUID = <IFadeInThemeAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FadeInThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.FadeInThemeAnimation";
@@ -6614,7 +6614,7 @@ unsafe impl ::windows::core::RuntimeType for FadeOutThemeAnimation {
 }
 unsafe impl ::windows::core::Interface for FadeOutThemeAnimation {
     type Vtable = IFadeOutThemeAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89276ba9_ffd4_45b6_9b9a_ced48951e712);
+    const IID: ::windows::core::GUID = <IFadeOutThemeAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FadeOutThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.FadeOutThemeAnimation";
@@ -6788,7 +6788,7 @@ unsafe impl ::windows::core::RuntimeType for GravityConnectedAnimationConfigurat
 }
 unsafe impl ::windows::core::Interface for GravityConnectedAnimationConfiguration {
     type Vtable = IGravityConnectedAnimationConfiguration_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc751a4b7_0459_5142_b891_aeaac1d41822);
+    const IID: ::windows::core::GUID = <IGravityConnectedAnimationConfiguration as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GravityConnectedAnimationConfiguration {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.GravityConnectedAnimationConfiguration";
@@ -9427,7 +9427,7 @@ unsafe impl ::windows::core::RuntimeType for KeySpline {
 }
 unsafe impl ::windows::core::Interface for KeySpline {
     type Vtable = IKeySpline_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77a163bb_d5ca_4a32_ba0b_7dff988e58a0);
+    const IID: ::windows::core::GUID = <IKeySpline as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for KeySpline {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.KeySpline";
@@ -9579,7 +9579,7 @@ unsafe impl ::windows::core::RuntimeType for KeyTimeHelper {
 }
 unsafe impl ::windows::core::Interface for KeyTimeHelper {
     type Vtable = IKeyTimeHelper_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3643e480_4823_466a_abe5_5e79c8ed77ed);
+    const IID: ::windows::core::GUID = <IKeyTimeHelper as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for KeyTimeHelper {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.KeyTimeHelper";
@@ -9659,7 +9659,7 @@ unsafe impl ::windows::core::RuntimeType for LinearColorKeyFrame {
 }
 unsafe impl ::windows::core::Interface for LinearColorKeyFrame {
     type Vtable = ILinearColorKeyFrame_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66fdb6ef_ac81_4611_b1d2_61f545983f03);
+    const IID: ::windows::core::GUID = <ILinearColorKeyFrame as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LinearColorKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.LinearColorKeyFrame";
@@ -9779,7 +9779,7 @@ unsafe impl ::windows::core::RuntimeType for LinearDoubleKeyFrame {
 }
 unsafe impl ::windows::core::Interface for LinearDoubleKeyFrame {
     type Vtable = ILinearDoubleKeyFrame_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8efdf265_9a7b_431d_8f0c_14c56b5ea4d9);
+    const IID: ::windows::core::GUID = <ILinearDoubleKeyFrame as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LinearDoubleKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.LinearDoubleKeyFrame";
@@ -9899,7 +9899,7 @@ unsafe impl ::windows::core::RuntimeType for LinearPointKeyFrame {
 }
 unsafe impl ::windows::core::Interface for LinearPointKeyFrame {
     type Vtable = ILinearPointKeyFrame_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7c9b8ef_af24_49ee_84f1_a86600a4e319);
+    const IID: ::windows::core::GUID = <ILinearPointKeyFrame as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LinearPointKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.LinearPointKeyFrame";
@@ -10044,7 +10044,7 @@ unsafe impl ::windows::core::RuntimeType for NavigationThemeTransition {
 }
 unsafe impl ::windows::core::Interface for NavigationThemeTransition {
     type Vtable = INavigationThemeTransition_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8833848c_4eb7_41f2_8799_9eef0a213b73);
+    const IID: ::windows::core::GUID = <INavigationThemeTransition as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for NavigationThemeTransition {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.NavigationThemeTransition";
@@ -10156,7 +10156,7 @@ unsafe impl ::windows::core::RuntimeType for NavigationTransitionInfo {
 }
 unsafe impl ::windows::core::Interface for NavigationTransitionInfo {
     type Vtable = INavigationTransitionInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9b05091_ae4a_4372_8625_21b7a8b98ca4);
+    const IID: ::windows::core::GUID = <INavigationTransitionInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for NavigationTransitionInfo {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.NavigationTransitionInfo";
@@ -10290,7 +10290,7 @@ unsafe impl ::windows::core::RuntimeType for ObjectAnimationUsingKeyFrames {
 }
 unsafe impl ::windows::core::Interface for ObjectAnimationUsingKeyFrames {
     type Vtable = IObjectAnimationUsingKeyFrames_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x334a2d92_b74a_4c64_b9a6_58bcfa314f22);
+    const IID: ::windows::core::GUID = <IObjectAnimationUsingKeyFrames as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ObjectAnimationUsingKeyFrames {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ObjectAnimationUsingKeyFrames";
@@ -10450,7 +10450,7 @@ unsafe impl ::windows::core::RuntimeType for ObjectKeyFrame {
 }
 unsafe impl ::windows::core::Interface for ObjectKeyFrame {
     type Vtable = IObjectKeyFrame_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9852a851_8593_48ee_a6a4_d5d4720f029a);
+    const IID: ::windows::core::GUID = <IObjectKeyFrame as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ObjectKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ObjectKeyFrame";
@@ -10654,7 +10654,7 @@ unsafe impl ::windows::core::RuntimeType for ObjectKeyFrameCollection {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for ObjectKeyFrameCollection {
     type Vtable = super::super::super::super::Foundation::Collections::IVector_Vtbl<ObjectKeyFrame>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::super::super::Foundation::Collections::IVector<ObjectKeyFrame> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for ObjectKeyFrameCollection {
@@ -10840,7 +10840,7 @@ unsafe impl ::windows::core::RuntimeType for PaneThemeTransition {
 }
 unsafe impl ::windows::core::Interface for PaneThemeTransition {
     type Vtable = IPaneThemeTransition_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4708eb8e_4bfc_ee46_d4f9_708def3fbb2b);
+    const IID: ::windows::core::GUID = <IPaneThemeTransition as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PaneThemeTransition {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.PaneThemeTransition";
@@ -11071,7 +11071,7 @@ unsafe impl ::windows::core::RuntimeType for PointAnimation {
 }
 unsafe impl ::windows::core::Interface for PointAnimation {
     type Vtable = IPointAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30f04312_7726_4f88_b8e2_2fa54518963b);
+    const IID: ::windows::core::GUID = <IPointAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PointAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.PointAnimation";
@@ -11225,7 +11225,7 @@ unsafe impl ::windows::core::RuntimeType for PointAnimationUsingKeyFrames {
 }
 unsafe impl ::windows::core::Interface for PointAnimationUsingKeyFrames {
     type Vtable = IPointAnimationUsingKeyFrames_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b944f72_446a_41d0_a129_41a620f4595d);
+    const IID: ::windows::core::GUID = <IPointAnimationUsingKeyFrames as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PointAnimationUsingKeyFrames {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.PointAnimationUsingKeyFrames";
@@ -11387,7 +11387,7 @@ unsafe impl ::windows::core::RuntimeType for PointKeyFrame {
 }
 unsafe impl ::windows::core::Interface for PointKeyFrame {
     type Vtable = IPointKeyFrame_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcc88d01_7f82_4dae_8026_7b7e086878b3);
+    const IID: ::windows::core::GUID = <IPointKeyFrame as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PointKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.PointKeyFrame";
@@ -11591,7 +11591,7 @@ unsafe impl ::windows::core::RuntimeType for PointKeyFrameCollection {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for PointKeyFrameCollection {
     type Vtable = super::super::super::super::Foundation::Collections::IVector_Vtbl<PointKeyFrame>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::super::super::Foundation::Collections::IVector<PointKeyFrame> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for PointKeyFrameCollection {
@@ -11775,7 +11775,7 @@ unsafe impl ::windows::core::RuntimeType for PointerDownThemeAnimation {
 }
 unsafe impl ::windows::core::Interface for PointerDownThemeAnimation {
     type Vtable = IPointerDownThemeAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb58e714e_c49d_4788_a233_0ae85d99dd5a);
+    const IID: ::windows::core::GUID = <IPointerDownThemeAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PointerDownThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.PointerDownThemeAnimation";
@@ -11920,7 +11920,7 @@ unsafe impl ::windows::core::RuntimeType for PointerUpThemeAnimation {
 }
 unsafe impl ::windows::core::Interface for PointerUpThemeAnimation {
     type Vtable = IPointerUpThemeAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9e9d07d_6340_4828_ad12_690694b9910b);
+    const IID: ::windows::core::GUID = <IPointerUpThemeAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PointerUpThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.PointerUpThemeAnimation";
@@ -12105,7 +12105,7 @@ unsafe impl ::windows::core::RuntimeType for PopInThemeAnimation {
 }
 unsafe impl ::windows::core::Interface for PopInThemeAnimation {
     type Vtable = IPopInThemeAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x196938c1_1c07_4c28_8847_f9f055b32855);
+    const IID: ::windows::core::GUID = <IPopInThemeAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PopInThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.PopInThemeAnimation";
@@ -12250,7 +12250,7 @@ unsafe impl ::windows::core::RuntimeType for PopOutThemeAnimation {
 }
 unsafe impl ::windows::core::Interface for PopOutThemeAnimation {
     type Vtable = IPopOutThemeAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4786ab49_0e48_4e81_a2e5_cc5aa19e48d3);
+    const IID: ::windows::core::GUID = <IPopOutThemeAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PopOutThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.PopOutThemeAnimation";
@@ -12415,7 +12415,7 @@ unsafe impl ::windows::core::RuntimeType for PopupThemeTransition {
 }
 unsafe impl ::windows::core::Interface for PopupThemeTransition {
     type Vtable = IPopupThemeTransition_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47843552_4283_545e_c791_268dca22ce4b);
+    const IID: ::windows::core::GUID = <IPopupThemeTransition as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PopupThemeTransition {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.PopupThemeTransition";
@@ -12560,7 +12560,7 @@ unsafe impl ::windows::core::RuntimeType for PowerEase {
 }
 unsafe impl ::windows::core::Interface for PowerEase {
     type Vtable = IPowerEase_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69c80579_eedf_405b_8680_d9606880c937);
+    const IID: ::windows::core::GUID = <IPowerEase as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PowerEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.PowerEase";
@@ -12680,7 +12680,7 @@ unsafe impl ::windows::core::RuntimeType for QuadraticEase {
 }
 unsafe impl ::windows::core::Interface for QuadraticEase {
     type Vtable = IQuadraticEase_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe1510e91_ef6d_44f0_803d_68d16de0ddfc);
+    const IID: ::windows::core::GUID = <IQuadraticEase as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for QuadraticEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.QuadraticEase";
@@ -12800,7 +12800,7 @@ unsafe impl ::windows::core::RuntimeType for QuarticEase {
 }
 unsafe impl ::windows::core::Interface for QuarticEase {
     type Vtable = IQuarticEase_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8698814_fe42_4a05_b5b8_081f41157815);
+    const IID: ::windows::core::GUID = <IQuarticEase as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for QuarticEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.QuarticEase";
@@ -12920,7 +12920,7 @@ unsafe impl ::windows::core::RuntimeType for QuinticEase {
 }
 unsafe impl ::windows::core::Interface for QuinticEase {
     type Vtable = IQuinticEase_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92ee793b_3c49_4108_aa11_ab786603da21);
+    const IID: ::windows::core::GUID = <IQuinticEase as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for QuinticEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.QuinticEase";
@@ -13040,7 +13040,7 @@ unsafe impl ::windows::core::RuntimeType for ReorderThemeTransition {
 }
 unsafe impl ::windows::core::Interface for ReorderThemeTransition {
     type Vtable = IReorderThemeTransition_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2065c6c_d052_4ad1_8362_b71b36df7497);
+    const IID: ::windows::core::GUID = <IReorderThemeTransition as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ReorderThemeTransition {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ReorderThemeTransition";
@@ -13254,7 +13254,7 @@ unsafe impl ::windows::core::RuntimeType for RepeatBehaviorHelper {
 }
 unsafe impl ::windows::core::Interface for RepeatBehaviorHelper {
     type Vtable = IRepeatBehaviorHelper_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6863ab72_4997_47f9_87ad_37efb75993ea);
+    const IID: ::windows::core::GUID = <IRepeatBehaviorHelper as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RepeatBehaviorHelper {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.RepeatBehaviorHelper";
@@ -13428,7 +13428,7 @@ unsafe impl ::windows::core::RuntimeType for RepositionThemeAnimation {
 }
 unsafe impl ::windows::core::Interface for RepositionThemeAnimation {
     type Vtable = IRepositionThemeAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecda24e8_8945_4949_a1bf_62109965a7e9);
+    const IID: ::windows::core::GUID = <IRepositionThemeAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RepositionThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.RepositionThemeAnimation";
@@ -13573,7 +13573,7 @@ unsafe impl ::windows::core::RuntimeType for RepositionThemeTransition {
 }
 unsafe impl ::windows::core::Interface for RepositionThemeTransition {
     type Vtable = IRepositionThemeTransition_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88329b82_98f3_455a_ac53_2e7083b6e22c);
+    const IID: ::windows::core::GUID = <IRepositionThemeTransition as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RepositionThemeTransition {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.RepositionThemeTransition";
@@ -13693,7 +13693,7 @@ unsafe impl ::windows::core::RuntimeType for SineEase {
 }
 unsafe impl ::windows::core::Interface for SineEase {
     type Vtable = ISineEase_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9382962_230b_49da_9e0d_664987892343);
+    const IID: ::windows::core::GUID = <ISineEase as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SineEase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.SineEase";
@@ -13867,7 +13867,7 @@ unsafe impl ::windows::core::RuntimeType for SlideNavigationTransitionInfo {
 }
 unsafe impl ::windows::core::Interface for SlideNavigationTransitionInfo {
     type Vtable = ISlideNavigationTransitionInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6ac9d77_2e03_405f_80ed_e62beef3668f);
+    const IID: ::windows::core::GUID = <ISlideNavigationTransitionInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SlideNavigationTransitionInfo {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.SlideNavigationTransitionInfo";
@@ -14012,7 +14012,7 @@ unsafe impl ::windows::core::RuntimeType for SplineColorKeyFrame {
 }
 unsafe impl ::windows::core::Interface for SplineColorKeyFrame {
     type Vtable = ISplineColorKeyFrame_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a4a5941_1fe0_473a_8efe_4316d8c86229);
+    const IID: ::windows::core::GUID = <ISplineColorKeyFrame as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SplineColorKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.SplineColorKeyFrame";
@@ -14157,7 +14157,7 @@ unsafe impl ::windows::core::RuntimeType for SplineDoubleKeyFrame {
 }
 unsafe impl ::windows::core::Interface for SplineDoubleKeyFrame {
     type Vtable = ISplineDoubleKeyFrame_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00d72d38_6b2b_4843_838e_c8b115eec801);
+    const IID: ::windows::core::GUID = <ISplineDoubleKeyFrame as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SplineDoubleKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.SplineDoubleKeyFrame";
@@ -14302,7 +14302,7 @@ unsafe impl ::windows::core::RuntimeType for SplinePointKeyFrame {
 }
 unsafe impl ::windows::core::Interface for SplinePointKeyFrame {
     type Vtable = ISplinePointKeyFrame_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f19f306_7036_494f_bc3c_780df0cc524a);
+    const IID: ::windows::core::GUID = <ISplinePointKeyFrame as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SplinePointKeyFrame {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.SplinePointKeyFrame";
@@ -14649,7 +14649,7 @@ unsafe impl ::windows::core::RuntimeType for SplitCloseThemeAnimation {
 }
 unsafe impl ::windows::core::Interface for SplitCloseThemeAnimation {
     type Vtable = ISplitCloseThemeAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f799518_ff39_4e90_bb74_2abd56027402);
+    const IID: ::windows::core::GUID = <ISplitCloseThemeAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SplitCloseThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.SplitCloseThemeAnimation";
@@ -14996,7 +14996,7 @@ unsafe impl ::windows::core::RuntimeType for SplitOpenThemeAnimation {
 }
 unsafe impl ::windows::core::Interface for SplitOpenThemeAnimation {
     type Vtable = ISplitOpenThemeAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x785fd7aa_5456_4639_8fd2_26bae6a5ffe4);
+    const IID: ::windows::core::GUID = <ISplitOpenThemeAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SplitOpenThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.SplitOpenThemeAnimation";
@@ -15224,7 +15224,7 @@ unsafe impl ::windows::core::RuntimeType for Storyboard {
 }
 unsafe impl ::windows::core::Interface for Storyboard {
     type Vtable = IStoryboard_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd45c1e6e_3594_460e_981a_32271bd3aa06);
+    const IID: ::windows::core::GUID = <IStoryboard as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Storyboard {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.Storyboard";
@@ -15344,7 +15344,7 @@ unsafe impl ::windows::core::RuntimeType for SuppressNavigationTransitionInfo {
 }
 unsafe impl ::windows::core::Interface for SuppressNavigationTransitionInfo {
     type Vtable = ISuppressNavigationTransitionInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x244d7b0c_b1b7_4871_9d3e_d56203a3a5b4);
+    const IID: ::windows::core::GUID = <ISuppressNavigationTransitionInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SuppressNavigationTransitionInfo {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.SuppressNavigationTransitionInfo";
@@ -15529,7 +15529,7 @@ unsafe impl ::windows::core::RuntimeType for SwipeBackThemeAnimation {
 }
 unsafe impl ::windows::core::Interface for SwipeBackThemeAnimation {
     type Vtable = ISwipeBackThemeAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa38a4214_0bca_4d2d_95f7_ceba57fbaf60);
+    const IID: ::windows::core::GUID = <ISwipeBackThemeAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SwipeBackThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.SwipeBackThemeAnimation";
@@ -15714,7 +15714,7 @@ unsafe impl ::windows::core::RuntimeType for SwipeHintThemeAnimation {
 }
 unsafe impl ::windows::core::Interface for SwipeHintThemeAnimation {
     type Vtable = ISwipeHintThemeAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcdd067c0_580e_4e40_be98_f202d3d84365);
+    const IID: ::windows::core::GUID = <ISwipeHintThemeAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SwipeHintThemeAnimation {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.SwipeHintThemeAnimation";
@@ -15984,7 +15984,7 @@ unsafe impl ::windows::core::RuntimeType for Timeline {
 }
 unsafe impl ::windows::core::Interface for Timeline {
     type Vtable = ITimeline_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0bc465dc_be4d_4d0d_9549_2208b715f40d);
+    const IID: ::windows::core::GUID = <ITimeline as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Timeline {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.Timeline";
@@ -16188,7 +16188,7 @@ unsafe impl ::windows::core::RuntimeType for TimelineCollection {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for TimelineCollection {
     type Vtable = super::super::super::super::Foundation::Collections::IVector_Vtbl<Timeline>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::super::super::Foundation::Collections::IVector<Timeline> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for TimelineCollection {
@@ -16339,7 +16339,7 @@ unsafe impl ::windows::core::RuntimeType for Transition {
 }
 unsafe impl ::windows::core::Interface for Transition {
     type Vtable = ITransition_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c677c7c_01d0_4dce_b333_976f93312b08);
+    const IID: ::windows::core::GUID = <ITransition as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Transition {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.Transition";
@@ -16543,7 +16543,7 @@ unsafe impl ::windows::core::RuntimeType for TransitionCollection {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for TransitionCollection {
     type Vtable = super::super::super::super::Foundation::Collections::IVector_Vtbl<Transition>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::super::super::Foundation::Collections::IVector<Transition> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for TransitionCollection {

@@ -124,7 +124,7 @@ unsafe impl ::windows::core::RuntimeType for BitmapBuffer {
 }
 unsafe impl ::windows::core::Interface for BitmapBuffer {
     type Vtable = IBitmapBuffer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa53e04c4_399c_438c_b28f_a63a6b83d1a1);
+    const IID: ::windows::core::GUID = <IBitmapBuffer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BitmapBuffer {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapBuffer";
@@ -312,7 +312,7 @@ unsafe impl ::windows::core::RuntimeType for BitmapCodecInformation {
 }
 unsafe impl ::windows::core::Interface for BitmapCodecInformation {
     type Vtable = IBitmapCodecInformation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x400caaf2_c4b0_4392_a3b0_6f6f9ba95cb4);
+    const IID: ::windows::core::GUID = <IBitmapCodecInformation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BitmapCodecInformation {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapCodecInformation";
@@ -650,7 +650,7 @@ unsafe impl ::windows::core::RuntimeType for BitmapDecoder {
 }
 unsafe impl ::windows::core::Interface for BitmapDecoder {
     type Vtable = IBitmapDecoder_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xacef22ba_1d74_4c91_9dfc_9620745233e6);
+    const IID: ::windows::core::GUID = <IBitmapDecoder as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BitmapDecoder {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapDecoder";
@@ -974,7 +974,7 @@ unsafe impl ::windows::core::RuntimeType for BitmapEncoder {
 }
 unsafe impl ::windows::core::Interface for BitmapEncoder {
     type Vtable = IBitmapEncoder_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bc468e3_e1f8_4b54_95e8_32919551ce62);
+    const IID: ::windows::core::GUID = <IBitmapEncoder as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BitmapEncoder {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapEncoder";
@@ -1202,7 +1202,7 @@ unsafe impl ::windows::core::RuntimeType for BitmapFrame {
 }
 unsafe impl ::windows::core::Interface for BitmapFrame {
     type Vtable = IBitmapFrame_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72a49a1c_8081_438d_91bc_94ecfc8185c6);
+    const IID: ::windows::core::GUID = <IBitmapFrame as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BitmapFrame {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapFrame";
@@ -1441,7 +1441,7 @@ unsafe impl ::windows::core::RuntimeType for BitmapProperties {
 }
 unsafe impl ::windows::core::Interface for BitmapProperties {
     type Vtable = IBitmapProperties_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea9f4f1b_b505_4450_a4d1_e8ca94529d8d);
+    const IID: ::windows::core::GUID = <IBitmapProperties as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BitmapProperties {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapProperties";
@@ -1545,7 +1545,7 @@ unsafe impl ::windows::core::RuntimeType for BitmapPropertiesView {
 }
 unsafe impl ::windows::core::Interface for BitmapPropertiesView {
     type Vtable = IBitmapPropertiesView_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e0fe87a_3a70_48f8_9c55_196cf5a545f5);
+    const IID: ::windows::core::GUID = <IBitmapPropertiesView as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BitmapPropertiesView {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapPropertiesView";
@@ -1721,7 +1721,7 @@ unsafe impl ::windows::core::RuntimeType for BitmapPropertySet {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for BitmapPropertySet {
     type Vtable = super::super::Foundation::Collections::IMap_Vtbl<::windows::core::HSTRING, BitmapTypedValue>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::Foundation::Collections::IMap<::windows::core::HSTRING, BitmapTypedValue> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for BitmapPropertySet {
@@ -2025,7 +2025,7 @@ unsafe impl ::windows::core::RuntimeType for BitmapTransform {
 }
 unsafe impl ::windows::core::Interface for BitmapTransform {
     type Vtable = IBitmapTransform_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae755344_e268_4d35_adcf_e995d31a8d34);
+    const IID: ::windows::core::GUID = <IBitmapTransform as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BitmapTransform {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapTransform";
@@ -2128,7 +2128,7 @@ unsafe impl ::windows::core::RuntimeType for BitmapTypedValue {
 }
 unsafe impl ::windows::core::Interface for BitmapTypedValue {
     type Vtable = IBitmapTypedValue_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd8044a9_2443_4000_b0cd_79316c56f589);
+    const IID: ::windows::core::GUID = <IBitmapTypedValue as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BitmapTypedValue {
     const NAME: &'static str = "Windows.Graphics.Imaging.BitmapTypedValue";
@@ -3260,7 +3260,7 @@ unsafe impl ::windows::core::RuntimeType for ImageStream {
 #[cfg(feature = "Storage_Streams")]
 unsafe impl ::windows::core::Interface for ImageStream {
     type Vtable = super::super::Storage::Streams::IRandomAccessStreamWithContentType_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc254827_4b3d_438f_9232_10c76bc7e038);
+    const IID: ::windows::core::GUID = <super::super::Storage::Streams::IRandomAccessStreamWithContentType as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Storage_Streams")]
 impl ::windows::core::RuntimeName for ImageStream {
@@ -3538,7 +3538,7 @@ unsafe impl ::windows::core::RuntimeType for PixelDataProvider {
 }
 unsafe impl ::windows::core::Interface for PixelDataProvider {
     type Vtable = IPixelDataProvider_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd831f25_185c_4595_9fb9_ccbe6ec18a6f);
+    const IID: ::windows::core::GUID = <IPixelDataProvider as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PixelDataProvider {
     const NAME: &'static str = "Windows.Graphics.Imaging.PixelDataProvider";
@@ -3826,7 +3826,7 @@ unsafe impl ::windows::core::RuntimeType for SoftwareBitmap {
 }
 unsafe impl ::windows::core::Interface for SoftwareBitmap {
     type Vtable = ISoftwareBitmap_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x689e0708_7eef_483f_963f_da938818e073);
+    const IID: ::windows::core::GUID = <ISoftwareBitmap as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SoftwareBitmap {
     const NAME: &'static str = "Windows.Graphics.Imaging.SoftwareBitmap";

@@ -300,7 +300,7 @@ unsafe impl ::windows::core::RuntimeType for AddPackageOptions {
 }
 unsafe impl ::windows::core::Interface for AddPackageOptions {
     type Vtable = IAddPackageOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05cee018_f68f_422b_95a4_66679ec77fc0);
+    const IID: ::windows::core::GUID = <IAddPackageOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AddPackageOptions {
     const NAME: &'static str = "Windows.Management.Deployment.AddPackageOptions";
@@ -408,7 +408,7 @@ unsafe impl ::windows::core::RuntimeType for AppInstallerManager {
 }
 unsafe impl ::windows::core::Interface for AppInstallerManager {
     type Vtable = IAppInstallerManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7ee21c3_2103_53ee_9b18_68afeab0033d);
+    const IID: ::windows::core::GUID = <IAppInstallerManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppInstallerManager {
     const NAME: &'static str = "Windows.Management.Deployment.AppInstallerManager";
@@ -658,7 +658,7 @@ unsafe impl ::windows::core::RuntimeType for AutoUpdateSettingsOptions {
 }
 unsafe impl ::windows::core::Interface for AutoUpdateSettingsOptions {
     type Vtable = IAutoUpdateSettingsOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x67491d87_35e1_512a_8968_1ae88d1be6d3);
+    const IID: ::windows::core::GUID = <IAutoUpdateSettingsOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AutoUpdateSettingsOptions {
     const NAME: &'static str = "Windows.Management.Deployment.AutoUpdateSettingsOptions";
@@ -773,7 +773,7 @@ unsafe impl ::windows::core::RuntimeType for CreateSharedPackageContainerOptions
 }
 unsafe impl ::windows::core::Interface for CreateSharedPackageContainerOptions {
     type Vtable = ICreateSharedPackageContainerOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2ab6ece_f664_5c8e_a4b3_2a33276d3dde);
+    const IID: ::windows::core::GUID = <ICreateSharedPackageContainerOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CreateSharedPackageContainerOptions {
     const NAME: &'static str = "Windows.Management.Deployment.CreateSharedPackageContainerOptions";
@@ -870,7 +870,7 @@ unsafe impl ::windows::core::RuntimeType for CreateSharedPackageContainerResult 
 }
 unsafe impl ::windows::core::Interface for CreateSharedPackageContainerResult {
     type Vtable = ICreateSharedPackageContainerResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce8810bf_151c_5707_b936_497e564afc7a);
+    const IID: ::windows::core::GUID = <ICreateSharedPackageContainerResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CreateSharedPackageContainerResult {
     const NAME: &'static str = "Windows.Management.Deployment.CreateSharedPackageContainerResult";
@@ -976,7 +976,7 @@ unsafe impl ::windows::core::RuntimeType for DeleteSharedPackageContainerOptions
 }
 unsafe impl ::windows::core::Interface for DeleteSharedPackageContainerOptions {
     type Vtable = IDeleteSharedPackageContainerOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d81865f_986e_5138_8b5d_384d8e66ed6c);
+    const IID: ::windows::core::GUID = <IDeleteSharedPackageContainerOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DeleteSharedPackageContainerOptions {
     const NAME: &'static str = "Windows.Management.Deployment.DeleteSharedPackageContainerOptions";
@@ -1065,7 +1065,7 @@ unsafe impl ::windows::core::RuntimeType for DeleteSharedPackageContainerResult 
 }
 unsafe impl ::windows::core::Interface for DeleteSharedPackageContainerResult {
     type Vtable = IDeleteSharedPackageContainerResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35398884_5736_517b_85bc_e598c81ab284);
+    const IID: ::windows::core::GUID = <IDeleteSharedPackageContainerResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DeleteSharedPackageContainerResult {
     const NAME: &'static str = "Windows.Management.Deployment.DeleteSharedPackageContainerResult";
@@ -1298,7 +1298,7 @@ unsafe impl ::windows::core::RuntimeType for DeploymentResult {
 }
 unsafe impl ::windows::core::Interface for DeploymentResult {
     type Vtable = IDeploymentResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2563b9ae_b77d_4c1f_8a7b_20e6ad515ef3);
+    const IID: ::windows::core::GUID = <IDeploymentResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DeploymentResult {
     const NAME: &'static str = "Windows.Management.Deployment.DeploymentResult";
@@ -1404,7 +1404,7 @@ unsafe impl ::windows::core::RuntimeType for FindSharedPackageContainerOptions {
 }
 unsafe impl ::windows::core::Interface for FindSharedPackageContainerOptions {
     type Vtable = IFindSharedPackageContainerOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb40fc8fe_8384_54cc_817d_ae09d3b6a606);
+    const IID: ::windows::core::GUID = <IFindSharedPackageContainerOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FindSharedPackageContainerOptions {
     const NAME: &'static str = "Windows.Management.Deployment.FindSharedPackageContainerOptions";
@@ -2476,7 +2476,7 @@ unsafe impl ::windows::core::RuntimeType for PackageAllUserProvisioningOptions {
 }
 unsafe impl ::windows::core::Interface for PackageAllUserProvisioningOptions {
     type Vtable = IPackageAllUserProvisioningOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda35aa22_1de0_5d3e_99ff_d24f3118bf5e);
+    const IID: ::windows::core::GUID = <IPackageAllUserProvisioningOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PackageAllUserProvisioningOptions {
     const NAME: &'static str = "Windows.Management.Deployment.PackageAllUserProvisioningOptions";
@@ -3171,7 +3171,7 @@ unsafe impl ::windows::core::RuntimeType for PackageManager {
 }
 unsafe impl ::windows::core::Interface for PackageManager {
     type Vtable = IPackageManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a7d4b65_5e8f_4fc7_a2e5_7f6925cb8b53);
+    const IID: ::windows::core::GUID = <IPackageManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PackageManager {
     const NAME: &'static str = "Windows.Management.Deployment.PackageManager";
@@ -3262,7 +3262,7 @@ unsafe impl ::windows::core::RuntimeType for PackageManagerDebugSettings {
 }
 unsafe impl ::windows::core::Interface for PackageManagerDebugSettings {
     type Vtable = IPackageManagerDebugSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a611683_a988_4fcf_8f0f_ce175898e8eb);
+    const IID: ::windows::core::GUID = <IPackageManagerDebugSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PackageManagerDebugSettings {
     const NAME: &'static str = "Windows.Management.Deployment.PackageManagerDebugSettings";
@@ -3530,7 +3530,7 @@ unsafe impl ::windows::core::RuntimeType for PackageUserInformation {
 }
 unsafe impl ::windows::core::Interface for PackageUserInformation {
     type Vtable = IPackageUserInformation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6383423_fa09_4cbc_9055_15ca275e2e7e);
+    const IID: ::windows::core::GUID = <IPackageUserInformation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PackageUserInformation {
     const NAME: &'static str = "Windows.Management.Deployment.PackageUserInformation";
@@ -3802,7 +3802,7 @@ unsafe impl ::windows::core::RuntimeType for PackageVolume {
 }
 unsafe impl ::windows::core::Interface for PackageVolume {
     type Vtable = IPackageVolume_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf2672c3_1a40_4450_9739_2ace2e898853);
+    const IID: ::windows::core::GUID = <IPackageVolume as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PackageVolume {
     const NAME: &'static str = "Windows.Management.Deployment.PackageVolume";
@@ -4032,7 +4032,7 @@ unsafe impl ::windows::core::RuntimeType for RegisterPackageOptions {
 }
 unsafe impl ::windows::core::Interface for RegisterPackageOptions {
     type Vtable = IRegisterPackageOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x677112a7_50d4_496c_8415_0602b4c6d3bf);
+    const IID: ::windows::core::GUID = <IRegisterPackageOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RegisterPackageOptions {
     const NAME: &'static str = "Windows.Management.Deployment.RegisterPackageOptions";
@@ -4204,7 +4204,7 @@ unsafe impl ::windows::core::RuntimeType for SharedPackageContainer {
 }
 unsafe impl ::windows::core::Interface for SharedPackageContainer {
     type Vtable = ISharedPackageContainer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x177f1aa9_151e_5ef7_b1d9_2fba0b4b0d17);
+    const IID: ::windows::core::GUID = <ISharedPackageContainer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SharedPackageContainer {
     const NAME: &'static str = "Windows.Management.Deployment.SharedPackageContainer";
@@ -4374,7 +4374,7 @@ unsafe impl ::windows::core::RuntimeType for SharedPackageContainerManager {
 }
 unsafe impl ::windows::core::Interface for SharedPackageContainerManager {
     type Vtable = ISharedPackageContainerManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe353068_1ef7_5ac8_ab3f_0b9f612f0274);
+    const IID: ::windows::core::GUID = <ISharedPackageContainerManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SharedPackageContainerManager {
     const NAME: &'static str = "Windows.Management.Deployment.SharedPackageContainerManager";
@@ -4467,7 +4467,7 @@ unsafe impl ::windows::core::RuntimeType for SharedPackageContainerMember {
 }
 unsafe impl ::windows::core::Interface for SharedPackageContainerMember {
     type Vtable = ISharedPackageContainerMember_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe0d0438_43c9_5426_b89c_f79bf85ddff4);
+    const IID: ::windows::core::GUID = <ISharedPackageContainerMember as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SharedPackageContainerMember {
     const NAME: &'static str = "Windows.Management.Deployment.SharedPackageContainerMember";
@@ -4734,7 +4734,7 @@ unsafe impl ::windows::core::RuntimeType for StagePackageOptions {
 }
 unsafe impl ::windows::core::Interface for StagePackageOptions {
     type Vtable = IStagePackageOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b110c9c_b95d_4c56_bd36_6d656800d06b);
+    const IID: ::windows::core::GUID = <IStagePackageOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StagePackageOptions {
     const NAME: &'static str = "Windows.Management.Deployment.StagePackageOptions";
@@ -4870,7 +4870,7 @@ unsafe impl ::windows::core::RuntimeType for UpdateSharedPackageContainerOptions
 }
 unsafe impl ::windows::core::Interface for UpdateSharedPackageContainerOptions {
     type Vtable = IUpdateSharedPackageContainerOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80672e83_7194_59f9_b5b9_daa5375f130a);
+    const IID: ::windows::core::GUID = <IUpdateSharedPackageContainerOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UpdateSharedPackageContainerOptions {
     const NAME: &'static str = "Windows.Management.Deployment.UpdateSharedPackageContainerOptions";
@@ -4959,7 +4959,7 @@ unsafe impl ::windows::core::RuntimeType for UpdateSharedPackageContainerResult 
 }
 unsafe impl ::windows::core::Interface for UpdateSharedPackageContainerResult {
     type Vtable = IUpdateSharedPackageContainerResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa407df7_c72d_5458_aea3_4645b6a8ee99);
+    const IID: ::windows::core::GUID = <IUpdateSharedPackageContainerResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UpdateSharedPackageContainerResult {
     const NAME: &'static str = "Windows.Management.Deployment.UpdateSharedPackageContainerResult";

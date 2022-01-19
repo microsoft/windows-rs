@@ -41,7 +41,7 @@ unsafe impl ::windows::core::RuntimeType for AddPagesEventArgs {
 }
 unsafe impl ::windows::core::Interface for AddPagesEventArgs {
     type Vtable = IAddPagesEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2e52be5_056c_4420_9795_cb3526ce0c20);
+    const IID: ::windows::core::GUID = <IAddPagesEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AddPagesEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Printing.AddPagesEventArgs";
@@ -207,7 +207,7 @@ unsafe impl ::windows::core::RuntimeType for GetPreviewPageEventArgs {
 }
 unsafe impl ::windows::core::Interface for GetPreviewPageEventArgs {
     type Vtable = IGetPreviewPageEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa43d703d_dea9_4df6_a7ed_35049cd485c7);
+    const IID: ::windows::core::GUID = <IGetPreviewPageEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GetPreviewPageEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Printing.GetPreviewPageEventArgs";
@@ -499,7 +499,7 @@ unsafe impl ::windows::core::RuntimeType for PaginateEventArgs {
 }
 unsafe impl ::windows::core::Interface for PaginateEventArgs {
     type Vtable = IPaginateEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed945fd6_79ab_42b7_930a_3d6e09011d21);
+    const IID: ::windows::core::GUID = <IPaginateEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PaginateEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Printing.PaginateEventArgs";
@@ -789,7 +789,7 @@ unsafe impl ::windows::core::RuntimeType for PrintDocument {
 }
 unsafe impl ::windows::core::Interface for PrintDocument {
     type Vtable = IPrintDocument_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe44327c3_a999_485b_b1d8_72dc517821e6);
+    const IID: ::windows::core::GUID = <IPrintDocument as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintDocument {
     const NAME: &'static str = "Windows.UI.Xaml.Printing.PrintDocument";

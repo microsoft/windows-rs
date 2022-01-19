@@ -970,7 +970,7 @@ unsafe impl ::windows::core::RuntimeType for StoreAcquireLicenseResult {
 }
 unsafe impl ::windows::core::Interface for StoreAcquireLicenseResult {
     type Vtable = IStoreAcquireLicenseResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbd7946d_f040_4cb3_9a39_29bcecdbe22d);
+    const IID: ::windows::core::GUID = <IStoreAcquireLicenseResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StoreAcquireLicenseResult {
     const NAME: &'static str = "Windows.Services.Store.StoreAcquireLicenseResult";
@@ -1126,7 +1126,7 @@ unsafe impl ::windows::core::RuntimeType for StoreAppLicense {
 }
 unsafe impl ::windows::core::Interface for StoreAppLicense {
     type Vtable = IStoreAppLicense_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf389f9de_73c0_45ce_9bab_b2fe3e5eafd3);
+    const IID: ::windows::core::GUID = <IStoreAppLicense as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StoreAppLicense {
     const NAME: &'static str = "Windows.Services.Store.StoreAppLicense";
@@ -1250,7 +1250,7 @@ unsafe impl ::windows::core::RuntimeType for StoreAvailability {
 }
 unsafe impl ::windows::core::Interface for StoreAvailability {
     type Vtable = IStoreAvailability_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa060325_0ffd_4493_ad43_f1f9918f69fa);
+    const IID: ::windows::core::GUID = <IStoreAvailability as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StoreAvailability {
     const NAME: &'static str = "Windows.Services.Store.StoreAvailability";
@@ -1347,7 +1347,7 @@ unsafe impl ::windows::core::RuntimeType for StoreCanAcquireLicenseResult {
 }
 unsafe impl ::windows::core::Interface for StoreCanAcquireLicenseResult {
     type Vtable = IStoreCanAcquireLicenseResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a693db3_0088_482f_86d5_bd46522663ad);
+    const IID: ::windows::core::GUID = <IStoreCanAcquireLicenseResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StoreCanAcquireLicenseResult {
     const NAME: &'static str = "Windows.Services.Store.StoreCanAcquireLicenseResult";
@@ -1519,7 +1519,7 @@ unsafe impl ::windows::core::RuntimeType for StoreCollectionData {
 }
 unsafe impl ::windows::core::Interface for StoreCollectionData {
     type Vtable = IStoreCollectionData_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8aa4c3b3_5bb3_441a_2ab4_4dab73d5ce67);
+    const IID: ::windows::core::GUID = <IStoreCollectionData as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StoreCollectionData {
     const NAME: &'static str = "Windows.Services.Store.StoreCollectionData";
@@ -1624,7 +1624,7 @@ unsafe impl ::windows::core::RuntimeType for StoreConsumableResult {
 }
 unsafe impl ::windows::core::Interface for StoreConsumableResult {
     type Vtable = IStoreConsumableResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea5dab72_6a00_4052_be5b_bfdab4433352);
+    const IID: ::windows::core::GUID = <IStoreConsumableResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StoreConsumableResult {
     const NAME: &'static str = "Windows.Services.Store.StoreConsumableResult";
@@ -2085,7 +2085,7 @@ unsafe impl ::windows::core::RuntimeType for StoreContext {
 }
 unsafe impl ::windows::core::Interface for StoreContext {
     type Vtable = IStoreContext_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac98b6be_f4fd_4912_babd_5035e5e8bcab);
+    const IID: ::windows::core::GUID = <IStoreContext as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StoreContext {
     const NAME: &'static str = "Windows.Services.Store.StoreContext";
@@ -2231,7 +2231,7 @@ unsafe impl ::windows::core::RuntimeType for StoreImage {
 }
 unsafe impl ::windows::core::Interface for StoreImage {
     type Vtable = IStoreImage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x081fd248_adb4_4b64_a993_784789926ed5);
+    const IID: ::windows::core::GUID = <IStoreImage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StoreImage {
     const NAME: &'static str = "Windows.Services.Store.StoreImage";
@@ -2345,7 +2345,7 @@ unsafe impl ::windows::core::RuntimeType for StoreLicense {
 }
 unsafe impl ::windows::core::Interface for StoreLicense {
     type Vtable = IStoreLicense_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26dc9579_4c4f_4f30_bc89_649f60e36055);
+    const IID: ::windows::core::GUID = <IStoreLicense as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StoreLicense {
     const NAME: &'static str = "Windows.Services.Store.StoreLicense";
@@ -2438,7 +2438,7 @@ unsafe impl ::windows::core::RuntimeType for StorePackageInstallOptions {
 }
 unsafe impl ::windows::core::Interface for StorePackageInstallOptions {
     type Vtable = IStorePackageInstallOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d3d630c_0ccd_44dd_8c59_80810a729973);
+    const IID: ::windows::core::GUID = <IStorePackageInstallOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StorePackageInstallOptions {
     const NAME: &'static str = "Windows.Services.Store.StorePackageInstallOptions";
@@ -2554,7 +2554,7 @@ unsafe impl ::windows::core::RuntimeType for StorePackageLicense {
 }
 unsafe impl ::windows::core::Interface for StorePackageLicense {
     type Vtable = IStorePackageLicense_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c465714_14e1_4973_bd14_f77724271e99);
+    const IID: ::windows::core::GUID = <IStorePackageLicense as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StorePackageLicense {
     const NAME: &'static str = "Windows.Services.Store.StorePackageLicense";
@@ -2670,7 +2670,7 @@ unsafe impl ::windows::core::RuntimeType for StorePackageUpdate {
 }
 unsafe impl ::windows::core::Interface for StorePackageUpdate {
     type Vtable = IStorePackageUpdate_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x140fa150_3cbf_4a35_b91f_48271c31b072);
+    const IID: ::windows::core::GUID = <IStorePackageUpdate as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StorePackageUpdate {
     const NAME: &'static str = "Windows.Services.Store.StorePackageUpdate";
@@ -2769,7 +2769,7 @@ unsafe impl ::windows::core::RuntimeType for StorePackageUpdateResult {
 }
 unsafe impl ::windows::core::Interface for StorePackageUpdateResult {
     type Vtable = IStorePackageUpdateResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe79142ed_61f9_4893_b4fe_cf191603af7b);
+    const IID: ::windows::core::GUID = <IStorePackageUpdateResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StorePackageUpdateResult {
     const NAME: &'static str = "Windows.Services.Store.StorePackageUpdateResult";
@@ -2973,7 +2973,7 @@ unsafe impl ::windows::core::RuntimeType for StorePrice {
 }
 unsafe impl ::windows::core::Interface for StorePrice {
     type Vtable = IStorePrice_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55ba94c4_15f1_407c_8f06_006380f4df0b);
+    const IID: ::windows::core::GUID = <IStorePrice as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StorePrice {
     const NAME: &'static str = "Windows.Services.Store.StorePrice";
@@ -3198,7 +3198,7 @@ unsafe impl ::windows::core::RuntimeType for StoreProduct {
 }
 unsafe impl ::windows::core::Interface for StoreProduct {
     type Vtable = IStoreProduct_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x320e2c52_d760_450a_a42b_67d1e901ac90);
+    const IID: ::windows::core::GUID = <IStoreProduct as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StoreProduct {
     const NAME: &'static str = "Windows.Services.Store.StoreProduct";
@@ -3287,7 +3287,7 @@ unsafe impl ::windows::core::RuntimeType for StoreProductOptions {
 }
 unsafe impl ::windows::core::Interface for StoreProductOptions {
     type Vtable = IStoreProductOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b34a0f9_a113_4811_8326_16199c927f31);
+    const IID: ::windows::core::GUID = <IStoreProductOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StoreProductOptions {
     const NAME: &'static str = "Windows.Services.Store.StoreProductOptions";
@@ -3394,7 +3394,7 @@ unsafe impl ::windows::core::RuntimeType for StoreProductPagedQueryResult {
 }
 unsafe impl ::windows::core::Interface for StoreProductPagedQueryResult {
     type Vtable = IStoreProductPagedQueryResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc92718c5_4dd5_4869_a462_ecc6872e43c5);
+    const IID: ::windows::core::GUID = <IStoreProductPagedQueryResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StoreProductPagedQueryResult {
     const NAME: &'static str = "Windows.Services.Store.StoreProductPagedQueryResult";
@@ -3484,7 +3484,7 @@ unsafe impl ::windows::core::RuntimeType for StoreProductQueryResult {
 }
 unsafe impl ::windows::core::Interface for StoreProductQueryResult {
     type Vtable = IStoreProductQueryResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd805e6c5_d456_4ff6_8049_9076d5165f73);
+    const IID: ::windows::core::GUID = <IStoreProductQueryResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StoreProductQueryResult {
     const NAME: &'static str = "Windows.Services.Store.StoreProductQueryResult";
@@ -3573,7 +3573,7 @@ unsafe impl ::windows::core::RuntimeType for StoreProductResult {
 }
 unsafe impl ::windows::core::Interface for StoreProductResult {
     type Vtable = IStoreProductResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7674f73_3c87_4ee1_8201_f428359bd3af);
+    const IID: ::windows::core::GUID = <IStoreProductResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StoreProductResult {
     const NAME: &'static str = "Windows.Services.Store.StoreProductResult";
@@ -3691,7 +3691,7 @@ unsafe impl ::windows::core::RuntimeType for StorePurchaseProperties {
 }
 unsafe impl ::windows::core::Interface for StorePurchaseProperties {
     type Vtable = IStorePurchaseProperties_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x836278f3_ff87_4364_a5b4_fd2153ebe43b);
+    const IID: ::windows::core::GUID = <IStorePurchaseProperties as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StorePurchaseProperties {
     const NAME: &'static str = "Windows.Services.Store.StorePurchaseProperties";
@@ -3780,7 +3780,7 @@ unsafe impl ::windows::core::RuntimeType for StorePurchaseResult {
 }
 unsafe impl ::windows::core::Interface for StorePurchaseResult {
     type Vtable = IStorePurchaseResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xadd28552_f96a_463d_a7bb_c20b4fca6952);
+    const IID: ::windows::core::GUID = <IStorePurchaseResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StorePurchaseResult {
     const NAME: &'static str = "Windows.Services.Store.StorePurchaseResult";
@@ -3973,7 +3973,7 @@ unsafe impl ::windows::core::RuntimeType for StoreQueueItem {
 }
 unsafe impl ::windows::core::Interface for StoreQueueItem {
     type Vtable = IStoreQueueItem_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56d5c32b_f830_4293_9188_cad2dcde7357);
+    const IID: ::windows::core::GUID = <IStoreQueueItem as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StoreQueueItem {
     const NAME: &'static str = "Windows.Services.Store.StoreQueueItem";
@@ -4054,7 +4054,7 @@ unsafe impl ::windows::core::RuntimeType for StoreQueueItemCompletedEventArgs {
 }
 unsafe impl ::windows::core::Interface for StoreQueueItemCompletedEventArgs {
     type Vtable = IStoreQueueItemCompletedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1247df6c_b44a_439b_bb07_1d3003d005c2);
+    const IID: ::windows::core::GUID = <IStoreQueueItemCompletedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StoreQueueItemCompletedEventArgs {
     const NAME: &'static str = "Windows.Services.Store.StoreQueueItemCompletedEventArgs";
@@ -4260,7 +4260,7 @@ unsafe impl ::windows::core::RuntimeType for StoreQueueItemStatus {
 }
 unsafe impl ::windows::core::Interface for StoreQueueItemStatus {
     type Vtable = IStoreQueueItemStatus_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bd6796f_9cc3_4ec3_b2ef_7be433b30174);
+    const IID: ::windows::core::GUID = <IStoreQueueItemStatus as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StoreQueueItemStatus {
     const NAME: &'static str = "Windows.Services.Store.StoreQueueItemStatus";
@@ -4365,7 +4365,7 @@ unsafe impl ::windows::core::RuntimeType for StoreRateAndReviewResult {
 }
 unsafe impl ::windows::core::Interface for StoreRateAndReviewResult {
     type Vtable = IStoreRateAndReviewResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d209d56_a6b5_4121_9b61_ee6d0fbdbdbb);
+    const IID: ::windows::core::GUID = <IStoreRateAndReviewResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StoreRateAndReviewResult {
     const NAME: &'static str = "Windows.Services.Store.StoreRateAndReviewResult";
@@ -4513,7 +4513,7 @@ unsafe impl ::windows::core::RuntimeType for StoreSendRequestResult {
 }
 unsafe impl ::windows::core::Interface for StoreSendRequestResult {
     type Vtable = IStoreSendRequestResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc73abe60_8272_4502_8a69_6e75153a4299);
+    const IID: ::windows::core::GUID = <IStoreSendRequestResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StoreSendRequestResult {
     const NAME: &'static str = "Windows.Services.Store.StoreSendRequestResult";
@@ -4745,7 +4745,7 @@ unsafe impl ::windows::core::RuntimeType for StoreSku {
 }
 unsafe impl ::windows::core::Interface for StoreSku {
     type Vtable = IStoreSku_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x397e6f55_4440_4f03_863c_91f3fec83d79);
+    const IID: ::windows::core::GUID = <IStoreSku as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StoreSku {
     const NAME: &'static str = "Windows.Services.Store.StoreSku";
@@ -4858,7 +4858,7 @@ unsafe impl ::windows::core::RuntimeType for StoreSubscriptionInfo {
 }
 unsafe impl ::windows::core::Interface for StoreSubscriptionInfo {
     type Vtable = IStoreSubscriptionInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4189776a_0559_43ac_a9c6_3ab0011fb8eb);
+    const IID: ::windows::core::GUID = <IStoreSubscriptionInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StoreSubscriptionInfo {
     const NAME: &'static str = "Windows.Services.Store.StoreSubscriptionInfo";
@@ -4947,7 +4947,7 @@ unsafe impl ::windows::core::RuntimeType for StoreUninstallStorePackageResult {
 }
 unsafe impl ::windows::core::Interface for StoreUninstallStorePackageResult {
     type Vtable = IStoreUninstallStorePackageResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fca39fd_126f_4cda_b801_1346b8d0a260);
+    const IID: ::windows::core::GUID = <IStoreUninstallStorePackageResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StoreUninstallStorePackageResult {
     const NAME: &'static str = "Windows.Services.Store.StoreUninstallStorePackageResult";
@@ -5100,7 +5100,7 @@ unsafe impl ::windows::core::RuntimeType for StoreVideo {
 }
 unsafe impl ::windows::core::Interface for StoreVideo {
     type Vtable = IStoreVideo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf26cb184_6f5e_4dc2_886c_3c63083c2f94);
+    const IID: ::windows::core::GUID = <IStoreVideo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StoreVideo {
     const NAME: &'static str = "Windows.Services.Store.StoreVideo";

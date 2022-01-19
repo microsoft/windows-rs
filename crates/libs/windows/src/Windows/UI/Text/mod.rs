@@ -129,7 +129,7 @@ unsafe impl ::windows::core::RuntimeType for ContentLinkInfo {
 }
 unsafe impl ::windows::core::Interface for ContentLinkInfo {
     type Vtable = IContentLinkInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ed52525_1c5f_48cb_b335_78b50a2ee642);
+    const IID: ::windows::core::GUID = <IContentLinkInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContentLinkInfo {
     const NAME: &'static str = "Windows.UI.Text.ContentLinkInfo";
@@ -442,7 +442,7 @@ unsafe impl ::windows::core::RuntimeType for FontWeights {
 }
 unsafe impl ::windows::core::Interface for FontWeights {
     type Vtable = IFontWeights_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7880a444_01ab_4997_8517_df822a0c45f1);
+    const IID: ::windows::core::GUID = <IFontWeights as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FontWeights {
     const NAME: &'static str = "Windows.UI.Text.FontWeights";
@@ -3519,7 +3519,7 @@ unsafe impl ::windows::core::RuntimeType for RichEditTextDocument {
 }
 unsafe impl ::windows::core::Interface for RichEditTextDocument {
     type Vtable = ITextDocument_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbeee4ddb_90b2_408c_a2f6_0a0ac31e33e4);
+    const IID: ::windows::core::GUID = <ITextDocument as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RichEditTextDocument {
     const NAME: &'static str = "Windows.UI.Text.RichEditTextDocument";
@@ -3968,7 +3968,7 @@ unsafe impl ::windows::core::RuntimeType for RichEditTextRange {
 }
 unsafe impl ::windows::core::Interface for RichEditTextRange {
     type Vtable = ITextRange_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b9e4e57_c072_42a0_8945_af503ee54768);
+    const IID: ::windows::core::GUID = <ITextRange as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RichEditTextRange {
     const NAME: &'static str = "Windows.UI.Text.RichEditTextRange";

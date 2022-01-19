@@ -79,7 +79,7 @@ unsafe impl ::windows::core::RuntimeType for Buffer {
 }
 unsafe impl ::windows::core::Interface for Buffer {
     type Vtable = IBuffer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x905a0fe0_bc53_11df_8c49_001e4fc686da);
+    const IID: ::windows::core::GUID = <IBuffer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Buffer {
     const NAME: &'static str = "Windows.Storage.Streams.Buffer";
@@ -431,7 +431,7 @@ unsafe impl ::windows::core::RuntimeType for DataReader {
 }
 unsafe impl ::windows::core::Interface for DataReader {
     type Vtable = IDataReader_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2b50029_b4c1_4314_a4b8_fb813a2f275e);
+    const IID: ::windows::core::GUID = <IDataReader as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DataReader {
     const NAME: &'static str = "Windows.Storage.Streams.DataReader";
@@ -623,7 +623,7 @@ unsafe impl ::windows::core::RuntimeType for DataReaderLoadOperation {
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::core::Interface for DataReaderLoadOperation {
     type Vtable = super::super::Foundation::IAsyncOperation_Vtbl<u32>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::Foundation::IAsyncOperation<u32> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for DataReaderLoadOperation {
@@ -981,7 +981,7 @@ unsafe impl ::windows::core::RuntimeType for DataWriter {
 }
 unsafe impl ::windows::core::Interface for DataWriter {
     type Vtable = IDataWriter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64b89265_d341_4922_b38a_dd4af8808c4e);
+    const IID: ::windows::core::GUID = <IDataWriter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DataWriter {
     const NAME: &'static str = "Windows.Storage.Streams.DataWriter";
@@ -1173,7 +1173,7 @@ unsafe impl ::windows::core::RuntimeType for DataWriterStoreOperation {
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::core::Interface for DataWriterStoreOperation {
     type Vtable = super::super::Foundation::IAsyncOperation_Vtbl<u32>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::Foundation::IAsyncOperation<u32> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for DataWriterStoreOperation {
@@ -1355,7 +1355,7 @@ unsafe impl ::windows::core::RuntimeType for FileInputStream {
 }
 unsafe impl ::windows::core::Interface for FileInputStream {
     type Vtable = IInputStream_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x905a0fe2_bc53_11df_8c49_001e4fc686da);
+    const IID: ::windows::core::GUID = <IInputStream as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FileInputStream {
     const NAME: &'static str = "Windows.Storage.Streams.FileInputStream";
@@ -1531,7 +1531,7 @@ unsafe impl ::windows::core::RuntimeType for FileOutputStream {
 }
 unsafe impl ::windows::core::Interface for FileOutputStream {
     type Vtable = IOutputStream_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x905a0fe6_bc53_11df_8c49_001e4fc686da);
+    const IID: ::windows::core::GUID = <IOutputStream as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FileOutputStream {
     const NAME: &'static str = "Windows.Storage.Streams.FileOutputStream";
@@ -1820,7 +1820,7 @@ unsafe impl ::windows::core::RuntimeType for FileRandomAccessStream {
 }
 unsafe impl ::windows::core::Interface for FileRandomAccessStream {
     type Vtable = IRandomAccessStream_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x905a0fe1_bc53_11df_8c49_001e4fc686da);
+    const IID: ::windows::core::GUID = <IRandomAccessStream as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FileRandomAccessStream {
     const NAME: &'static str = "Windows.Storage.Streams.FileRandomAccessStream";
@@ -4075,7 +4075,7 @@ unsafe impl ::windows::core::RuntimeType for InMemoryRandomAccessStream {
 }
 unsafe impl ::windows::core::Interface for InMemoryRandomAccessStream {
     type Vtable = IRandomAccessStream_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x905a0fe1_bc53_11df_8c49_001e4fc686da);
+    const IID: ::windows::core::GUID = <IRandomAccessStream as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InMemoryRandomAccessStream {
     const NAME: &'static str = "Windows.Storage.Streams.InMemoryRandomAccessStream";
@@ -4312,7 +4312,7 @@ unsafe impl ::windows::core::RuntimeType for InputStreamOverStream {
 }
 unsafe impl ::windows::core::Interface for InputStreamOverStream {
     type Vtable = IInputStream_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x905a0fe2_bc53_11df_8c49_001e4fc686da);
+    const IID: ::windows::core::GUID = <IInputStream as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InputStreamOverStream {
     const NAME: &'static str = "Windows.Storage.Streams.InputStreamOverStream";
@@ -4457,7 +4457,7 @@ unsafe impl ::windows::core::RuntimeType for OutputStreamOverStream {
 }
 unsafe impl ::windows::core::Interface for OutputStreamOverStream {
     type Vtable = IOutputStream_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x905a0fe6_bc53_11df_8c49_001e4fc686da);
+    const IID: ::windows::core::GUID = <IOutputStream as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for OutputStreamOverStream {
     const NAME: &'static str = "Windows.Storage.Streams.OutputStreamOverStream";
@@ -4713,7 +4713,7 @@ unsafe impl ::windows::core::RuntimeType for RandomAccessStreamOverStream {
 }
 unsafe impl ::windows::core::Interface for RandomAccessStreamOverStream {
     type Vtable = IRandomAccessStream_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x905a0fe1_bc53_11df_8c49_001e4fc686da);
+    const IID: ::windows::core::GUID = <IRandomAccessStream as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RandomAccessStreamOverStream {
     const NAME: &'static str = "Windows.Storage.Streams.RandomAccessStreamOverStream";
@@ -4914,7 +4914,7 @@ unsafe impl ::windows::core::RuntimeType for RandomAccessStreamReference {
 }
 unsafe impl ::windows::core::Interface for RandomAccessStreamReference {
     type Vtable = IRandomAccessStreamReference_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33ee3134_1dd6_4e3a_8067_d1c162e8642b);
+    const IID: ::windows::core::GUID = <IRandomAccessStreamReference as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RandomAccessStreamReference {
     const NAME: &'static str = "Windows.Storage.Streams.RandomAccessStreamReference";

@@ -191,7 +191,7 @@ unsafe impl ::windows::core::RuntimeType for AmbientLight {
 }
 unsafe impl ::windows::core::Interface for AmbientLight {
     type Vtable = IAmbientLight_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa48130a1_b7c4_46f7_b9bf_daf43a44e6ee);
+    const IID: ::windows::core::GUID = <IAmbientLight as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AmbientLight {
     const NAME: &'static str = "Windows.UI.Composition.AmbientLight";
@@ -519,7 +519,7 @@ unsafe impl ::windows::core::RuntimeType for AnimationController {
 }
 unsafe impl ::windows::core::Interface for AnimationController {
     type Vtable = IAnimationController_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc934efd2_0722_4f5f_a4e2_9510f3d43bf7);
+    const IID: ::windows::core::GUID = <IAnimationController as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AnimationController {
     const NAME: &'static str = "Windows.UI.Composition.AnimationController";
@@ -932,7 +932,7 @@ unsafe impl ::windows::core::RuntimeType for AnimationPropertyInfo {
 }
 unsafe impl ::windows::core::Interface for AnimationPropertyInfo {
     type Vtable = IAnimationPropertyInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4716f05_ed77_4e3c_b328_5c3985b3738f);
+    const IID: ::windows::core::GUID = <IAnimationPropertyInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AnimationPropertyInfo {
     const NAME: &'static str = "Windows.UI.Composition.AnimationPropertyInfo";
@@ -1217,7 +1217,7 @@ unsafe impl ::windows::core::RuntimeType for BackEasingFunction {
 }
 unsafe impl ::windows::core::Interface for BackEasingFunction {
     type Vtable = IBackEasingFunction_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8560da4_5e3c_545d_b263_7987a2bd27cb);
+    const IID: ::windows::core::GUID = <IBackEasingFunction as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BackEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.BackEasingFunction";
@@ -1688,7 +1688,7 @@ unsafe impl ::windows::core::RuntimeType for BooleanKeyFrameAnimation {
 }
 unsafe impl ::windows::core::Interface for BooleanKeyFrameAnimation {
     type Vtable = IBooleanKeyFrameAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95e23a08_d1f4_4972_9770_3efe68d82e14);
+    const IID: ::windows::core::GUID = <IBooleanKeyFrameAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BooleanKeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.BooleanKeyFrameAnimation";
@@ -2014,7 +2014,7 @@ unsafe impl ::windows::core::RuntimeType for BounceEasingFunction {
 }
 unsafe impl ::windows::core::Interface for BounceEasingFunction {
     type Vtable = IBounceEasingFunction_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7fdb44b_aad5_5174_9421_eef8b75a6a43);
+    const IID: ::windows::core::GUID = <IBounceEasingFunction as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BounceEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.BounceEasingFunction";
@@ -2477,7 +2477,7 @@ unsafe impl ::windows::core::RuntimeType for BounceScalarNaturalMotionAnimation 
 }
 unsafe impl ::windows::core::Interface for BounceScalarNaturalMotionAnimation {
     type Vtable = IBounceScalarNaturalMotionAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbaa30dcc_a633_4618_9b06_7f7c72c87cff);
+    const IID: ::windows::core::GUID = <IBounceScalarNaturalMotionAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BounceScalarNaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.BounceScalarNaturalMotionAnimation";
@@ -3004,7 +3004,7 @@ unsafe impl ::windows::core::RuntimeType for BounceVector2NaturalMotionAnimation
 }
 unsafe impl ::windows::core::Interface for BounceVector2NaturalMotionAnimation {
     type Vtable = IBounceVector2NaturalMotionAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda344196_2154_4b3c_88aa_47361204eccd);
+    const IID: ::windows::core::GUID = <IBounceVector2NaturalMotionAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BounceVector2NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.BounceVector2NaturalMotionAnimation";
@@ -3531,7 +3531,7 @@ unsafe impl ::windows::core::RuntimeType for BounceVector3NaturalMotionAnimation
 }
 unsafe impl ::windows::core::Interface for BounceVector3NaturalMotionAnimation {
     type Vtable = IBounceVector3NaturalMotionAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47dabc31_10d3_4518_86f1_09caf742d113);
+    const IID: ::windows::core::GUID = <IBounceVector3NaturalMotionAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BounceVector3NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.BounceVector3NaturalMotionAnimation";
@@ -3861,7 +3861,7 @@ unsafe impl ::windows::core::RuntimeType for CircleEasingFunction {
 }
 unsafe impl ::windows::core::Interface for CircleEasingFunction {
     type Vtable = ICircleEasingFunction_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e07222a_6f82_5a28_8748_2e92fc46ee2b);
+    const IID: ::windows::core::GUID = <ICircleEasingFunction as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CircleEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.CircleEasingFunction";
@@ -4350,7 +4350,7 @@ unsafe impl ::windows::core::RuntimeType for ColorKeyFrameAnimation {
 }
 unsafe impl ::windows::core::Interface for ColorKeyFrameAnimation {
     type Vtable = IColorKeyFrameAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93adb5e9_8e05_4593_84a3_dca152781e56);
+    const IID: ::windows::core::GUID = <IColorKeyFrameAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ColorKeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.ColorKeyFrameAnimation";
@@ -4745,7 +4745,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionAnimation {
 }
 unsafe impl ::windows::core::Interface for CompositionAnimation {
     type Vtable = ICompositionAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x464c4c2c_1caa_4061_9b40_e13fde1503ca);
+    const IID: ::windows::core::GUID = <ICompositionAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.CompositionAnimation";
@@ -5039,7 +5039,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionAnimationGroup {
 }
 unsafe impl ::windows::core::Interface for CompositionAnimationGroup {
     type Vtable = ICompositionAnimationGroup_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e7cc90c_cd14_4e07_8a55_c72527aabdac);
+    const IID: ::windows::core::GUID = <ICompositionAnimationGroup as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionAnimationGroup {
     const NAME: &'static str = "Windows.UI.Composition.CompositionAnimationGroup";
@@ -5343,7 +5343,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionBackdropBrush {
 }
 unsafe impl ::windows::core::Interface for CompositionBackdropBrush {
     type Vtable = ICompositionBackdropBrush_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5acae58_3898_499e_8d7f_224e91286a5d);
+    const IID: ::windows::core::GUID = <ICompositionBackdropBrush as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionBackdropBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionBackdropBrush";
@@ -5632,7 +5632,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionBatchCompletedEventArgs 
 }
 unsafe impl ::windows::core::Interface for CompositionBatchCompletedEventArgs {
     type Vtable = ICompositionBatchCompletedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d00dad0_9464_450a_a562_2e2698b0a812);
+    const IID: ::windows::core::GUID = <ICompositionBatchCompletedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionBatchCompletedEventArgs {
     const NAME: &'static str = "Windows.UI.Composition.CompositionBatchCompletedEventArgs";
@@ -5996,7 +5996,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionBrush {
 }
 unsafe impl ::windows::core::Interface for CompositionBrush {
     type Vtable = ICompositionBrush_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab0d7608_30c0_40e9_b568_b60a6bd1fb46);
+    const IID: ::windows::core::GUID = <ICompositionBrush as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionBrush";
@@ -6180,7 +6180,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionCapabilities {
 }
 unsafe impl ::windows::core::Interface for CompositionCapabilities {
     type Vtable = ICompositionCapabilities_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8253353e_b517_48bc_b1e8_4b3561a2e181);
+    const IID: ::windows::core::GUID = <ICompositionCapabilities as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionCapabilities {
     const NAME: &'static str = "Windows.UI.Composition.CompositionCapabilities";
@@ -6453,7 +6453,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionClip {
 }
 unsafe impl ::windows::core::Interface for CompositionClip {
     type Vtable = ICompositionClip_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ccd2a52_cfc7_4ace_9983_146bb8eb6a3c);
+    const IID: ::windows::core::GUID = <ICompositionClip as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionClip {
     const NAME: &'static str = "Windows.UI.Composition.CompositionClip";
@@ -6706,7 +6706,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionColorBrush {
 }
 unsafe impl ::windows::core::Interface for CompositionColorBrush {
     type Vtable = ICompositionColorBrush_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b264c5e_bf35_4831_8642_cf70c20fff2f);
+    const IID: ::windows::core::GUID = <ICompositionColorBrush as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionColorBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionColorBrush";
@@ -6992,7 +6992,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionColorGradientStop {
 }
 unsafe impl ::windows::core::Interface for CompositionColorGradientStop {
     type Vtable = ICompositionColorGradientStop_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f00ca92_c801_4e41_9a8f_a53e20f57778);
+    const IID: ::windows::core::GUID = <ICompositionColorGradientStop as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionColorGradientStop {
     const NAME: &'static str = "Windows.UI.Composition.CompositionColorGradientStop";
@@ -7229,7 +7229,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionColorGradientStopCollect
 }
 unsafe impl ::windows::core::Interface for CompositionColorGradientStopCollection {
     type Vtable = ICompositionColorGradientStopCollection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f1d20ec_7b04_4b1d_90bc_9fa32c0cfd26);
+    const IID: ::windows::core::GUID = <ICompositionColorGradientStopCollection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionColorGradientStopCollection {
     const NAME: &'static str = "Windows.UI.Composition.CompositionColorGradientStopCollection";
@@ -7531,7 +7531,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionCommitBatch {
 }
 unsafe impl ::windows::core::Interface for CompositionCommitBatch {
     type Vtable = ICompositionCommitBatch_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d00dad0_ca07_4400_8c8e_cb5db08559cc);
+    const IID: ::windows::core::GUID = <ICompositionCommitBatch as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionCommitBatch {
     const NAME: &'static str = "Windows.UI.Composition.CompositionCommitBatch";
@@ -7896,7 +7896,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionContainerShape {
 }
 unsafe impl ::windows::core::Interface for CompositionContainerShape {
     type Vtable = ICompositionContainerShape_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f5e859b_2e5b_44a8_982c_aa0f69c16059);
+    const IID: ::windows::core::GUID = <ICompositionContainerShape as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionContainerShape {
     const NAME: &'static str = "Windows.UI.Composition.CompositionContainerShape";
@@ -8222,7 +8222,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionDrawingSurface {
 }
 unsafe impl ::windows::core::Interface for CompositionDrawingSurface {
     type Vtable = ICompositionDrawingSurface_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa166c300_fad0_4d11_9e67_e433162ff49e);
+    const IID: ::windows::core::GUID = <ICompositionDrawingSurface as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionDrawingSurface {
     const NAME: &'static str = "Windows.UI.Composition.CompositionDrawingSurface";
@@ -8595,7 +8595,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionEasingFunction {
 }
 unsafe impl ::windows::core::Interface for CompositionEasingFunction {
     type Vtable = ICompositionEasingFunction_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5145e356_bf79_4ea8_8cc2_6b5b472e6c9a);
+    const IID: ::windows::core::GUID = <ICompositionEasingFunction as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.CompositionEasingFunction";
@@ -8877,7 +8877,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionEffectBrush {
 }
 unsafe impl ::windows::core::Interface for CompositionEffectBrush {
     type Vtable = ICompositionEffectBrush_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf7f795e_83cc_44bf_a447_3e3c071789ec);
+    const IID: ::windows::core::GUID = <ICompositionEffectBrush as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionEffectBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionEffectBrush";
@@ -9161,7 +9161,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionEffectFactory {
 }
 unsafe impl ::windows::core::Interface for CompositionEffectFactory {
     type Vtable = ICompositionEffectFactory_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe5624af_ba7e_4510_9850_41c0b4ff74df);
+    const IID: ::windows::core::GUID = <ICompositionEffectFactory as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionEffectFactory {
     const NAME: &'static str = "Windows.UI.Composition.CompositionEffectFactory";
@@ -9352,7 +9352,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionEffectSourceParameter {
 }
 unsafe impl ::windows::core::Interface for CompositionEffectSourceParameter {
     type Vtable = ICompositionEffectSourceParameter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x858ab13a_3292_4e4e_b3bb_2b6c6544a6ee);
+    const IID: ::windows::core::GUID = <ICompositionEffectSourceParameter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionEffectSourceParameter {
     const NAME: &'static str = "Windows.UI.Composition.CompositionEffectSourceParameter";
@@ -9619,7 +9619,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionEllipseGeometry {
 }
 unsafe impl ::windows::core::Interface for CompositionEllipseGeometry {
     type Vtable = ICompositionEllipseGeometry_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4801f884_f6ad_4b93_afa9_897b64e57b1f);
+    const IID: ::windows::core::GUID = <ICompositionEllipseGeometry as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionEllipseGeometry {
     const NAME: &'static str = "Windows.UI.Composition.CompositionEllipseGeometry";
@@ -10006,7 +10006,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionGeometricClip {
 }
 unsafe impl ::windows::core::Interface for CompositionGeometricClip {
     type Vtable = ICompositionGeometricClip_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc840b581_81c9_4444_a2c1_ccaece3a50e5);
+    const IID: ::windows::core::GUID = <ICompositionGeometricClip as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionGeometricClip {
     const NAME: &'static str = "Windows.UI.Composition.CompositionGeometricClip";
@@ -10305,7 +10305,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionGeometry {
 }
 unsafe impl ::windows::core::Interface for CompositionGeometry {
     type Vtable = ICompositionGeometry_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe985217c_6a17_4207_abd8_5fd3dd612a9d);
+    const IID: ::windows::core::GUID = <ICompositionGeometry as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionGeometry {
     const NAME: &'static str = "Windows.UI.Composition.CompositionGeometry";
@@ -10722,7 +10722,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionGradientBrush {
 }
 unsafe impl ::windows::core::Interface for CompositionGradientBrush {
     type Vtable = ICompositionGradientBrush_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d9709e0_ffc6_4c0e_a9ab_34144d4c9098);
+    const IID: ::windows::core::GUID = <ICompositionGradientBrush as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionGradientBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionGradientBrush";
@@ -11076,7 +11076,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionGraphicsDevice {
 }
 unsafe impl ::windows::core::Interface for CompositionGraphicsDevice {
     type Vtable = ICompositionGraphicsDevice_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb22c6e1_80a2_4667_9936_dbeaf6eefe95);
+    const IID: ::windows::core::GUID = <ICompositionGraphicsDevice as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionGraphicsDevice {
     const NAME: &'static str = "Windows.UI.Composition.CompositionGraphicsDevice";
@@ -11345,7 +11345,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionLight {
 }
 unsafe impl ::windows::core::Interface for CompositionLight {
     type Vtable = ICompositionLight_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41a6d7c2_2e5d_4bc1_b09e_8f0a03e3d8d3);
+    const IID: ::windows::core::GUID = <ICompositionLight as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionLight {
     const NAME: &'static str = "Windows.UI.Composition.CompositionLight";
@@ -11654,7 +11654,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionLineGeometry {
 }
 unsafe impl ::windows::core::Interface for CompositionLineGeometry {
     type Vtable = ICompositionLineGeometry_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd7615a4_0c9a_4b67_8dce_440a5bf9cdec);
+    const IID: ::windows::core::GUID = <ICompositionLineGeometry as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionLineGeometry {
     const NAME: &'static str = "Windows.UI.Composition.CompositionLineGeometry";
@@ -12092,7 +12092,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionLinearGradientBrush {
 }
 unsafe impl ::windows::core::Interface for CompositionLinearGradientBrush {
     type Vtable = ICompositionLinearGradientBrush_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x983bc519_a9db_413c_a2d8_2a9056fc525e);
+    const IID: ::windows::core::GUID = <ICompositionLinearGradientBrush as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionLinearGradientBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionLinearGradientBrush";
@@ -12426,7 +12426,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionMaskBrush {
 }
 unsafe impl ::windows::core::Interface for CompositionMaskBrush {
     type Vtable = ICompositionMaskBrush_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x522cf09e_be6b_4f41_be49_f9226d471b4a);
+    const IID: ::windows::core::GUID = <ICompositionMaskBrush as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionMaskBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionMaskBrush";
@@ -12729,7 +12729,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionMipmapSurface {
 }
 unsafe impl ::windows::core::Interface for CompositionMipmapSurface {
     type Vtable = ICompositionMipmapSurface_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4863675c_cf4a_4b1c_9ece_c5ec0c2b2fe6);
+    const IID: ::windows::core::GUID = <ICompositionMipmapSurface as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionMipmapSurface {
     const NAME: &'static str = "Windows.UI.Composition.CompositionMipmapSurface";
@@ -13141,7 +13141,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionNineGridBrush {
 }
 unsafe impl ::windows::core::Interface for CompositionNineGridBrush {
     type Vtable = ICompositionNineGridBrush_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf25154e4_bc8c_4be7_b80f_8685b83c0186);
+    const IID: ::windows::core::GUID = <ICompositionNineGridBrush as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionNineGridBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionNineGridBrush";
@@ -13414,7 +13414,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionObject {
 }
 unsafe impl ::windows::core::Interface for CompositionObject {
     type Vtable = ICompositionObject_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbcb4ad45_7609_4550_934f_16002a68fded);
+    const IID: ::windows::core::GUID = <ICompositionObject as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionObject {
     const NAME: &'static str = "Windows.UI.Composition.CompositionObject";
@@ -13548,7 +13548,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionPath {
 }
 unsafe impl ::windows::core::Interface for CompositionPath {
     type Vtable = ICompositionPath_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66da1d5f_2e10_4f22_8a06_0a8151919e60);
+    const IID: ::windows::core::GUID = <ICompositionPath as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionPath {
     const NAME: &'static str = "Windows.UI.Composition.CompositionPath";
@@ -13798,7 +13798,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionPathGeometry {
 }
 unsafe impl ::windows::core::Interface for CompositionPathGeometry {
     type Vtable = ICompositionPathGeometry_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b6a417e_2c77_4c23_af5e_6304c147bb61);
+    const IID: ::windows::core::GUID = <ICompositionPathGeometry as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionPathGeometry {
     const NAME: &'static str = "Windows.UI.Composition.CompositionPathGeometry";
@@ -14126,7 +14126,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionProjectedShadow {
 }
 unsafe impl ::windows::core::Interface for CompositionProjectedShadow {
     type Vtable = ICompositionProjectedShadow_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x285b8e72_4328_523f_bcf2_5557c52c3b25);
+    const IID: ::windows::core::GUID = <ICompositionProjectedShadow as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionProjectedShadow {
     const NAME: &'static str = "Windows.UI.Composition.CompositionProjectedShadow";
@@ -14392,7 +14392,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionProjectedShadowCaster {
 }
 unsafe impl ::windows::core::Interface for CompositionProjectedShadowCaster {
     type Vtable = ICompositionProjectedShadowCaster_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1d7d426_1e36_5a62_be56_a16112fdd148);
+    const IID: ::windows::core::GUID = <ICompositionProjectedShadowCaster as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionProjectedShadowCaster {
     const NAME: &'static str = "Windows.UI.Composition.CompositionProjectedShadowCaster";
@@ -14691,7 +14691,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionProjectedShadowCasterCol
 }
 unsafe impl ::windows::core::Interface for CompositionProjectedShadowCasterCollection {
     type Vtable = ICompositionProjectedShadowCasterCollection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2525c0c_e07f_58a3_ac91_37f73ee91740);
+    const IID: ::windows::core::GUID = <ICompositionProjectedShadowCasterCollection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionProjectedShadowCasterCollection {
     const NAME: &'static str = "Windows.UI.Composition.CompositionProjectedShadowCasterCollection";
@@ -14986,7 +14986,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionProjectedShadowReceiver 
 }
 unsafe impl ::windows::core::Interface for CompositionProjectedShadowReceiver {
     type Vtable = ICompositionProjectedShadowReceiver_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1377985a_6a49_536a_9be4_a96a8e5298a9);
+    const IID: ::windows::core::GUID = <ICompositionProjectedShadowReceiver as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionProjectedShadowReceiver {
     const NAME: &'static str = "Windows.UI.Composition.CompositionProjectedShadowReceiver";
@@ -15258,7 +15258,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionProjectedShadowReceiverU
 }
 unsafe impl ::windows::core::Interface for CompositionProjectedShadowReceiverUnorderedCollection {
     type Vtable = ICompositionProjectedShadowReceiverUnorderedCollection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02b3e3b7_27d2_599f_ac4b_ab787cdde6fd);
+    const IID: ::windows::core::GUID = <ICompositionProjectedShadowReceiverUnorderedCollection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionProjectedShadowReceiverUnorderedCollection {
     const NAME: &'static str = "Windows.UI.Composition.CompositionProjectedShadowReceiverUnorderedCollection";
@@ -15669,7 +15669,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionPropertySet {
 }
 unsafe impl ::windows::core::Interface for CompositionPropertySet {
     type Vtable = ICompositionPropertySet_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9d6d202_5f67_4453_9117_9eadd430d3c2);
+    const IID: ::windows::core::GUID = <ICompositionPropertySet as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionPropertySet {
     const NAME: &'static str = "Windows.UI.Composition.CompositionPropertySet";
@@ -16102,7 +16102,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionRadialGradientBrush {
 }
 unsafe impl ::windows::core::Interface for CompositionRadialGradientBrush {
     type Vtable = ICompositionRadialGradientBrush_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d3b50c5_e3fa_4ce2_b9fc_3ee12561788f);
+    const IID: ::windows::core::GUID = <ICompositionRadialGradientBrush as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionRadialGradientBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionRadialGradientBrush";
@@ -16451,7 +16451,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionRectangleGeometry {
 }
 unsafe impl ::windows::core::Interface for CompositionRectangleGeometry {
     type Vtable = ICompositionRectangleGeometry_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cd51428_5356_4246_aecf_7a0b76975400);
+    const IID: ::windows::core::GUID = <ICompositionRectangleGeometry as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionRectangleGeometry {
     const NAME: &'static str = "Windows.UI.Composition.CompositionRectangleGeometry";
@@ -16795,7 +16795,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionRoundedRectangleGeometry
 }
 unsafe impl ::windows::core::Interface for CompositionRoundedRectangleGeometry {
     type Vtable = ICompositionRoundedRectangleGeometry_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8770c822_1d50_4b8b_b013_7c9a0e46935f);
+    const IID: ::windows::core::GUID = <ICompositionRoundedRectangleGeometry as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionRoundedRectangleGeometry {
     const NAME: &'static str = "Windows.UI.Composition.CompositionRoundedRectangleGeometry";
@@ -17101,7 +17101,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionScopedBatch {
 }
 unsafe impl ::windows::core::Interface for CompositionScopedBatch {
     type Vtable = ICompositionScopedBatch_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d00dad0_fb07_46fd_8c72_6280d1a3d1dd);
+    const IID: ::windows::core::GUID = <ICompositionScopedBatch as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionScopedBatch {
     const NAME: &'static str = "Windows.UI.Composition.CompositionScopedBatch";
@@ -17341,7 +17341,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionShadow {
 }
 unsafe impl ::windows::core::Interface for CompositionShadow {
     type Vtable = ICompositionShadow_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x329e52e2_4335_49cc_b14a_37782d10f0c4);
+    const IID: ::windows::core::GUID = <ICompositionShadow as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionShadow {
     const NAME: &'static str = "Windows.UI.Composition.CompositionShadow";
@@ -17667,7 +17667,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionShape {
 }
 unsafe impl ::windows::core::Interface for CompositionShape {
     type Vtable = ICompositionShape_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb47ce2f7_9a88_42c4_9e87_2e500ca8688c);
+    const IID: ::windows::core::GUID = <ICompositionShape as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionShape {
     const NAME: &'static str = "Windows.UI.Composition.CompositionShape";
@@ -18011,7 +18011,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionShapeCollection {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for CompositionShapeCollection {
     type Vtable = super::super::Foundation::Collections::IVector_Vtbl<CompositionShape>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::Foundation::Collections::IVector<CompositionShape> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for CompositionShapeCollection {
@@ -18576,7 +18576,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionSpriteShape {
 }
 unsafe impl ::windows::core::Interface for CompositionSpriteShape {
     type Vtable = ICompositionSpriteShape_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x401b61bb_0007_4363_b1f3_6bcc003fb83e);
+    const IID: ::windows::core::GUID = <ICompositionSpriteShape as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionSpriteShape {
     const NAME: &'static str = "Windows.UI.Composition.CompositionSpriteShape";
@@ -19000,7 +19000,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionStrokeDashArray {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for CompositionStrokeDashArray {
     type Vtable = super::super::Foundation::Collections::IVector_Vtbl<f32>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::Foundation::Collections::IVector<f32> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for CompositionStrokeDashArray {
@@ -19536,7 +19536,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionSurfaceBrush {
 }
 unsafe impl ::windows::core::Interface for CompositionSurfaceBrush {
     type Vtable = ICompositionSurfaceBrush_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad016d79_1e4c_4c0d_9c29_83338c87c162);
+    const IID: ::windows::core::GUID = <ICompositionSurfaceBrush as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionSurfaceBrush {
     const NAME: &'static str = "Windows.UI.Composition.CompositionSurfaceBrush";
@@ -19809,7 +19809,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionTarget {
 }
 unsafe impl ::windows::core::Interface for CompositionTarget {
     type Vtable = ICompositionTarget_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1bea8ba_d726_4663_8129_6b5e7927ffa6);
+    const IID: ::windows::core::GUID = <ICompositionTarget as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionTarget {
     const NAME: &'static str = "Windows.UI.Composition.CompositionTarget";
@@ -20049,7 +20049,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionTransform {
 }
 unsafe impl ::windows::core::Interface for CompositionTransform {
     type Vtable = ICompositionTransform_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7cd54529_fbed_4112_abc5_185906dd927c);
+    const IID: ::windows::core::GUID = <ICompositionTransform as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionTransform {
     const NAME: &'static str = "Windows.UI.Composition.CompositionTransform";
@@ -20358,7 +20358,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionViewBox {
 }
 unsafe impl ::windows::core::Interface for CompositionViewBox {
     type Vtable = ICompositionViewBox_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb440bf07_068f_4537_84c6_4ecbe019e1f4);
+    const IID: ::windows::core::GUID = <ICompositionViewBox as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionViewBox {
     const NAME: &'static str = "Windows.UI.Composition.CompositionViewBox";
@@ -20670,7 +20670,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionVirtualDrawingSurface {
 }
 unsafe impl ::windows::core::Interface for CompositionVirtualDrawingSurface {
     type Vtable = ICompositionVirtualDrawingSurface_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9c384db_8740_4f94_8b9d_b68521e7863d);
+    const IID: ::windows::core::GUID = <ICompositionVirtualDrawingSurface as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionVirtualDrawingSurface {
     const NAME: &'static str = "Windows.UI.Composition.CompositionVirtualDrawingSurface";
@@ -20995,7 +20995,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionVisualSurface {
 }
 unsafe impl ::windows::core::Interface for CompositionVisualSurface {
     type Vtable = ICompositionVisualSurface_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb224d803_4f6e_4a3f_8cae_3dc1cda74fc6);
+    const IID: ::windows::core::GUID = <ICompositionVisualSurface as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionVisualSurface {
     const NAME: &'static str = "Windows.UI.Composition.CompositionVisualSurface";
@@ -21830,7 +21830,7 @@ unsafe impl ::windows::core::RuntimeType for Compositor {
 }
 unsafe impl ::windows::core::Interface for Compositor {
     type Vtable = ICompositor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb403ca50_7f8c_4e83_985f_cc45060036d8);
+    const IID: ::windows::core::GUID = <ICompositor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Compositor {
     const NAME: &'static str = "Windows.UI.Composition.Compositor";
@@ -22337,7 +22337,7 @@ unsafe impl ::windows::core::RuntimeType for ContainerVisual {
 }
 unsafe impl ::windows::core::Interface for ContainerVisual {
     type Vtable = IContainerVisual_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02f6bc74_ed20_4773_afe6_d49b4a93db32);
+    const IID: ::windows::core::GUID = <IContainerVisual as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContainerVisual {
     const NAME: &'static str = "Windows.UI.Composition.ContainerVisual";
@@ -22615,7 +22615,7 @@ unsafe impl ::windows::core::RuntimeType for CubicBezierEasingFunction {
 }
 unsafe impl ::windows::core::Interface for CubicBezierEasingFunction {
     type Vtable = ICubicBezierEasingFunction_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32350666_c1e8_44f9_96b8_c98acf0ae698);
+    const IID: ::windows::core::GUID = <ICubicBezierEasingFunction as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CubicBezierEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.CubicBezierEasingFunction";
@@ -23223,7 +23223,7 @@ unsafe impl ::windows::core::RuntimeType for DelegatedInkTrailVisual {
 }
 unsafe impl ::windows::core::Interface for DelegatedInkTrailVisual {
     type Vtable = IDelegatedInkTrailVisual_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x856e60b1_e1ab_5b23_8e3d_d513f221c998);
+    const IID: ::windows::core::GUID = <IDelegatedInkTrailVisual as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DelegatedInkTrailVisual {
     const NAME: &'static str = "Windows.UI.Composition.DelegatedInkTrailVisual";
@@ -23566,7 +23566,7 @@ unsafe impl ::windows::core::RuntimeType for DistantLight {
 }
 unsafe impl ::windows::core::Interface for DistantLight {
     type Vtable = IDistantLight_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x318cfafc_5ce3_4b55_ab5d_07a00353ac99);
+    const IID: ::windows::core::GUID = <IDistantLight as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DistantLight {
     const NAME: &'static str = "Windows.UI.Composition.DistantLight";
@@ -23906,7 +23906,7 @@ unsafe impl ::windows::core::RuntimeType for DropShadow {
 }
 unsafe impl ::windows::core::Interface for DropShadow {
     type Vtable = IDropShadow_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb977c07_a154_4851_85e7_a8924c84fad8);
+    const IID: ::windows::core::GUID = <IDropShadow as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DropShadow {
     const NAME: &'static str = "Windows.UI.Composition.DropShadow";
@@ -24190,7 +24190,7 @@ unsafe impl ::windows::core::RuntimeType for ElasticEasingFunction {
 }
 unsafe impl ::windows::core::Interface for ElasticEasingFunction {
     type Vtable = IElasticEasingFunction_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66de6285_054e_5594_8475_c22cb51f1bd5);
+    const IID: ::windows::core::GUID = <IElasticEasingFunction as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ElasticEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.ElasticEasingFunction";
@@ -24466,7 +24466,7 @@ unsafe impl ::windows::core::RuntimeType for ExponentialEasingFunction {
 }
 unsafe impl ::windows::core::Interface for ExponentialEasingFunction {
     type Vtable = IExponentialEasingFunction_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f7d1a51_98d2_5638_a34a_00486554c750);
+    const IID: ::windows::core::GUID = <IExponentialEasingFunction as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ExponentialEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.ExponentialEasingFunction";
@@ -24832,7 +24832,7 @@ unsafe impl ::windows::core::RuntimeType for ExpressionAnimation {
 }
 unsafe impl ::windows::core::Interface for ExpressionAnimation {
     type Vtable = IExpressionAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6acc5431_7d3d_4bf3_abb6_f44bdc4888c1);
+    const IID: ::windows::core::GUID = <IExpressionAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ExpressionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.ExpressionAnimation";
@@ -29144,7 +29144,7 @@ unsafe impl ::windows::core::RuntimeType for ImplicitAnimationCollection {
 }
 unsafe impl ::windows::core::Interface for ImplicitAnimationCollection {
     type Vtable = IImplicitAnimationCollection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0598a3ff_0a92_4c9d_a427_b25519250dbf);
+    const IID: ::windows::core::GUID = <IImplicitAnimationCollection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ImplicitAnimationCollection {
     const NAME: &'static str = "Windows.UI.Composition.ImplicitAnimationCollection";
@@ -29526,7 +29526,7 @@ unsafe impl ::windows::core::RuntimeType for InitialValueExpressionCollection {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for InitialValueExpressionCollection {
     type Vtable = super::super::Foundation::Collections::IMap_Vtbl<::windows::core::HSTRING, ::windows::core::HSTRING>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for InitialValueExpressionCollection {
@@ -30053,7 +30053,7 @@ unsafe impl ::windows::core::RuntimeType for InsetClip {
 }
 unsafe impl ::windows::core::Interface for InsetClip {
     type Vtable = IInsetClip_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e73e647_84c7_477a_b474_5880e0442e15);
+    const IID: ::windows::core::GUID = <IInsetClip as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InsetClip {
     const NAME: &'static str = "Windows.UI.Composition.InsetClip";
@@ -30519,7 +30519,7 @@ unsafe impl ::windows::core::RuntimeType for KeyFrameAnimation {
 }
 unsafe impl ::windows::core::Interface for KeyFrameAnimation {
     type Vtable = IKeyFrameAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x126e7f22_3ae9_4540_9a8a_deae8a4a4a84);
+    const IID: ::windows::core::GUID = <IKeyFrameAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for KeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.KeyFrameAnimation";
@@ -31136,7 +31136,7 @@ unsafe impl ::windows::core::RuntimeType for LayerVisual {
 }
 unsafe impl ::windows::core::Interface for LayerVisual {
     type Vtable = ILayerVisual_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf843985_0444_4887_8e83_b40b253f822c);
+    const IID: ::windows::core::GUID = <ILayerVisual as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LayerVisual {
     const NAME: &'static str = "Windows.UI.Composition.LayerVisual";
@@ -31416,7 +31416,7 @@ unsafe impl ::windows::core::RuntimeType for LinearEasingFunction {
 }
 unsafe impl ::windows::core::Interface for LinearEasingFunction {
     type Vtable = ILinearEasingFunction_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9400975a_c7a6_46b3_acf7_1a268a0a117d);
+    const IID: ::windows::core::GUID = <ILinearEasingFunction as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LinearEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.LinearEasingFunction";
@@ -31810,7 +31810,7 @@ unsafe impl ::windows::core::RuntimeType for NaturalMotionAnimation {
 }
 unsafe impl ::windows::core::Interface for NaturalMotionAnimation {
     type Vtable = INaturalMotionAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x438de12d_769b_4821_a949_284a6547e873);
+    const IID: ::windows::core::GUID = <INaturalMotionAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.NaturalMotionAnimation";
@@ -32308,7 +32308,7 @@ unsafe impl ::windows::core::RuntimeType for PathKeyFrameAnimation {
 }
 unsafe impl ::windows::core::Interface for PathKeyFrameAnimation {
     type Vtable = IPathKeyFrameAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d0d18c9_1576_4b3f_be60_1d5031f5e71b);
+    const IID: ::windows::core::GUID = <IPathKeyFrameAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PathKeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.PathKeyFrameAnimation";
@@ -32758,7 +32758,7 @@ unsafe impl ::windows::core::RuntimeType for PointLight {
 }
 unsafe impl ::windows::core::Interface for PointLight {
     type Vtable = IPointLight_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb18545b3_0c5a_4ab0_bedc_4f3546948272);
+    const IID: ::windows::core::GUID = <IPointLight as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PointLight {
     const NAME: &'static str = "Windows.UI.Composition.PointLight";
@@ -33034,7 +33034,7 @@ unsafe impl ::windows::core::RuntimeType for PowerEasingFunction {
 }
 unsafe impl ::windows::core::Interface for PowerEasingFunction {
     type Vtable = IPowerEasingFunction_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3ff53d6_138b_5815_891a_b7f615ccc563);
+    const IID: ::windows::core::GUID = <IPowerEasingFunction as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PowerEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.PowerEasingFunction";
@@ -33512,7 +33512,7 @@ unsafe impl ::windows::core::RuntimeType for QuaternionKeyFrameAnimation {
 }
 unsafe impl ::windows::core::Interface for QuaternionKeyFrameAnimation {
     type Vtable = IQuaternionKeyFrameAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x404e5835_ecf6_4240_8520_671279cf36bc);
+    const IID: ::windows::core::GUID = <IQuaternionKeyFrameAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for QuaternionKeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.QuaternionKeyFrameAnimation";
@@ -34027,7 +34027,7 @@ unsafe impl ::windows::core::RuntimeType for RectangleClip {
 }
 unsafe impl ::windows::core::Interface for RectangleClip {
     type Vtable = IRectangleClip_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3e7549e_00b4_5b53_8be8_353f6c433101);
+    const IID: ::windows::core::GUID = <IRectangleClip as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RectangleClip {
     const NAME: &'static str = "Windows.UI.Composition.RectangleClip";
@@ -34609,7 +34609,7 @@ unsafe impl ::windows::core::RuntimeType for RedirectVisual {
 }
 unsafe impl ::windows::core::Interface for RedirectVisual {
     type Vtable = IRedirectVisual_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cc6e340_8b75_5422_b06f_09ffe9f8617e);
+    const IID: ::windows::core::GUID = <IRedirectVisual as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RedirectVisual {
     const NAME: &'static str = "Windows.UI.Composition.RedirectVisual";
@@ -34897,7 +34897,7 @@ unsafe impl ::windows::core::RuntimeType for RenderingDeviceReplacedEventArgs {
 }
 unsafe impl ::windows::core::Interface for RenderingDeviceReplacedEventArgs {
     type Vtable = IRenderingDeviceReplacedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a31ac7d_28bf_4e7a_8524_71679d480f38);
+    const IID: ::windows::core::GUID = <IRenderingDeviceReplacedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RenderingDeviceReplacedEventArgs {
     const NAME: &'static str = "Windows.UI.Composition.RenderingDeviceReplacedEventArgs";
@@ -35353,7 +35353,7 @@ unsafe impl ::windows::core::RuntimeType for ScalarKeyFrameAnimation {
 }
 unsafe impl ::windows::core::Interface for ScalarKeyFrameAnimation {
     type Vtable = IScalarKeyFrameAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae288fa9_252c_4b95_a725_bf85e38000a1);
+    const IID: ::windows::core::GUID = <IScalarKeyFrameAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ScalarKeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.ScalarKeyFrameAnimation";
@@ -35832,7 +35832,7 @@ unsafe impl ::windows::core::RuntimeType for ScalarNaturalMotionAnimation {
 }
 unsafe impl ::windows::core::Interface for ScalarNaturalMotionAnimation {
     type Vtable = IScalarNaturalMotionAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94a94581_bf92_495b_b5bd_d2c659430737);
+    const IID: ::windows::core::GUID = <IScalarNaturalMotionAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ScalarNaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.ScalarNaturalMotionAnimation";
@@ -36465,7 +36465,7 @@ unsafe impl ::windows::core::RuntimeType for ShapeVisual {
 }
 unsafe impl ::windows::core::Interface for ShapeVisual {
     type Vtable = IShapeVisual_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2bd13c3_ba7e_4b0f_9126_ffb7536b8176);
+    const IID: ::windows::core::GUID = <IShapeVisual as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ShapeVisual {
     const NAME: &'static str = "Windows.UI.Composition.ShapeVisual";
@@ -36753,7 +36753,7 @@ unsafe impl ::windows::core::RuntimeType for SineEasingFunction {
 }
 unsafe impl ::windows::core::Interface for SineEasingFunction {
     type Vtable = ISineEasingFunction_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1b518bf_9563_5474_bd13_44b2df4b1d58);
+    const IID: ::windows::core::GUID = <ISineEasingFunction as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SineEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.SineEasingFunction";
@@ -37254,7 +37254,7 @@ unsafe impl ::windows::core::RuntimeType for SpotLight {
 }
 unsafe impl ::windows::core::Interface for SpotLight {
     type Vtable = ISpotLight_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a9fe273_44a1_4f95_a422_8fa5116bdb44);
+    const IID: ::windows::core::GUID = <ISpotLight as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpotLight {
     const NAME: &'static str = "Windows.UI.Composition.SpotLight";
@@ -37719,7 +37719,7 @@ unsafe impl ::windows::core::RuntimeType for SpringScalarNaturalMotionAnimation 
 }
 unsafe impl ::windows::core::Interface for SpringScalarNaturalMotionAnimation {
     type Vtable = ISpringScalarNaturalMotionAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0572a95f_37f9_4fbe_b87b_5cd03a89501c);
+    const IID: ::windows::core::GUID = <ISpringScalarNaturalMotionAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpringScalarNaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.SpringScalarNaturalMotionAnimation";
@@ -38248,7 +38248,7 @@ unsafe impl ::windows::core::RuntimeType for SpringVector2NaturalMotionAnimation
 }
 unsafe impl ::windows::core::Interface for SpringVector2NaturalMotionAnimation {
     type Vtable = ISpringVector2NaturalMotionAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23f494b5_ee73_4f0f_a423_402b946df4b3);
+    const IID: ::windows::core::GUID = <ISpringVector2NaturalMotionAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpringVector2NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.SpringVector2NaturalMotionAnimation";
@@ -38777,7 +38777,7 @@ unsafe impl ::windows::core::RuntimeType for SpringVector3NaturalMotionAnimation
 }
 unsafe impl ::windows::core::Interface for SpringVector3NaturalMotionAnimation {
     type Vtable = ISpringVector3NaturalMotionAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c8749df_d57b_4794_8e2d_cecb11e194e5);
+    const IID: ::windows::core::GUID = <ISpringVector3NaturalMotionAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpringVector3NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.SpringVector3NaturalMotionAnimation";
@@ -39434,7 +39434,7 @@ unsafe impl ::windows::core::RuntimeType for SpriteVisual {
 }
 unsafe impl ::windows::core::Interface for SpriteVisual {
     type Vtable = ISpriteVisual_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08e05581_1ad1_4f97_9757_402d76e4233b);
+    const IID: ::windows::core::GUID = <ISpriteVisual as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpriteVisual {
     const NAME: &'static str = "Windows.UI.Composition.SpriteVisual";
@@ -39779,7 +39779,7 @@ unsafe impl ::windows::core::RuntimeType for StepEasingFunction {
 }
 unsafe impl ::windows::core::Interface for StepEasingFunction {
     type Vtable = IStepEasingFunction_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0caa74b_560c_4a0b_a5f6_206ca8c3ecd6);
+    const IID: ::windows::core::GUID = <IStepEasingFunction as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StepEasingFunction {
     const NAME: &'static str = "Windows.UI.Composition.StepEasingFunction";
@@ -40257,7 +40257,7 @@ unsafe impl ::windows::core::RuntimeType for Vector2KeyFrameAnimation {
 }
 unsafe impl ::windows::core::Interface for Vector2KeyFrameAnimation {
     type Vtable = IVector2KeyFrameAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf414515_4e29_4f11_b55e_bf2a6eb36294);
+    const IID: ::windows::core::GUID = <IVector2KeyFrameAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Vector2KeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.Vector2KeyFrameAnimation";
@@ -40738,7 +40738,7 @@ unsafe impl ::windows::core::RuntimeType for Vector2NaturalMotionAnimation {
 }
 unsafe impl ::windows::core::Interface for Vector2NaturalMotionAnimation {
     type Vtable = IVector2NaturalMotionAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f3e0b7d_e512_479d_a00c_77c93a30a395);
+    const IID: ::windows::core::GUID = <IVector2NaturalMotionAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Vector2NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.Vector2NaturalMotionAnimation";
@@ -41258,7 +41258,7 @@ unsafe impl ::windows::core::RuntimeType for Vector3KeyFrameAnimation {
 }
 unsafe impl ::windows::core::Interface for Vector3KeyFrameAnimation {
     type Vtable = IVector3KeyFrameAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8039daa_a281_43c2_a73d_b68e3c533c40);
+    const IID: ::windows::core::GUID = <IVector3KeyFrameAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Vector3KeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.Vector3KeyFrameAnimation";
@@ -41739,7 +41739,7 @@ unsafe impl ::windows::core::RuntimeType for Vector3NaturalMotionAnimation {
 }
 unsafe impl ::windows::core::Interface for Vector3NaturalMotionAnimation {
     type Vtable = IVector3NaturalMotionAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c17042c_e2ca_45ad_969e_4e78b7b9ad41);
+    const IID: ::windows::core::GUID = <IVector3NaturalMotionAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Vector3NaturalMotionAnimation {
     const NAME: &'static str = "Windows.UI.Composition.Vector3NaturalMotionAnimation";
@@ -42259,7 +42259,7 @@ unsafe impl ::windows::core::RuntimeType for Vector4KeyFrameAnimation {
 }
 unsafe impl ::windows::core::Interface for Vector4KeyFrameAnimation {
     type Vtable = IVector4KeyFrameAnimation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2457945b_addd_4385_9606_b6a3d5e4e1b9);
+    const IID: ::windows::core::GUID = <IVector4KeyFrameAnimation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Vector4KeyFrameAnimation {
     const NAME: &'static str = "Windows.UI.Composition.Vector4KeyFrameAnimation";
@@ -42862,7 +42862,7 @@ unsafe impl ::windows::core::RuntimeType for Visual {
 }
 unsafe impl ::windows::core::Interface for Visual {
     type Vtable = IVisual_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x117e202d_a859_4c89_873b_c2aa566788e3);
+    const IID: ::windows::core::GUID = <IVisual as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Visual {
     const NAME: &'static str = "Windows.UI.Composition.Visual";
@@ -43149,7 +43149,7 @@ unsafe impl ::windows::core::RuntimeType for VisualCollection {
 }
 unsafe impl ::windows::core::Interface for VisualCollection {
     type Vtable = IVisualCollection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b745505_fd3e_4a98_84a8_e949468c6bcb);
+    const IID: ::windows::core::GUID = <IVisualCollection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VisualCollection {
     const NAME: &'static str = "Windows.UI.Composition.VisualCollection";
@@ -43463,7 +43463,7 @@ unsafe impl ::windows::core::RuntimeType for VisualUnorderedCollection {
 }
 unsafe impl ::windows::core::Interface for VisualUnorderedCollection {
     type Vtable = IVisualUnorderedCollection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x338faa70_54c8_40a7_8029_c9ceeb0aa250);
+    const IID: ::windows::core::GUID = <IVisualUnorderedCollection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VisualUnorderedCollection {
     const NAME: &'static str = "Windows.UI.Composition.VisualUnorderedCollection";

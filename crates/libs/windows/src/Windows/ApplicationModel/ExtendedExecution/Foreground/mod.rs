@@ -91,7 +91,7 @@ unsafe impl ::windows::core::RuntimeType for ExtendedExecutionForegroundRevokedE
 }
 unsafe impl ::windows::core::Interface for ExtendedExecutionForegroundRevokedEventArgs {
     type Vtable = IExtendedExecutionForegroundRevokedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb07cd940_9557_aea4_2c99_bdd56d9be461);
+    const IID: ::windows::core::GUID = <IExtendedExecutionForegroundRevokedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ExtendedExecutionForegroundRevokedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundRevokedEventArgs";
@@ -255,7 +255,7 @@ unsafe impl ::windows::core::RuntimeType for ExtendedExecutionForegroundSession 
 }
 unsafe impl ::windows::core::Interface for ExtendedExecutionForegroundSession {
     type Vtable = IExtendedExecutionForegroundSession_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbf440e1_9d10_4201_b01e_c83275296f2e);
+    const IID: ::windows::core::GUID = <IExtendedExecutionForegroundSession as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ExtendedExecutionForegroundSession {
     const NAME: &'static str = "Windows.ApplicationModel.ExtendedExecution.Foreground.ExtendedExecutionForegroundSession";

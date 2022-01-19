@@ -32,7 +32,7 @@ unsafe impl ::windows::core::RuntimeType for AccessKeyDisplayDismissedEventArgs 
 }
 unsafe impl ::windows::core::Interface for AccessKeyDisplayDismissedEventArgs {
     type Vtable = IAccessKeyDisplayDismissedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a610dc6_d72d_4ca8_9f66_556f35b513da);
+    const IID: ::windows::core::GUID = <IAccessKeyDisplayDismissedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AccessKeyDisplayDismissedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Input.AccessKeyDisplayDismissedEventArgs";
@@ -120,7 +120,7 @@ unsafe impl ::windows::core::RuntimeType for AccessKeyDisplayRequestedEventArgs 
 }
 unsafe impl ::windows::core::Interface for AccessKeyDisplayRequestedEventArgs {
     type Vtable = IAccessKeyDisplayRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c079e55_13fe_4d03_a61d_e12f06567286);
+    const IID: ::windows::core::GUID = <IAccessKeyDisplayRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AccessKeyDisplayRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Input.AccessKeyDisplayRequestedEventArgs";
@@ -213,7 +213,7 @@ unsafe impl ::windows::core::RuntimeType for AccessKeyInvokedEventArgs {
 }
 unsafe impl ::windows::core::Interface for AccessKeyInvokedEventArgs {
     type Vtable = IAccessKeyInvokedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfe9cd97_c718_4091_b7dd_adf1c072b1e1);
+    const IID: ::windows::core::GUID = <IAccessKeyInvokedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AccessKeyInvokedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Input.AccessKeyInvokedEventArgs";
@@ -331,7 +331,7 @@ unsafe impl ::windows::core::RuntimeType for AccessKeyManager {
 }
 unsafe impl ::windows::core::Interface for AccessKeyManager {
     type Vtable = IAccessKeyManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecc973b0_2ee9_4b1c_98d7_6e0e816d334b);
+    const IID: ::windows::core::GUID = <IAccessKeyManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AccessKeyManager {
     const NAME: &'static str = "Windows.UI.Xaml.Input.AccessKeyManager";
@@ -425,7 +425,7 @@ unsafe impl ::windows::core::RuntimeType for CanExecuteRequestedEventArgs {
 }
 unsafe impl ::windows::core::Interface for CanExecuteRequestedEventArgs {
     type Vtable = ICanExecuteRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8e75256_1950_505d_993b_75907ef96830);
+    const IID: ::windows::core::GUID = <ICanExecuteRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CanExecuteRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Input.CanExecuteRequestedEventArgs";
@@ -528,7 +528,7 @@ unsafe impl ::windows::core::RuntimeType for CharacterReceivedRoutedEventArgs {
 }
 unsafe impl ::windows::core::Interface for CharacterReceivedRoutedEventArgs {
     type Vtable = ICharacterReceivedRoutedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7849fd82_48e4_444d_9419_93ab8892c107);
+    const IID: ::windows::core::GUID = <ICharacterReceivedRoutedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CharacterReceivedRoutedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Input.CharacterReceivedRoutedEventArgs";
@@ -650,7 +650,7 @@ unsafe impl ::windows::core::RuntimeType for ContextRequestedEventArgs {
 }
 unsafe impl ::windows::core::Interface for ContextRequestedEventArgs {
     type Vtable = IContextRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42618e0a_1cb6_46fb_8374_0aec68aa5e51);
+    const IID: ::windows::core::GUID = <IContextRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContextRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Input.ContextRequestedEventArgs";
@@ -859,7 +859,7 @@ unsafe impl ::windows::core::RuntimeType for DoubleTappedRoutedEventArgs {
 }
 unsafe impl ::windows::core::Interface for DoubleTappedRoutedEventArgs {
     type Vtable = IDoubleTappedRoutedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf404424_26df_44f4_8714_9359249b62d3);
+    const IID: ::windows::core::GUID = <IDoubleTappedRoutedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DoubleTappedRoutedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Input.DoubleTappedRoutedEventArgs";
@@ -960,7 +960,7 @@ unsafe impl ::windows::core::RuntimeType for ExecuteRequestedEventArgs {
 }
 unsafe impl ::windows::core::Interface for ExecuteRequestedEventArgs {
     type Vtable = IExecuteRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe07fa734_a0b6_5755_9e87_24f54cca9372);
+    const IID: ::windows::core::GUID = <IExecuteRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ExecuteRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Input.ExecuteRequestedEventArgs";
@@ -1096,7 +1096,7 @@ unsafe impl ::windows::core::RuntimeType for FindNextElementOptions {
 }
 unsafe impl ::windows::core::Interface for FindNextElementOptions {
     type Vtable = IFindNextElementOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd88ae22b_46c2_41fc_897e_b5961977b89d);
+    const IID: ::windows::core::GUID = <IFindNextElementOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FindNextElementOptions {
     const NAME: &'static str = "Windows.UI.Xaml.Input.FindNextElementOptions";
@@ -1383,7 +1383,7 @@ unsafe impl ::windows::core::RuntimeType for FocusManager {
 }
 unsafe impl ::windows::core::Interface for FocusManager {
     type Vtable = IFocusManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc843f50b_3b83_4da1_9d6f_557c1169f341);
+    const IID: ::windows::core::GUID = <IFocusManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FocusManager {
     const NAME: &'static str = "Windows.UI.Xaml.Input.FocusManager";
@@ -1472,7 +1472,7 @@ unsafe impl ::windows::core::RuntimeType for FocusManagerGotFocusEventArgs {
 }
 unsafe impl ::windows::core::Interface for FocusManagerGotFocusEventArgs {
     type Vtable = IFocusManagerGotFocusEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97aa5d83_535b_507a_868e_62b706f06b61);
+    const IID: ::windows::core::GUID = <IFocusManagerGotFocusEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FocusManagerGotFocusEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Input.FocusManagerGotFocusEventArgs";
@@ -1561,7 +1561,7 @@ unsafe impl ::windows::core::RuntimeType for FocusManagerLostFocusEventArgs {
 }
 unsafe impl ::windows::core::Interface for FocusManagerLostFocusEventArgs {
     type Vtable = IFocusManagerLostFocusEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e157e7a_9578_5cd3_aaa8_051b3d391978);
+    const IID: ::windows::core::GUID = <IFocusManagerLostFocusEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FocusManagerLostFocusEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Input.FocusManagerLostFocusEventArgs";
@@ -1642,7 +1642,7 @@ unsafe impl ::windows::core::RuntimeType for FocusMovementResult {
 }
 unsafe impl ::windows::core::Interface for FocusMovementResult {
     type Vtable = IFocusMovementResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06dfead3_c2ae_44bb_bfab_9c73de8407a4);
+    const IID: ::windows::core::GUID = <IFocusMovementResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FocusMovementResult {
     const NAME: &'static str = "Windows.UI.Xaml.Input.FocusMovementResult";
@@ -1843,7 +1843,7 @@ unsafe impl ::windows::core::RuntimeType for GettingFocusEventArgs {
 }
 unsafe impl ::windows::core::Interface for GettingFocusEventArgs {
     type Vtable = IGettingFocusEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa05b9ce_c67c_4be8_8fd4_c44d67877e0d);
+    const IID: ::windows::core::GUID = <IGettingFocusEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GettingFocusEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Input.GettingFocusEventArgs";
@@ -2061,7 +2061,7 @@ unsafe impl ::windows::core::RuntimeType for HoldingRoutedEventArgs {
 }
 unsafe impl ::windows::core::Interface for HoldingRoutedEventArgs {
     type Vtable = IHoldingRoutedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc246ff23_d80d_44de_8db9_0d815e269ac0);
+    const IID: ::windows::core::GUID = <IHoldingRoutedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HoldingRoutedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Input.HoldingRoutedEventArgs";
@@ -3533,7 +3533,7 @@ unsafe impl ::windows::core::RuntimeType for InertiaExpansionBehavior {
 }
 unsafe impl ::windows::core::Interface for InertiaExpansionBehavior {
     type Vtable = IInertiaExpansionBehavior_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x751d87e5_8d42_44c5_965e_3cd30cc9d6f7);
+    const IID: ::windows::core::GUID = <IInertiaExpansionBehavior as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InertiaExpansionBehavior {
     const NAME: &'static str = "Windows.UI.Xaml.Input.InertiaExpansionBehavior";
@@ -3632,7 +3632,7 @@ unsafe impl ::windows::core::RuntimeType for InertiaRotationBehavior {
 }
 unsafe impl ::windows::core::Interface for InertiaRotationBehavior {
     type Vtable = IInertiaRotationBehavior_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x424cfb2e_bbfd_4625_ae78_20c65bf1efaf);
+    const IID: ::windows::core::GUID = <IInertiaRotationBehavior as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InertiaRotationBehavior {
     const NAME: &'static str = "Windows.UI.Xaml.Input.InertiaRotationBehavior";
@@ -3731,7 +3731,7 @@ unsafe impl ::windows::core::RuntimeType for InertiaTranslationBehavior {
 }
 unsafe impl ::windows::core::Interface for InertiaTranslationBehavior {
     type Vtable = IInertiaTranslationBehavior_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45d3a512_3b32_4882_a4c2_ecfa2d4b6df0);
+    const IID: ::windows::core::GUID = <IInertiaTranslationBehavior as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InertiaTranslationBehavior {
     const NAME: &'static str = "Windows.UI.Xaml.Input.InertiaTranslationBehavior";
@@ -3820,7 +3820,7 @@ unsafe impl ::windows::core::RuntimeType for InputScope {
 }
 unsafe impl ::windows::core::Interface for InputScope {
     type Vtable = IInputScope_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c0f85f3_f9d8_4220_b666_045d074d9bfa);
+    const IID: ::windows::core::GUID = <IInputScope as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InputScope {
     const NAME: &'static str = "Windows.UI.Xaml.Input.InputScope";
@@ -3945,7 +3945,7 @@ unsafe impl ::windows::core::RuntimeType for InputScopeName {
 }
 unsafe impl ::windows::core::Interface for InputScopeName {
     type Vtable = IInputScopeName_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd3e6997_08fb_4cba_a021_792d7589fd5a);
+    const IID: ::windows::core::GUID = <IInputScopeName as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InputScopeName {
     const NAME: &'static str = "Windows.UI.Xaml.Input.InputScopeName";
@@ -4234,7 +4234,7 @@ unsafe impl ::windows::core::RuntimeType for KeyRoutedEventArgs {
 }
 unsafe impl ::windows::core::Interface for KeyRoutedEventArgs {
     type Vtable = IKeyRoutedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4cd3dfe_4079_42e9_a39a_3095d3f049c6);
+    const IID: ::windows::core::GUID = <IKeyRoutedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for KeyRoutedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Input.KeyRoutedEventArgs";
@@ -4484,7 +4484,7 @@ unsafe impl ::windows::core::RuntimeType for KeyboardAccelerator {
 }
 unsafe impl ::windows::core::Interface for KeyboardAccelerator {
     type Vtable = IKeyboardAccelerator_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92e6181e_19ae_465a_9b3c_a71ee9ea7420);
+    const IID: ::windows::core::GUID = <IKeyboardAccelerator as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for KeyboardAccelerator {
     const NAME: &'static str = "Windows.UI.Xaml.Input.KeyboardAccelerator";
@@ -4606,7 +4606,7 @@ unsafe impl ::windows::core::RuntimeType for KeyboardAcceleratorInvokedEventArgs
 }
 unsafe impl ::windows::core::Interface for KeyboardAcceleratorInvokedEventArgs {
     type Vtable = IKeyboardAcceleratorInvokedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc00b03f2_04e7_4415_b17d_d76b9490de2b);
+    const IID: ::windows::core::GUID = <IKeyboardAcceleratorInvokedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for KeyboardAcceleratorInvokedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Input.KeyboardAcceleratorInvokedEventArgs";
@@ -4831,7 +4831,7 @@ unsafe impl ::windows::core::RuntimeType for LosingFocusEventArgs {
 }
 unsafe impl ::windows::core::Interface for LosingFocusEventArgs {
     type Vtable = ILosingFocusEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9f683c7_d789_472b_aa93_6d4105e6dabe);
+    const IID: ::windows::core::GUID = <ILosingFocusEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LosingFocusEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Input.LosingFocusEventArgs";
@@ -5074,7 +5074,7 @@ unsafe impl ::windows::core::RuntimeType for ManipulationCompletedRoutedEventArg
 }
 unsafe impl ::windows::core::Interface for ManipulationCompletedRoutedEventArgs {
     type Vtable = IManipulationCompletedRoutedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5ad9b23_2f41_498e_8319_015ee8a75346);
+    const IID: ::windows::core::GUID = <IManipulationCompletedRoutedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ManipulationCompletedRoutedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Input.ManipulationCompletedRoutedEventArgs";
@@ -5331,7 +5331,7 @@ unsafe impl ::windows::core::RuntimeType for ManipulationDeltaRoutedEventArgs {
 }
 unsafe impl ::windows::core::Interface for ManipulationDeltaRoutedEventArgs {
     type Vtable = IManipulationDeltaRoutedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x400d5794_4c6f_491d_82d6_3517109399c6);
+    const IID: ::windows::core::GUID = <IManipulationDeltaRoutedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ManipulationDeltaRoutedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Input.ManipulationDeltaRoutedEventArgs";
@@ -5605,7 +5605,7 @@ unsafe impl ::windows::core::RuntimeType for ManipulationInertiaStartingRoutedEv
 }
 unsafe impl ::windows::core::Interface for ManipulationInertiaStartingRoutedEventArgs {
     type Vtable = IManipulationInertiaStartingRoutedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x246a91a9_ca43_4c0b_acef_81e8b8147520);
+    const IID: ::windows::core::GUID = <IManipulationInertiaStartingRoutedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ManipulationInertiaStartingRoutedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Input.ManipulationInertiaStartingRoutedEventArgs";
@@ -5812,7 +5812,7 @@ unsafe impl ::windows::core::RuntimeType for ManipulationPivot {
 }
 unsafe impl ::windows::core::Interface for ManipulationPivot {
     type Vtable = IManipulationPivot_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e3838a5_e6c2_4998_82ac_18748b141666);
+    const IID: ::windows::core::GUID = <IManipulationPivot as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ManipulationPivot {
     const NAME: &'static str = "Windows.UI.Xaml.Input.ManipulationPivot";
@@ -6036,7 +6036,7 @@ unsafe impl ::windows::core::RuntimeType for ManipulationStartedRoutedEventArgs 
 }
 unsafe impl ::windows::core::Interface for ManipulationStartedRoutedEventArgs {
     type Vtable = IManipulationStartedRoutedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5db1aa05_9f80_48b6_ae6c_4f119de8ff13);
+    const IID: ::windows::core::GUID = <IManipulationStartedRoutedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ManipulationStartedRoutedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Input.ManipulationStartedRoutedEventArgs";
@@ -6266,7 +6266,7 @@ unsafe impl ::windows::core::RuntimeType for ManipulationStartingRoutedEventArgs
 }
 unsafe impl ::windows::core::Interface for ManipulationStartingRoutedEventArgs {
     type Vtable = IManipulationStartingRoutedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18d636b7_53a4_4c15_a498_f3a9ca212a42);
+    const IID: ::windows::core::GUID = <IManipulationStartingRoutedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ManipulationStartingRoutedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Input.ManipulationStartingRoutedEventArgs";
@@ -6388,7 +6388,7 @@ unsafe impl ::windows::core::RuntimeType for NoFocusCandidateFoundEventArgs {
 }
 unsafe impl ::windows::core::Interface for NoFocusCandidateFoundEventArgs {
     type Vtable = INoFocusCandidateFoundEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec3601a7_1007_48f9_b6b3_ed0bea53937d);
+    const IID: ::windows::core::GUID = <INoFocusCandidateFoundEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for NoFocusCandidateFoundEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Input.NoFocusCandidateFoundEventArgs";
@@ -6514,7 +6514,7 @@ unsafe impl ::windows::core::RuntimeType for Pointer {
 }
 unsafe impl ::windows::core::Interface for Pointer {
     type Vtable = IPointer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ee8f39f_747d_4171_90e6_cd37a9dffb11);
+    const IID: ::windows::core::GUID = <IPointer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Pointer {
     const NAME: &'static str = "Windows.UI.Xaml.Input.Pointer";
@@ -6721,7 +6721,7 @@ unsafe impl ::windows::core::RuntimeType for PointerRoutedEventArgs {
 }
 unsafe impl ::windows::core::Interface for PointerRoutedEventArgs {
     type Vtable = IPointerRoutedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda628f0a_9752_49e2_bde2_49eccab9194d);
+    const IID: ::windows::core::GUID = <IPointerRoutedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PointerRoutedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Input.PointerRoutedEventArgs";
@@ -6845,7 +6845,7 @@ unsafe impl ::windows::core::RuntimeType for ProcessKeyboardAcceleratorEventArgs
 }
 unsafe impl ::windows::core::Interface for ProcessKeyboardAcceleratorEventArgs {
     type Vtable = IProcessKeyboardAcceleratorEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb79c216_972b_440c_9b83_2b4198dcf09d);
+    const IID: ::windows::core::GUID = <IProcessKeyboardAcceleratorEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ProcessKeyboardAcceleratorEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Input.ProcessKeyboardAcceleratorEventArgs";
@@ -7034,7 +7034,7 @@ unsafe impl ::windows::core::RuntimeType for RightTappedRoutedEventArgs {
 }
 unsafe impl ::windows::core::Interface for RightTappedRoutedEventArgs {
     type Vtable = IRightTappedRoutedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6834869d_7bd5_4033_b237_172f79abe393);
+    const IID: ::windows::core::GUID = <IRightTappedRoutedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RightTappedRoutedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Input.RightTappedRoutedEventArgs";
@@ -7187,7 +7187,7 @@ unsafe impl ::windows::core::RuntimeType for StandardUICommand {
 }
 unsafe impl ::windows::core::Interface for StandardUICommand {
     type Vtable = IStandardUICommand_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2bf7f43_0504_52d0_8aa6_0cb0f756eb27);
+    const IID: ::windows::core::GUID = <IStandardUICommand as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StandardUICommand {
     const NAME: &'static str = "Windows.UI.Xaml.Input.StandardUICommand";
@@ -7481,7 +7481,7 @@ unsafe impl ::windows::core::RuntimeType for TappedRoutedEventArgs {
 }
 unsafe impl ::windows::core::Interface for TappedRoutedEventArgs {
     type Vtable = ITappedRoutedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa099e6be_e624_459a_bb1d_e05c73e2cc66);
+    const IID: ::windows::core::GUID = <ITappedRoutedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TappedRoutedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Input.TappedRoutedEventArgs";
@@ -7870,7 +7870,7 @@ unsafe impl ::windows::core::RuntimeType for XamlUICommand {
 }
 unsafe impl ::windows::core::Interface for XamlUICommand {
     type Vtable = IXamlUICommand_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8494f8d4_ead1_5f01_ad2e_a8cad4f9dc0e);
+    const IID: ::windows::core::GUID = <IXamlUICommand as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for XamlUICommand {
     const NAME: &'static str = "Windows.UI.Xaml.Input.XamlUICommand";

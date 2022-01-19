@@ -78,7 +78,7 @@ unsafe impl ::windows::core::RuntimeType for BasicProperties {
 }
 unsafe impl ::windows::core::Interface for BasicProperties {
     type Vtable = IBasicProperties_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd05d55db_785e_4a66_be02_9beec58aea81);
+    const IID: ::windows::core::GUID = <IBasicProperties as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BasicProperties {
     const NAME: &'static str = "Windows.Storage.FileProperties.BasicProperties";
@@ -242,7 +242,7 @@ unsafe impl ::windows::core::RuntimeType for DocumentProperties {
 }
 unsafe impl ::windows::core::Interface for DocumentProperties {
     type Vtable = IDocumentProperties_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7eab19bc_1821_4923_b4a9_0aea404d0070);
+    const IID: ::windows::core::GUID = <IDocumentProperties as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DocumentProperties {
     const NAME: &'static str = "Windows.Storage.FileProperties.DocumentProperties";
@@ -906,7 +906,7 @@ unsafe impl ::windows::core::RuntimeType for ImageProperties {
 }
 unsafe impl ::windows::core::Interface for ImageProperties {
     type Vtable = IImageProperties_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x523c9424_fcff_4275_afee_ecdb9ab47973);
+    const IID: ::windows::core::GUID = <IImageProperties as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ImageProperties {
     const NAME: &'static str = "Windows.Storage.FileProperties.ImageProperties";
@@ -1205,7 +1205,7 @@ unsafe impl ::windows::core::RuntimeType for MusicProperties {
 }
 unsafe impl ::windows::core::Interface for MusicProperties {
     type Vtable = IMusicProperties_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc8aab62_66ec_419a_bc5d_ca65a4cb46da);
+    const IID: ::windows::core::GUID = <IMusicProperties as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MusicProperties {
     const NAME: &'static str = "Windows.Storage.FileProperties.MusicProperties";
@@ -1456,7 +1456,7 @@ unsafe impl ::windows::core::RuntimeType for StorageItemContentProperties {
 }
 unsafe impl ::windows::core::Interface for StorageItemContentProperties {
     type Vtable = IStorageItemContentProperties_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05294bad_bc38_48bf_85d7_770e0e2ae0ba);
+    const IID: ::windows::core::GUID = <IStorageItemContentProperties as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StorageItemContentProperties {
     const NAME: &'static str = "Windows.Storage.FileProperties.StorageItemContentProperties";
@@ -1706,7 +1706,7 @@ unsafe impl ::windows::core::RuntimeType for StorageItemThumbnail {
 #[cfg(feature = "Storage_Streams")]
 unsafe impl ::windows::core::Interface for StorageItemThumbnail {
     type Vtable = super::Streams::IRandomAccessStreamWithContentType_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc254827_4b3d_438f_9232_10c76bc7e038);
+    const IID: ::windows::core::GUID = <super::Streams::IRandomAccessStreamWithContentType as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Storage_Streams")]
 impl ::windows::core::RuntimeName for StorageItemThumbnail {
@@ -2277,7 +2277,7 @@ unsafe impl ::windows::core::RuntimeType for VideoProperties {
 }
 unsafe impl ::windows::core::Interface for VideoProperties {
     type Vtable = IVideoProperties_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x719ae507_68de_4db8_97de_49998c059f2f);
+    const IID: ::windows::core::GUID = <IVideoProperties as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VideoProperties {
     const NAME: &'static str = "Windows.Storage.FileProperties.VideoProperties";

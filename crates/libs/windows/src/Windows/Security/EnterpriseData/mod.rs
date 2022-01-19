@@ -42,7 +42,7 @@ unsafe impl ::windows::core::RuntimeType for BufferProtectUnprotectResult {
 }
 unsafe impl ::windows::core::Interface for BufferProtectUnprotectResult {
     type Vtable = IBufferProtectUnprotectResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47995edc_6cec_4e3a_b251_9e7485d79e7a);
+    const IID: ::windows::core::GUID = <IBufferProtectUnprotectResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BufferProtectUnprotectResult {
     const NAME: &'static str = "Windows.Security.EnterpriseData.BufferProtectUnprotectResult";
@@ -131,7 +131,7 @@ unsafe impl ::windows::core::RuntimeType for DataProtectionInfo {
 }
 unsafe impl ::windows::core::Interface for DataProtectionInfo {
     type Vtable = IDataProtectionInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8420b0c1_5e31_4405_9540_3f943af0cb26);
+    const IID: ::windows::core::GUID = <IDataProtectionInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DataProtectionInfo {
     const NAME: &'static str = "Windows.Security.EnterpriseData.DataProtectionInfo";
@@ -358,7 +358,7 @@ unsafe impl ::windows::core::RuntimeType for FileProtectionInfo {
 }
 unsafe impl ::windows::core::Interface for FileProtectionInfo {
     type Vtable = IFileProtectionInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ee96486_147e_4dd0_8faf_5253ed91ad0c);
+    const IID: ::windows::core::GUID = <IFileProtectionInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FileProtectionInfo {
     const NAME: &'static str = "Windows.Security.EnterpriseData.FileProtectionInfo";
@@ -657,7 +657,7 @@ unsafe impl ::windows::core::RuntimeType for FileUnprotectOptions {
 }
 unsafe impl ::windows::core::Interface for FileUnprotectOptions {
     type Vtable = IFileUnprotectOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d1312f1_3b0d_4dd8_a1f8_1ec53822e2f3);
+    const IID: ::windows::core::GUID = <IFileUnprotectOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FileUnprotectOptions {
     const NAME: &'static str = "Windows.Security.EnterpriseData.FileUnprotectOptions";
@@ -1321,7 +1321,7 @@ unsafe impl ::windows::core::RuntimeType for ProtectedAccessResumedEventArgs {
 }
 unsafe impl ::windows::core::Interface for ProtectedAccessResumedEventArgs {
     type Vtable = IProtectedAccessResumedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac4dca59_5d80_4e95_8c5f_8539450eebe0);
+    const IID: ::windows::core::GUID = <IProtectedAccessResumedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ProtectedAccessResumedEventArgs {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectedAccessResumedEventArgs";
@@ -1421,7 +1421,7 @@ unsafe impl ::windows::core::RuntimeType for ProtectedAccessSuspendingEventArgs 
 }
 unsafe impl ::windows::core::Interface for ProtectedAccessSuspendingEventArgs {
     type Vtable = IProtectedAccessSuspendingEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75a193e0_a344_429f_b975_04fc1f88c185);
+    const IID: ::windows::core::GUID = <IProtectedAccessSuspendingEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ProtectedAccessSuspendingEventArgs {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectedAccessSuspendingEventArgs";
@@ -1511,7 +1511,7 @@ unsafe impl ::windows::core::RuntimeType for ProtectedContainerExportResult {
 }
 unsafe impl ::windows::core::Interface for ProtectedContainerExportResult {
     type Vtable = IProtectedContainerExportResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3948ef95_f7fb_4b42_afb0_df70b41543c1);
+    const IID: ::windows::core::GUID = <IProtectedContainerExportResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ProtectedContainerExportResult {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectedContainerExportResult";
@@ -1601,7 +1601,7 @@ unsafe impl ::windows::core::RuntimeType for ProtectedContainerImportResult {
 }
 unsafe impl ::windows::core::Interface for ProtectedContainerImportResult {
     type Vtable = IProtectedContainerImportResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcdb780d1_e7bb_4d1a_9339_34dc41149f9b);
+    const IID: ::windows::core::GUID = <IProtectedContainerImportResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ProtectedContainerImportResult {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectedContainerImportResult";
@@ -1683,7 +1683,7 @@ unsafe impl ::windows::core::RuntimeType for ProtectedContentRevokedEventArgs {
 }
 unsafe impl ::windows::core::Interface for ProtectedContentRevokedEventArgs {
     type Vtable = IProtectedContentRevokedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63686821_58b9_47ee_93d9_f0f741cf43f0);
+    const IID: ::windows::core::GUID = <IProtectedContentRevokedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ProtectedContentRevokedEventArgs {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectedContentRevokedEventArgs";
@@ -1782,7 +1782,7 @@ unsafe impl ::windows::core::RuntimeType for ProtectedFileCreateResult {
 }
 unsafe impl ::windows::core::Interface for ProtectedFileCreateResult {
     type Vtable = IProtectedFileCreateResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28e3ed6a_e9e7_4a03_9f53_bdb16172699b);
+    const IID: ::windows::core::GUID = <IProtectedFileCreateResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ProtectedFileCreateResult {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectedFileCreateResult";
@@ -1990,7 +1990,7 @@ unsafe impl ::windows::core::RuntimeType for ProtectionPolicyAuditInfo {
 }
 unsafe impl ::windows::core::Interface for ProtectionPolicyAuditInfo {
     type Vtable = IProtectionPolicyAuditInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x425ab7e4_feb7_44fc_b3bb_c3c4d7ecbebb);
+    const IID: ::windows::core::GUID = <IProtectionPolicyAuditInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ProtectionPolicyAuditInfo {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectionPolicyAuditInfo";
@@ -2421,7 +2421,7 @@ unsafe impl ::windows::core::RuntimeType for ProtectionPolicyManager {
 }
 unsafe impl ::windows::core::Interface for ProtectionPolicyManager {
     type Vtable = IProtectionPolicyManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5703e18_a08d_47e6_a240_9934d7165eb5);
+    const IID: ::windows::core::GUID = <IProtectionPolicyManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ProtectionPolicyManager {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ProtectionPolicyManager";
@@ -2528,7 +2528,7 @@ unsafe impl ::windows::core::RuntimeType for ThreadNetworkContext {
 }
 unsafe impl ::windows::core::Interface for ThreadNetworkContext {
     type Vtable = IThreadNetworkContext_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa4ea8e9_ef13_405a_b12c_d7348c6f41fc);
+    const IID: ::windows::core::GUID = <IThreadNetworkContext as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ThreadNetworkContext {
     const NAME: &'static str = "Windows.Security.EnterpriseData.ThreadNetworkContext";

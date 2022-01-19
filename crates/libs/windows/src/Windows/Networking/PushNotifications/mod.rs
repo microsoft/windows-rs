@@ -295,7 +295,7 @@ unsafe impl ::windows::core::RuntimeType for PushNotificationChannel {
 }
 unsafe impl ::windows::core::Interface for PushNotificationChannel {
     type Vtable = IPushNotificationChannel_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b28102e_ef0b_4f39_9b8a_a3c194de7081);
+    const IID: ::windows::core::GUID = <IPushNotificationChannel as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PushNotificationChannel {
     const NAME: &'static str = "Windows.Networking.PushNotifications.PushNotificationChannel";
@@ -501,7 +501,7 @@ unsafe impl ::windows::core::RuntimeType for PushNotificationChannelManagerForUs
 }
 unsafe impl ::windows::core::Interface for PushNotificationChannelManagerForUser {
     type Vtable = IPushNotificationChannelManagerForUser_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4c45704_1182_42c7_8890_f563c4890dc4);
+    const IID: ::windows::core::GUID = <IPushNotificationChannelManagerForUser as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PushNotificationChannelManagerForUser {
     const NAME: &'static str = "Windows.Networking.PushNotifications.PushNotificationChannelManagerForUser";
@@ -573,7 +573,7 @@ unsafe impl ::windows::core::RuntimeType for PushNotificationChannelsRevokedEven
 }
 unsafe impl ::windows::core::Interface for PushNotificationChannelsRevokedEventArgs {
     type Vtable = IPushNotificationChannelsRevokedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20e1a24c_1a34_5beb_aae2_40c232c8c140);
+    const IID: ::windows::core::GUID = <IPushNotificationChannelsRevokedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PushNotificationChannelsRevokedEventArgs {
     const NAME: &'static str = "Windows.Networking.PushNotifications.PushNotificationChannelsRevokedEventArgs";
@@ -702,7 +702,7 @@ unsafe impl ::windows::core::RuntimeType for PushNotificationReceivedEventArgs {
 }
 unsafe impl ::windows::core::Interface for PushNotificationReceivedEventArgs {
     type Vtable = IPushNotificationReceivedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1065e0c_36cd_484c_b935_0a99b753cf00);
+    const IID: ::windows::core::GUID = <IPushNotificationReceivedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PushNotificationReceivedEventArgs {
     const NAME: &'static str = "Windows.Networking.PushNotifications.PushNotificationReceivedEventArgs";
@@ -840,7 +840,7 @@ unsafe impl ::windows::core::RuntimeType for RawNotification {
 }
 unsafe impl ::windows::core::Interface for RawNotification {
     type Vtable = IRawNotification_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a227281_3b79_42ac_9963_22ab00d4f0b7);
+    const IID: ::windows::core::GUID = <IRawNotification as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RawNotification {
     const NAME: &'static str = "Windows.Networking.PushNotifications.RawNotification";

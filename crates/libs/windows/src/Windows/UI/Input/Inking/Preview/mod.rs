@@ -84,7 +84,7 @@ unsafe impl ::windows::core::RuntimeType for PalmRejectionDelayZonePreview {
 }
 unsafe impl ::windows::core::Interface for PalmRejectionDelayZonePreview {
     type Vtable = IPalmRejectionDelayZonePreview_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62b496cb_539d_5343_a65f_41f5300ec70c);
+    const IID: ::windows::core::GUID = <IPalmRejectionDelayZonePreview as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PalmRejectionDelayZonePreview {
     const NAME: &'static str = "Windows.UI.Input.Inking.Preview.PalmRejectionDelayZonePreview";

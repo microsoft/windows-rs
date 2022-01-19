@@ -229,7 +229,7 @@ unsafe impl ::windows::core::RuntimeType for PdfDocument {
 }
 unsafe impl ::windows::core::Interface for PdfDocument {
     type Vtable = IPdfDocument_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac7ebedd_80fa_4089_846e_81b77ff5a86c);
+    const IID: ::windows::core::GUID = <IPdfDocument as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PdfDocument {
     const NAME: &'static str = "Windows.Data.Pdf.PdfDocument";
@@ -376,7 +376,7 @@ unsafe impl ::windows::core::RuntimeType for PdfPage {
 }
 unsafe impl ::windows::core::Interface for PdfPage {
     type Vtable = IPdfPage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9db4b0c8_5320_4cfc_ad76_493fdad0e594);
+    const IID: ::windows::core::GUID = <IPdfPage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PdfPage {
     const NAME: &'static str = "Windows.Data.Pdf.PdfPage";
@@ -520,7 +520,7 @@ unsafe impl ::windows::core::RuntimeType for PdfPageDimensions {
 }
 unsafe impl ::windows::core::Interface for PdfPageDimensions {
     type Vtable = IPdfPageDimensions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22170471_313e_44e8_835d_63a3e7624a10);
+    const IID: ::windows::core::GUID = <IPdfPageDimensions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PdfPageDimensions {
     const NAME: &'static str = "Windows.Data.Pdf.PdfPageDimensions";
@@ -682,7 +682,7 @@ unsafe impl ::windows::core::RuntimeType for PdfPageRenderOptions {
 }
 unsafe impl ::windows::core::Interface for PdfPageRenderOptions {
     type Vtable = IPdfPageRenderOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c98056f_b7cf_4c29_9a04_52d90267f425);
+    const IID: ::windows::core::GUID = <IPdfPageRenderOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PdfPageRenderOptions {
     const NAME: &'static str = "Windows.Data.Pdf.PdfPageRenderOptions";

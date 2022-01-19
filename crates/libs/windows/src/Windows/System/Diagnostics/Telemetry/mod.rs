@@ -102,7 +102,7 @@ unsafe impl ::windows::core::RuntimeType for PlatformTelemetryRegistrationResult
 }
 unsafe impl ::windows::core::Interface for PlatformTelemetryRegistrationResult {
     type Vtable = IPlatformTelemetryRegistrationResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d8518ab_2292_49bd_a15a_3d71d2145112);
+    const IID: ::windows::core::GUID = <IPlatformTelemetryRegistrationResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PlatformTelemetryRegistrationResult {
     const NAME: &'static str = "Windows.System.Diagnostics.Telemetry.PlatformTelemetryRegistrationResult";
@@ -208,7 +208,7 @@ unsafe impl ::windows::core::RuntimeType for PlatformTelemetryRegistrationSettin
 }
 unsafe impl ::windows::core::Interface for PlatformTelemetryRegistrationSettings {
     type Vtable = IPlatformTelemetryRegistrationSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x819a8582_ca19_415e_bb79_9c224bfa3a73);
+    const IID: ::windows::core::GUID = <IPlatformTelemetryRegistrationSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PlatformTelemetryRegistrationSettings {
     const NAME: &'static str = "Windows.System.Diagnostics.Telemetry.PlatformTelemetryRegistrationSettings";

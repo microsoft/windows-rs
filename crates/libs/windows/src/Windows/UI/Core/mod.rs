@@ -75,7 +75,7 @@ unsafe impl ::windows::core::RuntimeType for AcceleratorKeyEventArgs {
 }
 unsafe impl ::windows::core::Interface for AcceleratorKeyEventArgs {
     type Vtable = IAcceleratorKeyEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff1c4c4a_9287_470b_836e_9086e3126ade);
+    const IID: ::windows::core::GUID = <IAcceleratorKeyEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AcceleratorKeyEventArgs {
     const NAME: &'static str = "Windows.UI.Core.AcceleratorKeyEventArgs";
@@ -225,7 +225,7 @@ unsafe impl ::windows::core::RuntimeType for AutomationProviderRequestedEventArg
 }
 unsafe impl ::windows::core::Interface for AutomationProviderRequestedEventArgs {
     type Vtable = IAutomationProviderRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x961ff258_21bf_4b42_a298_fa479d4c52e2);
+    const IID: ::windows::core::GUID = <IAutomationProviderRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AutomationProviderRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Core.AutomationProviderRequestedEventArgs";
@@ -331,7 +331,7 @@ unsafe impl ::windows::core::RuntimeType for BackRequestedEventArgs {
 }
 unsafe impl ::windows::core::Interface for BackRequestedEventArgs {
     type Vtable = IBackRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd603d28a_e411_4a4e_ba41_6a327a8675bc);
+    const IID: ::windows::core::GUID = <IBackRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BackRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Core.BackRequestedEventArgs";
@@ -433,7 +433,7 @@ unsafe impl ::windows::core::RuntimeType for CharacterReceivedEventArgs {
 }
 unsafe impl ::windows::core::Interface for CharacterReceivedEventArgs {
     type Vtable = ICharacterReceivedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc584659f_99b2_4bcc_bd33_04e63f42902e);
+    const IID: ::windows::core::GUID = <ICharacterReceivedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CharacterReceivedEventArgs {
     const NAME: &'static str = "Windows.UI.Core.CharacterReceivedEventArgs";
@@ -559,7 +559,7 @@ unsafe impl ::windows::core::RuntimeType for ClosestInteractiveBoundsRequestedEv
 }
 unsafe impl ::windows::core::Interface for ClosestInteractiveBoundsRequestedEventArgs {
     type Vtable = IClosestInteractiveBoundsRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x347c11d7_f6f8_40e3_b29f_ae50d3e86486);
+    const IID: ::windows::core::GUID = <IClosestInteractiveBoundsRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ClosestInteractiveBoundsRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Core.ClosestInteractiveBoundsRequestedEventArgs";
@@ -680,7 +680,7 @@ unsafe impl ::windows::core::RuntimeType for CoreAcceleratorKeys {
 }
 unsafe impl ::windows::core::Interface for CoreAcceleratorKeys {
     type Vtable = ICoreAcceleratorKeys_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ffdf7f5_b8c9_4ef0_b7d2_1de626561fc8);
+    const IID: ::windows::core::GUID = <ICoreAcceleratorKeys as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CoreAcceleratorKeys {
     const NAME: &'static str = "Windows.UI.Core.CoreAcceleratorKeys";
@@ -1095,7 +1095,7 @@ unsafe impl ::windows::core::RuntimeType for CoreComponentInputSource {
 }
 unsafe impl ::windows::core::Interface for CoreComponentInputSource {
     type Vtable = ICoreInputSourceBase_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f488807_4580_4be8_be68_92a9311713bb);
+    const IID: ::windows::core::GUID = <ICoreInputSourceBase as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CoreComponentInputSource {
     const NAME: &'static str = "Windows.UI.Core.CoreComponentInputSource";
@@ -1262,7 +1262,7 @@ unsafe impl ::windows::core::RuntimeType for CoreCursor {
 }
 unsafe impl ::windows::core::Interface for CoreCursor {
     type Vtable = ICoreCursor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96893acf_111d_442c_8a77_b87992f8e2d6);
+    const IID: ::windows::core::GUID = <ICoreCursor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CoreCursor {
     const NAME: &'static str = "Windows.UI.Core.CoreCursor";
@@ -1475,7 +1475,7 @@ unsafe impl ::windows::core::RuntimeType for CoreDispatcher {
 }
 unsafe impl ::windows::core::Interface for CoreDispatcher {
     type Vtable = ICoreDispatcher_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60db2fa8_b705_4fde_a7d6_ebbb1891d39e);
+    const IID: ::windows::core::GUID = <ICoreDispatcher as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CoreDispatcher {
     const NAME: &'static str = "Windows.UI.Core.CoreDispatcher";
@@ -1895,7 +1895,7 @@ unsafe impl ::windows::core::RuntimeType for CoreIndependentInputSource {
 }
 unsafe impl ::windows::core::Interface for CoreIndependentInputSource {
     type Vtable = ICoreInputSourceBase_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f488807_4580_4be8_be68_92a9311713bb);
+    const IID: ::windows::core::GUID = <ICoreInputSourceBase as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CoreIndependentInputSource {
     const NAME: &'static str = "Windows.UI.Core.CoreIndependentInputSource";
@@ -2127,7 +2127,7 @@ unsafe impl ::windows::core::RuntimeType for CoreIndependentInputSourceControlle
 }
 unsafe impl ::windows::core::Interface for CoreIndependentInputSourceController {
     type Vtable = ICoreIndependentInputSourceController_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0963261c_84fe_578a_83ca_6425309ccde4);
+    const IID: ::windows::core::GUID = <ICoreIndependentInputSourceController as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CoreIndependentInputSourceController {
     const NAME: &'static str = "Windows.UI.Core.CoreIndependentInputSourceController";
@@ -3011,7 +3011,7 @@ unsafe impl ::windows::core::RuntimeType for CoreWindow {
 }
 unsafe impl ::windows::core::Interface for CoreWindow {
     type Vtable = ICoreWindow_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79b9d5f2_879e_4b89_b798_79e47598030c);
+    const IID: ::windows::core::GUID = <ICoreWindow as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CoreWindow {
     const NAME: &'static str = "Windows.UI.Core.CoreWindow";
@@ -3322,7 +3322,7 @@ unsafe impl ::windows::core::RuntimeType for CoreWindowDialog {
 }
 unsafe impl ::windows::core::Interface for CoreWindowDialog {
     type Vtable = ICoreWindowDialog_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7392ce0_c78d_427e_8b2c_01ff420c69d5);
+    const IID: ::windows::core::GUID = <ICoreWindowDialog as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CoreWindowDialog {
     const NAME: &'static str = "Windows.UI.Core.CoreWindowDialog";
@@ -3406,7 +3406,7 @@ unsafe impl ::windows::core::RuntimeType for CoreWindowEventArgs {
 }
 unsafe impl ::windows::core::Interface for CoreWindowEventArgs {
     type Vtable = ICoreWindowEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x272b1ef3_c633_4da5_a26c_c6d0f56b29da);
+    const IID: ::windows::core::GUID = <ICoreWindowEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CoreWindowEventArgs {
     const NAME: &'static str = "Windows.UI.Core.CoreWindowEventArgs";
@@ -3653,7 +3653,7 @@ unsafe impl ::windows::core::RuntimeType for CoreWindowFlyout {
 }
 unsafe impl ::windows::core::Interface for CoreWindowFlyout {
     type Vtable = ICoreWindowFlyout_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe89d854d_2050_40bb_b344_f6f355eeb314);
+    const IID: ::windows::core::GUID = <ICoreWindowFlyout as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CoreWindowFlyout {
     const NAME: &'static str = "Windows.UI.Core.CoreWindowFlyout";
@@ -3730,7 +3730,7 @@ unsafe impl ::windows::core::RuntimeType for CoreWindowPopupShowingEventArgs {
 }
 unsafe impl ::windows::core::Interface for CoreWindowPopupShowingEventArgs {
     type Vtable = ICoreWindowPopupShowingEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26155fa2_5ba5_4ea4_a3b4_2dc7d63c8e26);
+    const IID: ::windows::core::GUID = <ICoreWindowPopupShowingEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CoreWindowPopupShowingEventArgs {
     const NAME: &'static str = "Windows.UI.Core.CoreWindowPopupShowingEventArgs";
@@ -3831,7 +3831,7 @@ unsafe impl ::windows::core::RuntimeType for CoreWindowResizeManager {
 }
 unsafe impl ::windows::core::Interface for CoreWindowResizeManager {
     type Vtable = ICoreWindowResizeManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8f0b925_b350_48b3_a198_5c1a84700243);
+    const IID: ::windows::core::GUID = <ICoreWindowResizeManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CoreWindowResizeManager {
     const NAME: &'static str = "Windows.UI.Core.CoreWindowResizeManager";
@@ -6606,7 +6606,7 @@ unsafe impl ::windows::core::RuntimeType for IdleDispatchedHandlerArgs {
 }
 unsafe impl ::windows::core::Interface for IdleDispatchedHandlerArgs {
     type Vtable = IIdleDispatchedHandlerArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98bb6a24_dc1c_43cb_b4ed_d1c0eb2391f3);
+    const IID: ::windows::core::GUID = <IIdleDispatchedHandlerArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for IdleDispatchedHandlerArgs {
     const NAME: &'static str = "Windows.UI.Core.IdleDispatchedHandlerArgs";
@@ -6698,7 +6698,7 @@ unsafe impl ::windows::core::RuntimeType for InputEnabledEventArgs {
 }
 unsafe impl ::windows::core::Interface for InputEnabledEventArgs {
     type Vtable = IInputEnabledEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80371d4f_2fd8_4c24_aa86_3163a87b4e5a);
+    const IID: ::windows::core::GUID = <IInputEnabledEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InputEnabledEventArgs {
     const NAME: &'static str = "Windows.UI.Core.InputEnabledEventArgs";
@@ -6829,7 +6829,7 @@ unsafe impl ::windows::core::RuntimeType for KeyEventArgs {
 }
 unsafe impl ::windows::core::Interface for KeyEventArgs {
     type Vtable = IKeyEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ff5e930_2544_4a17_bd78_1f2fdebb106b);
+    const IID: ::windows::core::GUID = <IKeyEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for KeyEventArgs {
     const NAME: &'static str = "Windows.UI.Core.KeyEventArgs";
@@ -6962,7 +6962,7 @@ unsafe impl ::windows::core::RuntimeType for PointerEventArgs {
 }
 unsafe impl ::windows::core::Interface for PointerEventArgs {
     type Vtable = IPointerEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x920d9cb1_a5fc_4a21_8c09_49dfe6ffe25f);
+    const IID: ::windows::core::GUID = <IPointerEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PointerEventArgs {
     const NAME: &'static str = "Windows.UI.Core.PointerEventArgs";
@@ -7095,7 +7095,7 @@ unsafe impl ::windows::core::RuntimeType for SystemNavigationManager {
 }
 unsafe impl ::windows::core::Interface for SystemNavigationManager {
     type Vtable = ISystemNavigationManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93023118_cf50_42a6_9706_69107fa122e1);
+    const IID: ::windows::core::GUID = <ISystemNavigationManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SystemNavigationManager {
     const NAME: &'static str = "Windows.UI.Core.SystemNavigationManager";
@@ -7232,7 +7232,7 @@ unsafe impl ::windows::core::RuntimeType for TouchHitTestingEventArgs {
 }
 unsafe impl ::windows::core::Interface for TouchHitTestingEventArgs {
     type Vtable = ITouchHitTestingEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22f3b823_0b7c_424e_9df7_33d4f962931b);
+    const IID: ::windows::core::GUID = <ITouchHitTestingEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TouchHitTestingEventArgs {
     const NAME: &'static str = "Windows.UI.Core.TouchHitTestingEventArgs";
@@ -7346,7 +7346,7 @@ unsafe impl ::windows::core::RuntimeType for VisibilityChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for VisibilityChangedEventArgs {
     type Vtable = IVisibilityChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf9918ea_d801_4564_a495_b1e84f8ad085);
+    const IID: ::windows::core::GUID = <IVisibilityChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VisibilityChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Core.VisibilityChangedEventArgs";
@@ -7460,7 +7460,7 @@ unsafe impl ::windows::core::RuntimeType for WindowActivatedEventArgs {
 }
 unsafe impl ::windows::core::Interface for WindowActivatedEventArgs {
     type Vtable = IWindowActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x179d65e7_4658_4cb6_aa13_41d094ea255e);
+    const IID: ::windows::core::GUID = <IWindowActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WindowActivatedEventArgs {
     const NAME: &'static str = "Windows.UI.Core.WindowActivatedEventArgs";
@@ -7575,7 +7575,7 @@ unsafe impl ::windows::core::RuntimeType for WindowSizeChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for WindowSizeChangedEventArgs {
     type Vtable = IWindowSizeChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a200ec7_0426_47dc_b86c_6f475915e451);
+    const IID: ::windows::core::GUID = <IWindowSizeChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WindowSizeChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Core.WindowSizeChangedEventArgs";

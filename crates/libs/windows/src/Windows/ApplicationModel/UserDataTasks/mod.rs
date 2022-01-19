@@ -613,7 +613,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTask {
 }
 unsafe impl ::windows::core::Interface for UserDataTask {
     type Vtable = IUserDataTask_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c6585d1_e0d4_4f99_aee2_bc2d5ddadf4c);
+    const IID: ::windows::core::GUID = <IUserDataTask as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserDataTask {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTask";
@@ -695,7 +695,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskBatch {
 }
 unsafe impl ::windows::core::Interface for UserDataTaskBatch {
     type Vtable = IUserDataTaskBatch_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x382da5fe_20b5_431c_8f42_a5d292ec930c);
+    const IID: ::windows::core::GUID = <IUserDataTaskBatch as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserDataTaskBatch {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskBatch";
@@ -1036,7 +1036,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskList {
 }
 unsafe impl ::windows::core::Interface for UserDataTaskList {
     type Vtable = IUserDataTaskList_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49412e39_7c1d_4df1_bed3_314b7cbf5e4e);
+    const IID: ::windows::core::GUID = <IUserDataTaskList as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserDataTaskList {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskList";
@@ -1145,7 +1145,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskListLimitedWriteOperati
 }
 unsafe impl ::windows::core::Interface for UserDataTaskListLimitedWriteOperations {
     type Vtable = IUserDataTaskListLimitedWriteOperations_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7aa267f2_6078_4183_919e_4f29f19cfae9);
+    const IID: ::windows::core::GUID = <IUserDataTaskListLimitedWriteOperations as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserDataTaskListLimitedWriteOperations {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskListLimitedWriteOperations";
@@ -1342,7 +1342,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskListSyncManager {
 }
 unsafe impl ::windows::core::Interface for UserDataTaskListSyncManager {
     type Vtable = IUserDataTaskListSyncManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e591a95_1dcf_469f_93ec_ba48bb553c6b);
+    const IID: ::windows::core::GUID = <IUserDataTaskListSyncManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserDataTaskListSyncManager {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskListSyncManager";
@@ -1485,7 +1485,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskManager {
 }
 unsafe impl ::windows::core::Interface for UserDataTaskManager {
     type Vtable = IUserDataTaskManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8451c914_e60b_48a9_9211_7fb8a56cb84c);
+    const IID: ::windows::core::GUID = <IUserDataTaskManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserDataTaskManager {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskManager";
@@ -1649,7 +1649,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskQueryOptions {
 }
 unsafe impl ::windows::core::Interface for UserDataTaskQueryOptions {
     type Vtable = IUserDataTaskQueryOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x959f27ed_909a_4d30_8c1b_331d8fe667e2);
+    const IID: ::windows::core::GUID = <IUserDataTaskQueryOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserDataTaskQueryOptions {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskQueryOptions";
@@ -1758,7 +1758,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskReader {
 }
 unsafe impl ::windows::core::Interface for UserDataTaskReader {
     type Vtable = IUserDataTaskReader_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03e688b1_4ccf_4500_883b_e76290cfed63);
+    const IID: ::windows::core::GUID = <IUserDataTaskReader as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserDataTaskReader {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskReader";
@@ -1954,7 +1954,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskRecurrenceProperties {
 }
 unsafe impl ::windows::core::Interface for UserDataTaskRecurrenceProperties {
     type Vtable = IUserDataTaskRecurrenceProperties_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73df80b0_27c6_40ce_b149_9cd41485a69e);
+    const IID: ::windows::core::GUID = <IUserDataTaskRecurrenceProperties as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserDataTaskRecurrenceProperties {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskRecurrenceProperties";
@@ -2122,7 +2122,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskRegenerationProperties 
 }
 unsafe impl ::windows::core::Interface for UserDataTaskRegenerationProperties {
     type Vtable = IUserDataTaskRegenerationProperties_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92ab0007_090e_4704_bb5c_84fc0b0d9c31);
+    const IID: ::windows::core::GUID = <IUserDataTaskRegenerationProperties as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserDataTaskRegenerationProperties {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskRegenerationProperties";
@@ -2289,7 +2289,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataTaskStore {
 }
 unsafe impl ::windows::core::Interface for UserDataTaskStore {
     type Vtable = IUserDataTaskStore_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf06a9cb0_f1db_45ba_8a62_086004c0213d);
+    const IID: ::windows::core::GUID = <IUserDataTaskStore as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserDataTaskStore {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataTasks.UserDataTaskStore";

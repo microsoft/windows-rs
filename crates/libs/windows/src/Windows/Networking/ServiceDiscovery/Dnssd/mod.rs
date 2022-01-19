@@ -65,7 +65,7 @@ unsafe impl ::windows::core::RuntimeType for DnssdRegistrationResult {
 }
 unsafe impl ::windows::core::Interface for DnssdRegistrationResult {
     type Vtable = IDnssdRegistrationResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d786ad2_e606_5350_73ea_7e97f066162f);
+    const IID: ::windows::core::GUID = <IDnssdRegistrationResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DnssdRegistrationResult {
     const NAME: &'static str = "Windows.Networking.ServiceDiscovery.Dnssd.DnssdRegistrationResult";
@@ -325,7 +325,7 @@ unsafe impl ::windows::core::RuntimeType for DnssdServiceInstance {
 }
 unsafe impl ::windows::core::Interface for DnssdServiceInstance {
     type Vtable = IDnssdServiceInstance_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe246db7e_98a5_4ca1_b9e4_c253d33c35ff);
+    const IID: ::windows::core::GUID = <IDnssdServiceInstance as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DnssdServiceInstance {
     const NAME: &'static str = "Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceInstance";
@@ -477,7 +477,7 @@ unsafe impl ::windows::core::RuntimeType for DnssdServiceInstanceCollection {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for DnssdServiceInstanceCollection {
     type Vtable = super::super::super::Foundation::Collections::IVectorView_Vtbl<DnssdServiceInstance>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::super::Foundation::Collections::IVectorView<DnssdServiceInstance> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for DnssdServiceInstanceCollection {
@@ -692,7 +692,7 @@ unsafe impl ::windows::core::RuntimeType for DnssdServiceWatcher {
 }
 unsafe impl ::windows::core::Interface for DnssdServiceWatcher {
     type Vtable = IDnssdServiceWatcher_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc34d9c1_db7d_4b69_983d_c6f83f205682);
+    const IID: ::windows::core::GUID = <IDnssdServiceWatcher as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DnssdServiceWatcher {
     const NAME: &'static str = "Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceWatcher";

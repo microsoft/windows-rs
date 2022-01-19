@@ -139,7 +139,7 @@ unsafe impl ::windows::core::RuntimeType for PreallocatedWorkItem {
 }
 unsafe impl ::windows::core::Interface for PreallocatedWorkItem {
     type Vtable = IPreallocatedWorkItem_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6daa9fc_bc5b_401a_a8b2_6e754d14daa6);
+    const IID: ::windows::core::GUID = <IPreallocatedWorkItem as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PreallocatedWorkItem {
     const NAME: &'static str = "Windows.System.Threading.Core.PreallocatedWorkItem";
@@ -335,7 +335,7 @@ unsafe impl ::windows::core::RuntimeType for SignalNotifier {
 }
 unsafe impl ::windows::core::Interface for SignalNotifier {
     type Vtable = ISignalNotifier_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14285e06_63a7_4713_b6d9_62f64b56fb8b);
+    const IID: ::windows::core::GUID = <ISignalNotifier as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SignalNotifier {
     const NAME: &'static str = "Windows.System.Threading.Core.SignalNotifier";

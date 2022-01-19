@@ -158,7 +158,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothAdapter {
 }
 unsafe impl ::windows::core::Interface for BluetoothAdapter {
     type Vtable = IBluetoothAdapter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7974f04c_5f7a_4a34_9225_a855f84b1a8b);
+    const IID: ::windows::core::GUID = <IBluetoothAdapter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BluetoothAdapter {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothAdapter";
@@ -339,7 +339,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothClassOfDevice {
 }
 unsafe impl ::windows::core::Interface for BluetoothClassOfDevice {
     type Vtable = IBluetoothClassOfDevice_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd640227e_d7d7_4661_9454_65039ca17a2b);
+    const IID: ::windows::core::GUID = <IBluetoothClassOfDevice as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BluetoothClassOfDevice {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothClassOfDevice";
@@ -713,7 +713,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothDevice {
 }
 unsafe impl ::windows::core::Interface for BluetoothDevice {
     type Vtable = IBluetoothDevice_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2335b156_90d2_4a04_aef5_0e20b9e6b707);
+    const IID: ::windows::core::GUID = <IBluetoothDevice as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BluetoothDevice {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothDevice";
@@ -848,7 +848,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothDeviceId {
 }
 unsafe impl ::windows::core::Interface for BluetoothDeviceId {
     type Vtable = IBluetoothDeviceId_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc17949af_57c1_4642_bcce_e6c06b20ae76);
+    const IID: ::windows::core::GUID = <IBluetoothDeviceId as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BluetoothDeviceId {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothDeviceId";
@@ -1000,7 +1000,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothLEAppearance {
 }
 unsafe impl ::windows::core::Interface for BluetoothLEAppearance {
     type Vtable = IBluetoothLEAppearance_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d2079f2_66a8_4258_985e_02b4d9509f18);
+    const IID: ::windows::core::GUID = <IBluetoothLEAppearance as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BluetoothLEAppearance {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEAppearance";
@@ -1471,7 +1471,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothLEConnectionParameters {
 }
 unsafe impl ::windows::core::Interface for BluetoothLEConnectionParameters {
     type Vtable = IBluetoothLEConnectionParameters_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33cb0771_8da9_508f_a366_1ca388c929ab);
+    const IID: ::windows::core::GUID = <IBluetoothLEConnectionParameters as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BluetoothLEConnectionParameters {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEConnectionParameters";
@@ -1560,7 +1560,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothLEConnectionPhy {
 }
 unsafe impl ::windows::core::Interface for BluetoothLEConnectionPhy {
     type Vtable = IBluetoothLEConnectionPhy_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x781e5e48_621e_5a7e_8be6_1b9561ff63c9);
+    const IID: ::windows::core::GUID = <IBluetoothLEConnectionPhy as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BluetoothLEConnectionPhy {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEConnectionPhy";
@@ -1657,7 +1657,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothLEConnectionPhyInfo {
 }
 unsafe impl ::windows::core::Interface for BluetoothLEConnectionPhyInfo {
     type Vtable = IBluetoothLEConnectionPhyInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a100bdd_602e_5c27_a1ae_b230015a6394);
+    const IID: ::windows::core::GUID = <IBluetoothLEConnectionPhyInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BluetoothLEConnectionPhyInfo {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEConnectionPhyInfo";
@@ -2063,7 +2063,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothLEDevice {
 }
 unsafe impl ::windows::core::Interface for BluetoothLEDevice {
     type Vtable = IBluetoothLEDevice_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5ee2f7b_4ad8_4642_ac48_80a0b500e887);
+    const IID: ::windows::core::GUID = <IBluetoothLEDevice as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BluetoothLEDevice {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEDevice";
@@ -2220,7 +2220,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothLEPreferredConnectionParam
 }
 unsafe impl ::windows::core::Interface for BluetoothLEPreferredConnectionParameters {
     type Vtable = IBluetoothLEPreferredConnectionParameters_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2f44344_7372_5f7b_9b34_29c944f5a715);
+    const IID: ::windows::core::GUID = <IBluetoothLEPreferredConnectionParameters as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BluetoothLEPreferredConnectionParameters {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEPreferredConnectionParameters";
@@ -2307,7 +2307,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothLEPreferredConnectionParam
 }
 unsafe impl ::windows::core::Interface for BluetoothLEPreferredConnectionParametersRequest {
     type Vtable = IBluetoothLEPreferredConnectionParametersRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a375276_a528_5266_b661_cce6a5ff9739);
+    const IID: ::windows::core::GUID = <IBluetoothLEPreferredConnectionParametersRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BluetoothLEPreferredConnectionParametersRequest {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothLEPreferredConnectionParametersRequest";
@@ -2700,7 +2700,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothSignalStrengthFilter {
 }
 unsafe impl ::windows::core::Interface for BluetoothSignalStrengthFilter {
     type Vtable = IBluetoothSignalStrengthFilter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf7b7391_6bb5_4cfe_90b1_5d7324edcf7f);
+    const IID: ::windows::core::GUID = <IBluetoothSignalStrengthFilter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BluetoothSignalStrengthFilter {
     const NAME: &'static str = "Windows.Devices.Bluetooth.BluetoothSignalStrengthFilter";

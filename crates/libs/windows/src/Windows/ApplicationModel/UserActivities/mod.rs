@@ -679,7 +679,7 @@ unsafe impl ::windows::core::RuntimeType for UserActivity {
 }
 unsafe impl ::windows::core::Interface for UserActivity {
     type Vtable = IUserActivity_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc103e9e_2cab_4d36_aea2_b4bb556cef0f);
+    const IID: ::windows::core::GUID = <IUserActivity as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserActivity {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivity";
@@ -813,7 +813,7 @@ unsafe impl ::windows::core::RuntimeType for UserActivityAttribution {
 }
 unsafe impl ::windows::core::Interface for UserActivityAttribution {
     type Vtable = IUserActivityAttribution_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34a5c8b5_86dd_4aec_a491_6a4faea5d22e);
+    const IID: ::windows::core::GUID = <IUserActivityAttribution as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserActivityAttribution {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivityAttribution";
@@ -973,7 +973,7 @@ unsafe impl ::windows::core::RuntimeType for UserActivityChannel {
 }
 unsafe impl ::windows::core::Interface for UserActivityChannel {
     type Vtable = IUserActivityChannel_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbac0f8b8_a0e4_483b_b948_9cbabd06070c);
+    const IID: ::windows::core::GUID = <IUserActivityChannel as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserActivityChannel {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivityChannel";
@@ -1066,7 +1066,7 @@ unsafe impl ::windows::core::RuntimeType for UserActivityContentInfo {
 }
 unsafe impl ::windows::core::Interface for UserActivityContentInfo {
     type Vtable = IUserActivityContentInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb399e5ad_137f_409d_822d_e1af27ce08dc);
+    const IID: ::windows::core::GUID = <IUserActivityContentInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserActivityContentInfo {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivityContentInfo";
@@ -1166,7 +1166,7 @@ unsafe impl ::windows::core::RuntimeType for UserActivityRequest {
 }
 unsafe impl ::windows::core::Interface for UserActivityRequest {
     type Vtable = IUserActivityRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0ef6355_cf35_4ff0_8833_50cb4b72e06d);
+    const IID: ::windows::core::GUID = <IUserActivityRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserActivityRequest {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivityRequest";
@@ -1266,7 +1266,7 @@ unsafe impl ::windows::core::RuntimeType for UserActivityRequestManager {
 }
 unsafe impl ::windows::core::Interface for UserActivityRequestManager {
     type Vtable = IUserActivityRequestManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c30be4e_903d_48d6_82d4_4043ed57791b);
+    const IID: ::windows::core::GUID = <IUserActivityRequestManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserActivityRequestManager {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivityRequestManager";
@@ -1354,7 +1354,7 @@ unsafe impl ::windows::core::RuntimeType for UserActivityRequestedEventArgs {
 }
 unsafe impl ::windows::core::Interface for UserActivityRequestedEventArgs {
     type Vtable = IUserActivityRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4cc7a4c_8229_4cfd_a3bc_c61d318575a4);
+    const IID: ::windows::core::GUID = <IUserActivityRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserActivityRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivityRequestedEventArgs";
@@ -1441,7 +1441,7 @@ unsafe impl ::windows::core::RuntimeType for UserActivitySession {
 }
 unsafe impl ::windows::core::Interface for UserActivitySession {
     type Vtable = IUserActivitySession_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae434d78_24fa_44a3_ad48_6eda61aa1924);
+    const IID: ::windows::core::GUID = <IUserActivitySession as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserActivitySession {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivitySession";
@@ -1566,7 +1566,7 @@ unsafe impl ::windows::core::RuntimeType for UserActivitySessionHistoryItem {
 }
 unsafe impl ::windows::core::Interface for UserActivitySessionHistoryItem {
     type Vtable = IUserActivitySessionHistoryItem_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8d59bd3_3e5d_49fd_98d7_6da97521e255);
+    const IID: ::windows::core::GUID = <IUserActivitySessionHistoryItem as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserActivitySessionHistoryItem {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivitySessionHistoryItem";
@@ -1749,7 +1749,7 @@ unsafe impl ::windows::core::RuntimeType for UserActivityVisualElements {
 }
 unsafe impl ::windows::core::Interface for UserActivityVisualElements {
     type Vtable = IUserActivityVisualElements_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94757513_262f_49ef_bbbf_9b75d2e85250);
+    const IID: ::windows::core::GUID = <IUserActivityVisualElements as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserActivityVisualElements {
     const NAME: &'static str = "Windows.ApplicationModel.UserActivities.UserActivityVisualElements";

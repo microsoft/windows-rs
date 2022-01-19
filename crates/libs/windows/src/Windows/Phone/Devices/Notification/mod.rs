@@ -78,7 +78,7 @@ unsafe impl ::windows::core::RuntimeType for VibrationDevice {
 }
 unsafe impl ::windows::core::Interface for VibrationDevice {
     type Vtable = IVibrationDevice_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b4a6595_cfcd_4e08_92fb_c1906d04498c);
+    const IID: ::windows::core::GUID = <IVibrationDevice as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VibrationDevice {
     const NAME: &'static str = "Windows.Phone.Devices.Notification.VibrationDevice";

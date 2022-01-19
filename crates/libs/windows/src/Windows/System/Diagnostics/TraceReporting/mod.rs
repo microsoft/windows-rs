@@ -319,7 +319,7 @@ unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticTraceInfo {
 }
 unsafe impl ::windows::core::Interface for PlatformDiagnosticTraceInfo {
     type Vtable = IPlatformDiagnosticTraceInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf870ed97_d597_4bf7_88dc_cf5c7dc2a1d2);
+    const IID: ::windows::core::GUID = <IPlatformDiagnosticTraceInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PlatformDiagnosticTraceInfo {
     const NAME: &'static str = "Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceInfo";
@@ -436,7 +436,7 @@ unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticTraceRuntimeInfo 
 }
 unsafe impl ::windows::core::Interface for PlatformDiagnosticTraceRuntimeInfo {
     type Vtable = IPlatformDiagnosticTraceRuntimeInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d4d5e2d_01d8_4768_8554_1eb1ca610986);
+    const IID: ::windows::core::GUID = <IPlatformDiagnosticTraceRuntimeInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PlatformDiagnosticTraceRuntimeInfo {
     const NAME: &'static str = "Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceRuntimeInfo";

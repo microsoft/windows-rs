@@ -39,7 +39,7 @@ unsafe impl ::windows::core::RuntimeType for AttachableInputObject {
 }
 unsafe impl ::windows::core::Interface for AttachableInputObject {
     type Vtable = IAttachableInputObject_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b822734_a3c1_542a_b2f4_0e32b773fb07);
+    const IID: ::windows::core::GUID = <IAttachableInputObject as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AttachableInputObject {
     const NAME: &'static str = "Windows.UI.Input.AttachableInputObject";
@@ -211,7 +211,7 @@ unsafe impl ::windows::core::RuntimeType for CrossSlidingEventArgs {
 }
 unsafe impl ::windows::core::Interface for CrossSlidingEventArgs {
     type Vtable = ICrossSlidingEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9374738_6f88_41d9_8720_78e08e398349);
+    const IID: ::windows::core::GUID = <ICrossSlidingEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CrossSlidingEventArgs {
     const NAME: &'static str = "Windows.UI.Input.CrossSlidingEventArgs";
@@ -349,7 +349,7 @@ unsafe impl ::windows::core::RuntimeType for DraggingEventArgs {
 }
 unsafe impl ::windows::core::Interface for DraggingEventArgs {
     type Vtable = IDraggingEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c905384_083c_4bd3_b559_179cddeb33ec);
+    const IID: ::windows::core::GUID = <IDraggingEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DraggingEventArgs {
     const NAME: &'static str = "Windows.UI.Input.DraggingEventArgs";
@@ -506,7 +506,7 @@ unsafe impl ::windows::core::RuntimeType for EdgeGesture {
 }
 unsafe impl ::windows::core::Interface for EdgeGesture {
     type Vtable = IEdgeGesture_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x580d5292_2ab1_49aa_a7f0_33bd3f8df9f1);
+    const IID: ::windows::core::GUID = <IEdgeGesture as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EdgeGesture {
     const NAME: &'static str = "Windows.UI.Input.EdgeGesture";
@@ -585,7 +585,7 @@ unsafe impl ::windows::core::RuntimeType for EdgeGestureEventArgs {
 }
 unsafe impl ::windows::core::Interface for EdgeGestureEventArgs {
     type Vtable = IEdgeGestureEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44fa4a24_2d09_42e1_8b5e_368208796a4c);
+    const IID: ::windows::core::GUID = <IEdgeGestureEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EdgeGestureEventArgs {
     const NAME: &'static str = "Windows.UI.Input.EdgeGestureEventArgs";
@@ -1223,7 +1223,7 @@ unsafe impl ::windows::core::RuntimeType for GestureRecognizer {
 }
 unsafe impl ::windows::core::Interface for GestureRecognizer {
     type Vtable = IGestureRecognizer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb47a37bf_3d6b_4f88_83e8_6dcb4012ffb0);
+    const IID: ::windows::core::GUID = <IGestureRecognizer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GestureRecognizer {
     const NAME: &'static str = "Windows.UI.Input.GestureRecognizer";
@@ -1408,7 +1408,7 @@ unsafe impl ::windows::core::RuntimeType for HoldingEventArgs {
 }
 unsafe impl ::windows::core::Interface for HoldingEventArgs {
     type Vtable = IHoldingEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bf755c5_e799_41b4_bb40_242f40959b71);
+    const IID: ::windows::core::GUID = <IHoldingEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HoldingEventArgs {
     const NAME: &'static str = "Windows.UI.Input.HoldingEventArgs";
@@ -3094,7 +3094,7 @@ unsafe impl ::windows::core::RuntimeType for InputActivationListener {
 }
 unsafe impl ::windows::core::Interface for InputActivationListener {
     type Vtable = IInputActivationListener_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d6d4ed2_28c7_5ae3_aa74_c918a9f243ca);
+    const IID: ::windows::core::GUID = <IInputActivationListener as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InputActivationListener {
     const NAME: &'static str = "Windows.UI.Input.InputActivationListener";
@@ -3221,7 +3221,7 @@ unsafe impl ::windows::core::RuntimeType for InputActivationListenerActivationCh
 }
 unsafe impl ::windows::core::Interface for InputActivationListenerActivationChangedEventArgs {
     type Vtable = IInputActivationListenerActivationChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7699b465_1dcf_5791_b4b9_6cafbeed2056);
+    const IID: ::windows::core::GUID = <IInputActivationListenerActivationChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InputActivationListenerActivationChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.InputActivationListenerActivationChangedEventArgs";
@@ -3379,7 +3379,7 @@ unsafe impl ::windows::core::RuntimeType for KeyboardDeliveryInterceptor {
 }
 unsafe impl ::windows::core::Interface for KeyboardDeliveryInterceptor {
     type Vtable = IKeyboardDeliveryInterceptor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4baf068_8f49_446c_8db5_8c0ffe85cc9e);
+    const IID: ::windows::core::GUID = <IKeyboardDeliveryInterceptor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for KeyboardDeliveryInterceptor {
     const NAME: &'static str = "Windows.UI.Input.KeyboardDeliveryInterceptor";
@@ -3504,7 +3504,7 @@ unsafe impl ::windows::core::RuntimeType for ManipulationCompletedEventArgs {
 }
 unsafe impl ::windows::core::Interface for ManipulationCompletedEventArgs {
     type Vtable = IManipulationCompletedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb34ab22b_d19b_46ff_9f38_dec7754bb9e7);
+    const IID: ::windows::core::GUID = <IManipulationCompletedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ManipulationCompletedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.ManipulationCompletedEventArgs";
@@ -3677,7 +3677,7 @@ unsafe impl ::windows::core::RuntimeType for ManipulationInertiaStartingEventArg
 }
 unsafe impl ::windows::core::Interface for ManipulationInertiaStartingEventArgs {
     type Vtable = IManipulationInertiaStartingEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd37a898_26bf_467a_9ce5_ccf3fb11371e);
+    const IID: ::windows::core::GUID = <IManipulationInertiaStartingEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ManipulationInertiaStartingEventArgs {
     const NAME: &'static str = "Windows.UI.Input.ManipulationInertiaStartingEventArgs";
@@ -3783,7 +3783,7 @@ unsafe impl ::windows::core::RuntimeType for ManipulationStartedEventArgs {
 }
 unsafe impl ::windows::core::Interface for ManipulationStartedEventArgs {
     type Vtable = IManipulationStartedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xddec873e_cfce_4932_8c1d_3c3d011a34c0);
+    const IID: ::windows::core::GUID = <IManipulationStartedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ManipulationStartedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.ManipulationStartedEventArgs";
@@ -3915,7 +3915,7 @@ unsafe impl ::windows::core::RuntimeType for ManipulationUpdatedEventArgs {
 }
 unsafe impl ::windows::core::Interface for ManipulationUpdatedEventArgs {
     type Vtable = IManipulationUpdatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb354ce5_abb8_4f9f_b3ce_8181aa61ad82);
+    const IID: ::windows::core::GUID = <IManipulationUpdatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ManipulationUpdatedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.ManipulationUpdatedEventArgs";
@@ -4090,7 +4090,7 @@ unsafe impl ::windows::core::RuntimeType for MouseWheelParameters {
 }
 unsafe impl ::windows::core::Interface for MouseWheelParameters {
     type Vtable = IMouseWheelParameters_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xead0ca44_9ded_4037_8149_5e4cc2564468);
+    const IID: ::windows::core::GUID = <IMouseWheelParameters as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MouseWheelParameters {
     const NAME: &'static str = "Windows.UI.Input.MouseWheelParameters";
@@ -4263,7 +4263,7 @@ unsafe impl ::windows::core::RuntimeType for PointerPoint {
 }
 unsafe impl ::windows::core::Interface for PointerPoint {
     type Vtable = IPointerPoint_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe995317d_7296_42d9_8233_c5be73b74a4a);
+    const IID: ::windows::core::GUID = <IPointerPoint as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PointerPoint {
     const NAME: &'static str = "Windows.UI.Input.PointerPoint";
@@ -4537,7 +4537,7 @@ unsafe impl ::windows::core::RuntimeType for PointerPointProperties {
 }
 unsafe impl ::windows::core::Interface for PointerPointProperties {
     type Vtable = IPointerPointProperties_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc79d8a4b_c163_4ee7_803f_67ce79f9972d);
+    const IID: ::windows::core::GUID = <IPointerPointProperties as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PointerPointProperties {
     const NAME: &'static str = "Windows.UI.Input.PointerPointProperties";
@@ -4683,7 +4683,7 @@ unsafe impl ::windows::core::RuntimeType for PointerVisualizationSettings {
 }
 unsafe impl ::windows::core::Interface for PointerVisualizationSettings {
     type Vtable = IPointerVisualizationSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d1e6461_84f7_499d_bd91_2a36e2b7aaa2);
+    const IID: ::windows::core::GUID = <IPointerVisualizationSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PointerVisualizationSettings {
     const NAME: &'static str = "Windows.UI.Input.PointerVisualizationSettings";
@@ -4959,7 +4959,7 @@ unsafe impl ::windows::core::RuntimeType for RadialController {
 }
 unsafe impl ::windows::core::Interface for RadialController {
     type Vtable = IRadialController_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3055d1c8_df51_43d4_b23b_0e1037467a09);
+    const IID: ::windows::core::GUID = <IRadialController as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RadialController {
     const NAME: &'static str = "Windows.UI.Input.RadialController";
@@ -5049,7 +5049,7 @@ unsafe impl ::windows::core::RuntimeType for RadialControllerButtonClickedEventA
 }
 unsafe impl ::windows::core::Interface for RadialControllerButtonClickedEventArgs {
     type Vtable = IRadialControllerButtonClickedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x206aa438_e651_11e5_bf62_2c27d7404e85);
+    const IID: ::windows::core::GUID = <IRadialControllerButtonClickedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RadialControllerButtonClickedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerButtonClickedEventArgs";
@@ -5139,7 +5139,7 @@ unsafe impl ::windows::core::RuntimeType for RadialControllerButtonHoldingEventA
 }
 unsafe impl ::windows::core::Interface for RadialControllerButtonHoldingEventArgs {
     type Vtable = IRadialControllerButtonHoldingEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577eee_3cee_11e6_b535_001bdc06ab3b);
+    const IID: ::windows::core::GUID = <IRadialControllerButtonHoldingEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RadialControllerButtonHoldingEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerButtonHoldingEventArgs";
@@ -5229,7 +5229,7 @@ unsafe impl ::windows::core::RuntimeType for RadialControllerButtonPressedEventA
 }
 unsafe impl ::windows::core::Interface for RadialControllerButtonPressedEventArgs {
     type Vtable = IRadialControllerButtonPressedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577eed_4cee_11e6_b535_001bdc06ab3b);
+    const IID: ::windows::core::GUID = <IRadialControllerButtonPressedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RadialControllerButtonPressedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerButtonPressedEventArgs";
@@ -5319,7 +5319,7 @@ unsafe impl ::windows::core::RuntimeType for RadialControllerButtonReleasedEvent
 }
 unsafe impl ::windows::core::Interface for RadialControllerButtonReleasedEventArgs {
     type Vtable = IRadialControllerButtonReleasedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577eef_3cee_11e6_b535_001bdc06ab3b);
+    const IID: ::windows::core::GUID = <IRadialControllerButtonReleasedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RadialControllerButtonReleasedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerButtonReleasedEventArgs";
@@ -5476,7 +5476,7 @@ unsafe impl ::windows::core::RuntimeType for RadialControllerConfiguration {
 }
 unsafe impl ::windows::core::Interface for RadialControllerConfiguration {
     type Vtable = IRadialControllerConfiguration_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6b79ecb_6a52_4430_910c_56370a9d6b42);
+    const IID: ::windows::core::GUID = <IRadialControllerConfiguration as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RadialControllerConfiguration {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerConfiguration";
@@ -5574,7 +5574,7 @@ unsafe impl ::windows::core::RuntimeType for RadialControllerControlAcquiredEven
 }
 unsafe impl ::windows::core::Interface for RadialControllerControlAcquiredEventArgs {
     type Vtable = IRadialControllerControlAcquiredEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x206aa439_e651_11e5_bf62_2c27d7404e85);
+    const IID: ::windows::core::GUID = <IRadialControllerControlAcquiredEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RadialControllerControlAcquiredEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerControlAcquiredEventArgs";
@@ -5690,7 +5690,7 @@ unsafe impl ::windows::core::RuntimeType for RadialControllerMenu {
 }
 unsafe impl ::windows::core::Interface for RadialControllerMenu {
     type Vtable = IRadialControllerMenu_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8506b35d_f640_4412_aba0_bad077e5ea8a);
+    const IID: ::windows::core::GUID = <IRadialControllerMenu as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RadialControllerMenu {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerMenu";
@@ -5839,7 +5839,7 @@ unsafe impl ::windows::core::RuntimeType for RadialControllerMenuItem {
 }
 unsafe impl ::windows::core::Interface for RadialControllerMenuItem {
     type Vtable = IRadialControllerMenuItem_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc80fc98d_ad0b_4c9c_8f2f_136a2373a6ba);
+    const IID: ::windows::core::GUID = <IRadialControllerMenuItem as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RadialControllerMenuItem {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerMenuItem";
@@ -5980,7 +5980,7 @@ unsafe impl ::windows::core::RuntimeType for RadialControllerRotationChangedEven
 }
 unsafe impl ::windows::core::Interface for RadialControllerRotationChangedEventArgs {
     type Vtable = IRadialControllerRotationChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x206aa435_e651_11e5_bf62_2c27d7404e85);
+    const IID: ::windows::core::GUID = <IRadialControllerRotationChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RadialControllerRotationChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerRotationChangedEventArgs";
@@ -6071,7 +6071,7 @@ unsafe impl ::windows::core::RuntimeType for RadialControllerScreenContact {
 }
 unsafe impl ::windows::core::Interface for RadialControllerScreenContact {
     type Vtable = IRadialControllerScreenContact_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x206aa434_e651_11e5_bf62_2c27d7404e85);
+    const IID: ::windows::core::GUID = <IRadialControllerScreenContact as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RadialControllerScreenContact {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerScreenContact";
@@ -6169,7 +6169,7 @@ unsafe impl ::windows::core::RuntimeType for RadialControllerScreenContactContin
 }
 unsafe impl ::windows::core::Interface for RadialControllerScreenContactContinuedEventArgs {
     type Vtable = IRadialControllerScreenContactContinuedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x206aa437_e651_11e5_bf62_2c27d7404e85);
+    const IID: ::windows::core::GUID = <IRadialControllerScreenContactContinuedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RadialControllerScreenContactContinuedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerScreenContactContinuedEventArgs";
@@ -6259,7 +6259,7 @@ unsafe impl ::windows::core::RuntimeType for RadialControllerScreenContactEndedE
 }
 unsafe impl ::windows::core::Interface for RadialControllerScreenContactEndedEventArgs {
     type Vtable = IRadialControllerScreenContactEndedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577ef2_3cee_11e6_b535_001bdc06ab3b);
+    const IID: ::windows::core::GUID = <IRadialControllerScreenContactEndedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RadialControllerScreenContactEndedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerScreenContactEndedEventArgs";
@@ -6357,7 +6357,7 @@ unsafe impl ::windows::core::RuntimeType for RadialControllerScreenContactStarte
 }
 unsafe impl ::windows::core::Interface for RadialControllerScreenContactStartedEventArgs {
     type Vtable = IRadialControllerScreenContactStartedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x206aa436_e651_11e5_bf62_2c27d7404e85);
+    const IID: ::windows::core::GUID = <IRadialControllerScreenContactStartedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RadialControllerScreenContactStartedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RadialControllerScreenContactStartedEventArgs";
@@ -6487,7 +6487,7 @@ unsafe impl ::windows::core::RuntimeType for RightTappedEventArgs {
 }
 unsafe impl ::windows::core::Interface for RightTappedEventArgs {
     type Vtable = IRightTappedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4cbf40bd_af7a_4a36_9476_b1dce141709a);
+    const IID: ::windows::core::GUID = <IRightTappedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RightTappedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.RightTappedEventArgs";
@@ -6637,7 +6637,7 @@ unsafe impl ::windows::core::RuntimeType for SystemButtonEventController {
 }
 unsafe impl ::windows::core::Interface for SystemButtonEventController {
     type Vtable = ISystemButtonEventController_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59b893a9_73bc_52b5_ba41_82511b2cb46c);
+    const IID: ::windows::core::GUID = <ISystemButtonEventController as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SystemButtonEventController {
     const NAME: &'static str = "Windows.UI.Input.SystemButtonEventController";
@@ -6777,7 +6777,7 @@ unsafe impl ::windows::core::RuntimeType for SystemFunctionButtonEventArgs {
 }
 unsafe impl ::windows::core::Interface for SystemFunctionButtonEventArgs {
     type Vtable = ISystemFunctionButtonEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4833896f_80d1_5dd6_92a7_62a508ffef5a);
+    const IID: ::windows::core::GUID = <ISystemFunctionButtonEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SystemFunctionButtonEventArgs {
     const NAME: &'static str = "Windows.UI.Input.SystemFunctionButtonEventArgs";
@@ -6879,7 +6879,7 @@ unsafe impl ::windows::core::RuntimeType for SystemFunctionLockChangedEventArgs 
 }
 unsafe impl ::windows::core::Interface for SystemFunctionLockChangedEventArgs {
     type Vtable = ISystemFunctionLockChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd040608_fcf9_585c_beab_f1d2eaf364ab);
+    const IID: ::windows::core::GUID = <ISystemFunctionLockChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SystemFunctionLockChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.SystemFunctionLockChangedEventArgs";
@@ -6981,7 +6981,7 @@ unsafe impl ::windows::core::RuntimeType for SystemFunctionLockIndicatorChangedE
 }
 unsafe impl ::windows::core::Interface for SystemFunctionLockIndicatorChangedEventArgs {
     type Vtable = ISystemFunctionLockIndicatorChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb212b94e_7a6f_58ae_b304_bae61d0371b9);
+    const IID: ::windows::core::GUID = <ISystemFunctionLockIndicatorChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SystemFunctionLockIndicatorChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.SystemFunctionLockIndicatorChangedEventArgs";
@@ -7088,7 +7088,7 @@ unsafe impl ::windows::core::RuntimeType for TappedEventArgs {
 }
 unsafe impl ::windows::core::Interface for TappedEventArgs {
     type Vtable = ITappedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfa126e4_253a_4c3c_953b_395c37aed309);
+    const IID: ::windows::core::GUID = <ITappedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TappedEventArgs {
     const NAME: &'static str = "Windows.UI.Input.TappedEventArgs";

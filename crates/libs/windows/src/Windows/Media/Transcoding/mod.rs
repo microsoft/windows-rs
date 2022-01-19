@@ -242,7 +242,7 @@ unsafe impl ::windows::core::RuntimeType for MediaTranscoder {
 }
 unsafe impl ::windows::core::Interface for MediaTranscoder {
     type Vtable = IMediaTranscoder_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x190c99d2_a0aa_4d34_86bc_eed1b12c2f5b);
+    const IID: ::windows::core::GUID = <IMediaTranscoder as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaTranscoder {
     const NAME: &'static str = "Windows.Media.Transcoding.MediaTranscoder";
@@ -368,7 +368,7 @@ unsafe impl ::windows::core::RuntimeType for PrepareTranscodeResult {
 }
 unsafe impl ::windows::core::Interface for PrepareTranscodeResult {
     type Vtable = IPrepareTranscodeResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05f25dce_994f_4a34_9d68_97ccce1730d6);
+    const IID: ::windows::core::GUID = <IPrepareTranscodeResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrepareTranscodeResult {
     const NAME: &'static str = "Windows.Media.Transcoding.PrepareTranscodeResult";

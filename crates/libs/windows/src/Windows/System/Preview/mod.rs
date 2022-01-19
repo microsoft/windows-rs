@@ -215,7 +215,7 @@ unsafe impl ::windows::core::RuntimeType for TwoPanelHingedDevicePosturePreview 
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for TwoPanelHingedDevicePosturePreview {
     type Vtable = ITwoPanelHingedDevicePosturePreview_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72245c31_4b39_42a6_8e73_7235ade16853);
+    const IID: ::windows::core::GUID = <ITwoPanelHingedDevicePosturePreview as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for TwoPanelHingedDevicePosturePreview {
@@ -361,7 +361,7 @@ unsafe impl ::windows::core::RuntimeType for TwoPanelHingedDevicePosturePreviewR
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for TwoPanelHingedDevicePosturePreviewReading {
     type Vtable = ITwoPanelHingedDevicePosturePreviewReading_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0251452_4ad6_4b38_8426_c59a15493a7d);
+    const IID: ::windows::core::GUID = <ITwoPanelHingedDevicePosturePreviewReading as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for TwoPanelHingedDevicePosturePreviewReading {
@@ -462,7 +462,7 @@ unsafe impl ::windows::core::RuntimeType for TwoPanelHingedDevicePosturePreviewR
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs {
     type Vtable = ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d2d1bc6_02ce_474a_a556_a75b1cf93a03);
+    const IID: ::windows::core::GUID = <ITwoPanelHingedDevicePosturePreviewReadingChangedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for TwoPanelHingedDevicePosturePreviewReadingChangedEventArgs {

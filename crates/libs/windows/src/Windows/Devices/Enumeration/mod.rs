@@ -43,7 +43,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceAccessChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for DeviceAccessChangedEventArgs {
     type Vtable = IDeviceAccessChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdeda0bcc_4f9d_4f58_9dba_a9bc800408d5);
+    const IID: ::windows::core::GUID = <IDeviceAccessChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DeviceAccessChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceAccessChangedEventArgs";
@@ -165,7 +165,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceAccessInformation {
 }
 unsafe impl ::windows::core::Interface for DeviceAccessInformation {
     type Vtable = IDeviceAccessInformation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0baa9a73_6de5_4915_8ddd_9a0554a6f545);
+    const IID: ::windows::core::GUID = <IDeviceAccessInformation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DeviceAccessInformation {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceAccessInformation";
@@ -309,7 +309,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceConnectionChangeTriggerDetail
 }
 unsafe impl ::windows::core::Interface for DeviceConnectionChangeTriggerDetails {
     type Vtable = IDeviceConnectionChangeTriggerDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8578c0c_bbc1_484b_bffa_7b31dcc200b2);
+    const IID: ::windows::core::GUID = <IDeviceConnectionChangeTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DeviceConnectionChangeTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceConnectionChangeTriggerDetails";
@@ -390,7 +390,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceDisconnectButtonClickedEventA
 }
 unsafe impl ::windows::core::Interface for DeviceDisconnectButtonClickedEventArgs {
     type Vtable = IDeviceDisconnectButtonClickedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e44b56d_f902_4a00_b536_f37992e6a2a7);
+    const IID: ::windows::core::GUID = <IDeviceDisconnectButtonClickedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DeviceDisconnectButtonClickedEventArgs {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceDisconnectButtonClickedEventArgs";
@@ -669,7 +669,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceInformation {
 }
 unsafe impl ::windows::core::Interface for DeviceInformation {
     type Vtable = IDeviceInformation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaba0fb95_4398_489d_8e44_e6130927011f);
+    const IID: ::windows::core::GUID = <IDeviceInformation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DeviceInformation {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceInformation";
@@ -795,7 +795,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceInformationCollection {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for DeviceInformationCollection {
     type Vtable = super::super::Foundation::Collections::IVectorView_Vtbl<DeviceInformation>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::Foundation::Collections::IVectorView<DeviceInformation> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for DeviceInformationCollection {
@@ -989,7 +989,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceInformationCustomPairing {
 }
 unsafe impl ::windows::core::Interface for DeviceInformationCustomPairing {
     type Vtable = IDeviceInformationCustomPairing_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85138c02_4ee6_4914_8370_107a39144c0e);
+    const IID: ::windows::core::GUID = <IDeviceInformationCustomPairing as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DeviceInformationCustomPairing {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceInformationCustomPairing";
@@ -1189,7 +1189,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceInformationPairing {
 }
 unsafe impl ::windows::core::Interface for DeviceInformationPairing {
     type Vtable = IDeviceInformationPairing_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c4769f5_f684_40d5_8469_e8dbaab70485);
+    const IID: ::windows::core::GUID = <IDeviceInformationPairing as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DeviceInformationPairing {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceInformationPairing";
@@ -1287,7 +1287,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceInformationUpdate {
 }
 unsafe impl ::windows::core::Interface for DeviceInformationUpdate {
     type Vtable = IDeviceInformationUpdate_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f315305_d972_44b7_a37e_9e822c78213b);
+    const IID: ::windows::core::GUID = <IDeviceInformationUpdate as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DeviceInformationUpdate {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceInformationUpdate";
@@ -1499,7 +1499,7 @@ unsafe impl ::windows::core::RuntimeType for DevicePairingRequestedEventArgs {
 }
 unsafe impl ::windows::core::Interface for DevicePairingRequestedEventArgs {
     type Vtable = IDevicePairingRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf717fc56_de6b_487f_8376_0180aca69963);
+    const IID: ::windows::core::GUID = <IDevicePairingRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DevicePairingRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Enumeration.DevicePairingRequestedEventArgs";
@@ -1588,7 +1588,7 @@ unsafe impl ::windows::core::RuntimeType for DevicePairingResult {
 }
 unsafe impl ::windows::core::Interface for DevicePairingResult {
     type Vtable = IDevicePairingResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x072b02bf_dd95_4025_9b37_de51adba37b7);
+    const IID: ::windows::core::GUID = <IDevicePairingResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DevicePairingResult {
     const NAME: &'static str = "Windows.Devices.Enumeration.DevicePairingResult";
@@ -1824,7 +1824,7 @@ unsafe impl ::windows::core::RuntimeType for DevicePicker {
 }
 unsafe impl ::windows::core::Interface for DevicePicker {
     type Vtable = IDevicePicker_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84997aa2_034a_4440_8813_7d0bd479bf5a);
+    const IID: ::windows::core::GUID = <IDevicePicker as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DevicePicker {
     const NAME: &'static str = "Windows.Devices.Enumeration.DevicePicker";
@@ -2000,7 +2000,7 @@ unsafe impl ::windows::core::RuntimeType for DevicePickerAppearance {
 }
 unsafe impl ::windows::core::Interface for DevicePickerAppearance {
     type Vtable = IDevicePickerAppearance_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe69a12c6_e627_4ed8_9b6c_460af445e56d);
+    const IID: ::windows::core::GUID = <IDevicePickerAppearance as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DevicePickerAppearance {
     const NAME: &'static str = "Windows.Devices.Enumeration.DevicePickerAppearance";
@@ -2149,7 +2149,7 @@ unsafe impl ::windows::core::RuntimeType for DevicePickerFilter {
 }
 unsafe impl ::windows::core::Interface for DevicePickerFilter {
     type Vtable = IDevicePickerFilter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91db92a2_57cb_48f1_9b59_a59b7a1f02a2);
+    const IID: ::windows::core::GUID = <IDevicePickerFilter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DevicePickerFilter {
     const NAME: &'static str = "Windows.Devices.Enumeration.DevicePickerFilter";
@@ -2230,7 +2230,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceSelectedEventArgs {
 }
 unsafe impl ::windows::core::Interface for DeviceSelectedEventArgs {
     type Vtable = IDeviceSelectedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x269edade_1d2f_4940_8402_4156b81d3c77);
+    const IID: ::windows::core::GUID = <IDeviceSelectedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DeviceSelectedEventArgs {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceSelectedEventArgs";
@@ -2428,7 +2428,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceThumbnail {
 #[cfg(feature = "Storage_Streams")]
 unsafe impl ::windows::core::Interface for DeviceThumbnail {
     type Vtable = super::super::Storage::Streams::IRandomAccessStreamWithContentType_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc254827_4b3d_438f_9232_10c76bc7e038);
+    const IID: ::windows::core::GUID = <super::super::Storage::Streams::IRandomAccessStreamWithContentType as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Storage_Streams")]
 impl ::windows::core::RuntimeName for DeviceThumbnail {
@@ -2676,7 +2676,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceUnpairingResult {
 }
 unsafe impl ::windows::core::Interface for DeviceUnpairingResult {
     type Vtable = IDeviceUnpairingResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66f44ad3_79d9_444b_92cf_a92ef72571c7);
+    const IID: ::windows::core::GUID = <IDeviceUnpairingResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DeviceUnpairingResult {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceUnpairingResult";
@@ -2882,7 +2882,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceWatcher {
 }
 unsafe impl ::windows::core::Interface for DeviceWatcher {
     type Vtable = IDeviceWatcher_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9eab97d_8f6b_4f96_a9f4_abc814e22271);
+    const IID: ::windows::core::GUID = <IDeviceWatcher as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DeviceWatcher {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceWatcher";
@@ -2979,7 +2979,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceWatcherEvent {
 }
 unsafe impl ::windows::core::Interface for DeviceWatcherEvent {
     type Vtable = IDeviceWatcherEvent_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74aa9c0b_1dbd_47fd_b635_3cc556d0ff8b);
+    const IID: ::windows::core::GUID = <IDeviceWatcherEvent as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DeviceWatcherEvent {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceWatcherEvent";
@@ -3122,7 +3122,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceWatcherTriggerDetails {
 }
 unsafe impl ::windows::core::Interface for DeviceWatcherTriggerDetails {
     type Vtable = IDeviceWatcherTriggerDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38808119_4cb7_4e57_a56d_776d07cbfef9);
+    const IID: ::windows::core::GUID = <IDeviceWatcherTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DeviceWatcherTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceWatcherTriggerDetails";
@@ -3227,7 +3227,7 @@ unsafe impl ::windows::core::RuntimeType for EnclosureLocation {
 }
 unsafe impl ::windows::core::Interface for EnclosureLocation {
     type Vtable = IEnclosureLocation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42340a27_5810_459c_aabb_c65e1f813ecf);
+    const IID: ::windows::core::GUID = <IEnclosureLocation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EnclosureLocation {
     const NAME: &'static str = "Windows.Devices.Enumeration.EnclosureLocation";

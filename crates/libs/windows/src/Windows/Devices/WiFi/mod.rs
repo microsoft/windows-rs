@@ -351,7 +351,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiAdapter {
 }
 unsafe impl ::windows::core::Interface for WiFiAdapter {
     type Vtable = IWiFiAdapter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6c4e423_3d75_43a4_b9de_11e26b72d9b0);
+    const IID: ::windows::core::GUID = <IWiFiAdapter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WiFiAdapter {
     const NAME: &'static str = "Windows.Devices.WiFi.WiFiAdapter";
@@ -515,7 +515,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiAvailableNetwork {
 }
 unsafe impl ::windows::core::Interface for WiFiAvailableNetwork {
     type Vtable = IWiFiAvailableNetwork_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26e96246_183e_4704_9826_71b4a2f0f668);
+    const IID: ::windows::core::GUID = <IWiFiAvailableNetwork as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WiFiAvailableNetwork {
     const NAME: &'static str = "Windows.Devices.WiFi.WiFiAvailableNetwork";
@@ -625,7 +625,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiConnectionResult {
 }
 unsafe impl ::windows::core::Interface for WiFiConnectionResult {
     type Vtable = IWiFiConnectionResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x143bdfd9_c37d_40be_a5c8_857bce85a931);
+    const IID: ::windows::core::GUID = <IWiFiConnectionResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WiFiConnectionResult {
     const NAME: &'static str = "Windows.Devices.WiFi.WiFiConnectionResult";
@@ -778,7 +778,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiNetworkReport {
 }
 unsafe impl ::windows::core::Interface for WiFiNetworkReport {
     type Vtable = IWiFiNetworkReport_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9524ded2_5911_445e_8194_be4f1a704895);
+    const IID: ::windows::core::GUID = <IWiFiNetworkReport as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WiFiNetworkReport {
     const NAME: &'static str = "Windows.Devices.WiFi.WiFiNetworkReport";
@@ -933,7 +933,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiWpsConfigurationResult {
 }
 unsafe impl ::windows::core::Interface for WiFiWpsConfigurationResult {
     type Vtable = IWiFiWpsConfigurationResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x67b49871_17ee_42d1_b14f_5a11f1226fb5);
+    const IID: ::windows::core::GUID = <IWiFiWpsConfigurationResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WiFiWpsConfigurationResult {
     const NAME: &'static str = "Windows.Devices.WiFi.WiFiWpsConfigurationResult";

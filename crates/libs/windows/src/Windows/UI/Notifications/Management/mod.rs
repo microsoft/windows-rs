@@ -141,7 +141,7 @@ unsafe impl ::windows::core::RuntimeType for UserNotificationListener {
 }
 unsafe impl ::windows::core::Interface for UserNotificationListener {
     type Vtable = IUserNotificationListener_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62553e41_8a06_4cef_8215_6033a5be4b03);
+    const IID: ::windows::core::GUID = <IUserNotificationListener as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserNotificationListener {
     const NAME: &'static str = "Windows.UI.Notifications.Management.UserNotificationListener";

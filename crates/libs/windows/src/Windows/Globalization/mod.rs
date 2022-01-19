@@ -864,7 +864,7 @@ unsafe impl ::windows::core::RuntimeType for Calendar {
 }
 unsafe impl ::windows::core::Interface for Calendar {
     type Vtable = ICalendar_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca30221d_86d9_40fb_a26b_d44eb7cf08ea);
+    const IID: ::windows::core::GUID = <ICalendar as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Calendar {
     const NAME: &'static str = "Windows.Globalization.Calendar";
@@ -1118,7 +1118,7 @@ unsafe impl ::windows::core::RuntimeType for CurrencyAmount {
 }
 unsafe impl ::windows::core::Interface for CurrencyAmount {
     type Vtable = ICurrencyAmount_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74b49942_eb75_443a_95b3_7d723f56f93c);
+    const IID: ::windows::core::GUID = <ICurrencyAmount as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CurrencyAmount {
     const NAME: &'static str = "Windows.Globalization.CurrencyAmount";
@@ -2468,7 +2468,7 @@ unsafe impl ::windows::core::RuntimeType for GeographicRegion {
 }
 unsafe impl ::windows::core::Interface for GeographicRegion {
     type Vtable = IGeographicRegion_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01e9a621_4a64_4ed9_954f_9edeb07bd903);
+    const IID: ::windows::core::GUID = <IGeographicRegion as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GeographicRegion {
     const NAME: &'static str = "Windows.Globalization.GeographicRegion";
@@ -3336,7 +3336,7 @@ unsafe impl ::windows::core::RuntimeType for JapanesePhoneme {
 }
 unsafe impl ::windows::core::Interface for JapanesePhoneme {
     type Vtable = IJapanesePhoneme_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f6a9300_e85b_43e6_897d_5d82f862df21);
+    const IID: ::windows::core::GUID = <IJapanesePhoneme as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for JapanesePhoneme {
     const NAME: &'static str = "Windows.Globalization.JapanesePhoneme";
@@ -3548,7 +3548,7 @@ unsafe impl ::windows::core::RuntimeType for Language {
 }
 unsafe impl ::windows::core::Interface for Language {
     type Vtable = ILanguage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea79a752_f7c2_4265_b1bd_c4dec4e4f080);
+    const IID: ::windows::core::GUID = <ILanguage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Language {
     const NAME: &'static str = "Windows.Globalization.Language";

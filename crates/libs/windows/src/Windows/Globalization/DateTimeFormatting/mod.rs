@@ -269,7 +269,7 @@ unsafe impl ::windows::core::RuntimeType for DateTimeFormatter {
 }
 unsafe impl ::windows::core::Interface for DateTimeFormatter {
     type Vtable = IDateTimeFormatter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95eeca10_73e0_4e4b_a183_3d6ad0ba35ec);
+    const IID: ::windows::core::GUID = <IDateTimeFormatter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DateTimeFormatter {
     const NAME: &'static str = "Windows.Globalization.DateTimeFormatting.DateTimeFormatter";

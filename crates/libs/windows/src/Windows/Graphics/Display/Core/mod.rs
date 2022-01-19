@@ -225,7 +225,7 @@ unsafe impl ::windows::core::RuntimeType for HdmiDisplayInformation {
 }
 unsafe impl ::windows::core::Interface for HdmiDisplayInformation {
     type Vtable = IHdmiDisplayInformation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x130b3c0a_f565_476e_abd5_ea05aee74c69);
+    const IID: ::windows::core::GUID = <IHdmiDisplayInformation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HdmiDisplayInformation {
     const NAME: &'static str = "Windows.Graphics.Display.Core.HdmiDisplayInformation";
@@ -394,7 +394,7 @@ unsafe impl ::windows::core::RuntimeType for HdmiDisplayMode {
 }
 unsafe impl ::windows::core::Interface for HdmiDisplayMode {
     type Vtable = IHdmiDisplayMode_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c06d5ad_1b90_4f51_9981_ef5a1c0ddf66);
+    const IID: ::windows::core::GUID = <IHdmiDisplayMode as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HdmiDisplayMode {
     const NAME: &'static str = "Windows.Graphics.Display.Core.HdmiDisplayMode";

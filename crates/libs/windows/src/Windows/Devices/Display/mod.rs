@@ -230,7 +230,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayMonitor {
 }
 unsafe impl ::windows::core::Interface for DisplayMonitor {
     type Vtable = IDisplayMonitor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f6b15d4_1d01_4c51_87e2_6f954a772b59);
+    const IID: ::windows::core::GUID = <IDisplayMonitor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DisplayMonitor {
     const NAME: &'static str = "Windows.Devices.Display.DisplayMonitor";

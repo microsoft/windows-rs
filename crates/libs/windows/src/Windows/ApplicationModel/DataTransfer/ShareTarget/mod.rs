@@ -173,7 +173,7 @@ unsafe impl ::windows::core::RuntimeType for QuickLink {
 }
 unsafe impl ::windows::core::Interface for QuickLink {
     type Vtable = IQuickLink_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x603e4308_f0be_4adc_acc9_8b27ab9cf556);
+    const IID: ::windows::core::GUID = <IQuickLink as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for QuickLink {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareTarget.QuickLink";
@@ -309,7 +309,7 @@ unsafe impl ::windows::core::RuntimeType for ShareOperation {
 }
 unsafe impl ::windows::core::Interface for ShareOperation {
     type Vtable = IShareOperation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2246bab8_d0f8_41c1_a82a_4137db6504fb);
+    const IID: ::windows::core::GUID = <IShareOperation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ShareOperation {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.ShareTarget.ShareOperation";

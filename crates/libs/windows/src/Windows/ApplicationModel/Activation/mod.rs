@@ -176,7 +176,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentsProviderAddAppointmentA
 }
 unsafe impl ::windows::core::Interface for AppointmentsProviderAddAppointmentActivatedEventArgs {
     type Vtable = IAppointmentsProviderAddAppointmentActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2861367_cee5_4e4d_9ed7_41c34ec18b02);
+    const IID: ::windows::core::GUID = <IAppointmentsProviderAddAppointmentActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppointmentsProviderAddAppointmentActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderAddAppointmentActivatedEventArgs";
@@ -387,7 +387,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentsProviderRemoveAppointme
 }
 unsafe impl ::windows::core::Interface for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
     type Vtable = IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x751f3ab8_0b8e_451c_9f15_966e699bac25);
+    const IID: ::windows::core::GUID = <IAppointmentsProviderRemoveAppointmentActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppointmentsProviderRemoveAppointmentActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderRemoveAppointmentActivatedEventArgs";
@@ -598,7 +598,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentsProviderReplaceAppointm
 }
 unsafe impl ::windows::core::Interface for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
     type Vtable = IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1551b7d4_a981_4067_8a62_0524e4ade121);
+    const IID: ::windows::core::GUID = <IAppointmentsProviderReplaceAppointmentActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppointmentsProviderReplaceAppointmentActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderReplaceAppointmentActivatedEventArgs";
@@ -825,7 +825,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentsProviderShowAppointment
 }
 unsafe impl ::windows::core::Interface for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     type Vtable = IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3958f065_9841_4ca5_999b_885198b9ef2a);
+    const IID: ::windows::core::GUID = <IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderShowAppointmentDetailsActivatedEventArgs";
@@ -1045,7 +1045,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentsProviderShowTimeFrameAc
 }
 unsafe impl ::windows::core::Interface for AppointmentsProviderShowTimeFrameActivatedEventArgs {
     type Vtable = IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9baeaba6_0e0b_49aa_babc_12b1dc774986);
+    const IID: ::windows::core::GUID = <IAppointmentsProviderShowTimeFrameActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppointmentsProviderShowTimeFrameActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.AppointmentsProviderShowTimeFrameActivatedEventArgs";
@@ -1215,7 +1215,7 @@ unsafe impl ::windows::core::RuntimeType for BackgroundActivatedEventArgs {
 }
 unsafe impl ::windows::core::Interface for BackgroundActivatedEventArgs {
     type Vtable = IBackgroundActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab14bee0_e760_440e_a91c_44796de3a92d);
+    const IID: ::windows::core::GUID = <IBackgroundActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BackgroundActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.BackgroundActivatedEventArgs";
@@ -1351,7 +1351,7 @@ unsafe impl ::windows::core::RuntimeType for BarcodeScannerPreviewActivatedEvent
 }
 unsafe impl ::windows::core::Interface for BarcodeScannerPreviewActivatedEventArgs {
     type Vtable = IBarcodeScannerPreviewActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6772797c_99bf_4349_af22_e4123560371c);
+    const IID: ::windows::core::GUID = <IBarcodeScannerPreviewActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BarcodeScannerPreviewActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.BarcodeScannerPreviewActivatedEventArgs";
@@ -1532,7 +1532,7 @@ unsafe impl ::windows::core::RuntimeType for CachedFileUpdaterActivatedEventArgs
 }
 unsafe impl ::windows::core::Interface for CachedFileUpdaterActivatedEventArgs {
     type Vtable = ICachedFileUpdaterActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd06eb1c7_3805_4ecb_b757_6cf15e26fef3);
+    const IID: ::windows::core::GUID = <ICachedFileUpdaterActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CachedFileUpdaterActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.CachedFileUpdaterActivatedEventArgs";
@@ -1711,7 +1711,7 @@ unsafe impl ::windows::core::RuntimeType for CameraSettingsActivatedEventArgs {
 }
 unsafe impl ::windows::core::Interface for CameraSettingsActivatedEventArgs {
     type Vtable = ICameraSettingsActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb67a508_2dad_490a_9170_dca036eb114b);
+    const IID: ::windows::core::GUID = <ICameraSettingsActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CameraSettingsActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.CameraSettingsActivatedEventArgs";
@@ -1869,7 +1869,7 @@ unsafe impl ::windows::core::RuntimeType for CommandLineActivatedEventArgs {
 }
 unsafe impl ::windows::core::Interface for CommandLineActivatedEventArgs {
     type Vtable = ICommandLineActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4506472c_006a_48eb_8afb_d07ab25e3366);
+    const IID: ::windows::core::GUID = <ICommandLineActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CommandLineActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.CommandLineActivatedEventArgs";
@@ -2046,7 +2046,7 @@ unsafe impl ::windows::core::RuntimeType for CommandLineActivationOperation {
 }
 unsafe impl ::windows::core::Interface for CommandLineActivationOperation {
     type Vtable = ICommandLineActivationOperation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x994b2841_c59e_4f69_bcfd_b61ed4e622eb);
+    const IID: ::windows::core::GUID = <ICommandLineActivationOperation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CommandLineActivationOperation {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.CommandLineActivationOperation";
@@ -2176,7 +2176,7 @@ unsafe impl ::windows::core::RuntimeType for ContactCallActivatedEventArgs {
 }
 unsafe impl ::windows::core::Interface for ContactCallActivatedEventArgs {
     type Vtable = IContactCallActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2df14c7_30eb_41c6_b3bc_5b1694f9dab3);
+    const IID: ::windows::core::GUID = <IContactCallActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactCallActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactCallActivatedEventArgs";
@@ -2365,7 +2365,7 @@ unsafe impl ::windows::core::RuntimeType for ContactMapActivatedEventArgs {
 }
 unsafe impl ::windows::core::Interface for ContactMapActivatedEventArgs {
     type Vtable = IContactMapActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb32bf870_eee7_4ad2_aaf1_a87effcf00a4);
+    const IID: ::windows::core::GUID = <IContactMapActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactMapActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactMapActivatedEventArgs";
@@ -2561,7 +2561,7 @@ unsafe impl ::windows::core::RuntimeType for ContactMessageActivatedEventArgs {
 }
 unsafe impl ::windows::core::Interface for ContactMessageActivatedEventArgs {
     type Vtable = IContactMessageActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde598db2_0e03_43b0_bf56_bcc40b3162df);
+    const IID: ::windows::core::GUID = <IContactMessageActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactMessageActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactMessageActivatedEventArgs";
@@ -2751,7 +2751,7 @@ unsafe impl ::windows::core::RuntimeType for ContactPanelActivatedEventArgs {
 }
 unsafe impl ::windows::core::Interface for ContactPanelActivatedEventArgs {
     type Vtable = IContactPanelActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52bb63e4_d3d4_4b63_8051_4af2082cab80);
+    const IID: ::windows::core::GUID = <IContactPanelActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactPanelActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactPanelActivatedEventArgs";
@@ -2923,7 +2923,7 @@ unsafe impl ::windows::core::RuntimeType for ContactPickerActivatedEventArgs {
 }
 unsafe impl ::windows::core::Interface for ContactPickerActivatedEventArgs {
     type Vtable = IContactPickerActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce57aae7_6449_45a7_971f_d113be7a8936);
+    const IID: ::windows::core::GUID = <IContactPickerActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactPickerActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactPickerActivatedEventArgs";
@@ -3097,7 +3097,7 @@ unsafe impl ::windows::core::RuntimeType for ContactPostActivatedEventArgs {
 }
 unsafe impl ::windows::core::Interface for ContactPostActivatedEventArgs {
     type Vtable = IContactPostActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb35a3c67_f1e7_4655_ad6e_4857588f552f);
+    const IID: ::windows::core::GUID = <IContactPostActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactPostActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactPostActivatedEventArgs";
@@ -3293,7 +3293,7 @@ unsafe impl ::windows::core::RuntimeType for ContactVideoCallActivatedEventArgs 
 }
 unsafe impl ::windows::core::Interface for ContactVideoCallActivatedEventArgs {
     type Vtable = IContactVideoCallActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61079db8_e3e7_4b4f_858d_5c63a96ef684);
+    const IID: ::windows::core::GUID = <IContactVideoCallActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactVideoCallActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ContactVideoCallActivatedEventArgs";
@@ -3498,7 +3498,7 @@ unsafe impl ::windows::core::RuntimeType for DeviceActivatedEventArgs {
 }
 unsafe impl ::windows::core::Interface for DeviceActivatedEventArgs {
     type Vtable = IDeviceActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd50b9a9_ce10_44d2_8234_c355a073ef33);
+    const IID: ::windows::core::GUID = <IDeviceActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DeviceActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.DeviceActivatedEventArgs";
@@ -3723,7 +3723,7 @@ unsafe impl ::windows::core::RuntimeType for DevicePairingActivatedEventArgs {
 }
 unsafe impl ::windows::core::Interface for DevicePairingActivatedEventArgs {
     type Vtable = IDevicePairingActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba0d1e4_ecc6_4148_94ed_f4b37ec05b3e);
+    const IID: ::windows::core::GUID = <IDevicePairingActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DevicePairingActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.DevicePairingActivatedEventArgs";
@@ -3936,7 +3936,7 @@ unsafe impl ::windows::core::RuntimeType for DialReceiverActivatedEventArgs {
 }
 unsafe impl ::windows::core::Interface for DialReceiverActivatedEventArgs {
     type Vtable = IDialReceiverActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb777ed7_85ee_456e_a44d_85d730e70aed);
+    const IID: ::windows::core::GUID = <IDialReceiverActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DialReceiverActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.DialReceiverActivatedEventArgs";
@@ -4225,7 +4225,7 @@ unsafe impl ::windows::core::RuntimeType for FileActivatedEventArgs {
 }
 unsafe impl ::windows::core::Interface for FileActivatedEventArgs {
     type Vtable = IFileActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb2afc33_93b1_42ed_8b26_236dd9c78496);
+    const IID: ::windows::core::GUID = <IFileActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FileActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FileActivatedEventArgs";
@@ -4502,7 +4502,7 @@ unsafe impl ::windows::core::RuntimeType for FileOpenPickerActivatedEventArgs {
 }
 unsafe impl ::windows::core::Interface for FileOpenPickerActivatedEventArgs {
     type Vtable = IFileOpenPickerActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72827082_5525_4bf2_bc09_1f5095d4964d);
+    const IID: ::windows::core::GUID = <IFileOpenPickerActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FileOpenPickerActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FileOpenPickerActivatedEventArgs";
@@ -4722,7 +4722,7 @@ unsafe impl ::windows::core::RuntimeType for FileOpenPickerContinuationEventArgs
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for FileOpenPickerContinuationEventArgs {
     type Vtable = IFileOpenPickerContinuationEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0fa3f3a_d4e8_4ad3_9c34_2308f32fcec9);
+    const IID: ::windows::core::GUID = <IFileOpenPickerContinuationEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for FileOpenPickerContinuationEventArgs {
@@ -4968,7 +4968,7 @@ unsafe impl ::windows::core::RuntimeType for FileSavePickerActivatedEventArgs {
 }
 unsafe impl ::windows::core::Interface for FileSavePickerActivatedEventArgs {
     type Vtable = IFileSavePickerActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81c19cf1_74e6_4387_82eb_bb8fd64b4346);
+    const IID: ::windows::core::GUID = <IFileSavePickerActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FileSavePickerActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FileSavePickerActivatedEventArgs";
@@ -5188,7 +5188,7 @@ unsafe impl ::windows::core::RuntimeType for FileSavePickerContinuationEventArgs
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for FileSavePickerContinuationEventArgs {
     type Vtable = IFileSavePickerContinuationEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c846fe1_3bad_4f33_8c8b_e46fae824b4b);
+    const IID: ::windows::core::GUID = <IFileSavePickerContinuationEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for FileSavePickerContinuationEventArgs {
@@ -5435,7 +5435,7 @@ unsafe impl ::windows::core::RuntimeType for FolderPickerContinuationEventArgs {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for FolderPickerContinuationEventArgs {
     type Vtable = IFolderPickerContinuationEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51882366_9f4b_498f_beb0_42684f6e1c29);
+    const IID: ::windows::core::GUID = <IFolderPickerContinuationEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for FolderPickerContinuationEventArgs {
@@ -14342,7 +14342,7 @@ unsafe impl ::windows::core::RuntimeType for LaunchActivatedEventArgs {
 }
 unsafe impl ::windows::core::Interface for LaunchActivatedEventArgs {
     type Vtable = ILaunchActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbc93e26_a14a_4b4f_82b0_33bed920af52);
+    const IID: ::windows::core::GUID = <ILaunchActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LaunchActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.LaunchActivatedEventArgs";
@@ -14610,7 +14610,7 @@ unsafe impl ::windows::core::RuntimeType for LockScreenActivatedEventArgs {
 }
 unsafe impl ::windows::core::Interface for LockScreenActivatedEventArgs {
     type Vtable = ILockScreenActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ca77966_6108_4a41_8220_ee7d133c8532);
+    const IID: ::windows::core::GUID = <ILockScreenActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LockScreenActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.LockScreenActivatedEventArgs";
@@ -14815,7 +14815,7 @@ unsafe impl ::windows::core::RuntimeType for LockScreenCallActivatedEventArgs {
 }
 unsafe impl ::windows::core::Interface for LockScreenCallActivatedEventArgs {
     type Vtable = ILockScreenCallActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06f37fbe_b5f2_448b_b13e_e328ac1c516a);
+    const IID: ::windows::core::GUID = <ILockScreenCallActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LockScreenCallActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.LockScreenCallActivatedEventArgs";
@@ -15022,7 +15022,7 @@ unsafe impl ::windows::core::RuntimeType for LockScreenComponentActivatedEventAr
 }
 unsafe impl ::windows::core::Interface for LockScreenComponentActivatedEventArgs {
     type Vtable = IActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf651713_cd08_4fd8_b697_a281b6544e2e);
+    const IID: ::windows::core::GUID = <IActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LockScreenComponentActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.LockScreenComponentActivatedEventArgs";
@@ -15158,7 +15158,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallActivatedEventArgs {
 }
 unsafe impl ::windows::core::Interface for PhoneCallActivatedEventArgs {
     type Vtable = IPhoneCallActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54615221_a3c1_4ced_b62f_8c60523619ad);
+    const IID: ::windows::core::GUID = <IPhoneCallActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PhoneCallActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.PhoneCallActivatedEventArgs";
@@ -15329,7 +15329,7 @@ unsafe impl ::windows::core::RuntimeType for PickerReturnedActivatedEventArgs {
 }
 unsafe impl ::windows::core::Interface for PickerReturnedActivatedEventArgs {
     type Vtable = IPickerReturnedActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x360defb9_a9d3_4984_a4ed_9ec734604921);
+    const IID: ::windows::core::GUID = <IPickerReturnedActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PickerReturnedActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.PickerReturnedActivatedEventArgs";
@@ -15479,7 +15479,7 @@ unsafe impl ::windows::core::RuntimeType for Print3DWorkflowActivatedEventArgs {
 }
 unsafe impl ::windows::core::Interface for Print3DWorkflowActivatedEventArgs {
     type Vtable = IPrint3DWorkflowActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f57e78b_f2ac_4619_8302_ef855e1c9b90);
+    const IID: ::windows::core::GUID = <IPrint3DWorkflowActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Print3DWorkflowActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.Print3DWorkflowActivatedEventArgs";
@@ -15629,7 +15629,7 @@ unsafe impl ::windows::core::RuntimeType for PrintTaskSettingsActivatedEventArgs
 }
 unsafe impl ::windows::core::Interface for PrintTaskSettingsActivatedEventArgs {
     type Vtable = IPrintTaskSettingsActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee30a0c9_ce56_4865_ba8e_8954ac271107);
+    const IID: ::windows::core::GUID = <IPrintTaskSettingsActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintTaskSettingsActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.PrintTaskSettingsActivatedEventArgs";
@@ -15822,7 +15822,7 @@ unsafe impl ::windows::core::RuntimeType for ProtocolActivatedEventArgs {
 }
 unsafe impl ::windows::core::Interface for ProtocolActivatedEventArgs {
     type Vtable = IProtocolActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6095f4dd_b7c0_46ab_81fe_d90f36d00d24);
+    const IID: ::windows::core::GUID = <IProtocolActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ProtocolActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ProtocolActivatedEventArgs";
@@ -16112,7 +16112,7 @@ unsafe impl ::windows::core::RuntimeType for ProtocolForResultsActivatedEventArg
 }
 unsafe impl ::windows::core::Interface for ProtocolForResultsActivatedEventArgs {
     type Vtable = IProtocolForResultsActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe75132c2_7ae7_4517_80ac_dbe8d7cc5b9c);
+    const IID: ::windows::core::GUID = <IProtocolForResultsActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ProtocolForResultsActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ProtocolForResultsActivatedEventArgs";
@@ -16380,7 +16380,7 @@ unsafe impl ::windows::core::RuntimeType for RestrictedLaunchActivatedEventArgs 
 }
 unsafe impl ::windows::core::Interface for RestrictedLaunchActivatedEventArgs {
     type Vtable = IRestrictedLaunchActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0b7ac81_bfc3_4344_a5da_19fd5a27baae);
+    const IID: ::windows::core::GUID = <IRestrictedLaunchActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RestrictedLaunchActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.RestrictedLaunchActivatedEventArgs";
@@ -16594,7 +16594,7 @@ unsafe impl ::windows::core::RuntimeType for SearchActivatedEventArgs {
 }
 unsafe impl ::windows::core::Interface for SearchActivatedEventArgs {
     type Vtable = ISearchActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cb36951_58c8_43e3_94bc_41d33f8b630e);
+    const IID: ::windows::core::GUID = <ISearchActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SearchActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.SearchActivatedEventArgs";
@@ -16841,7 +16841,7 @@ unsafe impl ::windows::core::RuntimeType for ShareTargetActivatedEventArgs {
 }
 unsafe impl ::windows::core::Interface for ShareTargetActivatedEventArgs {
     type Vtable = IShareTargetActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4bdaf9c8_cdb2_4acb_bfc3_6648563378ec);
+    const IID: ::windows::core::GUID = <IShareTargetActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ShareTargetActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ShareTargetActivatedEventArgs";
@@ -17004,7 +17004,7 @@ unsafe impl ::windows::core::RuntimeType for SplashScreen {
 }
 unsafe impl ::windows::core::Interface for SplashScreen {
     type Vtable = ISplashScreen_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca4d975c_d4d6_43f0_97c0_0833c6391c24);
+    const IID: ::windows::core::GUID = <ISplashScreen as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SplashScreen {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.SplashScreen";
@@ -17116,7 +17116,7 @@ unsafe impl ::windows::core::RuntimeType for StartupTaskActivatedEventArgs {
 }
 unsafe impl ::windows::core::Interface for StartupTaskActivatedEventArgs {
     type Vtable = IStartupTaskActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03b11a58_5276_4d91_8621_54611864d5fa);
+    const IID: ::windows::core::GUID = <IStartupTaskActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StartupTaskActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.StartupTaskActivatedEventArgs";
@@ -17264,7 +17264,7 @@ unsafe impl ::windows::core::RuntimeType for TileActivatedInfo {
 }
 unsafe impl ::windows::core::Interface for TileActivatedInfo {
     type Vtable = ITileActivatedInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80e4a3b1_3980_4f17_b738_89194e0b8f65);
+    const IID: ::windows::core::GUID = <ITileActivatedInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TileActivatedInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.TileActivatedInfo";
@@ -17395,7 +17395,7 @@ unsafe impl ::windows::core::RuntimeType for ToastNotificationActivatedEventArgs
 }
 unsafe impl ::windows::core::Interface for ToastNotificationActivatedEventArgs {
     type Vtable = IToastNotificationActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92a86f82_5290_431d_be85_c4aaeeb8685f);
+    const IID: ::windows::core::GUID = <IToastNotificationActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ToastNotificationActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.ToastNotificationActivatedEventArgs";
@@ -17589,7 +17589,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataAccountProviderActivatedEve
 }
 unsafe impl ::windows::core::Interface for UserDataAccountProviderActivatedEventArgs {
     type Vtable = IUserDataAccountProviderActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bc9f723_8ef1_4a51_a63a_fe711eeab607);
+    const IID: ::windows::core::GUID = <IUserDataAccountProviderActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserDataAccountProviderActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.UserDataAccountProviderActivatedEventArgs";
@@ -17748,7 +17748,7 @@ unsafe impl ::windows::core::RuntimeType for VoiceCommandActivatedEventArgs {
 }
 unsafe impl ::windows::core::Interface for VoiceCommandActivatedEventArgs {
     type Vtable = IVoiceCommandActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab92dcfd_8d43_4de6_9775_20704b581b00);
+    const IID: ::windows::core::GUID = <IVoiceCommandActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VoiceCommandActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.VoiceCommandActivatedEventArgs";
@@ -17936,7 +17936,7 @@ unsafe impl ::windows::core::RuntimeType for WalletActionActivatedEventArgs {
 }
 unsafe impl ::windows::core::Interface for WalletActionActivatedEventArgs {
     type Vtable = IWalletActionActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcfc027b_1a1a_4d22_923f_ae6f45fa52d9);
+    const IID: ::windows::core::GUID = <IWalletActionActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WalletActionActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.WalletActionActivatedEventArgs";
@@ -18095,7 +18095,7 @@ unsafe impl ::windows::core::RuntimeType for WebAccountProviderActivatedEventArg
 }
 unsafe impl ::windows::core::Interface for WebAccountProviderActivatedEventArgs {
     type Vtable = IWebAccountProviderActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72b71774_98ea_4ccf_9752_46d9051004f1);
+    const IID: ::windows::core::GUID = <IWebAccountProviderActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebAccountProviderActivatedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.WebAccountProviderActivatedEventArgs";
@@ -18276,7 +18276,7 @@ unsafe impl ::windows::core::RuntimeType for WebAuthenticationBrokerContinuation
 }
 unsafe impl ::windows::core::Interface for WebAuthenticationBrokerContinuationEventArgs {
     type Vtable = IWebAuthenticationBrokerContinuationEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75dda3d4_7714_453d_b7ff_b95e3a1709da);
+    const IID: ::windows::core::GUID = <IWebAuthenticationBrokerContinuationEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebAuthenticationBrokerContinuationEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.WebAuthenticationBrokerContinuationEventArgs";

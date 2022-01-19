@@ -382,7 +382,7 @@ unsafe impl ::windows::core::RuntimeType for Appointment {
 }
 unsafe impl ::windows::core::Interface for Appointment {
     type Vtable = IAppointment_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd002f2f_2bdd_4076_90a3_22c275312965);
+    const IID: ::windows::core::GUID = <IAppointment as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Appointment {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.Appointment";
@@ -882,7 +882,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentCalendar {
 }
 unsafe impl ::windows::core::Interface for AppointmentCalendar {
     type Vtable = IAppointmentCalendar_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5273819d_8339_3d4f_a02f_64084452bb5d);
+    const IID: ::windows::core::GUID = <IAppointmentCalendar as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppointmentCalendar {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentCalendar";
@@ -1081,7 +1081,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentCalendarSyncManager {
 }
 unsafe impl ::windows::core::Interface for AppointmentCalendarSyncManager {
     type Vtable = IAppointmentCalendarSyncManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b21b3a0_4aff_4392_bc5f_5645ffcffb17);
+    const IID: ::windows::core::GUID = <IAppointmentCalendarSyncManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppointmentCalendarSyncManager {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentCalendarSyncManager";
@@ -1204,7 +1204,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentConflictResult {
 }
 unsafe impl ::windows::core::Interface for AppointmentConflictResult {
     type Vtable = IAppointmentConflictResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5cdf0be_2f2f_3b7d_af0a_a7e20f3a46e3);
+    const IID: ::windows::core::GUID = <IAppointmentConflictResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppointmentConflictResult {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentConflictResult";
@@ -1421,7 +1421,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentException {
 }
 unsafe impl ::windows::core::Interface for AppointmentException {
     type Vtable = IAppointmentException_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2076767_16f6_4bce_9f5a_8600b8019fcb);
+    const IID: ::windows::core::GUID = <IAppointmentException as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppointmentException {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentException";
@@ -1553,7 +1553,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentInvitee {
 }
 unsafe impl ::windows::core::Interface for AppointmentInvitee {
     type Vtable = IAppointmentInvitee_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13bf0796_9842_495b_b0e7_ef8f79c0701d);
+    const IID: ::windows::core::GUID = <IAppointmentInvitee as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppointmentInvitee {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentInvitee";
@@ -1908,7 +1908,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentManagerForUser {
 }
 unsafe impl ::windows::core::Interface for AppointmentManagerForUser {
     type Vtable = IAppointmentManagerForUser_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70261423_73cc_4660_b318_b01365302a03);
+    const IID: ::windows::core::GUID = <IAppointmentManagerForUser as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppointmentManagerForUser {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentManagerForUser";
@@ -2014,7 +2014,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentOrganizer {
 }
 unsafe impl ::windows::core::Interface for AppointmentOrganizer {
     type Vtable = IAppointmentParticipant_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x615e2902_9718_467b_83fb_b293a19121de);
+    const IID: ::windows::core::GUID = <IAppointmentParticipant as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppointmentOrganizer {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentOrganizer";
@@ -2513,7 +2513,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentRecurrence {
 }
 unsafe impl ::windows::core::Interface for AppointmentRecurrence {
     type Vtable = IAppointmentRecurrence_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd87b3e83_15a6_487b_b959_0c361e60e954);
+    const IID: ::windows::core::GUID = <IAppointmentRecurrence as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppointmentRecurrence {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentRecurrence";
@@ -2866,7 +2866,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentStore {
 }
 unsafe impl ::windows::core::Interface for AppointmentStore {
     type Vtable = IAppointmentStore_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa461918c_7a47_4d96_96c9_15cd8a05a735);
+    const IID: ::windows::core::GUID = <IAppointmentStore as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppointmentStore {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentStore";
@@ -2992,7 +2992,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentStoreChange {
 }
 unsafe impl ::windows::core::Interface for AppointmentStoreChange {
     type Vtable = IAppointmentStoreChange_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5a6e035_0a33_3654_8463_b543e90c3b79);
+    const IID: ::windows::core::GUID = <IAppointmentStoreChange as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppointmentStoreChange {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentStoreChange";
@@ -3084,7 +3084,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentStoreChangeReader {
 }
 unsafe impl ::windows::core::Interface for AppointmentStoreChangeReader {
     type Vtable = IAppointmentStoreChangeReader_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b2409f1_65f3_42a0_961d_4c209bf30370);
+    const IID: ::windows::core::GUID = <IAppointmentStoreChangeReader as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppointmentStoreChangeReader {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentStoreChangeReader";
@@ -3183,7 +3183,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentStoreChangeTracker {
 }
 unsafe impl ::windows::core::Interface for AppointmentStoreChangeTracker {
     type Vtable = IAppointmentStoreChangeTracker_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b25f4b1_8ece_4f17_93c8_e6412458fd5c);
+    const IID: ::windows::core::GUID = <IAppointmentStoreChangeTracker as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppointmentStoreChangeTracker {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentStoreChangeTracker";
@@ -3294,7 +3294,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentStoreChangedDeferral {
 }
 unsafe impl ::windows::core::Interface for AppointmentStoreChangedDeferral {
     type Vtable = IAppointmentStoreChangedDeferral_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4cb82026_fedb_4bc3_9662_95a9befdf4df);
+    const IID: ::windows::core::GUID = <IAppointmentStoreChangedDeferral as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppointmentStoreChangedDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentStoreChangedDeferral";
@@ -3375,7 +3375,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentStoreChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for AppointmentStoreChangedEventArgs {
     type Vtable = IAppointmentStoreChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2285f8b9_0791_417e_bfea_cc6d41636c8c);
+    const IID: ::windows::core::GUID = <IAppointmentStoreChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppointmentStoreChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentStoreChangedEventArgs";
@@ -3447,7 +3447,7 @@ unsafe impl ::windows::core::RuntimeType for AppointmentStoreNotificationTrigger
 }
 unsafe impl ::windows::core::Interface for AppointmentStoreNotificationTriggerDetails {
     type Vtable = IAppointmentStoreNotificationTriggerDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b33cb11_c301_421e_afef_047ecfa76adb);
+    const IID: ::windows::core::GUID = <IAppointmentStoreNotificationTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppointmentStoreNotificationTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentStoreNotificationTriggerDetails";
@@ -3686,7 +3686,7 @@ unsafe impl ::windows::core::RuntimeType for FindAppointmentsOptions {
 }
 unsafe impl ::windows::core::Interface for FindAppointmentsOptions {
     type Vtable = IFindAppointmentsOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55f7dc55_9942_3086_82b5_2cb29f64d5f5);
+    const IID: ::windows::core::GUID = <IFindAppointmentsOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FindAppointmentsOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.FindAppointmentsOptions";

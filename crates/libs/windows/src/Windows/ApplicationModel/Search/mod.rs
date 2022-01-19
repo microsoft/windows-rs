@@ -632,7 +632,7 @@ unsafe impl ::windows::core::RuntimeType for LocalContentSuggestionSettings {
 }
 unsafe impl ::windows::core::Interface for LocalContentSuggestionSettings {
     type Vtable = ILocalContentSuggestionSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeeaeb062_743d_456e_84a3_23f06f2d15d7);
+    const IID: ::windows::core::GUID = <ILocalContentSuggestionSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LocalContentSuggestionSettings {
     const NAME: &'static str = "Windows.ApplicationModel.Search.LocalContentSuggestionSettings";
@@ -925,7 +925,7 @@ unsafe impl ::windows::core::RuntimeType for SearchPane {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SearchPane {
     type Vtable = ISearchPane_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfdacec38_3700_4d73_91a1_2f998674238a);
+    const IID: ::windows::core::GUID = <ISearchPane as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for SearchPane {
@@ -1040,7 +1040,7 @@ unsafe impl ::windows::core::RuntimeType for SearchPaneQueryChangedEventArgs {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SearchPaneQueryChangedEventArgs {
     type Vtable = ISearchPaneQueryChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c064fe9_2351_4248_a529_7110f464a785);
+    const IID: ::windows::core::GUID = <ISearchPaneQueryChangedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for SearchPaneQueryChangedEventArgs {
@@ -1175,7 +1175,7 @@ unsafe impl ::windows::core::RuntimeType for SearchPaneQueryLinguisticDetails {
 }
 unsafe impl ::windows::core::Interface for SearchPaneQueryLinguisticDetails {
     type Vtable = ISearchPaneQueryLinguisticDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82fb460e_0940_4b6d_b8d0_642b30989e15);
+    const IID: ::windows::core::GUID = <ISearchPaneQueryLinguisticDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SearchPaneQueryLinguisticDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchPaneQueryLinguisticDetails";
@@ -1283,7 +1283,7 @@ unsafe impl ::windows::core::RuntimeType for SearchPaneQuerySubmittedEventArgs {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SearchPaneQuerySubmittedEventArgs {
     type Vtable = ISearchPaneQuerySubmittedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x143ba4fc_e9c5_4736_91b2_e8eb9cb88356);
+    const IID: ::windows::core::GUID = <ISearchPaneQuerySubmittedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for SearchPaneQuerySubmittedEventArgs {
@@ -1384,7 +1384,7 @@ unsafe impl ::windows::core::RuntimeType for SearchPaneResultSuggestionChosenEve
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SearchPaneResultSuggestionChosenEventArgs {
     type Vtable = ISearchPaneResultSuggestionChosenEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8316cc0_aed2_41e0_bce0_c26ca74f85ec);
+    const IID: ::windows::core::GUID = <ISearchPaneResultSuggestionChosenEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for SearchPaneResultSuggestionChosenEventArgs {
@@ -1503,7 +1503,7 @@ unsafe impl ::windows::core::RuntimeType for SearchPaneSuggestionsRequest {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SearchPaneSuggestionsRequest {
     type Vtable = ISearchPaneSuggestionsRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81b10b1c_e561_4093_9b4d_2ad482794a53);
+    const IID: ::windows::core::GUID = <ISearchPaneSuggestionsRequest as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for SearchPaneSuggestionsRequest {
@@ -1601,7 +1601,7 @@ unsafe impl ::windows::core::RuntimeType for SearchPaneSuggestionsRequestDeferra
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SearchPaneSuggestionsRequestDeferral {
     type Vtable = ISearchPaneSuggestionsRequestDeferral_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0d009f7_8748_4ee2_ad44_afa6be997c51);
+    const IID: ::windows::core::GUID = <ISearchPaneSuggestionsRequestDeferral as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for SearchPaneSuggestionsRequestDeferral {
@@ -1729,7 +1729,7 @@ unsafe impl ::windows::core::RuntimeType for SearchPaneSuggestionsRequestedEvent
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SearchPaneSuggestionsRequestedEventArgs {
     type Vtable = ISearchPaneSuggestionsRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc89b8a2f_ac56_4460_8d2f_80023bec4fc5);
+    const IID: ::windows::core::GUID = <ISearchPaneSuggestionsRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for SearchPaneSuggestionsRequestedEventArgs {
@@ -1856,7 +1856,7 @@ unsafe impl ::windows::core::RuntimeType for SearchPaneVisibilityChangedEventArg
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SearchPaneVisibilityChangedEventArgs {
     type Vtable = ISearchPaneVisibilityChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c4d3046_ac4b_49f2_97d6_020e6182cb9c);
+    const IID: ::windows::core::GUID = <ISearchPaneVisibilityChangedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for SearchPaneVisibilityChangedEventArgs {
@@ -1978,7 +1978,7 @@ unsafe impl ::windows::core::RuntimeType for SearchQueryLinguisticDetails {
 }
 unsafe impl ::windows::core::Interface for SearchQueryLinguisticDetails {
     type Vtable = ISearchQueryLinguisticDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46a1205b_69c9_4745_b72f_a8a4fc8f24ae);
+    const IID: ::windows::core::GUID = <ISearchQueryLinguisticDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SearchQueryLinguisticDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchQueryLinguisticDetails";
@@ -2081,7 +2081,7 @@ unsafe impl ::windows::core::RuntimeType for SearchSuggestionCollection {
 }
 unsafe impl ::windows::core::Interface for SearchSuggestionCollection {
     type Vtable = ISearchSuggestionCollection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x323a8a4b_fbea_4446_abbc_3da7915fdd3a);
+    const IID: ::windows::core::GUID = <ISearchSuggestionCollection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SearchSuggestionCollection {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchSuggestionCollection";
@@ -2178,7 +2178,7 @@ unsafe impl ::windows::core::RuntimeType for SearchSuggestionsRequest {
 }
 unsafe impl ::windows::core::Interface for SearchSuggestionsRequest {
     type Vtable = ISearchSuggestionsRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e4e26a7_44e5_4039_9099_6000ead1f0c6);
+    const IID: ::windows::core::GUID = <ISearchSuggestionsRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SearchSuggestionsRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchSuggestionsRequest";
@@ -2256,7 +2256,7 @@ unsafe impl ::windows::core::RuntimeType for SearchSuggestionsRequestDeferral {
 }
 unsafe impl ::windows::core::Interface for SearchSuggestionsRequestDeferral {
     type Vtable = ISearchSuggestionsRequestDeferral_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb71598a9_c065_456d_a845_1eccec5dc28b);
+    const IID: ::windows::core::GUID = <ISearchSuggestionsRequestDeferral as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SearchSuggestionsRequestDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Search.SearchSuggestionsRequestDeferral";

@@ -1017,7 +1017,7 @@ unsafe impl ::windows::core::RuntimeType for NotifyCollectionChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for NotifyCollectionChangedEventArgs {
     type Vtable = INotifyCollectionChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4cf68d33_e3f2_4964_b85e_945b4f7e2f21);
+    const IID: ::windows::core::GUID = <INotifyCollectionChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for NotifyCollectionChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Interop.NotifyCollectionChangedEventArgs";

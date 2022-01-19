@@ -111,7 +111,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialGraphInteropFrameOfReference
 }
 unsafe impl ::windows::core::Interface for SpatialGraphInteropFrameOfReferencePreview {
     type Vtable = ISpatialGraphInteropFrameOfReferencePreview_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8271b23_735f_5729_a98e_e64ed189abc5);
+    const IID: ::windows::core::GUID = <ISpatialGraphInteropFrameOfReferencePreview as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialGraphInteropFrameOfReferencePreview {
     const NAME: &'static str = "Windows.Perception.Spatial.Preview.SpatialGraphInteropFrameOfReferencePreview";

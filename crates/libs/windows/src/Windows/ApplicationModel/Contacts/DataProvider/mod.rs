@@ -90,7 +90,7 @@ unsafe impl ::windows::core::RuntimeType for ContactDataProviderConnection {
 }
 unsafe impl ::windows::core::Interface for ContactDataProviderConnection {
     type Vtable = IContactDataProviderConnection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a398a52_8c9d_4d6f_a4e0_111e9a125a30);
+    const IID: ::windows::core::GUID = <IContactDataProviderConnection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactDataProviderConnection {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactDataProviderConnection";
@@ -171,7 +171,7 @@ unsafe impl ::windows::core::RuntimeType for ContactDataProviderTriggerDetails {
 }
 unsafe impl ::windows::core::Interface for ContactDataProviderTriggerDetails {
     type Vtable = IContactDataProviderTriggerDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x527104be_3c62_43c8_9ae7_db531685cd99);
+    const IID: ::windows::core::GUID = <IContactDataProviderTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactDataProviderTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactDataProviderTriggerDetails";
@@ -278,7 +278,7 @@ unsafe impl ::windows::core::RuntimeType for ContactListCreateOrUpdateContactReq
 }
 unsafe impl ::windows::core::Interface for ContactListCreateOrUpdateContactRequest {
     type Vtable = IContactListCreateOrUpdateContactRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4af411f_c849_47d0_b119_91cf605b2f2a);
+    const IID: ::windows::core::GUID = <IContactListCreateOrUpdateContactRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactListCreateOrUpdateContactRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListCreateOrUpdateContactRequest";
@@ -368,7 +368,7 @@ unsafe impl ::windows::core::RuntimeType for ContactListCreateOrUpdateContactReq
 }
 unsafe impl ::windows::core::Interface for ContactListCreateOrUpdateContactRequestEventArgs {
     type Vtable = IContactListCreateOrUpdateContactRequestEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x851c1690_1a51_4b0c_aeef_1240ac5bed75);
+    const IID: ::windows::core::GUID = <IContactListCreateOrUpdateContactRequestEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactListCreateOrUpdateContactRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListCreateOrUpdateContactRequestEventArgs";
@@ -475,7 +475,7 @@ unsafe impl ::windows::core::RuntimeType for ContactListDeleteContactRequest {
 }
 unsafe impl ::windows::core::Interface for ContactListDeleteContactRequest {
     type Vtable = IContactListDeleteContactRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e114687_ce03_4de5_8557_9ccf552d472a);
+    const IID: ::windows::core::GUID = <IContactListDeleteContactRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactListDeleteContactRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListDeleteContactRequest";
@@ -565,7 +565,7 @@ unsafe impl ::windows::core::RuntimeType for ContactListDeleteContactRequestEven
 }
 unsafe impl ::windows::core::Interface for ContactListDeleteContactRequestEventArgs {
     type Vtable = IContactListDeleteContactRequestEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb22054a1_e8fa_4db5_9389_2d12ee7d15ee);
+    const IID: ::windows::core::GUID = <IContactListDeleteContactRequestEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactListDeleteContactRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListDeleteContactRequestEventArgs";
@@ -697,7 +697,7 @@ unsafe impl ::windows::core::RuntimeType for ContactListServerSearchReadBatchReq
 }
 unsafe impl ::windows::core::Interface for ContactListServerSearchReadBatchRequest {
     type Vtable = IContactListServerSearchReadBatchRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba776a97_4030_4925_9fb4_143b295e653b);
+    const IID: ::windows::core::GUID = <IContactListServerSearchReadBatchRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactListServerSearchReadBatchRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListServerSearchReadBatchRequest";
@@ -787,7 +787,7 @@ unsafe impl ::windows::core::RuntimeType for ContactListServerSearchReadBatchReq
 }
 unsafe impl ::windows::core::Interface for ContactListServerSearchReadBatchRequestEventArgs {
     type Vtable = IContactListServerSearchReadBatchRequestEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a27e87b_69d7_4e4e_8042_861cba61471e);
+    const IID: ::windows::core::GUID = <IContactListServerSearchReadBatchRequestEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactListServerSearchReadBatchRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListServerSearchReadBatchRequestEventArgs";
@@ -886,7 +886,7 @@ unsafe impl ::windows::core::RuntimeType for ContactListSyncManagerSyncRequest {
 }
 unsafe impl ::windows::core::Interface for ContactListSyncManagerSyncRequest {
     type Vtable = IContactListSyncManagerSyncRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c0e57a4_c4e7_4970_9a8f_9a66a2bb6c1a);
+    const IID: ::windows::core::GUID = <IContactListSyncManagerSyncRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactListSyncManagerSyncRequest {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListSyncManagerSyncRequest";
@@ -976,7 +976,7 @@ unsafe impl ::windows::core::RuntimeType for ContactListSyncManagerSyncRequestEv
 }
 unsafe impl ::windows::core::Interface for ContactListSyncManagerSyncRequestEventArgs {
     type Vtable = IContactListSyncManagerSyncRequestEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x158e4dac_446d_4f10_afc2_02683ec533a6);
+    const IID: ::windows::core::GUID = <IContactListSyncManagerSyncRequestEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactListSyncManagerSyncRequestEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.DataProvider.ContactListSyncManagerSyncRequestEventArgs";

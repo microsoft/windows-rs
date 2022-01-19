@@ -190,7 +190,7 @@ unsafe impl ::windows::core::RuntimeType for Accelerometer {
 }
 unsafe impl ::windows::core::Interface for Accelerometer {
     type Vtable = IAccelerometer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf184548_2711_4da7_8098_4b82205d3c7d);
+    const IID: ::windows::core::GUID = <IAccelerometer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Accelerometer {
     const NAME: &'static str = "Windows.Devices.Sensors.Accelerometer";
@@ -302,7 +302,7 @@ unsafe impl ::windows::core::RuntimeType for AccelerometerDataThreshold {
 }
 unsafe impl ::windows::core::Interface for AccelerometerDataThreshold {
     type Vtable = IAccelerometerDataThreshold_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf92c1b68_6320_5577_879e_9942621c3dd9);
+    const IID: ::windows::core::GUID = <IAccelerometerDataThreshold as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AccelerometerDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.AccelerometerDataThreshold";
@@ -426,7 +426,7 @@ unsafe impl ::windows::core::RuntimeType for AccelerometerReading {
 }
 unsafe impl ::windows::core::Interface for AccelerometerReading {
     type Vtable = IAccelerometerReading_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9fe7acb_d351_40af_8bb6_7aa9ae641fb7);
+    const IID: ::windows::core::GUID = <IAccelerometerReading as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AccelerometerReading {
     const NAME: &'static str = "Windows.Devices.Sensors.AccelerometerReading";
@@ -507,7 +507,7 @@ unsafe impl ::windows::core::RuntimeType for AccelerometerReadingChangedEventArg
 }
 unsafe impl ::windows::core::Interface for AccelerometerReadingChangedEventArgs {
     type Vtable = IAccelerometerReadingChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0095c65b_b6ac_475a_9f44_8b32d35a3f25);
+    const IID: ::windows::core::GUID = <IAccelerometerReadingChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AccelerometerReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.AccelerometerReadingChangedEventArgs";
@@ -618,7 +618,7 @@ unsafe impl ::windows::core::RuntimeType for AccelerometerShakenEventArgs {
 }
 unsafe impl ::windows::core::Interface for AccelerometerShakenEventArgs {
     type Vtable = IAccelerometerShakenEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95ff01d1_4a28_4f35_98e8_8178aae4084a);
+    const IID: ::windows::core::GUID = <IAccelerometerShakenEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AccelerometerShakenEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.AccelerometerShakenEventArgs";
@@ -801,7 +801,7 @@ unsafe impl ::windows::core::RuntimeType for ActivitySensor {
 }
 unsafe impl ::windows::core::Interface for ActivitySensor {
     type Vtable = IActivitySensor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd7a630c_fb5f_48eb_b09b_a2708d1c61ef);
+    const IID: ::windows::core::GUID = <IActivitySensor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ActivitySensor {
     const NAME: &'static str = "Windows.Devices.Sensors.ActivitySensor";
@@ -899,7 +899,7 @@ unsafe impl ::windows::core::RuntimeType for ActivitySensorReading {
 }
 unsafe impl ::windows::core::Interface for ActivitySensorReading {
     type Vtable = IActivitySensorReading_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85125a96_1472_40a2_b2ae_e1ef29226c78);
+    const IID: ::windows::core::GUID = <IActivitySensorReading as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ActivitySensorReading {
     const NAME: &'static str = "Windows.Devices.Sensors.ActivitySensorReading";
@@ -980,7 +980,7 @@ unsafe impl ::windows::core::RuntimeType for ActivitySensorReadingChangeReport {
 }
 unsafe impl ::windows::core::Interface for ActivitySensorReadingChangeReport {
     type Vtable = IActivitySensorReadingChangeReport_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f3c2915_d93b_47bd_960a_f20fb2f322b9);
+    const IID: ::windows::core::GUID = <IActivitySensorReadingChangeReport as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ActivitySensorReadingChangeReport {
     const NAME: &'static str = "Windows.Devices.Sensors.ActivitySensorReadingChangeReport";
@@ -1061,7 +1061,7 @@ unsafe impl ::windows::core::RuntimeType for ActivitySensorReadingChangedEventAr
 }
 unsafe impl ::windows::core::Interface for ActivitySensorReadingChangedEventArgs {
     type Vtable = IActivitySensorReadingChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde386717_aeb6_4ec7_946a_d9cc19b951ec);
+    const IID: ::windows::core::GUID = <IActivitySensorReadingChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ActivitySensorReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.ActivitySensorReadingChangedEventArgs";
@@ -1171,7 +1171,7 @@ unsafe impl ::windows::core::RuntimeType for ActivitySensorTriggerDetails {
 }
 unsafe impl ::windows::core::Interface for ActivitySensorTriggerDetails {
     type Vtable = IActivitySensorTriggerDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c9e6612_b9ca_4677_b263_243297f79d3a);
+    const IID: ::windows::core::GUID = <IActivitySensorTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ActivitySensorTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Sensors.ActivitySensorTriggerDetails";
@@ -1363,7 +1363,7 @@ unsafe impl ::windows::core::RuntimeType for Altimeter {
 }
 unsafe impl ::windows::core::Interface for Altimeter {
     type Vtable = IAltimeter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72f057fd_8f04_49f1_b4a7_f4e363b701a2);
+    const IID: ::windows::core::GUID = <IAltimeter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Altimeter {
     const NAME: &'static str = "Windows.Devices.Sensors.Altimeter";
@@ -1471,7 +1471,7 @@ unsafe impl ::windows::core::RuntimeType for AltimeterReading {
 }
 unsafe impl ::windows::core::Interface for AltimeterReading {
     type Vtable = IAltimeterReading_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbe8ef73_7f5e_48c8_aa1a_f1f3befc1144);
+    const IID: ::windows::core::GUID = <IAltimeterReading as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AltimeterReading {
     const NAME: &'static str = "Windows.Devices.Sensors.AltimeterReading";
@@ -1552,7 +1552,7 @@ unsafe impl ::windows::core::RuntimeType for AltimeterReadingChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for AltimeterReadingChangedEventArgs {
     type Vtable = IAltimeterReadingChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7069d077_446d_47f7_998c_ebc23b45e4a2);
+    const IID: ::windows::core::GUID = <IAltimeterReadingChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AltimeterReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.AltimeterReadingChangedEventArgs";
@@ -1738,7 +1738,7 @@ unsafe impl ::windows::core::RuntimeType for Barometer {
 }
 unsafe impl ::windows::core::Interface for Barometer {
     type Vtable = IBarometer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x934475a8_78bf_452f_b017_f0209ce6dab4);
+    const IID: ::windows::core::GUID = <IBarometer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Barometer {
     const NAME: &'static str = "Windows.Devices.Sensors.Barometer";
@@ -1824,7 +1824,7 @@ unsafe impl ::windows::core::RuntimeType for BarometerDataThreshold {
 }
 unsafe impl ::windows::core::Interface for BarometerDataThreshold {
     type Vtable = IBarometerDataThreshold_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x076b952c_cb62_5a90_a0d1_f85e4a936394);
+    const IID: ::windows::core::GUID = <IBarometerDataThreshold as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BarometerDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.BarometerDataThreshold";
@@ -1932,7 +1932,7 @@ unsafe impl ::windows::core::RuntimeType for BarometerReading {
 }
 unsafe impl ::windows::core::Interface for BarometerReading {
     type Vtable = IBarometerReading_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5b9d2e6_1df6_4a1a_a7ad_321d4f5db247);
+    const IID: ::windows::core::GUID = <IBarometerReading as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BarometerReading {
     const NAME: &'static str = "Windows.Devices.Sensors.BarometerReading";
@@ -2013,7 +2013,7 @@ unsafe impl ::windows::core::RuntimeType for BarometerReadingChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for BarometerReadingChangedEventArgs {
     type Vtable = IBarometerReadingChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d84945f_037b_404f_9bbb_6232d69543c3);
+    const IID: ::windows::core::GUID = <IBarometerReadingChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BarometerReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.BarometerReadingChangedEventArgs";
@@ -2214,7 +2214,7 @@ unsafe impl ::windows::core::RuntimeType for Compass {
 }
 unsafe impl ::windows::core::Interface for Compass {
     type Vtable = ICompass_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x292ffa94_1b45_403c_ba06_b106dba69a64);
+    const IID: ::windows::core::GUID = <ICompass as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Compass {
     const NAME: &'static str = "Windows.Devices.Sensors.Compass";
@@ -2300,7 +2300,7 @@ unsafe impl ::windows::core::RuntimeType for CompassDataThreshold {
 }
 unsafe impl ::windows::core::Interface for CompassDataThreshold {
     type Vtable = ICompassDataThreshold_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd15b52b3_d39d_5ec8_b2e4_f193e6ab34ed);
+    const IID: ::windows::core::GUID = <ICompassDataThreshold as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompassDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.CompassDataThreshold";
@@ -2425,7 +2425,7 @@ unsafe impl ::windows::core::RuntimeType for CompassReading {
 }
 unsafe impl ::windows::core::Interface for CompassReading {
     type Vtable = ICompassReading_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82911128_513d_4dc9_b781_5eedfbf02d0c);
+    const IID: ::windows::core::GUID = <ICompassReading as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompassReading {
     const NAME: &'static str = "Windows.Devices.Sensors.CompassReading";
@@ -2506,7 +2506,7 @@ unsafe impl ::windows::core::RuntimeType for CompassReadingChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for CompassReadingChangedEventArgs {
     type Vtable = ICompassReadingChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f1549b0_e8bc_4c7e_b009_4e41df137072);
+    const IID: ::windows::core::GUID = <ICompassReadingChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompassReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.CompassReadingChangedEventArgs";
@@ -2707,7 +2707,7 @@ unsafe impl ::windows::core::RuntimeType for Gyrometer {
 }
 unsafe impl ::windows::core::Interface for Gyrometer {
     type Vtable = IGyrometer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfdb9a9c4_84b1_4ca2_9763_9b589506c70c);
+    const IID: ::windows::core::GUID = <IGyrometer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Gyrometer {
     const NAME: &'static str = "Windows.Devices.Sensors.Gyrometer";
@@ -2819,7 +2819,7 @@ unsafe impl ::windows::core::RuntimeType for GyrometerDataThreshold {
 }
 unsafe impl ::windows::core::Interface for GyrometerDataThreshold {
     type Vtable = IGyrometerDataThreshold_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8648b31e_6e52_5259_bbad_242a69dc38c8);
+    const IID: ::windows::core::GUID = <IGyrometerDataThreshold as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GyrometerDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.GyrometerDataThreshold";
@@ -2943,7 +2943,7 @@ unsafe impl ::windows::core::RuntimeType for GyrometerReading {
 }
 unsafe impl ::windows::core::Interface for GyrometerReading {
     type Vtable = IGyrometerReading_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3d6de5c_1ee4_456f_9de7_e2493b5c8e03);
+    const IID: ::windows::core::GUID = <IGyrometerReading as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GyrometerReading {
     const NAME: &'static str = "Windows.Devices.Sensors.GyrometerReading";
@@ -3024,7 +3024,7 @@ unsafe impl ::windows::core::RuntimeType for GyrometerReadingChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for GyrometerReadingChangedEventArgs {
     type Vtable = IGyrometerReadingChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0fdf1895_6f9e_42ce_8d58_388c0ab8356d);
+    const IID: ::windows::core::GUID = <IGyrometerReadingChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GyrometerReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.GyrometerReadingChangedEventArgs";
@@ -3123,7 +3123,7 @@ unsafe impl ::windows::core::RuntimeType for HingeAngleReading {
 }
 unsafe impl ::windows::core::Interface for HingeAngleReading {
     type Vtable = IHingeAngleReading_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3cd45b9_1bf1_4f65_a704_e2da04f182c0);
+    const IID: ::windows::core::GUID = <IHingeAngleReading as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HingeAngleReading {
     const NAME: &'static str = "Windows.Devices.Sensors.HingeAngleReading";
@@ -3285,7 +3285,7 @@ unsafe impl ::windows::core::RuntimeType for HingeAngleSensor {
 }
 unsafe impl ::windows::core::Interface for HingeAngleSensor {
     type Vtable = IHingeAngleSensor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9d3be02_bfdf_437f_8c29_88c77393d309);
+    const IID: ::windows::core::GUID = <IHingeAngleSensor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HingeAngleSensor {
     const NAME: &'static str = "Windows.Devices.Sensors.HingeAngleSensor";
@@ -3366,7 +3366,7 @@ unsafe impl ::windows::core::RuntimeType for HingeAngleSensorReadingChangedEvent
 }
 unsafe impl ::windows::core::Interface for HingeAngleSensorReadingChangedEventArgs {
     type Vtable = IHingeAngleSensorReadingChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24d9558b_fad0_42b8_a854_78923049a1ba);
+    const IID: ::windows::core::GUID = <IHingeAngleSensorReadingChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HingeAngleSensorReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.HingeAngleSensorReadingChangedEventArgs";
@@ -5912,7 +5912,7 @@ unsafe impl ::windows::core::RuntimeType for Inclinometer {
 }
 unsafe impl ::windows::core::Interface for Inclinometer {
     type Vtable = IInclinometer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2648ca6f_2286_406f_9161_f0c4bd806ebf);
+    const IID: ::windows::core::GUID = <IInclinometer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Inclinometer {
     const NAME: &'static str = "Windows.Devices.Sensors.Inclinometer";
@@ -6024,7 +6024,7 @@ unsafe impl ::windows::core::RuntimeType for InclinometerDataThreshold {
 }
 unsafe impl ::windows::core::Interface for InclinometerDataThreshold {
     type Vtable = IInclinometerDataThreshold_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf80a4783_7bfe_545e_bb60_a0ebc47bd2fb);
+    const IID: ::windows::core::GUID = <IInclinometerDataThreshold as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InclinometerDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.InclinometerDataThreshold";
@@ -6156,7 +6156,7 @@ unsafe impl ::windows::core::RuntimeType for InclinometerReading {
 }
 unsafe impl ::windows::core::Interface for InclinometerReading {
     type Vtable = IInclinometerReading_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f44f055_b6f6_497f_b127_1a775e501458);
+    const IID: ::windows::core::GUID = <IInclinometerReading as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InclinometerReading {
     const NAME: &'static str = "Windows.Devices.Sensors.InclinometerReading";
@@ -6237,7 +6237,7 @@ unsafe impl ::windows::core::RuntimeType for InclinometerReadingChangedEventArgs
 }
 unsafe impl ::windows::core::Interface for InclinometerReadingChangedEventArgs {
     type Vtable = IInclinometerReadingChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ae91dc1_e7eb_4938_8511_ae0d6b440438);
+    const IID: ::windows::core::GUID = <IInclinometerReadingChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InclinometerReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.InclinometerReadingChangedEventArgs";
@@ -6423,7 +6423,7 @@ unsafe impl ::windows::core::RuntimeType for LightSensor {
 }
 unsafe impl ::windows::core::Interface for LightSensor {
     type Vtable = ILightSensor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf84c0718_0c54_47ae_922e_789f57fb03a0);
+    const IID: ::windows::core::GUID = <ILightSensor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LightSensor {
     const NAME: &'static str = "Windows.Devices.Sensors.LightSensor";
@@ -6522,7 +6522,7 @@ unsafe impl ::windows::core::RuntimeType for LightSensorDataThreshold {
 }
 unsafe impl ::windows::core::Interface for LightSensorDataThreshold {
     type Vtable = ILightSensorDataThreshold_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb160afd1_878f_5492_9f2c_33dc3ae584a3);
+    const IID: ::windows::core::GUID = <ILightSensorDataThreshold as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LightSensorDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.LightSensorDataThreshold";
@@ -6630,7 +6630,7 @@ unsafe impl ::windows::core::RuntimeType for LightSensorReading {
 }
 unsafe impl ::windows::core::Interface for LightSensorReading {
     type Vtable = ILightSensorReading_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffdf6300_227c_4d2b_b302_fc0142485c68);
+    const IID: ::windows::core::GUID = <ILightSensorReading as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LightSensorReading {
     const NAME: &'static str = "Windows.Devices.Sensors.LightSensorReading";
@@ -6711,7 +6711,7 @@ unsafe impl ::windows::core::RuntimeType for LightSensorReadingChangedEventArgs 
 }
 unsafe impl ::windows::core::Interface for LightSensorReadingChangedEventArgs {
     type Vtable = ILightSensorReadingChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3a2f4cf_258b_420c_b8ab_8edd601ecf50);
+    const IID: ::windows::core::GUID = <ILightSensorReadingChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LightSensorReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.LightSensorReadingChangedEventArgs";
@@ -6912,7 +6912,7 @@ unsafe impl ::windows::core::RuntimeType for Magnetometer {
 }
 unsafe impl ::windows::core::Interface for Magnetometer {
     type Vtable = IMagnetometer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x484f626e_d3c9_4111_b3f6_2cf1faa418d5);
+    const IID: ::windows::core::GUID = <IMagnetometer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Magnetometer {
     const NAME: &'static str = "Windows.Devices.Sensors.Magnetometer";
@@ -7054,7 +7054,7 @@ unsafe impl ::windows::core::RuntimeType for MagnetometerDataThreshold {
 }
 unsafe impl ::windows::core::Interface for MagnetometerDataThreshold {
     type Vtable = IMagnetometerDataThreshold_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd177cb01_9063_5fa5_b596_b445e9dc3401);
+    const IID: ::windows::core::GUID = <IMagnetometerDataThreshold as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MagnetometerDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.MagnetometerDataThreshold";
@@ -7186,7 +7186,7 @@ unsafe impl ::windows::core::RuntimeType for MagnetometerReading {
 }
 unsafe impl ::windows::core::Interface for MagnetometerReading {
     type Vtable = IMagnetometerReading_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c2cc40d_ebfd_4e5c_bb11_afc29b3cae61);
+    const IID: ::windows::core::GUID = <IMagnetometerReading as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MagnetometerReading {
     const NAME: &'static str = "Windows.Devices.Sensors.MagnetometerReading";
@@ -7267,7 +7267,7 @@ unsafe impl ::windows::core::RuntimeType for MagnetometerReadingChangedEventArgs
 }
 unsafe impl ::windows::core::Interface for MagnetometerReadingChangedEventArgs {
     type Vtable = IMagnetometerReadingChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17eae872_2eb9_4ee7_8ad0_3127537d949b);
+    const IID: ::windows::core::GUID = <IMagnetometerReadingChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MagnetometerReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.MagnetometerReadingChangedEventArgs";
@@ -7506,7 +7506,7 @@ unsafe impl ::windows::core::RuntimeType for OrientationSensor {
 }
 unsafe impl ::windows::core::Interface for OrientationSensor {
     type Vtable = IOrientationSensor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e354635_cf6b_4c63_abd8_10252b0bf6ec);
+    const IID: ::windows::core::GUID = <IOrientationSensor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for OrientationSensor {
     const NAME: &'static str = "Windows.Devices.Sensors.OrientationSensor";
@@ -7630,7 +7630,7 @@ unsafe impl ::windows::core::RuntimeType for OrientationSensorReading {
 }
 unsafe impl ::windows::core::Interface for OrientationSensorReading {
     type Vtable = IOrientationSensorReading_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4756c993_6595_4897_bcc6_d537ee757564);
+    const IID: ::windows::core::GUID = <IOrientationSensorReading as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for OrientationSensorReading {
     const NAME: &'static str = "Windows.Devices.Sensors.OrientationSensorReading";
@@ -7711,7 +7711,7 @@ unsafe impl ::windows::core::RuntimeType for OrientationSensorReadingChangedEven
 }
 unsafe impl ::windows::core::Interface for OrientationSensorReadingChangedEventArgs {
     type Vtable = IOrientationSensorReadingChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x012c1186_c3ba_46bc_ae65_7a98996cbfb8);
+    const IID: ::windows::core::GUID = <IOrientationSensorReadingChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for OrientationSensorReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.OrientationSensorReadingChangedEventArgs";
@@ -7902,7 +7902,7 @@ unsafe impl ::windows::core::RuntimeType for Pedometer {
 }
 unsafe impl ::windows::core::Interface for Pedometer {
     type Vtable = IPedometer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a1e013d_3d98_45f8_8920_8e4ecaca5f97);
+    const IID: ::windows::core::GUID = <IPedometer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Pedometer {
     const NAME: &'static str = "Windows.Devices.Sensors.Pedometer";
@@ -7987,7 +7987,7 @@ unsafe impl ::windows::core::RuntimeType for PedometerDataThreshold {
 }
 unsafe impl ::windows::core::Interface for PedometerDataThreshold {
     type Vtable = ISensorDataThreshold_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54daec61_fe4b_4e07_b260_3a4cdfbe396e);
+    const IID: ::windows::core::GUID = <ISensorDataThreshold as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PedometerDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.PedometerDataThreshold";
@@ -8116,7 +8116,7 @@ unsafe impl ::windows::core::RuntimeType for PedometerReading {
 }
 unsafe impl ::windows::core::Interface for PedometerReading {
     type Vtable = IPedometerReading_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2245dcf4_a8e1_432f_896a_be0dd9b02d24);
+    const IID: ::windows::core::GUID = <IPedometerReading as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PedometerReading {
     const NAME: &'static str = "Windows.Devices.Sensors.PedometerReading";
@@ -8197,7 +8197,7 @@ unsafe impl ::windows::core::RuntimeType for PedometerReadingChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for PedometerReadingChangedEventArgs {
     type Vtable = IPedometerReadingChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf855e47e_abbc_4456_86a8_25cf2b333742);
+    const IID: ::windows::core::GUID = <IPedometerReadingChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PedometerReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.PedometerReadingChangedEventArgs";
@@ -8389,7 +8389,7 @@ unsafe impl ::windows::core::RuntimeType for ProximitySensor {
 }
 unsafe impl ::windows::core::Interface for ProximitySensor {
     type Vtable = IProximitySensor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54c076b8_ecfb_4944_b928_74fc504d47ee);
+    const IID: ::windows::core::GUID = <IProximitySensor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ProximitySensor {
     const NAME: &'static str = "Windows.Devices.Sensors.ProximitySensor";
@@ -8474,7 +8474,7 @@ unsafe impl ::windows::core::RuntimeType for ProximitySensorDataThreshold {
 }
 unsafe impl ::windows::core::Interface for ProximitySensorDataThreshold {
     type Vtable = ISensorDataThreshold_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54daec61_fe4b_4e07_b260_3a4cdfbe396e);
+    const IID: ::windows::core::GUID = <ISensorDataThreshold as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ProximitySensorDataThreshold {
     const NAME: &'static str = "Windows.Devices.Sensors.ProximitySensorDataThreshold";
@@ -8583,7 +8583,7 @@ unsafe impl ::windows::core::RuntimeType for ProximitySensorDisplayOnOffControll
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::core::Interface for ProximitySensorDisplayOnOffController {
     type Vtable = super::super::Foundation::IClosable_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30d5a829_7fa4_4026_83bb_d75bae4ea99e);
+    const IID: ::windows::core::GUID = <super::super::Foundation::IClosable as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for ProximitySensorDisplayOnOffController {
@@ -8719,7 +8719,7 @@ unsafe impl ::windows::core::RuntimeType for ProximitySensorReading {
 }
 unsafe impl ::windows::core::Interface for ProximitySensorReading {
     type Vtable = IProximitySensorReading_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71228d59_132d_4d5f_8ff9_2f0db8751ced);
+    const IID: ::windows::core::GUID = <IProximitySensorReading as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ProximitySensorReading {
     const NAME: &'static str = "Windows.Devices.Sensors.ProximitySensorReading";
@@ -8800,7 +8800,7 @@ unsafe impl ::windows::core::RuntimeType for ProximitySensorReadingChangedEventA
 }
 unsafe impl ::windows::core::Interface for ProximitySensorReadingChangedEventArgs {
     type Vtable = IProximitySensorReadingChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfc2f366_c3e8_40fd_8cc3_67e289004938);
+    const IID: ::windows::core::GUID = <IProximitySensorReadingChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ProximitySensorReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.ProximitySensorReadingChangedEventArgs";
@@ -8889,7 +8889,7 @@ unsafe impl ::windows::core::RuntimeType for SensorDataThresholdTriggerDetails {
 }
 unsafe impl ::windows::core::Interface for SensorDataThresholdTriggerDetails {
     type Vtable = ISensorDataThresholdTriggerDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9106f1b7_e88d_48b1_bc90_619c7b349391);
+    const IID: ::windows::core::GUID = <ISensorDataThresholdTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SensorDataThresholdTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Sensors.SensorDataThresholdTriggerDetails";
@@ -9022,7 +9022,7 @@ unsafe impl ::windows::core::RuntimeType for SensorQuaternion {
 }
 unsafe impl ::windows::core::Interface for SensorQuaternion {
     type Vtable = ISensorQuaternion_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9c5c827_c71c_46e7_9da3_36a193b232bc);
+    const IID: ::windows::core::GUID = <ISensorQuaternion as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SensorQuaternion {
     const NAME: &'static str = "Windows.Devices.Sensors.SensorQuaternion";
@@ -9195,7 +9195,7 @@ unsafe impl ::windows::core::RuntimeType for SensorRotationMatrix {
 }
 unsafe impl ::windows::core::Interface for SensorRotationMatrix {
     type Vtable = ISensorRotationMatrix_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a3d5a67_22f4_4392_9538_65d0bd064aa6);
+    const IID: ::windows::core::GUID = <ISensorRotationMatrix as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SensorRotationMatrix {
     const NAME: &'static str = "Windows.Devices.Sensors.SensorRotationMatrix";
@@ -9418,7 +9418,7 @@ unsafe impl ::windows::core::RuntimeType for SimpleOrientationSensor {
 }
 unsafe impl ::windows::core::Interface for SimpleOrientationSensor {
     type Vtable = ISimpleOrientationSensor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ff53856_214a_4dee_a3f9_616f1ab06ffd);
+    const IID: ::windows::core::GUID = <ISimpleOrientationSensor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SimpleOrientationSensor {
     const NAME: &'static str = "Windows.Devices.Sensors.SimpleOrientationSensor";
@@ -9508,7 +9508,7 @@ unsafe impl ::windows::core::RuntimeType for SimpleOrientationSensorOrientationC
 }
 unsafe impl ::windows::core::Interface for SimpleOrientationSensorOrientationChangedEventArgs {
     type Vtable = ISimpleOrientationSensorOrientationChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbcd5c660_23d4_4b4c_a22e_ba81ade0c601);
+    const IID: ::windows::core::GUID = <ISimpleOrientationSensorOrientationChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SimpleOrientationSensorOrientationChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.SimpleOrientationSensorOrientationChangedEventArgs";

@@ -60,7 +60,7 @@ unsafe impl ::windows::core::RuntimeType for CustomMapTileDataSource {
 }
 unsafe impl ::windows::core::Interface for CustomMapTileDataSource {
     type Vtable = ICustomMapTileDataSource_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65da384a_2db1_4be1_b155_3d0c9ecf4799);
+    const IID: ::windows::core::GUID = <ICustomMapTileDataSource as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CustomMapTileDataSource {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.CustomMapTileDataSource";
@@ -258,7 +258,7 @@ unsafe impl ::windows::core::RuntimeType for HttpMapTileDataSource {
 }
 unsafe impl ::windows::core::Interface for HttpMapTileDataSource {
     type Vtable = IHttpMapTileDataSource_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d03cb5c_fd79_4795_87be_7e54ca0b37d0);
+    const IID: ::windows::core::GUID = <IHttpMapTileDataSource as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpMapTileDataSource {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.HttpMapTileDataSource";
@@ -2990,7 +2990,7 @@ unsafe impl ::windows::core::RuntimeType for LocalMapTileDataSource {
 }
 unsafe impl ::windows::core::Interface for LocalMapTileDataSource {
     type Vtable = ILocalMapTileDataSource_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x616257b5_9108_4f12_8bf4_bb3c8f6274e5);
+    const IID: ::windows::core::GUID = <ILocalMapTileDataSource as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LocalMapTileDataSource {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.LocalMapTileDataSource";
@@ -3126,7 +3126,7 @@ unsafe impl ::windows::core::RuntimeType for MapActualCameraChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for MapActualCameraChangedEventArgs {
     type Vtable = IMapActualCameraChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdaa080da_b7f4_422c_a618_bbaa7c1d814c);
+    const IID: ::windows::core::GUID = <IMapActualCameraChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapActualCameraChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapActualCameraChangedEventArgs";
@@ -3222,7 +3222,7 @@ unsafe impl ::windows::core::RuntimeType for MapActualCameraChangingEventArgs {
 }
 unsafe impl ::windows::core::Interface for MapActualCameraChangingEventArgs {
     type Vtable = IMapActualCameraChangingEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b0dbed6_93f7_4682_8de5_a47a1cc7a945);
+    const IID: ::windows::core::GUID = <IMapActualCameraChangingEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapActualCameraChangingEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapActualCameraChangingEventArgs";
@@ -3429,7 +3429,7 @@ unsafe impl ::windows::core::RuntimeType for MapBillboard {
 }
 unsafe impl ::windows::core::Interface for MapBillboard {
     type Vtable = IMapBillboard_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1694259d_0ae2_4f42_a02e_292ca835d39d);
+    const IID: ::windows::core::GUID = <IMapBillboard as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapBillboard {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapBillboard";
@@ -3646,7 +3646,7 @@ unsafe impl ::windows::core::RuntimeType for MapCamera {
 }
 unsafe impl ::windows::core::Interface for MapCamera {
     type Vtable = IMapCamera_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53a6b623_c0f8_4d8b_ad1e_a59598ea840b);
+    const IID: ::windows::core::GUID = <IMapCamera as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapCamera {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapCamera";
@@ -3830,7 +3830,7 @@ unsafe impl ::windows::core::RuntimeType for MapContextRequestedEventArgs {
 }
 unsafe impl ::windows::core::Interface for MapContextRequestedEventArgs {
     type Vtable = IMapContextRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfdd1b423_c961_4df2_bb57_82ee0f0bb591);
+    const IID: ::windows::core::GUID = <IMapContextRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapContextRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapContextRequestedEventArgs";
@@ -5263,7 +5263,7 @@ unsafe impl ::windows::core::RuntimeType for MapControl {
 }
 unsafe impl ::windows::core::Interface for MapControl {
     type Vtable = IMapControl_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42d0b851_5256_4747_9e6c_0d11e966141e);
+    const IID: ::windows::core::GUID = <IMapControl as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapControl {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapControl";
@@ -5484,7 +5484,7 @@ unsafe impl ::windows::core::RuntimeType for MapControlBusinessLandmarkClickEven
 }
 unsafe impl ::windows::core::Interface for MapControlBusinessLandmarkClickEventArgs {
     type Vtable = IMapControlBusinessLandmarkClickEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e464922_4a1a_4797_beb7_5cf7754cb867);
+    const IID: ::windows::core::GUID = <IMapControlBusinessLandmarkClickEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapControlBusinessLandmarkClickEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapControlBusinessLandmarkClickEventArgs";
@@ -5573,7 +5573,7 @@ unsafe impl ::windows::core::RuntimeType for MapControlBusinessLandmarkPointerEn
 }
 unsafe impl ::windows::core::Interface for MapControlBusinessLandmarkPointerEnteredEventArgs {
     type Vtable = IMapControlBusinessLandmarkPointerEnteredEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e4081a6_ea98_4f95_8caf_5b42696ff504);
+    const IID: ::windows::core::GUID = <IMapControlBusinessLandmarkPointerEnteredEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapControlBusinessLandmarkPointerEnteredEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapControlBusinessLandmarkPointerEnteredEventArgs";
@@ -5662,7 +5662,7 @@ unsafe impl ::windows::core::RuntimeType for MapControlBusinessLandmarkPointerEx
 }
 unsafe impl ::windows::core::Interface for MapControlBusinessLandmarkPointerExitedEventArgs {
     type Vtable = IMapControlBusinessLandmarkPointerExitedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bb52caf_f24a_46d0_b463_65f719731057);
+    const IID: ::windows::core::GUID = <IMapControlBusinessLandmarkPointerExitedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapControlBusinessLandmarkPointerExitedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapControlBusinessLandmarkPointerExitedEventArgs";
@@ -5751,7 +5751,7 @@ unsafe impl ::windows::core::RuntimeType for MapControlBusinessLandmarkRightTapp
 }
 unsafe impl ::windows::core::Interface for MapControlBusinessLandmarkRightTappedEventArgs {
     type Vtable = IMapControlBusinessLandmarkRightTappedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59ab8ae7_f184_4ab1_b0b0_35c8bf0654b2);
+    const IID: ::windows::core::GUID = <IMapControlBusinessLandmarkRightTappedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapControlBusinessLandmarkRightTappedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapControlBusinessLandmarkRightTappedEventArgs";
@@ -5968,7 +5968,7 @@ unsafe impl ::windows::core::RuntimeType for MapControlDataHelper {
 }
 unsafe impl ::windows::core::Interface for MapControlDataHelper {
     type Vtable = IMapControlDataHelper_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8bb0f09c_14ab_486c_9de5_5a5def0205a2);
+    const IID: ::windows::core::GUID = <IMapControlDataHelper as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapControlDataHelper {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapControlDataHelper";
@@ -6094,7 +6094,7 @@ unsafe impl ::windows::core::RuntimeType for MapControlTransitFeatureClickEventA
 }
 unsafe impl ::windows::core::Interface for MapControlTransitFeatureClickEventArgs {
     type Vtable = IMapControlTransitFeatureClickEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76179969_b765_4622_b08a_3072745a4541);
+    const IID: ::windows::core::GUID = <IMapControlTransitFeatureClickEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapControlTransitFeatureClickEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapControlTransitFeatureClickEventArgs";
@@ -6200,7 +6200,7 @@ unsafe impl ::windows::core::RuntimeType for MapControlTransitFeaturePointerEnte
 }
 unsafe impl ::windows::core::Interface for MapControlTransitFeaturePointerEnteredEventArgs {
     type Vtable = IMapControlTransitFeaturePointerEnteredEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73911a4e_ec4f_479e_94a1_36e081d0d897);
+    const IID: ::windows::core::GUID = <IMapControlTransitFeaturePointerEnteredEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapControlTransitFeaturePointerEnteredEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapControlTransitFeaturePointerEnteredEventArgs";
@@ -6306,7 +6306,7 @@ unsafe impl ::windows::core::RuntimeType for MapControlTransitFeaturePointerExit
 }
 unsafe impl ::windows::core::Interface for MapControlTransitFeaturePointerExitedEventArgs {
     type Vtable = IMapControlTransitFeaturePointerExitedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a11258d_448d_44e7_bc69_d13d497154e9);
+    const IID: ::windows::core::GUID = <IMapControlTransitFeaturePointerExitedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapControlTransitFeaturePointerExitedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapControlTransitFeaturePointerExitedEventArgs";
@@ -6412,7 +6412,7 @@ unsafe impl ::windows::core::RuntimeType for MapControlTransitFeatureRightTapped
 }
 unsafe impl ::windows::core::Interface for MapControlTransitFeatureRightTappedEventArgs {
     type Vtable = IMapControlTransitFeatureRightTappedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaea1cc49_a729_4eae_a59a_3ec9a125a028);
+    const IID: ::windows::core::GUID = <IMapControlTransitFeatureRightTappedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapControlTransitFeatureRightTappedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapControlTransitFeatureRightTappedEventArgs";
@@ -6505,7 +6505,7 @@ unsafe impl ::windows::core::RuntimeType for MapCustomExperience {
 }
 unsafe impl ::windows::core::Interface for MapCustomExperience {
     type Vtable = IMapCustomExperience_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64592866_14a3_4e5f_8883_8e9c500eeede);
+    const IID: ::windows::core::GUID = <IMapCustomExperience as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapCustomExperience {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapCustomExperience";
@@ -6605,7 +6605,7 @@ unsafe impl ::windows::core::RuntimeType for MapCustomExperienceChangedEventArgs
 }
 unsafe impl ::windows::core::Interface for MapCustomExperienceChangedEventArgs {
     type Vtable = IMapCustomExperienceChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9e6fb9b_8fc1_4042_ac34_a61b38bb7514);
+    const IID: ::windows::core::GUID = <IMapCustomExperienceChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapCustomExperienceChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapCustomExperienceChangedEventArgs";
@@ -6858,7 +6858,7 @@ unsafe impl ::windows::core::RuntimeType for MapElement {
 }
 unsafe impl ::windows::core::Interface for MapElement {
     type Vtable = IMapElement_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd61fc4df_b245_47f2_9ac2_43c058b1c903);
+    const IID: ::windows::core::GUID = <IMapElement as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapElement {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapElement";
@@ -7080,7 +7080,7 @@ unsafe impl ::windows::core::RuntimeType for MapElement3D {
 }
 unsafe impl ::windows::core::Interface for MapElement3D {
     type Vtable = IMapElement3D_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x827af8d5_3843_48e2_bd00_0f0644fbe6a5);
+    const IID: ::windows::core::GUID = <IMapElement3D as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapElement3D {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapElement3D";
@@ -7227,7 +7227,7 @@ unsafe impl ::windows::core::RuntimeType for MapElementClickEventArgs {
 }
 unsafe impl ::windows::core::Interface for MapElementClickEventArgs {
     type Vtable = IMapElementClickEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40168a11_d080_4519_99a1_3149fb8999d0);
+    const IID: ::windows::core::GUID = <IMapElementClickEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapElementClickEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapElementClickEventArgs";
@@ -7361,7 +7361,7 @@ unsafe impl ::windows::core::RuntimeType for MapElementPointerEnteredEventArgs {
 }
 unsafe impl ::windows::core::Interface for MapElementPointerEnteredEventArgs {
     type Vtable = IMapElementPointerEnteredEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab85dd4e_91d7_4b31_8f0a_d390c7d3a2ef);
+    const IID: ::windows::core::GUID = <IMapElementPointerEnteredEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapElementPointerEnteredEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapElementPointerEnteredEventArgs";
@@ -7467,7 +7467,7 @@ unsafe impl ::windows::core::RuntimeType for MapElementPointerExitedEventArgs {
 }
 unsafe impl ::windows::core::Interface for MapElementPointerExitedEventArgs {
     type Vtable = IMapElementPointerExitedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1a45af9_60c9_4679_9119_20abc75d931f);
+    const IID: ::windows::core::GUID = <IMapElementPointerExitedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapElementPointerExitedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapElementPointerExitedEventArgs";
@@ -7634,7 +7634,7 @@ unsafe impl ::windows::core::RuntimeType for MapElementsLayer {
 }
 unsafe impl ::windows::core::Interface for MapElementsLayer {
     type Vtable = IMapElementsLayer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde79689a_01ef_46f4_ac60_7c200b552610);
+    const IID: ::windows::core::GUID = <IMapElementsLayer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapElementsLayer {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapElementsLayer";
@@ -7781,7 +7781,7 @@ unsafe impl ::windows::core::RuntimeType for MapElementsLayerClickEventArgs {
 }
 unsafe impl ::windows::core::Interface for MapElementsLayerClickEventArgs {
     type Vtable = IMapElementsLayerClickEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ca7cf66_af1b_4c05_8c85_f74ae3d4677f);
+    const IID: ::windows::core::GUID = <IMapElementsLayerClickEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapElementsLayerClickEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapElementsLayerClickEventArgs";
@@ -7888,7 +7888,7 @@ unsafe impl ::windows::core::RuntimeType for MapElementsLayerContextRequestedEve
 }
 unsafe impl ::windows::core::Interface for MapElementsLayerContextRequestedEventArgs {
     type Vtable = IMapElementsLayerContextRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda45d0b3_7a0e_4758_808b_3a637627eb0d);
+    const IID: ::windows::core::GUID = <IMapElementsLayerContextRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapElementsLayerContextRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapElementsLayerContextRequestedEventArgs";
@@ -7994,7 +7994,7 @@ unsafe impl ::windows::core::RuntimeType for MapElementsLayerPointerEnteredEvent
 }
 unsafe impl ::windows::core::Interface for MapElementsLayerPointerEnteredEventArgs {
     type Vtable = IMapElementsLayerPointerEnteredEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x757fc032_4694_4404_8c89_348b6b76c5e6);
+    const IID: ::windows::core::GUID = <IMapElementsLayerPointerEnteredEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapElementsLayerPointerEnteredEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapElementsLayerPointerEnteredEventArgs";
@@ -8100,7 +8100,7 @@ unsafe impl ::windows::core::RuntimeType for MapElementsLayerPointerExitedEventA
 }
 unsafe impl ::windows::core::Interface for MapElementsLayerPointerExitedEventArgs {
     type Vtable = IMapElementsLayerPointerExitedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92f3c6ad_03ed_4c39_af20_2a07ee1ccea6);
+    const IID: ::windows::core::GUID = <IMapElementsLayerPointerExitedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapElementsLayerPointerExitedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapElementsLayerPointerExitedEventArgs";
@@ -8289,7 +8289,7 @@ unsafe impl ::windows::core::RuntimeType for MapIcon {
 }
 unsafe impl ::windows::core::Interface for MapIcon {
     type Vtable = IMapIcon_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2096872_23d9_4a2b_8be0_69f3a85482ab);
+    const IID: ::windows::core::GUID = <IMapIcon as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapIcon {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapIcon";
@@ -8427,7 +8427,7 @@ unsafe impl ::windows::core::RuntimeType for MapInputEventArgs {
 }
 unsafe impl ::windows::core::Interface for MapInputEventArgs {
     type Vtable = IMapInputEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fc503a0_a8a2_4394_92e9_2247764f2f49);
+    const IID: ::windows::core::GUID = <IMapInputEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapInputEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapInputEventArgs";
@@ -8622,7 +8622,7 @@ unsafe impl ::windows::core::RuntimeType for MapItemsControl {
 }
 unsafe impl ::windows::core::Interface for MapItemsControl {
     type Vtable = IMapItemsControl_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94c2c4d3_b335_42c5_b660_e6a07ec3bddc);
+    const IID: ::windows::core::GUID = <IMapItemsControl as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapItemsControl {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapItemsControl";
@@ -8800,7 +8800,7 @@ unsafe impl ::windows::core::RuntimeType for MapLayer {
 }
 unsafe impl ::windows::core::Interface for MapLayer {
     type Vtable = IMapLayer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d0ff9c1_a14d_4f97_8f57_46715b57683a);
+    const IID: ::windows::core::GUID = <IMapLayer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapLayer {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapLayer";
@@ -8964,7 +8964,7 @@ unsafe impl ::windows::core::RuntimeType for MapModel3D {
 }
 unsafe impl ::windows::core::Interface for MapModel3D {
     type Vtable = IMapModel3D_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8c541a1_ca27_4968_a2bf_9c20f06a0468);
+    const IID: ::windows::core::GUID = <IMapModel3D as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapModel3D {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapModel3D";
@@ -9223,7 +9223,7 @@ unsafe impl ::windows::core::RuntimeType for MapPolygon {
 }
 unsafe impl ::windows::core::Interface for MapPolygon {
     type Vtable = IMapPolygon_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xabda2285_4926_4c3a_a5f9_19df7f69db3d);
+    const IID: ::windows::core::GUID = <IMapPolygon as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapPolygon {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapPolygon";
@@ -9416,7 +9416,7 @@ unsafe impl ::windows::core::RuntimeType for MapPolyline {
 }
 unsafe impl ::windows::core::Interface for MapPolyline {
     type Vtable = IMapPolyline_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbad24a2_24df_4a86_8ffa_0f8f4d9ec17d);
+    const IID: ::windows::core::GUID = <IMapPolyline as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapPolyline {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapPolyline";
@@ -9582,7 +9582,7 @@ unsafe impl ::windows::core::RuntimeType for MapRightTappedEventArgs {
 }
 unsafe impl ::windows::core::Interface for MapRightTappedEventArgs {
     type Vtable = IMapRightTappedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20943171_6fe8_40a6_ad0e_297379b575a7);
+    const IID: ::windows::core::GUID = <IMapRightTappedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapRightTappedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapRightTappedEventArgs";
@@ -9712,7 +9712,7 @@ unsafe impl ::windows::core::RuntimeType for MapRouteView {
 }
 unsafe impl ::windows::core::Interface for MapRouteView {
     type Vtable = IMapRouteView_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x740eaec5_bacc_41e1_a67e_dd6513832049);
+    const IID: ::windows::core::GUID = <IMapRouteView as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapRouteView {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapRouteView";
@@ -9904,7 +9904,7 @@ unsafe impl ::windows::core::RuntimeType for MapScene {
 }
 unsafe impl ::windows::core::Interface for MapScene {
     type Vtable = IMapScene_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8bba10a9_50e7_482c_9789_c688b178ac24);
+    const IID: ::windows::core::GUID = <IMapScene as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapScene {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapScene";
@@ -10100,7 +10100,7 @@ unsafe impl ::windows::core::RuntimeType for MapStyleSheet {
 }
 unsafe impl ::windows::core::Interface for MapStyleSheet {
     type Vtable = IMapStyleSheet_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae54b2bf_8991_42ed_8d58_20473deede1d);
+    const IID: ::windows::core::GUID = <IMapStyleSheet as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapStyleSheet {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapStyleSheet";
@@ -10709,7 +10709,7 @@ unsafe impl ::windows::core::RuntimeType for MapTargetCameraChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for MapTargetCameraChangedEventArgs {
     type Vtable = IMapTargetCameraChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdbf00472_e953_4fa8_97d0_ea86359057cf);
+    const IID: ::windows::core::GUID = <IMapTargetCameraChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapTargetCameraChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapTargetCameraChangedEventArgs";
@@ -10841,7 +10841,7 @@ unsafe impl ::windows::core::RuntimeType for MapTileBitmapRequest {
 }
 unsafe impl ::windows::core::Interface for MapTileBitmapRequest {
     type Vtable = IMapTileBitmapRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46733fbc_d89d_472b_b5f6_d7066b0584f4);
+    const IID: ::windows::core::GUID = <IMapTileBitmapRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapTileBitmapRequest {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapTileBitmapRequest";
@@ -10926,7 +10926,7 @@ unsafe impl ::windows::core::RuntimeType for MapTileBitmapRequestDeferral {
 }
 unsafe impl ::windows::core::Interface for MapTileBitmapRequestDeferral {
     type Vtable = IMapTileBitmapRequestDeferral_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe370542_a4ac_4efa_9665_0490b0cafdd2);
+    const IID: ::windows::core::GUID = <IMapTileBitmapRequestDeferral as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapTileBitmapRequestDeferral {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapTileBitmapRequestDeferral";
@@ -11046,7 +11046,7 @@ unsafe impl ::windows::core::RuntimeType for MapTileBitmapRequestedEventArgs {
 }
 unsafe impl ::windows::core::Interface for MapTileBitmapRequestedEventArgs {
     type Vtable = IMapTileBitmapRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x337f691d_9b02_4aa2_8b1e_cc4d91719bf3);
+    const IID: ::windows::core::GUID = <IMapTileBitmapRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapTileBitmapRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapTileBitmapRequestedEventArgs";
@@ -11139,7 +11139,7 @@ unsafe impl ::windows::core::RuntimeType for MapTileDataSource {
 }
 unsafe impl ::windows::core::Interface for MapTileDataSource {
     type Vtable = IMapTileDataSource_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc03d9f5e_be1f_4c69_9969_79467a513c38);
+    const IID: ::windows::core::GUID = <IMapTileDataSource as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapTileDataSource {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapTileDataSource";
@@ -11671,7 +11671,7 @@ unsafe impl ::windows::core::RuntimeType for MapTileSource {
 }
 unsafe impl ::windows::core::Interface for MapTileSource {
     type Vtable = IMapTileSource_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88a76e4e_2fdf_4567_9255_1100519c8d62);
+    const IID: ::windows::core::GUID = <IMapTileSource as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapTileSource {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapTileSource";
@@ -11794,7 +11794,7 @@ unsafe impl ::windows::core::RuntimeType for MapTileUriRequest {
 }
 unsafe impl ::windows::core::Interface for MapTileUriRequest {
     type Vtable = IMapTileUriRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17402335_3127_45b8_87a7_99f87d4e2745);
+    const IID: ::windows::core::GUID = <IMapTileUriRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapTileUriRequest {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapTileUriRequest";
@@ -11879,7 +11879,7 @@ unsafe impl ::windows::core::RuntimeType for MapTileUriRequestDeferral {
 }
 unsafe impl ::windows::core::Interface for MapTileUriRequestDeferral {
     type Vtable = IMapTileUriRequestDeferral_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc117ade0_bf3e_4c51_8faa_4b593cf68eb2);
+    const IID: ::windows::core::GUID = <IMapTileUriRequestDeferral as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapTileUriRequestDeferral {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapTileUriRequestDeferral";
@@ -11999,7 +11999,7 @@ unsafe impl ::windows::core::RuntimeType for MapTileUriRequestedEventArgs {
 }
 unsafe impl ::windows::core::Interface for MapTileUriRequestedEventArgs {
     type Vtable = IMapTileUriRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2147b43_1bbf_4b98_8dd3_b7834e407e0d);
+    const IID: ::windows::core::GUID = <IMapTileUriRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapTileUriRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.MapTileUriRequestedEventArgs";
@@ -12262,7 +12262,7 @@ unsafe impl ::windows::core::RuntimeType for StreetsideExperience {
 }
 unsafe impl ::windows::core::Interface for StreetsideExperience {
     type Vtable = IStreetsideExperience_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa558aec9_e30c_46c8_8116_484691675558);
+    const IID: ::windows::core::GUID = <IStreetsideExperience as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StreetsideExperience {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.StreetsideExperience";
@@ -12405,7 +12405,7 @@ unsafe impl ::windows::core::RuntimeType for StreetsidePanorama {
 }
 unsafe impl ::windows::core::Interface for StreetsidePanorama {
     type Vtable = IStreetsidePanorama_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fe00fd8_ad60_4664_b539_b1069f16c5af);
+    const IID: ::windows::core::GUID = <IStreetsidePanorama as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StreetsidePanorama {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Maps.StreetsidePanorama";

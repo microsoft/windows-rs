@@ -694,7 +694,7 @@ unsafe impl ::windows::core::RuntimeType for MidiActiveSensingMessage {
 }
 unsafe impl ::windows::core::Interface for MidiActiveSensingMessage {
     type Vtable = IMidiMessage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79767945_1094_4283_9be0_289fc0ee8334);
+    const IID: ::windows::core::GUID = <IMidiMessage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MidiActiveSensingMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiActiveSensingMessage";
@@ -843,7 +843,7 @@ unsafe impl ::windows::core::RuntimeType for MidiChannelPressureMessage {
 }
 unsafe impl ::windows::core::Interface for MidiChannelPressureMessage {
     type Vtable = IMidiChannelPressureMessage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe1fa860_62b4_4d52_a37e_92e54d35b909);
+    const IID: ::windows::core::GUID = <IMidiChannelPressureMessage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MidiChannelPressureMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiChannelPressureMessage";
@@ -971,7 +971,7 @@ unsafe impl ::windows::core::RuntimeType for MidiContinueMessage {
 }
 unsafe impl ::windows::core::Interface for MidiContinueMessage {
     type Vtable = IMidiMessage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79767945_1094_4283_9be0_289fc0ee8334);
+    const IID: ::windows::core::GUID = <IMidiMessage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MidiContinueMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiContinueMessage";
@@ -1128,7 +1128,7 @@ unsafe impl ::windows::core::RuntimeType for MidiControlChangeMessage {
 }
 unsafe impl ::windows::core::Interface for MidiControlChangeMessage {
     type Vtable = IMidiControlChangeMessage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7e15f83_780d_405f_b781_3e1598c97f40);
+    const IID: ::windows::core::GUID = <IMidiControlChangeMessage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MidiControlChangeMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiControlChangeMessage";
@@ -1272,7 +1272,7 @@ unsafe impl ::windows::core::RuntimeType for MidiInPort {
 }
 unsafe impl ::windows::core::Interface for MidiInPort {
     type Vtable = IMidiInPort_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5c1d9db_971a_4eaf_a23d_ea19fe607ff9);
+    const IID: ::windows::core::GUID = <IMidiInPort as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MidiInPort {
     const NAME: &'static str = "Windows.Devices.Midi.MidiInPort";
@@ -1379,7 +1379,7 @@ unsafe impl ::windows::core::RuntimeType for MidiMessageReceivedEventArgs {
 }
 unsafe impl ::windows::core::Interface for MidiMessageReceivedEventArgs {
     type Vtable = IMidiMessageReceivedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76566e56_f328_4b51_907d_b3a8ce96bf80);
+    const IID: ::windows::core::GUID = <IMidiMessageReceivedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MidiMessageReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.Midi.MidiMessageReceivedEventArgs";
@@ -1560,7 +1560,7 @@ unsafe impl ::windows::core::RuntimeType for MidiNoteOffMessage {
 }
 unsafe impl ::windows::core::Interface for MidiNoteOffMessage {
     type Vtable = IMidiNoteOffMessage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16fd8af4_198e_4d8f_a654_d305a293548f);
+    const IID: ::windows::core::GUID = <IMidiNoteOffMessage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MidiNoteOffMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiNoteOffMessage";
@@ -1717,7 +1717,7 @@ unsafe impl ::windows::core::RuntimeType for MidiNoteOnMessage {
 }
 unsafe impl ::windows::core::Interface for MidiNoteOnMessage {
     type Vtable = IMidiNoteOnMessage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0224af5_6181_46dd_afa2_410004c057aa);
+    const IID: ::windows::core::GUID = <IMidiNoteOnMessage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MidiNoteOnMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiNoteOnMessage";
@@ -1857,7 +1857,7 @@ unsafe impl ::windows::core::RuntimeType for MidiOutPort {
 }
 unsafe impl ::windows::core::Interface for MidiOutPort {
     type Vtable = IMidiOutPort_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x931d6d9f_57a2_4a3a_adb8_4640886f6693);
+    const IID: ::windows::core::GUID = <IMidiOutPort as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MidiOutPort {
     const NAME: &'static str = "Windows.Devices.Midi.MidiOutPort";
@@ -2032,7 +2032,7 @@ unsafe impl ::windows::core::RuntimeType for MidiPitchBendChangeMessage {
 }
 unsafe impl ::windows::core::Interface for MidiPitchBendChangeMessage {
     type Vtable = IMidiPitchBendChangeMessage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29df4cb1_2e9f_4faf_8c2b_9cb82a9079ca);
+    const IID: ::windows::core::GUID = <IMidiPitchBendChangeMessage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MidiPitchBendChangeMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiPitchBendChangeMessage";
@@ -2189,7 +2189,7 @@ unsafe impl ::windows::core::RuntimeType for MidiPolyphonicKeyPressureMessage {
 }
 unsafe impl ::windows::core::Interface for MidiPolyphonicKeyPressureMessage {
     type Vtable = IMidiPolyphonicKeyPressureMessage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f7337fe_ace8_48a0_868e_7cdbf20f04d6);
+    const IID: ::windows::core::GUID = <IMidiPolyphonicKeyPressureMessage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MidiPolyphonicKeyPressureMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiPolyphonicKeyPressureMessage";
@@ -2338,7 +2338,7 @@ unsafe impl ::windows::core::RuntimeType for MidiProgramChangeMessage {
 }
 unsafe impl ::windows::core::Interface for MidiProgramChangeMessage {
     type Vtable = IMidiProgramChangeMessage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9cbb3c78_7a3e_4327_aa98_20b8e4485af8);
+    const IID: ::windows::core::GUID = <IMidiProgramChangeMessage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MidiProgramChangeMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiProgramChangeMessage";
@@ -2479,7 +2479,7 @@ unsafe impl ::windows::core::RuntimeType for MidiSongPositionPointerMessage {
 }
 unsafe impl ::windows::core::Interface for MidiSongPositionPointerMessage {
     type Vtable = IMidiSongPositionPointerMessage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ca50c56_ec5e_4ae4_a115_88dc57cc2b79);
+    const IID: ::windows::core::GUID = <IMidiSongPositionPointerMessage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MidiSongPositionPointerMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiSongPositionPointerMessage";
@@ -2620,7 +2620,7 @@ unsafe impl ::windows::core::RuntimeType for MidiSongSelectMessage {
 }
 unsafe impl ::windows::core::Interface for MidiSongSelectMessage {
     type Vtable = IMidiSongSelectMessage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49f0f27f_6d83_4741_a5bf_4629f6be974f);
+    const IID: ::windows::core::GUID = <IMidiSongSelectMessage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MidiSongSelectMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiSongSelectMessage";
@@ -2748,7 +2748,7 @@ unsafe impl ::windows::core::RuntimeType for MidiStartMessage {
 }
 unsafe impl ::windows::core::Interface for MidiStartMessage {
     type Vtable = IMidiMessage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79767945_1094_4283_9be0_289fc0ee8334);
+    const IID: ::windows::core::GUID = <IMidiMessage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MidiStartMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiStartMessage";
@@ -2876,7 +2876,7 @@ unsafe impl ::windows::core::RuntimeType for MidiStopMessage {
 }
 unsafe impl ::windows::core::Interface for MidiStopMessage {
     type Vtable = IMidiMessage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79767945_1094_4283_9be0_289fc0ee8334);
+    const IID: ::windows::core::GUID = <IMidiMessage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MidiStopMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiStopMessage";
@@ -3047,7 +3047,7 @@ unsafe impl ::windows::core::RuntimeType for MidiSynthesizer {
 }
 unsafe impl ::windows::core::Interface for MidiSynthesizer {
     type Vtable = IMidiSynthesizer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0da155e_db90_405f_b8ae_21d2e17f2e45);
+    const IID: ::windows::core::GUID = <IMidiSynthesizer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MidiSynthesizer {
     const NAME: &'static str = "Windows.Devices.Midi.MidiSynthesizer";
@@ -3207,7 +3207,7 @@ unsafe impl ::windows::core::RuntimeType for MidiSystemExclusiveMessage {
 }
 unsafe impl ::windows::core::Interface for MidiSystemExclusiveMessage {
     type Vtable = IMidiMessage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79767945_1094_4283_9be0_289fc0ee8334);
+    const IID: ::windows::core::GUID = <IMidiMessage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MidiSystemExclusiveMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiSystemExclusiveMessage";
@@ -3335,7 +3335,7 @@ unsafe impl ::windows::core::RuntimeType for MidiSystemResetMessage {
 }
 unsafe impl ::windows::core::Interface for MidiSystemResetMessage {
     type Vtable = IMidiMessage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79767945_1094_4283_9be0_289fc0ee8334);
+    const IID: ::windows::core::GUID = <IMidiMessage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MidiSystemResetMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiSystemResetMessage";
@@ -3484,7 +3484,7 @@ unsafe impl ::windows::core::RuntimeType for MidiTimeCodeMessage {
 }
 unsafe impl ::windows::core::Interface for MidiTimeCodeMessage {
     type Vtable = IMidiTimeCodeMessage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0bf7087d_fa63_4a1c_8deb_c0e87796a6d7);
+    const IID: ::windows::core::GUID = <IMidiTimeCodeMessage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MidiTimeCodeMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiTimeCodeMessage";
@@ -3612,7 +3612,7 @@ unsafe impl ::windows::core::RuntimeType for MidiTimingClockMessage {
 }
 unsafe impl ::windows::core::Interface for MidiTimingClockMessage {
     type Vtable = IMidiMessage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79767945_1094_4283_9be0_289fc0ee8334);
+    const IID: ::windows::core::GUID = <IMidiMessage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MidiTimingClockMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiTimingClockMessage";
@@ -3740,7 +3740,7 @@ unsafe impl ::windows::core::RuntimeType for MidiTuneRequestMessage {
 }
 unsafe impl ::windows::core::Interface for MidiTuneRequestMessage {
     type Vtable = IMidiMessage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79767945_1094_4283_9be0_289fc0ee8334);
+    const IID: ::windows::core::GUID = <IMidiMessage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MidiTuneRequestMessage {
     const NAME: &'static str = "Windows.Devices.Midi.MidiTuneRequestMessage";

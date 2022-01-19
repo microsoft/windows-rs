@@ -2117,7 +2117,7 @@ unsafe impl ::windows::core::RuntimeType for VpnAppId {
 }
 unsafe impl ::windows::core::Interface for VpnAppId {
     type Vtable = IVpnAppId_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b06a635_5c58_41d9_94a7_bfbcf1d8ca54);
+    const IID: ::windows::core::GUID = <IVpnAppId as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VpnAppId {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnAppId";
@@ -2555,7 +2555,7 @@ unsafe impl ::windows::core::RuntimeType for VpnChannel {
 }
 unsafe impl ::windows::core::Interface for VpnChannel {
     type Vtable = IVpnChannel_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ac78d07_d1a8_4303_a091_c8d2e0915bc3);
+    const IID: ::windows::core::GUID = <IVpnChannel as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VpnChannel {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnChannel";
@@ -2636,7 +2636,7 @@ unsafe impl ::windows::core::RuntimeType for VpnChannelActivityEventArgs {
 }
 unsafe impl ::windows::core::Interface for VpnChannelActivityEventArgs {
     type Vtable = IVpnChannelActivityEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa36c88f2_afdc_4775_855d_d4ac0a35fc55);
+    const IID: ::windows::core::GUID = <IVpnChannelActivityEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VpnChannelActivityEventArgs {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnChannelActivityEventArgs";
@@ -2745,7 +2745,7 @@ unsafe impl ::windows::core::RuntimeType for VpnChannelActivityStateChangedArgs 
 }
 unsafe impl ::windows::core::Interface for VpnChannelActivityStateChangedArgs {
     type Vtable = IVpnChannelActivityStateChangedArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d750565_fdc0_4bbe_a23b_45fffc6d97a1);
+    const IID: ::windows::core::GUID = <IVpnChannelActivityStateChangedArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VpnChannelActivityStateChangedArgs {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnChannelActivityStateChangedArgs";
@@ -2852,7 +2852,7 @@ unsafe impl ::windows::core::RuntimeType for VpnChannelConfiguration {
 }
 unsafe impl ::windows::core::Interface for VpnChannelConfiguration {
     type Vtable = IVpnChannelConfiguration_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e2ddca2_2012_4fe4_b179_8c652c6d107e);
+    const IID: ::windows::core::GUID = <IVpnChannelConfiguration as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VpnChannelConfiguration {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnChannelConfiguration";
@@ -3017,7 +3017,7 @@ unsafe impl ::windows::core::RuntimeType for VpnCredential {
 }
 unsafe impl ::windows::core::Interface for VpnCredential {
     type Vtable = IVpnCredential_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7e78af3_a46d_404b_8729_1832522853ac);
+    const IID: ::windows::core::GUID = <IVpnCredential as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VpnCredential {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCredential";
@@ -3212,7 +3212,7 @@ unsafe impl ::windows::core::RuntimeType for VpnCustomCheckBox {
 }
 unsafe impl ::windows::core::Interface for VpnCustomCheckBox {
     type Vtable = IVpnCustomCheckBox_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43878753_03c5_4e61_93d7_a957714c4282);
+    const IID: ::windows::core::GUID = <IVpnCustomCheckBox as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VpnCustomCheckBox {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomCheckBox";
@@ -3376,7 +3376,7 @@ unsafe impl ::windows::core::RuntimeType for VpnCustomComboBox {
 }
 unsafe impl ::windows::core::Interface for VpnCustomComboBox {
     type Vtable = IVpnCustomComboBox_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a24158e_dba1_4c6f_8270_dcf3c9761c4c);
+    const IID: ::windows::core::GUID = <IVpnCustomComboBox as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VpnCustomComboBox {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomComboBox";
@@ -3551,7 +3551,7 @@ unsafe impl ::windows::core::RuntimeType for VpnCustomEditBox {
 }
 unsafe impl ::windows::core::Interface for VpnCustomEditBox {
     type Vtable = IVpnCustomEditBox_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3002d9a0_cfbf_4c0b_8f3c_66f503c20b39);
+    const IID: ::windows::core::GUID = <IVpnCustomEditBox as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VpnCustomEditBox {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomEditBox";
@@ -3692,7 +3692,7 @@ unsafe impl ::windows::core::RuntimeType for VpnCustomErrorBox {
 }
 unsafe impl ::windows::core::Interface for VpnCustomErrorBox {
     type Vtable = IVpnCustomErrorBox_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ec4efb2_c942_42af_b223_588b48328721);
+    const IID: ::windows::core::GUID = <IVpnCustomErrorBox as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VpnCustomErrorBox {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomErrorBox";
@@ -3854,7 +3854,7 @@ unsafe impl ::windows::core::RuntimeType for VpnCustomPromptBooleanInput {
 }
 unsafe impl ::windows::core::Interface for VpnCustomPromptBooleanInput {
     type Vtable = IVpnCustomPromptBooleanInput_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4c9a69e_ff47_4527_9f27_a49292019979);
+    const IID: ::windows::core::GUID = <IVpnCustomPromptBooleanInput as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VpnCustomPromptBooleanInput {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomPromptBooleanInput";
@@ -4012,7 +4012,7 @@ unsafe impl ::windows::core::RuntimeType for VpnCustomPromptOptionSelector {
 }
 unsafe impl ::windows::core::Interface for VpnCustomPromptOptionSelector {
     type Vtable = IVpnCustomPromptOptionSelector_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b8f34d9_8ec1_4e95_9a4e_7ba64d38f330);
+    const IID: ::windows::core::GUID = <IVpnCustomPromptOptionSelector as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VpnCustomPromptOptionSelector {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomPromptOptionSelector";
@@ -4166,7 +4166,7 @@ unsafe impl ::windows::core::RuntimeType for VpnCustomPromptText {
 }
 unsafe impl ::windows::core::Interface for VpnCustomPromptText {
     type Vtable = IVpnCustomPromptText_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3bc8bdee_3a42_49a3_abdd_07b2edea752d);
+    const IID: ::windows::core::GUID = <IVpnCustomPromptText as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VpnCustomPromptText {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomPromptText";
@@ -4341,7 +4341,7 @@ unsafe impl ::windows::core::RuntimeType for VpnCustomPromptTextInput {
 }
 unsafe impl ::windows::core::Interface for VpnCustomPromptTextInput {
     type Vtable = IVpnCustomPromptTextInput_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9da9c75_913c_47d5_88ba_48fc48930235);
+    const IID: ::windows::core::GUID = <IVpnCustomPromptTextInput as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VpnCustomPromptTextInput {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomPromptTextInput";
@@ -4495,7 +4495,7 @@ unsafe impl ::windows::core::RuntimeType for VpnCustomTextBox {
 }
 unsafe impl ::windows::core::Interface for VpnCustomTextBox {
     type Vtable = IVpnCustomTextBox_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdaa4c3ca_8f23_4d36_91f1_76d937827942);
+    const IID: ::windows::core::GUID = <IVpnCustomTextBox as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VpnCustomTextBox {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnCustomTextBox";
@@ -4649,7 +4649,7 @@ unsafe impl ::windows::core::RuntimeType for VpnDomainNameAssignment {
 }
 unsafe impl ::windows::core::Interface for VpnDomainNameAssignment {
     type Vtable = IVpnDomainNameAssignment_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4135b141_ccdb_49b5_9401_039a8ae767e9);
+    const IID: ::windows::core::GUID = <IVpnDomainNameAssignment as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VpnDomainNameAssignment {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnDomainNameAssignment";
@@ -4788,7 +4788,7 @@ unsafe impl ::windows::core::RuntimeType for VpnDomainNameInfo {
 }
 unsafe impl ::windows::core::Interface for VpnDomainNameInfo {
     type Vtable = IVpnDomainNameInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad2eb82f_ea8e_4f7a_843e_1a87e32e1b9a);
+    const IID: ::windows::core::GUID = <IVpnDomainNameInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VpnDomainNameInfo {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnDomainNameInfo";
@@ -4951,7 +4951,7 @@ unsafe impl ::windows::core::RuntimeType for VpnForegroundActivatedEventArgs {
 }
 unsafe impl ::windows::core::Interface for VpnForegroundActivatedEventArgs {
     type Vtable = IVpnForegroundActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85b465b0_cadb_4d70_ac92_543a24dc9ebc);
+    const IID: ::windows::core::GUID = <IVpnForegroundActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VpnForegroundActivatedEventArgs {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnForegroundActivatedEventArgs";
@@ -5082,7 +5082,7 @@ unsafe impl ::windows::core::RuntimeType for VpnForegroundActivationOperation {
 }
 unsafe impl ::windows::core::Interface for VpnForegroundActivationOperation {
     type Vtable = IVpnForegroundActivationOperation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e010d57_f17a_4bd5_9b6d_f984f1297d3c);
+    const IID: ::windows::core::GUID = <IVpnForegroundActivationOperation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VpnForegroundActivationOperation {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnForegroundActivationOperation";
@@ -5205,7 +5205,7 @@ unsafe impl ::windows::core::RuntimeType for VpnInterfaceId {
 }
 unsafe impl ::windows::core::Interface for VpnInterfaceId {
     type Vtable = IVpnInterfaceId_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e2ddca2_1712_4ce4_b179_8c652c6d1011);
+    const IID: ::windows::core::GUID = <IVpnInterfaceId as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VpnInterfaceId {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnInterfaceId";
@@ -5366,7 +5366,7 @@ unsafe impl ::windows::core::RuntimeType for VpnManagementAgent {
 }
 unsafe impl ::windows::core::Interface for VpnManagementAgent {
     type Vtable = IVpnManagementAgent_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x193696cd_a5c4_4abe_852b_785be4cb3e34);
+    const IID: ::windows::core::GUID = <IVpnManagementAgent as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VpnManagementAgent {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnManagementAgent";
@@ -5551,7 +5551,7 @@ unsafe impl ::windows::core::RuntimeType for VpnNamespaceAssignment {
 }
 unsafe impl ::windows::core::Interface for VpnNamespaceAssignment {
     type Vtable = IVpnNamespaceAssignment_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7f7db18_307d_4c0e_bd62_8fa270bbadd6);
+    const IID: ::windows::core::GUID = <IVpnNamespaceAssignment as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VpnNamespaceAssignment {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnNamespaceAssignment";
@@ -5680,7 +5680,7 @@ unsafe impl ::windows::core::RuntimeType for VpnNamespaceInfo {
 }
 unsafe impl ::windows::core::Interface for VpnNamespaceInfo {
     type Vtable = IVpnNamespaceInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30edfb43_444f_44c5_8167_a35a91f1af94);
+    const IID: ::windows::core::GUID = <IVpnNamespaceInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VpnNamespaceInfo {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnNamespaceInfo";
@@ -5930,7 +5930,7 @@ unsafe impl ::windows::core::RuntimeType for VpnNativeProfile {
 }
 unsafe impl ::windows::core::Interface for VpnNativeProfile {
     type Vtable = IVpnNativeProfile_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4aee29e_6417_4333_9842_f0a66db69802);
+    const IID: ::windows::core::GUID = <IVpnNativeProfile as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VpnNativeProfile {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnNativeProfile";
@@ -6122,7 +6122,7 @@ unsafe impl ::windows::core::RuntimeType for VpnPacketBuffer {
 }
 unsafe impl ::windows::core::Interface for VpnPacketBuffer {
     type Vtable = IVpnPacketBuffer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2f891fc_4d5c_4a63_b70d_4e307eacce55);
+    const IID: ::windows::core::GUID = <IVpnPacketBuffer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VpnPacketBuffer {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnPacketBuffer";
@@ -6256,7 +6256,7 @@ unsafe impl ::windows::core::RuntimeType for VpnPacketBufferList {
 }
 unsafe impl ::windows::core::Interface for VpnPacketBufferList {
     type Vtable = IVpnPacketBufferList_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2f891fc_4d5c_4a63_b70d_4e307eacce77);
+    const IID: ::windows::core::GUID = <IVpnPacketBufferList as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VpnPacketBufferList {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnPacketBufferList";
@@ -6425,7 +6425,7 @@ unsafe impl ::windows::core::RuntimeType for VpnPickedCredential {
 }
 unsafe impl ::windows::core::Interface for VpnPickedCredential {
     type Vtable = IVpnPickedCredential_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a793ac7_8854_4e52_ad97_24dd9a842bce);
+    const IID: ::windows::core::GUID = <IVpnPickedCredential as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VpnPickedCredential {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnPickedCredential";
@@ -6636,7 +6636,7 @@ unsafe impl ::windows::core::RuntimeType for VpnPlugInProfile {
 }
 unsafe impl ::windows::core::Interface for VpnPlugInProfile {
     type Vtable = IVpnPlugInProfile_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0edf0da4_4f00_4589_8d7b_4bf988f6542c);
+    const IID: ::windows::core::GUID = <IVpnPlugInProfile as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VpnPlugInProfile {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnPlugInProfile";
@@ -6769,7 +6769,7 @@ unsafe impl ::windows::core::RuntimeType for VpnRoute {
 }
 unsafe impl ::windows::core::Interface for VpnRoute {
     type Vtable = IVpnRoute_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5731b83_0969_4699_938e_7776db29cfb3);
+    const IID: ::windows::core::GUID = <IVpnRoute as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VpnRoute {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnRoute";
@@ -6922,7 +6922,7 @@ unsafe impl ::windows::core::RuntimeType for VpnRouteAssignment {
 }
 unsafe impl ::windows::core::Interface for VpnRouteAssignment {
     type Vtable = IVpnRouteAssignment_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb64de22_ce39_4a76_9550_f61039f80e48);
+    const IID: ::windows::core::GUID = <IVpnRouteAssignment as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VpnRouteAssignment {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnRouteAssignment";
@@ -7032,7 +7032,7 @@ unsafe impl ::windows::core::RuntimeType for VpnSystemHealth {
 }
 unsafe impl ::windows::core::Interface for VpnSystemHealth {
     type Vtable = IVpnSystemHealth_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99a8f8af_c0ee_4e75_817a_f231aee5123d);
+    const IID: ::windows::core::GUID = <IVpnSystemHealth as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VpnSystemHealth {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnSystemHealth";
@@ -7201,7 +7201,7 @@ unsafe impl ::windows::core::RuntimeType for VpnTrafficFilter {
 }
 unsafe impl ::windows::core::Interface for VpnTrafficFilter {
     type Vtable = IVpnTrafficFilter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f691b60_6c9f_47f5_ac36_bb1b042e2c50);
+    const IID: ::windows::core::GUID = <IVpnTrafficFilter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VpnTrafficFilter {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnTrafficFilter";
@@ -7316,7 +7316,7 @@ unsafe impl ::windows::core::RuntimeType for VpnTrafficFilterAssignment {
 }
 unsafe impl ::windows::core::Interface for VpnTrafficFilterAssignment {
     type Vtable = IVpnTrafficFilterAssignment_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56ccd45c_e664_471e_89cd_601603b9e0f3);
+    const IID: ::windows::core::GUID = <IVpnTrafficFilterAssignment as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VpnTrafficFilterAssignment {
     const NAME: &'static str = "Windows.Networking.Vpn.VpnTrafficFilterAssignment";

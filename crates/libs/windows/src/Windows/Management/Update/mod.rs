@@ -123,7 +123,7 @@ unsafe impl ::windows::core::RuntimeType for PreviewBuildsManager {
 }
 unsafe impl ::windows::core::Interface for PreviewBuildsManager {
     type Vtable = IPreviewBuildsManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa07dd61_7e4f_59f7_7c9f_def9051c5f62);
+    const IID: ::windows::core::GUID = <IPreviewBuildsManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PreviewBuildsManager {
     const NAME: &'static str = "Windows.Management.Update.PreviewBuildsManager";
@@ -205,7 +205,7 @@ unsafe impl ::windows::core::RuntimeType for PreviewBuildsState {
 }
 unsafe impl ::windows::core::Interface for PreviewBuildsState {
     type Vtable = IPreviewBuildsState_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2f2903e_b223_5f63_7546_3e8eac070a2e);
+    const IID: ::windows::core::GUID = <IPreviewBuildsState as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PreviewBuildsState {
     const NAME: &'static str = "Windows.Management.Update.PreviewBuildsState";

@@ -119,7 +119,7 @@ unsafe impl ::windows::core::RuntimeType for AdvancedColorInfo {
 }
 unsafe impl ::windows::core::Interface for AdvancedColorInfo {
     type Vtable = IAdvancedColorInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8797dcfb_b229_4081_ae9a_2cc85e34ad6a);
+    const IID: ::windows::core::GUID = <IAdvancedColorInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AdvancedColorInfo {
     const NAME: &'static str = "Windows.Graphics.Display.AdvancedColorInfo";
@@ -345,7 +345,7 @@ unsafe impl ::windows::core::RuntimeType for BrightnessOverride {
 }
 unsafe impl ::windows::core::Interface for BrightnessOverride {
     type Vtable = IBrightnessOverride_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96c9621a_c143_4392_bedd_4a7e9574c8fd);
+    const IID: ::windows::core::GUID = <IBrightnessOverride as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BrightnessOverride {
     const NAME: &'static str = "Windows.Graphics.Display.BrightnessOverride";
@@ -460,7 +460,7 @@ unsafe impl ::windows::core::RuntimeType for BrightnessOverrideSettings {
 }
 unsafe impl ::windows::core::Interface for BrightnessOverrideSettings {
     type Vtable = IBrightnessOverrideSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd112ab2a_7604_4dba_bcf8_4b6f49502cb0);
+    const IID: ::windows::core::GUID = <IBrightnessOverrideSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BrightnessOverrideSettings {
     const NAME: &'static str = "Windows.Graphics.Display.BrightnessOverrideSettings";
@@ -553,7 +553,7 @@ unsafe impl ::windows::core::RuntimeType for ColorOverrideSettings {
 }
 unsafe impl ::windows::core::Interface for ColorOverrideSettings {
     type Vtable = IColorOverrideSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbefa134_4a81_4c4d_a5b6_7d1b5c4bd00b);
+    const IID: ::windows::core::GUID = <IColorOverrideSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ColorOverrideSettings {
     const NAME: &'static str = "Windows.Graphics.Display.ColorOverrideSettings";
@@ -885,7 +885,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayEnhancementOverride {
 }
 unsafe impl ::windows::core::Interface for DisplayEnhancementOverride {
     type Vtable = IDisplayEnhancementOverride_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x429594cf_d97a_4b02_a428_5c4292f7f522);
+    const IID: ::windows::core::GUID = <IDisplayEnhancementOverride as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DisplayEnhancementOverride {
     const NAME: &'static str = "Windows.Graphics.Display.DisplayEnhancementOverride";
@@ -983,7 +983,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayEnhancementOverrideCapabilit
 }
 unsafe impl ::windows::core::Interface for DisplayEnhancementOverrideCapabilities {
     type Vtable = IDisplayEnhancementOverrideCapabilities_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x457060de_ee5a_47b7_9918_1e51e812ccc8);
+    const IID: ::windows::core::GUID = <IDisplayEnhancementOverrideCapabilities as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DisplayEnhancementOverrideCapabilities {
     const NAME: &'static str = "Windows.Graphics.Display.DisplayEnhancementOverrideCapabilities";
@@ -1064,7 +1064,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayEnhancementOverrideCapabilit
 }
 unsafe impl ::windows::core::Interface for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {
     type Vtable = IDisplayEnhancementOverrideCapabilitiesChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb61e664_15fa_49da_8b77_07dbd2af585d);
+    const IID: ::windows::core::GUID = <IDisplayEnhancementOverrideCapabilitiesChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Display.DisplayEnhancementOverrideCapabilitiesChangedEventArgs";
@@ -1354,7 +1354,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayInformation {
 }
 unsafe impl ::windows::core::Interface for DisplayInformation {
     type Vtable = IDisplayInformation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbed112ae_adc3_4dc9_ae65_851f4d7d4799);
+    const IID: ::windows::core::GUID = <IDisplayInformation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DisplayInformation {
     const NAME: &'static str = "Windows.Graphics.Display.DisplayInformation";
@@ -1733,7 +1733,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayServices {
 }
 unsafe impl ::windows::core::Interface for DisplayServices {
     type Vtable = IDisplayServices_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b54f32b_890d_5747_bd26_fdbdeb0c8a71);
+    const IID: ::windows::core::GUID = <IDisplayServices as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DisplayServices {
     const NAME: &'static str = "Windows.Graphics.Display.DisplayServices";

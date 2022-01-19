@@ -49,7 +49,7 @@ unsafe impl ::windows::core::RuntimeType for AudioCaptureEffectsManager {
 }
 unsafe impl ::windows::core::Interface for AudioCaptureEffectsManager {
     type Vtable = IAudioCaptureEffectsManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f85c271_038d_4393_8298_540110608eef);
+    const IID: ::windows::core::GUID = <IAudioCaptureEffectsManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AudioCaptureEffectsManager {
     const NAME: &'static str = "Windows.Media.Effects.AudioCaptureEffectsManager";
@@ -130,7 +130,7 @@ unsafe impl ::windows::core::RuntimeType for AudioEffect {
 }
 unsafe impl ::windows::core::Interface for AudioEffect {
     type Vtable = IAudioEffect_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34aafa51_9207_4055_be93_6e5734a86ae4);
+    const IID: ::windows::core::GUID = <IAudioEffect as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AudioEffect {
     const NAME: &'static str = "Windows.Media.Effects.AudioEffect";
@@ -240,7 +240,7 @@ unsafe impl ::windows::core::RuntimeType for AudioEffectDefinition {
 }
 unsafe impl ::windows::core::Interface for AudioEffectDefinition {
     type Vtable = IAudioEffectDefinition_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4d7f974_7d80_4f73_9089_e31c9db9c294);
+    const IID: ::windows::core::GUID = <IAudioEffectDefinition as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AudioEffectDefinition {
     const NAME: &'static str = "Windows.Media.Effects.AudioEffectDefinition";
@@ -473,7 +473,7 @@ unsafe impl ::windows::core::RuntimeType for AudioRenderEffectsManager {
 }
 unsafe impl ::windows::core::Interface for AudioRenderEffectsManager {
     type Vtable = IAudioRenderEffectsManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4dc98966_8751_42b2_bfcb_39ca7864bd47);
+    const IID: ::windows::core::GUID = <IAudioRenderEffectsManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AudioRenderEffectsManager {
     const NAME: &'static str = "Windows.Media.Effects.AudioRenderEffectsManager";
@@ -580,7 +580,7 @@ unsafe impl ::windows::core::RuntimeType for CompositeVideoFrameContext {
 }
 unsafe impl ::windows::core::Interface for CompositeVideoFrameContext {
     type Vtable = ICompositeVideoFrameContext_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c30024b_f514_4278_a5f7_b9188049d110);
+    const IID: ::windows::core::GUID = <ICompositeVideoFrameContext as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositeVideoFrameContext {
     const NAME: &'static str = "Windows.Media.Effects.CompositeVideoFrameContext";
@@ -1815,7 +1815,7 @@ unsafe impl ::windows::core::RuntimeType for ProcessAudioFrameContext {
 }
 unsafe impl ::windows::core::Interface for ProcessAudioFrameContext {
     type Vtable = IProcessAudioFrameContext_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4cd92946_1222_4a27_a586_fb3e20273255);
+    const IID: ::windows::core::GUID = <IProcessAudioFrameContext as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ProcessAudioFrameContext {
     const NAME: &'static str = "Windows.Media.Effects.ProcessAudioFrameContext";
@@ -1904,7 +1904,7 @@ unsafe impl ::windows::core::RuntimeType for ProcessVideoFrameContext {
 }
 unsafe impl ::windows::core::Interface for ProcessVideoFrameContext {
     type Vtable = IProcessVideoFrameContext_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x276f0e2b_6461_401e_ba78_0fdad6114eec);
+    const IID: ::windows::core::GUID = <IProcessVideoFrameContext as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ProcessVideoFrameContext {
     const NAME: &'static str = "Windows.Media.Effects.ProcessVideoFrameContext";
@@ -2014,7 +2014,7 @@ unsafe impl ::windows::core::RuntimeType for SlowMotionEffectDefinition {
 }
 unsafe impl ::windows::core::Interface for SlowMotionEffectDefinition {
     type Vtable = ISlowMotionEffectDefinition_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35053cd0_176c_4763_82c4_1b02dbe31737);
+    const IID: ::windows::core::GUID = <ISlowMotionEffectDefinition as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SlowMotionEffectDefinition {
     const NAME: &'static str = "Windows.Media.Effects.SlowMotionEffectDefinition";
@@ -2146,7 +2146,7 @@ unsafe impl ::windows::core::RuntimeType for VideoCompositorDefinition {
 }
 unsafe impl ::windows::core::Interface for VideoCompositorDefinition {
     type Vtable = IVideoCompositorDefinition_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7946b8d0_2010_4ae3_9ab2_2cef42edd4d2);
+    const IID: ::windows::core::GUID = <IVideoCompositorDefinition as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VideoCompositorDefinition {
     const NAME: &'static str = "Windows.Media.Effects.VideoCompositorDefinition";
@@ -2278,7 +2278,7 @@ unsafe impl ::windows::core::RuntimeType for VideoEffectDefinition {
 }
 unsafe impl ::windows::core::Interface for VideoEffectDefinition {
     type Vtable = IVideoEffectDefinition_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39f38cf0_8d0f_4f3e_84fc_2d46a5297943);
+    const IID: ::windows::core::GUID = <IVideoEffectDefinition as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VideoEffectDefinition {
     const NAME: &'static str = "Windows.Media.Effects.VideoEffectDefinition";
@@ -2495,7 +2495,7 @@ unsafe impl ::windows::core::RuntimeType for VideoTransformEffectDefinition {
 }
 unsafe impl ::windows::core::Interface for VideoTransformEffectDefinition {
     type Vtable = IVideoEffectDefinition_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39f38cf0_8d0f_4f3e_84fc_2d46a5297943);
+    const IID: ::windows::core::GUID = <IVideoEffectDefinition as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VideoTransformEffectDefinition {
     const NAME: &'static str = "Windows.Media.Effects.VideoTransformEffectDefinition";
@@ -2661,7 +2661,7 @@ unsafe impl ::windows::core::RuntimeType for VideoTransformSphericalProjection {
 }
 unsafe impl ::windows::core::Interface for VideoTransformSphericalProjection {
     type Vtable = IVideoTransformSphericalProjection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf4401f0_9bf2_4c39_9f41_e022514a8468);
+    const IID: ::windows::core::GUID = <IVideoTransformSphericalProjection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VideoTransformSphericalProjection {
     const NAME: &'static str = "Windows.Media.Effects.VideoTransformSphericalProjection";

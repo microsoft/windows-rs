@@ -173,7 +173,7 @@ unsafe impl ::windows::core::RuntimeType for AccessListEntryView {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for AccessListEntryView {
     type Vtable = super::super::Foundation::Collections::IVectorView_Vtbl<AccessListEntry>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::Foundation::Collections::IVectorView<AccessListEntry> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for AccessListEntryView {
@@ -643,7 +643,7 @@ unsafe impl ::windows::core::RuntimeType for ItemRemovedEventArgs {
 }
 unsafe impl ::windows::core::Interface for ItemRemovedEventArgs {
     type Vtable = IItemRemovedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59677e5c_55be_4c66_ba66_5eaea79d2631);
+    const IID: ::windows::core::GUID = <IItemRemovedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ItemRemovedEventArgs {
     const NAME: &'static str = "Windows.Storage.AccessCache.ItemRemovedEventArgs";
@@ -912,7 +912,7 @@ unsafe impl ::windows::core::RuntimeType for StorageItemAccessList {
 }
 unsafe impl ::windows::core::Interface for StorageItemAccessList {
     type Vtable = IStorageItemAccessList_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2caff6ad_de90_47f5_b2c3_dd36c9fdd453);
+    const IID: ::windows::core::GUID = <IStorageItemAccessList as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StorageItemAccessList {
     const NAME: &'static str = "Windows.Storage.AccessCache.StorageItemAccessList";
@@ -1156,7 +1156,7 @@ unsafe impl ::windows::core::RuntimeType for StorageItemMostRecentlyUsedList {
 }
 unsafe impl ::windows::core::Interface for StorageItemMostRecentlyUsedList {
     type Vtable = IStorageItemMostRecentlyUsedList_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x016239d5_510d_411e_8cf1_c3d1effa4c33);
+    const IID: ::windows::core::GUID = <IStorageItemMostRecentlyUsedList as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StorageItemMostRecentlyUsedList {
     const NAME: &'static str = "Windows.Storage.AccessCache.StorageItemMostRecentlyUsedList";

@@ -437,7 +437,7 @@ unsafe impl ::windows::core::RuntimeType for ProviderI2cConnectionSettings {
 }
 unsafe impl ::windows::core::Interface for ProviderI2cConnectionSettings {
     type Vtable = IProviderI2cConnectionSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9db4e34_e510_44b7_809d_f2f85b555339);
+    const IID: ::windows::core::GUID = <IProviderI2cConnectionSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ProviderI2cConnectionSettings {
     const NAME: &'static str = "Windows.Devices.I2c.Provider.ProviderI2cConnectionSettings";

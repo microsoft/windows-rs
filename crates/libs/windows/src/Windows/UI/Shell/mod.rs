@@ -409,7 +409,7 @@ unsafe impl ::windows::core::RuntimeType for SecurityAppManager {
 }
 unsafe impl ::windows::core::Interface for SecurityAppManager {
     type Vtable = ISecurityAppManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96ac500c_aed4_561d_bde8_953520343a2d);
+    const IID: ::windows::core::GUID = <ISecurityAppManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SecurityAppManager {
     const NAME: &'static str = "Windows.UI.Shell.SecurityAppManager";
@@ -590,7 +590,7 @@ unsafe impl ::windows::core::RuntimeType for ShareWindowCommandEventArgs {
 }
 unsafe impl ::windows::core::Interface for ShareWindowCommandEventArgs {
     type Vtable = IShareWindowCommandEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4578dc09_a523_5756_a995_e4feb991fff0);
+    const IID: ::windows::core::GUID = <IShareWindowCommandEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ShareWindowCommandEventArgs {
     const NAME: &'static str = "Windows.UI.Shell.ShareWindowCommandEventArgs";
@@ -720,7 +720,7 @@ unsafe impl ::windows::core::RuntimeType for ShareWindowCommandSource {
 }
 unsafe impl ::windows::core::Interface for ShareWindowCommandSource {
     type Vtable = IShareWindowCommandSource_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb3b7ae3_6b9c_561e_bccc_61e68e0abfef);
+    const IID: ::windows::core::GUID = <IShareWindowCommandSource as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ShareWindowCommandSource {
     const NAME: &'static str = "Windows.UI.Shell.ShareWindowCommandSource";
@@ -884,7 +884,7 @@ unsafe impl ::windows::core::RuntimeType for TaskbarManager {
 }
 unsafe impl ::windows::core::Interface for TaskbarManager {
     type Vtable = ITaskbarManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87490a19_1ad9_49f4_b2e8_86738dc5ac40);
+    const IID: ::windows::core::GUID = <ITaskbarManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TaskbarManager {
     const NAME: &'static str = "Windows.UI.Shell.TaskbarManager";

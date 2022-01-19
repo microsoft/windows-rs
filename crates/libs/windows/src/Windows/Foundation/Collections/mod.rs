@@ -2173,7 +2173,7 @@ unsafe impl ::windows::core::RuntimeType for PropertySet {
 }
 unsafe impl ::windows::core::Interface for PropertySet {
     type Vtable = IPropertySet_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a43ed9f_f4e6_4421_acf9_1dab2986820c);
+    const IID: ::windows::core::GUID = <IPropertySet as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PropertySet {
     const NAME: &'static str = "Windows.Foundation.Collections.PropertySet";
@@ -2428,7 +2428,7 @@ unsafe impl ::windows::core::RuntimeType for StringMap {
 }
 unsafe impl ::windows::core::Interface for StringMap {
     type Vtable = IMap_Vtbl<::windows::core::HSTRING, ::windows::core::HSTRING>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <IMap<::windows::core::HSTRING, ::windows::core::HSTRING> as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StringMap {
     const NAME: &'static str = "Windows.Foundation.Collections.StringMap";
@@ -2661,7 +2661,7 @@ unsafe impl ::windows::core::RuntimeType for ValueSet {
 }
 unsafe impl ::windows::core::Interface for ValueSet {
     type Vtable = IPropertySet_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a43ed9f_f4e6_4421_acf9_1dab2986820c);
+    const IID: ::windows::core::GUID = <IPropertySet as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ValueSet {
     const NAME: &'static str = "Windows.Foundation.Collections.ValueSet";

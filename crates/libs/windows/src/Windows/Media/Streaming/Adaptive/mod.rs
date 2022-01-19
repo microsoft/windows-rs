@@ -329,7 +329,7 @@ unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSource {
 }
 unsafe impl ::windows::core::Interface for AdaptiveMediaSource {
     type Vtable = IAdaptiveMediaSource_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c7332ef_d39f_4396_b4d9_043957a7c964);
+    const IID: ::windows::core::GUID = <IAdaptiveMediaSource as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AdaptiveMediaSource {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.AdaptiveMediaSource";
@@ -497,7 +497,7 @@ unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceAdvancedSettings
 }
 unsafe impl ::windows::core::Interface for AdaptiveMediaSourceAdvancedSettings {
     type Vtable = IAdaptiveMediaSourceAdvancedSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55db1680_1aeb_47dc_aa08_9a11610ba45a);
+    const IID: ::windows::core::GUID = <IAdaptiveMediaSourceAdvancedSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AdaptiveMediaSourceAdvancedSettings {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceAdvancedSettings";
@@ -597,7 +597,7 @@ unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceCorrelatedTimes 
 }
 unsafe impl ::windows::core::Interface for AdaptiveMediaSourceCorrelatedTimes {
     type Vtable = IAdaptiveMediaSourceCorrelatedTimes_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05108787_e032_48e1_ab8d_002b0b3051df);
+    const IID: ::windows::core::GUID = <IAdaptiveMediaSourceCorrelatedTimes as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AdaptiveMediaSourceCorrelatedTimes {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceCorrelatedTimes";
@@ -703,7 +703,7 @@ unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceCreationResult {
 }
 unsafe impl ::windows::core::Interface for AdaptiveMediaSourceCreationResult {
     type Vtable = IAdaptiveMediaSourceCreationResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4686b6b2_800f_4e31_9093_76d4782013e7);
+    const IID: ::windows::core::GUID = <IAdaptiveMediaSourceCreationResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AdaptiveMediaSourceCreationResult {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceCreationResult";
@@ -914,7 +914,7 @@ unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceDiagnosticAvaila
 }
 unsafe impl ::windows::core::Interface for AdaptiveMediaSourceDiagnosticAvailableEventArgs {
     type Vtable = IAdaptiveMediaSourceDiagnosticAvailableEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3af64f06_6d9c_494a_b7a9_b3a5dee6ad68);
+    const IID: ::windows::core::GUID = <IAdaptiveMediaSourceDiagnosticAvailableEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AdaptiveMediaSourceDiagnosticAvailableEventArgs {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDiagnosticAvailableEventArgs";
@@ -1037,7 +1037,7 @@ unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceDiagnostics {
 }
 unsafe impl ::windows::core::Interface for AdaptiveMediaSourceDiagnostics {
     type Vtable = IAdaptiveMediaSourceDiagnostics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b24ee68_962e_448c_aebf_b29b56098e23);
+    const IID: ::windows::core::GUID = <IAdaptiveMediaSourceDiagnostics as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AdaptiveMediaSourceDiagnostics {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDiagnostics";
@@ -1134,7 +1134,7 @@ unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceDownloadBitrateC
 }
 unsafe impl ::windows::core::Interface for AdaptiveMediaSourceDownloadBitrateChangedEventArgs {
     type Vtable = IAdaptiveMediaSourceDownloadBitrateChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x670c0a44_e04e_4eff_816a_17399f78f4ba);
+    const IID: ::windows::core::GUID = <IAdaptiveMediaSourceDownloadBitrateChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AdaptiveMediaSourceDownloadBitrateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadBitrateChangedEventArgs";
@@ -1326,7 +1326,7 @@ unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceDownloadComplete
 }
 unsafe impl ::windows::core::Interface for AdaptiveMediaSourceDownloadCompletedEventArgs {
     type Vtable = IAdaptiveMediaSourceDownloadCompletedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19240dc3_5b37_4a1a_8970_d621cb6ca83b);
+    const IID: ::windows::core::GUID = <IAdaptiveMediaSourceDownloadCompletedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AdaptiveMediaSourceDownloadCompletedEventArgs {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadCompletedEventArgs";
@@ -1493,7 +1493,7 @@ unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceDownloadFailedEv
 }
 unsafe impl ::windows::core::Interface for AdaptiveMediaSourceDownloadFailedEventArgs {
     type Vtable = IAdaptiveMediaSourceDownloadFailedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x37739048_f4ab_40a4_b135_c6dfd8bd7ff1);
+    const IID: ::windows::core::GUID = <IAdaptiveMediaSourceDownloadFailedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AdaptiveMediaSourceDownloadFailedEventArgs {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadFailedEventArgs";
@@ -1571,7 +1571,7 @@ unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceDownloadRequeste
 }
 unsafe impl ::windows::core::Interface for AdaptiveMediaSourceDownloadRequestedDeferral {
     type Vtable = IAdaptiveMediaSourceDownloadRequestedDeferral_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05c68f64_fa20_4dbd_9821_4bf4c9bf77ab);
+    const IID: ::windows::core::GUID = <IAdaptiveMediaSourceDownloadRequestedDeferral as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AdaptiveMediaSourceDownloadRequestedDeferral {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadRequestedDeferral";
@@ -1729,7 +1729,7 @@ unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceDownloadRequeste
 }
 unsafe impl ::windows::core::Interface for AdaptiveMediaSourceDownloadRequestedEventArgs {
     type Vtable = IAdaptiveMediaSourceDownloadRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc83fdffd_44a9_47a2_bf96_03398b4bfaaf);
+    const IID: ::windows::core::GUID = <IAdaptiveMediaSourceDownloadRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AdaptiveMediaSourceDownloadRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadRequestedEventArgs";
@@ -1903,7 +1903,7 @@ unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceDownloadResult {
 }
 unsafe impl ::windows::core::Interface for AdaptiveMediaSourceDownloadResult {
     type Vtable = IAdaptiveMediaSourceDownloadResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4afdc73_bcee_4a6a_9f0a_fec41e2339b0);
+    const IID: ::windows::core::GUID = <IAdaptiveMediaSourceDownloadResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AdaptiveMediaSourceDownloadResult {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadResult";
@@ -2011,7 +2011,7 @@ unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceDownloadStatisti
 }
 unsafe impl ::windows::core::Interface for AdaptiveMediaSourceDownloadStatistics {
     type Vtable = IAdaptiveMediaSourceDownloadStatistics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa306cefb_e96a_4dff_a9b8_1ae08c01ae98);
+    const IID: ::windows::core::GUID = <IAdaptiveMediaSourceDownloadStatistics as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AdaptiveMediaSourceDownloadStatistics {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadStatistics";
@@ -2108,7 +2108,7 @@ unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourcePlaybackBitrateC
 }
 unsafe impl ::windows::core::Interface for AdaptiveMediaSourcePlaybackBitrateChangedEventArgs {
     type Vtable = IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23a29f6d_7dda_4a51_87a9_6fa8c5b292be);
+    const IID: ::windows::core::GUID = <IAdaptiveMediaSourcePlaybackBitrateChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AdaptiveMediaSourcePlaybackBitrateChangedEventArgs {
     const NAME: &'static str = "Windows.Media.Streaming.Adaptive.AdaptiveMediaSourcePlaybackBitrateChangedEventArgs";

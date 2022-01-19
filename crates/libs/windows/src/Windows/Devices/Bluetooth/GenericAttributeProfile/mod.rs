@@ -250,7 +250,7 @@ unsafe impl ::windows::core::RuntimeType for GattCharacteristic {
 }
 unsafe impl ::windows::core::Interface for GattCharacteristic {
     type Vtable = IGattCharacteristic_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59cb50c1_5934_4f68_a198_eb864fa44e6b);
+    const IID: ::windows::core::GUID = <IGattCharacteristic as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GattCharacteristic {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristic";
@@ -998,7 +998,7 @@ unsafe impl ::windows::core::RuntimeType for GattCharacteristicsResult {
 }
 unsafe impl ::windows::core::Interface for GattCharacteristicsResult {
     type Vtable = IGattCharacteristicsResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1194945c_b257_4f3e_9db7_f68bc9a9aef2);
+    const IID: ::windows::core::GUID = <IGattCharacteristicsResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GattCharacteristicsResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicsResult";
@@ -1133,7 +1133,7 @@ unsafe impl ::windows::core::RuntimeType for GattClientNotificationResult {
 }
 unsafe impl ::windows::core::Interface for GattClientNotificationResult {
     type Vtable = IGattClientNotificationResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x506d5599_0112_419a_8e3b_ae21afabd2c2);
+    const IID: ::windows::core::GUID = <IGattClientNotificationResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GattClientNotificationResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattClientNotificationResult";
@@ -1314,7 +1314,7 @@ unsafe impl ::windows::core::RuntimeType for GattDescriptor {
 }
 unsafe impl ::windows::core::Interface for GattDescriptor {
     type Vtable = IGattDescriptor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92055f2b_8084_4344_b4c2_284de19a8506);
+    const IID: ::windows::core::GUID = <IGattDescriptor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GattDescriptor {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattDescriptor";
@@ -1467,7 +1467,7 @@ unsafe impl ::windows::core::RuntimeType for GattDescriptorsResult {
 }
 unsafe impl ::windows::core::Interface for GattDescriptorsResult {
     type Vtable = IGattDescriptorsResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bc091f3_95e7_4489_8d25_ff81955a57b9);
+    const IID: ::windows::core::GUID = <IGattDescriptorsResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GattDescriptorsResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattDescriptorsResult";
@@ -1816,7 +1816,7 @@ unsafe impl ::windows::core::RuntimeType for GattDeviceService {
 }
 unsafe impl ::windows::core::Interface for GattDeviceService {
     type Vtable = IGattDeviceService_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac7b7c05_b33c_47cf_990f_6b8f5577df71);
+    const IID: ::windows::core::GUID = <IGattDeviceService as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GattDeviceService {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceService";
@@ -1941,7 +1941,7 @@ unsafe impl ::windows::core::RuntimeType for GattDeviceServicesResult {
 }
 unsafe impl ::windows::core::Interface for GattDeviceServicesResult {
     type Vtable = IGattDeviceServicesResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x171dd3ee_016d_419d_838a_576cf475a3d8);
+    const IID: ::windows::core::GUID = <IGattDeviceServicesResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GattDeviceServicesResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceServicesResult";
@@ -2162,7 +2162,7 @@ unsafe impl ::windows::core::RuntimeType for GattLocalCharacteristic {
 }
 unsafe impl ::windows::core::Interface for GattLocalCharacteristic {
     type Vtable = IGattLocalCharacteristic_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaede376d_5412_4d74_92a8_8deb8526829c);
+    const IID: ::windows::core::GUID = <IGattLocalCharacteristic as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GattLocalCharacteristic {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristic";
@@ -2318,7 +2318,7 @@ unsafe impl ::windows::core::RuntimeType for GattLocalCharacteristicParameters {
 }
 unsafe impl ::windows::core::Interface for GattLocalCharacteristicParameters {
     type Vtable = IGattLocalCharacteristicParameters_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfaf73db4_4cff_44c7_8445_040e6ead0063);
+    const IID: ::windows::core::GUID = <IGattLocalCharacteristicParameters as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GattLocalCharacteristicParameters {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristicParameters";
@@ -2407,7 +2407,7 @@ unsafe impl ::windows::core::RuntimeType for GattLocalCharacteristicResult {
 }
 unsafe impl ::windows::core::Interface for GattLocalCharacteristicResult {
     type Vtable = IGattLocalCharacteristicResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7975de9b_0170_4397_9666_92f863f12ee6);
+    const IID: ::windows::core::GUID = <IGattLocalCharacteristicResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GattLocalCharacteristicResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristicResult";
@@ -2543,7 +2543,7 @@ unsafe impl ::windows::core::RuntimeType for GattLocalDescriptor {
 }
 unsafe impl ::windows::core::Interface for GattLocalDescriptor {
     type Vtable = IGattLocalDescriptor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf48ebe06_789d_4a4b_8652_bd017b5d2fc6);
+    const IID: ::windows::core::GUID = <IGattLocalDescriptor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GattLocalDescriptor {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptor";
@@ -2664,7 +2664,7 @@ unsafe impl ::windows::core::RuntimeType for GattLocalDescriptorParameters {
 }
 unsafe impl ::windows::core::Interface for GattLocalDescriptorParameters {
     type Vtable = IGattLocalDescriptorParameters_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5fdede6a_f3c1_4b66_8c4b_e3d2293b40e9);
+    const IID: ::windows::core::GUID = <IGattLocalDescriptorParameters as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GattLocalDescriptorParameters {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptorParameters";
@@ -2753,7 +2753,7 @@ unsafe impl ::windows::core::RuntimeType for GattLocalDescriptorResult {
 }
 unsafe impl ::windows::core::Interface for GattLocalDescriptorResult {
     type Vtable = IGattLocalDescriptorResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x375791be_321f_4366_bfc1_3bc6b82c79f8);
+    const IID: ::windows::core::GUID = <IGattLocalDescriptorResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GattLocalDescriptorResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptorResult";
@@ -2852,7 +2852,7 @@ unsafe impl ::windows::core::RuntimeType for GattLocalService {
 }
 unsafe impl ::windows::core::Interface for GattLocalService {
     type Vtable = IGattLocalService_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf513e258_f7f7_4902_b803_57fcc7d6fe83);
+    const IID: ::windows::core::GUID = <IGattLocalService as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GattLocalService {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalService";
@@ -3021,7 +3021,7 @@ unsafe impl ::windows::core::RuntimeType for GattPresentationFormat {
 }
 unsafe impl ::windows::core::Interface for GattPresentationFormat {
     type Vtable = IGattPresentationFormat_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x196d0021_faad_45dc_ae5b_2ac3184e84db);
+    const IID: ::windows::core::GUID = <IGattPresentationFormat as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GattPresentationFormat {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormat";
@@ -3481,7 +3481,7 @@ unsafe impl ::windows::core::RuntimeType for GattReadClientCharacteristicConfigu
 }
 unsafe impl ::windows::core::Interface for GattReadClientCharacteristicConfigurationDescriptorResult {
     type Vtable = IGattReadClientCharacteristicConfigurationDescriptorResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63a66f09_1aea_4c4c_a50f_97bae474b348);
+    const IID: ::windows::core::GUID = <IGattReadClientCharacteristicConfigurationDescriptorResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GattReadClientCharacteristicConfigurationDescriptorResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadClientCharacteristicConfigurationDescriptorResult";
@@ -3604,7 +3604,7 @@ unsafe impl ::windows::core::RuntimeType for GattReadRequest {
 }
 unsafe impl ::windows::core::Interface for GattReadRequest {
     type Vtable = IGattReadRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1dd6535_6acd_42a6_a4bb_d789dae0043e);
+    const IID: ::windows::core::GUID = <IGattReadRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GattReadRequest {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadRequest";
@@ -3703,7 +3703,7 @@ unsafe impl ::windows::core::RuntimeType for GattReadRequestedEventArgs {
 }
 unsafe impl ::windows::core::Interface for GattReadRequestedEventArgs {
     type Vtable = IGattReadRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93497243_f39c_484b_8ab6_996ba486cfa3);
+    const IID: ::windows::core::GUID = <IGattReadRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GattReadRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadRequestedEventArgs";
@@ -3802,7 +3802,7 @@ unsafe impl ::windows::core::RuntimeType for GattReadResult {
 }
 unsafe impl ::windows::core::Interface for GattReadResult {
     type Vtable = IGattReadResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63a66f08_1aea_4c4c_a50f_97bae474b348);
+    const IID: ::windows::core::GUID = <IGattReadResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GattReadResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadResult";
@@ -3906,7 +3906,7 @@ unsafe impl ::windows::core::RuntimeType for GattReliableWriteTransaction {
 }
 unsafe impl ::windows::core::Interface for GattReliableWriteTransaction {
     type Vtable = IGattReliableWriteTransaction_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63a66f07_1aea_4c4c_a50f_97bae474b348);
+    const IID: ::windows::core::GUID = <IGattReliableWriteTransaction as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GattReliableWriteTransaction {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattReliableWriteTransaction";
@@ -4024,7 +4024,7 @@ unsafe impl ::windows::core::RuntimeType for GattRequestStateChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for GattRequestStateChangedEventArgs {
     type Vtable = IGattRequestStateChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe834d92c_27be_44b3_9d0d_4fc6e808dd3f);
+    const IID: ::windows::core::GUID = <IGattRequestStateChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GattRequestStateChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattRequestStateChangedEventArgs";
@@ -4156,7 +4156,7 @@ unsafe impl ::windows::core::RuntimeType for GattServiceProvider {
 }
 unsafe impl ::windows::core::Interface for GattServiceProvider {
     type Vtable = IGattServiceProvider_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7822b3cd_2889_4f86_a051_3f0aed1c2760);
+    const IID: ::windows::core::GUID = <IGattServiceProvider as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GattServiceProvider {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProvider";
@@ -4276,7 +4276,7 @@ unsafe impl ::windows::core::RuntimeType for GattServiceProviderAdvertisementSta
 }
 unsafe impl ::windows::core::Interface for GattServiceProviderAdvertisementStatusChangedEventArgs {
     type Vtable = IGattServiceProviderAdvertisementStatusChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59a5aa65_fa21_4ffc_b155_04d928012686);
+    const IID: ::windows::core::GUID = <IGattServiceProviderAdvertisementStatusChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GattServiceProviderAdvertisementStatusChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisementStatusChangedEventArgs";
@@ -4397,7 +4397,7 @@ unsafe impl ::windows::core::RuntimeType for GattServiceProviderAdvertisingParam
 }
 unsafe impl ::windows::core::Interface for GattServiceProviderAdvertisingParameters {
     type Vtable = IGattServiceProviderAdvertisingParameters_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2ce31ab_6315_4c22_9bd7_781dbc3d8d82);
+    const IID: ::windows::core::GUID = <IGattServiceProviderAdvertisingParameters as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GattServiceProviderAdvertisingParameters {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisingParameters";
@@ -4486,7 +4486,7 @@ unsafe impl ::windows::core::RuntimeType for GattServiceProviderResult {
 }
 unsafe impl ::windows::core::Interface for GattServiceProviderResult {
     type Vtable = IGattServiceProviderResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x764696d8_c53e_428c_8a48_67afe02c3ae6);
+    const IID: ::windows::core::GUID = <IGattServiceProviderResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GattServiceProviderResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderResult";
@@ -4824,7 +4824,7 @@ unsafe impl ::windows::core::RuntimeType for GattSession {
 }
 unsafe impl ::windows::core::Interface for GattSession {
     type Vtable = IGattSession_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd23b5143_e04e_4c24_999c_9c256f9856b1);
+    const IID: ::windows::core::GUID = <IGattSession as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GattSession {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattSession";
@@ -4967,7 +4967,7 @@ unsafe impl ::windows::core::RuntimeType for GattSessionStatusChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for GattSessionStatusChangedEventArgs {
     type Vtable = IGattSessionStatusChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7605b72e_837f_404c_ab34_3163f39ddf32);
+    const IID: ::windows::core::GUID = <IGattSessionStatusChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GattSessionStatusChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattSessionStatusChangedEventArgs";
@@ -5101,7 +5101,7 @@ unsafe impl ::windows::core::RuntimeType for GattSubscribedClient {
 }
 unsafe impl ::windows::core::Interface for GattSubscribedClient {
     type Vtable = IGattSubscribedClient_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x736e9001_15a4_4ec2_9248_e3f20d463be9);
+    const IID: ::windows::core::GUID = <IGattSubscribedClient as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GattSubscribedClient {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattSubscribedClient";
@@ -5192,7 +5192,7 @@ unsafe impl ::windows::core::RuntimeType for GattValueChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for GattValueChangedEventArgs {
     type Vtable = IGattValueChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd21bdb54_06e3_4ed8_a263_acfac8ba7313);
+    const IID: ::windows::core::GUID = <IGattValueChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GattValueChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattValueChangedEventArgs";
@@ -5351,7 +5351,7 @@ unsafe impl ::windows::core::RuntimeType for GattWriteRequest {
 }
 unsafe impl ::windows::core::Interface for GattWriteRequest {
     type Vtable = IGattWriteRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaeb6a9ed_de2f_4fc2_a9a8_94ea7844f13d);
+    const IID: ::windows::core::GUID = <IGattWriteRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GattWriteRequest {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteRequest";
@@ -5450,7 +5450,7 @@ unsafe impl ::windows::core::RuntimeType for GattWriteRequestedEventArgs {
 }
 unsafe impl ::windows::core::Interface for GattWriteRequestedEventArgs {
     type Vtable = IGattWriteRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2dec8bbe_a73a_471a_94d5_037deadd0806);
+    const IID: ::windows::core::GUID = <IGattWriteRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GattWriteRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteRequestedEventArgs";
@@ -5540,7 +5540,7 @@ unsafe impl ::windows::core::RuntimeType for GattWriteResult {
 }
 unsafe impl ::windows::core::Interface for GattWriteResult {
     type Vtable = IGattWriteResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4991ddb1_cb2b_44f7_99fc_d29a2871dc9b);
+    const IID: ::windows::core::GUID = <IGattWriteResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GattWriteResult {
     const NAME: &'static str = "Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteResult";

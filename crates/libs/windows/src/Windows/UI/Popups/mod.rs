@@ -332,7 +332,7 @@ unsafe impl ::windows::core::RuntimeType for MessageDialog {
 }
 unsafe impl ::windows::core::Interface for MessageDialog {
     type Vtable = IMessageDialog_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33f59b01_5325_43ab_9ab3_bdae440e4121);
+    const IID: ::windows::core::GUID = <IMessageDialog as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MessageDialog {
     const NAME: &'static str = "Windows.UI.Popups.MessageDialog";
@@ -533,7 +533,7 @@ unsafe impl ::windows::core::RuntimeType for PopupMenu {
 }
 unsafe impl ::windows::core::Interface for PopupMenu {
     type Vtable = IPopupMenu_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e9bc6dc_880d_47fc_a0a1_72b639e62559);
+    const IID: ::windows::core::GUID = <IPopupMenu as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PopupMenu {
     const NAME: &'static str = "Windows.UI.Popups.PopupMenu";
@@ -676,7 +676,7 @@ unsafe impl ::windows::core::RuntimeType for UICommand {
 }
 unsafe impl ::windows::core::Interface for UICommand {
     type Vtable = IUICommand_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ff93a75_4145_47ff_ac7f_dff1c1fa5b0f);
+    const IID: ::windows::core::GUID = <IUICommand as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UICommand {
     const NAME: &'static str = "Windows.UI.Popups.UICommand";
@@ -895,7 +895,7 @@ unsafe impl ::windows::core::RuntimeType for UICommandSeparator {
 }
 unsafe impl ::windows::core::Interface for UICommandSeparator {
     type Vtable = IUICommand_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ff93a75_4145_47ff_ac7f_dff1c1fa5b0f);
+    const IID: ::windows::core::GUID = <IUICommand as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UICommandSeparator {
     const NAME: &'static str = "Windows.UI.Popups.UICommandSeparator";

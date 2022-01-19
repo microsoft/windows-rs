@@ -258,7 +258,7 @@ unsafe impl ::windows::core::RuntimeType for AppWindow {
 }
 unsafe impl ::windows::core::Interface for AppWindow {
     type Vtable = IAppWindow_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x663014a6_b75e_5dbd_995c_f0117fa3fb61);
+    const IID: ::windows::core::GUID = <IAppWindow as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppWindow {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindow";
@@ -395,7 +395,7 @@ unsafe impl ::windows::core::RuntimeType for AppWindowChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for AppWindowChangedEventArgs {
     type Vtable = IAppWindowChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1de1f3be_a655_55ad_b2b6_eb240f880356);
+    const IID: ::windows::core::GUID = <IAppWindowChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppWindowChangedEventArgs {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowChangedEventArgs";
@@ -490,7 +490,7 @@ unsafe impl ::windows::core::RuntimeType for AppWindowCloseRequestedEventArgs {
 }
 unsafe impl ::windows::core::Interface for AppWindowCloseRequestedEventArgs {
     type Vtable = IAppWindowCloseRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9ff01da_e7a2_57a8_8b5e_39c4003afdbb);
+    const IID: ::windows::core::GUID = <IAppWindowCloseRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppWindowCloseRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowCloseRequestedEventArgs";
@@ -571,7 +571,7 @@ unsafe impl ::windows::core::RuntimeType for AppWindowClosedEventArgs {
 }
 unsafe impl ::windows::core::Interface for AppWindowClosedEventArgs {
     type Vtable = IAppWindowClosedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc7df816_9520_5a06_821e_456ad8b358aa);
+    const IID: ::windows::core::GUID = <IAppWindowClosedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppWindowClosedEventArgs {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowClosedEventArgs";
@@ -695,7 +695,7 @@ unsafe impl ::windows::core::RuntimeType for AppWindowFrame {
 }
 unsafe impl ::windows::core::Interface for AppWindowFrame {
     type Vtable = IAppWindowFrame_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ee22601_7e5d_52af_846b_01dc6c296567);
+    const IID: ::windows::core::GUID = <IAppWindowFrame as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppWindowFrame {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowFrame";
@@ -822,7 +822,7 @@ unsafe impl ::windows::core::RuntimeType for AppWindowPlacement {
 }
 unsafe impl ::windows::core::Interface for AppWindowPlacement {
     type Vtable = IAppWindowPlacement_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03dc815e_e7a9_5857_9c03_7d670594410e);
+    const IID: ::windows::core::GUID = <IAppWindowPlacement as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppWindowPlacement {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowPlacement";
@@ -903,7 +903,7 @@ unsafe impl ::windows::core::RuntimeType for AppWindowPresentationConfiguration 
 }
 unsafe impl ::windows::core::Interface for AppWindowPresentationConfiguration {
     type Vtable = IAppWindowPresentationConfiguration_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5a43ee3_df33_5e67_bd31_1072457300df);
+    const IID: ::windows::core::GUID = <IAppWindowPresentationConfiguration as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppWindowPresentationConfiguration {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowPresentationConfiguration";
@@ -1037,7 +1037,7 @@ unsafe impl ::windows::core::RuntimeType for AppWindowPresenter {
 }
 unsafe impl ::windows::core::Interface for AppWindowPresenter {
     type Vtable = IAppWindowPresenter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ae9ed73_e1fd_5317_ad78_5a3ed271bbde);
+    const IID: ::windows::core::GUID = <IAppWindowPresenter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppWindowPresenter {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowPresenter";
@@ -1333,7 +1333,7 @@ unsafe impl ::windows::core::RuntimeType for AppWindowTitleBar {
 }
 unsafe impl ::windows::core::Interface for AppWindowTitleBar {
     type Vtable = IAppWindowTitleBar_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e932c84_f644_541d_a2d7_0c262437842d);
+    const IID: ::windows::core::GUID = <IAppWindowTitleBar as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppWindowTitleBar {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowTitleBar";
@@ -1415,7 +1415,7 @@ unsafe impl ::windows::core::RuntimeType for AppWindowTitleBarOcclusion {
 }
 unsafe impl ::windows::core::Interface for AppWindowTitleBarOcclusion {
     type Vtable = IAppWindowTitleBarOcclusion_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfea3cffd_2ccf_5fc3_aeae_f843876bf37e);
+    const IID: ::windows::core::GUID = <IAppWindowTitleBarOcclusion as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppWindowTitleBarOcclusion {
     const NAME: &'static str = "Windows.UI.WindowManagement.AppWindowTitleBarOcclusion";
@@ -1531,7 +1531,7 @@ unsafe impl ::windows::core::RuntimeType for CompactOverlayPresentationConfigura
 }
 unsafe impl ::windows::core::Interface for CompactOverlayPresentationConfiguration {
     type Vtable = ICompactOverlayPresentationConfiguration_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7e5750f_5730_56c6_8e1f_d63ff4d7980d);
+    const IID: ::windows::core::GUID = <ICompactOverlayPresentationConfiguration as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompactOverlayPresentationConfiguration {
     const NAME: &'static str = "Windows.UI.WindowManagement.CompactOverlayPresentationConfiguration";
@@ -1639,7 +1639,7 @@ unsafe impl ::windows::core::RuntimeType for DefaultPresentationConfiguration {
 }
 unsafe impl ::windows::core::Interface for DefaultPresentationConfiguration {
     type Vtable = IDefaultPresentationConfiguration_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8c2b53b_2168_5703_a853_d525589fe2b9);
+    const IID: ::windows::core::GUID = <IDefaultPresentationConfiguration as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DefaultPresentationConfiguration {
     const NAME: &'static str = "Windows.UI.WindowManagement.DefaultPresentationConfiguration";
@@ -1789,7 +1789,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayRegion {
 }
 unsafe impl ::windows::core::Interface for DisplayRegion {
     type Vtable = IDisplayRegion_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb50c3a2_4094_5f47_8cb1_ea01ddafaa94);
+    const IID: ::windows::core::GUID = <IDisplayRegion as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DisplayRegion {
     const NAME: &'static str = "Windows.UI.WindowManagement.DisplayRegion";
@@ -1890,7 +1890,7 @@ unsafe impl ::windows::core::RuntimeType for FullScreenPresentationConfiguration
 }
 unsafe impl ::windows::core::Interface for FullScreenPresentationConfiguration {
     type Vtable = IFullScreenPresentationConfiguration_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43d3dcd8_d2a8_503d_a626_15533d6d5f62);
+    const IID: ::windows::core::GUID = <IFullScreenPresentationConfiguration as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FullScreenPresentationConfiguration {
     const NAME: &'static str = "Windows.UI.WindowManagement.FullScreenPresentationConfiguration";
@@ -2622,7 +2622,7 @@ unsafe impl ::windows::core::RuntimeType for WindowingEnvironment {
 }
 unsafe impl ::windows::core::Interface for WindowingEnvironment {
     type Vtable = IWindowingEnvironment_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x264363c0_2a49_5417_b3ae_48a71c63a3bd);
+    const IID: ::windows::core::GUID = <IWindowingEnvironment as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WindowingEnvironment {
     const NAME: &'static str = "Windows.UI.WindowManagement.WindowingEnvironment";
@@ -2703,7 +2703,7 @@ unsafe impl ::windows::core::RuntimeType for WindowingEnvironmentAddedEventArgs 
 }
 unsafe impl ::windows::core::Interface for WindowingEnvironmentAddedEventArgs {
     type Vtable = IWindowingEnvironmentAddedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff2a5b7f_f183_5c66_99b2_429082069299);
+    const IID: ::windows::core::GUID = <IWindowingEnvironmentAddedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WindowingEnvironmentAddedEventArgs {
     const NAME: &'static str = "Windows.UI.WindowManagement.WindowingEnvironmentAddedEventArgs";
@@ -2775,7 +2775,7 @@ unsafe impl ::windows::core::RuntimeType for WindowingEnvironmentChangedEventArg
 }
 unsafe impl ::windows::core::Interface for WindowingEnvironmentChangedEventArgs {
     type Vtable = IWindowingEnvironmentChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4160cfc6_023d_5e9a_b431_350e67dc978a);
+    const IID: ::windows::core::GUID = <IWindowingEnvironmentChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WindowingEnvironmentChangedEventArgs {
     const NAME: &'static str = "Windows.UI.WindowManagement.WindowingEnvironmentChangedEventArgs";
@@ -2885,7 +2885,7 @@ unsafe impl ::windows::core::RuntimeType for WindowingEnvironmentRemovedEventArg
 }
 unsafe impl ::windows::core::Interface for WindowingEnvironmentRemovedEventArgs {
     type Vtable = IWindowingEnvironmentRemovedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e5b5473_beff_5e53_9316_7e775fe568b3);
+    const IID: ::windows::core::GUID = <IWindowingEnvironmentRemovedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WindowingEnvironmentRemovedEventArgs {
     const NAME: &'static str = "Windows.UI.WindowManagement.WindowingEnvironmentRemovedEventArgs";

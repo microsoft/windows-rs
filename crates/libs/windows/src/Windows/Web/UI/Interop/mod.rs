@@ -739,7 +739,7 @@ unsafe impl ::windows::core::RuntimeType for WebViewControl {
 }
 unsafe impl ::windows::core::Interface for WebViewControl {
     type Vtable = super::IWebViewControl_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f921316_bc70_4bda_9136_c94370899fab);
+    const IID: ::windows::core::GUID = <super::IWebViewControl as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebViewControl {
     const NAME: &'static str = "Windows.Web.UI.Interop.WebViewControl";
@@ -902,7 +902,7 @@ unsafe impl ::windows::core::RuntimeType for WebViewControlAcceleratorKeyPressed
 }
 unsafe impl ::windows::core::Interface for WebViewControlAcceleratorKeyPressedEventArgs {
     type Vtable = IWebViewControlAcceleratorKeyPressedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77a2a53e_7c74_437d_a290_3ac0d8cd5655);
+    const IID: ::windows::core::GUID = <IWebViewControlAcceleratorKeyPressedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebViewControlAcceleratorKeyPressedEventArgs {
     const NAME: &'static str = "Windows.Web.UI.Interop.WebViewControlAcceleratorKeyPressedEventArgs";
@@ -1038,7 +1038,7 @@ unsafe impl ::windows::core::RuntimeType for WebViewControlMoveFocusRequestedEve
 }
 unsafe impl ::windows::core::Interface for WebViewControlMoveFocusRequestedEventArgs {
     type Vtable = IWebViewControlMoveFocusRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b2a340d_4bd0_405e_b7c1_1e72a492f446);
+    const IID: ::windows::core::GUID = <IWebViewControlMoveFocusRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebViewControlMoveFocusRequestedEventArgs {
     const NAME: &'static str = "Windows.Web.UI.Interop.WebViewControlMoveFocusRequestedEventArgs";
@@ -1190,7 +1190,7 @@ unsafe impl ::windows::core::RuntimeType for WebViewControlProcess {
 }
 unsafe impl ::windows::core::Interface for WebViewControlProcess {
     type Vtable = IWebViewControlProcess_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02c723ec_98d6_424a_b63e_c6136c36a0f2);
+    const IID: ::windows::core::GUID = <IWebViewControlProcess as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebViewControlProcess {
     const NAME: &'static str = "Windows.Web.UI.Interop.WebViewControlProcess";
@@ -1323,7 +1323,7 @@ unsafe impl ::windows::core::RuntimeType for WebViewControlProcessOptions {
 }
 unsafe impl ::windows::core::Interface for WebViewControlProcessOptions {
     type Vtable = IWebViewControlProcessOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1cca72a7_3bd6_4826_8261_6c8189505d89);
+    const IID: ::windows::core::GUID = <IWebViewControlProcessOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebViewControlProcessOptions {
     const NAME: &'static str = "Windows.Web.UI.Interop.WebViewControlProcessOptions";

@@ -82,7 +82,7 @@ unsafe impl ::windows::core::RuntimeType for ConditionForceEffect {
 }
 unsafe impl ::windows::core::Interface for ConditionForceEffect {
     type Vtable = IForceFeedbackEffect_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa17fba0c_2ae4_48c2_8063_eabd0777cb89);
+    const IID: ::windows::core::GUID = <IForceFeedbackEffect as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ConditionForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.ConditionForceEffect";
@@ -257,7 +257,7 @@ unsafe impl ::windows::core::RuntimeType for ConstantForceEffect {
 }
 unsafe impl ::windows::core::Interface for ConstantForceEffect {
     type Vtable = IForceFeedbackEffect_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa17fba0c_2ae4_48c2_8063_eabd0777cb89);
+    const IID: ::windows::core::GUID = <IForceFeedbackEffect as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ConstantForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.ConstantForceEffect";
@@ -566,7 +566,7 @@ unsafe impl ::windows::core::RuntimeType for ForceFeedbackMotor {
 }
 unsafe impl ::windows::core::Interface for ForceFeedbackMotor {
     type Vtable = IForceFeedbackMotor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d3d417c_a5ea_4516_8026_2b00f74ef6e5);
+    const IID: ::windows::core::GUID = <IForceFeedbackMotor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ForceFeedbackMotor {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.ForceFeedbackMotor";
@@ -955,7 +955,7 @@ unsafe impl ::windows::core::RuntimeType for PeriodicForceEffect {
 }
 unsafe impl ::windows::core::Interface for PeriodicForceEffect {
     type Vtable = IForceFeedbackEffect_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa17fba0c_2ae4_48c2_8063_eabd0777cb89);
+    const IID: ::windows::core::GUID = <IForceFeedbackEffect as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PeriodicForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.PeriodicForceEffect";
@@ -1143,7 +1143,7 @@ unsafe impl ::windows::core::RuntimeType for RampForceEffect {
 }
 unsafe impl ::windows::core::Interface for RampForceEffect {
     type Vtable = IForceFeedbackEffect_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa17fba0c_2ae4_48c2_8063_eabd0777cb89);
+    const IID: ::windows::core::GUID = <IForceFeedbackEffect as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RampForceEffect {
     const NAME: &'static str = "Windows.Gaming.Input.ForceFeedback.RampForceEffect";

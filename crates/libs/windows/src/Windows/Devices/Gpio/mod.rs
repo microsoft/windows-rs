@@ -141,7 +141,7 @@ unsafe impl ::windows::core::RuntimeType for GpioChangeCounter {
 }
 unsafe impl ::windows::core::Interface for GpioChangeCounter {
     type Vtable = IGpioChangeCounter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb5ec0de_6801_43ff_803d_4576628a8b26);
+    const IID: ::windows::core::GUID = <IGpioChangeCounter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GpioChangeCounter {
     const NAME: &'static str = "Windows.Devices.Gpio.GpioChangeCounter";
@@ -398,7 +398,7 @@ unsafe impl ::windows::core::RuntimeType for GpioChangeReader {
 }
 unsafe impl ::windows::core::Interface for GpioChangeReader {
     type Vtable = IGpioChangeReader_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0abc885f_e031_48e8_8590_70de78363c6d);
+    const IID: ::windows::core::GUID = <IGpioChangeReader as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GpioChangeReader {
     const NAME: &'static str = "Windows.Devices.Gpio.GpioChangeReader";
@@ -609,7 +609,7 @@ unsafe impl ::windows::core::RuntimeType for GpioController {
 }
 unsafe impl ::windows::core::Interface for GpioController {
     type Vtable = IGpioController_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x284012e3_7461_469c_a8bc_61d69d08a53c);
+    const IID: ::windows::core::GUID = <IGpioController as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GpioController {
     const NAME: &'static str = "Windows.Devices.Gpio.GpioController";
@@ -799,7 +799,7 @@ unsafe impl ::windows::core::RuntimeType for GpioPin {
 }
 unsafe impl ::windows::core::Interface for GpioPin {
     type Vtable = IGpioPin_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11d9b087_afae_4790_9ee9_e0eac942d201);
+    const IID: ::windows::core::GUID = <IGpioPin as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GpioPin {
     const NAME: &'static str = "Windows.Devices.Gpio.GpioPin";
@@ -996,7 +996,7 @@ unsafe impl ::windows::core::RuntimeType for GpioPinValueChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for GpioPinValueChangedEventArgs {
     type Vtable = IGpioPinValueChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3137aae1_703d_4059_bd24_b5b25dffb84e);
+    const IID: ::windows::core::GUID = <IGpioPinValueChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GpioPinValueChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Gpio.GpioPinValueChangedEventArgs";

@@ -65,7 +65,7 @@ unsafe impl ::windows::core::RuntimeType for AppActivationResult {
 }
 unsafe impl ::windows::core::Interface for AppActivationResult {
     type Vtable = IAppActivationResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b528900_f46e_4eb0_aa6c_38af557cf9ed);
+    const IID: ::windows::core::GUID = <IAppActivationResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppActivationResult {
     const NAME: &'static str = "Windows.System.AppActivationResult";
@@ -230,7 +230,7 @@ unsafe impl ::windows::core::RuntimeType for AppDiagnosticInfo {
 }
 unsafe impl ::windows::core::Interface for AppDiagnosticInfo {
     type Vtable = IAppDiagnosticInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe348a69a_8889_4ca3_be07_d5ffff5f0804);
+    const IID: ::windows::core::GUID = <IAppDiagnosticInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppDiagnosticInfo {
     const NAME: &'static str = "Windows.System.AppDiagnosticInfo";
@@ -381,7 +381,7 @@ unsafe impl ::windows::core::RuntimeType for AppDiagnosticInfoWatcher {
 }
 unsafe impl ::windows::core::Interface for AppDiagnosticInfoWatcher {
     type Vtable = IAppDiagnosticInfoWatcher_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75575070_01d3_489a_9325_52f9cc6ede0a);
+    const IID: ::windows::core::GUID = <IAppDiagnosticInfoWatcher as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppDiagnosticInfoWatcher {
     const NAME: &'static str = "Windows.System.AppDiagnosticInfoWatcher";
@@ -462,7 +462,7 @@ unsafe impl ::windows::core::RuntimeType for AppDiagnosticInfoWatcherEventArgs {
 }
 unsafe impl ::windows::core::Interface for AppDiagnosticInfoWatcherEventArgs {
     type Vtable = IAppDiagnosticInfoWatcherEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7017c716_e1da_4c65_99df_046dff5be71a);
+    const IID: ::windows::core::GUID = <IAppDiagnosticInfoWatcherEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppDiagnosticInfoWatcherEventArgs {
     const NAME: &'static str = "Windows.System.AppDiagnosticInfoWatcherEventArgs";
@@ -575,7 +575,7 @@ unsafe impl ::windows::core::RuntimeType for AppExecutionStateChangeResult {
 }
 unsafe impl ::windows::core::Interface for AppExecutionStateChangeResult {
     type Vtable = IAppExecutionStateChangeResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f039bf0_f91b_4df8_ae77_3033ccb69114);
+    const IID: ::windows::core::GUID = <IAppExecutionStateChangeResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppExecutionStateChangeResult {
     const NAME: &'static str = "Windows.System.AppExecutionStateChangeResult";
@@ -688,7 +688,7 @@ unsafe impl ::windows::core::RuntimeType for AppMemoryReport {
 }
 unsafe impl ::windows::core::Interface for AppMemoryReport {
     type Vtable = IAppMemoryReport_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d65339b_4d6f_45bc_9c5e_e49b3ff2758d);
+    const IID: ::windows::core::GUID = <IAppMemoryReport as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppMemoryReport {
     const NAME: &'static str = "Windows.System.AppMemoryReport";
@@ -807,7 +807,7 @@ unsafe impl ::windows::core::RuntimeType for AppMemoryUsageLimitChangingEventArg
 }
 unsafe impl ::windows::core::Interface for AppMemoryUsageLimitChangingEventArgs {
     type Vtable = IAppMemoryUsageLimitChangingEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79f86664_feca_4da5_9e40_2bc63efdc979);
+    const IID: ::windows::core::GUID = <IAppMemoryUsageLimitChangingEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppMemoryUsageLimitChangingEventArgs {
     const NAME: &'static str = "Windows.System.AppMemoryUsageLimitChangingEventArgs";
@@ -912,7 +912,7 @@ unsafe impl ::windows::core::RuntimeType for AppResourceGroupBackgroundTaskRepor
 }
 unsafe impl ::windows::core::Interface for AppResourceGroupBackgroundTaskReport {
     type Vtable = IAppResourceGroupBackgroundTaskReport_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2566e74e_b05d_40c2_9dc1_1a4f039ea120);
+    const IID: ::windows::core::GUID = <IAppResourceGroupBackgroundTaskReport as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppResourceGroupBackgroundTaskReport {
     const NAME: &'static str = "Windows.System.AppResourceGroupBackgroundTaskReport";
@@ -1122,7 +1122,7 @@ unsafe impl ::windows::core::RuntimeType for AppResourceGroupInfo {
 }
 unsafe impl ::windows::core::Interface for AppResourceGroupInfo {
     type Vtable = IAppResourceGroupInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb913f77a_e807_49f4_845e_7b8bdcfe8ee7);
+    const IID: ::windows::core::GUID = <IAppResourceGroupInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppResourceGroupInfo {
     const NAME: &'static str = "Windows.System.AppResourceGroupInfo";
@@ -1288,7 +1288,7 @@ unsafe impl ::windows::core::RuntimeType for AppResourceGroupInfoWatcher {
 }
 unsafe impl ::windows::core::Interface for AppResourceGroupInfoWatcher {
     type Vtable = IAppResourceGroupInfoWatcher_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9b0a0fd_6e5a_4c72_8b17_09fec4a212bd);
+    const IID: ::windows::core::GUID = <IAppResourceGroupInfoWatcher as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppResourceGroupInfoWatcher {
     const NAME: &'static str = "Windows.System.AppResourceGroupInfoWatcher";
@@ -1378,7 +1378,7 @@ unsafe impl ::windows::core::RuntimeType for AppResourceGroupInfoWatcherEventArg
 }
 unsafe impl ::windows::core::Interface for AppResourceGroupInfoWatcherEventArgs {
     type Vtable = IAppResourceGroupInfoWatcherEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a787637_6302_4d2f_bf89_1c12d0b2a6b9);
+    const IID: ::windows::core::GUID = <IAppResourceGroupInfoWatcherEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppResourceGroupInfoWatcherEventArgs {
     const NAME: &'static str = "Windows.System.AppResourceGroupInfoWatcherEventArgs";
@@ -1468,7 +1468,7 @@ unsafe impl ::windows::core::RuntimeType for AppResourceGroupInfoWatcherExecutio
 }
 unsafe impl ::windows::core::Interface for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
     type Vtable = IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bdbedd7_fee6_4fd4_98dd_e92a2cc299f3);
+    const IID: ::windows::core::GUID = <IAppResourceGroupInfoWatcherExecutionStateChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppResourceGroupInfoWatcherExecutionStateChangedEventArgs {
     const NAME: &'static str = "Windows.System.AppResourceGroupInfoWatcherExecutionStateChangedEventArgs";
@@ -1605,7 +1605,7 @@ unsafe impl ::windows::core::RuntimeType for AppResourceGroupMemoryReport {
 }
 unsafe impl ::windows::core::Interface for AppResourceGroupMemoryReport {
     type Vtable = IAppResourceGroupMemoryReport_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c8c06b1_7db1_4c51_a225_7fae2d49e431);
+    const IID: ::windows::core::GUID = <IAppResourceGroupMemoryReport as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppResourceGroupMemoryReport {
     const NAME: &'static str = "Windows.System.AppResourceGroupMemoryReport";
@@ -1694,7 +1694,7 @@ unsafe impl ::windows::core::RuntimeType for AppResourceGroupStateReport {
 }
 unsafe impl ::windows::core::Interface for AppResourceGroupStateReport {
     type Vtable = IAppResourceGroupStateReport_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52849f18_2f70_4236_ab40_d04db0c7b931);
+    const IID: ::windows::core::GUID = <IAppResourceGroupStateReport as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppResourceGroupStateReport {
     const NAME: &'static str = "Windows.System.AppResourceGroupStateReport";
@@ -1812,7 +1812,7 @@ unsafe impl ::windows::core::RuntimeType for AppUriHandlerHost {
 }
 unsafe impl ::windows::core::Interface for AppUriHandlerHost {
     type Vtable = IAppUriHandlerHost_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d50cac5_92d2_5409_b56f_7f73e10ea4c3);
+    const IID: ::windows::core::GUID = <IAppUriHandlerHost as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppUriHandlerHost {
     const NAME: &'static str = "Windows.System.AppUriHandlerHost";
@@ -1942,7 +1942,7 @@ unsafe impl ::windows::core::RuntimeType for AppUriHandlerRegistration {
 }
 unsafe impl ::windows::core::Interface for AppUriHandlerRegistration {
     type Vtable = IAppUriHandlerRegistration_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f73aeb1_4569_5c3f_9ba0_99123eea32c3);
+    const IID: ::windows::core::GUID = <IAppUriHandlerRegistration as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppUriHandlerRegistration {
     const NAME: &'static str = "Windows.System.AppUriHandlerRegistration";
@@ -2077,7 +2077,7 @@ unsafe impl ::windows::core::RuntimeType for AppUriHandlerRegistrationManager {
 }
 unsafe impl ::windows::core::Interface for AppUriHandlerRegistrationManager {
     type Vtable = IAppUriHandlerRegistrationManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe62c9a52_ac94_5750_ac1b_6cfb6f250263);
+    const IID: ::windows::core::GUID = <IAppUriHandlerRegistrationManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppUriHandlerRegistrationManager {
     const NAME: &'static str = "Windows.System.AppUriHandlerRegistrationManager";
@@ -2300,7 +2300,7 @@ unsafe impl ::windows::core::RuntimeType for DispatcherQueue {
 }
 unsafe impl ::windows::core::Interface for DispatcherQueue {
     type Vtable = IDispatcherQueue_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x603e88e4_a338_4ffe_a457_a5cfb9ceb899);
+    const IID: ::windows::core::GUID = <IDispatcherQueue as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DispatcherQueue {
     const NAME: &'static str = "Windows.System.DispatcherQueue";
@@ -2402,7 +2402,7 @@ unsafe impl ::windows::core::RuntimeType for DispatcherQueueController {
 }
 unsafe impl ::windows::core::Interface for DispatcherQueueController {
     type Vtable = IDispatcherQueueController_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22f34e66_50db_4e36_a98d_61c01b384d20);
+    const IID: ::windows::core::GUID = <IDispatcherQueueController as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DispatcherQueueController {
     const NAME: &'static str = "Windows.System.DispatcherQueueController";
@@ -2591,7 +2591,7 @@ unsafe impl ::windows::core::RuntimeType for DispatcherQueueShutdownStartingEven
 }
 unsafe impl ::windows::core::Interface for DispatcherQueueShutdownStartingEventArgs {
     type Vtable = IDispatcherQueueShutdownStartingEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4724c4c_ff97_40c0_a226_cc0aaa545e89);
+    const IID: ::windows::core::GUID = <IDispatcherQueueShutdownStartingEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DispatcherQueueShutdownStartingEventArgs {
     const NAME: &'static str = "Windows.System.DispatcherQueueShutdownStartingEventArgs";
@@ -2725,7 +2725,7 @@ unsafe impl ::windows::core::RuntimeType for DispatcherQueueTimer {
 }
 unsafe impl ::windows::core::Interface for DispatcherQueueTimer {
     type Vtable = IDispatcherQueueTimer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5feabb1d_a31c_4727_b1ac_37454649d56a);
+    const IID: ::windows::core::GUID = <IDispatcherQueueTimer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DispatcherQueueTimer {
     const NAME: &'static str = "Windows.System.DispatcherQueueTimer";
@@ -2829,7 +2829,7 @@ unsafe impl ::windows::core::RuntimeType for FolderLauncherOptions {
 }
 unsafe impl ::windows::core::Interface for FolderLauncherOptions {
     type Vtable = IFolderLauncherOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb91c27d_6b87_432a_bd04_776c6f5fb2ab);
+    const IID: ::windows::core::GUID = <IFolderLauncherOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FolderLauncherOptions {
     const NAME: &'static str = "Windows.System.FolderLauncherOptions";
@@ -4846,7 +4846,7 @@ unsafe impl ::windows::core::RuntimeType for LaunchUriResult {
 }
 unsafe impl ::windows::core::Interface for LaunchUriResult {
     type Vtable = ILaunchUriResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec27a8df_f6d5_45ca_913a_70a40c5c8221);
+    const IID: ::windows::core::GUID = <ILaunchUriResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LaunchUriResult {
     const NAME: &'static str = "Windows.System.LaunchUriResult";
@@ -5369,7 +5369,7 @@ unsafe impl ::windows::core::RuntimeType for LauncherOptions {
 }
 unsafe impl ::windows::core::Interface for LauncherOptions {
     type Vtable = ILauncherOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbafa21d8_b071_4cd8_853e_341203e557d3);
+    const IID: ::windows::core::GUID = <ILauncherOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LauncherOptions {
     const NAME: &'static str = "Windows.System.LauncherOptions";
@@ -5509,7 +5509,7 @@ unsafe impl ::windows::core::RuntimeType for LauncherUIOptions {
 }
 unsafe impl ::windows::core::Interface for LauncherUIOptions {
     type Vtable = ILauncherUIOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b25da6e_8aa6_41e9_8251_4165f5985f49);
+    const IID: ::windows::core::GUID = <ILauncherUIOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LauncherUIOptions {
     const NAME: &'static str = "Windows.System.LauncherUIOptions";
@@ -5818,7 +5818,7 @@ unsafe impl ::windows::core::RuntimeType for ProcessLauncherOptions {
 }
 unsafe impl ::windows::core::Interface for ProcessLauncherOptions {
     type Vtable = IProcessLauncherOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3080b9cf_f444_4a83_beaf_a549a0f3229c);
+    const IID: ::windows::core::GUID = <IProcessLauncherOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ProcessLauncherOptions {
     const NAME: &'static str = "Windows.System.ProcessLauncherOptions";
@@ -5899,7 +5899,7 @@ unsafe impl ::windows::core::RuntimeType for ProcessLauncherResult {
 }
 unsafe impl ::windows::core::Interface for ProcessLauncherResult {
     type Vtable = IProcessLauncherResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x544c8934_86d8_4991_8e75_ece8a43b6b6d);
+    const IID: ::windows::core::GUID = <IProcessLauncherResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ProcessLauncherResult {
     const NAME: &'static str = "Windows.System.ProcessLauncherResult";
@@ -5988,7 +5988,7 @@ unsafe impl ::windows::core::RuntimeType for ProcessMemoryReport {
 }
 unsafe impl ::windows::core::Interface for ProcessMemoryReport {
     type Vtable = IProcessMemoryReport_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x087305a8_9b70_4782_8741_3a982b6ce5e4);
+    const IID: ::windows::core::GUID = <IProcessMemoryReport as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ProcessMemoryReport {
     const NAME: &'static str = "Windows.System.ProcessMemoryReport";
@@ -6100,7 +6100,7 @@ unsafe impl ::windows::core::RuntimeType for ProtocolForResultsOperation {
 }
 unsafe impl ::windows::core::Interface for ProtocolForResultsOperation {
     type Vtable = IProtocolForResultsOperation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd581293a_6de9_4d28_9378_f86782e182bb);
+    const IID: ::windows::core::GUID = <IProtocolForResultsOperation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ProtocolForResultsOperation {
     const NAME: &'static str = "Windows.System.ProtocolForResultsOperation";
@@ -6274,7 +6274,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteLauncherOptions {
 }
 unsafe impl ::windows::core::Interface for RemoteLauncherOptions {
     type Vtable = IRemoteLauncherOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e3a2788_2891_4cdf_a2d6_9dff7d02e693);
+    const IID: ::windows::core::GUID = <IRemoteLauncherOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoteLauncherOptions {
     const NAME: &'static str = "Windows.System.RemoteLauncherOptions";
@@ -6583,7 +6583,7 @@ unsafe impl ::windows::core::RuntimeType for User {
 }
 unsafe impl ::windows::core::Interface for User {
     type Vtable = IUser_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf9a26c6_e746_4bcd_b5d4_120103c4209b);
+    const IID: ::windows::core::GUID = <IUser as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for User {
     const NAME: &'static str = "Windows.System.User";
@@ -6750,7 +6750,7 @@ unsafe impl ::windows::core::RuntimeType for UserAuthenticationStatusChangeDefer
 }
 unsafe impl ::windows::core::Interface for UserAuthenticationStatusChangeDeferral {
     type Vtable = IUserAuthenticationStatusChangeDeferral_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88b59568_bb30_42fb_a270_e9902e40efa7);
+    const IID: ::windows::core::GUID = <IUserAuthenticationStatusChangeDeferral as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserAuthenticationStatusChangeDeferral {
     const NAME: &'static str = "Windows.System.UserAuthenticationStatusChangeDeferral";
@@ -6855,7 +6855,7 @@ unsafe impl ::windows::core::RuntimeType for UserAuthenticationStatusChangingEve
 }
 unsafe impl ::windows::core::Interface for UserAuthenticationStatusChangingEventArgs {
     type Vtable = IUserAuthenticationStatusChangingEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c030f28_a711_4c1e_ab48_04179c15938f);
+    const IID: ::windows::core::GUID = <IUserAuthenticationStatusChangingEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserAuthenticationStatusChangingEventArgs {
     const NAME: &'static str = "Windows.System.UserAuthenticationStatusChangingEventArgs";
@@ -6945,7 +6945,7 @@ unsafe impl ::windows::core::RuntimeType for UserChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for UserChangedEventArgs {
     type Vtable = IUserChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x086459dc_18c6_48db_bc99_724fb9203ccc);
+    const IID: ::windows::core::GUID = <IUserChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserChangedEventArgs {
     const NAME: &'static str = "Windows.System.UserChangedEventArgs";
@@ -7074,7 +7074,7 @@ unsafe impl ::windows::core::RuntimeType for UserDeviceAssociationChangedEventAr
 }
 unsafe impl ::windows::core::Interface for UserDeviceAssociationChangedEventArgs {
     type Vtable = IUserDeviceAssociationChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd1f6f6c_bb5d_4d7b_a5f0_c8cd11a38d42);
+    const IID: ::windows::core::GUID = <IUserDeviceAssociationChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserDeviceAssociationChangedEventArgs {
     const NAME: &'static str = "Windows.System.UserDeviceAssociationChangedEventArgs";
@@ -7201,7 +7201,7 @@ unsafe impl ::windows::core::RuntimeType for UserPicker {
 }
 unsafe impl ::windows::core::Interface for UserPicker {
     type Vtable = IUserPicker_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d548008_f1e3_4a6c_8ddc_a9bb0f488aed);
+    const IID: ::windows::core::GUID = <IUserPicker as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserPicker {
     const NAME: &'static str = "Windows.System.UserPicker";
@@ -7458,7 +7458,7 @@ unsafe impl ::windows::core::RuntimeType for UserWatcher {
 }
 unsafe impl ::windows::core::Interface for UserWatcher {
     type Vtable = IUserWatcher_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x155eb23b_242a_45e0_a2e9_3171fc6a7fbb);
+    const IID: ::windows::core::GUID = <IUserWatcher as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserWatcher {
     const NAME: &'static str = "Windows.System.UserWatcher";

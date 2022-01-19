@@ -533,7 +533,7 @@ unsafe impl ::windows::core::RuntimeType for InkAnalysisInkBullet {
 }
 unsafe impl ::windows::core::Interface for InkAnalysisInkBullet {
     type Vtable = IInkAnalysisInkBullet_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee049368_6110_4136_95f9_ee809fc20030);
+    const IID: ::windows::core::GUID = <IInkAnalysisInkBullet as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InkAnalysisInkBullet {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisInkBullet";
@@ -714,7 +714,7 @@ unsafe impl ::windows::core::RuntimeType for InkAnalysisInkDrawing {
 }
 unsafe impl ::windows::core::Interface for InkAnalysisInkDrawing {
     type Vtable = IInkAnalysisInkDrawing_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a85ed1f_1fe4_4e15_898c_8e112377e021);
+    const IID: ::windows::core::GUID = <IInkAnalysisInkDrawing as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InkAnalysisInkDrawing {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisInkDrawing";
@@ -886,7 +886,7 @@ unsafe impl ::windows::core::RuntimeType for InkAnalysisInkWord {
 }
 unsafe impl ::windows::core::Interface for InkAnalysisInkWord {
     type Vtable = IInkAnalysisInkWord_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4bd228ad_83af_4034_8f3b_f8687dfff436);
+    const IID: ::windows::core::GUID = <IInkAnalysisInkWord as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InkAnalysisInkWord {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisInkWord";
@@ -1057,7 +1057,7 @@ unsafe impl ::windows::core::RuntimeType for InkAnalysisLine {
 }
 unsafe impl ::windows::core::Interface for InkAnalysisLine {
     type Vtable = IInkAnalysisLine_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa06d048d_2b8d_4754_ad5a_d0871193a956);
+    const IID: ::windows::core::GUID = <IInkAnalysisLine as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InkAnalysisLine {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisLine";
@@ -1220,7 +1220,7 @@ unsafe impl ::windows::core::RuntimeType for InkAnalysisListItem {
 }
 unsafe impl ::windows::core::Interface for InkAnalysisListItem {
     type Vtable = IInkAnalysisListItem_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4e3c23f_c4c3_4c3a_a1a6_9d85547ee586);
+    const IID: ::windows::core::GUID = <IInkAnalysisListItem as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InkAnalysisListItem {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisListItem";
@@ -1375,7 +1375,7 @@ unsafe impl ::windows::core::RuntimeType for InkAnalysisNode {
 }
 unsafe impl ::windows::core::Interface for InkAnalysisNode {
     type Vtable = IInkAnalysisNode_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30831f05_5f64_4a2c_ba37_4f4887879574);
+    const IID: ::windows::core::GUID = <IInkAnalysisNode as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InkAnalysisNode {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisNode";
@@ -1573,7 +1573,7 @@ unsafe impl ::windows::core::RuntimeType for InkAnalysisParagraph {
 }
 unsafe impl ::windows::core::Interface for InkAnalysisParagraph {
     type Vtable = IInkAnalysisParagraph_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9ad045c_0cd1_4dd4_a68b_eb1f12b3d727);
+    const IID: ::windows::core::GUID = <IInkAnalysisParagraph as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InkAnalysisParagraph {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisParagraph";
@@ -1676,7 +1676,7 @@ unsafe impl ::windows::core::RuntimeType for InkAnalysisResult {
 }
 unsafe impl ::windows::core::Interface for InkAnalysisResult {
     type Vtable = IInkAnalysisResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8948ba79_a243_4aa3_a294_1f98bd0ff580);
+    const IID: ::windows::core::GUID = <IInkAnalysisResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InkAnalysisResult {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisResult";
@@ -1826,7 +1826,7 @@ unsafe impl ::windows::core::RuntimeType for InkAnalysisRoot {
 }
 unsafe impl ::windows::core::Interface for InkAnalysisRoot {
     type Vtable = IInkAnalysisRoot_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3fb6a3c4_2fde_4061_8502_a90f32545b84);
+    const IID: ::windows::core::GUID = <IInkAnalysisRoot as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InkAnalysisRoot {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisRoot";
@@ -2046,7 +2046,7 @@ unsafe impl ::windows::core::RuntimeType for InkAnalysisWritingRegion {
 }
 unsafe impl ::windows::core::Interface for InkAnalysisWritingRegion {
     type Vtable = IInkAnalysisWritingRegion_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd6d6231_bd16_4663_b5ae_941d3043ef5b);
+    const IID: ::windows::core::GUID = <IInkAnalysisWritingRegion as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InkAnalysisWritingRegion {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalysisWritingRegion";
@@ -2210,7 +2210,7 @@ unsafe impl ::windows::core::RuntimeType for InkAnalyzer {
 }
 unsafe impl ::windows::core::Interface for InkAnalyzer {
     type Vtable = IInkAnalyzer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf12b8f95_0866_4dc5_8c77_f88614dfe38c);
+    const IID: ::windows::core::GUID = <IInkAnalyzer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InkAnalyzer {
     const NAME: &'static str = "Windows.UI.Input.Inking.Analysis.InkAnalyzer";

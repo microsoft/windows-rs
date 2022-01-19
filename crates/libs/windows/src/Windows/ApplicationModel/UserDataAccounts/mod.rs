@@ -498,7 +498,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataAccount {
 }
 unsafe impl ::windows::core::Interface for UserDataAccount {
     type Vtable = IUserDataAccount_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9c4367e_b348_4910_be94_4ad4bba6dea7);
+    const IID: ::windows::core::GUID = <IUserDataAccount as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserDataAccount {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.UserDataAccount";
@@ -703,7 +703,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataAccountManagerForUser {
 }
 unsafe impl ::windows::core::Interface for UserDataAccountManagerForUser {
     type Vtable = IUserDataAccountManagerForUser_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56a6e8db_db8f_41ab_a65f_8c5971aac982);
+    const IID: ::windows::core::GUID = <IUserDataAccountManagerForUser as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserDataAccountManagerForUser {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.UserDataAccountManagerForUser";
@@ -865,7 +865,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataAccountStore {
 }
 unsafe impl ::windows::core::Interface for UserDataAccountStore {
     type Vtable = IUserDataAccountStore_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2073b0ad_7d0a_4e76_bf45_2368f978a59a);
+    const IID: ::windows::core::GUID = <IUserDataAccountStore as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserDataAccountStore {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.UserDataAccountStore";
@@ -975,7 +975,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataAccountStoreChangedEventArg
 }
 unsafe impl ::windows::core::Interface for UserDataAccountStoreChangedEventArgs {
     type Vtable = IUserDataAccountStoreChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84e3e2e5_8820_4512_b1f6_2e035be1072c);
+    const IID: ::windows::core::GUID = <IUserDataAccountStoreChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserDataAccountStoreChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.UserDataAccountStoreChangedEventArgs";

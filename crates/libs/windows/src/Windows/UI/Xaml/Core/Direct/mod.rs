@@ -585,7 +585,7 @@ unsafe impl ::windows::core::RuntimeType for XamlDirect {
 }
 unsafe impl ::windows::core::Interface for XamlDirect {
     type Vtable = IXamlDirect_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ffa1295_add2_590f_a051_70989b866ade);
+    const IID: ::windows::core::GUID = <IXamlDirect as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for XamlDirect {
     const NAME: &'static str = "Windows.UI.Xaml.Core.Direct.XamlDirect";

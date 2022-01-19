@@ -728,7 +728,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialAnchor {
 }
 unsafe impl ::windows::core::Interface for SpatialAnchor {
     type Vtable = ISpatialAnchor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0529e5ce_1d34_3702_bcec_eabff578a869);
+    const IID: ::windows::core::GUID = <ISpatialAnchor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialAnchor {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialAnchor";
@@ -853,7 +853,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialAnchorExportSufficiency {
 }
 unsafe impl ::windows::core::Interface for SpatialAnchorExportSufficiency {
     type Vtable = ISpatialAnchorExportSufficiency_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77c25b2b_3409_4088_b91b_fdfd05d1648f);
+    const IID: ::windows::core::GUID = <ISpatialAnchorExportSufficiency as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialAnchorExportSufficiency {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialAnchorExportSufficiency";
@@ -964,7 +964,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialAnchorExporter {
 }
 unsafe impl ::windows::core::Interface for SpatialAnchorExporter {
     type Vtable = ISpatialAnchorExporter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a2a4338_24fb_4269_89c5_88304aeef20f);
+    const IID: ::windows::core::GUID = <ISpatialAnchorExporter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialAnchorExporter {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialAnchorExporter";
@@ -1066,7 +1066,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialAnchorRawCoordinateSystemAdj
 }
 unsafe impl ::windows::core::Interface for SpatialAnchorRawCoordinateSystemAdjustedEventArgs {
     type Vtable = ISpatialAnchorRawCoordinateSystemAdjustedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1e81eb8_56c7_3117_a2e4_81e0fcf28e00);
+    const IID: ::windows::core::GUID = <ISpatialAnchorRawCoordinateSystemAdjustedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialAnchorRawCoordinateSystemAdjustedEventArgs {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialAnchorRawCoordinateSystemAdjustedEventArgs";
@@ -1166,7 +1166,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialAnchorStore {
 }
 unsafe impl ::windows::core::Interface for SpatialAnchorStore {
     type Vtable = ISpatialAnchorStore_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0bc3636_486a_3cb0_9e6f_1245165c4db6);
+    const IID: ::windows::core::GUID = <ISpatialAnchorStore as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialAnchorStore {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialAnchorStore";
@@ -1509,7 +1509,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialBoundingVolume {
 }
 unsafe impl ::windows::core::Interface for SpatialBoundingVolume {
     type Vtable = ISpatialBoundingVolume_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb2065da_68c3_33df_b7af_4c787207999c);
+    const IID: ::windows::core::GUID = <ISpatialBoundingVolume as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialBoundingVolume {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialBoundingVolume";
@@ -1591,7 +1591,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialCoordinateSystem {
 }
 unsafe impl ::windows::core::Interface for SpatialCoordinateSystem {
     type Vtable = ISpatialCoordinateSystem_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69ebca4b_60a3_3586_a653_59a7bd676d07);
+    const IID: ::windows::core::GUID = <ISpatialCoordinateSystem as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialCoordinateSystem {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialCoordinateSystem";
@@ -1709,7 +1709,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialEntity {
 }
 unsafe impl ::windows::core::Interface for SpatialEntity {
     type Vtable = ISpatialEntity_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x166de955_e1eb_454c_ba08_e6c0668ddc65);
+    const IID: ::windows::core::GUID = <ISpatialEntity as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialEntity {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialEntity";
@@ -1790,7 +1790,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialEntityAddedEventArgs {
 }
 unsafe impl ::windows::core::Interface for SpatialEntityAddedEventArgs {
     type Vtable = ISpatialEntityAddedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa397f49b_156a_4707_ac2c_d31d570ed399);
+    const IID: ::windows::core::GUID = <ISpatialEntityAddedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialEntityAddedEventArgs {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialEntityAddedEventArgs";
@@ -1871,7 +1871,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialEntityRemovedEventArgs {
 }
 unsafe impl ::windows::core::Interface for SpatialEntityRemovedEventArgs {
     type Vtable = ISpatialEntityRemovedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91741800_536d_4e9f_abf6_415b5444d651);
+    const IID: ::windows::core::GUID = <ISpatialEntityRemovedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialEntityRemovedEventArgs {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialEntityRemovedEventArgs";
@@ -1990,7 +1990,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialEntityStore {
 }
 unsafe impl ::windows::core::Interface for SpatialEntityStore {
     type Vtable = ISpatialEntityStore_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x329788ba_e513_4f06_889d_1be30ecf43e6);
+    const IID: ::windows::core::GUID = <ISpatialEntityStore as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialEntityStore {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialEntityStore";
@@ -2071,7 +2071,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialEntityUpdatedEventArgs {
 }
 unsafe impl ::windows::core::Interface for SpatialEntityUpdatedEventArgs {
     type Vtable = ISpatialEntityUpdatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5671766_627b_43cb_a49f_b3be6d47deed);
+    const IID: ::windows::core::GUID = <ISpatialEntityUpdatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialEntityUpdatedEventArgs {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialEntityUpdatedEventArgs";
@@ -2222,7 +2222,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialEntityWatcher {
 }
 unsafe impl ::windows::core::Interface for SpatialEntityWatcher {
     type Vtable = ISpatialEntityWatcher_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3b85fa0_6d5e_4bbc_805d_5fe5b9ba1959);
+    const IID: ::windows::core::GUID = <ISpatialEntityWatcher as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialEntityWatcher {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialEntityWatcher";
@@ -2430,7 +2430,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialLocation {
 }
 unsafe impl ::windows::core::Interface for SpatialLocation {
     type Vtable = ISpatialLocation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d81d29d_24a1_37d5_8fa1_39b4f9ad67e2);
+    const IID: ::windows::core::GUID = <ISpatialLocation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialLocation {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialLocation";
@@ -2631,7 +2631,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialLocator {
 }
 unsafe impl ::windows::core::Interface for SpatialLocator {
     type Vtable = ISpatialLocator_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6478925_9e0c_3bb6_997e_b64ecca24cf4);
+    const IID: ::windows::core::GUID = <ISpatialLocator as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialLocator {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialLocator";
@@ -2756,7 +2756,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialLocatorAttachedFrameOfRefere
 }
 unsafe impl ::windows::core::Interface for SpatialLocatorAttachedFrameOfReference {
     type Vtable = ISpatialLocatorAttachedFrameOfReference_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe1774ef6_1f4f_499c_9625_ef5e6ed7a048);
+    const IID: ::windows::core::GUID = <ISpatialLocatorAttachedFrameOfReference as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialLocatorAttachedFrameOfReference {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialLocatorAttachedFrameOfReference";
@@ -2842,7 +2842,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialLocatorPositionalTrackingDea
 }
 unsafe impl ::windows::core::Interface for SpatialLocatorPositionalTrackingDeactivatingEventArgs {
     type Vtable = ISpatialLocatorPositionalTrackingDeactivatingEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8a84063_e3f4_368b_9061_9ea9d1d6cc16);
+    const IID: ::windows::core::GUID = <ISpatialLocatorPositionalTrackingDeactivatingEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialLocatorPositionalTrackingDeactivatingEventArgs {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialLocatorPositionalTrackingDeactivatingEventArgs";
@@ -3122,7 +3122,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialStageFrameOfReference {
 }
 unsafe impl ::windows::core::Interface for SpatialStageFrameOfReference {
     type Vtable = ISpatialStageFrameOfReference_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a8a3464_ad0d_4590_ab86_33062b674926);
+    const IID: ::windows::core::GUID = <ISpatialStageFrameOfReference as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialStageFrameOfReference {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialStageFrameOfReference";
@@ -3203,7 +3203,7 @@ unsafe impl ::windows::core::RuntimeType for SpatialStationaryFrameOfReference {
 }
 unsafe impl ::windows::core::Interface for SpatialStationaryFrameOfReference {
     type Vtable = ISpatialStationaryFrameOfReference_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09dbccb9_bcf8_3e7f_be7e_7edccbb178a8);
+    const IID: ::windows::core::GUID = <ISpatialStationaryFrameOfReference as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpatialStationaryFrameOfReference {
     const NAME: &'static str = "Windows.Perception.Spatial.SpatialStationaryFrameOfReference";

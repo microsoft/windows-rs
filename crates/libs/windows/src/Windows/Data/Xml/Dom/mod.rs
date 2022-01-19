@@ -277,7 +277,7 @@ unsafe impl ::windows::core::RuntimeType for DtdEntity {
 }
 unsafe impl ::windows::core::Interface for DtdEntity {
     type Vtable = IDtdEntity_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a0b5ffc_63b4_480f_9e6a_8a92816aade4);
+    const IID: ::windows::core::GUID = <IDtdEntity as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DtdEntity {
     const NAME: &'static str = "Windows.Data.Xml.Dom.DtdEntity";
@@ -660,7 +660,7 @@ unsafe impl ::windows::core::RuntimeType for DtdNotation {
 }
 unsafe impl ::windows::core::Interface for DtdNotation {
     type Vtable = IDtdNotation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cb4e04d_6d46_4edb_ab73_df83c51ad397);
+    const IID: ::windows::core::GUID = <IDtdNotation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DtdNotation {
     const NAME: &'static str = "Windows.Data.Xml.Dom.DtdNotation";
@@ -2852,7 +2852,7 @@ unsafe impl ::windows::core::RuntimeType for XmlAttribute {
 }
 unsafe impl ::windows::core::Interface for XmlAttribute {
     type Vtable = IXmlAttribute_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac144aa4_b4f1_4db6_b206_8a22c308db0a);
+    const IID: ::windows::core::GUID = <IXmlAttribute as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for XmlAttribute {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlAttribute";
@@ -3276,7 +3276,7 @@ unsafe impl ::windows::core::RuntimeType for XmlCDataSection {
 }
 unsafe impl ::windows::core::Interface for XmlCDataSection {
     type Vtable = IXmlCDataSection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d04b46f_c8bd_45b4_8899_0400d7c2c60f);
+    const IID: ::windows::core::GUID = <IXmlCDataSection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for XmlCDataSection {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlCDataSection";
@@ -3736,7 +3736,7 @@ unsafe impl ::windows::core::RuntimeType for XmlComment {
 }
 unsafe impl ::windows::core::Interface for XmlComment {
     type Vtable = IXmlComment_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbca474d5_b61f_4611_9cac_2e92e3476d47);
+    const IID: ::windows::core::GUID = <IXmlComment as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for XmlComment {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlComment";
@@ -4336,7 +4336,7 @@ unsafe impl ::windows::core::RuntimeType for XmlDocument {
 }
 unsafe impl ::windows::core::Interface for XmlDocument {
     type Vtable = IXmlDocument_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7f3a506_1e87_42d6_bcfb_b8c809fa5494);
+    const IID: ::windows::core::GUID = <IXmlDocument as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for XmlDocument {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlDocument";
@@ -4703,7 +4703,7 @@ unsafe impl ::windows::core::RuntimeType for XmlDocumentFragment {
 }
 unsafe impl ::windows::core::Interface for XmlDocumentFragment {
     type Vtable = IXmlDocumentFragment_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2ea6a96_0c21_44a5_8bc9_9e4a262708ec);
+    const IID: ::windows::core::GUID = <IXmlDocumentFragment as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for XmlDocumentFragment {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlDocumentFragment";
@@ -5094,7 +5094,7 @@ unsafe impl ::windows::core::RuntimeType for XmlDocumentType {
 }
 unsafe impl ::windows::core::Interface for XmlDocumentType {
     type Vtable = IXmlDocumentType_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7342425_9781_4964_8e94_9b1c6dfc9bc7);
+    const IID: ::windows::core::GUID = <IXmlDocumentType as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for XmlDocumentType {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlDocumentType";
@@ -5241,7 +5241,7 @@ unsafe impl ::windows::core::RuntimeType for XmlDomImplementation {
 }
 unsafe impl ::windows::core::Interface for XmlDomImplementation {
     type Vtable = IXmlDomImplementation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6de58132_f11d_4fbb_8cc6_583cba93112f);
+    const IID: ::windows::core::GUID = <IXmlDomImplementation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for XmlDomImplementation {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlDomImplementation";
@@ -5634,7 +5634,7 @@ unsafe impl ::windows::core::RuntimeType for XmlElement {
 }
 unsafe impl ::windows::core::Interface for XmlElement {
     type Vtable = IXmlElement_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2dfb8a1f_6b10_4ef8_9f83_efcce8faec37);
+    const IID: ::windows::core::GUID = <IXmlElement as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for XmlElement {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlElement";
@@ -6001,7 +6001,7 @@ unsafe impl ::windows::core::RuntimeType for XmlEntityReference {
 }
 unsafe impl ::windows::core::Interface for XmlEntityReference {
     type Vtable = IXmlEntityReference_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e2f47bc_c3d0_4ccf_bb86_0ab8c36a61cf);
+    const IID: ::windows::core::GUID = <IXmlEntityReference as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for XmlEntityReference {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlEntityReference";
@@ -6212,7 +6212,7 @@ unsafe impl ::windows::core::RuntimeType for XmlLoadSettings {
 }
 unsafe impl ::windows::core::Interface for XmlLoadSettings {
     type Vtable = IXmlLoadSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x58aa07a8_fed6_46f7_b4c5_fb1ba72108d6);
+    const IID: ::windows::core::GUID = <IXmlLoadSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for XmlLoadSettings {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlLoadSettings";
@@ -6394,7 +6394,7 @@ unsafe impl ::windows::core::RuntimeType for XmlNamedNodeMap {
 }
 unsafe impl ::windows::core::Interface for XmlNamedNodeMap {
     type Vtable = IXmlNamedNodeMap_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3a69eb0_aab0_4b82_a6fa_b1453f7c021b);
+    const IID: ::windows::core::GUID = <IXmlNamedNodeMap as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for XmlNamedNodeMap {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlNamedNodeMap";
@@ -6596,7 +6596,7 @@ unsafe impl ::windows::core::RuntimeType for XmlNodeList {
 }
 unsafe impl ::windows::core::Interface for XmlNodeList {
     type Vtable = IXmlNodeList_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c60ad77_83a4_4ec1_9c54_7ba429e13da6);
+    const IID: ::windows::core::GUID = <IXmlNodeList as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for XmlNodeList {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlNodeList";
@@ -6986,7 +6986,7 @@ unsafe impl ::windows::core::RuntimeType for XmlProcessingInstruction {
 }
 unsafe impl ::windows::core::Interface for XmlProcessingInstruction {
     type Vtable = IXmlProcessingInstruction_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2707fd1e_1e92_4ece_b6f4_26f069078ddc);
+    const IID: ::windows::core::GUID = <IXmlProcessingInstruction as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for XmlProcessingInstruction {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlProcessingInstruction";
@@ -7410,7 +7410,7 @@ unsafe impl ::windows::core::RuntimeType for XmlText {
 }
 unsafe impl ::windows::core::Interface for XmlText {
     type Vtable = IXmlText_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf931a4cb_308d_4760_a1d5_43b67450ac7e);
+    const IID: ::windows::core::GUID = <IXmlText as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for XmlText {
     const NAME: &'static str = "Windows.Data.Xml.Dom.XmlText";

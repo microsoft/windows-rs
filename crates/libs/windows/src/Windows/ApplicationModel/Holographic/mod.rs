@@ -54,7 +54,7 @@ unsafe impl ::windows::core::RuntimeType for HolographicKeyboard {
 }
 unsafe impl ::windows::core::Interface for HolographicKeyboard {
     type Vtable = IHolographicKeyboard_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07dd0893_aa21_5e6f_a91b_11b2b3fd7be3);
+    const IID: ::windows::core::GUID = <IHolographicKeyboard as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HolographicKeyboard {
     const NAME: &'static str = "Windows.ApplicationModel.Holographic.HolographicKeyboard";

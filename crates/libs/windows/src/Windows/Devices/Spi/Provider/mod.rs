@@ -452,7 +452,7 @@ unsafe impl ::windows::core::RuntimeType for ProviderSpiConnectionSettings {
 }
 unsafe impl ::windows::core::Interface for ProviderSpiConnectionSettings {
     type Vtable = IProviderSpiConnectionSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6034550_a542_4ec0_9601_a4dd68f8697b);
+    const IID: ::windows::core::GUID = <IProviderSpiConnectionSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ProviderSpiConnectionSettings {
     const NAME: &'static str = "Windows.Devices.Spi.Provider.ProviderSpiConnectionSettings";

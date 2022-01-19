@@ -263,7 +263,7 @@ unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectionConfigurat
 }
 unsafe impl ::windows::core::Interface for ActivationSignalDetectionConfiguration {
     type Vtable = IActivationSignalDetectionConfiguration_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40d8be16_5217_581c_9ab2_ce9b2f2e8e00);
+    const IID: ::windows::core::GUID = <IActivationSignalDetectionConfiguration as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ActivationSignalDetectionConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfiguration";
@@ -378,7 +378,7 @@ unsafe impl ::windows::core::RuntimeType for ActivationSignalDetectionConfigurat
 }
 unsafe impl ::windows::core::Interface for ActivationSignalDetectionConfigurationCreationResult {
     type Vtable = IActivationSignalDetectionConfigurationCreationResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c89bc1b_8d12_5e48_a71c_7f6bc1cd66e0);
+    const IID: ::windows::core::GUID = <IActivationSignalDetectionConfigurationCreationResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ActivationSignalDetectionConfigurationCreationResult {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetectionConfigurationCreationResult";
@@ -807,7 +807,7 @@ unsafe impl ::windows::core::RuntimeType for ActivationSignalDetector {
 }
 unsafe impl ::windows::core::Interface for ActivationSignalDetector {
     type Vtable = IActivationSignalDetector_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5bf345f_a4d0_5b2b_8e65_b3c55ee756ff);
+    const IID: ::windows::core::GUID = <IActivationSignalDetector as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ActivationSignalDetector {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ActivationSignalDetector";
@@ -1061,7 +1061,7 @@ unsafe impl ::windows::core::RuntimeType for ConversationalAgentDetectorManager 
 }
 unsafe impl ::windows::core::Interface for ConversationalAgentDetectorManager {
     type Vtable = IConversationalAgentDetectorManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde94fbb0_597a_5df8_8cfb_9dbb583ba3ff);
+    const IID: ::windows::core::GUID = <IConversationalAgentDetectorManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ConversationalAgentDetectorManager {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentDetectorManager";
@@ -1490,7 +1490,7 @@ unsafe impl ::windows::core::RuntimeType for ConversationalAgentSession {
 }
 unsafe impl ::windows::core::Interface for ConversationalAgentSession {
     type Vtable = IConversationalAgentSession_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdaaae09a_b7ba_57e5_ad13_df520f9b6fa7);
+    const IID: ::windows::core::GUID = <IConversationalAgentSession as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ConversationalAgentSession {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSession";
@@ -1588,7 +1588,7 @@ unsafe impl ::windows::core::RuntimeType for ConversationalAgentSessionInterrupt
 }
 unsafe impl ::windows::core::Interface for ConversationalAgentSessionInterruptedEventArgs {
     type Vtable = IConversationalAgentSessionInterruptedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9766591f_f63d_5d3e_9bf2_bd0760552686);
+    const IID: ::windows::core::GUID = <IConversationalAgentSessionInterruptedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ConversationalAgentSessionInterruptedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSessionInterruptedEventArgs";
@@ -1787,7 +1787,7 @@ unsafe impl ::windows::core::RuntimeType for ConversationalAgentSignal {
 }
 unsafe impl ::windows::core::Interface for ConversationalAgentSignal {
     type Vtable = IConversationalAgentSignal_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20ed25f7_b120_51f2_8603_265d6a47f232);
+    const IID: ::windows::core::GUID = <IConversationalAgentSignal as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ConversationalAgentSignal {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSignal";
@@ -1859,7 +1859,7 @@ unsafe impl ::windows::core::RuntimeType for ConversationalAgentSignalDetectedEv
 }
 unsafe impl ::windows::core::Interface for ConversationalAgentSignalDetectedEventArgs {
     type Vtable = IConversationalAgentSignalDetectedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d57eb8f_f88a_599b_91d3_d604876708bc);
+    const IID: ::windows::core::GUID = <IConversationalAgentSignalDetectedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ConversationalAgentSignalDetectedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSignalDetectedEventArgs";
@@ -2002,7 +2002,7 @@ unsafe impl ::windows::core::RuntimeType for ConversationalAgentSystemStateChang
 }
 unsafe impl ::windows::core::Interface for ConversationalAgentSystemStateChangedEventArgs {
     type Vtable = IConversationalAgentSystemStateChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c2c6e3e_2785_59a7_8e71_38adeef79928);
+    const IID: ::windows::core::GUID = <IConversationalAgentSystemStateChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ConversationalAgentSystemStateChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.ConversationalAgentSystemStateChangedEventArgs";
@@ -2144,7 +2144,7 @@ unsafe impl ::windows::core::RuntimeType for DetectionConfigurationAvailabilityC
 }
 unsafe impl ::windows::core::Interface for DetectionConfigurationAvailabilityChangedEventArgs {
     type Vtable = IDetectionConfigurationAvailabilityChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5129c9fb_4be8_5f14_af2b_88d62b1b4462);
+    const IID: ::windows::core::GUID = <IDetectionConfigurationAvailabilityChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DetectionConfigurationAvailabilityChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityChangedEventArgs";
@@ -2258,7 +2258,7 @@ unsafe impl ::windows::core::RuntimeType for DetectionConfigurationAvailabilityI
 }
 unsafe impl ::windows::core::Interface for DetectionConfigurationAvailabilityInfo {
     type Vtable = IDetectionConfigurationAvailabilityInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5affeb0_40f0_5398_b838_91979c2c6208);
+    const IID: ::windows::core::GUID = <IDetectionConfigurationAvailabilityInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DetectionConfigurationAvailabilityInfo {
     const NAME: &'static str = "Windows.ApplicationModel.ConversationalAgent.DetectionConfigurationAvailabilityInfo";

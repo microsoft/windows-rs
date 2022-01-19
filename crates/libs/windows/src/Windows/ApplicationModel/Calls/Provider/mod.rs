@@ -195,7 +195,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallOrigin {
 }
 unsafe impl ::windows::core::Interface for PhoneCallOrigin {
     type Vtable = IPhoneCallOrigin_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20613479_0ef9_4454_871c_afb66a14b6a5);
+    const IID: ::windows::core::GUID = <IPhoneCallOrigin as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PhoneCallOrigin {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.Provider.PhoneCallOrigin";

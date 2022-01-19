@@ -344,7 +344,7 @@ unsafe impl ::windows::core::RuntimeType for SysStorageProviderEventReceivedEven
 }
 unsafe impl ::windows::core::Interface for SysStorageProviderEventReceivedEventArgs {
     type Vtable = ISysStorageProviderEventReceivedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe132d1b9_7b9d_5820_9728_4262b5289142);
+    const IID: ::windows::core::GUID = <ISysStorageProviderEventReceivedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SysStorageProviderEventReceivedEventArgs {
     const NAME: &'static str = "Windows.System.Implementation.FileExplorer.SysStorageProviderEventReceivedEventArgs";

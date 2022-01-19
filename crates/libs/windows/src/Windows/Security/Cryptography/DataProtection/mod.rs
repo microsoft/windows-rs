@@ -80,7 +80,7 @@ unsafe impl ::windows::core::RuntimeType for DataProtectionProvider {
 }
 unsafe impl ::windows::core::Interface for DataProtectionProvider {
     type Vtable = IDataProtectionProvider_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09639948_ed22_4270_bd1c_6d72c00f8787);
+    const IID: ::windows::core::GUID = <IDataProtectionProvider as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DataProtectionProvider {
     const NAME: &'static str = "Windows.Security.Cryptography.DataProtection.DataProtectionProvider";

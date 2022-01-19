@@ -4148,7 +4148,7 @@ unsafe impl ::windows::core::RuntimeType for NDClient {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for NDClient {
     type Vtable = INDClient_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3bd6781b_61b8_46e2_99a5_8abcb6b9f7d6);
+    const IID: ::windows::core::GUID = <INDClient as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for NDClient {
@@ -4342,7 +4342,7 @@ unsafe impl ::windows::core::RuntimeType for NDCustomData {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for NDCustomData {
     type Vtable = INDCustomData_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5cb0fdc_2d09_4f19_b5e1_76a0b3ee9267);
+    const IID: ::windows::core::GUID = <INDCustomData as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for NDCustomData {
@@ -4499,7 +4499,7 @@ unsafe impl ::windows::core::RuntimeType for NDDownloadEngineNotifier {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for NDDownloadEngineNotifier {
     type Vtable = INDDownloadEngineNotifier_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd720b4d4_f4b8_4530_a809_9193a571e7fc);
+    const IID: ::windows::core::GUID = <INDDownloadEngineNotifier as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for NDDownloadEngineNotifier {
@@ -4660,7 +4660,7 @@ unsafe impl ::windows::core::RuntimeType for NDLicenseFetchDescriptor {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for NDLicenseFetchDescriptor {
     type Vtable = INDLicenseFetchDescriptor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5498d33a_e686_4935_a567_7ca77ad20fa4);
+    const IID: ::windows::core::GUID = <INDLicenseFetchDescriptor as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for NDLicenseFetchDescriptor {
@@ -4899,7 +4899,7 @@ unsafe impl ::windows::core::RuntimeType for NDStorageFileHelper {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for NDStorageFileHelper {
     type Vtable = INDStorageFileHelper_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8f0bef8_91d2_4d47_a3f9_eaff4edb729f);
+    const IID: ::windows::core::GUID = <INDStorageFileHelper as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for NDStorageFileHelper {
@@ -5044,7 +5044,7 @@ unsafe impl ::windows::core::RuntimeType for NDStreamParserNotifier {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for NDStreamParserNotifier {
     type Vtable = INDStreamParserNotifier_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc167acd0_2ce6_426c_ace5_5e9275fea715);
+    const IID: ::windows::core::GUID = <INDStreamParserNotifier as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for NDStreamParserNotifier {
@@ -5208,7 +5208,7 @@ unsafe impl ::windows::core::RuntimeType for NDTCPMessenger {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for NDTCPMessenger {
     type Vtable = INDMessenger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd42df95d_a75b_47bf_8249_bc83820da38a);
+    const IID: ::windows::core::GUID = <INDMessenger as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for NDTCPMessenger {
@@ -5453,7 +5453,7 @@ unsafe impl ::windows::core::RuntimeType for PlayReadyContentHeader {
 }
 unsafe impl ::windows::core::Interface for PlayReadyContentHeader {
     type Vtable = IPlayReadyContentHeader_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a438a6a_7f4c_452e_88bd_0148c6387a2c);
+    const IID: ::windows::core::GUID = <IPlayReadyContentHeader as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PlayReadyContentHeader {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyContentHeader";
@@ -5612,7 +5612,7 @@ unsafe impl ::windows::core::RuntimeType for PlayReadyDomain {
 }
 unsafe impl ::windows::core::Interface for PlayReadyDomain {
     type Vtable = IPlayReadyDomain_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xadcc93ac_97e6_43ef_95e4_d7868f3b16a9);
+    const IID: ::windows::core::GUID = <IPlayReadyDomain as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PlayReadyDomain {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyDomain";
@@ -5735,7 +5735,7 @@ unsafe impl ::windows::core::RuntimeType for PlayReadyDomainIterable {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for PlayReadyDomainIterable {
     type Vtable = super::super::super::Foundation::Collections::IIterable_Vtbl<IPlayReadyDomain>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::super::Foundation::Collections::IIterable<IPlayReadyDomain> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for PlayReadyDomainIterable {
@@ -5901,7 +5901,7 @@ unsafe impl ::windows::core::RuntimeType for PlayReadyDomainIterator {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for PlayReadyDomainIterator {
     type Vtable = super::super::super::Foundation::Collections::IIterator_Vtbl<IPlayReadyDomain>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::super::Foundation::Collections::IIterator<IPlayReadyDomain> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for PlayReadyDomainIterator {
@@ -6138,7 +6138,7 @@ unsafe impl ::windows::core::RuntimeType for PlayReadyDomainJoinServiceRequest {
 }
 unsafe impl ::windows::core::Interface for PlayReadyDomainJoinServiceRequest {
     type Vtable = IPlayReadyDomainJoinServiceRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x171b4a5a_405f_4739_b040_67b9f0c38758);
+    const IID: ::windows::core::GUID = <IPlayReadyDomainJoinServiceRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PlayReadyDomainJoinServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyDomainJoinServiceRequest";
@@ -6371,7 +6371,7 @@ unsafe impl ::windows::core::RuntimeType for PlayReadyDomainLeaveServiceRequest 
 }
 unsafe impl ::windows::core::Interface for PlayReadyDomainLeaveServiceRequest {
     type Vtable = IPlayReadyDomainLeaveServiceRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x062d58be_97ad_4917_aa03_46d4c252d464);
+    const IID: ::windows::core::GUID = <IPlayReadyDomainLeaveServiceRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PlayReadyDomainLeaveServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyDomainLeaveServiceRequest";
@@ -6591,7 +6591,7 @@ unsafe impl ::windows::core::RuntimeType for PlayReadyITADataGenerator {
 }
 unsafe impl ::windows::core::Interface for PlayReadyITADataGenerator {
     type Vtable = IPlayReadyITADataGenerator_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24446b8e_10b9_4530_b25b_901a8029a9b2);
+    const IID: ::windows::core::GUID = <IPlayReadyITADataGenerator as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PlayReadyITADataGenerator {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyITADataGenerator";
@@ -6754,7 +6754,7 @@ unsafe impl ::windows::core::RuntimeType for PlayReadyIndividualizationServiceRe
 }
 unsafe impl ::windows::core::Interface for PlayReadyIndividualizationServiceRequest {
     type Vtable = IPlayReadyIndividualizationServiceRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x21f5a86b_008c_4611_ab2f_aaa6c69f0e24);
+    const IID: ::windows::core::GUID = <IPlayReadyIndividualizationServiceRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PlayReadyIndividualizationServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyIndividualizationServiceRequest";
@@ -6958,7 +6958,7 @@ unsafe impl ::windows::core::RuntimeType for PlayReadyLicense {
 }
 unsafe impl ::windows::core::Interface for PlayReadyLicense {
     type Vtable = IPlayReadyLicense_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee474c4e_fa3c_414d_a9f2_3ffc1ef832d4);
+    const IID: ::windows::core::GUID = <IPlayReadyLicense as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PlayReadyLicense {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyLicense";
@@ -7186,7 +7186,7 @@ unsafe impl ::windows::core::RuntimeType for PlayReadyLicenseAcquisitionServiceR
 }
 unsafe impl ::windows::core::Interface for PlayReadyLicenseAcquisitionServiceRequest {
     type Vtable = IPlayReadyLicenseAcquisitionServiceRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d85ff45_3e9f_4f48_93e1_9530c8d58c3e);
+    const IID: ::windows::core::GUID = <IPlayReadyLicenseAcquisitionServiceRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PlayReadyLicenseAcquisitionServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyLicenseAcquisitionServiceRequest";
@@ -7360,7 +7360,7 @@ unsafe impl ::windows::core::RuntimeType for PlayReadyLicenseIterable {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for PlayReadyLicenseIterable {
     type Vtable = super::super::super::Foundation::Collections::IIterable_Vtbl<IPlayReadyLicense>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::super::Foundation::Collections::IIterable<IPlayReadyLicense> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for PlayReadyLicenseIterable {
@@ -7526,7 +7526,7 @@ unsafe impl ::windows::core::RuntimeType for PlayReadyLicenseIterator {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for PlayReadyLicenseIterator {
     type Vtable = super::super::super::Foundation::Collections::IIterator_Vtbl<IPlayReadyLicense>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::super::Foundation::Collections::IIterator<IPlayReadyLicense> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for PlayReadyLicenseIterator {
@@ -7687,7 +7687,7 @@ unsafe impl ::windows::core::RuntimeType for PlayReadyLicenseSession {
 }
 unsafe impl ::windows::core::Interface for PlayReadyLicenseSession {
     type Vtable = IPlayReadyLicenseSession_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1723a39_87fa_4fdd_abbb_a9720e845259);
+    const IID: ::windows::core::GUID = <IPlayReadyLicenseSession as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PlayReadyLicenseSession {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyLicenseSession";
@@ -7907,7 +7907,7 @@ unsafe impl ::windows::core::RuntimeType for PlayReadyMeteringReportServiceReque
 }
 unsafe impl ::windows::core::Interface for PlayReadyMeteringReportServiceRequest {
     type Vtable = IPlayReadyMeteringReportServiceRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc12b231c_0ecd_4f11_a185_1e24a4a67fb7);
+    const IID: ::windows::core::GUID = <IPlayReadyMeteringReportServiceRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PlayReadyMeteringReportServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyMeteringReportServiceRequest";
@@ -8114,7 +8114,7 @@ unsafe impl ::windows::core::RuntimeType for PlayReadyRevocationServiceRequest {
 }
 unsafe impl ::windows::core::Interface for PlayReadyRevocationServiceRequest {
     type Vtable = IPlayReadyRevocationServiceRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x543d66ac_faf0_4560_84a5_0e4acec939e4);
+    const IID: ::windows::core::GUID = <IPlayReadyRevocationServiceRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PlayReadyRevocationServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadyRevocationServiceRequest";
@@ -8259,7 +8259,7 @@ unsafe impl ::windows::core::RuntimeType for PlayReadySecureStopIterable {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for PlayReadySecureStopIterable {
     type Vtable = super::super::super::Foundation::Collections::IIterable_Vtbl<IPlayReadySecureStopServiceRequest>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::super::Foundation::Collections::IIterable<IPlayReadySecureStopServiceRequest> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for PlayReadySecureStopIterable {
@@ -8425,7 +8425,7 @@ unsafe impl ::windows::core::RuntimeType for PlayReadySecureStopIterator {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for PlayReadySecureStopIterator {
     type Vtable = super::super::super::Foundation::Collections::IIterator_Vtbl<IPlayReadySecureStopServiceRequest>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::super::Foundation::Collections::IIterator<IPlayReadySecureStopServiceRequest> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for PlayReadySecureStopIterator {
@@ -8677,7 +8677,7 @@ unsafe impl ::windows::core::RuntimeType for PlayReadySecureStopServiceRequest {
 }
 unsafe impl ::windows::core::Interface for PlayReadySecureStopServiceRequest {
     type Vtable = IPlayReadySecureStopServiceRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5501ee5_01bf_4401_9677_05630a6a4cc8);
+    const IID: ::windows::core::GUID = <IPlayReadySecureStopServiceRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PlayReadySecureStopServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadySecureStopServiceRequest";
@@ -8840,7 +8840,7 @@ unsafe impl ::windows::core::RuntimeType for PlayReadySoapMessage {
 }
 unsafe impl ::windows::core::Interface for PlayReadySoapMessage {
     type Vtable = IPlayReadySoapMessage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb659fcb5_ce41_41ba_8a0d_61df5fffa139);
+    const IID: ::windows::core::GUID = <IPlayReadySoapMessage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PlayReadySoapMessage {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.PlayReadySoapMessage";

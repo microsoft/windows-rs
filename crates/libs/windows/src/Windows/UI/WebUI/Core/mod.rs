@@ -782,7 +782,7 @@ unsafe impl ::windows::core::RuntimeType for WebUICommandBar {
 }
 unsafe impl ::windows::core::Interface for WebUICommandBar {
     type Vtable = IWebUICommandBar_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4fc0016_dbe5_41ad_8d7b_14698bd6911d);
+    const IID: ::windows::core::GUID = <IWebUICommandBar as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebUICommandBar {
     const NAME: &'static str = "Windows.UI.WebUI.Core.WebUICommandBar";
@@ -890,7 +890,7 @@ unsafe impl ::windows::core::RuntimeType for WebUICommandBarBitmapIcon {
 }
 unsafe impl ::windows::core::Interface for WebUICommandBarBitmapIcon {
     type Vtable = IWebUICommandBarBitmapIcon_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x858f4f45_08d8_4a46_81ec_00015b0b1c6c);
+    const IID: ::windows::core::GUID = <IWebUICommandBarBitmapIcon as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebUICommandBarBitmapIcon {
     const NAME: &'static str = "Windows.UI.WebUI.Core.WebUICommandBarBitmapIcon";
@@ -1049,7 +1049,7 @@ unsafe impl ::windows::core::RuntimeType for WebUICommandBarConfirmationButton {
 }
 unsafe impl ::windows::core::Interface for WebUICommandBarConfirmationButton {
     type Vtable = IWebUICommandBarConfirmationButton_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86e7824a_e3d5_4eb6_b2ff_8f018a172105);
+    const IID: ::windows::core::GUID = <IWebUICommandBarConfirmationButton as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebUICommandBarConfirmationButton {
     const NAME: &'static str = "Windows.UI.WebUI.Core.WebUICommandBarConfirmationButton";
@@ -1231,7 +1231,7 @@ unsafe impl ::windows::core::RuntimeType for WebUICommandBarIconButton {
 }
 unsafe impl ::windows::core::Interface for WebUICommandBarIconButton {
     type Vtable = IWebUICommandBarIconButton_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f1bc93a_3a7c_4842_a0cf_aff6ea308586);
+    const IID: ::windows::core::GUID = <IWebUICommandBarIconButton as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebUICommandBarIconButton {
     const NAME: &'static str = "Windows.UI.WebUI.Core.WebUICommandBarIconButton";
@@ -1334,7 +1334,7 @@ unsafe impl ::windows::core::RuntimeType for WebUICommandBarItemInvokedEventArgs
 }
 unsafe impl ::windows::core::Interface for WebUICommandBarItemInvokedEventArgs {
     type Vtable = IWebUICommandBarItemInvokedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x304edbdd_e741_41ef_bdc4_a45cea2a4f70);
+    const IID: ::windows::core::GUID = <IWebUICommandBarItemInvokedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebUICommandBarItemInvokedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.Core.WebUICommandBarItemInvokedEventArgs";
@@ -1416,7 +1416,7 @@ unsafe impl ::windows::core::RuntimeType for WebUICommandBarSizeChangedEventArgs
 }
 unsafe impl ::windows::core::Interface for WebUICommandBarSizeChangedEventArgs {
     type Vtable = IWebUICommandBarSizeChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbf1e2f6_3029_4719_8378_92f82b87af1e);
+    const IID: ::windows::core::GUID = <IWebUICommandBarSizeChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebUICommandBarSizeChangedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.Core.WebUICommandBarSizeChangedEventArgs";
@@ -1521,7 +1521,7 @@ unsafe impl ::windows::core::RuntimeType for WebUICommandBarSymbolIcon {
 }
 unsafe impl ::windows::core::Interface for WebUICommandBarSymbolIcon {
     type Vtable = IWebUICommandBarSymbolIcon_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4935477_fd26_46ed_8658_1a3f4400e7b3);
+    const IID: ::windows::core::GUID = <IWebUICommandBarSymbolIcon as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebUICommandBarSymbolIcon {
     const NAME: &'static str = "Windows.UI.WebUI.Core.WebUICommandBarSymbolIcon";

@@ -250,7 +250,7 @@ unsafe impl ::windows::core::RuntimeType for HttpBaseProtocolFilter {
 }
 unsafe impl ::windows::core::Interface for HttpBaseProtocolFilter {
     type Vtable = IHttpBaseProtocolFilter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71c89b09_e131_4b54_a53c_eb43ff37e9bb);
+    const IID: ::windows::core::GUID = <IHttpBaseProtocolFilter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpBaseProtocolFilter {
     const NAME: &'static str = "Windows.Web.Http.Filters.HttpBaseProtocolFilter";
@@ -397,7 +397,7 @@ unsafe impl ::windows::core::RuntimeType for HttpCacheControl {
 }
 unsafe impl ::windows::core::Interface for HttpCacheControl {
     type Vtable = IHttpCacheControl_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc77e1cb4_3cea_4eb5_ac85_04e186e63ab7);
+    const IID: ::windows::core::GUID = <IHttpCacheControl as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpCacheControl {
     const NAME: &'static str = "Windows.Web.Http.Filters.HttpCacheControl";
@@ -614,7 +614,7 @@ unsafe impl ::windows::core::RuntimeType for HttpServerCustomValidationRequested
 }
 unsafe impl ::windows::core::Interface for HttpServerCustomValidationRequestedEventArgs {
     type Vtable = IHttpServerCustomValidationRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3165fe32_e7dd_48b7_a361_939c750e63cc);
+    const IID: ::windows::core::GUID = <IHttpServerCustomValidationRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpServerCustomValidationRequestedEventArgs {
     const NAME: &'static str = "Windows.Web.Http.Filters.HttpServerCustomValidationRequestedEventArgs";

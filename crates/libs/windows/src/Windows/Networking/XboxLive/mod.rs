@@ -450,7 +450,7 @@ unsafe impl ::windows::core::RuntimeType for XboxLiveDeviceAddress {
 }
 unsafe impl ::windows::core::Interface for XboxLiveDeviceAddress {
     type Vtable = IXboxLiveDeviceAddress_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5bbd279_3c86_4b57_a31a_b9462408fd01);
+    const IID: ::windows::core::GUID = <IXboxLiveDeviceAddress as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for XboxLiveDeviceAddress {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveDeviceAddress";
@@ -632,7 +632,7 @@ unsafe impl ::windows::core::RuntimeType for XboxLiveEndpointPair {
 }
 unsafe impl ::windows::core::Interface for XboxLiveEndpointPair {
     type Vtable = IXboxLiveEndpointPair_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e9a839b_813e_44e0_b87f_c87a093475e4);
+    const IID: ::windows::core::GUID = <IXboxLiveEndpointPair as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for XboxLiveEndpointPair {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveEndpointPair";
@@ -793,7 +793,7 @@ unsafe impl ::windows::core::RuntimeType for XboxLiveEndpointPairCreationResult 
 }
 unsafe impl ::windows::core::Interface for XboxLiveEndpointPairCreationResult {
     type Vtable = IXboxLiveEndpointPairCreationResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9a8bb95_2aab_4d1e_9794_33ecc0dcf0fe);
+    const IID: ::windows::core::GUID = <IXboxLiveEndpointPairCreationResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for XboxLiveEndpointPairCreationResult {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveEndpointPairCreationResult";
@@ -950,7 +950,7 @@ unsafe impl ::windows::core::RuntimeType for XboxLiveEndpointPairStateChangedEve
 }
 unsafe impl ::windows::core::Interface for XboxLiveEndpointPairStateChangedEventArgs {
     type Vtable = IXboxLiveEndpointPairStateChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x592e3b55_de08_44e7_ac3b_b9b9a169583a);
+    const IID: ::windows::core::GUID = <IXboxLiveEndpointPairStateChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for XboxLiveEndpointPairStateChangedEventArgs {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveEndpointPairStateChangedEventArgs";
@@ -1151,7 +1151,7 @@ unsafe impl ::windows::core::RuntimeType for XboxLiveEndpointPairTemplate {
 }
 unsafe impl ::windows::core::Interface for XboxLiveEndpointPairTemplate {
     type Vtable = IXboxLiveEndpointPairTemplate_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b286ecf_3457_40ce_b9a1_c0cfe0213ea7);
+    const IID: ::windows::core::GUID = <IXboxLiveEndpointPairTemplate as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for XboxLiveEndpointPairTemplate {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveEndpointPairTemplate";
@@ -1232,7 +1232,7 @@ unsafe impl ::windows::core::RuntimeType for XboxLiveInboundEndpointPairCreatedE
 }
 unsafe impl ::windows::core::Interface for XboxLiveInboundEndpointPairCreatedEventArgs {
     type Vtable = IXboxLiveInboundEndpointPairCreatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc183b62_22ba_48d2_80de_c23968bd198b);
+    const IID: ::windows::core::GUID = <IXboxLiveInboundEndpointPairCreatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for XboxLiveInboundEndpointPairCreatedEventArgs {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveInboundEndpointPairCreatedEventArgs";
@@ -1533,7 +1533,7 @@ unsafe impl ::windows::core::RuntimeType for XboxLiveQualityOfServiceMeasurement
 }
 unsafe impl ::windows::core::Interface for XboxLiveQualityOfServiceMeasurement {
     type Vtable = IXboxLiveQualityOfServiceMeasurement_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d682bce_a5d6_47e6_a236_cfde5fbdf2ed);
+    const IID: ::windows::core::GUID = <IXboxLiveQualityOfServiceMeasurement as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for XboxLiveQualityOfServiceMeasurement {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveQualityOfServiceMeasurement";
@@ -1711,7 +1711,7 @@ unsafe impl ::windows::core::RuntimeType for XboxLiveQualityOfServiceMetricResul
 }
 unsafe impl ::windows::core::Interface for XboxLiveQualityOfServiceMetricResult {
     type Vtable = IXboxLiveQualityOfServiceMetricResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaeec53d1_3561_4782_b0cf_d3ae29d9fa87);
+    const IID: ::windows::core::GUID = <IXboxLiveQualityOfServiceMetricResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for XboxLiveQualityOfServiceMetricResult {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveQualityOfServiceMetricResult";
@@ -1809,7 +1809,7 @@ unsafe impl ::windows::core::RuntimeType for XboxLiveQualityOfServicePrivatePayl
 }
 unsafe impl ::windows::core::Interface for XboxLiveQualityOfServicePrivatePayloadResult {
     type Vtable = IXboxLiveQualityOfServicePrivatePayloadResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a6302ae_6f38_41c0_9fcc_ea6cb978cafc);
+    const IID: ::windows::core::GUID = <IXboxLiveQualityOfServicePrivatePayloadResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for XboxLiveQualityOfServicePrivatePayloadResult {
     const NAME: &'static str = "Windows.Networking.XboxLive.XboxLiveQualityOfServicePrivatePayloadResult";

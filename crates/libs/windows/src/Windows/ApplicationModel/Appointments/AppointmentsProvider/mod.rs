@@ -61,7 +61,7 @@ unsafe impl ::windows::core::RuntimeType for AddAppointmentOperation {
 }
 unsafe impl ::windows::core::Interface for AddAppointmentOperation {
     type Vtable = IAddAppointmentOperation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec4a9af3_620d_4c69_add7_9794e918081f);
+    const IID: ::windows::core::GUID = <IAddAppointmentOperation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AddAppointmentOperation {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentsProvider.AddAppointmentOperation";
@@ -323,7 +323,7 @@ unsafe impl ::windows::core::RuntimeType for RemoveAppointmentOperation {
 }
 unsafe impl ::windows::core::Interface for RemoveAppointmentOperation {
     type Vtable = IRemoveAppointmentOperation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08b66aba_fe33_46cd_a50c_a8ffb3260537);
+    const IID: ::windows::core::GUID = <IRemoveAppointmentOperation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoveAppointmentOperation {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentsProvider.RemoveAppointmentOperation";
@@ -449,7 +449,7 @@ unsafe impl ::windows::core::RuntimeType for ReplaceAppointmentOperation {
 }
 unsafe impl ::windows::core::Interface for ReplaceAppointmentOperation {
     type Vtable = IReplaceAppointmentOperation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4903d9b_9e61_4de2_a732_2687c07d1de8);
+    const IID: ::windows::core::GUID = <IReplaceAppointmentOperation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ReplaceAppointmentOperation {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.AppointmentsProvider.ReplaceAppointmentOperation";

@@ -133,7 +133,7 @@ unsafe impl ::windows::core::RuntimeType for AppDataPaths {
 }
 unsafe impl ::windows::core::Interface for AppDataPaths {
     type Vtable = IAppDataPaths_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7301d60a_79a2_48c9_9ec0_3fda092f79e1);
+    const IID: ::windows::core::GUID = <IAppDataPaths as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppDataPaths {
     const NAME: &'static str = "Windows.Storage.AppDataPaths";
@@ -373,7 +373,7 @@ unsafe impl ::windows::core::RuntimeType for ApplicationData {
 }
 unsafe impl ::windows::core::Interface for ApplicationData {
     type Vtable = IApplicationData_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3da6fb7_b744_4b45_b0b8_223a0938d0dc);
+    const IID: ::windows::core::GUID = <IApplicationData as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ApplicationData {
     const NAME: &'static str = "Windows.Storage.ApplicationData";
@@ -568,7 +568,7 @@ unsafe impl ::windows::core::RuntimeType for ApplicationDataCompositeValue {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for ApplicationDataCompositeValue {
     type Vtable = super::Foundation::Collections::IPropertySet_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a43ed9f_f4e6_4421_acf9_1dab2986820c);
+    const IID: ::windows::core::GUID = <super::Foundation::Collections::IPropertySet as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for ApplicationDataCompositeValue {
@@ -825,7 +825,7 @@ unsafe impl ::windows::core::RuntimeType for ApplicationDataContainer {
 }
 unsafe impl ::windows::core::Interface for ApplicationDataContainer {
     type Vtable = IApplicationDataContainer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5aefd1e_f467_40ba_8566_ab640a441e1d);
+    const IID: ::windows::core::GUID = <IApplicationDataContainer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ApplicationDataContainer {
     const NAME: &'static str = "Windows.Storage.ApplicationDataContainer";
@@ -1013,7 +1013,7 @@ unsafe impl ::windows::core::RuntimeType for ApplicationDataContainerSettings {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for ApplicationDataContainerSettings {
     type Vtable = super::Foundation::Collections::IPropertySet_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a43ed9f_f4e6_4421_acf9_1dab2986820c);
+    const IID: ::windows::core::GUID = <super::Foundation::Collections::IPropertySet as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for ApplicationDataContainerSettings {
@@ -5210,7 +5210,7 @@ unsafe impl ::windows::core::RuntimeType for SetVersionDeferral {
 }
 unsafe impl ::windows::core::Interface for SetVersionDeferral {
     type Vtable = ISetVersionDeferral_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x033508a2_781a_437a_b078_3f32badcfe47);
+    const IID: ::windows::core::GUID = <ISetVersionDeferral as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SetVersionDeferral {
     const NAME: &'static str = "Windows.Storage.SetVersionDeferral";
@@ -5307,7 +5307,7 @@ unsafe impl ::windows::core::RuntimeType for SetVersionRequest {
 }
 unsafe impl ::windows::core::Interface for SetVersionRequest {
     type Vtable = ISetVersionRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9c76b9b_1056_4e69_8330_162619956f9b);
+    const IID: ::windows::core::GUID = <ISetVersionRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SetVersionRequest {
     const NAME: &'static str = "Windows.Storage.SetVersionRequest";
@@ -5822,7 +5822,7 @@ unsafe impl ::windows::core::RuntimeType for StorageFile {
 }
 unsafe impl ::windows::core::Interface for StorageFile {
     type Vtable = IStorageFile_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa3f6186_4214_428c_a64c_14c9ac7315ea);
+    const IID: ::windows::core::GUID = <IStorageFile as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StorageFile {
     const NAME: &'static str = "Windows.Storage.StorageFile";
@@ -6605,7 +6605,7 @@ unsafe impl ::windows::core::RuntimeType for StorageFolder {
 }
 unsafe impl ::windows::core::Interface for StorageFolder {
     type Vtable = IStorageFolder_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72d1cb78_b3ef_4f75_a80b_6fd9dae2944b);
+    const IID: ::windows::core::GUID = <IStorageFolder as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StorageFolder {
     const NAME: &'static str = "Windows.Storage.StorageFolder";
@@ -7006,7 +7006,7 @@ unsafe impl ::windows::core::RuntimeType for StorageLibrary {
 }
 unsafe impl ::windows::core::Interface for StorageLibrary {
     type Vtable = IStorageLibrary_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1edd7103_0e5e_4d6c_b5e8_9318983d6a03);
+    const IID: ::windows::core::GUID = <IStorageLibrary as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StorageLibrary {
     const NAME: &'static str = "Windows.Storage.StorageLibrary";
@@ -7118,7 +7118,7 @@ unsafe impl ::windows::core::RuntimeType for StorageLibraryChange {
 }
 unsafe impl ::windows::core::Interface for StorageLibraryChange {
     type Vtable = IStorageLibraryChange_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00980b23_2be2_4909_aa48_159f5203a51e);
+    const IID: ::windows::core::GUID = <IStorageLibraryChange as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StorageLibraryChange {
     const NAME: &'static str = "Windows.Storage.StorageLibraryChange";
@@ -7217,7 +7217,7 @@ unsafe impl ::windows::core::RuntimeType for StorageLibraryChangeReader {
 }
 unsafe impl ::windows::core::Interface for StorageLibraryChangeReader {
     type Vtable = IStorageLibraryChangeReader_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf205bc83_fca2_41f9_8954_ee2e991eb96f);
+    const IID: ::windows::core::GUID = <IStorageLibraryChangeReader as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StorageLibraryChangeReader {
     const NAME: &'static str = "Windows.Storage.StorageLibraryChangeReader";
@@ -7318,7 +7318,7 @@ unsafe impl ::windows::core::RuntimeType for StorageLibraryChangeTracker {
 }
 unsafe impl ::windows::core::Interface for StorageLibraryChangeTracker {
     type Vtable = IStorageLibraryChangeTracker_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e157316_6073_44f6_9681_7492d1286c90);
+    const IID: ::windows::core::GUID = <IStorageLibraryChangeTracker as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StorageLibraryChangeTracker {
     const NAME: &'static str = "Windows.Storage.StorageLibraryChangeTracker";
@@ -7411,7 +7411,7 @@ unsafe impl ::windows::core::RuntimeType for StorageLibraryChangeTrackerOptions 
 }
 unsafe impl ::windows::core::Interface for StorageLibraryChangeTrackerOptions {
     type Vtable = IStorageLibraryChangeTrackerOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb52bcd4_1a6d_59c0_ad2a_823a20532483);
+    const IID: ::windows::core::GUID = <IStorageLibraryChangeTrackerOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StorageLibraryChangeTrackerOptions {
     const NAME: &'static str = "Windows.Storage.StorageLibraryChangeTrackerOptions";
@@ -7532,7 +7532,7 @@ unsafe impl ::windows::core::RuntimeType for StorageLibraryLastChangeId {
 }
 unsafe impl ::windows::core::Interface for StorageLibraryLastChangeId {
     type Vtable = IStorageLibraryLastChangeId_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5281826a_bbe1_53bc_82ca_81cc7f039329);
+    const IID: ::windows::core::GUID = <IStorageLibraryLastChangeId as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StorageLibraryLastChangeId {
     const NAME: &'static str = "Windows.Storage.StorageLibraryLastChangeId";
@@ -7687,7 +7687,7 @@ unsafe impl ::windows::core::RuntimeType for StorageProvider {
 }
 unsafe impl ::windows::core::Interface for StorageProvider {
     type Vtable = IStorageProvider_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe705eed4_d478_47d6_ba46_1a8ebe114a20);
+    const IID: ::windows::core::GUID = <IStorageProvider as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StorageProvider {
     const NAME: &'static str = "Windows.Storage.StorageProvider";
@@ -7782,7 +7782,7 @@ unsafe impl ::windows::core::RuntimeType for StorageStreamTransaction {
 }
 unsafe impl ::windows::core::Interface for StorageStreamTransaction {
     type Vtable = IStorageStreamTransaction_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf67cf363_a53d_4d94_ae2c_67232d93acdd);
+    const IID: ::windows::core::GUID = <IStorageStreamTransaction as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StorageStreamTransaction {
     const NAME: &'static str = "Windows.Storage.StorageStreamTransaction";
@@ -7916,7 +7916,7 @@ unsafe impl ::windows::core::RuntimeType for StreamedFileDataRequest {
 #[cfg(feature = "Storage_Streams")]
 unsafe impl ::windows::core::Interface for StreamedFileDataRequest {
     type Vtable = Streams::IOutputStream_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x905a0fe6_bc53_11df_8c49_001e4fc686da);
+    const IID: ::windows::core::GUID = <Streams::IOutputStream as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Storage_Streams")]
 impl ::windows::core::RuntimeName for StreamedFileDataRequest {
@@ -8204,7 +8204,7 @@ unsafe impl ::windows::core::RuntimeType for SystemAudioProperties {
 }
 unsafe impl ::windows::core::Interface for SystemAudioProperties {
     type Vtable = ISystemAudioProperties_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f8f38b7_308c_47e1_924d_8645348e5db7);
+    const IID: ::windows::core::GUID = <ISystemAudioProperties as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SystemAudioProperties {
     const NAME: &'static str = "Windows.Storage.SystemAudioProperties";
@@ -8417,7 +8417,7 @@ unsafe impl ::windows::core::RuntimeType for SystemDataPaths {
 }
 unsafe impl ::windows::core::Interface for SystemDataPaths {
     type Vtable = ISystemDataPaths_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe32abf70_d8fa_45ec_a942_d2e26fb60ba5);
+    const IID: ::windows::core::GUID = <ISystemDataPaths as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SystemDataPaths {
     const NAME: &'static str = "Windows.Storage.SystemDataPaths";
@@ -8506,7 +8506,7 @@ unsafe impl ::windows::core::RuntimeType for SystemGPSProperties {
 }
 unsafe impl ::windows::core::Interface for SystemGPSProperties {
     type Vtable = ISystemGPSProperties_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0f46eb4_c174_481a_bc25_921986f6a6f3);
+    const IID: ::windows::core::GUID = <ISystemGPSProperties as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SystemGPSProperties {
     const NAME: &'static str = "Windows.Storage.SystemGPSProperties";
@@ -8595,7 +8595,7 @@ unsafe impl ::windows::core::RuntimeType for SystemImageProperties {
 }
 unsafe impl ::windows::core::Interface for SystemImageProperties {
     type Vtable = ISystemImageProperties_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x011b2e30_8b39_4308_bea1_e8aa61e47826);
+    const IID: ::windows::core::GUID = <ISystemImageProperties as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SystemImageProperties {
     const NAME: &'static str = "Windows.Storage.SystemImageProperties";
@@ -8716,7 +8716,7 @@ unsafe impl ::windows::core::RuntimeType for SystemMediaProperties {
 }
 unsafe impl ::windows::core::Interface for SystemMediaProperties {
     type Vtable = ISystemMediaProperties_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa42b3316_8415_40dc_8c44_98361d235430);
+    const IID: ::windows::core::GUID = <ISystemMediaProperties as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SystemMediaProperties {
     const NAME: &'static str = "Windows.Storage.SystemMediaProperties";
@@ -8853,7 +8853,7 @@ unsafe impl ::windows::core::RuntimeType for SystemMusicProperties {
 }
 unsafe impl ::windows::core::Interface for SystemMusicProperties {
     type Vtable = ISystemMusicProperties_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb47988d5_67af_4bc3_8d39_5b89022026a1);
+    const IID: ::windows::core::GUID = <ISystemMusicProperties as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SystemMusicProperties {
     const NAME: &'static str = "Windows.Storage.SystemMusicProperties";
@@ -8966,7 +8966,7 @@ unsafe impl ::windows::core::RuntimeType for SystemPhotoProperties {
 }
 unsafe impl ::windows::core::Interface for SystemPhotoProperties {
     type Vtable = ISystemPhotoProperties_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4734fc3d_ab21_4424_b735_f4353a56c8fc);
+    const IID: ::windows::core::GUID = <ISystemPhotoProperties as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SystemPhotoProperties {
     const NAME: &'static str = "Windows.Storage.SystemPhotoProperties";
@@ -9182,7 +9182,7 @@ unsafe impl ::windows::core::RuntimeType for SystemVideoProperties {
 }
 unsafe impl ::windows::core::Interface for SystemVideoProperties {
     type Vtable = ISystemVideoProperties_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2040f715_67f8_4322_9b80_4fa9fefb83e8);
+    const IID: ::windows::core::GUID = <ISystemVideoProperties as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SystemVideoProperties {
     const NAME: &'static str = "Windows.Storage.SystemVideoProperties";
@@ -9427,7 +9427,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataPaths {
 }
 unsafe impl ::windows::core::Interface for UserDataPaths {
     type Vtable = IUserDataPaths_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9c53912_abc4_46ff_8a2b_dc9d7fa6e52f);
+    const IID: ::windows::core::GUID = <IUserDataPaths as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserDataPaths {
     const NAME: &'static str = "Windows.Storage.UserDataPaths";

@@ -439,7 +439,7 @@ unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorAuthen
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SecondaryAuthenticationFactorAuthentication {
     type Vtable = ISecondaryAuthenticationFactorAuthentication_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x020a16e5_6a25_40a3_8c00_50a023f619d1);
+    const IID: ::windows::core::GUID = <ISecondaryAuthenticationFactorAuthentication as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for SecondaryAuthenticationFactorAuthentication {
@@ -612,7 +612,7 @@ unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorAuthen
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SecondaryAuthenticationFactorAuthenticationResult {
     type Vtable = ISecondaryAuthenticationFactorAuthenticationResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9cbb5987_ef6d_4bc2_bf49_4617515a0f9a);
+    const IID: ::windows::core::GUID = <ISecondaryAuthenticationFactorAuthenticationResult as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for SecondaryAuthenticationFactorAuthenticationResult {
@@ -792,7 +792,7 @@ unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorAuthen
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs {
     type Vtable = ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4a5ee56_7291_4073_bc1f_ccb8f5afdf96);
+    const IID: ::windows::core::GUID = <ISecondaryAuthenticationFactorAuthenticationStageChangedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs {
@@ -911,7 +911,7 @@ unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorAuthen
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SecondaryAuthenticationFactorAuthenticationStageInfo {
     type Vtable = ISecondaryAuthenticationFactorAuthenticationStageInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56fec28b_e8aa_4c0f_8e4c_a559e73add88);
+    const IID: ::windows::core::GUID = <ISecondaryAuthenticationFactorAuthenticationStageInfo as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for SecondaryAuthenticationFactorAuthenticationStageInfo {
@@ -1358,7 +1358,7 @@ unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorInfo {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SecondaryAuthenticationFactorInfo {
     type Vtable = ISecondaryAuthenticationFactorInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e2ba861_8533_4fce_839b_ecb72410ac14);
+    const IID: ::windows::core::GUID = <ISecondaryAuthenticationFactorInfo as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for SecondaryAuthenticationFactorInfo {
@@ -1544,7 +1544,7 @@ unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorRegist
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SecondaryAuthenticationFactorRegistration {
     type Vtable = ISecondaryAuthenticationFactorRegistration_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f4cbbb4_8cba_48b0_840d_dbb22a54c678);
+    const IID: ::windows::core::GUID = <ISecondaryAuthenticationFactorRegistration as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for SecondaryAuthenticationFactorRegistration {
@@ -1654,7 +1654,7 @@ unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorRegist
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SecondaryAuthenticationFactorRegistrationResult {
     type Vtable = ISecondaryAuthenticationFactorRegistrationResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4fe35f0_ade3_4981_af6b_ec195921682a);
+    const IID: ::windows::core::GUID = <ISecondaryAuthenticationFactorRegistrationResult as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for SecondaryAuthenticationFactorRegistrationResult {

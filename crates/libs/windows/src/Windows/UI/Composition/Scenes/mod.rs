@@ -721,7 +721,7 @@ unsafe impl ::windows::core::RuntimeType for SceneBoundingBox {
 }
 unsafe impl ::windows::core::Interface for SceneBoundingBox {
     type Vtable = ISceneBoundingBox_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d8ffc70_c618_4083_8251_9962593114aa);
+    const IID: ::windows::core::GUID = <ISceneBoundingBox as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SceneBoundingBox {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneBoundingBox";
@@ -989,7 +989,7 @@ unsafe impl ::windows::core::RuntimeType for SceneComponent {
 }
 unsafe impl ::windows::core::Interface for SceneComponent {
     type Vtable = ISceneComponent_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae20fc96_226c_44bd_95cb_dd5ed9ebe9a5);
+    const IID: ::windows::core::GUID = <ISceneComponent as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SceneComponent {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneComponent";
@@ -1353,7 +1353,7 @@ unsafe impl ::windows::core::RuntimeType for SceneComponentCollection {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for SceneComponentCollection {
     type Vtable = super::super::super::Foundation::Collections::IVector_Vtbl<SceneComponent>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::super::Foundation::Collections::IVector<SceneComponent> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for SceneComponentCollection {
@@ -1731,7 +1731,7 @@ unsafe impl ::windows::core::RuntimeType for SceneMaterial {
 }
 unsafe impl ::windows::core::Interface for SceneMaterial {
     type Vtable = ISceneMaterial_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ca74b7c_30df_4e07_9490_37875af1a123);
+    const IID: ::windows::core::GUID = <ISceneMaterial as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SceneMaterial {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneMaterial";
@@ -1991,7 +1991,7 @@ unsafe impl ::windows::core::RuntimeType for SceneMaterialInput {
 }
 unsafe impl ::windows::core::Interface for SceneMaterialInput {
     type Vtable = ISceneMaterialInput_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x422a1642_1ef1_485c_97e9_ae6f95ad812f);
+    const IID: ::windows::core::GUID = <ISceneMaterialInput as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SceneMaterialInput {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneMaterialInput";
@@ -2292,7 +2292,7 @@ unsafe impl ::windows::core::RuntimeType for SceneMesh {
 }
 unsafe impl ::windows::core::Interface for SceneMesh {
     type Vtable = ISceneMesh_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee9a1530_1155_4c0c_92bd_40020cf78347);
+    const IID: ::windows::core::GUID = <ISceneMesh as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SceneMesh {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneMesh";
@@ -2618,7 +2618,7 @@ unsafe impl ::windows::core::RuntimeType for SceneMeshMaterialAttributeMap {
 }
 unsafe impl ::windows::core::Interface for SceneMeshMaterialAttributeMap {
     type Vtable = ISceneMeshMaterialAttributeMap_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce843171_3d43_4855_aa69_31ff988d049d);
+    const IID: ::windows::core::GUID = <ISceneMeshMaterialAttributeMap as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SceneMeshMaterialAttributeMap {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneMeshMaterialAttributeMap";
@@ -3000,7 +3000,7 @@ unsafe impl ::windows::core::RuntimeType for SceneMeshRendererComponent {
 }
 unsafe impl ::windows::core::Interface for SceneMeshRendererComponent {
     type Vtable = ISceneMeshRendererComponent_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9929f7e3_6364_477e_98fe_74ed9fd4c2de);
+    const IID: ::windows::core::GUID = <ISceneMeshRendererComponent as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SceneMeshRendererComponent {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneMeshRendererComponent";
@@ -3498,7 +3498,7 @@ unsafe impl ::windows::core::RuntimeType for SceneMetallicRoughnessMaterial {
 }
 unsafe impl ::windows::core::Interface for SceneMetallicRoughnessMaterial {
     type Vtable = ISceneMetallicRoughnessMaterial_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1d91446_799c_429e_a4e4_5da645f18e61);
+    const IID: ::windows::core::GUID = <ISceneMetallicRoughnessMaterial as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SceneMetallicRoughnessMaterial {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneMetallicRoughnessMaterial";
@@ -3884,7 +3884,7 @@ unsafe impl ::windows::core::RuntimeType for SceneModelTransform {
 }
 unsafe impl ::windows::core::Interface for SceneModelTransform {
     type Vtable = ISceneModelTransform_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc05576c2_32b1_4269_980d_b98537100ae4);
+    const IID: ::windows::core::GUID = <ISceneModelTransform as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SceneModelTransform {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneModelTransform";
@@ -4198,7 +4198,7 @@ unsafe impl ::windows::core::RuntimeType for SceneNode {
 }
 unsafe impl ::windows::core::Interface for SceneNode {
     type Vtable = ISceneNode_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xacf2c247_f307_4581_9c41_af2e29c3b016);
+    const IID: ::windows::core::GUID = <ISceneNode as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SceneNode {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneNode";
@@ -4562,7 +4562,7 @@ unsafe impl ::windows::core::RuntimeType for SceneNodeCollection {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for SceneNodeCollection {
     type Vtable = super::super::super::Foundation::Collections::IVector_Vtbl<SceneNode>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::super::Foundation::Collections::IVector<SceneNode> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for SceneNodeCollection {
@@ -4913,7 +4913,7 @@ unsafe impl ::windows::core::RuntimeType for SceneObject {
 }
 unsafe impl ::windows::core::Interface for SceneObject {
     type Vtable = ISceneObject_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e94249b_0f1b_49eb_a819_877d8450005b);
+    const IID: ::windows::core::GUID = <ISceneObject as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SceneObject {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneObject";
@@ -5272,7 +5272,7 @@ unsafe impl ::windows::core::RuntimeType for ScenePbrMaterial {
 }
 unsafe impl ::windows::core::Interface for ScenePbrMaterial {
     type Vtable = IScenePbrMaterial_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaab6ebbe_d680_46df_8294_b6800a9f95e7);
+    const IID: ::windows::core::GUID = <IScenePbrMaterial as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ScenePbrMaterial {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.ScenePbrMaterial";
@@ -5560,7 +5560,7 @@ unsafe impl ::windows::core::RuntimeType for SceneRendererComponent {
 }
 unsafe impl ::windows::core::Interface for SceneRendererComponent {
     type Vtable = ISceneRendererComponent_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1acb857_cf4f_4025_9b25_a2d1944cf507);
+    const IID: ::windows::core::GUID = <ISceneRendererComponent as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SceneRendererComponent {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneRendererComponent";
@@ -5904,7 +5904,7 @@ unsafe impl ::windows::core::RuntimeType for SceneSurfaceMaterialInput {
 }
 unsafe impl ::windows::core::Interface for SceneSurfaceMaterialInput {
     type Vtable = ISceneSurfaceMaterialInput_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9937da5c_a9ca_4cfc_b3aa_088356518742);
+    const IID: ::windows::core::GUID = <ISceneSurfaceMaterialInput as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SceneSurfaceMaterialInput {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneSurfaceMaterialInput";
@@ -6518,7 +6518,7 @@ unsafe impl ::windows::core::RuntimeType for SceneVisual {
 }
 unsafe impl ::windows::core::Interface for SceneVisual {
     type Vtable = ISceneVisual_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e672c1e_d734_47b1_be14_3d694ffa4301);
+    const IID: ::windows::core::GUID = <ISceneVisual as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SceneVisual {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneVisual";

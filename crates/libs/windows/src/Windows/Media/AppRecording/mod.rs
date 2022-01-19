@@ -81,7 +81,7 @@ unsafe impl ::windows::core::RuntimeType for AppRecordingManager {
 }
 unsafe impl ::windows::core::Interface for AppRecordingManager {
     type Vtable = IAppRecordingManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7e26076_a044_48e2_a512_3094d574c7cc);
+    const IID: ::windows::core::GUID = <IAppRecordingManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppRecordingManager {
     const NAME: &'static str = "Windows.Media.AppRecording.AppRecordingManager";
@@ -187,7 +187,7 @@ unsafe impl ::windows::core::RuntimeType for AppRecordingResult {
 }
 unsafe impl ::windows::core::Interface for AppRecordingResult {
     type Vtable = IAppRecordingResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a900864_c66d_46f9_b2d9_5bc2dad070d7);
+    const IID: ::windows::core::GUID = <IAppRecordingResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppRecordingResult {
     const NAME: &'static str = "Windows.Media.AppRecording.AppRecordingResult";
@@ -313,7 +313,7 @@ unsafe impl ::windows::core::RuntimeType for AppRecordingSaveScreenshotResult {
 }
 unsafe impl ::windows::core::Interface for AppRecordingSaveScreenshotResult {
     type Vtable = IAppRecordingSaveScreenshotResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c5b8d0a_0abb_4457_aaee_24f9c12ec778);
+    const IID: ::windows::core::GUID = <IAppRecordingSaveScreenshotResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppRecordingSaveScreenshotResult {
     const NAME: &'static str = "Windows.Media.AppRecording.AppRecordingSaveScreenshotResult";
@@ -403,7 +403,7 @@ unsafe impl ::windows::core::RuntimeType for AppRecordingSavedScreenshotInfo {
 }
 unsafe impl ::windows::core::Interface for AppRecordingSavedScreenshotInfo {
     type Vtable = IAppRecordingSavedScreenshotInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b642d0a_189a_4d00_bf25_e1bb1249d594);
+    const IID: ::windows::core::GUID = <IAppRecordingSavedScreenshotInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppRecordingSavedScreenshotInfo {
     const NAME: &'static str = "Windows.Media.AppRecording.AppRecordingSavedScreenshotInfo";
@@ -509,7 +509,7 @@ unsafe impl ::windows::core::RuntimeType for AppRecordingStatus {
 }
 unsafe impl ::windows::core::Interface for AppRecordingStatus {
     type Vtable = IAppRecordingStatus_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d0cc82c_bc18_4b8a_a6ef_127efab3b5d9);
+    const IID: ::windows::core::GUID = <IAppRecordingStatus as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppRecordingStatus {
     const NAME: &'static str = "Windows.Media.AppRecording.AppRecordingStatus";
@@ -654,7 +654,7 @@ unsafe impl ::windows::core::RuntimeType for AppRecordingStatusDetails {
 }
 unsafe impl ::windows::core::Interface for AppRecordingStatusDetails {
     type Vtable = IAppRecordingStatusDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb538a9b0_14ed_4412_ac45_6d672c9c9949);
+    const IID: ::windows::core::GUID = <IAppRecordingStatusDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppRecordingStatusDetails {
     const NAME: &'static str = "Windows.Media.AppRecording.AppRecordingStatusDetails";

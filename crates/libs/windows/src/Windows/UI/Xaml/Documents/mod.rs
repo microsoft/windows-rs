@@ -135,7 +135,7 @@ unsafe impl ::windows::core::RuntimeType for Block {
 }
 unsafe impl ::windows::core::Interface for Block {
     type Vtable = IBlock_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4bce0016_dd47_4350_8cb0_e171600ac896);
+    const IID: ::windows::core::GUID = <IBlock as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Block {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.Block";
@@ -352,7 +352,7 @@ unsafe impl ::windows::core::RuntimeType for BlockCollection {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for BlockCollection {
     type Vtable = super::super::super::Foundation::Collections::IVector_Vtbl<Block>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::super::Foundation::Collections::IVector<Block> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for BlockCollection {
@@ -511,7 +511,7 @@ unsafe impl ::windows::core::RuntimeType for Bold {
 }
 unsafe impl ::windows::core::Interface for Bold {
     type Vtable = IBold_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xade73784_1b59_4da4_bb23_0f20e885b4bf);
+    const IID: ::windows::core::GUID = <IBold as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Bold {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.Bold";
@@ -671,7 +671,7 @@ unsafe impl ::windows::core::RuntimeType for ContactContentLinkProvider {
 }
 unsafe impl ::windows::core::Interface for ContactContentLinkProvider {
     type Vtable = IContactContentLinkProvider_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf92fd29b_589b_4abd_9d37_35a1468f021e);
+    const IID: ::windows::core::GUID = <IContactContentLinkProvider as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactContentLinkProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.ContactContentLinkProvider";
@@ -1151,7 +1151,7 @@ unsafe impl ::windows::core::RuntimeType for ContentLink {
 }
 unsafe impl ::windows::core::Interface for ContentLink {
     type Vtable = IContentLink_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c60c3e1_528c_42f8_92be_34b8c68be304);
+    const IID: ::windows::core::GUID = <IContentLink as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContentLink {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.ContentLink";
@@ -1306,7 +1306,7 @@ unsafe impl ::windows::core::RuntimeType for ContentLinkInvokedEventArgs {
 }
 unsafe impl ::windows::core::Interface for ContentLinkInvokedEventArgs {
     type Vtable = IContentLinkInvokedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x546717c1_e8df_4593_9639_97595fdf8310);
+    const IID: ::windows::core::GUID = <IContentLinkInvokedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContentLinkInvokedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.ContentLinkInvokedEventArgs";
@@ -1378,7 +1378,7 @@ unsafe impl ::windows::core::RuntimeType for ContentLinkProvider {
 }
 unsafe impl ::windows::core::Interface for ContentLinkProvider {
     type Vtable = IContentLinkProvider_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x730587fd_bfdc_4cb3_904d_b65ab339bbf5);
+    const IID: ::windows::core::GUID = <IContentLinkProvider as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContentLinkProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.ContentLinkProvider";
@@ -1574,7 +1574,7 @@ unsafe impl ::windows::core::RuntimeType for ContentLinkProviderCollection {
 }
 unsafe impl ::windows::core::Interface for ContentLinkProviderCollection {
     type Vtable = IContentLinkProviderCollection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5b84d0c_a9f4_4d1a_a13c_10def1843734);
+    const IID: ::windows::core::GUID = <IContentLinkProviderCollection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContentLinkProviderCollection {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.ContentLinkProviderCollection";
@@ -1938,7 +1938,7 @@ unsafe impl ::windows::core::RuntimeType for Glyphs {
 }
 unsafe impl ::windows::core::Interface for Glyphs {
     type Vtable = IGlyphs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd079498b_f2b1_4281_99a2_e4d05932b2b5);
+    const IID: ::windows::core::GUID = <IGlyphs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Glyphs {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.Glyphs";
@@ -2493,7 +2493,7 @@ unsafe impl ::windows::core::RuntimeType for Hyperlink {
 }
 unsafe impl ::windows::core::Interface for Hyperlink {
     type Vtable = IHyperlink_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0fe2363b_14e9_4152_9e58_5aea5b21f08d);
+    const IID: ::windows::core::GUID = <IHyperlink as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Hyperlink {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.Hyperlink";
@@ -2645,7 +2645,7 @@ unsafe impl ::windows::core::RuntimeType for HyperlinkClickEventArgs {
 }
 unsafe impl ::windows::core::Interface for HyperlinkClickEventArgs {
     type Vtable = IHyperlinkClickEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc755916b_7bdc_4be7_b373_9240a503d870);
+    const IID: ::windows::core::GUID = <IHyperlinkClickEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HyperlinkClickEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.HyperlinkClickEventArgs";
@@ -4048,7 +4048,7 @@ unsafe impl ::windows::core::RuntimeType for Inline {
 }
 unsafe impl ::windows::core::Interface for Inline {
     type Vtable = IInline_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c92712d_1bc9_4931_8cb1_1aeadf1cc685);
+    const IID: ::windows::core::GUID = <IInline as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Inline {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.Inline";
@@ -4265,7 +4265,7 @@ unsafe impl ::windows::core::RuntimeType for InlineCollection {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for InlineCollection {
     type Vtable = super::super::super::Foundation::Collections::IVector_Vtbl<Inline>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::super::Foundation::Collections::IVector<Inline> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for InlineCollection {
@@ -4437,7 +4437,7 @@ unsafe impl ::windows::core::RuntimeType for InlineUIContainer {
 }
 unsafe impl ::windows::core::Interface for InlineUIContainer {
     type Vtable = IInlineUIContainer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1416ce81_28ee_452e_b121_5fc4f60b86a6);
+    const IID: ::windows::core::GUID = <IInlineUIContainer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InlineUIContainer {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.InlineUIContainer";
@@ -4577,7 +4577,7 @@ unsafe impl ::windows::core::RuntimeType for Italic {
 }
 unsafe impl ::windows::core::Interface for Italic {
     type Vtable = IItalic_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91f4619c_fcbb_4157_802c_76f63b5fb657);
+    const IID: ::windows::core::GUID = <IItalic as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Italic {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.Italic";
@@ -4737,7 +4737,7 @@ unsafe impl ::windows::core::RuntimeType for LineBreak {
 }
 unsafe impl ::windows::core::Interface for LineBreak {
     type Vtable = ILineBreak_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x645589c4_f769_41ed_895b_8a1b2fb31562);
+    const IID: ::windows::core::GUID = <ILineBreak as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LineBreak {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.LineBreak";
@@ -4939,7 +4939,7 @@ unsafe impl ::windows::core::RuntimeType for Paragraph {
 }
 unsafe impl ::windows::core::Interface for Paragraph {
     type Vtable = IParagraph_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf83ef59a_fa61_4bef_ae33_0b0ad756a84d);
+    const IID: ::windows::core::GUID = <IParagraph as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Paragraph {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.Paragraph";
@@ -5079,7 +5079,7 @@ unsafe impl ::windows::core::RuntimeType for PlaceContentLinkProvider {
 }
 unsafe impl ::windows::core::Interface for PlaceContentLinkProvider {
     type Vtable = IPlaceContentLinkProvider_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10348a4c_2366_41be_90c8_3258b53b5483);
+    const IID: ::windows::core::GUID = <IPlaceContentLinkProvider as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PlaceContentLinkProvider {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.PlaceContentLinkProvider";
@@ -5237,7 +5237,7 @@ unsafe impl ::windows::core::RuntimeType for Run {
 }
 unsafe impl ::windows::core::Interface for Run {
     type Vtable = IRun_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59553c83_0e14_49bd_b84b_c526f3034349);
+    const IID: ::windows::core::GUID = <IRun as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Run {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.Run";
@@ -5405,7 +5405,7 @@ unsafe impl ::windows::core::RuntimeType for Span {
 }
 unsafe impl ::windows::core::Interface for Span {
     type Vtable = ISpan_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9839d4a9_02af_4811_aa15_6bef3acac97a);
+    const IID: ::windows::core::GUID = <ISpan as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Span {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.Span";
@@ -6038,7 +6038,7 @@ unsafe impl ::windows::core::RuntimeType for TextElement {
 }
 unsafe impl ::windows::core::Interface for TextElement {
     type Vtable = ITextElement_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe83b0062_d776_4f92_baea_40e77d4791d5);
+    const IID: ::windows::core::GUID = <ITextElement as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TextElement {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.TextElement";
@@ -6209,7 +6209,7 @@ unsafe impl ::windows::core::RuntimeType for TextHighlighter {
 }
 unsafe impl ::windows::core::Interface for TextHighlighter {
     type Vtable = ITextHighlighter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba6cb54b_7d75_4535_b30d_a81a00b637a4);
+    const IID: ::windows::core::GUID = <ITextHighlighter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TextHighlighter {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.TextHighlighter";
@@ -6281,7 +6281,7 @@ unsafe impl ::windows::core::RuntimeType for TextHighlighterBase {
 }
 unsafe impl ::windows::core::Interface for TextHighlighterBase {
     type Vtable = ITextHighlighterBase_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd957601a_5f0d_4cdf_9758_97e0eb95c8fa);
+    const IID: ::windows::core::GUID = <ITextHighlighterBase as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TextHighlighterBase {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.TextHighlighterBase";
@@ -6423,7 +6423,7 @@ unsafe impl ::windows::core::RuntimeType for TextPointer {
 }
 unsafe impl ::windows::core::Interface for TextPointer {
     type Vtable = ITextPointer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac687aa1_6a41_43ff_851e_45348aa2cf7b);
+    const IID: ::windows::core::GUID = <ITextPointer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TextPointer {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.TextPointer";
@@ -7312,7 +7312,7 @@ unsafe impl ::windows::core::RuntimeType for Typography {
 }
 unsafe impl ::windows::core::Interface for Typography {
     type Vtable = ITypography_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x866f65d5_ea97_42ab_9288_9c01aebc7a97);
+    const IID: ::windows::core::GUID = <ITypography as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Typography {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.Typography";
@@ -7392,7 +7392,7 @@ unsafe impl ::windows::core::RuntimeType for Underline {
 }
 unsafe impl ::windows::core::Interface for Underline {
     type Vtable = IUnderline_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5fa8202_61c0_47d7_93ef_bc0b577c5f26);
+    const IID: ::windows::core::GUID = <IUnderline as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Underline {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.Underline";

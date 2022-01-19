@@ -367,7 +367,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechSynthesisStream {
 }
 unsafe impl ::windows::core::Interface for SpeechSynthesisStream {
     type Vtable = ISpeechSynthesisStream_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83e46e93_244c_4622_ba0b_6229c4d0d65d);
+    const IID: ::windows::core::GUID = <ISpeechSynthesisStream as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpeechSynthesisStream {
     const NAME: &'static str = "Windows.Media.SpeechSynthesis.SpeechSynthesisStream";
@@ -707,7 +707,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechSynthesizer {
 }
 unsafe impl ::windows::core::Interface for SpeechSynthesizer {
     type Vtable = ISpeechSynthesizer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce9f7c76_97f4_4ced_ad68_d51c458e45c6);
+    const IID: ::windows::core::GUID = <ISpeechSynthesizer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpeechSynthesizer {
     const NAME: &'static str = "Windows.Media.SpeechSynthesis.SpeechSynthesizer";
@@ -897,7 +897,7 @@ unsafe impl ::windows::core::RuntimeType for SpeechSynthesizerOptions {
 }
 unsafe impl ::windows::core::Interface for SpeechSynthesizerOptions {
     type Vtable = ISpeechSynthesizerOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0e23871_cc3d_43c9_91b1_ee185324d83d);
+    const IID: ::windows::core::GUID = <ISpeechSynthesizerOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpeechSynthesizerOptions {
     const NAME: &'static str = "Windows.Media.SpeechSynthesis.SpeechSynthesizerOptions";
@@ -1038,7 +1038,7 @@ unsafe impl ::windows::core::RuntimeType for VoiceInformation {
 }
 unsafe impl ::windows::core::Interface for VoiceInformation {
     type Vtable = IVoiceInformation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb127d6a4_1291_4604_aa9c_83134083352c);
+    const IID: ::windows::core::GUID = <IVoiceInformation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VoiceInformation {
     const NAME: &'static str = "Windows.Media.SpeechSynthesis.VoiceInformation";

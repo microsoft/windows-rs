@@ -204,7 +204,7 @@ unsafe impl ::windows::core::RuntimeType for ContentIndexer {
 }
 unsafe impl ::windows::core::Interface for ContentIndexer {
     type Vtable = IContentIndexer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1767f8d_f698_4982_b05f_3a6e8cab01a2);
+    const IID: ::windows::core::GUID = <IContentIndexer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContentIndexer {
     const NAME: &'static str = "Windows.Storage.Search.ContentIndexer";
@@ -330,7 +330,7 @@ unsafe impl ::windows::core::RuntimeType for ContentIndexerQuery {
 }
 unsafe impl ::windows::core::Interface for ContentIndexerQuery {
     type Vtable = IContentIndexerQuery_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70e3b0f8_4bfc_428a_8889_cc51da9a7b9d);
+    const IID: ::windows::core::GUID = <IContentIndexerQuery as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContentIndexerQuery {
     const NAME: &'static str = "Windows.Storage.Search.ContentIndexerQuery";
@@ -1381,7 +1381,7 @@ unsafe impl ::windows::core::RuntimeType for IndexableContent {
 }
 unsafe impl ::windows::core::Interface for IndexableContent {
     type Vtable = IIndexableContent_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xccf1a05f_d4b5_483a_b06e_e0db1ec420e4);
+    const IID: ::windows::core::GUID = <IIndexableContent as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for IndexableContent {
     const NAME: &'static str = "Windows.Storage.Search.IndexableContent";
@@ -1696,7 +1696,7 @@ unsafe impl ::windows::core::RuntimeType for QueryOptions {
 }
 unsafe impl ::windows::core::Interface for QueryOptions {
     type Vtable = IQueryOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e5e46ee_0f45_4838_a8e9_d0479d446c30);
+    const IID: ::windows::core::GUID = <IQueryOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for QueryOptions {
     const NAME: &'static str = "Windows.Storage.Search.QueryOptions";
@@ -1909,7 +1909,7 @@ unsafe impl ::windows::core::RuntimeType for SortEntryVector {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for SortEntryVector {
     type Vtable = super::super::Foundation::Collections::IVector_Vtbl<SortEntry>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::Foundation::Collections::IVector<SortEntry> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for SortEntryVector {
@@ -2153,7 +2153,7 @@ unsafe impl ::windows::core::RuntimeType for StorageFileQueryResult {
 }
 unsafe impl ::windows::core::Interface for StorageFileQueryResult {
     type Vtable = IStorageFileQueryResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52fda447_2baa_412c_b29f_d4b1778efa1e);
+    const IID: ::windows::core::GUID = <IStorageFileQueryResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StorageFileQueryResult {
     const NAME: &'static str = "Windows.Storage.Search.StorageFileQueryResult";
@@ -2333,7 +2333,7 @@ unsafe impl ::windows::core::RuntimeType for StorageFolderQueryResult {
 }
 unsafe impl ::windows::core::Interface for StorageFolderQueryResult {
     type Vtable = IStorageFolderQueryResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6654c911_7d66_46fa_aecf_e4a4baa93ab8);
+    const IID: ::windows::core::GUID = <IStorageFolderQueryResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StorageFolderQueryResult {
     const NAME: &'static str = "Windows.Storage.Search.StorageFolderQueryResult";
@@ -2513,7 +2513,7 @@ unsafe impl ::windows::core::RuntimeType for StorageItemQueryResult {
 }
 unsafe impl ::windows::core::Interface for StorageItemQueryResult {
     type Vtable = IStorageItemQueryResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8948079_9d58_47b8_b2b2_41b07f4795f9);
+    const IID: ::windows::core::GUID = <IStorageItemQueryResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StorageItemQueryResult {
     const NAME: &'static str = "Windows.Storage.Search.StorageItemQueryResult";
@@ -2622,7 +2622,7 @@ unsafe impl ::windows::core::RuntimeType for StorageLibraryChangeTrackerTriggerD
 }
 unsafe impl ::windows::core::Interface for StorageLibraryChangeTrackerTriggerDetails {
     type Vtable = IStorageLibraryChangeTrackerTriggerDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dc7a369_b7a3_4df2_9d61_eba85a0343d2);
+    const IID: ::windows::core::GUID = <IStorageLibraryChangeTrackerTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StorageLibraryChangeTrackerTriggerDetails {
     const NAME: &'static str = "Windows.Storage.Search.StorageLibraryChangeTrackerTriggerDetails";
@@ -2710,7 +2710,7 @@ unsafe impl ::windows::core::RuntimeType for StorageLibraryContentChangedTrigger
 }
 unsafe impl ::windows::core::Interface for StorageLibraryContentChangedTriggerDetails {
     type Vtable = IStorageLibraryContentChangedTriggerDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a371977_abbf_4e1d_8aa5_6385d8884799);
+    const IID: ::windows::core::GUID = <IStorageLibraryContentChangedTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StorageLibraryContentChangedTriggerDetails {
     const NAME: &'static str = "Windows.Storage.Search.StorageLibraryContentChangedTriggerDetails";
@@ -2814,7 +2814,7 @@ unsafe impl ::windows::core::RuntimeType for ValueAndLanguage {
 }
 unsafe impl ::windows::core::Interface for ValueAndLanguage {
     type Vtable = IValueAndLanguage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9914881_a1ee_4bc4_92a5_466968e30436);
+    const IID: ::windows::core::GUID = <IValueAndLanguage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ValueAndLanguage {
     const NAME: &'static str = "Windows.Storage.Search.ValueAndLanguage";

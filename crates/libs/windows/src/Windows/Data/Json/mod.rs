@@ -513,7 +513,7 @@ unsafe impl ::windows::core::RuntimeType for JsonArray {
 }
 unsafe impl ::windows::core::Interface for JsonArray {
     type Vtable = IJsonArray_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08c1ddb6_0cbd_4a9a_b5d3_2f852dc37e81);
+    const IID: ::windows::core::GUID = <IJsonArray as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for JsonArray {
     const NAME: &'static str = "Windows.Data.Json.JsonArray";
@@ -1010,7 +1010,7 @@ unsafe impl ::windows::core::RuntimeType for JsonObject {
 }
 unsafe impl ::windows::core::Interface for JsonObject {
     type Vtable = IJsonObject_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x064e24dd_29c2_4f83_9ac1_9ee11578beb3);
+    const IID: ::windows::core::GUID = <IJsonObject as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for JsonObject {
     const NAME: &'static str = "Windows.Data.Json.JsonObject";
@@ -1316,7 +1316,7 @@ unsafe impl ::windows::core::RuntimeType for JsonValue {
 }
 unsafe impl ::windows::core::Interface for JsonValue {
     type Vtable = IJsonValue_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3219ecb_f0b3_4dcd_beee_19d48cd3ed1e);
+    const IID: ::windows::core::GUID = <IJsonValue as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for JsonValue {
     const NAME: &'static str = "Windows.Data.Json.JsonValue";

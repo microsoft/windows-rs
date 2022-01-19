@@ -37,7 +37,7 @@ unsafe impl ::windows::core::RuntimeType for CallAnswerEventArgs {
 }
 unsafe impl ::windows::core::Interface for CallAnswerEventArgs {
     type Vtable = ICallAnswerEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd789617_2dd7_4c8c_b2bd_95d17a5bb733);
+    const IID: ::windows::core::GUID = <ICallAnswerEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CallAnswerEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.CallAnswerEventArgs";
@@ -118,7 +118,7 @@ unsafe impl ::windows::core::RuntimeType for CallRejectEventArgs {
 }
 unsafe impl ::windows::core::Interface for CallRejectEventArgs {
     type Vtable = ICallRejectEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda47fad7_13d4_4d92_a1c2_b77811ee37ec);
+    const IID: ::windows::core::GUID = <ICallRejectEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CallRejectEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.CallRejectEventArgs";
@@ -199,7 +199,7 @@ unsafe impl ::windows::core::RuntimeType for CallStateChangeEventArgs {
 }
 unsafe impl ::windows::core::Interface for CallStateChangeEventArgs {
     type Vtable = ICallStateChangeEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeab2349e_66f5_47f9_9fb5_459c5198c720);
+    const IID: ::windows::core::GUID = <ICallStateChangeEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CallStateChangeEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.CallStateChangeEventArgs";
@@ -1500,7 +1500,7 @@ unsafe impl ::windows::core::RuntimeType for LockScreenCallEndCallDeferral {
 }
 unsafe impl ::windows::core::Interface for LockScreenCallEndCallDeferral {
     type Vtable = ILockScreenCallEndCallDeferral_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2dd7ed0d_98ed_4041_9632_50ff812b773f);
+    const IID: ::windows::core::GUID = <ILockScreenCallEndCallDeferral as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LockScreenCallEndCallDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.LockScreenCallEndCallDeferral";
@@ -1590,7 +1590,7 @@ unsafe impl ::windows::core::RuntimeType for LockScreenCallEndRequestedEventArgs
 }
 unsafe impl ::windows::core::Interface for LockScreenCallEndRequestedEventArgs {
     type Vtable = ILockScreenCallEndRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8190a363_6f27_46e9_aeb6_c0ae83e47dc7);
+    const IID: ::windows::core::GUID = <ILockScreenCallEndRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LockScreenCallEndRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.LockScreenCallEndRequestedEventArgs";
@@ -1711,7 +1711,7 @@ unsafe impl ::windows::core::RuntimeType for LockScreenCallUI {
 }
 unsafe impl ::windows::core::Interface for LockScreenCallUI {
     type Vtable = ILockScreenCallUI_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc596fd8d_73c9_4a14_b021_ec1c50a3b727);
+    const IID: ::windows::core::GUID = <ILockScreenCallUI as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LockScreenCallUI {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.LockScreenCallUI";
@@ -1792,7 +1792,7 @@ unsafe impl ::windows::core::RuntimeType for MuteChangeEventArgs {
 }
 unsafe impl ::windows::core::Interface for MuteChangeEventArgs {
     type Vtable = IMuteChangeEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8585e159_0c41_432c_814d_c5f1fdf530be);
+    const IID: ::windows::core::GUID = <IMuteChangeEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MuteChangeEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.MuteChangeEventArgs";
@@ -2153,7 +2153,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCall {
 }
 unsafe impl ::windows::core::Interface for PhoneCall {
     type Vtable = IPhoneCall_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc14ed0f8_c17d_59d2_9628_66e545b6cd21);
+    const IID: ::windows::core::GUID = <IPhoneCall as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PhoneCall {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCall";
@@ -2561,7 +2561,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallHistoryEntry {
 }
 unsafe impl ::windows::core::Interface for PhoneCallHistoryEntry {
     type Vtable = IPhoneCallHistoryEntry_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfab0e129_32a4_4b85_83d1_f90d8c23a857);
+    const IID: ::windows::core::GUID = <IPhoneCallHistoryEntry as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PhoneCallHistoryEntry {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryEntry";
@@ -2705,7 +2705,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallHistoryEntryAddress {
 }
 unsafe impl ::windows::core::Interface for PhoneCallHistoryEntryAddress {
     type Vtable = IPhoneCallHistoryEntryAddress_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30f159da_3955_4042_84e6_66eebf82e67f);
+    const IID: ::windows::core::GUID = <IPhoneCallHistoryEntryAddress as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PhoneCallHistoryEntryAddress {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryEntryAddress";
@@ -2921,7 +2921,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallHistoryEntryQueryOptions {
 }
 unsafe impl ::windows::core::Interface for PhoneCallHistoryEntryQueryOptions {
     type Vtable = IPhoneCallHistoryEntryQueryOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c5fe15c_8bed_40ca_b06e_c4ca8eae5c87);
+    const IID: ::windows::core::GUID = <IPhoneCallHistoryEntryQueryOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PhoneCallHistoryEntryQueryOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryEntryQueryOptions";
@@ -3031,7 +3031,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallHistoryEntryReader {
 }
 unsafe impl ::windows::core::Interface for PhoneCallHistoryEntryReader {
     type Vtable = IPhoneCallHistoryEntryReader_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61ece4be_8d86_479f_8404_a9846920fee6);
+    const IID: ::windows::core::GUID = <IPhoneCallHistoryEntryReader as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PhoneCallHistoryEntryReader {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryEntryReader";
@@ -3155,7 +3155,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallHistoryManagerForUser {
 }
 unsafe impl ::windows::core::Interface for PhoneCallHistoryManagerForUser {
     type Vtable = IPhoneCallHistoryManagerForUser_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd925c523_f55f_4353_9db4_0205a5265a55);
+    const IID: ::windows::core::GUID = <IPhoneCallHistoryManagerForUser as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PhoneCallHistoryManagerForUser {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryManagerForUser";
@@ -3362,7 +3362,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallHistoryStore {
 }
 unsafe impl ::windows::core::Interface for PhoneCallHistoryStore {
     type Vtable = IPhoneCallHistoryStore_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f907db8_b40e_422b_8545_cb1910a61c52);
+    const IID: ::windows::core::GUID = <IPhoneCallHistoryStore as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PhoneCallHistoryStore {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallHistoryStore";
@@ -3513,7 +3513,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallInfo {
 }
 unsafe impl ::windows::core::Interface for PhoneCallInfo {
     type Vtable = IPhoneCallInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22b42577_3e4d_5dc6_89c2_469fe5ffc189);
+    const IID: ::windows::core::GUID = <IPhoneCallInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PhoneCallInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallInfo";
@@ -3764,7 +3764,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallStore {
 }
 unsafe impl ::windows::core::Interface for PhoneCallStore {
     type Vtable = IPhoneCallStore_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f610748_18a6_4173_86d1_28be9dc62dba);
+    const IID: ::windows::core::GUID = <IPhoneCallStore as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PhoneCallStore {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallStore";
@@ -3845,7 +3845,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallVideoCapabilities {
 }
 unsafe impl ::windows::core::Interface for PhoneCallVideoCapabilities {
     type Vtable = IPhoneCallVideoCapabilities_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02382786_b16a_4fdb_be3b_c4240e13ad0d);
+    const IID: ::windows::core::GUID = <IPhoneCallVideoCapabilities as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PhoneCallVideoCapabilities {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallVideoCapabilities";
@@ -3955,7 +3955,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallsResult {
 }
 unsafe impl ::windows::core::Interface for PhoneCallsResult {
     type Vtable = IPhoneCallsResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bfad365_57cf_57dd_986d_b057c91eac33);
+    const IID: ::windows::core::GUID = <IPhoneCallsResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PhoneCallsResult {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneCallsResult";
@@ -4117,7 +4117,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneDialOptions {
 }
 unsafe impl ::windows::core::Interface for PhoneDialOptions {
     type Vtable = IPhoneDialOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb639c4b8_f06f_36cb_a863_823742b5f2d4);
+    const IID: ::windows::core::GUID = <IPhoneDialOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PhoneDialOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneDialOptions";
@@ -4381,7 +4381,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneLine {
 }
 unsafe impl ::windows::core::Interface for PhoneLine {
     type Vtable = IPhoneLine_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27c66f30_6a69_34ca_a2ba_65302530c311);
+    const IID: ::windows::core::GUID = <IPhoneLine as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PhoneLine {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLine";
@@ -4494,7 +4494,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneLineCellularDetails {
 }
 unsafe impl ::windows::core::Interface for PhoneLineCellularDetails {
     type Vtable = IPhoneLineCellularDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x192601d5_147c_4769_b673_98a5ec8426cb);
+    const IID: ::windows::core::GUID = <IPhoneLineCellularDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PhoneLineCellularDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineCellularDetails";
@@ -4584,7 +4584,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneLineConfiguration {
 }
 unsafe impl ::windows::core::Interface for PhoneLineConfiguration {
     type Vtable = IPhoneLineConfiguration_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe265862_f64f_4312_b2a8_4e257721aa95);
+    const IID: ::windows::core::GUID = <IPhoneLineConfiguration as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PhoneLineConfiguration {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineConfiguration";
@@ -4673,7 +4673,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneLineDialResult {
 }
 unsafe impl ::windows::core::Interface for PhoneLineDialResult {
     type Vtable = IPhoneLineDialResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe825a30a_5c7f_546f_b918_3ad2fe70fb34);
+    const IID: ::windows::core::GUID = <IPhoneLineDialResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PhoneLineDialResult {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineDialResult";
@@ -4980,7 +4980,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneLineTransportDevice {
 }
 unsafe impl ::windows::core::Interface for PhoneLineTransportDevice {
     type Vtable = IPhoneLineTransportDevice_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefa8f889_cffa_59f4_97e4_74705b7dc490);
+    const IID: ::windows::core::GUID = <IPhoneLineTransportDevice as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PhoneLineTransportDevice {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineTransportDevice";
@@ -5146,7 +5146,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneLineWatcher {
 }
 unsafe impl ::windows::core::Interface for PhoneLineWatcher {
     type Vtable = IPhoneLineWatcher_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a45cd0a_6323_44e0_a6f6_9f21f64dc90a);
+    const IID: ::windows::core::GUID = <IPhoneLineWatcher as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PhoneLineWatcher {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineWatcher";
@@ -5227,7 +5227,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneLineWatcherEventArgs {
 }
 unsafe impl ::windows::core::Interface for PhoneLineWatcherEventArgs {
     type Vtable = IPhoneLineWatcherEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd07c753e_9e12_4a37_82b7_ad535dad6a67);
+    const IID: ::windows::core::GUID = <IPhoneLineWatcherEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PhoneLineWatcherEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneLineWatcherEventArgs";
@@ -5431,7 +5431,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneVoicemail {
 }
 unsafe impl ::windows::core::Interface for PhoneVoicemail {
     type Vtable = IPhoneVoicemail_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9ce77f6_6e9f_3a8b_b727_6e0cf6998224);
+    const IID: ::windows::core::GUID = <IPhoneVoicemail as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PhoneVoicemail {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.PhoneVoicemail";
@@ -5722,7 +5722,7 @@ unsafe impl ::windows::core::RuntimeType for VoipCallCoordinator {
 }
 unsafe impl ::windows::core::Interface for VoipCallCoordinator {
     type Vtable = IVoipCallCoordinator_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f118bcf_e8ef_4434_9c5f_a8d893fafe79);
+    const IID: ::windows::core::GUID = <IVoipCallCoordinator as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VoipCallCoordinator {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.VoipCallCoordinator";
@@ -5941,7 +5941,7 @@ unsafe impl ::windows::core::RuntimeType for VoipPhoneCall {
 }
 unsafe impl ::windows::core::Interface for VoipPhoneCall {
     type Vtable = IVoipPhoneCall_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6cf1f19a_7794_4a5a_8c68_ae87947a6990);
+    const IID: ::windows::core::GUID = <IVoipPhoneCall as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VoipPhoneCall {
     const NAME: &'static str = "Windows.ApplicationModel.Calls.VoipPhoneCall";

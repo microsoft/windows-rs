@@ -204,7 +204,7 @@ unsafe impl ::windows::core::RuntimeType for MdmAlert {
 }
 unsafe impl ::windows::core::Interface for MdmAlert {
     type Vtable = IMdmAlert_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0fbc327_28c1_4b52_a548_c5807caf70b6);
+    const IID: ::windows::core::GUID = <IMdmAlert as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MdmAlert {
     const NAME: &'static str = "Windows.Management.MdmAlert";
@@ -401,7 +401,7 @@ unsafe impl ::windows::core::RuntimeType for MdmSession {
 }
 unsafe impl ::windows::core::Interface for MdmSession {
     type Vtable = IMdmSession_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe89314c_8f64_4797_a9d7_9d88f86ae166);
+    const IID: ::windows::core::GUID = <IMdmSession as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MdmSession {
     const NAME: &'static str = "Windows.Management.MdmSession";

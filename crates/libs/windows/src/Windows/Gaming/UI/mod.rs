@@ -145,7 +145,7 @@ unsafe impl ::windows::core::RuntimeType for GameChatMessageReceivedEventArgs {
 }
 unsafe impl ::windows::core::Interface for GameChatMessageReceivedEventArgs {
     type Vtable = IGameChatMessageReceivedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa28201f1_3fb9_4e42_a403_7afce2023b1e);
+    const IID: ::windows::core::GUID = <IGameChatMessageReceivedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GameChatMessageReceivedEventArgs {
     const NAME: &'static str = "Windows.Gaming.UI.GameChatMessageReceivedEventArgs";
@@ -248,7 +248,7 @@ unsafe impl ::windows::core::RuntimeType for GameChatOverlay {
 }
 unsafe impl ::windows::core::Interface for GameChatOverlay {
     type Vtable = IGameChatOverlay_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbc64865_f6fc_4a48_ae07_03ac6ed43704);
+    const IID: ::windows::core::GUID = <IGameChatOverlay as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GameChatOverlay {
     const NAME: &'static str = "Windows.Gaming.UI.GameChatOverlay";
@@ -349,7 +349,7 @@ unsafe impl ::windows::core::RuntimeType for GameChatOverlayMessageSource {
 }
 unsafe impl ::windows::core::Interface for GameChatOverlayMessageSource {
     type Vtable = IGameChatOverlayMessageSource_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e177397_59fb_4f4f_8e9a_80acf817743c);
+    const IID: ::windows::core::GUID = <IGameChatOverlayMessageSource as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GameChatOverlayMessageSource {
     const NAME: &'static str = "Windows.Gaming.UI.GameChatOverlayMessageSource";
@@ -498,7 +498,7 @@ unsafe impl ::windows::core::RuntimeType for GameUIProviderActivatedEventArgs {
 }
 unsafe impl ::windows::core::Interface for GameUIProviderActivatedEventArgs {
     type Vtable = IGameUIProviderActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7b3203e_caf7_4ded_bbd2_47de43bb6dd5);
+    const IID: ::windows::core::GUID = <IGameUIProviderActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GameUIProviderActivatedEventArgs {
     const NAME: &'static str = "Windows.Gaming.UI.GameUIProviderActivatedEventArgs";

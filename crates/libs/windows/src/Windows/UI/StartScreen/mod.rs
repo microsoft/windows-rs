@@ -663,7 +663,7 @@ unsafe impl ::windows::core::RuntimeType for JumpList {
 }
 unsafe impl ::windows::core::Interface for JumpList {
     type Vtable = IJumpList_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0234c3e_cd6f_4cb6_a611_61fd505f3ed1);
+    const IID: ::windows::core::GUID = <IJumpList as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for JumpList {
     const NAME: &'static str = "Windows.UI.StartScreen.JumpList";
@@ -833,7 +833,7 @@ unsafe impl ::windows::core::RuntimeType for JumpListItem {
 }
 unsafe impl ::windows::core::Interface for JumpListItem {
     type Vtable = IJumpListItem_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7adb6717_8b5d_4820_995b_9b418dbe48b0);
+    const IID: ::windows::core::GUID = <IJumpListItem as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for JumpListItem {
     const NAME: &'static str = "Windows.UI.StartScreen.JumpListItem";
@@ -1349,7 +1349,7 @@ unsafe impl ::windows::core::RuntimeType for SecondaryTile {
 }
 unsafe impl ::windows::core::Interface for SecondaryTile {
     type Vtable = ISecondaryTile_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e9e51e0_2bb5_4bc0_bb8d_42b23abcc88d);
+    const IID: ::windows::core::GUID = <ISecondaryTile as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SecondaryTile {
     const NAME: &'static str = "Windows.UI.StartScreen.SecondaryTile";
@@ -1600,7 +1600,7 @@ unsafe impl ::windows::core::RuntimeType for SecondaryTileVisualElements {
 }
 unsafe impl ::windows::core::Interface for SecondaryTileVisualElements {
     type Vtable = ISecondaryTileVisualElements_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d8df333_815e_413f_9f50_a81da70a96b2);
+    const IID: ::windows::core::GUID = <ISecondaryTileVisualElements as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SecondaryTileVisualElements {
     const NAME: &'static str = "Windows.UI.StartScreen.SecondaryTileVisualElements";
@@ -1747,7 +1747,7 @@ unsafe impl ::windows::core::RuntimeType for StartScreenManager {
 }
 unsafe impl ::windows::core::Interface for StartScreenManager {
     type Vtable = IStartScreenManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a1dcbcb_26e9_4eb4_8933_859eb6ecdb29);
+    const IID: ::windows::core::GUID = <IStartScreenManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StartScreenManager {
     const NAME: &'static str = "Windows.UI.StartScreen.StartScreenManager";
@@ -1863,7 +1863,7 @@ unsafe impl ::windows::core::RuntimeType for TileMixedRealityModel {
 }
 unsafe impl ::windows::core::Interface for TileMixedRealityModel {
     type Vtable = ITileMixedRealityModel_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0764e5b_887d_4242_9a19_3d0a4ea78031);
+    const IID: ::windows::core::GUID = <ITileMixedRealityModel as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TileMixedRealityModel {
     const NAME: &'static str = "Windows.UI.StartScreen.TileMixedRealityModel";
@@ -2090,7 +2090,7 @@ unsafe impl ::windows::core::RuntimeType for VisualElementsRequest {
 }
 unsafe impl ::windows::core::Interface for VisualElementsRequest {
     type Vtable = IVisualElementsRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc138333a_9308_4072_88cc_d068db347c68);
+    const IID: ::windows::core::GUID = <IVisualElementsRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VisualElementsRequest {
     const NAME: &'static str = "Windows.UI.StartScreen.VisualElementsRequest";
@@ -2168,7 +2168,7 @@ unsafe impl ::windows::core::RuntimeType for VisualElementsRequestDeferral {
 }
 unsafe impl ::windows::core::Interface for VisualElementsRequestDeferral {
     type Vtable = IVisualElementsRequestDeferral_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1656eb0_0126_4357_8204_bd82bb2a046d);
+    const IID: ::windows::core::GUID = <IVisualElementsRequestDeferral as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VisualElementsRequestDeferral {
     const NAME: &'static str = "Windows.UI.StartScreen.VisualElementsRequestDeferral";
@@ -2249,7 +2249,7 @@ unsafe impl ::windows::core::RuntimeType for VisualElementsRequestedEventArgs {
 }
 unsafe impl ::windows::core::Interface for VisualElementsRequestedEventArgs {
     type Vtable = IVisualElementsRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b6fc982_3a0d_4ece_af96_cd17e1b00b2d);
+    const IID: ::windows::core::GUID = <IVisualElementsRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VisualElementsRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.StartScreen.VisualElementsRequestedEventArgs";

@@ -323,7 +323,7 @@ unsafe impl ::windows::core::RuntimeType for BitmapImage {
 }
 unsafe impl ::windows::core::Interface for BitmapImage {
     type Vtable = IBitmapImage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31af3271_e3b4_442d_a341_4c0226b2725b);
+    const IID: ::windows::core::GUID = <IBitmapImage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BitmapImage {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.BitmapImage";
@@ -506,7 +506,7 @@ unsafe impl ::windows::core::RuntimeType for BitmapSource {
 }
 unsafe impl ::windows::core::Interface for BitmapSource {
     type Vtable = IBitmapSource_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23d86411_202f_41b2_8c5b_a8a3b333800b);
+    const IID: ::windows::core::GUID = <IBitmapSource as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BitmapSource {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.BitmapSource";
@@ -660,7 +660,7 @@ unsafe impl ::windows::core::RuntimeType for DownloadProgressEventArgs {
 }
 unsafe impl ::windows::core::Interface for DownloadProgressEventArgs {
     type Vtable = IDownloadProgressEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7311e0d4_fe94_4e70_9b90_cdd47ac23afb);
+    const IID: ::windows::core::GUID = <IDownloadProgressEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DownloadProgressEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.DownloadProgressEventArgs";
@@ -1365,7 +1365,7 @@ unsafe impl ::windows::core::RuntimeType for RenderTargetBitmap {
 }
 unsafe impl ::windows::core::Interface for RenderTargetBitmap {
     type Vtable = IRenderTargetBitmap_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x500dee81_893c_4c0a_8fec_4678ac717589);
+    const IID: ::windows::core::GUID = <IRenderTargetBitmap as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RenderTargetBitmap {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.RenderTargetBitmap";
@@ -1500,7 +1500,7 @@ unsafe impl ::windows::core::RuntimeType for SoftwareBitmapSource {
 }
 unsafe impl ::windows::core::Interface for SoftwareBitmapSource {
     type Vtable = ISoftwareBitmapSource_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2dd9ed0_d3c5_4056_91b5_b7c1d1e8130e);
+    const IID: ::windows::core::GUID = <ISoftwareBitmapSource as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SoftwareBitmapSource {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.SoftwareBitmapSource";
@@ -1674,7 +1674,7 @@ unsafe impl ::windows::core::RuntimeType for SurfaceImageSource {
 }
 unsafe impl ::windows::core::Interface for SurfaceImageSource {
     type Vtable = ISurfaceImageSource_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62f7d416_c714_4c4c_8273_f839bc58135c);
+    const IID: ::windows::core::GUID = <ISurfaceImageSource as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SurfaceImageSource {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.SurfaceImageSource";
@@ -1930,7 +1930,7 @@ unsafe impl ::windows::core::RuntimeType for SvgImageSource {
 }
 unsafe impl ::windows::core::Interface for SvgImageSource {
     type Vtable = ISvgImageSource_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03e1cec3_0ca8_4a4e_8d7c_c808a0838586);
+    const IID: ::windows::core::GUID = <ISvgImageSource as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SvgImageSource {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.SvgImageSource";
@@ -2051,7 +2051,7 @@ unsafe impl ::windows::core::RuntimeType for SvgImageSourceFailedEventArgs {
 }
 unsafe impl ::windows::core::Interface for SvgImageSourceFailedEventArgs {
     type Vtable = ISvgImageSourceFailedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68bb3170_3ccc_4035_ac01_9834543d744e);
+    const IID: ::windows::core::GUID = <ISvgImageSourceFailedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SvgImageSourceFailedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.SvgImageSourceFailedEventArgs";
@@ -2153,7 +2153,7 @@ unsafe impl ::windows::core::RuntimeType for SvgImageSourceOpenedEventArgs {
 }
 unsafe impl ::windows::core::Interface for SvgImageSourceOpenedEventArgs {
     type Vtable = ISvgImageSourceOpenedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85ef4c16_748e_4008_95c7_6a23dd7316db);
+    const IID: ::windows::core::GUID = <ISvgImageSourceOpenedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SvgImageSourceOpenedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.SvgImageSourceOpenedEventArgs";
@@ -2245,7 +2245,7 @@ unsafe impl ::windows::core::RuntimeType for VirtualSurfaceImageSource {
 }
 unsafe impl ::windows::core::Interface for VirtualSurfaceImageSource {
     type Vtable = IVirtualSurfaceImageSource_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a711fea_bfac_11e0_a06a_9de44724019b);
+    const IID: ::windows::core::GUID = <IVirtualSurfaceImageSource as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VirtualSurfaceImageSource {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.VirtualSurfaceImageSource";
@@ -2404,7 +2404,7 @@ unsafe impl ::windows::core::RuntimeType for WriteableBitmap {
 }
 unsafe impl ::windows::core::Interface for WriteableBitmap {
     type Vtable = IWriteableBitmap_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf0b7e6f_df7c_4a85_8413_a1216285835c);
+    const IID: ::windows::core::GUID = <IWriteableBitmap as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WriteableBitmap {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.WriteableBitmap";
@@ -2536,7 +2536,7 @@ unsafe impl ::windows::core::RuntimeType for XamlRenderingBackgroundTask {
 }
 unsafe impl ::windows::core::Interface for XamlRenderingBackgroundTask {
     type Vtable = IXamlRenderingBackgroundTask_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d5fe9aa_533e_44b8_a975_fc5f1e3bff52);
+    const IID: ::windows::core::GUID = <IXamlRenderingBackgroundTask as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for XamlRenderingBackgroundTask {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Imaging.XamlRenderingBackgroundTask";

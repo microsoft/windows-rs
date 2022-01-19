@@ -32,7 +32,7 @@ unsafe impl ::windows::core::RuntimeType for ActivatedDeferral {
 }
 unsafe impl ::windows::core::Interface for ActivatedDeferral {
     type Vtable = IActivatedDeferral_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3bd1978_a431_49d8_a76a_395a4e03dcf3);
+    const IID: ::windows::core::GUID = <IActivatedDeferral as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ActivatedDeferral {
     const NAME: &'static str = "Windows.UI.WebUI.ActivatedDeferral";
@@ -204,7 +204,7 @@ unsafe impl ::windows::core::RuntimeType for ActivatedOperation {
 }
 unsafe impl ::windows::core::Interface for ActivatedOperation {
     type Vtable = IActivatedOperation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6a0b4bc_c6ca_42fd_9818_71904e45fed7);
+    const IID: ::windows::core::GUID = <IActivatedOperation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ActivatedOperation {
     const NAME: &'static str = "Windows.UI.WebUI.ActivatedOperation";
@@ -292,7 +292,7 @@ unsafe impl ::windows::core::RuntimeType for BackgroundActivatedEventArgs {
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for BackgroundActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab14bee0_e760_440e_a91c_44796de3a92d);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::IBackgroundActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeName for BackgroundActivatedEventArgs {
@@ -512,7 +512,7 @@ unsafe impl ::windows::core::RuntimeType for EnteredBackgroundEventArgs {
 #[cfg(feature = "ApplicationModel")]
 unsafe impl ::windows::core::Interface for EnteredBackgroundEventArgs {
     type Vtable = super::super::ApplicationModel::IEnteredBackgroundEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf722dcc2_9827_403d_aaed_ecca9ac17398);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::IEnteredBackgroundEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel")]
 impl ::windows::core::RuntimeName for EnteredBackgroundEventArgs {
@@ -841,7 +841,7 @@ unsafe impl ::windows::core::RuntimeType for HtmlPrintDocumentSource {
 }
 unsafe impl ::windows::core::Interface for HtmlPrintDocumentSource {
     type Vtable = IHtmlPrintDocumentSource_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcea6469a_0e05_467a_abc9_36ec1d4cdcb6);
+    const IID: ::windows::core::GUID = <IHtmlPrintDocumentSource as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HtmlPrintDocumentSource {
     const NAME: &'static str = "Windows.UI.WebUI.HtmlPrintDocumentSource";
@@ -1524,7 +1524,7 @@ unsafe impl ::windows::core::RuntimeType for LeavingBackgroundEventArgs {
 #[cfg(feature = "ApplicationModel")]
 unsafe impl ::windows::core::Interface for LeavingBackgroundEventArgs {
     type Vtable = super::super::ApplicationModel::ILeavingBackgroundEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39c6ec9a_ae6e_46f9_a07a_cfc23f88733e);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::ILeavingBackgroundEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel")]
 impl ::windows::core::RuntimeName for LeavingBackgroundEventArgs {
@@ -1839,7 +1839,7 @@ unsafe impl ::windows::core::RuntimeType for NewWebUIViewCreatedEventArgs {
 }
 unsafe impl ::windows::core::Interface for NewWebUIViewCreatedEventArgs {
     type Vtable = INewWebUIViewCreatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8e1b216_be2b_4c9e_85e7_083143ec4be7);
+    const IID: ::windows::core::GUID = <INewWebUIViewCreatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for NewWebUIViewCreatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.NewWebUIViewCreatedEventArgs";
@@ -2032,7 +2032,7 @@ unsafe impl ::windows::core::RuntimeType for SuspendingDeferral {
 #[cfg(feature = "ApplicationModel")]
 unsafe impl ::windows::core::Interface for SuspendingDeferral {
     type Vtable = super::super::ApplicationModel::ISuspendingDeferral_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59140509_8bc9_4eb4_b636_dabdc4f46f66);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::ISuspendingDeferral as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel")]
 impl ::windows::core::RuntimeName for SuspendingDeferral {
@@ -2155,7 +2155,7 @@ unsafe impl ::windows::core::RuntimeType for SuspendingEventArgs {
 #[cfg(feature = "ApplicationModel")]
 unsafe impl ::windows::core::Interface for SuspendingEventArgs {
     type Vtable = super::super::ApplicationModel::ISuspendingEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96061c05_2dba_4d08_b0bd_2b30a131c6aa);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::ISuspendingEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel")]
 impl ::windows::core::RuntimeName for SuspendingEventArgs {
@@ -2380,7 +2380,7 @@ unsafe impl ::windows::core::RuntimeType for SuspendingOperation {
 #[cfg(feature = "ApplicationModel")]
 unsafe impl ::windows::core::Interface for SuspendingOperation {
     type Vtable = super::super::ApplicationModel::ISuspendingOperation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9da4ca41_20e1_4e9b_9f65_a9f435340c3a);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::ISuspendingOperation as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel")]
 impl ::windows::core::RuntimeName for SuspendingOperation {
@@ -2707,7 +2707,7 @@ unsafe impl ::windows::core::RuntimeType for WebUIAppointmentsProviderAddAppoint
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IAppointmentsProviderAddAppointmentActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2861367_cee5_4e4d_9ed7_41c34ec18b02);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::IAppointmentsProviderAddAppointmentActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeName for WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
@@ -2987,7 +2987,7 @@ unsafe impl ::windows::core::RuntimeType for WebUIAppointmentsProviderRemoveAppo
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IAppointmentsProviderRemoveAppointmentActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x751f3ab8_0b8e_451c_9f15_966e699bac25);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::IAppointmentsProviderRemoveAppointmentActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeName for WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
@@ -3267,7 +3267,7 @@ unsafe impl ::windows::core::RuntimeType for WebUIAppointmentsProviderReplaceApp
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IAppointmentsProviderReplaceAppointmentActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1551b7d4_a981_4067_8a62_0524e4ade121);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::IAppointmentsProviderReplaceAppointmentActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeName for WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
@@ -3565,7 +3565,7 @@ unsafe impl ::windows::core::RuntimeType for WebUIAppointmentsProviderShowAppoin
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3958f065_9841_4ca5_999b_885198b9ef2a);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::IAppointmentsProviderShowAppointmentDetailsActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeName for WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
@@ -3854,7 +3854,7 @@ unsafe impl ::windows::core::RuntimeType for WebUIAppointmentsProviderShowTimeFr
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IAppointmentsProviderShowTimeFrameActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9baeaba6_0e0b_49aa_babc_12b1dc774986);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::IAppointmentsProviderShowTimeFrameActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeName for WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
@@ -4171,7 +4171,7 @@ unsafe impl ::windows::core::RuntimeType for WebUIBackgroundTaskInstanceRuntimeC
 }
 unsafe impl ::windows::core::Interface for WebUIBackgroundTaskInstanceRuntimeClass {
     type Vtable = IWebUIBackgroundTaskInstance_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23f12c25_e2f7_4741_bc9c_394595de24dc);
+    const IID: ::windows::core::GUID = <IWebUIBackgroundTaskInstance as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebUIBackgroundTaskInstanceRuntimeClass {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIBackgroundTaskInstanceRuntimeClass";
@@ -4351,7 +4351,7 @@ unsafe impl ::windows::core::RuntimeType for WebUIBarcodeScannerPreviewActivated
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for WebUIBarcodeScannerPreviewActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IBarcodeScannerPreviewActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6772797c_99bf_4349_af22_e4123560371c);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::IBarcodeScannerPreviewActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeName for WebUIBarcodeScannerPreviewActivatedEventArgs {
@@ -4600,7 +4600,7 @@ unsafe impl ::windows::core::RuntimeType for WebUICachedFileUpdaterActivatedEven
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for WebUICachedFileUpdaterActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::ICachedFileUpdaterActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd06eb1c7_3805_4ecb_b757_6cf15e26fef3);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::ICachedFileUpdaterActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeName for WebUICachedFileUpdaterActivatedEventArgs {
@@ -4845,7 +4845,7 @@ unsafe impl ::windows::core::RuntimeType for WebUICameraSettingsActivatedEventAr
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for WebUICameraSettingsActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::ICameraSettingsActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb67a508_2dad_490a_9170_dca036eb114b);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::ICameraSettingsActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeName for WebUICameraSettingsActivatedEventArgs {
@@ -5064,7 +5064,7 @@ unsafe impl ::windows::core::RuntimeType for WebUICommandLineActivatedEventArgs 
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for WebUICommandLineActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::ICommandLineActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4506472c_006a_48eb_8afb_d07ab25e3366);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::ICommandLineActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeName for WebUICommandLineActivatedEventArgs {
@@ -5331,7 +5331,7 @@ unsafe impl ::windows::core::RuntimeType for WebUIContactCallActivatedEventArgs 
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for WebUIContactCallActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IContactCallActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2df14c7_30eb_41c6_b3bc_5b1694f9dab3);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::IContactCallActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeName for WebUIContactCallActivatedEventArgs {
@@ -5585,7 +5585,7 @@ unsafe impl ::windows::core::RuntimeType for WebUIContactMapActivatedEventArgs {
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for WebUIContactMapActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IContactMapActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb32bf870_eee7_4ad2_aaf1_a87effcf00a4);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::IContactMapActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeName for WebUIContactMapActivatedEventArgs {
@@ -5848,7 +5848,7 @@ unsafe impl ::windows::core::RuntimeType for WebUIContactMessageActivatedEventAr
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for WebUIContactMessageActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IContactMessageActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde598db2_0e03_43b0_bf56_bcc40b3162df);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::IContactMessageActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeName for WebUIContactMessageActivatedEventArgs {
@@ -6102,7 +6102,7 @@ unsafe impl ::windows::core::RuntimeType for WebUIContactPanelActivatedEventArgs
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for WebUIContactPanelActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IContactPanelActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52bb63e4_d3d4_4b63_8051_4af2082cab80);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::IContactPanelActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeName for WebUIContactPanelActivatedEventArgs {
@@ -6342,7 +6342,7 @@ unsafe impl ::windows::core::RuntimeType for WebUIContactPickerActivatedEventArg
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for WebUIContactPickerActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IContactPickerActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce57aae7_6449_45a7_971f_d113be7a8936);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::IContactPickerActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeName for WebUIContactPickerActivatedEventArgs {
@@ -6579,7 +6579,7 @@ unsafe impl ::windows::core::RuntimeType for WebUIContactPostActivatedEventArgs 
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for WebUIContactPostActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IContactPostActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb35a3c67_f1e7_4655_ad6e_4857588f552f);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::IContactPostActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeName for WebUIContactPostActivatedEventArgs {
@@ -6842,7 +6842,7 @@ unsafe impl ::windows::core::RuntimeType for WebUIContactVideoCallActivatedEvent
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for WebUIContactVideoCallActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IContactVideoCallActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61079db8_e3e7_4b4f_858d_5c63a96ef684);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::IContactVideoCallActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeName for WebUIContactVideoCallActivatedEventArgs {
@@ -7105,7 +7105,7 @@ unsafe impl ::windows::core::RuntimeType for WebUIDeviceActivatedEventArgs {
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for WebUIDeviceActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IDeviceActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd50b9a9_ce10_44d2_8234_c355a073ef33);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::IDeviceActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeName for WebUIDeviceActivatedEventArgs {
@@ -7376,7 +7376,7 @@ unsafe impl ::windows::core::RuntimeType for WebUIDevicePairingActivatedEventArg
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for WebUIDevicePairingActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IDevicePairingActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba0d1e4_ecc6_4148_94ed_f4b37ec05b3e);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::IDevicePairingActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeName for WebUIDevicePairingActivatedEventArgs {
@@ -7648,7 +7648,7 @@ unsafe impl ::windows::core::RuntimeType for WebUIDialReceiverActivatedEventArgs
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for WebUIDialReceiverActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IDialReceiverActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb777ed7_85ee_456e_a44d_85d730e70aed);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::IDialReceiverActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeName for WebUIDialReceiverActivatedEventArgs {
@@ -7972,7 +7972,7 @@ unsafe impl ::windows::core::RuntimeType for WebUIFileActivatedEventArgs {
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for WebUIFileActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IFileActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb2afc33_93b1_42ed_8b26_236dd9c78496);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::IFileActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeName for WebUIFileActivatedEventArgs {
@@ -8278,7 +8278,7 @@ unsafe impl ::windows::core::RuntimeType for WebUIFileOpenPickerActivatedEventAr
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for WebUIFileOpenPickerActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72827082_5525_4bf2_bc09_1f5095d4964d);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::IFileOpenPickerActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeName for WebUIFileOpenPickerActivatedEventArgs {
@@ -8558,7 +8558,7 @@ unsafe impl ::windows::core::RuntimeType for WebUIFileOpenPickerContinuationEven
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 unsafe impl ::windows::core::Interface for WebUIFileOpenPickerContinuationEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IFileOpenPickerContinuationEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0fa3f3a_d4e8_4ad3_9c34_2308f32fcec9);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::IFileOpenPickerContinuationEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl ::windows::core::RuntimeName for WebUIFileOpenPickerContinuationEventArgs {
@@ -8847,7 +8847,7 @@ unsafe impl ::windows::core::RuntimeType for WebUIFileSavePickerActivatedEventAr
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for WebUIFileSavePickerActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81c19cf1_74e6_4387_82eb_bb8fd64b4346);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::IFileSavePickerActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeName for WebUIFileSavePickerActivatedEventArgs {
@@ -9127,7 +9127,7 @@ unsafe impl ::windows::core::RuntimeType for WebUIFileSavePickerContinuationEven
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 unsafe impl ::windows::core::Interface for WebUIFileSavePickerContinuationEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IFileSavePickerContinuationEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c846fe1_3bad_4f33_8c8b_e46fae824b4b);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::IFileSavePickerContinuationEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl ::windows::core::RuntimeName for WebUIFileSavePickerContinuationEventArgs {
@@ -9407,7 +9407,7 @@ unsafe impl ::windows::core::RuntimeType for WebUIFolderPickerContinuationEventA
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 unsafe impl ::windows::core::Interface for WebUIFolderPickerContinuationEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IFolderPickerContinuationEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51882366_9f4b_498f_beb0_42684f6e1c29);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::IFolderPickerContinuationEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl ::windows::core::RuntimeName for WebUIFolderPickerContinuationEventArgs {
@@ -9714,7 +9714,7 @@ unsafe impl ::windows::core::RuntimeType for WebUILaunchActivatedEventArgs {
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for WebUILaunchActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbc93e26_a14a_4b4f_82b0_33bed920af52);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::ILaunchActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeName for WebUILaunchActivatedEventArgs {
@@ -10046,7 +10046,7 @@ unsafe impl ::windows::core::RuntimeType for WebUILockScreenActivatedEventArgs {
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for WebUILockScreenActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::ILockScreenActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ca77966_6108_4a41_8220_ee7d133c8532);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::ILockScreenActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeName for WebUILockScreenActivatedEventArgs {
@@ -10335,7 +10335,7 @@ unsafe impl ::windows::core::RuntimeType for WebUILockScreenCallActivatedEventAr
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for WebUILockScreenCallActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06f37fbe_b5f2_448b_b13e_e328ac1c516a);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::ILockScreenCallActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeName for WebUILockScreenCallActivatedEventArgs {
@@ -10588,7 +10588,7 @@ unsafe impl ::windows::core::RuntimeType for WebUILockScreenComponentActivatedEv
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for WebUILockScreenComponentActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf651713_cd08_4fd8_b697_a281b6544e2e);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::IActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeName for WebUILockScreenComponentActivatedEventArgs {
@@ -10725,7 +10725,7 @@ unsafe impl ::windows::core::RuntimeType for WebUINavigatedDeferral {
 }
 unsafe impl ::windows::core::Interface for WebUINavigatedDeferral {
     type Vtable = IWebUINavigatedDeferral_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd804204d_831f_46e2_b432_3afce211f962);
+    const IID: ::windows::core::GUID = <IWebUINavigatedDeferral as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebUINavigatedDeferral {
     const NAME: &'static str = "Windows.UI.WebUI.WebUINavigatedDeferral";
@@ -10804,7 +10804,7 @@ unsafe impl ::windows::core::RuntimeType for WebUINavigatedEventArgs {
 }
 unsafe impl ::windows::core::Interface for WebUINavigatedEventArgs {
     type Vtable = IWebUINavigatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa75841b8_2499_4030_a69d_15d2d9cfe524);
+    const IID: ::windows::core::GUID = <IWebUINavigatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebUINavigatedEventArgs {
     const NAME: &'static str = "Windows.UI.WebUI.WebUINavigatedEventArgs";
@@ -10905,7 +10905,7 @@ unsafe impl ::windows::core::RuntimeType for WebUINavigatedOperation {
 }
 unsafe impl ::windows::core::Interface for WebUINavigatedOperation {
     type Vtable = IWebUINavigatedOperation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a965f08_8182_4a89_ab67_8492e8750d4b);
+    const IID: ::windows::core::GUID = <IWebUINavigatedOperation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebUINavigatedOperation {
     const NAME: &'static str = "Windows.UI.WebUI.WebUINavigatedOperation";
@@ -11037,7 +11037,7 @@ unsafe impl ::windows::core::RuntimeType for WebUIPhoneCallActivatedEventArgs {
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for WebUIPhoneCallActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IPhoneCallActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54615221_a3c1_4ced_b62f_8c60523619ad);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::IPhoneCallActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeName for WebUIPhoneCallActivatedEventArgs {
@@ -11277,7 +11277,7 @@ unsafe impl ::windows::core::RuntimeType for WebUIPrint3DWorkflowActivatedEventA
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for WebUIPrint3DWorkflowActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IPrint3DWorkflowActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f57e78b_f2ac_4619_8302_ef855e1c9b90);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::IPrint3DWorkflowActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeName for WebUIPrint3DWorkflowActivatedEventArgs {
@@ -11487,7 +11487,7 @@ unsafe impl ::windows::core::RuntimeType for WebUIPrintTaskSettingsActivatedEven
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for WebUIPrintTaskSettingsActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IPrintTaskSettingsActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee30a0c9_ce56_4865_ba8e_8954ac271107);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::IPrintTaskSettingsActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeName for WebUIPrintTaskSettingsActivatedEventArgs {
@@ -11688,7 +11688,7 @@ unsafe impl ::windows::core::RuntimeType for WebUIPrintWorkflowForegroundTaskAct
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf651713_cd08_4fd8_b697_a281b6544e2e);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::IActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeName for WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
@@ -11908,7 +11908,7 @@ unsafe impl ::windows::core::RuntimeType for WebUIProtocolActivatedEventArgs {
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for WebUIProtocolActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6095f4dd_b7c0_46ab_81fe_d90f36d00d24);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::IProtocolActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeName for WebUIProtocolActivatedEventArgs {
@@ -12241,7 +12241,7 @@ unsafe impl ::windows::core::RuntimeType for WebUIProtocolForResultsActivatedEve
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for WebUIProtocolForResultsActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IProtocolForResultsActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe75132c2_7ae7_4517_80ac_dbe8d7cc5b9c);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::IProtocolForResultsActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeName for WebUIProtocolForResultsActivatedEventArgs {
@@ -12564,7 +12564,7 @@ unsafe impl ::windows::core::RuntimeType for WebUIRestrictedLaunchActivatedEvent
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for WebUIRestrictedLaunchActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IRestrictedLaunchActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0b7ac81_bfc3_4344_a5da_19fd5a27baae);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::IRestrictedLaunchActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeName for WebUIRestrictedLaunchActivatedEventArgs {
@@ -12827,7 +12827,7 @@ unsafe impl ::windows::core::RuntimeType for WebUISearchActivatedEventArgs {
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for WebUISearchActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::ISearchActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cb36951_58c8_43e3_94bc_41d33f8b630e);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::ISearchActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeName for WebUISearchActivatedEventArgs {
@@ -13098,7 +13098,7 @@ unsafe impl ::windows::core::RuntimeType for WebUIShareTargetActivatedEventArgs 
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for WebUIShareTargetActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IShareTargetActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4bdaf9c8_cdb2_4acb_bfc3_6648563378ec);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::IShareTargetActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeName for WebUIShareTargetActivatedEventArgs {
@@ -13343,7 +13343,7 @@ unsafe impl ::windows::core::RuntimeType for WebUIStartupTaskActivatedEventArgs 
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for WebUIStartupTaskActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IStartupTaskActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03b11a58_5276_4d91_8621_54611864d5fa);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::IStartupTaskActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeName for WebUIStartupTaskActivatedEventArgs {
@@ -13601,7 +13601,7 @@ unsafe impl ::windows::core::RuntimeType for WebUIToastNotificationActivatedEven
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for WebUIToastNotificationActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IToastNotificationActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92a86f82_5290_431d_be85_c4aaeeb8685f);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::IToastNotificationActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeName for WebUIToastNotificationActivatedEventArgs {
@@ -13837,7 +13837,7 @@ unsafe impl ::windows::core::RuntimeType for WebUIUserDataAccountProviderActivat
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for WebUIUserDataAccountProviderActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IUserDataAccountProviderActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bc9f723_8ef1_4a51_a63a_fe711eeab607);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::IUserDataAccountProviderActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeName for WebUIUserDataAccountProviderActivatedEventArgs {
@@ -14502,7 +14502,7 @@ unsafe impl ::windows::core::RuntimeType for WebUIView {
 }
 unsafe impl ::windows::core::Interface for WebUIView {
     type Vtable = IWebUIView_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6783f64f_52da_4fd7_be69_8ef6284b423c);
+    const IID: ::windows::core::GUID = <IWebUIView as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebUIView {
     const NAME: &'static str = "Windows.UI.WebUI.WebUIView";
@@ -14686,7 +14686,7 @@ unsafe impl ::windows::core::RuntimeType for WebUIVoiceCommandActivatedEventArgs
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for WebUIVoiceCommandActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IVoiceCommandActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab92dcfd_8d43_4de6_9775_20704b581b00);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::IVoiceCommandActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeName for WebUIVoiceCommandActivatedEventArgs {
@@ -14940,7 +14940,7 @@ unsafe impl ::windows::core::RuntimeType for WebUIWalletActionActivatedEventArgs
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for WebUIWalletActionActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcfc027b_1a1a_4d22_923f_ae6f45fa52d9);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::IWalletActionActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeName for WebUIWalletActionActivatedEventArgs {
@@ -15159,7 +15159,7 @@ unsafe impl ::windows::core::RuntimeType for WebUIWebAccountProviderActivatedEve
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for WebUIWebAccountProviderActivatedEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IWebAccountProviderActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72b71774_98ea_4ccf_9752_46d9051004f1);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::IWebAccountProviderActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeName for WebUIWebAccountProviderActivatedEventArgs {
@@ -15404,7 +15404,7 @@ unsafe impl ::windows::core::RuntimeType for WebUIWebAuthenticationBrokerContinu
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for WebUIWebAuthenticationBrokerContinuationEventArgs {
     type Vtable = super::super::ApplicationModel::Activation::IWebAuthenticationBrokerContinuationEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75dda3d4_7714_453d_b7ff_b95e3a1709da);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Activation::IWebAuthenticationBrokerContinuationEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::windows::core::RuntimeName for WebUIWebAuthenticationBrokerContinuationEventArgs {

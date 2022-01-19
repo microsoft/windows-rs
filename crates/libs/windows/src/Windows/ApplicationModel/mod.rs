@@ -161,7 +161,7 @@ unsafe impl ::windows::core::RuntimeType for AppDisplayInfo {
 }
 unsafe impl ::windows::core::Interface for AppDisplayInfo {
     type Vtable = IAppDisplayInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1aeb1103_e4d4_41aa_a4f6_c4a276e79eac);
+    const IID: ::windows::core::GUID = <IAppDisplayInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppDisplayInfo {
     const NAME: &'static str = "Windows.ApplicationModel.AppDisplayInfo";
@@ -346,7 +346,7 @@ unsafe impl ::windows::core::RuntimeType for AppInfo {
 }
 unsafe impl ::windows::core::Interface for AppInfo {
     type Vtable = IAppInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf7f59b3_6a09_4de8_a6c0_5792d56880d1);
+    const IID: ::windows::core::GUID = <IAppInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppInfo {
     const NAME: &'static str = "Windows.ApplicationModel.AppInfo";
@@ -554,7 +554,7 @@ unsafe impl ::windows::core::RuntimeType for AppInstallerInfo {
 }
 unsafe impl ::windows::core::Interface for AppInstallerInfo {
     type Vtable = IAppInstallerInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29ab2ac0_d4f6_42a3_adcd_d6583c659508);
+    const IID: ::windows::core::GUID = <IAppInstallerInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppInstallerInfo {
     const NAME: &'static str = "Windows.ApplicationModel.AppInstallerInfo";
@@ -715,7 +715,7 @@ unsafe impl ::windows::core::RuntimeType for AppInstance {
 }
 unsafe impl ::windows::core::Interface for AppInstance {
     type Vtable = IAppInstance_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x675f2b47_f25f_4532_9fd6_3633e0634d01);
+    const IID: ::windows::core::GUID = <IAppInstance as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppInstance {
     const NAME: &'static str = "Windows.ApplicationModel.AppInstance";
@@ -844,7 +844,7 @@ unsafe impl ::windows::core::RuntimeType for EnteredBackgroundEventArgs {
 }
 unsafe impl ::windows::core::Interface for EnteredBackgroundEventArgs {
     type Vtable = IEnteredBackgroundEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf722dcc2_9827_403d_aaed_ecca9ac17398);
+    const IID: ::windows::core::GUID = <IEnteredBackgroundEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EnteredBackgroundEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.EnteredBackgroundEventArgs";
@@ -985,7 +985,7 @@ unsafe impl ::windows::core::RuntimeType for FullTrustProcessLaunchResult {
 }
 unsafe impl ::windows::core::Interface for FullTrustProcessLaunchResult {
     type Vtable = IFullTrustProcessLaunchResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8917d888_edfb_515f_8e22_5ebceb69dfd9);
+    const IID: ::windows::core::GUID = <IFullTrustProcessLaunchResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FullTrustProcessLaunchResult {
     const NAME: &'static str = "Windows.ApplicationModel.FullTrustProcessLaunchResult";
@@ -2553,7 +2553,7 @@ unsafe impl ::windows::core::RuntimeType for LeavingBackgroundEventArgs {
 }
 unsafe impl ::windows::core::Interface for LeavingBackgroundEventArgs {
     type Vtable = ILeavingBackgroundEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39c6ec9a_ae6e_46f9_a07a_cfc23f88733e);
+    const IID: ::windows::core::GUID = <ILeavingBackgroundEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LeavingBackgroundEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.LeavingBackgroundEventArgs";
@@ -2673,7 +2673,7 @@ unsafe impl ::windows::core::RuntimeType for LimitedAccessFeatureRequestResult {
 }
 unsafe impl ::windows::core::Interface for LimitedAccessFeatureRequestResult {
     type Vtable = ILimitedAccessFeatureRequestResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd45156a6_1e24_5ddd_abb4_6188aba4d5bf);
+    const IID: ::windows::core::GUID = <ILimitedAccessFeatureRequestResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LimitedAccessFeatureRequestResult {
     const NAME: &'static str = "Windows.ApplicationModel.LimitedAccessFeatureRequestResult";
@@ -3153,7 +3153,7 @@ unsafe impl ::windows::core::RuntimeType for Package {
 }
 unsafe impl ::windows::core::Interface for Package {
     type Vtable = IPackage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x163c792f_bd75_413c_bf23_b1fe7b95d825);
+    const IID: ::windows::core::GUID = <IPackage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Package {
     const NAME: &'static str = "Windows.ApplicationModel.Package";
@@ -3371,7 +3371,7 @@ unsafe impl ::windows::core::RuntimeType for PackageCatalog {
 }
 unsafe impl ::windows::core::Interface for PackageCatalog {
     type Vtable = IPackageCatalog_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x230a3751_9de3_4445_be74_91fb325abefe);
+    const IID: ::windows::core::GUID = <IPackageCatalog as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PackageCatalog {
     const NAME: &'static str = "Windows.ApplicationModel.PackageCatalog";
@@ -3458,7 +3458,7 @@ unsafe impl ::windows::core::RuntimeType for PackageCatalogAddOptionalPackageRes
 }
 unsafe impl ::windows::core::Interface for PackageCatalogAddOptionalPackageResult {
     type Vtable = IPackageCatalogAddOptionalPackageResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3bf10cd4_b4df_47b3_a963_e2fa832f7dd3);
+    const IID: ::windows::core::GUID = <IPackageCatalogAddOptionalPackageResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PackageCatalogAddOptionalPackageResult {
     const NAME: &'static str = "Windows.ApplicationModel.PackageCatalogAddOptionalPackageResult";
@@ -3553,7 +3553,7 @@ unsafe impl ::windows::core::RuntimeType for PackageCatalogAddResourcePackageRes
 }
 unsafe impl ::windows::core::Interface for PackageCatalogAddResourcePackageResult {
     type Vtable = IPackageCatalogAddResourcePackageResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9636ce0d_3e17_493f_aa08_ccec6fdef699);
+    const IID: ::windows::core::GUID = <IPackageCatalogAddResourcePackageResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PackageCatalogAddResourcePackageResult {
     const NAME: &'static str = "Windows.ApplicationModel.PackageCatalogAddResourcePackageResult";
@@ -3643,7 +3643,7 @@ unsafe impl ::windows::core::RuntimeType for PackageCatalogRemoveOptionalPackage
 }
 unsafe impl ::windows::core::Interface for PackageCatalogRemoveOptionalPackagesResult {
     type Vtable = IPackageCatalogRemoveOptionalPackagesResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29d2f97b_d974_4e64_9359_22cadfd79828);
+    const IID: ::windows::core::GUID = <IPackageCatalogRemoveOptionalPackagesResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PackageCatalogRemoveOptionalPackagesResult {
     const NAME: &'static str = "Windows.ApplicationModel.PackageCatalogRemoveOptionalPackagesResult";
@@ -3731,7 +3731,7 @@ unsafe impl ::windows::core::RuntimeType for PackageCatalogRemoveResourcePackage
 }
 unsafe impl ::windows::core::Interface for PackageCatalogRemoveResourcePackagesResult {
     type Vtable = IPackageCatalogRemoveResourcePackagesResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae719709_1a52_4321_87b3_e5a1a17981a7);
+    const IID: ::windows::core::GUID = <IPackageCatalogRemoveResourcePackagesResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PackageCatalogRemoveResourcePackagesResult {
     const NAME: &'static str = "Windows.ApplicationModel.PackageCatalogRemoveResourcePackagesResult";
@@ -3848,7 +3848,7 @@ unsafe impl ::windows::core::RuntimeType for PackageContentGroup {
 }
 unsafe impl ::windows::core::Interface for PackageContentGroup {
     type Vtable = IPackageContentGroup_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f62695d_120a_4798_b5e1_5800dda8f2e1);
+    const IID: ::windows::core::GUID = <IPackageContentGroup as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PackageContentGroup {
     const NAME: &'static str = "Windows.ApplicationModel.PackageContentGroup";
@@ -3977,7 +3977,7 @@ unsafe impl ::windows::core::RuntimeType for PackageContentGroupStagingEventArgs
 }
 unsafe impl ::windows::core::Interface for PackageContentGroupStagingEventArgs {
     type Vtable = IPackageContentGroupStagingEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d7bc27e_6f27_446c_986e_d4733d4d9113);
+    const IID: ::windows::core::GUID = <IPackageContentGroupStagingEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PackageContentGroupStagingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.PackageContentGroupStagingEventArgs";
@@ -4161,7 +4161,7 @@ unsafe impl ::windows::core::RuntimeType for PackageId {
 }
 unsafe impl ::windows::core::Interface for PackageId {
     type Vtable = IPackageId_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1adb665e_37c7_4790_9980_dd7ae74e8bb2);
+    const IID: ::windows::core::GUID = <IPackageId as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PackageId {
     const NAME: &'static str = "Windows.ApplicationModel.PackageId";
@@ -4310,7 +4310,7 @@ unsafe impl ::windows::core::RuntimeType for PackageInstallingEventArgs {
 }
 unsafe impl ::windows::core::Interface for PackageInstallingEventArgs {
     type Vtable = IPackageInstallingEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97741eb7_ab7a_401a_8b61_eb0e7faff237);
+    const IID: ::windows::core::GUID = <IPackageInstallingEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PackageInstallingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.PackageInstallingEventArgs";
@@ -4454,7 +4454,7 @@ unsafe impl ::windows::core::RuntimeType for PackageStagingEventArgs {
 }
 unsafe impl ::windows::core::Interface for PackageStagingEventArgs {
     type Vtable = IPackageStagingEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1041682d_54e2_4f51_b828_9ef7046c210f);
+    const IID: ::windows::core::GUID = <IPackageStagingEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PackageStagingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.PackageStagingEventArgs";
@@ -4631,7 +4631,7 @@ unsafe impl ::windows::core::RuntimeType for PackageStatus {
 }
 unsafe impl ::windows::core::Interface for PackageStatus {
     type Vtable = IPackageStatus_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5fe74f71_a365_4c09_a02d_046d525ea1da);
+    const IID: ::windows::core::GUID = <IPackageStatus as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PackageStatus {
     const NAME: &'static str = "Windows.ApplicationModel.PackageStatus";
@@ -4712,7 +4712,7 @@ unsafe impl ::windows::core::RuntimeType for PackageStatusChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for PackageStatusChangedEventArgs {
     type Vtable = IPackageStatusChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x437d714d_bd80_4a70_bc50_f6e796509575);
+    const IID: ::windows::core::GUID = <IPackageStatusChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PackageStatusChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.PackageStatusChangedEventArgs";
@@ -4825,7 +4825,7 @@ unsafe impl ::windows::core::RuntimeType for PackageUninstallingEventArgs {
 }
 unsafe impl ::windows::core::Interface for PackageUninstallingEventArgs {
     type Vtable = IPackageUninstallingEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4443aa52_ab22_44cd_82bb_4ec9b827367a);
+    const IID: ::windows::core::GUID = <IPackageUninstallingEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PackageUninstallingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.PackageUninstallingEventArgs";
@@ -4945,7 +4945,7 @@ unsafe impl ::windows::core::RuntimeType for PackageUpdateAvailabilityResult {
 }
 unsafe impl ::windows::core::Interface for PackageUpdateAvailabilityResult {
     type Vtable = IPackageUpdateAvailabilityResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x114e5009_199a_48a1_a079_313c45634a71);
+    const IID: ::windows::core::GUID = <IPackageUpdateAvailabilityResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PackageUpdateAvailabilityResult {
     const NAME: &'static str = "Windows.ApplicationModel.PackageUpdateAvailabilityResult";
@@ -5066,7 +5066,7 @@ unsafe impl ::windows::core::RuntimeType for PackageUpdatingEventArgs {
 }
 unsafe impl ::windows::core::Interface for PackageUpdatingEventArgs {
     type Vtable = IPackageUpdatingEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd7b4228_fd74_443e_b114_23e677b0e86f);
+    const IID: ::windows::core::GUID = <IPackageUpdatingEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PackageUpdatingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.PackageUpdatingEventArgs";
@@ -5229,7 +5229,7 @@ unsafe impl ::windows::core::RuntimeType for StartupTask {
 }
 unsafe impl ::windows::core::Interface for StartupTask {
     type Vtable = IStartupTask_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf75c23c8_b5f2_4f6c_88dd_36cb1d599d17);
+    const IID: ::windows::core::GUID = <IStartupTask as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StartupTask {
     const NAME: &'static str = "Windows.ApplicationModel.StartupTask";
@@ -5338,7 +5338,7 @@ unsafe impl ::windows::core::RuntimeType for SuspendingDeferral {
 }
 unsafe impl ::windows::core::Interface for SuspendingDeferral {
     type Vtable = ISuspendingDeferral_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59140509_8bc9_4eb4_b636_dabdc4f46f66);
+    const IID: ::windows::core::GUID = <ISuspendingDeferral as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SuspendingDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.SuspendingDeferral";
@@ -5441,7 +5441,7 @@ unsafe impl ::windows::core::RuntimeType for SuspendingEventArgs {
 }
 unsafe impl ::windows::core::Interface for SuspendingEventArgs {
     type Vtable = ISuspendingEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96061c05_2dba_4d08_b0bd_2b30a131c6aa);
+    const IID: ::windows::core::GUID = <ISuspendingEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SuspendingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.SuspendingEventArgs";
@@ -5553,7 +5553,7 @@ unsafe impl ::windows::core::RuntimeType for SuspendingOperation {
 }
 unsafe impl ::windows::core::Interface for SuspendingOperation {
     type Vtable = ISuspendingOperation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9da4ca41_20e1_4e9b_9f65_a9f435340c3a);
+    const IID: ::windows::core::GUID = <ISuspendingOperation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SuspendingOperation {
     const NAME: &'static str = "Windows.ApplicationModel.SuspendingOperation";

@@ -220,7 +220,7 @@ unsafe impl ::windows::core::RuntimeType for PrintSupportExtensionSession {
 }
 unsafe impl ::windows::core::Interface for PrintSupportExtensionSession {
     type Vtable = IPrintSupportExtensionSession_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeea45f1a_f4c6_54b3_a0b8_a559839aa4c3);
+    const IID: ::windows::core::GUID = <IPrintSupportExtensionSession as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintSupportExtensionSession {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportExtensionSession";
@@ -301,7 +301,7 @@ unsafe impl ::windows::core::RuntimeType for PrintSupportExtensionTriggerDetails
 }
 unsafe impl ::windows::core::Interface for PrintSupportExtensionTriggerDetails {
     type Vtable = IPrintSupportExtensionTriggerDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae083711_9b09_55d1_a0ae_2a14c5f83d6a);
+    const IID: ::windows::core::GUID = <IPrintSupportExtensionTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintSupportExtensionTriggerDetails {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportExtensionTriggerDetails";
@@ -398,7 +398,7 @@ unsafe impl ::windows::core::RuntimeType for PrintSupportPrintDeviceCapabilities
 }
 unsafe impl ::windows::core::Interface for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
     type Vtable = IPrintSupportPrintDeviceCapabilitiesChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15969bf0_9028_5722_8a37_7d7c34b41dd6);
+    const IID: ::windows::core::GUID = <IPrintSupportPrintDeviceCapabilitiesChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportPrintDeviceCapabilitiesChangedEventArgs";
@@ -494,7 +494,7 @@ unsafe impl ::windows::core::RuntimeType for PrintSupportPrintTicketValidationRe
 }
 unsafe impl ::windows::core::Interface for PrintSupportPrintTicketValidationRequestedEventArgs {
     type Vtable = IPrintSupportPrintTicketValidationRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x338e4e69_db55_55c7_8338_ef64680a8f90);
+    const IID: ::windows::core::GUID = <IPrintSupportPrintTicketValidationRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintSupportPrintTicketValidationRequestedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportPrintTicketValidationRequestedEventArgs";
@@ -585,7 +585,7 @@ unsafe impl ::windows::core::RuntimeType for PrintSupportSessionInfo {
 }
 unsafe impl ::windows::core::Interface for PrintSupportSessionInfo {
     type Vtable = IPrintSupportSessionInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x852149af_777d_53e9_9ee9_45d3f4b5be9c);
+    const IID: ::windows::core::GUID = <IPrintSupportSessionInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintSupportSessionInfo {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportSessionInfo";
@@ -711,7 +711,7 @@ unsafe impl ::windows::core::RuntimeType for PrintSupportSettingsActivatedEventA
 }
 unsafe impl ::windows::core::Interface for PrintSupportSettingsActivatedEventArgs {
     type Vtable = IPrintSupportSettingsActivatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e1b565e_a013_55ea_9b8c_eea39d9fb6c1);
+    const IID: ::windows::core::GUID = <IPrintSupportSettingsActivatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintSupportSettingsActivatedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportSettingsActivatedEventArgs";
@@ -875,7 +875,7 @@ unsafe impl ::windows::core::RuntimeType for PrintSupportSettingsUISession {
 }
 unsafe impl ::windows::core::Interface for PrintSupportSettingsUISession {
     type Vtable = IPrintSupportSettingsUISession_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6da2251_83c3_55e4_a0f8_5de8b062adbf);
+    const IID: ::windows::core::GUID = <IPrintSupportSettingsUISession as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintSupportSettingsUISession {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportSettingsUISession";

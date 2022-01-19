@@ -71,7 +71,7 @@ unsafe impl ::windows::core::RuntimeType for AnnotationPatternIdentifiers {
 }
 unsafe impl ::windows::core::Interface for AnnotationPatternIdentifiers {
     type Vtable = IAnnotationPatternIdentifiers_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd475a0c1_48b2_4e40_a6cf_3dc4b638c0de);
+    const IID: ::windows::core::GUID = <IAnnotationPatternIdentifiers as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AnnotationPatternIdentifiers {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.AnnotationPatternIdentifiers";
@@ -327,7 +327,7 @@ unsafe impl ::windows::core::RuntimeType for AutomationAnnotation {
 }
 unsafe impl ::windows::core::Interface for AutomationAnnotation {
     type Vtable = IAutomationAnnotation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb3c30ca_03d8_4618_91bf_e4d84f4af318);
+    const IID: ::windows::core::GUID = <IAutomationAnnotation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AutomationAnnotation {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.AutomationAnnotation";
@@ -823,7 +823,7 @@ unsafe impl ::windows::core::RuntimeType for AutomationElementIdentifiers {
 }
 unsafe impl ::windows::core::Interface for AutomationElementIdentifiers {
     type Vtable = IAutomationElementIdentifiers_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe68a63cf_4345_4e2d_8a6a_49cce1fa2dcc);
+    const IID: ::windows::core::GUID = <IAutomationElementIdentifiers as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AutomationElementIdentifiers {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.AutomationElementIdentifiers";
@@ -1519,7 +1519,7 @@ unsafe impl ::windows::core::RuntimeType for AutomationProperties {
 }
 unsafe impl ::windows::core::Interface for AutomationProperties {
     type Vtable = IAutomationProperties_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68d7232c_e622_48e9_af0b_1ffa33cc5cba);
+    const IID: ::windows::core::GUID = <IAutomationProperties as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AutomationProperties {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.AutomationProperties";
@@ -1591,7 +1591,7 @@ unsafe impl ::windows::core::RuntimeType for AutomationProperty {
 }
 unsafe impl ::windows::core::Interface for AutomationProperty {
     type Vtable = IAutomationProperty_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb627195b_3227_4e16_9534_ddece30ddb46);
+    const IID: ::windows::core::GUID = <IAutomationProperty as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AutomationProperty {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.AutomationProperty";
@@ -1792,7 +1792,7 @@ unsafe impl ::windows::core::RuntimeType for DockPatternIdentifiers {
 }
 unsafe impl ::windows::core::Interface for DockPatternIdentifiers {
     type Vtable = IDockPatternIdentifiers_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xccd7f4e6_e4f9_47ff_bde7_378b11f78e09);
+    const IID: ::windows::core::GUID = <IDockPatternIdentifiers as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DockPatternIdentifiers {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.DockPatternIdentifiers";
@@ -1930,7 +1930,7 @@ unsafe impl ::windows::core::RuntimeType for DragPatternIdentifiers {
 }
 unsafe impl ::windows::core::Interface for DragPatternIdentifiers {
     type Vtable = IDragPatternIdentifiers_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6266e985_4d07_4e80_82eb_8f96690a1a0c);
+    const IID: ::windows::core::GUID = <IDragPatternIdentifiers as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DragPatternIdentifiers {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.DragPatternIdentifiers";
@@ -2022,7 +2022,7 @@ unsafe impl ::windows::core::RuntimeType for DropTargetPatternIdentifiers {
 }
 unsafe impl ::windows::core::Interface for DropTargetPatternIdentifiers {
     type Vtable = IDropTargetPatternIdentifiers_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11865133_a6fe_4634_bd18_0ef612b7b208);
+    const IID: ::windows::core::GUID = <IDropTargetPatternIdentifiers as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DropTargetPatternIdentifiers {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.DropTargetPatternIdentifiers";
@@ -2107,7 +2107,7 @@ unsafe impl ::windows::core::RuntimeType for ExpandCollapsePatternIdentifiers {
 }
 unsafe impl ::windows::core::Interface for ExpandCollapsePatternIdentifiers {
     type Vtable = IExpandCollapsePatternIdentifiers_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb006bac0_751b_4d55_92cb_613ec1bdf5d0);
+    const IID: ::windows::core::GUID = <IExpandCollapsePatternIdentifiers as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ExpandCollapsePatternIdentifiers {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.ExpandCollapsePatternIdentifiers";
@@ -2250,7 +2250,7 @@ unsafe impl ::windows::core::RuntimeType for GridItemPatternIdentifiers {
 }
 unsafe impl ::windows::core::Interface for GridItemPatternIdentifiers {
     type Vtable = IGridItemPatternIdentifiers_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x757744f1_3285_4fb1_803b_2545bd431599);
+    const IID: ::windows::core::GUID = <IGridItemPatternIdentifiers as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GridItemPatternIdentifiers {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.GridItemPatternIdentifiers";
@@ -2342,7 +2342,7 @@ unsafe impl ::windows::core::RuntimeType for GridPatternIdentifiers {
 }
 unsafe impl ::windows::core::Interface for GridPatternIdentifiers {
     type Vtable = IGridPatternIdentifiers_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc902980f_96c5_450c_9044_7e52c24f9e94);
+    const IID: ::windows::core::GUID = <IGridPatternIdentifiers as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GridPatternIdentifiers {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.GridPatternIdentifiers";
@@ -3457,7 +3457,7 @@ unsafe impl ::windows::core::RuntimeType for MultipleViewPatternIdentifiers {
 }
 unsafe impl ::windows::core::Interface for MultipleViewPatternIdentifiers {
     type Vtable = IMultipleViewPatternIdentifiers_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d5cd3b8_1e12_488b_b0ea_5e6cb89816e1);
+    const IID: ::windows::core::GUID = <IMultipleViewPatternIdentifiers as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MultipleViewPatternIdentifiers {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.MultipleViewPatternIdentifiers";
@@ -3577,7 +3577,7 @@ unsafe impl ::windows::core::RuntimeType for RangeValuePatternIdentifiers {
 }
 unsafe impl ::windows::core::Interface for RangeValuePatternIdentifiers {
     type Vtable = IRangeValuePatternIdentifiers_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8760f45_33c9_467d_bc9e_d1515263ace1);
+    const IID: ::windows::core::GUID = <IRangeValuePatternIdentifiers as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RangeValuePatternIdentifiers {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.RangeValuePatternIdentifiers";
@@ -3764,7 +3764,7 @@ unsafe impl ::windows::core::RuntimeType for ScrollPatternIdentifiers {
 }
 unsafe impl ::windows::core::Interface for ScrollPatternIdentifiers {
     type Vtable = IScrollPatternIdentifiers_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x366b1003_425c_4951_ae83_d521e73bc696);
+    const IID: ::windows::core::GUID = <IScrollPatternIdentifiers as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ScrollPatternIdentifiers {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.ScrollPatternIdentifiers";
@@ -3856,7 +3856,7 @@ unsafe impl ::windows::core::RuntimeType for SelectionItemPatternIdentifiers {
 }
 unsafe impl ::windows::core::Interface for SelectionItemPatternIdentifiers {
     type Vtable = ISelectionItemPatternIdentifiers_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2dafa41a_3ef8_4bb5_a02b_3ee1b2274740);
+    const IID: ::windows::core::GUID = <ISelectionItemPatternIdentifiers as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SelectionItemPatternIdentifiers {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.SelectionItemPatternIdentifiers";
@@ -3955,7 +3955,7 @@ unsafe impl ::windows::core::RuntimeType for SelectionPatternIdentifiers {
 }
 unsafe impl ::windows::core::Interface for SelectionPatternIdentifiers {
     type Vtable = ISelectionPatternIdentifiers_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4aa66fb0_e3f7_475f_b78d_f8a83bb730c4);
+    const IID: ::windows::core::GUID = <ISelectionPatternIdentifiers as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SelectionPatternIdentifiers {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.SelectionPatternIdentifiers";
@@ -4040,7 +4040,7 @@ unsafe impl ::windows::core::RuntimeType for SpreadsheetItemPatternIdentifiers {
 }
 unsafe impl ::windows::core::Interface for SpreadsheetItemPatternIdentifiers {
     type Vtable = ISpreadsheetItemPatternIdentifiers_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84347e19_ca4b_46a2_a794_c87928a3b1ab);
+    const IID: ::windows::core::GUID = <ISpreadsheetItemPatternIdentifiers as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpreadsheetItemPatternIdentifiers {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.SpreadsheetItemPatternIdentifiers";
@@ -4167,7 +4167,7 @@ unsafe impl ::windows::core::RuntimeType for StylesPatternIdentifiers {
 }
 unsafe impl ::windows::core::Interface for StylesPatternIdentifiers {
     type Vtable = IStylesPatternIdentifiers_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0e4e201_e89d_436b_8287_4f7903466879);
+    const IID: ::windows::core::GUID = <IStylesPatternIdentifiers as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StylesPatternIdentifiers {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.StylesPatternIdentifiers";
@@ -4320,7 +4320,7 @@ unsafe impl ::windows::core::RuntimeType for TableItemPatternIdentifiers {
 }
 unsafe impl ::windows::core::Interface for TableItemPatternIdentifiers {
     type Vtable = ITableItemPatternIdentifiers_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc326e5ad_8077_4c64_98e4_e83bcf1b4389);
+    const IID: ::windows::core::GUID = <ITableItemPatternIdentifiers as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TableItemPatternIdentifiers {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.TableItemPatternIdentifiers";
@@ -4419,7 +4419,7 @@ unsafe impl ::windows::core::RuntimeType for TablePatternIdentifiers {
 }
 unsafe impl ::windows::core::Interface for TablePatternIdentifiers {
     type Vtable = ITablePatternIdentifiers_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38d104fe_0d0c_412a_bf8d_51ede683baf5);
+    const IID: ::windows::core::GUID = <ITablePatternIdentifiers as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TablePatternIdentifiers {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.TablePatternIdentifiers";
@@ -4504,7 +4504,7 @@ unsafe impl ::windows::core::RuntimeType for TogglePatternIdentifiers {
 }
 unsafe impl ::windows::core::Interface for TogglePatternIdentifiers {
     type Vtable = ITogglePatternIdentifiers_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e191f6b_34d4_4ae7_83ac_29f88882d985);
+    const IID: ::windows::core::GUID = <ITogglePatternIdentifiers as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TogglePatternIdentifiers {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.TogglePatternIdentifiers";
@@ -4639,7 +4639,7 @@ unsafe impl ::windows::core::RuntimeType for TransformPattern2Identifiers {
 }
 unsafe impl ::windows::core::Interface for TransformPattern2Identifiers {
     type Vtable = ITransformPattern2Identifiers_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08aaa03d_dea7_402f_8097_9a2783d60e5d);
+    const IID: ::windows::core::GUID = <ITransformPattern2Identifiers as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TransformPattern2Identifiers {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.TransformPattern2Identifiers";
@@ -4738,7 +4738,7 @@ unsafe impl ::windows::core::RuntimeType for TransformPatternIdentifiers {
 }
 unsafe impl ::windows::core::Interface for TransformPatternIdentifiers {
     type Vtable = ITransformPatternIdentifiers_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4115b8c_c3c8_4a37_b994_2709a7811665);
+    const IID: ::windows::core::GUID = <ITransformPatternIdentifiers as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TransformPatternIdentifiers {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.TransformPatternIdentifiers";
@@ -4830,7 +4830,7 @@ unsafe impl ::windows::core::RuntimeType for ValuePatternIdentifiers {
 }
 unsafe impl ::windows::core::Interface for ValuePatternIdentifiers {
     type Vtable = IValuePatternIdentifiers_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x425bf64c_5333_4e41_b470_2bad14ecd085);
+    const IID: ::windows::core::GUID = <IValuePatternIdentifiers as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ValuePatternIdentifiers {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.ValuePatternIdentifiers";
@@ -4981,7 +4981,7 @@ unsafe impl ::windows::core::RuntimeType for WindowPatternIdentifiers {
 }
 unsafe impl ::windows::core::Interface for WindowPatternIdentifiers {
     type Vtable = IWindowPatternIdentifiers_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39f78bb4_7032_41e2_b79e_27b74a8628de);
+    const IID: ::windows::core::GUID = <IWindowPatternIdentifiers as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WindowPatternIdentifiers {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.WindowPatternIdentifiers";

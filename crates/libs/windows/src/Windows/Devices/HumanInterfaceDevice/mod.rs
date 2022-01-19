@@ -70,7 +70,7 @@ unsafe impl ::windows::core::RuntimeType for HidBooleanControl {
 }
 unsafe impl ::windows::core::Interface for HidBooleanControl {
     type Vtable = IHidBooleanControl_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x524df48a_3695_408c_bba2_e2eb5abfbc20);
+    const IID: ::windows::core::GUID = <IHidBooleanControl as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HidBooleanControl {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidBooleanControl";
@@ -200,7 +200,7 @@ unsafe impl ::windows::core::RuntimeType for HidBooleanControlDescription {
 }
 unsafe impl ::windows::core::Interface for HidBooleanControlDescription {
     type Vtable = IHidBooleanControlDescription_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6196e543_29d8_4a2a_8683_849e207bbe31);
+    const IID: ::windows::core::GUID = <IHidBooleanControlDescription as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HidBooleanControlDescription {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidBooleanControlDescription";
@@ -305,7 +305,7 @@ unsafe impl ::windows::core::RuntimeType for HidCollection {
 }
 unsafe impl ::windows::core::Interface for HidCollection {
     type Vtable = IHidCollection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7189f5a3_32f1_46e3_befd_44d2663b7e6a);
+    const IID: ::windows::core::GUID = <IHidCollection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HidCollection {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidCollection";
@@ -604,7 +604,7 @@ unsafe impl ::windows::core::RuntimeType for HidDevice {
 }
 unsafe impl ::windows::core::Interface for HidDevice {
     type Vtable = IHidDevice_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f8a14e7_2200_432e_95da_d09b87d574a8);
+    const IID: ::windows::core::GUID = <IHidDevice as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HidDevice {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidDevice";
@@ -758,7 +758,7 @@ unsafe impl ::windows::core::RuntimeType for HidFeatureReport {
 }
 unsafe impl ::windows::core::Interface for HidFeatureReport {
     type Vtable = IHidFeatureReport_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x841d9b79_5ae5_46e3_82ef_1fec5c8942f4);
+    const IID: ::windows::core::GUID = <IHidFeatureReport as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HidFeatureReport {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidFeatureReport";
@@ -898,7 +898,7 @@ unsafe impl ::windows::core::RuntimeType for HidInputReport {
 }
 unsafe impl ::windows::core::Interface for HidInputReport {
     type Vtable = IHidInputReport_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc35d0e50_f7e7_4e8d_b23e_cabbe56b90e9);
+    const IID: ::windows::core::GUID = <IHidInputReport as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HidInputReport {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidInputReport";
@@ -979,7 +979,7 @@ unsafe impl ::windows::core::RuntimeType for HidInputReportReceivedEventArgs {
 }
 unsafe impl ::windows::core::Interface for HidInputReportReceivedEventArgs {
     type Vtable = IHidInputReportReceivedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7059c5cb_59b2_4dc2_985c_0adc6136fa2d);
+    const IID: ::windows::core::GUID = <IHidInputReportReceivedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HidInputReportReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidInputReportReceivedEventArgs";
@@ -1118,7 +1118,7 @@ unsafe impl ::windows::core::RuntimeType for HidNumericControl {
 }
 unsafe impl ::windows::core::Interface for HidNumericControl {
     type Vtable = IHidNumericControl_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe38a12a5_35a7_4b75_89c8_fb1f28b10823);
+    const IID: ::windows::core::GUID = <IHidNumericControl as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HidNumericControl {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidNumericControl";
@@ -1320,7 +1320,7 @@ unsafe impl ::windows::core::RuntimeType for HidNumericControlDescription {
 }
 unsafe impl ::windows::core::Interface for HidNumericControlDescription {
     type Vtable = IHidNumericControlDescription_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x638d5e86_1d97_4c75_927f_5ff58ba05e32);
+    const IID: ::windows::core::GUID = <IHidNumericControlDescription as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HidNumericControlDescription {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidNumericControlDescription";
@@ -1448,7 +1448,7 @@ unsafe impl ::windows::core::RuntimeType for HidOutputReport {
 }
 unsafe impl ::windows::core::Interface for HidOutputReport {
     type Vtable = IHidOutputReport_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62cb2544_c896_4463_93c1_df9db053c450);
+    const IID: ::windows::core::GUID = <IHidOutputReport as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HidOutputReport {
     const NAME: &'static str = "Windows.Devices.HumanInterfaceDevice.HidOutputReport";

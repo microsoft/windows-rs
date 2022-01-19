@@ -1615,7 +1615,7 @@ unsafe impl ::windows::core::RuntimeType for ImageFeatureDescriptor {
 }
 unsafe impl ::windows::core::Interface for ImageFeatureDescriptor {
     type Vtable = IImageFeatureDescriptor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x365585a5_171a_4a2a_985f_265159d3895a);
+    const IID: ::windows::core::GUID = <IImageFeatureDescriptor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ImageFeatureDescriptor {
     const NAME: &'static str = "Windows.AI.MachineLearning.ImageFeatureDescriptor";
@@ -1740,7 +1740,7 @@ unsafe impl ::windows::core::RuntimeType for ImageFeatureValue {
 }
 unsafe impl ::windows::core::Interface for ImageFeatureValue {
     type Vtable = IImageFeatureValue_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0414fd9_c9aa_4405_b7fb_94f87c8a3037);
+    const IID: ::windows::core::GUID = <IImageFeatureValue as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ImageFeatureValue {
     const NAME: &'static str = "Windows.AI.MachineLearning.ImageFeatureValue";
@@ -1975,7 +1975,7 @@ unsafe impl ::windows::core::RuntimeType for LearningModel {
 }
 unsafe impl ::windows::core::Interface for LearningModel {
     type Vtable = ILearningModel_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b8e4920_489f_4e86_9128_265a327b78fa);
+    const IID: ::windows::core::GUID = <ILearningModel as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LearningModel {
     const NAME: &'static str = "Windows.AI.MachineLearning.LearningModel";
@@ -2144,7 +2144,7 @@ unsafe impl ::windows::core::RuntimeType for LearningModelBinding {
 }
 unsafe impl ::windows::core::Interface for LearningModelBinding {
     type Vtable = ILearningModelBinding_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea312f20_168f_4f8c_94fe_2e7ac31b4aa8);
+    const IID: ::windows::core::GUID = <ILearningModelBinding as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LearningModelBinding {
     const NAME: &'static str = "Windows.AI.MachineLearning.LearningModelBinding";
@@ -2328,7 +2328,7 @@ unsafe impl ::windows::core::RuntimeType for LearningModelDevice {
 }
 unsafe impl ::windows::core::Interface for LearningModelDevice {
     type Vtable = ILearningModelDevice_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5c2c8fe_3f56_4a8c_ac5f_fdb92d8b8252);
+    const IID: ::windows::core::GUID = <ILearningModelDevice as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LearningModelDevice {
     const NAME: &'static str = "Windows.AI.MachineLearning.LearningModelDevice";
@@ -2465,7 +2465,7 @@ unsafe impl ::windows::core::RuntimeType for LearningModelEvaluationResult {
 }
 unsafe impl ::windows::core::Interface for LearningModelEvaluationResult {
     type Vtable = ILearningModelEvaluationResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2f9bfcd_960e_49c0_8593_eb190ae3eee2);
+    const IID: ::windows::core::GUID = <ILearningModelEvaluationResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LearningModelEvaluationResult {
     const NAME: &'static str = "Windows.AI.MachineLearning.LearningModelEvaluationResult";
@@ -2694,7 +2694,7 @@ unsafe impl ::windows::core::RuntimeType for LearningModelSession {
 }
 unsafe impl ::windows::core::Interface for LearningModelSession {
     type Vtable = ILearningModelSession_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e58f8f6_b787_4c11_90f0_7129aeca74a9);
+    const IID: ::windows::core::GUID = <ILearningModelSession as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LearningModelSession {
     const NAME: &'static str = "Windows.AI.MachineLearning.LearningModelSession";
@@ -2831,7 +2831,7 @@ unsafe impl ::windows::core::RuntimeType for LearningModelSessionOptions {
 }
 unsafe impl ::windows::core::Interface for LearningModelSessionOptions {
     type Vtable = ILearningModelSessionOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8f63fa1_134d_5133_8cff_3a5c3c263beb);
+    const IID: ::windows::core::GUID = <ILearningModelSessionOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LearningModelSessionOptions {
     const NAME: &'static str = "Windows.AI.MachineLearning.LearningModelSessionOptions";
@@ -2952,7 +2952,7 @@ unsafe impl ::windows::core::RuntimeType for MapFeatureDescriptor {
 }
 unsafe impl ::windows::core::Interface for MapFeatureDescriptor {
     type Vtable = IMapFeatureDescriptor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x530424bd_a257_436d_9e60_c2981f7cc5c4);
+    const IID: ::windows::core::GUID = <IMapFeatureDescriptor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapFeatureDescriptor {
     const NAME: &'static str = "Windows.AI.MachineLearning.MapFeatureDescriptor";
@@ -3087,7 +3087,7 @@ unsafe impl ::windows::core::RuntimeType for SequenceFeatureDescriptor {
 }
 unsafe impl ::windows::core::Interface for SequenceFeatureDescriptor {
     type Vtable = ISequenceFeatureDescriptor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84f6945a_562b_4d62_a851_739aced96668);
+    const IID: ::windows::core::GUID = <ISequenceFeatureDescriptor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SequenceFeatureDescriptor {
     const NAME: &'static str = "Windows.AI.MachineLearning.SequenceFeatureDescriptor";
@@ -3287,7 +3287,7 @@ unsafe impl ::windows::core::RuntimeType for TensorBoolean {
 }
 unsafe impl ::windows::core::Interface for TensorBoolean {
     type Vtable = ITensorBoolean_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50f311ed_29e9_4a5c_a44d_8fc512584eed);
+    const IID: ::windows::core::GUID = <ITensorBoolean as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TensorBoolean {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorBoolean";
@@ -3561,7 +3561,7 @@ unsafe impl ::windows::core::RuntimeType for TensorDouble {
 }
 unsafe impl ::windows::core::Interface for TensorDouble {
     type Vtable = ITensorDouble_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91e41252_7a8f_4f0e_a28f_9637ffc8a3d0);
+    const IID: ::windows::core::GUID = <ITensorDouble as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TensorDouble {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorDouble";
@@ -3779,7 +3779,7 @@ unsafe impl ::windows::core::RuntimeType for TensorFeatureDescriptor {
 }
 unsafe impl ::windows::core::Interface for TensorFeatureDescriptor {
     type Vtable = ITensorFeatureDescriptor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74455c80_946a_4310_a19c_ee0af028fce4);
+    const IID: ::windows::core::GUID = <ITensorFeatureDescriptor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TensorFeatureDescriptor {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorFeatureDescriptor";
@@ -3979,7 +3979,7 @@ unsafe impl ::windows::core::RuntimeType for TensorFloat {
 }
 unsafe impl ::windows::core::Interface for TensorFloat {
     type Vtable = ITensorFloat_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2282d82_aa02_42c8_a0c8_df1efc9676e1);
+    const IID: ::windows::core::GUID = <ITensorFloat as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TensorFloat {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorFloat";
@@ -4253,7 +4253,7 @@ unsafe impl ::windows::core::RuntimeType for TensorFloat16Bit {
 }
 unsafe impl ::windows::core::Interface for TensorFloat16Bit {
     type Vtable = ITensorFloat16Bit_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ab994fc_5b89_4c3c_b5e4_5282a5316c0a);
+    const IID: ::windows::core::GUID = <ITensorFloat16Bit as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TensorFloat16Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorFloat16Bit";
@@ -4527,7 +4527,7 @@ unsafe impl ::windows::core::RuntimeType for TensorInt16Bit {
 }
 unsafe impl ::windows::core::Interface for TensorInt16Bit {
     type Vtable = ITensorInt16Bit_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98a32d39_e6d6_44af_8afa_baebc44dc020);
+    const IID: ::windows::core::GUID = <ITensorInt16Bit as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TensorInt16Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorInt16Bit";
@@ -4801,7 +4801,7 @@ unsafe impl ::windows::core::RuntimeType for TensorInt32Bit {
 }
 unsafe impl ::windows::core::Interface for TensorInt32Bit {
     type Vtable = ITensorInt32Bit_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c0c28d3_207c_4486_a7d2_884522c5e589);
+    const IID: ::windows::core::GUID = <ITensorInt32Bit as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TensorInt32Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorInt32Bit";
@@ -5075,7 +5075,7 @@ unsafe impl ::windows::core::RuntimeType for TensorInt64Bit {
 }
 unsafe impl ::windows::core::Interface for TensorInt64Bit {
     type Vtable = ITensorInt64Bit_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x499665ba_1fa2_45ad_af25_a0bd9bda4c87);
+    const IID: ::windows::core::GUID = <ITensorInt64Bit as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TensorInt64Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorInt64Bit";
@@ -5349,7 +5349,7 @@ unsafe impl ::windows::core::RuntimeType for TensorInt8Bit {
 }
 unsafe impl ::windows::core::Interface for TensorInt8Bit {
     type Vtable = ITensorInt8Bit_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcddd97c5_ffd8_4fef_aefb_30e1a485b2ee);
+    const IID: ::windows::core::GUID = <ITensorInt8Bit as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TensorInt8Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorInt8Bit";
@@ -5657,7 +5657,7 @@ unsafe impl ::windows::core::RuntimeType for TensorString {
 }
 unsafe impl ::windows::core::Interface for TensorString {
     type Vtable = ITensorString_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x582335c8_bdb1_4610_bc75_35e9cbf009b7);
+    const IID: ::windows::core::GUID = <ITensorString as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TensorString {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorString";
@@ -5931,7 +5931,7 @@ unsafe impl ::windows::core::RuntimeType for TensorUInt16Bit {
 }
 unsafe impl ::windows::core::Interface for TensorUInt16Bit {
     type Vtable = ITensorUInt16Bit_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68140f4b_23c0_42f3_81f6_a891c011bc3f);
+    const IID: ::windows::core::GUID = <ITensorUInt16Bit as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TensorUInt16Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorUInt16Bit";
@@ -6205,7 +6205,7 @@ unsafe impl ::windows::core::RuntimeType for TensorUInt32Bit {
 }
 unsafe impl ::windows::core::Interface for TensorUInt32Bit {
     type Vtable = ITensorUInt32Bit_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8c9c2ff_7511_45a3_bfac_c38f370d2237);
+    const IID: ::windows::core::GUID = <ITensorUInt32Bit as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TensorUInt32Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorUInt32Bit";
@@ -6479,7 +6479,7 @@ unsafe impl ::windows::core::RuntimeType for TensorUInt64Bit {
 }
 unsafe impl ::windows::core::Interface for TensorUInt64Bit {
     type Vtable = ITensorUInt64Bit_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e70ffad_04bf_4825_839a_82baef8c7886);
+    const IID: ::windows::core::GUID = <ITensorUInt64Bit as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TensorUInt64Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorUInt64Bit";
@@ -6753,7 +6753,7 @@ unsafe impl ::windows::core::RuntimeType for TensorUInt8Bit {
 }
 unsafe impl ::windows::core::Interface for TensorUInt8Bit {
     type Vtable = ITensorUInt8Bit_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x58e1ae27_622b_48e3_be22_d867aed1daac);
+    const IID: ::windows::core::GUID = <ITensorUInt8Bit as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TensorUInt8Bit {
     const NAME: &'static str = "Windows.AI.MachineLearning.TensorUInt8Bit";

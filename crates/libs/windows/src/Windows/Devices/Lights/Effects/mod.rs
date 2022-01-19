@@ -595,7 +595,7 @@ unsafe impl ::windows::core::RuntimeType for LampArrayBitmapEffect {
 }
 unsafe impl ::windows::core::Interface for LampArrayBitmapEffect {
     type Vtable = ILampArrayBitmapEffect_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3238e065_d877_4627_89e5_2a88f7052fa6);
+    const IID: ::windows::core::GUID = <ILampArrayBitmapEffect as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LampArrayBitmapEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayBitmapEffect";
@@ -705,7 +705,7 @@ unsafe impl ::windows::core::RuntimeType for LampArrayBitmapRequestedEventArgs {
 }
 unsafe impl ::windows::core::Interface for LampArrayBitmapRequestedEventArgs {
     type Vtable = ILampArrayBitmapRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8b4af9e_fe63_4d51_babd_619defb454ba);
+    const IID: ::windows::core::GUID = <ILampArrayBitmapRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LampArrayBitmapRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayBitmapRequestedEventArgs";
@@ -919,7 +919,7 @@ unsafe impl ::windows::core::RuntimeType for LampArrayBlinkEffect {
 }
 unsafe impl ::windows::core::Interface for LampArrayBlinkEffect {
     type Vtable = ILampArrayBlinkEffect_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xebbf35f6_2fc5_4bb3_b3c3_6221a7680d13);
+    const IID: ::windows::core::GUID = <ILampArrayBlinkEffect as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LampArrayBlinkEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayBlinkEffect";
@@ -1097,7 +1097,7 @@ unsafe impl ::windows::core::RuntimeType for LampArrayColorRampEffect {
 }
 unsafe impl ::windows::core::Interface for LampArrayColorRampEffect {
     type Vtable = ILampArrayColorRampEffect_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b004437_40a7_432e_a0b9_0d570c2153ff);
+    const IID: ::windows::core::GUID = <ILampArrayColorRampEffect as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LampArrayColorRampEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayColorRampEffect";
@@ -1262,7 +1262,7 @@ unsafe impl ::windows::core::RuntimeType for LampArrayCustomEffect {
 }
 unsafe impl ::windows::core::Interface for LampArrayCustomEffect {
     type Vtable = ILampArrayCustomEffect_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec579170_3c34_4876_818b_5765f78b0ee4);
+    const IID: ::windows::core::GUID = <ILampArrayCustomEffect as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LampArrayCustomEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayCustomEffect";
@@ -1521,7 +1521,7 @@ unsafe impl ::windows::core::RuntimeType for LampArrayEffectPlaylist {
 }
 unsafe impl ::windows::core::Interface for LampArrayEffectPlaylist {
     type Vtable = ILampArrayEffectPlaylist_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7de58bfe_6f61_4103_98c7_d6632f7b9169);
+    const IID: ::windows::core::GUID = <ILampArrayEffectPlaylist as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LampArrayEffectPlaylist {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayEffectPlaylist";
@@ -1801,7 +1801,7 @@ unsafe impl ::windows::core::RuntimeType for LampArraySolidEffect {
 }
 unsafe impl ::windows::core::Interface for LampArraySolidEffect {
     type Vtable = ILampArraySolidEffect_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x441f8213_43cc_4b33_80eb_c6ddde7dc8ed);
+    const IID: ::windows::core::GUID = <ILampArraySolidEffect as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LampArraySolidEffect {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArraySolidEffect";
@@ -1929,7 +1929,7 @@ unsafe impl ::windows::core::RuntimeType for LampArrayUpdateRequestedEventArgs {
 }
 unsafe impl ::windows::core::Interface for LampArrayUpdateRequestedEventArgs {
     type Vtable = ILampArrayUpdateRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73560d6a_576a_48af_8539_67ffa0ab3516);
+    const IID: ::windows::core::GUID = <ILampArrayUpdateRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LampArrayUpdateRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.Lights.Effects.LampArrayUpdateRequestedEventArgs";

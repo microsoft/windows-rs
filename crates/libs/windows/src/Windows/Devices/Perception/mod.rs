@@ -1923,7 +1923,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionColorFrame {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionColorFrame {
     type Vtable = IPerceptionColorFrame_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe621549_2cbf_4f94_9861_f817ea317747);
+    const IID: ::windows::core::GUID = <IPerceptionColorFrame as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PerceptionColorFrame {
@@ -2059,7 +2059,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionColorFrameArrivedEventArg
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionColorFrameArrivedEventArgs {
     type Vtable = IPerceptionColorFrameArrivedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fad02d5_86f7_4d8d_b966_5a3761ba9f59);
+    const IID: ::windows::core::GUID = <IPerceptionColorFrameArrivedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PerceptionColorFrameArrivedEventArgs {
@@ -2205,7 +2205,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionColorFrameReader {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionColorFrameReader {
     type Vtable = IPerceptionColorFrameReader_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7650f56e_b9f5_461b_83ad_f222af2aaadc);
+    const IID: ::windows::core::GUID = <IPerceptionColorFrameReader as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PerceptionColorFrameReader {
@@ -2616,7 +2616,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionColorFrameSource {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionColorFrameSource {
     type Vtable = IPerceptionColorFrameSource_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc6dba7c_0b58_468d_9ca1_6db04cc0477c);
+    const IID: ::windows::core::GUID = <IPerceptionColorFrameSource as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PerceptionColorFrameSource {
@@ -2717,7 +2717,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionColorFrameSourceAddedEven
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionColorFrameSourceAddedEventArgs {
     type Vtable = IPerceptionColorFrameSourceAddedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd16bf4e6_da24_442c_bbd5_55549b5b94f3);
+    const IID: ::windows::core::GUID = <IPerceptionColorFrameSourceAddedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PerceptionColorFrameSourceAddedEventArgs {
@@ -2818,7 +2818,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionColorFrameSourceRemovedEv
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionColorFrameSourceRemovedEventArgs {
     type Vtable = IPerceptionColorFrameSourceRemovedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd277fa69_eb4c_42ef_ba4f_288f615c93c1);
+    const IID: ::windows::core::GUID = <IPerceptionColorFrameSourceRemovedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PerceptionColorFrameSourceRemovedEventArgs {
@@ -2991,7 +2991,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionColorFrameSourceWatcher {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionColorFrameSourceWatcher {
     type Vtable = IPerceptionColorFrameSourceWatcher_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96bd1392_e667_40c4_89f9_1462dea6a9cc);
+    const IID: ::windows::core::GUID = <IPerceptionColorFrameSourceWatcher as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PerceptionColorFrameSourceWatcher {
@@ -3113,7 +3113,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionControlSession {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionControlSession {
     type Vtable = IPerceptionControlSession_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99998653_5a3d_417f_9239_f1889e548b48);
+    const IID: ::windows::core::GUID = <IPerceptionControlSession as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PerceptionControlSession {
@@ -3264,7 +3264,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionDepthCorrelatedCameraIntr
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionDepthCorrelatedCameraIntrinsics {
     type Vtable = IPerceptionDepthCorrelatedCameraIntrinsics_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6548ca01_86de_5be1_6582_807fcf4c95cf);
+    const IID: ::windows::core::GUID = <IPerceptionDepthCorrelatedCameraIntrinsics as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PerceptionDepthCorrelatedCameraIntrinsics {
@@ -3389,7 +3389,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionDepthCorrelatedCoordinate
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionDepthCorrelatedCoordinateMapper {
     type Vtable = IPerceptionDepthCorrelatedCoordinateMapper_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b4d9d1d_b5f6_469c_b8c2_b97a45e6863b);
+    const IID: ::windows::core::GUID = <IPerceptionDepthCorrelatedCoordinateMapper as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PerceptionDepthCorrelatedCoordinateMapper {
@@ -3496,7 +3496,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionDepthFrame {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionDepthFrame {
     type Vtable = IPerceptionDepthFrame_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa37b81fc_9906_4ffd_9161_0024b360b657);
+    const IID: ::windows::core::GUID = <IPerceptionDepthFrame as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PerceptionDepthFrame {
@@ -3632,7 +3632,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionDepthFrameArrivedEventArg
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionDepthFrameArrivedEventArgs {
     type Vtable = IPerceptionDepthFrameArrivedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x443d25b2_b282_4637_9173_ac978435c985);
+    const IID: ::windows::core::GUID = <IPerceptionDepthFrameArrivedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PerceptionDepthFrameArrivedEventArgs {
@@ -3778,7 +3778,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionDepthFrameReader {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionDepthFrameReader {
     type Vtable = IPerceptionDepthFrameReader_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1a3c09f_299b_4612_a4f7_270f25a096ec);
+    const IID: ::windows::core::GUID = <IPerceptionDepthFrameReader as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PerceptionDepthFrameReader {
@@ -4189,7 +4189,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionDepthFrameSource {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionDepthFrameSource {
     type Vtable = IPerceptionDepthFrameSource_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79d433d6_47fb_4df1_bfc9_f01d40bd9942);
+    const IID: ::windows::core::GUID = <IPerceptionDepthFrameSource as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PerceptionDepthFrameSource {
@@ -4290,7 +4290,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionDepthFrameSourceAddedEven
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionDepthFrameSourceAddedEventArgs {
     type Vtable = IPerceptionDepthFrameSourceAddedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93a48168_8bf8_45d2_a2f8_4ac0931cc7a6);
+    const IID: ::windows::core::GUID = <IPerceptionDepthFrameSourceAddedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PerceptionDepthFrameSourceAddedEventArgs {
@@ -4391,7 +4391,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionDepthFrameSourceRemovedEv
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionDepthFrameSourceRemovedEventArgs {
     type Vtable = IPerceptionDepthFrameSourceRemovedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0c0cc4d_e96c_4d81_86dd_38b95e49c6df);
+    const IID: ::windows::core::GUID = <IPerceptionDepthFrameSourceRemovedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PerceptionDepthFrameSourceRemovedEventArgs {
@@ -4564,7 +4564,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionDepthFrameSourceWatcher {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionDepthFrameSourceWatcher {
     type Vtable = IPerceptionDepthFrameSourceWatcher_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x780e96d1_8d02_4d2b_ada4_5ba624a0eb10);
+    const IID: ::windows::core::GUID = <IPerceptionDepthFrameSourceWatcher as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PerceptionDepthFrameSourceWatcher {
@@ -4712,7 +4712,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionFrameSourcePropertiesChan
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionFrameSourcePropertiesChangedEventArgs {
     type Vtable = IPerceptionFrameSourcePropertiesChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c68e068_bcf1_4ecc_b891_7625d1244b6b);
+    const IID: ::windows::core::GUID = <IPerceptionFrameSourcePropertiesChangedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PerceptionFrameSourcePropertiesChangedEventArgs {
@@ -4822,7 +4822,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionFrameSourcePropertyChange
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionFrameSourcePropertyChangeResult {
     type Vtable = IPerceptionFrameSourcePropertyChangeResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e33390a_3c90_4d22_b898_f42bba6418ff);
+    const IID: ::windows::core::GUID = <IPerceptionFrameSourcePropertyChangeResult as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PerceptionFrameSourcePropertyChangeResult {
@@ -4969,7 +4969,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionInfraredFrame {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionInfraredFrame {
     type Vtable = IPerceptionInfraredFrame_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0886276_849e_4c7a_8ae6_b56064532153);
+    const IID: ::windows::core::GUID = <IPerceptionInfraredFrame as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PerceptionInfraredFrame {
@@ -5105,7 +5105,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionInfraredFrameArrivedEvent
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionInfraredFrameArrivedEventArgs {
     type Vtable = IPerceptionInfraredFrameArrivedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f77fac7_b4bd_4857_9d50_be8ef075daef);
+    const IID: ::windows::core::GUID = <IPerceptionInfraredFrameArrivedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PerceptionInfraredFrameArrivedEventArgs {
@@ -5251,7 +5251,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionInfraredFrameReader {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionInfraredFrameReader {
     type Vtable = IPerceptionInfraredFrameReader_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7960ce18_d39b_4fc8_a04a_929734c6756c);
+    const IID: ::windows::core::GUID = <IPerceptionInfraredFrameReader as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PerceptionInfraredFrameReader {
@@ -5662,7 +5662,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionInfraredFrameSource {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionInfraredFrameSource {
     type Vtable = IPerceptionInfraredFrameSource_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55b08742_1808_494e_9e30_9d2a7be8f700);
+    const IID: ::windows::core::GUID = <IPerceptionInfraredFrameSource as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PerceptionInfraredFrameSource {
@@ -5763,7 +5763,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionInfraredFrameSourceAddedE
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionInfraredFrameSourceAddedEventArgs {
     type Vtable = IPerceptionInfraredFrameSourceAddedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d334120_95ce_4660_907a_d98035aa2b7c);
+    const IID: ::windows::core::GUID = <IPerceptionInfraredFrameSourceAddedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PerceptionInfraredFrameSourceAddedEventArgs {
@@ -5864,7 +5864,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionInfraredFrameSourceRemove
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionInfraredFrameSourceRemovedEventArgs {
     type Vtable = IPerceptionInfraredFrameSourceRemovedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea1a8071_7a70_4a61_af94_07303853f695);
+    const IID: ::windows::core::GUID = <IPerceptionInfraredFrameSourceRemovedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PerceptionInfraredFrameSourceRemovedEventArgs {
@@ -6037,7 +6037,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionInfraredFrameSourceWatche
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionInfraredFrameSourceWatcher {
     type Vtable = IPerceptionInfraredFrameSourceWatcher_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x383cff99_d70c_444d_a8b0_720c2e66fe3b);
+    const IID: ::windows::core::GUID = <IPerceptionInfraredFrameSourceWatcher as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PerceptionInfraredFrameSourceWatcher {
@@ -6183,7 +6183,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionVideoProfile {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionVideoProfile {
     type Vtable = IPerceptionVideoProfile_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75763ea3_011a_470e_8225_6f05ade25648);
+    const IID: ::windows::core::GUID = <IPerceptionVideoProfile as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PerceptionVideoProfile {

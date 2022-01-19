@@ -57,7 +57,7 @@ unsafe impl ::windows::core::RuntimeType for Direct3D11CaptureFrame {
 }
 unsafe impl ::windows::core::Interface for Direct3D11CaptureFrame {
     type Vtable = IDirect3D11CaptureFrame_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa50c623_38da_4b32_acf3_fa9734ad800e);
+    const IID: ::windows::core::GUID = <IDirect3D11CaptureFrame as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Direct3D11CaptureFrame {
     const NAME: &'static str = "Windows.Graphics.Capture.Direct3D11CaptureFrame";
@@ -234,7 +234,7 @@ unsafe impl ::windows::core::RuntimeType for Direct3D11CaptureFramePool {
 }
 unsafe impl ::windows::core::Interface for Direct3D11CaptureFramePool {
     type Vtable = IDirect3D11CaptureFramePool_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24eb6d22_1975_422e_82e7_780dbd8ddf24);
+    const IID: ::windows::core::GUID = <IDirect3D11CaptureFramePool as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Direct3D11CaptureFramePool {
     const NAME: &'static str = "Windows.Graphics.Capture.Direct3D11CaptureFramePool";
@@ -445,7 +445,7 @@ unsafe impl ::windows::core::RuntimeType for GraphicsCaptureItem {
 }
 unsafe impl ::windows::core::Interface for GraphicsCaptureItem {
     type Vtable = IGraphicsCaptureItem_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79c3f95b_31f7_4ec2_a464_632ef5d30760);
+    const IID: ::windows::core::GUID = <IGraphicsCaptureItem as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GraphicsCaptureItem {
     const NAME: &'static str = "Windows.Graphics.Capture.GraphicsCaptureItem";
@@ -534,7 +534,7 @@ unsafe impl ::windows::core::RuntimeType for GraphicsCapturePicker {
 }
 unsafe impl ::windows::core::Interface for GraphicsCapturePicker {
     type Vtable = IGraphicsCapturePicker_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a1711b3_ad79_4b4a_9336_1318fdde3539);
+    const IID: ::windows::core::GUID = <IGraphicsCapturePicker as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GraphicsCapturePicker {
     const NAME: &'static str = "Windows.Graphics.Capture.GraphicsCapturePicker";
@@ -656,7 +656,7 @@ unsafe impl ::windows::core::RuntimeType for GraphicsCaptureSession {
 }
 unsafe impl ::windows::core::Interface for GraphicsCaptureSession {
     type Vtable = IGraphicsCaptureSession_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x814e42a9_f70f_4ad7_939b_fddcc6eb880d);
+    const IID: ::windows::core::GUID = <IGraphicsCaptureSession as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GraphicsCaptureSession {
     const NAME: &'static str = "Windows.Graphics.Capture.GraphicsCaptureSession";

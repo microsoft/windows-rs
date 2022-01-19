@@ -115,7 +115,7 @@ unsafe impl ::windows::core::RuntimeType for AudioBuffer {
 }
 unsafe impl ::windows::core::Interface for AudioBuffer {
     type Vtable = IAudioBuffer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35175827_724b_4c6a_b130_f6537f9ae0d0);
+    const IID: ::windows::core::GUID = <IAudioBuffer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AudioBuffer {
     const NAME: &'static str = "Windows.Media.AudioBuffer";
@@ -378,7 +378,7 @@ unsafe impl ::windows::core::RuntimeType for AudioFrame {
 }
 unsafe impl ::windows::core::Interface for AudioFrame {
     type Vtable = IAudioFrame_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe36ac304_aab2_4277_9ed0_43cedf8e29c6);
+    const IID: ::windows::core::GUID = <IAudioFrame as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AudioFrame {
     const NAME: &'static str = "Windows.Media.AudioFrame";
@@ -535,7 +535,7 @@ unsafe impl ::windows::core::RuntimeType for AutoRepeatModeChangeRequestedEventA
 }
 unsafe impl ::windows::core::Interface for AutoRepeatModeChangeRequestedEventArgs {
     type Vtable = IAutoRepeatModeChangeRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea137efa_d852_438e_882b_c990109a78f4);
+    const IID: ::windows::core::GUID = <IAutoRepeatModeChangeRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AutoRepeatModeChangeRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.AutoRepeatModeChangeRequestedEventArgs";
@@ -1980,7 +1980,7 @@ unsafe impl ::windows::core::RuntimeType for ImageDisplayProperties {
 }
 unsafe impl ::windows::core::Interface for ImageDisplayProperties {
     type Vtable = IImageDisplayProperties_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd0bc7ef_54e7_411f_9933_f0e98b0a96d2);
+    const IID: ::windows::core::GUID = <IImageDisplayProperties as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ImageDisplayProperties {
     const NAME: &'static str = "Windows.Media.ImageDisplayProperties";
@@ -2364,7 +2364,7 @@ unsafe impl ::windows::core::RuntimeType for MediaExtensionManager {
 }
 unsafe impl ::windows::core::Interface for MediaExtensionManager {
     type Vtable = IMediaExtensionManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a25eaf5_242d_4dfb_97f4_69b7c42576ff);
+    const IID: ::windows::core::GUID = <IMediaExtensionManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaExtensionManager {
     const NAME: &'static str = "Windows.Media.MediaExtensionManager";
@@ -2555,7 +2555,7 @@ unsafe impl ::windows::core::RuntimeType for MediaProcessingTriggerDetails {
 }
 unsafe impl ::windows::core::Interface for MediaProcessingTriggerDetails {
     type Vtable = IMediaProcessingTriggerDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb8564ac_a351_4f4e_b4f0_9bf2408993db);
+    const IID: ::windows::core::GUID = <IMediaProcessingTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaProcessingTriggerDetails {
     const NAME: &'static str = "Windows.Media.MediaProcessingTriggerDetails";
@@ -2821,7 +2821,7 @@ unsafe impl ::windows::core::RuntimeType for MediaTimelineController {
 }
 unsafe impl ::windows::core::Interface for MediaTimelineController {
     type Vtable = IMediaTimelineController_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ed361f3_0b78_4360_bf71_0c841999ea1b);
+    const IID: ::windows::core::GUID = <IMediaTimelineController as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaTimelineController {
     const NAME: &'static str = "Windows.Media.MediaTimelineController";
@@ -2902,7 +2902,7 @@ unsafe impl ::windows::core::RuntimeType for MediaTimelineControllerFailedEventA
 }
 unsafe impl ::windows::core::Interface for MediaTimelineControllerFailedEventArgs {
     type Vtable = IMediaTimelineControllerFailedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8821f81d_3e77_43fb_be26_4fc87a044834);
+    const IID: ::windows::core::GUID = <IMediaTimelineControllerFailedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaTimelineControllerFailedEventArgs {
     const NAME: &'static str = "Windows.Media.MediaTimelineControllerFailedEventArgs";
@@ -3092,7 +3092,7 @@ unsafe impl ::windows::core::RuntimeType for MusicDisplayProperties {
 }
 unsafe impl ::windows::core::Interface for MusicDisplayProperties {
     type Vtable = IMusicDisplayProperties_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6bbf0c59_d0a0_4d26_92a0_f978e1d18e7b);
+    const IID: ::windows::core::GUID = <IMusicDisplayProperties as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MusicDisplayProperties {
     const NAME: &'static str = "Windows.Media.MusicDisplayProperties";
@@ -3174,7 +3174,7 @@ unsafe impl ::windows::core::RuntimeType for PlaybackPositionChangeRequestedEven
 }
 unsafe impl ::windows::core::Interface for PlaybackPositionChangeRequestedEventArgs {
     type Vtable = IPlaybackPositionChangeRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4493f88_eb28_4961_9c14_335e44f3e125);
+    const IID: ::windows::core::GUID = <IPlaybackPositionChangeRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PlaybackPositionChangeRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.PlaybackPositionChangeRequestedEventArgs";
@@ -3255,7 +3255,7 @@ unsafe impl ::windows::core::RuntimeType for PlaybackRateChangeRequestedEventArg
 }
 unsafe impl ::windows::core::Interface for PlaybackRateChangeRequestedEventArgs {
     type Vtable = IPlaybackRateChangeRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ce2c41f_3cd6_4f77_9ba7_eb27c26a2140);
+    const IID: ::windows::core::GUID = <IPlaybackRateChangeRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PlaybackRateChangeRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.PlaybackRateChangeRequestedEventArgs";
@@ -3336,7 +3336,7 @@ unsafe impl ::windows::core::RuntimeType for ShuffleEnabledChangeRequestedEventA
 }
 unsafe impl ::windows::core::Interface for ShuffleEnabledChangeRequestedEventArgs {
     type Vtable = IShuffleEnabledChangeRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49b593fe_4fd0_4666_a314_c0e01940d302);
+    const IID: ::windows::core::GUID = <IShuffleEnabledChangeRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ShuffleEnabledChangeRequestedEventArgs {
     const NAME: &'static str = "Windows.Media.ShuffleEnabledChangeRequestedEventArgs";
@@ -3756,7 +3756,7 @@ unsafe impl ::windows::core::RuntimeType for SystemMediaTransportControls {
 }
 unsafe impl ::windows::core::Interface for SystemMediaTransportControls {
     type Vtable = ISystemMediaTransportControls_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99fa3ff4_1742_42a6_902e_087d41f965ec);
+    const IID: ::windows::core::GUID = <ISystemMediaTransportControls as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SystemMediaTransportControls {
     const NAME: &'static str = "Windows.Media.SystemMediaTransportControls";
@@ -3873,7 +3873,7 @@ unsafe impl ::windows::core::RuntimeType for SystemMediaTransportControlsButtonP
 }
 unsafe impl ::windows::core::Interface for SystemMediaTransportControlsButtonPressedEventArgs {
     type Vtable = ISystemMediaTransportControlsButtonPressedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7f47116_a56f_4dc8_9e11_92031f4a87c2);
+    const IID: ::windows::core::GUID = <ISystemMediaTransportControlsButtonPressedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SystemMediaTransportControlsButtonPressedEventArgs {
     const NAME: &'static str = "Windows.Media.SystemMediaTransportControlsButtonPressedEventArgs";
@@ -4030,7 +4030,7 @@ unsafe impl ::windows::core::RuntimeType for SystemMediaTransportControlsDisplay
 }
 unsafe impl ::windows::core::Interface for SystemMediaTransportControlsDisplayUpdater {
     type Vtable = ISystemMediaTransportControlsDisplayUpdater_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8abbc53e_fa55_4ecf_ad8e_c984e5dd1550);
+    const IID: ::windows::core::GUID = <ISystemMediaTransportControlsDisplayUpdater as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SystemMediaTransportControlsDisplayUpdater {
     const NAME: &'static str = "Windows.Media.SystemMediaTransportControlsDisplayUpdater";
@@ -4138,7 +4138,7 @@ unsafe impl ::windows::core::RuntimeType for SystemMediaTransportControlsPropert
 }
 unsafe impl ::windows::core::Interface for SystemMediaTransportControlsPropertyChangedEventArgs {
     type Vtable = ISystemMediaTransportControlsPropertyChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0ca0936_339b_4cb3_8eeb_737607f56e08);
+    const IID: ::windows::core::GUID = <ISystemMediaTransportControlsPropertyChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SystemMediaTransportControlsPropertyChangedEventArgs {
     const NAME: &'static str = "Windows.Media.SystemMediaTransportControlsPropertyChangedEventArgs";
@@ -4293,7 +4293,7 @@ unsafe impl ::windows::core::RuntimeType for SystemMediaTransportControlsTimelin
 }
 unsafe impl ::windows::core::Interface for SystemMediaTransportControlsTimelineProperties {
     type Vtable = ISystemMediaTransportControlsTimelineProperties_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5125316a_c3a2_475b_8507_93534dc88f15);
+    const IID: ::windows::core::GUID = <ISystemMediaTransportControlsTimelineProperties as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SystemMediaTransportControlsTimelineProperties {
     const NAME: &'static str = "Windows.Media.SystemMediaTransportControlsTimelineProperties";
@@ -4401,7 +4401,7 @@ unsafe impl ::windows::core::RuntimeType for VideoDisplayProperties {
 }
 unsafe impl ::windows::core::Interface for VideoDisplayProperties {
     type Vtable = IVideoDisplayProperties_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5609fdb1_5d2d_4872_8170_45dee5bc2f5c);
+    const IID: ::windows::core::GUID = <IVideoDisplayProperties as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VideoDisplayProperties {
     const NAME: &'static str = "Windows.Media.VideoDisplayProperties";
@@ -4676,7 +4676,7 @@ unsafe impl ::windows::core::RuntimeType for VideoFrame {
 }
 unsafe impl ::windows::core::Interface for VideoFrame {
     type Vtable = IVideoFrame_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cc06625_90fc_4c92_bd95_7ded21819d1c);
+    const IID: ::windows::core::GUID = <IVideoFrame as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VideoFrame {
     const NAME: &'static str = "Windows.Media.VideoFrame";

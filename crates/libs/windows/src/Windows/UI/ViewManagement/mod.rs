@@ -65,7 +65,7 @@ unsafe impl ::windows::core::RuntimeType for AccessibilitySettings {
 }
 unsafe impl ::windows::core::Interface for AccessibilitySettings {
     type Vtable = IAccessibilitySettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe0e8147_c4c0_4562_b962_1327b52ad5b9);
+    const IID: ::windows::core::GUID = <IAccessibilitySettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AccessibilitySettings {
     const NAME: &'static str = "Windows.UI.ViewManagement.AccessibilitySettings";
@@ -164,7 +164,7 @@ unsafe impl ::windows::core::RuntimeType for ActivationViewSwitcher {
 }
 unsafe impl ::windows::core::Interface for ActivationViewSwitcher {
     type Vtable = IActivationViewSwitcher_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdca71bb6_7350_492b_aac7_c8a13d7224ad);
+    const IID: ::windows::core::GUID = <IActivationViewSwitcher as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ActivationViewSwitcher {
     const NAME: &'static str = "Windows.UI.ViewManagement.ActivationViewSwitcher";
@@ -640,7 +640,7 @@ unsafe impl ::windows::core::RuntimeType for ApplicationView {
 }
 unsafe impl ::windows::core::Interface for ApplicationView {
     type Vtable = IApplicationView_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd222d519_4361_451e_96c4_60f4f9742db0);
+    const IID: ::windows::core::GUID = <IApplicationView as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ApplicationView {
     const NAME: &'static str = "Windows.UI.ViewManagement.ApplicationView";
@@ -757,7 +757,7 @@ unsafe impl ::windows::core::RuntimeType for ApplicationViewConsolidatedEventArg
 }
 unsafe impl ::windows::core::Interface for ApplicationViewConsolidatedEventArgs {
     type Vtable = IApplicationViewConsolidatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x514449ec_7ea2_4de7_a6a6_7dfbaaebb6fb);
+    const IID: ::windows::core::GUID = <IApplicationViewConsolidatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ApplicationViewConsolidatedEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.ApplicationViewConsolidatedEventArgs";
@@ -905,7 +905,7 @@ unsafe impl ::windows::core::RuntimeType for ApplicationViewScaling {
 }
 unsafe impl ::windows::core::Interface for ApplicationViewScaling {
     type Vtable = IApplicationViewScaling_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d0ddc23_23f3_4b2d_84fe_74bf37b48b66);
+    const IID: ::windows::core::GUID = <IApplicationViewScaling as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ApplicationViewScaling {
     const NAME: &'static str = "Windows.UI.ViewManagement.ApplicationViewScaling";
@@ -1353,7 +1353,7 @@ unsafe impl ::windows::core::RuntimeType for ApplicationViewTitleBar {
 }
 unsafe impl ::windows::core::Interface for ApplicationViewTitleBar {
     type Vtable = IApplicationViewTitleBar_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00924ac0_932b_4a6b_9c4b_dc38c82478ce);
+    const IID: ::windows::core::GUID = <IApplicationViewTitleBar as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ApplicationViewTitleBar {
     const NAME: &'static str = "Windows.UI.ViewManagement.ApplicationViewTitleBar";
@@ -1458,7 +1458,7 @@ unsafe impl ::windows::core::RuntimeType for ApplicationViewTransferContext {
 }
 unsafe impl ::windows::core::Interface for ApplicationViewTransferContext {
     type Vtable = IApplicationViewTransferContext_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8574bc63_3c17_408e_9408_8a1a9ea81bfa);
+    const IID: ::windows::core::GUID = <IApplicationViewTransferContext as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ApplicationViewTransferContext {
     const NAME: &'static str = "Windows.UI.ViewManagement.ApplicationViewTransferContext";
@@ -2798,7 +2798,7 @@ unsafe impl ::windows::core::RuntimeType for InputPane {
 }
 unsafe impl ::windows::core::Interface for InputPane {
     type Vtable = IInputPane_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x640ada70_06f3_4c87_a678_9829c9127c28);
+    const IID: ::windows::core::GUID = <IInputPane as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InputPane {
     const NAME: &'static str = "Windows.UI.ViewManagement.InputPane";
@@ -2891,7 +2891,7 @@ unsafe impl ::windows::core::RuntimeType for InputPaneVisibilityEventArgs {
 }
 unsafe impl ::windows::core::Interface for InputPaneVisibilityEventArgs {
     type Vtable = IInputPaneVisibilityEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd243e016_d907_4fcc_bb8d_f77baa5028f1);
+    const IID: ::windows::core::GUID = <IInputPaneVisibilityEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InputPaneVisibilityEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.InputPaneVisibilityEventArgs";
@@ -3174,7 +3174,7 @@ unsafe impl ::windows::core::RuntimeType for StatusBar {
 }
 unsafe impl ::windows::core::Interface for StatusBar {
     type Vtable = IStatusBar_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ffcc5bf_98d0_4864_b1e8_b3f4020be8b4);
+    const IID: ::windows::core::GUID = <IStatusBar as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StatusBar {
     const NAME: &'static str = "Windows.UI.ViewManagement.StatusBar";
@@ -3293,7 +3293,7 @@ unsafe impl ::windows::core::RuntimeType for StatusBarProgressIndicator {
 }
 unsafe impl ::windows::core::Interface for StatusBarProgressIndicator {
     type Vtable = IStatusBarProgressIndicator_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76cb2670_a3d7_49cf_8200_4f3eedca27bb);
+    const IID: ::windows::core::GUID = <IStatusBarProgressIndicator as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StatusBarProgressIndicator {
     const NAME: &'static str = "Windows.UI.ViewManagement.StatusBarProgressIndicator";
@@ -3691,7 +3691,7 @@ unsafe impl ::windows::core::RuntimeType for UISettings {
 }
 unsafe impl ::windows::core::Interface for UISettings {
     type Vtable = IUISettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85361600_1c63_4627_bcb1_3a89e0bc9c55);
+    const IID: ::windows::core::GUID = <IUISettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UISettings {
     const NAME: &'static str = "Windows.UI.ViewManagement.UISettings";
@@ -3763,7 +3763,7 @@ unsafe impl ::windows::core::RuntimeType for UISettingsAnimationsEnabledChangedE
 }
 unsafe impl ::windows::core::Interface for UISettingsAnimationsEnabledChangedEventArgs {
     type Vtable = IUISettingsAnimationsEnabledChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c7b4b3d_2ea1_533e_894d_415bc5243c29);
+    const IID: ::windows::core::GUID = <IUISettingsAnimationsEnabledChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UISettingsAnimationsEnabledChangedEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.UISettingsAnimationsEnabledChangedEventArgs";
@@ -3835,7 +3835,7 @@ unsafe impl ::windows::core::RuntimeType for UISettingsAutoHideScrollBarsChanged
 }
 unsafe impl ::windows::core::Interface for UISettingsAutoHideScrollBarsChangedEventArgs {
     type Vtable = IUISettingsAutoHideScrollBarsChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87afd4b2_9146_5f02_8f6b_06d454174c0f);
+    const IID: ::windows::core::GUID = <IUISettingsAutoHideScrollBarsChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UISettingsAutoHideScrollBarsChangedEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.UISettingsAutoHideScrollBarsChangedEventArgs";
@@ -3907,7 +3907,7 @@ unsafe impl ::windows::core::RuntimeType for UISettingsMessageDurationChangedEve
 }
 unsafe impl ::windows::core::Interface for UISettingsMessageDurationChangedEventArgs {
     type Vtable = IUISettingsMessageDurationChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x338aad52_4a5d_5b59_8002_d930f608fd6e);
+    const IID: ::windows::core::GUID = <IUISettingsMessageDurationChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UISettingsMessageDurationChangedEventArgs {
     const NAME: &'static str = "Windows.UI.ViewManagement.UISettingsMessageDurationChangedEventArgs";
@@ -4000,7 +4000,7 @@ unsafe impl ::windows::core::RuntimeType for UIViewSettings {
 }
 unsafe impl ::windows::core::Interface for UIViewSettings {
     type Vtable = IUIViewSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc63657f6_8850_470d_88f8_455e16ea2c26);
+    const IID: ::windows::core::GUID = <IUIViewSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UIViewSettings {
     const NAME: &'static str = "Windows.UI.ViewManagement.UIViewSettings";
@@ -4141,7 +4141,7 @@ unsafe impl ::windows::core::RuntimeType for ViewModePreferences {
 }
 unsafe impl ::windows::core::Interface for ViewModePreferences {
     type Vtable = IViewModePreferences_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x878fcd3a_0b99_42c9_84d0_d3f1d403554b);
+    const IID: ::windows::core::GUID = <IViewModePreferences as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ViewModePreferences {
     const NAME: &'static str = "Windows.UI.ViewManagement.ViewModePreferences";

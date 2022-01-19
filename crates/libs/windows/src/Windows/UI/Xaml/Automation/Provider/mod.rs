@@ -1322,7 +1322,7 @@ unsafe impl ::windows::core::RuntimeType for IRawElementProviderSimple {
 }
 unsafe impl ::windows::core::Interface for IRawElementProviderSimple {
     type Vtable = IIRawElementProviderSimple_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec752224_9b77_4720_bb21_4ac89fdb1afd);
+    const IID: ::windows::core::GUID = <IIRawElementProviderSimple as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for IRawElementProviderSimple {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Provider.IRawElementProviderSimple";

@@ -73,7 +73,7 @@ unsafe impl ::windows::core::RuntimeType for FrameNavigationOptions {
 }
 unsafe impl ::windows::core::Interface for FrameNavigationOptions {
     type Vtable = IFrameNavigationOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb539ad2a_9fb7_520a_8f41_57a50c59cf92);
+    const IID: ::windows::core::GUID = <IFrameNavigationOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FrameNavigationOptions {
     const NAME: &'static str = "Windows.UI.Xaml.Navigation.FrameNavigationOptions";
@@ -532,7 +532,7 @@ unsafe impl ::windows::core::RuntimeType for NavigatingCancelEventArgs {
 }
 unsafe impl ::windows::core::Interface for NavigatingCancelEventArgs {
     type Vtable = INavigatingCancelEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd1d67ae_eafb_4079_be80_6dc92a03aedf);
+    const IID: ::windows::core::GUID = <INavigatingCancelEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for NavigatingCancelEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Navigation.NavigatingCancelEventArgs";
@@ -769,7 +769,7 @@ unsafe impl ::windows::core::RuntimeType for NavigationEventArgs {
 }
 unsafe impl ::windows::core::Interface for NavigationEventArgs {
     type Vtable = INavigationEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6aa9834_6691_44d1_bdf7_58820c27b0d0);
+    const IID: ::windows::core::GUID = <INavigationEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for NavigationEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Navigation.NavigationEventArgs";
@@ -872,7 +872,7 @@ unsafe impl ::windows::core::RuntimeType for NavigationFailedEventArgs {
 }
 unsafe impl ::windows::core::Interface for NavigationFailedEventArgs {
     type Vtable = INavigationFailedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11c1dff7_36c2_4102_b2ef_0217a97289b3);
+    const IID: ::windows::core::GUID = <INavigationFailedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for NavigationFailedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Navigation.NavigationFailedEventArgs";
@@ -1182,7 +1182,7 @@ unsafe impl ::windows::core::RuntimeType for PageStackEntry {
 }
 unsafe impl ::windows::core::Interface for PageStackEntry {
     type Vtable = IPageStackEntry_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef8814a6_9388_4aca_8572_405194069080);
+    const IID: ::windows::core::GUID = <IPageStackEntry as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PageStackEntry {
     const NAME: &'static str = "Windows.UI.Xaml.Navigation.PageStackEntry";

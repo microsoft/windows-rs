@@ -177,7 +177,7 @@ unsafe impl ::windows::core::RuntimeType for ControlChannelTrigger {
 }
 unsafe impl ::windows::core::Interface for ControlChannelTrigger {
     type Vtable = IControlChannelTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d1431a7_ee96_40e8_a199_8703cd969ec3);
+    const IID: ::windows::core::GUID = <IControlChannelTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ControlChannelTrigger {
     const NAME: &'static str = "Windows.Networking.Sockets.ControlChannelTrigger";
@@ -544,7 +544,7 @@ unsafe impl ::windows::core::RuntimeType for DatagramSocket {
 }
 unsafe impl ::windows::core::Interface for DatagramSocket {
     type Vtable = IDatagramSocket_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fe25bbb_c3bc_4677_8446_ca28a465a3af);
+    const IID: ::windows::core::GUID = <IDatagramSocket as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DatagramSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocket";
@@ -708,7 +708,7 @@ unsafe impl ::windows::core::RuntimeType for DatagramSocketControl {
 }
 unsafe impl ::windows::core::Interface for DatagramSocketControl {
     type Vtable = IDatagramSocketControl_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52ac3f2e_349a_4135_bb58_b79b2647d390);
+    const IID: ::windows::core::GUID = <IDatagramSocketControl as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DatagramSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocketControl";
@@ -813,7 +813,7 @@ unsafe impl ::windows::core::RuntimeType for DatagramSocketInformation {
 }
 unsafe impl ::windows::core::Interface for DatagramSocketInformation {
     type Vtable = IDatagramSocketInformation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f1a569a_55fb_48cd_9706_7a974f7b1585);
+    const IID: ::windows::core::GUID = <IDatagramSocketInformation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DatagramSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocketInformation";
@@ -928,7 +928,7 @@ unsafe impl ::windows::core::RuntimeType for DatagramSocketMessageReceivedEventA
 }
 unsafe impl ::windows::core::Interface for DatagramSocketMessageReceivedEventArgs {
     type Vtable = IDatagramSocketMessageReceivedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e2ddca2_1712_4ce4_b179_8c652c6d107e);
+    const IID: ::windows::core::GUID = <IDatagramSocketMessageReceivedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DatagramSocketMessageReceivedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.DatagramSocketMessageReceivedEventArgs";
@@ -3144,7 +3144,7 @@ unsafe impl ::windows::core::RuntimeType for MessageWebSocket {
 }
 unsafe impl ::windows::core::Interface for MessageWebSocket {
     type Vtable = IMessageWebSocket_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33727d08_34d5_4746_ad7b_8dde5bc2ef88);
+    const IID: ::windows::core::GUID = <IMessageWebSocket as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MessageWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.MessageWebSocket";
@@ -3404,7 +3404,7 @@ unsafe impl ::windows::core::RuntimeType for MessageWebSocketControl {
 }
 unsafe impl ::windows::core::Interface for MessageWebSocketControl {
     type Vtable = IMessageWebSocketControl_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8118388a_c629_4f0a_80fb_81fc05538862);
+    const IID: ::windows::core::GUID = <IMessageWebSocketControl as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MessageWebSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.MessageWebSocketControl";
@@ -3580,7 +3580,7 @@ unsafe impl ::windows::core::RuntimeType for MessageWebSocketInformation {
 }
 unsafe impl ::windows::core::Interface for MessageWebSocketInformation {
     type Vtable = IWebSocketInformation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e01e316_c92a_47a5_b25f_07847639d181);
+    const IID: ::windows::core::GUID = <IWebSocketInformation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MessageWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.MessageWebSocketInformation";
@@ -3731,7 +3731,7 @@ unsafe impl ::windows::core::RuntimeType for MessageWebSocketMessageReceivedEven
 }
 unsafe impl ::windows::core::Interface for MessageWebSocketMessageReceivedEventArgs {
     type Vtable = IMessageWebSocketMessageReceivedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x478c22ac_4c4b_42ed_9ed7_1ef9f94fa3d5);
+    const IID: ::windows::core::GUID = <IMessageWebSocketMessageReceivedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MessageWebSocketMessageReceivedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.MessageWebSocketMessageReceivedEventArgs";
@@ -3937,7 +3937,7 @@ unsafe impl ::windows::core::RuntimeType for ServerMessageWebSocket {
 }
 unsafe impl ::windows::core::Interface for ServerMessageWebSocket {
     type Vtable = IServerMessageWebSocket_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3ac9240_813b_5efd_7e11_ae2305fc77f1);
+    const IID: ::windows::core::GUID = <IServerMessageWebSocket as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ServerMessageWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerMessageWebSocket";
@@ -4049,7 +4049,7 @@ unsafe impl ::windows::core::RuntimeType for ServerMessageWebSocketControl {
 }
 unsafe impl ::windows::core::Interface for ServerMessageWebSocketControl {
     type Vtable = IServerMessageWebSocketControl_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69c2f051_1c1f_587a_4519_2181610192b7);
+    const IID: ::windows::core::GUID = <IServerMessageWebSocketControl as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ServerMessageWebSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerMessageWebSocketControl";
@@ -4146,7 +4146,7 @@ unsafe impl ::windows::core::RuntimeType for ServerMessageWebSocketInformation {
 }
 unsafe impl ::windows::core::Interface for ServerMessageWebSocketInformation {
     type Vtable = IServerMessageWebSocketInformation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc32b45f_4448_5505_6cc9_09afa8915f5d);
+    const IID: ::windows::core::GUID = <IServerMessageWebSocketInformation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ServerMessageWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerMessageWebSocketInformation";
@@ -4271,7 +4271,7 @@ unsafe impl ::windows::core::RuntimeType for ServerStreamWebSocket {
 }
 unsafe impl ::windows::core::Interface for ServerStreamWebSocket {
     type Vtable = IServerStreamWebSocket_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ced5bbf_74f6_55e4_79df_9132680dfee8);
+    const IID: ::windows::core::GUID = <IServerStreamWebSocket as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ServerStreamWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerStreamWebSocket";
@@ -4394,7 +4394,7 @@ unsafe impl ::windows::core::RuntimeType for ServerStreamWebSocketInformation {
 }
 unsafe impl ::windows::core::Interface for ServerStreamWebSocketInformation {
     type Vtable = IServerStreamWebSocketInformation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc32b45f_4448_5505_6cc9_09aba8915f5d);
+    const IID: ::windows::core::GUID = <IServerStreamWebSocketInformation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ServerStreamWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.ServerStreamWebSocketInformation";
@@ -4517,7 +4517,7 @@ unsafe impl ::windows::core::RuntimeType for SocketActivityContext {
 }
 unsafe impl ::windows::core::Interface for SocketActivityContext {
     type Vtable = ISocketActivityContext_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43b04d64_4c85_4396_a637_1d973f6ebd49);
+    const IID: ::windows::core::GUID = <ISocketActivityContext as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SocketActivityContext {
     const NAME: &'static str = "Windows.Networking.Sockets.SocketActivityContext";
@@ -4659,7 +4659,7 @@ unsafe impl ::windows::core::RuntimeType for SocketActivityInformation {
 }
 unsafe impl ::windows::core::Interface for SocketActivityInformation {
     type Vtable = ISocketActivityInformation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d8a42e4_a87e_4b74_9968_185b2511defe);
+    const IID: ::windows::core::GUID = <ISocketActivityInformation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SocketActivityInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.SocketActivityInformation";
@@ -4778,7 +4778,7 @@ unsafe impl ::windows::core::RuntimeType for SocketActivityTriggerDetails {
 }
 unsafe impl ::windows::core::Interface for SocketActivityTriggerDetails {
     type Vtable = ISocketActivityTriggerDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45f406a7_fc9f_4f81_acad_355fef51e67b);
+    const IID: ::windows::core::GUID = <ISocketActivityTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SocketActivityTriggerDetails {
     const NAME: &'static str = "Windows.Networking.Sockets.SocketActivityTriggerDetails";
@@ -5236,7 +5236,7 @@ unsafe impl ::windows::core::RuntimeType for StreamSocket {
 }
 unsafe impl ::windows::core::Interface for StreamSocket {
     type Vtable = IStreamSocket_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69a22cf3_fc7b_4857_af38_f6e7de6a5b49);
+    const IID: ::windows::core::GUID = <IStreamSocket as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StreamSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocket";
@@ -5450,7 +5450,7 @@ unsafe impl ::windows::core::RuntimeType for StreamSocketControl {
 }
 unsafe impl ::windows::core::Interface for StreamSocketControl {
     type Vtable = IStreamSocketControl_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe25adf1_92ab_4af3_9992_0f4c85e36cc4);
+    const IID: ::windows::core::GUID = <IStreamSocketControl as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StreamSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketControl";
@@ -5639,7 +5639,7 @@ unsafe impl ::windows::core::RuntimeType for StreamSocketInformation {
 }
 unsafe impl ::windows::core::Interface for StreamSocketInformation {
     type Vtable = IStreamSocketInformation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b80ae30_5e68_4205_88f0_dc85d2e25ded);
+    const IID: ::windows::core::GUID = <IStreamSocketInformation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StreamSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketInformation";
@@ -5821,7 +5821,7 @@ unsafe impl ::windows::core::RuntimeType for StreamSocketListener {
 }
 unsafe impl ::windows::core::Interface for StreamSocketListener {
     type Vtable = IStreamSocketListener_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff513437_df9f_4df0_bf82_0ec5d7b35aae);
+    const IID: ::windows::core::GUID = <IStreamSocketListener as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StreamSocketListener {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketListener";
@@ -5928,7 +5928,7 @@ unsafe impl ::windows::core::RuntimeType for StreamSocketListenerConnectionRecei
 }
 unsafe impl ::windows::core::Interface for StreamSocketListenerConnectionReceivedEventArgs {
     type Vtable = IStreamSocketListenerConnectionReceivedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c472ea9_373f_447b_85b1_ddd4548803ba);
+    const IID: ::windows::core::GUID = <IStreamSocketListenerConnectionReceivedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StreamSocketListenerConnectionReceivedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketListenerConnectionReceivedEventArgs";
@@ -6066,7 +6066,7 @@ unsafe impl ::windows::core::RuntimeType for StreamSocketListenerControl {
 }
 unsafe impl ::windows::core::Interface for StreamSocketListenerControl {
     type Vtable = IStreamSocketListenerControl_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20d8c576_8d8a_4dba_9722_a16c4d984980);
+    const IID: ::windows::core::GUID = <IStreamSocketListenerControl as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StreamSocketListenerControl {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketListenerControl";
@@ -6147,7 +6147,7 @@ unsafe impl ::windows::core::RuntimeType for StreamSocketListenerInformation {
 }
 unsafe impl ::windows::core::Interface for StreamSocketListenerInformation {
     type Vtable = IStreamSocketListenerInformation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe62ba82f_a63a_430b_bf62_29e93e5633b4);
+    const IID: ::windows::core::GUID = <IStreamSocketListenerInformation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StreamSocketListenerInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamSocketListenerInformation";
@@ -6316,7 +6316,7 @@ unsafe impl ::windows::core::RuntimeType for StreamWebSocket {
 }
 unsafe impl ::windows::core::Interface for StreamWebSocket {
     type Vtable = IStreamWebSocket_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd4a49d8_b289_45bb_97eb_c7525205a843);
+    const IID: ::windows::core::GUID = <IStreamWebSocket as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StreamWebSocket {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamWebSocket";
@@ -6550,7 +6550,7 @@ unsafe impl ::windows::core::RuntimeType for StreamWebSocketControl {
 }
 unsafe impl ::windows::core::Interface for StreamWebSocketControl {
     type Vtable = IStreamWebSocketControl_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4f478b1_a45a_48db_953a_645b7d964c07);
+    const IID: ::windows::core::GUID = <IStreamWebSocketControl as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StreamWebSocketControl {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamWebSocketControl";
@@ -6726,7 +6726,7 @@ unsafe impl ::windows::core::RuntimeType for StreamWebSocketInformation {
 }
 unsafe impl ::windows::core::Interface for StreamWebSocketInformation {
     type Vtable = IWebSocketInformation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e01e316_c92a_47a5_b25f_07847639d181);
+    const IID: ::windows::core::GUID = <IWebSocketInformation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StreamWebSocketInformation {
     const NAME: &'static str = "Windows.Networking.Sockets.StreamWebSocketInformation";
@@ -6859,7 +6859,7 @@ unsafe impl ::windows::core::RuntimeType for WebSocketClosedEventArgs {
 }
 unsafe impl ::windows::core::Interface for WebSocketClosedEventArgs {
     type Vtable = IWebSocketClosedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xceb78d07_d0a8_4703_a091_c8c2c0915bc3);
+    const IID: ::windows::core::GUID = <IWebSocketClosedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebSocketClosedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.WebSocketClosedEventArgs";
@@ -6973,7 +6973,7 @@ unsafe impl ::windows::core::RuntimeType for WebSocketKeepAlive {
 #[cfg(feature = "ApplicationModel_Background")]
 unsafe impl ::windows::core::Interface for WebSocketKeepAlive {
     type Vtable = super::super::ApplicationModel::Background::IBackgroundTask_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d13d534_fd12_43ce_8c22_ea1ff13c06df);
+    const IID: ::windows::core::GUID = <super::super::ApplicationModel::Background::IBackgroundTask as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "ApplicationModel_Background")]
 impl ::windows::core::RuntimeName for WebSocketKeepAlive {
@@ -7132,7 +7132,7 @@ unsafe impl ::windows::core::RuntimeType for WebSocketServerCustomValidationRequ
 }
 unsafe impl ::windows::core::Interface for WebSocketServerCustomValidationRequestedEventArgs {
     type Vtable = IWebSocketServerCustomValidationRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffeffe48_022a_4ab7_8b36_e10af4640e6b);
+    const IID: ::windows::core::GUID = <IWebSocketServerCustomValidationRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebSocketServerCustomValidationRequestedEventArgs {
     const NAME: &'static str = "Windows.Networking.Sockets.WebSocketServerCustomValidationRequestedEventArgs";

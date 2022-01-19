@@ -110,7 +110,7 @@ unsafe impl ::windows::core::RuntimeType for AppCapability {
 }
 unsafe impl ::windows::core::Interface for AppCapability {
     type Vtable = IAppCapability_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c49d915_8a2a_4295_9437_2df7c396aff4);
+    const IID: ::windows::core::GUID = <IAppCapability as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppCapability {
     const NAME: &'static str = "Windows.Security.Authorization.AppCapabilityAccess.AppCapability";
@@ -182,7 +182,7 @@ unsafe impl ::windows::core::RuntimeType for AppCapabilityAccessChangedEventArgs
 }
 unsafe impl ::windows::core::Interface for AppCapabilityAccessChangedEventArgs {
     type Vtable = IAppCapabilityAccessChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a578d15_bdd7_457e_8cca_6f53bd2e5944);
+    const IID: ::windows::core::GUID = <IAppCapabilityAccessChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppCapabilityAccessChangedEventArgs {
     const NAME: &'static str = "Windows.Security.Authorization.AppCapabilityAccess.AppCapabilityAccessChangedEventArgs";

@@ -74,7 +74,7 @@ unsafe impl ::windows::core::RuntimeType for AggregateContactManager {
 }
 unsafe impl ::windows::core::Interface for AggregateContactManager {
     type Vtable = IAggregateContactManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0379d5dd_db5a_4fd3_b54e_4df17917a212);
+    const IID: ::windows::core::GUID = <IAggregateContactManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AggregateContactManager {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.AggregateContactManager";
@@ -583,7 +583,7 @@ unsafe impl ::windows::core::RuntimeType for Contact {
 }
 unsafe impl ::windows::core::Interface for Contact {
     type Vtable = IContact_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec0072f3_2118_4049_9ebc_17f0ab692b64);
+    const IID: ::windows::core::GUID = <IContact as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Contact {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.Contact";
@@ -754,7 +754,7 @@ unsafe impl ::windows::core::RuntimeType for ContactAddress {
 }
 unsafe impl ::windows::core::Interface for ContactAddress {
     type Vtable = IContactAddress_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9739d39a_42ce_4872_8d70_3063aa584b70);
+    const IID: ::windows::core::GUID = <IContactAddress as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactAddress {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactAddress";
@@ -948,7 +948,7 @@ unsafe impl ::windows::core::RuntimeType for ContactAnnotation {
 }
 unsafe impl ::windows::core::Interface for ContactAnnotation {
     type Vtable = IContactAnnotation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x821fc2ef_7d41_44a2_84c3_60a281dd7b86);
+    const IID: ::windows::core::GUID = <IContactAnnotation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactAnnotation {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactAnnotation";
@@ -1099,7 +1099,7 @@ unsafe impl ::windows::core::RuntimeType for ContactAnnotationList {
 }
 unsafe impl ::windows::core::Interface for ContactAnnotationList {
     type Vtable = IContactAnnotationList_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92a486aa_5c88_45b9_aad0_461888e68d8a);
+    const IID: ::windows::core::GUID = <IContactAnnotationList as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactAnnotationList {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactAnnotationList";
@@ -1314,7 +1314,7 @@ unsafe impl ::windows::core::RuntimeType for ContactAnnotationStore {
 }
 unsafe impl ::windows::core::Interface for ContactAnnotationStore {
     type Vtable = IContactAnnotationStore_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23acf4aa_7a77_457d_8203_987f4b31af09);
+    const IID: ::windows::core::GUID = <IContactAnnotationStore as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactAnnotationStore {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactAnnotationStore";
@@ -1432,7 +1432,7 @@ unsafe impl ::windows::core::RuntimeType for ContactBatch {
 }
 unsafe impl ::windows::core::Interface for ContactBatch {
     type Vtable = IContactBatch_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35d1972d_bfce_46bb_93f8_a5b06ec5e201);
+    const IID: ::windows::core::GUID = <IContactBatch as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactBatch {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactBatch";
@@ -1545,7 +1545,7 @@ unsafe impl ::windows::core::RuntimeType for ContactCardDelayedDataLoader {
 }
 unsafe impl ::windows::core::Interface for ContactCardDelayedDataLoader {
     type Vtable = IContactCardDelayedDataLoader_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb60af902_1546_434d_869c_6e3520760ef3);
+    const IID: ::windows::core::GUID = <IContactCardDelayedDataLoader as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactCardDelayedDataLoader {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactCardDelayedDataLoader";
@@ -1715,7 +1715,7 @@ unsafe impl ::windows::core::RuntimeType for ContactCardOptions {
 }
 unsafe impl ::windows::core::Interface for ContactCardOptions {
     type Vtable = IContactCardOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c0a4f7e_6ab6_4f3f_be72_817236eeea5b);
+    const IID: ::windows::core::GUID = <IContactCardOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactCardOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactCardOptions";
@@ -1836,7 +1836,7 @@ unsafe impl ::windows::core::RuntimeType for ContactChange {
 }
 unsafe impl ::windows::core::Interface for ContactChange {
     type Vtable = IContactChange_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x951d4b10_6a59_4720_a4e1_363d98c135d5);
+    const IID: ::windows::core::GUID = <IContactChange as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactChange {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactChange";
@@ -1928,7 +1928,7 @@ unsafe impl ::windows::core::RuntimeType for ContactChangeReader {
 }
 unsafe impl ::windows::core::Interface for ContactChangeReader {
     type Vtable = IContactChangeReader_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x217319fa_2d0c_42e0_a9da_3ecd56a78a47);
+    const IID: ::windows::core::GUID = <IContactChangeReader as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactChangeReader {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactChangeReader";
@@ -2027,7 +2027,7 @@ unsafe impl ::windows::core::RuntimeType for ContactChangeTracker {
 }
 unsafe impl ::windows::core::Interface for ContactChangeTracker {
     type Vtable = IContactChangeTracker_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e992952_309b_404d_9712_b37bd30278aa);
+    const IID: ::windows::core::GUID = <IContactChangeTracker as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactChangeTracker {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactChangeTracker";
@@ -2135,7 +2135,7 @@ unsafe impl ::windows::core::RuntimeType for ContactChangedDeferral {
 }
 unsafe impl ::windows::core::Interface for ContactChangedDeferral {
     type Vtable = IContactChangedDeferral_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5143ae8_1b03_46f8_b694_a523e83cfcb6);
+    const IID: ::windows::core::GUID = <IContactChangedDeferral as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactChangedDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactChangedDeferral";
@@ -2216,7 +2216,7 @@ unsafe impl ::windows::core::RuntimeType for ContactChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for ContactChangedEventArgs {
     type Vtable = IContactChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x525e7fd1_73f3_4b7d_a918_580be4366121);
+    const IID: ::windows::core::GUID = <IContactChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactChangedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactChangedEventArgs";
@@ -2322,7 +2322,7 @@ unsafe impl ::windows::core::RuntimeType for ContactConnectedServiceAccount {
 }
 unsafe impl ::windows::core::Interface for ContactConnectedServiceAccount {
     type Vtable = IContactConnectedServiceAccount_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6f83553_aa27_4731_8e4a_3dec5ce9eec9);
+    const IID: ::windows::core::GUID = <IContactConnectedServiceAccount as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactConnectedServiceAccount {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactConnectedServiceAccount";
@@ -2473,7 +2473,7 @@ unsafe impl ::windows::core::RuntimeType for ContactDate {
 }
 unsafe impl ::windows::core::Interface for ContactDate {
     type Vtable = IContactDate_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe98ae66_b205_4934_9174_0ff2b0565707);
+    const IID: ::windows::core::GUID = <IContactDate as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactDate {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactDate";
@@ -2621,7 +2621,7 @@ unsafe impl ::windows::core::RuntimeType for ContactEmail {
 }
 unsafe impl ::windows::core::Interface for ContactEmail {
     type Vtable = IContactEmail_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90a219a9_e3d3_4d63_993b_05b9a5393abf);
+    const IID: ::windows::core::GUID = <IContactEmail as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactEmail {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactEmail";
@@ -2781,7 +2781,7 @@ unsafe impl ::windows::core::RuntimeType for ContactField {
 }
 unsafe impl ::windows::core::Interface for ContactField {
     type Vtable = IContactField_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb176486a_d293_492c_a058_db575b3e3c0f);
+    const IID: ::windows::core::GUID = <IContactField as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactField {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactField";
@@ -2987,7 +2987,7 @@ unsafe impl ::windows::core::RuntimeType for ContactFieldFactory {
 }
 unsafe impl ::windows::core::Interface for ContactFieldFactory {
     type Vtable = IContactFieldFactory_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85e2913f_0e4a_4a3e_8994_406ae7ed646e);
+    const IID: ::windows::core::GUID = <IContactFieldFactory as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactFieldFactory {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactFieldFactory";
@@ -3163,7 +3163,7 @@ unsafe impl ::windows::core::RuntimeType for ContactGroup {
 }
 unsafe impl ::windows::core::Interface for ContactGroup {
     type Vtable = IContactGroup_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59bdeb01_9e9a_475d_bfe5_a37b806d852c);
+    const IID: ::windows::core::GUID = <IContactGroup as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactGroup {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactGroup";
@@ -3307,7 +3307,7 @@ unsafe impl ::windows::core::RuntimeType for ContactInformation {
 }
 unsafe impl ::windows::core::Interface for ContactInformation {
     type Vtable = IContactInformation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x275eb6d4_6a2e_4278_a914_e460d5f088f6);
+    const IID: ::windows::core::GUID = <IContactInformation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactInformation {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactInformation";
@@ -3470,7 +3470,7 @@ unsafe impl ::windows::core::RuntimeType for ContactInstantMessageField {
 }
 unsafe impl ::windows::core::Interface for ContactInstantMessageField {
     type Vtable = IContactInstantMessageField_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcce33b37_0d85_41fa_b43d_da599c3eb009);
+    const IID: ::windows::core::GUID = <IContactInstantMessageField as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactInstantMessageField {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactInstantMessageField";
@@ -3676,7 +3676,7 @@ unsafe impl ::windows::core::RuntimeType for ContactJobInfo {
 }
 unsafe impl ::windows::core::Interface for ContactJobInfo {
     type Vtable = IContactJobInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d117b4c_ce50_4b43_9e69_b18258ea5315);
+    const IID: ::windows::core::GUID = <IContactJobInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactJobInfo {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactJobInfo";
@@ -4028,7 +4028,7 @@ unsafe impl ::windows::core::RuntimeType for ContactList {
 }
 unsafe impl ::windows::core::Interface for ContactList {
     type Vtable = IContactList_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16ddec75_392c_4845_9dfb_51a3e7ef3e42);
+    const IID: ::windows::core::GUID = <IContactList as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactList {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactList";
@@ -4119,7 +4119,7 @@ unsafe impl ::windows::core::RuntimeType for ContactListLimitedWriteOperations {
 }
 unsafe impl ::windows::core::Interface for ContactListLimitedWriteOperations {
     type Vtable = IContactListLimitedWriteOperations_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe19813da_4a0b_44b8_9a1f_a0f3d218175f);
+    const IID: ::windows::core::GUID = <IContactListLimitedWriteOperations as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactListLimitedWriteOperations {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactListLimitedWriteOperations";
@@ -4669,7 +4669,7 @@ unsafe impl ::windows::core::RuntimeType for ContactListSyncConstraints {
 }
 unsafe impl ::windows::core::Interface for ContactListSyncConstraints {
     type Vtable = IContactListSyncConstraints_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2b0bf01_3062_4e2e_969d_018d1987f314);
+    const IID: ::windows::core::GUID = <IContactListSyncConstraints as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactListSyncConstraints {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactListSyncConstraints";
@@ -4809,7 +4809,7 @@ unsafe impl ::windows::core::RuntimeType for ContactListSyncManager {
 }
 unsafe impl ::windows::core::Interface for ContactListSyncManager {
     type Vtable = IContactListSyncManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x146e83be_7925_4acc_9de5_21ddd06f8674);
+    const IID: ::windows::core::GUID = <IContactListSyncManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactListSyncManager {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactListSyncManager";
@@ -5021,7 +5021,7 @@ unsafe impl ::windows::core::RuntimeType for ContactLocationField {
 }
 unsafe impl ::windows::core::Interface for ContactLocationField {
     type Vtable = IContactLocationField_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ec00f82_ab6e_4b36_89e3_b23bc0a1dacc);
+    const IID: ::windows::core::GUID = <IContactLocationField as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactLocationField {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactLocationField";
@@ -5379,7 +5379,7 @@ unsafe impl ::windows::core::RuntimeType for ContactManagerForUser {
 }
 unsafe impl ::windows::core::Interface for ContactManagerForUser {
     type Vtable = IContactManagerForUser_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb74bba57_1076_4bef_aef3_54686d18387d);
+    const IID: ::windows::core::GUID = <IContactManagerForUser as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactManagerForUser {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactManagerForUser";
@@ -5477,7 +5477,7 @@ unsafe impl ::windows::core::RuntimeType for ContactMatchReason {
 }
 unsafe impl ::windows::core::Interface for ContactMatchReason {
     type Vtable = IContactMatchReason_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc922504_e7d8_413e_95f4_b75c54c74077);
+    const IID: ::windows::core::GUID = <IContactMatchReason as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactMatchReason {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactMatchReason";
@@ -5660,7 +5660,7 @@ unsafe impl ::windows::core::RuntimeType for ContactPanel {
 }
 unsafe impl ::windows::core::Interface for ContactPanel {
     type Vtable = IContactPanel_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41bf1265_d2ee_4b97_a80a_7d8d64cca6f5);
+    const IID: ::windows::core::GUID = <IContactPanel as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactPanel {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactPanel";
@@ -5742,7 +5742,7 @@ unsafe impl ::windows::core::RuntimeType for ContactPanelClosingEventArgs {
 }
 unsafe impl ::windows::core::Interface for ContactPanelClosingEventArgs {
     type Vtable = IContactPanelClosingEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x222174d3_cf4b_46d7_b739_6edc16110bfb);
+    const IID: ::windows::core::GUID = <IContactPanelClosingEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactPanelClosingEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactPanelClosingEventArgs";
@@ -5828,7 +5828,7 @@ unsafe impl ::windows::core::RuntimeType for ContactPanelLaunchFullAppRequestedE
 }
 unsafe impl ::windows::core::Interface for ContactPanelLaunchFullAppRequestedEventArgs {
     type Vtable = IContactPanelLaunchFullAppRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88d61c0e_23b4_4be8_8afc_072c25a4190d);
+    const IID: ::windows::core::GUID = <IContactPanelLaunchFullAppRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactPanelLaunchFullAppRequestedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactPanelLaunchFullAppRequestedEventArgs";
@@ -5947,7 +5947,7 @@ unsafe impl ::windows::core::RuntimeType for ContactPhone {
 }
 unsafe impl ::windows::core::Interface for ContactPhone {
     type Vtable = IContactPhone_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x467dab65_2712_4f52_b783_9ea8111c63cd);
+    const IID: ::windows::core::GUID = <IContactPhone as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactPhone {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactPhone";
@@ -6173,7 +6173,7 @@ unsafe impl ::windows::core::RuntimeType for ContactPicker {
 }
 unsafe impl ::windows::core::Interface for ContactPicker {
     type Vtable = IContactPicker_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e09fd91_42f8_4055_90a0_896f96738936);
+    const IID: ::windows::core::GUID = <IContactPicker as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactPicker {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactPicker";
@@ -6393,7 +6393,7 @@ unsafe impl ::windows::core::RuntimeType for ContactQueryOptions {
 }
 unsafe impl ::windows::core::Interface for ContactQueryOptions {
     type Vtable = IContactQueryOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4408cc9e_7d7c_42f0_8ac7_f50733ecdbc1);
+    const IID: ::windows::core::GUID = <IContactQueryOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactQueryOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactQueryOptions";
@@ -6592,7 +6592,7 @@ unsafe impl ::windows::core::RuntimeType for ContactQueryTextSearch {
 }
 unsafe impl ::windows::core::Interface for ContactQueryTextSearch {
     type Vtable = IContactQueryTextSearch_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7e3f9cb_a957_439b_a0b7_1c02a1963ff0);
+    const IID: ::windows::core::GUID = <IContactQueryTextSearch as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactQueryTextSearch {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactQueryTextSearch";
@@ -6683,7 +6683,7 @@ unsafe impl ::windows::core::RuntimeType for ContactReader {
 }
 unsafe impl ::windows::core::Interface for ContactReader {
     type Vtable = IContactReader_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd397e42e_1488_42f2_bf64_253f4884bfed);
+    const IID: ::windows::core::GUID = <IContactReader as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactReader {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactReader";
@@ -6862,7 +6862,7 @@ unsafe impl ::windows::core::RuntimeType for ContactSignificantOther {
 }
 unsafe impl ::windows::core::Interface for ContactSignificantOther {
     type Vtable = IContactSignificantOther_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8873b5ab_c5fb_46d8_93fe_da3ff1934054);
+    const IID: ::windows::core::GUID = <IContactSignificantOther as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactSignificantOther {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactSignificantOther";
@@ -7062,7 +7062,7 @@ unsafe impl ::windows::core::RuntimeType for ContactStore {
 }
 unsafe impl ::windows::core::Interface for ContactStore {
     type Vtable = IContactStore_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c220b10_3a6c_4293_b9bc_fe987f6e0d52);
+    const IID: ::windows::core::GUID = <IContactStore as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactStore {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactStore";
@@ -7163,7 +7163,7 @@ unsafe impl ::windows::core::RuntimeType for ContactStoreNotificationTriggerDeta
 }
 unsafe impl ::windows::core::Interface for ContactStoreNotificationTriggerDetails {
     type Vtable = IContactStoreNotificationTriggerDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xabb298d6_878a_4f8b_a9ce_46bb7d1c84ce);
+    const IID: ::windows::core::GUID = <IContactStoreNotificationTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactStoreNotificationTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactStoreNotificationTriggerDetails";
@@ -7284,7 +7284,7 @@ unsafe impl ::windows::core::RuntimeType for ContactWebsite {
 }
 unsafe impl ::windows::core::Interface for ContactWebsite {
     type Vtable = IContactWebsite_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f130176_dc1b_4055_ad66_652f39d990e8);
+    const IID: ::windows::core::GUID = <IContactWebsite as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactWebsite {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.ContactWebsite";
@@ -7379,7 +7379,7 @@ unsafe impl ::windows::core::RuntimeType for FullContactCardOptions {
 }
 unsafe impl ::windows::core::Interface for FullContactCardOptions {
     type Vtable = IFullContactCardOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8744436c_5cf9_4683_bdca_a1fdebf8dbce);
+    const IID: ::windows::core::GUID = <IFullContactCardOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FullContactCardOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.FullContactCardOptions";
@@ -9797,7 +9797,7 @@ unsafe impl ::windows::core::RuntimeType for PinnedContactIdsQueryResult {
 }
 unsafe impl ::windows::core::Interface for PinnedContactIdsQueryResult {
     type Vtable = IPinnedContactIdsQueryResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d9b2552_1579_4ddc_871f_a30a3aea9ba1);
+    const IID: ::windows::core::GUID = <IPinnedContactIdsQueryResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PinnedContactIdsQueryResult {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.PinnedContactIdsQueryResult";
@@ -9963,7 +9963,7 @@ unsafe impl ::windows::core::RuntimeType for PinnedContactManager {
 }
 unsafe impl ::windows::core::Interface for PinnedContactManager {
     type Vtable = IPinnedContactManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcbc740c_e1d6_45c3_b8b6_a35604e167a0);
+    const IID: ::windows::core::GUID = <IPinnedContactManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PinnedContactManager {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.PinnedContactManager";

@@ -33,7 +33,7 @@ unsafe impl ::windows::core::RuntimeType for DesignerAppExitedEventArgs {
 }
 unsafe impl ::windows::core::Interface for DesignerAppExitedEventArgs {
     type Vtable = IDesignerAppExitedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6aac86a_0cad_410c_8f62_dc2936151c74);
+    const IID: ::windows::core::GUID = <IDesignerAppExitedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DesignerAppExitedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Hosting.DesignerAppExitedEventArgs";
@@ -165,7 +165,7 @@ unsafe impl ::windows::core::RuntimeType for DesignerAppManager {
 }
 unsafe impl ::windows::core::Interface for DesignerAppManager {
     type Vtable = IDesignerAppManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6272caa_d5c6_40cb_abd9_27ba43831bb7);
+    const IID: ::windows::core::GUID = <IDesignerAppManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DesignerAppManager {
     const NAME: &'static str = "Windows.UI.Xaml.Hosting.DesignerAppManager";
@@ -312,7 +312,7 @@ unsafe impl ::windows::core::RuntimeType for DesignerAppView {
 }
 unsafe impl ::windows::core::Interface for DesignerAppView {
     type Vtable = IDesignerAppView_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c777cea_dd71_4a84_a56f_dacb4b14706f);
+    const IID: ::windows::core::GUID = <IDesignerAppView as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DesignerAppView {
     const NAME: &'static str = "Windows.UI.Xaml.Hosting.DesignerAppView";
@@ -524,7 +524,7 @@ unsafe impl ::windows::core::RuntimeType for DesktopWindowXamlSource {
 }
 unsafe impl ::windows::core::Interface for DesktopWindowXamlSource {
     type Vtable = IDesktopWindowXamlSource_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd585bfe1_00ff_51be_ba1d_a1329956ea0a);
+    const IID: ::windows::core::GUID = <IDesktopWindowXamlSource as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DesktopWindowXamlSource {
     const NAME: &'static str = "Windows.UI.Xaml.Hosting.DesktopWindowXamlSource";
@@ -631,7 +631,7 @@ unsafe impl ::windows::core::RuntimeType for DesktopWindowXamlSourceGotFocusEven
 }
 unsafe impl ::windows::core::Interface for DesktopWindowXamlSourceGotFocusEventArgs {
     type Vtable = IDesktopWindowXamlSourceGotFocusEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39be4849_d9cc_5b70_8f05_1ad9a4aaa342);
+    const IID: ::windows::core::GUID = <IDesktopWindowXamlSourceGotFocusEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DesktopWindowXamlSourceGotFocusEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Hosting.DesktopWindowXamlSourceGotFocusEventArgs";
@@ -712,7 +712,7 @@ unsafe impl ::windows::core::RuntimeType for DesktopWindowXamlSourceTakeFocusReq
 }
 unsafe impl ::windows::core::Interface for DesktopWindowXamlSourceTakeFocusRequestedEventArgs {
     type Vtable = IDesktopWindowXamlSourceTakeFocusRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe61e4b9_a7af_52b3_bdb9_c3305c0b8df2);
+    const IID: ::windows::core::GUID = <IDesktopWindowXamlSourceTakeFocusRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DesktopWindowXamlSourceTakeFocusRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Hosting.DesktopWindowXamlSourceTakeFocusRequestedEventArgs";
@@ -864,7 +864,7 @@ unsafe impl ::windows::core::RuntimeType for ElementCompositionPreview {
 }
 unsafe impl ::windows::core::Interface for ElementCompositionPreview {
     type Vtable = IElementCompositionPreview_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6f1a676_cfe6_46ac_acf6_c4687bb65e60);
+    const IID: ::windows::core::GUID = <IElementCompositionPreview as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ElementCompositionPreview {
     const NAME: &'static str = "Windows.UI.Xaml.Hosting.ElementCompositionPreview";
@@ -1582,7 +1582,7 @@ unsafe impl ::windows::core::RuntimeType for WindowsXamlManager {
 }
 unsafe impl ::windows::core::Interface for WindowsXamlManager {
     type Vtable = IWindowsXamlManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56096c31_1aa0_5288_8818_6e74a2dcaff5);
+    const IID: ::windows::core::GUID = <IWindowsXamlManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WindowsXamlManager {
     const NAME: &'static str = "Windows.UI.Xaml.Hosting.WindowsXamlManager";
@@ -1768,7 +1768,7 @@ unsafe impl ::windows::core::RuntimeType for XamlSourceFocusNavigationRequest {
 }
 unsafe impl ::windows::core::Interface for XamlSourceFocusNavigationRequest {
     type Vtable = IXamlSourceFocusNavigationRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbb93bb5_1496_5a80_ac00_e757359755e6);
+    const IID: ::windows::core::GUID = <IXamlSourceFocusNavigationRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for XamlSourceFocusNavigationRequest {
     const NAME: &'static str = "Windows.UI.Xaml.Hosting.XamlSourceFocusNavigationRequest";
@@ -1861,7 +1861,7 @@ unsafe impl ::windows::core::RuntimeType for XamlSourceFocusNavigationResult {
 }
 unsafe impl ::windows::core::Interface for XamlSourceFocusNavigationResult {
     type Vtable = IXamlSourceFocusNavigationResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88d55a5f_9603_5d8f_9cc7_d1c4070d9801);
+    const IID: ::windows::core::GUID = <IXamlSourceFocusNavigationResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for XamlSourceFocusNavigationResult {
     const NAME: &'static str = "Windows.UI.Xaml.Hosting.XamlSourceFocusNavigationResult";
@@ -2033,7 +2033,7 @@ unsafe impl ::windows::core::RuntimeType for XamlUIPresenter {
 }
 unsafe impl ::windows::core::Interface for XamlUIPresenter {
     type Vtable = IXamlUIPresenter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa714944a_1619_4fc6_b31b_89512ef022a2);
+    const IID: ::windows::core::GUID = <IXamlUIPresenter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for XamlUIPresenter {
     const NAME: &'static str = "Windows.UI.Xaml.Hosting.XamlUIPresenter";

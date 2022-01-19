@@ -368,7 +368,7 @@ unsafe impl ::windows::core::RuntimeType for TargetedContentAction {
 }
 unsafe impl ::windows::core::Interface for TargetedContentAction {
     type Vtable = ITargetedContentAction_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd75b691e_6cd6_4ca0_9d8f_4728b0b7e6b6);
+    const IID: ::windows::core::GUID = <ITargetedContentAction as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TargetedContentAction {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentAction";
@@ -508,7 +508,7 @@ unsafe impl ::windows::core::RuntimeType for TargetedContentAvailabilityChangedE
 }
 unsafe impl ::windows::core::Interface for TargetedContentAvailabilityChangedEventArgs {
     type Vtable = ITargetedContentAvailabilityChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0f59d26_5927_4450_965c_1ceb7becde65);
+    const IID: ::windows::core::GUID = <ITargetedContentAvailabilityChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TargetedContentAvailabilityChangedEventArgs {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentAvailabilityChangedEventArgs";
@@ -598,7 +598,7 @@ unsafe impl ::windows::core::RuntimeType for TargetedContentChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for TargetedContentChangedEventArgs {
     type Vtable = ITargetedContentChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99d488c9_587e_4586_8ef7_b54ca9453a16);
+    const IID: ::windows::core::GUID = <ITargetedContentChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TargetedContentChangedEventArgs {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentChangedEventArgs";
@@ -724,7 +724,7 @@ unsafe impl ::windows::core::RuntimeType for TargetedContentCollection {
 }
 unsafe impl ::windows::core::Interface for TargetedContentCollection {
     type Vtable = ITargetedContentCollection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d4b66c5_f163_44ba_9f6e_e1a4c2bb559d);
+    const IID: ::windows::core::GUID = <ITargetedContentCollection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TargetedContentCollection {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentCollection";
@@ -851,7 +851,7 @@ unsafe impl ::windows::core::RuntimeType for TargetedContentContainer {
 }
 unsafe impl ::windows::core::Interface for TargetedContentContainer {
     type Vtable = ITargetedContentContainer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc2494c9_8837_47c2_850f_d79d64595926);
+    const IID: ::windows::core::GUID = <ITargetedContentContainer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TargetedContentContainer {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentContainer";
@@ -941,7 +941,7 @@ unsafe impl ::windows::core::RuntimeType for TargetedContentFile {
 #[cfg(feature = "Storage_Streams")]
 unsafe impl ::windows::core::Interface for TargetedContentFile {
     type Vtable = super::super::Storage::Streams::IRandomAccessStreamReference_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33ee3134_1dd6_4e3a_8067_d1c162e8642b);
+    const IID: ::windows::core::GUID = <super::super::Storage::Streams::IRandomAccessStreamReference as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Storage_Streams")]
 impl ::windows::core::RuntimeName for TargetedContentFile {
@@ -1076,7 +1076,7 @@ unsafe impl ::windows::core::RuntimeType for TargetedContentImage {
 }
 unsafe impl ::windows::core::Interface for TargetedContentImage {
     type Vtable = ITargetedContentImage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7a585d9_779f_4b1e_bbb1_8eaf53fbeab2);
+    const IID: ::windows::core::GUID = <ITargetedContentImage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TargetedContentImage {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentImage";
@@ -1258,7 +1258,7 @@ unsafe impl ::windows::core::RuntimeType for TargetedContentItem {
 }
 unsafe impl ::windows::core::Interface for TargetedContentItem {
     type Vtable = ITargetedContentItem_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38168dc4_276c_4c32_96ba_565c6e406e74);
+    const IID: ::windows::core::GUID = <ITargetedContentItem as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TargetedContentItem {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentItem";
@@ -1347,7 +1347,7 @@ unsafe impl ::windows::core::RuntimeType for TargetedContentItemState {
 }
 unsafe impl ::windows::core::Interface for TargetedContentItemState {
     type Vtable = ITargetedContentItemState_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73935454_4c65_4b47_a441_472de53c79b6);
+    const IID: ::windows::core::GUID = <ITargetedContentItemState as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TargetedContentItemState {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentItemState";
@@ -1452,7 +1452,7 @@ unsafe impl ::windows::core::RuntimeType for TargetedContentObject {
 }
 unsafe impl ::windows::core::Interface for TargetedContentObject {
     type Vtable = ITargetedContentObject_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x041d7969_2212_42d1_9dfa_88a8e3033aa3);
+    const IID: ::windows::core::GUID = <ITargetedContentObject as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TargetedContentObject {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentObject";
@@ -1563,7 +1563,7 @@ unsafe impl ::windows::core::RuntimeType for TargetedContentStateChangedEventArg
 }
 unsafe impl ::windows::core::Interface for TargetedContentStateChangedEventArgs {
     type Vtable = ITargetedContentStateChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a1cef3d_8073_4416_8df2_546835a6414f);
+    const IID: ::windows::core::GUID = <ITargetedContentStateChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TargetedContentStateChangedEventArgs {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentStateChangedEventArgs";
@@ -1718,7 +1718,7 @@ unsafe impl ::windows::core::RuntimeType for TargetedContentSubscription {
 }
 unsafe impl ::windows::core::Interface for TargetedContentSubscription {
     type Vtable = ITargetedContentSubscription_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x882c2c49_c652_4c7a_acad_1f7fa2986c73);
+    const IID: ::windows::core::GUID = <ITargetedContentSubscription as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TargetedContentSubscription {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentSubscription";
@@ -1835,7 +1835,7 @@ unsafe impl ::windows::core::RuntimeType for TargetedContentSubscriptionOptions 
 }
 unsafe impl ::windows::core::Interface for TargetedContentSubscriptionOptions {
     type Vtable = ITargetedContentSubscriptionOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61ee6ad0_2c83_421b_8467_413eaf1aeb97);
+    const IID: ::windows::core::GUID = <ITargetedContentSubscriptionOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TargetedContentSubscriptionOptions {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentSubscriptionOptions";
@@ -2045,7 +2045,7 @@ unsafe impl ::windows::core::RuntimeType for TargetedContentValue {
 }
 unsafe impl ::windows::core::Interface for TargetedContentValue {
     type Vtable = ITargetedContentValue_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaafde4b3_4215_4bf8_867f_43f04865f9bf);
+    const IID: ::windows::core::GUID = <ITargetedContentValue as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TargetedContentValue {
     const NAME: &'static str = "Windows.Services.TargetedContent.TargetedContentValue";

@@ -33,7 +33,7 @@ unsafe impl ::windows::core::RuntimeType for ErrorReceivedEventArgs {
 }
 unsafe impl ::windows::core::Interface for ErrorReceivedEventArgs {
     type Vtable = IErrorReceivedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcc6bf59_1283_4d8a_bfdf_566b33ddb28f);
+    const IID: ::windows::core::GUID = <IErrorReceivedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ErrorReceivedEventArgs {
     const NAME: &'static str = "Windows.Devices.SerialCommunication.ErrorReceivedEventArgs";
@@ -234,7 +234,7 @@ unsafe impl ::windows::core::RuntimeType for PinChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for PinChangedEventArgs {
     type Vtable = IPinChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2bf1db0_fc9c_4607_93d0_fa5e8343ee22);
+    const IID: ::windows::core::GUID = <IPinChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PinChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.SerialCommunication.PinChangedEventArgs";
@@ -585,7 +585,7 @@ unsafe impl ::windows::core::RuntimeType for SerialDevice {
 }
 unsafe impl ::windows::core::Interface for SerialDevice {
     type Vtable = ISerialDevice_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe187ccc6_2210_414f_b65a_f5553a03372a);
+    const IID: ::windows::core::GUID = <ISerialDevice as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SerialDevice {
     const NAME: &'static str = "Windows.Devices.SerialCommunication.SerialDevice";

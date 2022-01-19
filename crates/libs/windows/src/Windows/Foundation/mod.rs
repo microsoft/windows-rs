@@ -664,7 +664,7 @@ unsafe impl ::windows::core::RuntimeType for Deferral {
 }
 unsafe impl ::windows::core::Interface for Deferral {
     type Vtable = IDeferral_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6269732_3b7f_46a7_b40b_4fdca2a2c693);
+    const IID: ::windows::core::GUID = <IDeferral as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Deferral {
     const NAME: &'static str = "Windows.Foundation.Deferral";
@@ -3789,7 +3789,7 @@ unsafe impl ::windows::core::RuntimeType for MemoryBuffer {
 }
 unsafe impl ::windows::core::Interface for MemoryBuffer {
     type Vtable = IMemoryBuffer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfbc4dd2a_245b_11e4_af98_689423260cf8);
+    const IID: ::windows::core::GUID = <IMemoryBuffer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MemoryBuffer {
     const NAME: &'static str = "Windows.Foundation.MemoryBuffer";
@@ -4716,7 +4716,7 @@ unsafe impl ::windows::core::RuntimeType for Uri {
 }
 unsafe impl ::windows::core::Interface for Uri {
     type Vtable = IUriRuntimeClass_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e365e57_48b2_4160_956f_c7385120bbfc);
+    const IID: ::windows::core::GUID = <IUriRuntimeClass as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Uri {
     const NAME: &'static str = "Windows.Foundation.Uri";
@@ -4876,7 +4876,7 @@ unsafe impl ::windows::core::RuntimeType for WwwFormUrlDecoder {
 }
 unsafe impl ::windows::core::Interface for WwwFormUrlDecoder {
     type Vtable = IWwwFormUrlDecoderRuntimeClass_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd45a0451_f225_4542_9296_0e1df5d254df);
+    const IID: ::windows::core::GUID = <IWwwFormUrlDecoderRuntimeClass as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WwwFormUrlDecoder {
     const NAME: &'static str = "Windows.Foundation.WwwFormUrlDecoder";
@@ -5033,7 +5033,7 @@ unsafe impl ::windows::core::RuntimeType for WwwFormUrlDecoderEntry {
 }
 unsafe impl ::windows::core::Interface for WwwFormUrlDecoderEntry {
     type Vtable = IWwwFormUrlDecoderEntry_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x125e7431_f678_4e8e_b670_20a9b06c512d);
+    const IID: ::windows::core::GUID = <IWwwFormUrlDecoderEntry as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WwwFormUrlDecoderEntry {
     const NAME: &'static str = "Windows.Foundation.WwwFormUrlDecoderEntry";

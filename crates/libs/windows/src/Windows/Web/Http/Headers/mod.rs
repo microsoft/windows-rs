@@ -203,7 +203,7 @@ unsafe impl ::windows::core::RuntimeType for HttpCacheDirectiveHeaderValueCollec
 }
 unsafe impl ::windows::core::Interface for HttpCacheDirectiveHeaderValueCollection {
     type Vtable = IHttpCacheDirectiveHeaderValueCollection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a586b89_d5d0_4fbe_bd9d_b5b3636811b4);
+    const IID: ::windows::core::GUID = <IHttpCacheDirectiveHeaderValueCollection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpCacheDirectiveHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpCacheDirectiveHeaderValueCollection";
@@ -442,7 +442,7 @@ unsafe impl ::windows::core::RuntimeType for HttpChallengeHeaderValue {
 }
 unsafe impl ::windows::core::Interface for HttpChallengeHeaderValue {
     type Vtable = IHttpChallengeHeaderValue_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x393361af_0f7d_4820_9fdd_a2b956eeaeab);
+    const IID: ::windows::core::GUID = <IHttpChallengeHeaderValue as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpChallengeHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpChallengeHeaderValue";
@@ -659,7 +659,7 @@ unsafe impl ::windows::core::RuntimeType for HttpChallengeHeaderValueCollection 
 }
 unsafe impl ::windows::core::Interface for HttpChallengeHeaderValueCollection {
     type Vtable = IHttpChallengeHeaderValueCollection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca9e5f81_aee0_4353_a10b_e625babd64c2);
+    const IID: ::windows::core::GUID = <IHttpChallengeHeaderValueCollection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpChallengeHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpChallengeHeaderValueCollection";
@@ -874,7 +874,7 @@ unsafe impl ::windows::core::RuntimeType for HttpConnectionOptionHeaderValue {
 }
 unsafe impl ::windows::core::Interface for HttpConnectionOptionHeaderValue {
     type Vtable = IHttpConnectionOptionHeaderValue_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb4af27a_4e90_45eb_8dcd_fd1408f4c44f);
+    const IID: ::windows::core::GUID = <IHttpConnectionOptionHeaderValue as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpConnectionOptionHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpConnectionOptionHeaderValue";
@@ -1091,7 +1091,7 @@ unsafe impl ::windows::core::RuntimeType for HttpConnectionOptionHeaderValueColl
 }
 unsafe impl ::windows::core::Interface for HttpConnectionOptionHeaderValueCollection {
     type Vtable = IHttpConnectionOptionHeaderValueCollection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4f56c1d_5142_4e00_8e0f_019509337629);
+    const IID: ::windows::core::GUID = <IHttpConnectionOptionHeaderValueCollection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpConnectionOptionHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpConnectionOptionHeaderValueCollection";
@@ -1306,7 +1306,7 @@ unsafe impl ::windows::core::RuntimeType for HttpContentCodingHeaderValue {
 }
 unsafe impl ::windows::core::Interface for HttpContentCodingHeaderValue {
     type Vtable = IHttpContentCodingHeaderValue_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbcf7f92a_9376_4d85_bccc_9f4f9acab434);
+    const IID: ::windows::core::GUID = <IHttpContentCodingHeaderValue as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpContentCodingHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpContentCodingHeaderValue";
@@ -1523,7 +1523,7 @@ unsafe impl ::windows::core::RuntimeType for HttpContentCodingHeaderValueCollect
 }
 unsafe impl ::windows::core::Interface for HttpContentCodingHeaderValueCollection {
     type Vtable = IHttpContentCodingHeaderValueCollection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d221721_a6db_436e_8e83_91596192819c);
+    const IID: ::windows::core::GUID = <IHttpContentCodingHeaderValueCollection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpContentCodingHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpContentCodingHeaderValueCollection";
@@ -1754,7 +1754,7 @@ unsafe impl ::windows::core::RuntimeType for HttpContentCodingWithQualityHeaderV
 }
 unsafe impl ::windows::core::Interface for HttpContentCodingWithQualityHeaderValue {
     type Vtable = IHttpContentCodingWithQualityHeaderValue_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94531cd5_8b13_4d73_8651_f76b38f88495);
+    const IID: ::windows::core::GUID = <IHttpContentCodingWithQualityHeaderValue as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpContentCodingWithQualityHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpContentCodingWithQualityHeaderValue";
@@ -1971,7 +1971,7 @@ unsafe impl ::windows::core::RuntimeType for HttpContentCodingWithQualityHeaderV
 }
 unsafe impl ::windows::core::Interface for HttpContentCodingWithQualityHeaderValueCollection {
     type Vtable = IHttpContentCodingWithQualityHeaderValueCollection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c0d753e_e899_4378_b5c8_412d820711cc);
+    const IID: ::windows::core::GUID = <IHttpContentCodingWithQualityHeaderValueCollection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpContentCodingWithQualityHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpContentCodingWithQualityHeaderValueCollection";
@@ -2254,7 +2254,7 @@ unsafe impl ::windows::core::RuntimeType for HttpContentDispositionHeaderValue {
 }
 unsafe impl ::windows::core::Interface for HttpContentDispositionHeaderValue {
     type Vtable = IHttpContentDispositionHeaderValue_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2a2eedc_2629_4b49_9908_96a168e9365e);
+    const IID: ::windows::core::GUID = <IHttpContentDispositionHeaderValue as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpContentDispositionHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpContentDispositionHeaderValue";
@@ -2578,7 +2578,7 @@ unsafe impl ::windows::core::RuntimeType for HttpContentHeaderCollection {
 }
 unsafe impl ::windows::core::Interface for HttpContentHeaderCollection {
     type Vtable = IHttpContentHeaderCollection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40612a44_47ae_4b7e_9124_69628b64aa18);
+    const IID: ::windows::core::GUID = <IHttpContentHeaderCollection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpContentHeaderCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpContentHeaderCollection";
@@ -2839,7 +2839,7 @@ unsafe impl ::windows::core::RuntimeType for HttpContentRangeHeaderValue {
 }
 unsafe impl ::windows::core::Interface for HttpContentRangeHeaderValue {
     type Vtable = IHttpContentRangeHeaderValue_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04d967d3_a4f6_495c_9530_8579fcba8aa9);
+    const IID: ::windows::core::GUID = <IHttpContentRangeHeaderValue as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpContentRangeHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpContentRangeHeaderValue";
@@ -3006,7 +3006,7 @@ unsafe impl ::windows::core::RuntimeType for HttpCookiePairHeaderValue {
 }
 unsafe impl ::windows::core::Interface for HttpCookiePairHeaderValue {
     type Vtable = IHttpCookiePairHeaderValue_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcbd46217_4b29_412b_bd90_b3d814ab8e1b);
+    const IID: ::windows::core::GUID = <IHttpCookiePairHeaderValue as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpCookiePairHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpCookiePairHeaderValue";
@@ -3223,7 +3223,7 @@ unsafe impl ::windows::core::RuntimeType for HttpCookiePairHeaderValueCollection
 }
 unsafe impl ::windows::core::Interface for HttpCookiePairHeaderValueCollection {
     type Vtable = IHttpCookiePairHeaderValueCollection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3f44350_581e_4ecc_9f59_e507d04f06e6);
+    const IID: ::windows::core::GUID = <IHttpCookiePairHeaderValueCollection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpCookiePairHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpCookiePairHeaderValueCollection";
@@ -3462,7 +3462,7 @@ unsafe impl ::windows::core::RuntimeType for HttpCredentialsHeaderValue {
 }
 unsafe impl ::windows::core::Interface for HttpCredentialsHeaderValue {
     type Vtable = IHttpCredentialsHeaderValue_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc34cc3cb_542e_4177_a6c7_b674ce193fbf);
+    const IID: ::windows::core::GUID = <IHttpCredentialsHeaderValue as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpCredentialsHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpCredentialsHeaderValue";
@@ -3607,7 +3607,7 @@ unsafe impl ::windows::core::RuntimeType for HttpDateOrDeltaHeaderValue {
 }
 unsafe impl ::windows::core::Interface for HttpDateOrDeltaHeaderValue {
     type Vtable = IHttpDateOrDeltaHeaderValue_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeafcaa6a_c4dc_49e2_a27d_043adf5867a3);
+    const IID: ::windows::core::GUID = <IHttpDateOrDeltaHeaderValue as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpDateOrDeltaHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpDateOrDeltaHeaderValue";
@@ -3783,7 +3783,7 @@ unsafe impl ::windows::core::RuntimeType for HttpExpectationHeaderValue {
 }
 unsafe impl ::windows::core::Interface for HttpExpectationHeaderValue {
     type Vtable = IHttpExpectationHeaderValue_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ce585cd_3a99_43af_a2e6_ec232fea9658);
+    const IID: ::windows::core::GUID = <IHttpExpectationHeaderValue as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpExpectationHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpExpectationHeaderValue";
@@ -4000,7 +4000,7 @@ unsafe impl ::windows::core::RuntimeType for HttpExpectationHeaderValueCollectio
 }
 unsafe impl ::windows::core::Interface for HttpExpectationHeaderValueCollection {
     type Vtable = IHttpExpectationHeaderValueCollection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe78521b3_a0e2_4ac4_9e66_79706cb9fd58);
+    const IID: ::windows::core::GUID = <IHttpExpectationHeaderValueCollection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpExpectationHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpExpectationHeaderValueCollection";
@@ -4285,7 +4285,7 @@ unsafe impl ::windows::core::RuntimeType for HttpLanguageHeaderValueCollection {
 }
 unsafe impl ::windows::core::Interface for HttpLanguageHeaderValueCollection {
     type Vtable = IHttpLanguageHeaderValueCollection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ebd7ca3_8219_44f6_9902_8c56dfd3340c);
+    const IID: ::windows::core::GUID = <IHttpLanguageHeaderValueCollection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpLanguageHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpLanguageHeaderValueCollection";
@@ -4516,7 +4516,7 @@ unsafe impl ::windows::core::RuntimeType for HttpLanguageRangeWithQualityHeaderV
 }
 unsafe impl ::windows::core::Interface for HttpLanguageRangeWithQualityHeaderValue {
     type Vtable = IHttpLanguageRangeWithQualityHeaderValue_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7256e102_0080_4db4_a083_7de7b2e5ba4c);
+    const IID: ::windows::core::GUID = <IHttpLanguageRangeWithQualityHeaderValue as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpLanguageRangeWithQualityHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpLanguageRangeWithQualityHeaderValue";
@@ -4733,7 +4733,7 @@ unsafe impl ::windows::core::RuntimeType for HttpLanguageRangeWithQualityHeaderV
 }
 unsafe impl ::windows::core::Interface for HttpLanguageRangeWithQualityHeaderValueCollection {
     type Vtable = IHttpLanguageRangeWithQualityHeaderValueCollection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x885d5abd_4b4f_480a_89ce_8aedcee6e3a0);
+    const IID: ::windows::core::GUID = <IHttpLanguageRangeWithQualityHeaderValueCollection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpLanguageRangeWithQualityHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpLanguageRangeWithQualityHeaderValueCollection";
@@ -4975,7 +4975,7 @@ unsafe impl ::windows::core::RuntimeType for HttpMediaTypeHeaderValue {
 }
 unsafe impl ::windows::core::Interface for HttpMediaTypeHeaderValue {
     type Vtable = IHttpMediaTypeHeaderValue_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16b28533_e728_4fcb_bdb0_08a431a14844);
+    const IID: ::windows::core::GUID = <IHttpMediaTypeHeaderValue as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpMediaTypeHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpMediaTypeHeaderValue";
@@ -5171,7 +5171,7 @@ unsafe impl ::windows::core::RuntimeType for HttpMediaTypeWithQualityHeaderValue
 }
 unsafe impl ::windows::core::Interface for HttpMediaTypeWithQualityHeaderValue {
     type Vtable = IHttpMediaTypeWithQualityHeaderValue_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x188d5e32_76be_44a0_b1cd_2074bded2dde);
+    const IID: ::windows::core::GUID = <IHttpMediaTypeWithQualityHeaderValue as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpMediaTypeWithQualityHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpMediaTypeWithQualityHeaderValue";
@@ -5388,7 +5388,7 @@ unsafe impl ::windows::core::RuntimeType for HttpMediaTypeWithQualityHeaderValue
 }
 unsafe impl ::windows::core::Interface for HttpMediaTypeWithQualityHeaderValueCollection {
     type Vtable = IHttpMediaTypeWithQualityHeaderValueCollection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c0c6b73_1342_4587_a056_18d02ff67165);
+    const IID: ::windows::core::GUID = <IHttpMediaTypeWithQualityHeaderValueCollection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpMediaTypeWithQualityHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpMediaTypeWithQualityHeaderValueCollection";
@@ -5673,7 +5673,7 @@ unsafe impl ::windows::core::RuntimeType for HttpMethodHeaderValueCollection {
 }
 unsafe impl ::windows::core::Interface for HttpMethodHeaderValueCollection {
     type Vtable = IHttpMethodHeaderValueCollection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43bc3ff4_6119_4adf_938c_34bfffcf92ed);
+    const IID: ::windows::core::GUID = <IHttpMethodHeaderValueCollection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpMethodHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpMethodHeaderValueCollection";
@@ -5908,7 +5908,7 @@ unsafe impl ::windows::core::RuntimeType for HttpNameValueHeaderValue {
 }
 unsafe impl ::windows::core::Interface for HttpNameValueHeaderValue {
     type Vtable = IHttpNameValueHeaderValue_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8ba7463_5b9a_4d1b_93f9_aa5b44ecfddf);
+    const IID: ::windows::core::GUID = <IHttpNameValueHeaderValue as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpNameValueHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpNameValueHeaderValue";
@@ -6070,7 +6070,7 @@ unsafe impl ::windows::core::RuntimeType for HttpProductHeaderValue {
 }
 unsafe impl ::windows::core::Interface for HttpProductHeaderValue {
     type Vtable = IHttpProductHeaderValue_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4feee03_ebd4_4160_b9ff_807c5183b6e6);
+    const IID: ::windows::core::GUID = <IHttpProductHeaderValue as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpProductHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpProductHeaderValue";
@@ -6232,7 +6232,7 @@ unsafe impl ::windows::core::RuntimeType for HttpProductInfoHeaderValue {
 }
 unsafe impl ::windows::core::Interface for HttpProductInfoHeaderValue {
     type Vtable = IHttpProductInfoHeaderValue_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b1a8732_4c35_486a_966f_646489198e4d);
+    const IID: ::windows::core::GUID = <IHttpProductInfoHeaderValue as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpProductInfoHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpProductInfoHeaderValue";
@@ -6449,7 +6449,7 @@ unsafe impl ::windows::core::RuntimeType for HttpProductInfoHeaderValueCollectio
 }
 unsafe impl ::windows::core::Interface for HttpProductInfoHeaderValueCollection {
     type Vtable = IHttpProductInfoHeaderValueCollection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x877df74a_d69b_44f8_ad4f_453af9c42ed0);
+    const IID: ::windows::core::GUID = <IHttpProductInfoHeaderValueCollection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpProductInfoHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpProductInfoHeaderValueCollection";
@@ -6905,7 +6905,7 @@ unsafe impl ::windows::core::RuntimeType for HttpRequestHeaderCollection {
 }
 unsafe impl ::windows::core::Interface for HttpRequestHeaderCollection {
     type Vtable = IHttpRequestHeaderCollection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf40329b_b544_469b_86b9_ac3d466fea36);
+    const IID: ::windows::core::GUID = <IHttpRequestHeaderCollection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpRequestHeaderCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpRequestHeaderCollection";
@@ -7266,7 +7266,7 @@ unsafe impl ::windows::core::RuntimeType for HttpResponseHeaderCollection {
 }
 unsafe impl ::windows::core::Interface for HttpResponseHeaderCollection {
     type Vtable = IHttpResponseHeaderCollection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a990969_fa3f_41ed_aac6_bf957975c16b);
+    const IID: ::windows::core::GUID = <IHttpResponseHeaderCollection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpResponseHeaderCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpResponseHeaderCollection";
@@ -7490,7 +7490,7 @@ unsafe impl ::windows::core::RuntimeType for HttpTransferCodingHeaderValue {
 }
 unsafe impl ::windows::core::Interface for HttpTransferCodingHeaderValue {
     type Vtable = IHttpTransferCodingHeaderValue_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x436f32f9_3ded_42bd_b38a_5496a2511ce6);
+    const IID: ::windows::core::GUID = <IHttpTransferCodingHeaderValue as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpTransferCodingHeaderValue {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpTransferCodingHeaderValue";
@@ -7707,7 +7707,7 @@ unsafe impl ::windows::core::RuntimeType for HttpTransferCodingHeaderValueCollec
 }
 unsafe impl ::windows::core::Interface for HttpTransferCodingHeaderValueCollection {
     type Vtable = IHttpTransferCodingHeaderValueCollection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x202c8c34_2c03_49b8_9665_73e27cb2fc79);
+    const IID: ::windows::core::GUID = <IHttpTransferCodingHeaderValueCollection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HttpTransferCodingHeaderValueCollection {
     const NAME: &'static str = "Windows.Web.Http.Headers.HttpTransferCodingHeaderValueCollection";

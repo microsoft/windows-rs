@@ -63,7 +63,7 @@ unsafe impl ::windows::core::RuntimeType for AppBarButtonTemplateSettings {
 }
 unsafe impl ::windows::core::Interface for AppBarButtonTemplateSettings {
     type Vtable = IAppBarButtonTemplateSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcbc9b39d_0c95_4951_bff2_13963691c366);
+    const IID: ::windows::core::GUID = <IAppBarButtonTemplateSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppBarButtonTemplateSettings {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.AppBarButtonTemplateSettings";
@@ -237,7 +237,7 @@ unsafe impl ::windows::core::RuntimeType for AppBarTemplateSettings {
 }
 unsafe impl ::windows::core::Interface for AppBarTemplateSettings {
     type Vtable = IAppBarTemplateSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbcc2a863_eb35_423c_8389_d7827be3bf67);
+    const IID: ::windows::core::GUID = <IAppBarTemplateSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppBarTemplateSettings {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.AppBarTemplateSettings";
@@ -338,7 +338,7 @@ unsafe impl ::windows::core::RuntimeType for AppBarToggleButtonTemplateSettings 
 }
 unsafe impl ::windows::core::Interface for AppBarToggleButtonTemplateSettings {
     type Vtable = IAppBarToggleButtonTemplateSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaaf99c48_d8f4_40d9_9fa3_3a64f0fec5d8);
+    const IID: ::windows::core::GUID = <IAppBarToggleButtonTemplateSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppBarToggleButtonTemplateSettings {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.AppBarToggleButtonTemplateSettings";
@@ -543,7 +543,7 @@ unsafe impl ::windows::core::RuntimeType for ButtonBase {
 }
 unsafe impl ::windows::core::Interface for ButtonBase {
     type Vtable = IButtonBase_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa002c1a_494e_46cf_91d4_e14a8d798674);
+    const IID: ::windows::core::GUID = <IButtonBase as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ButtonBase {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.ButtonBase";
@@ -775,7 +775,7 @@ unsafe impl ::windows::core::RuntimeType for CalendarPanel {
 }
 unsafe impl ::windows::core::Interface for CalendarPanel {
     type Vtable = ICalendarPanel_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcd55a2d_02d3_4ee6_9a90_9df3ead00994);
+    const IID: ::windows::core::GUID = <ICalendarPanel as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CalendarPanel {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.CalendarPanel";
@@ -1101,7 +1101,7 @@ unsafe impl ::windows::core::RuntimeType for CalendarViewTemplateSettings {
 }
 unsafe impl ::windows::core::Interface for CalendarViewTemplateSettings {
     type Vtable = ICalendarViewTemplateSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56c71483_64e1_477c_8a0b_cb2f3334b9b0);
+    const IID: ::windows::core::GUID = <ICalendarViewTemplateSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CalendarViewTemplateSettings {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.CalendarViewTemplateSettings";
@@ -1443,7 +1443,7 @@ unsafe impl ::windows::core::RuntimeType for CarouselPanel {
 }
 unsafe impl ::windows::core::Interface for CarouselPanel {
     type Vtable = ICarouselPanel_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdeab78b2_373b_4151_8785_e544d0d9362b);
+    const IID: ::windows::core::GUID = <ICarouselPanel as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CarouselPanel {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.CarouselPanel";
@@ -1735,7 +1735,7 @@ unsafe impl ::windows::core::RuntimeType for ColorPickerSlider {
 }
 unsafe impl ::windows::core::Interface for ColorPickerSlider {
     type Vtable = IColorPickerSlider_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94394d83_e0df_4c5f_bbcd_8155f4020440);
+    const IID: ::windows::core::GUID = <IColorPickerSlider as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ColorPickerSlider {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.ColorPickerSlider";
@@ -2222,7 +2222,7 @@ unsafe impl ::windows::core::RuntimeType for ColorSpectrum {
 }
 unsafe impl ::windows::core::Interface for ColorSpectrum {
     type Vtable = IColorSpectrum_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce46f271_f509_4f98_8288_e4942fb385df);
+    const IID: ::windows::core::GUID = <IColorSpectrum as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ColorSpectrum {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.ColorSpectrum";
@@ -2467,7 +2467,7 @@ unsafe impl ::windows::core::RuntimeType for ComboBoxTemplateSettings {
 }
 unsafe impl ::windows::core::Interface for ComboBoxTemplateSettings {
     type Vtable = IComboBoxTemplateSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83285c4e_17f6_4aa3_b61b_e87c718604ea);
+    const IID: ::windows::core::GUID = <IComboBoxTemplateSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ComboBoxTemplateSettings {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.ComboBoxTemplateSettings";
@@ -2588,7 +2588,7 @@ unsafe impl ::windows::core::RuntimeType for CommandBarFlyoutCommandBar {
 }
 unsafe impl ::windows::core::Interface for CommandBarFlyoutCommandBar {
     type Vtable = ICommandBarFlyoutCommandBar_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14146e7c_38c4_55c4_b706_ce18f6061e7e);
+    const IID: ::windows::core::GUID = <ICommandBarFlyoutCommandBar as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CommandBarFlyoutCommandBar {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.CommandBarFlyoutCommandBar";
@@ -3015,7 +3015,7 @@ unsafe impl ::windows::core::RuntimeType for CommandBarFlyoutCommandBarTemplateS
 }
 unsafe impl ::windows::core::Interface for CommandBarFlyoutCommandBarTemplateSettings {
     type Vtable = ICommandBarFlyoutCommandBarTemplateSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47642c44_26ff_5d14_9cfc_77dc64f3a447);
+    const IID: ::windows::core::GUID = <ICommandBarFlyoutCommandBarTemplateSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CommandBarFlyoutCommandBarTemplateSettings {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.CommandBarFlyoutCommandBarTemplateSettings";
@@ -3205,7 +3205,7 @@ unsafe impl ::windows::core::RuntimeType for CommandBarTemplateSettings {
 }
 unsafe impl ::windows::core::Interface for CommandBarTemplateSettings {
     type Vtable = ICommandBarTemplateSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61c8f92c_05aa_414a_a2ae_482c5a46c08e);
+    const IID: ::windows::core::GUID = <ICommandBarTemplateSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CommandBarTemplateSettings {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.CommandBarTemplateSettings";
@@ -3370,7 +3370,7 @@ unsafe impl ::windows::core::RuntimeType for DragCompletedEventArgs {
 }
 unsafe impl ::windows::core::Interface for DragCompletedEventArgs {
     type Vtable = IDragCompletedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb04f29a1_bd16_48f6_a511_9c2763641331);
+    const IID: ::windows::core::GUID = <IDragCompletedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DragCompletedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.DragCompletedEventArgs";
@@ -3577,7 +3577,7 @@ unsafe impl ::windows::core::RuntimeType for DragDeltaEventArgs {
 }
 unsafe impl ::windows::core::Interface for DragDeltaEventArgs {
     type Vtable = IDragDeltaEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c2dd73c_2806_49fc_aae9_6d792b572b6a);
+    const IID: ::windows::core::GUID = <IDragDeltaEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DragDeltaEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.DragDeltaEventArgs";
@@ -3784,7 +3784,7 @@ unsafe impl ::windows::core::RuntimeType for DragStartedEventArgs {
 }
 unsafe impl ::windows::core::Interface for DragStartedEventArgs {
     type Vtable = IDragStartedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f915dd0_a124_4366_bd85_2408214aeed4);
+    const IID: ::windows::core::GUID = <IDragStartedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DragStartedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.DragStartedEventArgs";
@@ -4359,7 +4359,7 @@ unsafe impl ::windows::core::RuntimeType for FlyoutBase {
 }
 unsafe impl ::windows::core::Interface for FlyoutBase {
     type Vtable = IFlyoutBase_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x723eea0b_d12e_430d_a9f0_9bb32bbf9913);
+    const IID: ::windows::core::GUID = <IFlyoutBase as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FlyoutBase {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.FlyoutBase";
@@ -4465,7 +4465,7 @@ unsafe impl ::windows::core::RuntimeType for FlyoutBaseClosingEventArgs {
 }
 unsafe impl ::windows::core::Interface for FlyoutBaseClosingEventArgs {
     type Vtable = IFlyoutBaseClosingEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd075852d_b09a_4fd1_b005_db2ba01206fb);
+    const IID: ::windows::core::GUID = <IFlyoutBaseClosingEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FlyoutBaseClosingEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.FlyoutBaseClosingEventArgs";
@@ -4684,7 +4684,7 @@ unsafe impl ::windows::core::RuntimeType for FlyoutShowOptions {
 }
 unsafe impl ::windows::core::Interface for FlyoutShowOptions {
     type Vtable = IFlyoutShowOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57d693ad_0c74_54dd_b110_1ee43fabadd9);
+    const IID: ::windows::core::GUID = <IFlyoutShowOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FlyoutShowOptions {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.FlyoutShowOptions";
@@ -4834,7 +4834,7 @@ unsafe impl ::windows::core::RuntimeType for GeneratorPositionHelper {
 }
 unsafe impl ::windows::core::Interface for GeneratorPositionHelper {
     type Vtable = IGeneratorPositionHelper_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd40318d_7745_40d9_ab9d_abbda4a7ffea);
+    const IID: ::windows::core::GUID = <IGeneratorPositionHelper as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GeneratorPositionHelper {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.GeneratorPositionHelper";
@@ -5405,7 +5405,7 @@ unsafe impl ::windows::core::RuntimeType for GridViewItemPresenter {
 }
 unsafe impl ::windows::core::Interface for GridViewItemPresenter {
     type Vtable = IGridViewItemPresenter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x214f9010_56e2_4821_8a1c_2305709af94b);
+    const IID: ::windows::core::GUID = <IGridViewItemPresenter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GridViewItemPresenter {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.GridViewItemPresenter";
@@ -5618,7 +5618,7 @@ unsafe impl ::windows::core::RuntimeType for GridViewItemTemplateSettings {
 }
 unsafe impl ::windows::core::Interface for GridViewItemTemplateSettings {
     type Vtable = IGridViewItemTemplateSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e30baaf_165d_4267_a45e_1a43a75706ac);
+    const IID: ::windows::core::GUID = <IGridViewItemTemplateSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GridViewItemTemplateSettings {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.GridViewItemTemplateSettings";
@@ -8830,7 +8830,7 @@ unsafe impl ::windows::core::RuntimeType for ItemsChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for ItemsChangedEventArgs {
     type Vtable = IItemsChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8b45568_7d10_421e_be29_81839a91de20);
+    const IID: ::windows::core::GUID = <IItemsChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ItemsChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.ItemsChangedEventArgs";
@@ -9055,7 +9055,7 @@ unsafe impl ::windows::core::RuntimeType for JumpListItemBackgroundConverter {
 }
 unsafe impl ::windows::core::Interface for JumpListItemBackgroundConverter {
     type Vtable = IJumpListItemBackgroundConverter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81177858_d224_410c_b16c_c5b6bb6188b2);
+    const IID: ::windows::core::GUID = <IJumpListItemBackgroundConverter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for JumpListItemBackgroundConverter {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.JumpListItemBackgroundConverter";
@@ -9248,7 +9248,7 @@ unsafe impl ::windows::core::RuntimeType for JumpListItemForegroundConverter {
 }
 unsafe impl ::windows::core::Interface for JumpListItemForegroundConverter {
     type Vtable = IJumpListItemForegroundConverter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1590ed38_c504_4796_a63a_5bfc9eefaae8);
+    const IID: ::windows::core::GUID = <IJumpListItemForegroundConverter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for JumpListItemForegroundConverter {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.JumpListItemForegroundConverter";
@@ -9400,7 +9400,7 @@ unsafe impl ::windows::core::RuntimeType for LayoutInformation {
 }
 unsafe impl ::windows::core::Interface for LayoutInformation {
     type Vtable = ILayoutInformation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5384c9b_c8cf_41b3_bf16_18c8420e72c9);
+    const IID: ::windows::core::GUID = <ILayoutInformation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LayoutInformation {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.LayoutInformation";
@@ -10786,7 +10786,7 @@ unsafe impl ::windows::core::RuntimeType for ListViewItemPresenter {
 }
 unsafe impl ::windows::core::Interface for ListViewItemPresenter {
     type Vtable = IListViewItemPresenter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc8946bd_a3a2_4969_8174_25b5d3c28033);
+    const IID: ::windows::core::GUID = <IListViewItemPresenter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ListViewItemPresenter {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.ListViewItemPresenter";
@@ -11055,7 +11055,7 @@ unsafe impl ::windows::core::RuntimeType for ListViewItemTemplateSettings {
 }
 unsafe impl ::windows::core::Interface for ListViewItemTemplateSettings {
     type Vtable = IListViewItemTemplateSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x67af84bf_8279_4686_9326_cd189f27575d);
+    const IID: ::windows::core::GUID = <IListViewItemTemplateSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ListViewItemTemplateSettings {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.ListViewItemTemplateSettings";
@@ -11310,7 +11310,7 @@ unsafe impl ::windows::core::RuntimeType for LoopingSelector {
 }
 unsafe impl ::windows::core::Interface for LoopingSelector {
     type Vtable = ILoopingSelector_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c9a3e04_4827_49d9_8806_093957b0fd21);
+    const IID: ::windows::core::GUID = <ILoopingSelector as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LoopingSelector {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.LoopingSelector";
@@ -11514,7 +11514,7 @@ unsafe impl ::windows::core::RuntimeType for LoopingSelectorItem {
 }
 unsafe impl ::windows::core::Interface for LoopingSelectorItem {
     type Vtable = ILoopingSelectorItem_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc69714b9_27c6_4433_9d7c_0dbfb2f4344f);
+    const IID: ::windows::core::GUID = <ILoopingSelectorItem as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LoopingSelectorItem {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.LoopingSelectorItem";
@@ -11802,7 +11802,7 @@ unsafe impl ::windows::core::RuntimeType for LoopingSelectorPanel {
 }
 unsafe impl ::windows::core::Interface for LoopingSelectorPanel {
     type Vtable = ILoopingSelectorPanel_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40a9ba70_1011_4778_87f7_6bfd20d6377d);
+    const IID: ::windows::core::GUID = <ILoopingSelectorPanel as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LoopingSelectorPanel {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.LoopingSelectorPanel";
@@ -12057,7 +12057,7 @@ unsafe impl ::windows::core::RuntimeType for MenuFlyoutItemTemplateSettings {
 }
 unsafe impl ::windows::core::Interface for MenuFlyoutItemTemplateSettings {
     type Vtable = IMenuFlyoutItemTemplateSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56ad1809_3a16_4147_81cb_d0b35c834e0f);
+    const IID: ::windows::core::GUID = <IMenuFlyoutItemTemplateSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MenuFlyoutItemTemplateSettings {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.MenuFlyoutItemTemplateSettings";
@@ -12158,7 +12158,7 @@ unsafe impl ::windows::core::RuntimeType for MenuFlyoutPresenterTemplateSettings
 }
 unsafe impl ::windows::core::Interface for MenuFlyoutPresenterTemplateSettings {
     type Vtable = IMenuFlyoutPresenterTemplateSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd68fd00d_629d_4349_ac51_b877c80983b8);
+    const IID: ::windows::core::GUID = <IMenuFlyoutPresenterTemplateSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MenuFlyoutPresenterTemplateSettings {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.MenuFlyoutPresenterTemplateSettings";
@@ -12296,7 +12296,7 @@ unsafe impl ::windows::core::RuntimeType for NavigationViewItemPresenter {
 }
 unsafe impl ::windows::core::Interface for NavigationViewItemPresenter {
     type Vtable = INavigationViewItemPresenter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9956d3fc_4693_59cb_b6bf_37249058be96);
+    const IID: ::windows::core::GUID = <INavigationViewItemPresenter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for NavigationViewItemPresenter {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.NavigationViewItemPresenter";
@@ -12756,7 +12756,7 @@ unsafe impl ::windows::core::RuntimeType for OrientedVirtualizingPanel {
 }
 unsafe impl ::windows::core::Interface for OrientedVirtualizingPanel {
     type Vtable = IOrientedVirtualizingPanel_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf077b577_39bd_46ee_bdd7_0826beed71b8);
+    const IID: ::windows::core::GUID = <IOrientedVirtualizingPanel as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for OrientedVirtualizingPanel {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.OrientedVirtualizingPanel";
@@ -13048,7 +13048,7 @@ unsafe impl ::windows::core::RuntimeType for PickerFlyoutBase {
 }
 unsafe impl ::windows::core::Interface for PickerFlyoutBase {
     type Vtable = IPickerFlyoutBase_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe33574ea_1076_44d1_9383_dc24ac5cff2a);
+    const IID: ::windows::core::GUID = <IPickerFlyoutBase as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PickerFlyoutBase {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.PickerFlyoutBase";
@@ -13181,7 +13181,7 @@ unsafe impl ::windows::core::RuntimeType for PivotHeaderItem {
 }
 unsafe impl ::windows::core::Interface for PivotHeaderItem {
     type Vtable = IPivotHeaderItem_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x594572c2_82aa_410b_9e55_fd8e2c98862d);
+    const IID: ::windows::core::GUID = <IPivotHeaderItem as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PivotHeaderItem {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.PivotHeaderItem";
@@ -13413,7 +13413,7 @@ unsafe impl ::windows::core::RuntimeType for PivotHeaderPanel {
 }
 unsafe impl ::windows::core::Interface for PivotHeaderPanel {
     type Vtable = IPivotHeaderPanel_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x21484ebc_9241_4203_bd37_6c08fb096612);
+    const IID: ::windows::core::GUID = <IPivotHeaderPanel as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PivotHeaderPanel {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.PivotHeaderPanel";
@@ -13708,7 +13708,7 @@ unsafe impl ::windows::core::RuntimeType for PivotPanel {
 }
 unsafe impl ::windows::core::Interface for PivotPanel {
     type Vtable = IPivotPanel_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad4ebe80_22a9_4ca3_9212_2773b6359ff3);
+    const IID: ::windows::core::GUID = <IPivotPanel as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PivotPanel {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.PivotPanel";
@@ -14256,7 +14256,7 @@ unsafe impl ::windows::core::RuntimeType for Popup {
 }
 unsafe impl ::windows::core::Interface for Popup {
     type Vtable = IPopup_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62418240_e6d3_4705_a1dc_39156456ee29);
+    const IID: ::windows::core::GUID = <IPopup as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Popup {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.Popup";
@@ -14536,7 +14536,7 @@ unsafe impl ::windows::core::RuntimeType for ProgressBarTemplateSettings {
 }
 unsafe impl ::windows::core::Interface for ProgressBarTemplateSettings {
     type Vtable = IProgressBarTemplateSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3fe2ea2a_e3f2_4c2b_9488_918d77d2bbe4);
+    const IID: ::windows::core::GUID = <IProgressBarTemplateSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ProgressBarTemplateSettings {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.ProgressBarTemplateSettings";
@@ -14653,7 +14653,7 @@ unsafe impl ::windows::core::RuntimeType for ProgressRingTemplateSettings {
 }
 unsafe impl ::windows::core::Interface for ProgressRingTemplateSettings {
     type Vtable = IProgressRingTemplateSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9b675ec_c723_42e6_83e9_9826272bdc0e);
+    const IID: ::windows::core::GUID = <IProgressRingTemplateSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ProgressRingTemplateSettings {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.ProgressRingTemplateSettings";
@@ -14866,7 +14866,7 @@ unsafe impl ::windows::core::RuntimeType for RangeBase {
 }
 unsafe impl ::windows::core::Interface for RangeBase {
     type Vtable = IRangeBase_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa002c1a_494e_46cf_91d4_e14a8d798675);
+    const IID: ::windows::core::GUID = <IRangeBase as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RangeBase {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.RangeBase";
@@ -15087,7 +15087,7 @@ unsafe impl ::windows::core::RuntimeType for RangeBaseValueChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for RangeBaseValueChangedEventArgs {
     type Vtable = IRangeBaseValueChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1921777_d5c1_4f9c_a7b0_0401b7e6dc5c);
+    const IID: ::windows::core::GUID = <IRangeBaseValueChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RangeBaseValueChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.RangeBaseValueChangedEventArgs";
@@ -15310,7 +15310,7 @@ unsafe impl ::windows::core::RuntimeType for RepeatButton {
 }
 unsafe impl ::windows::core::Interface for RepeatButton {
     type Vtable = IRepeatButton_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02200df9_021a_484a_a93b_0f31020314e5);
+    const IID: ::windows::core::GUID = <IRepeatButton as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RepeatButton {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.RepeatButton";
@@ -15642,7 +15642,7 @@ unsafe impl ::windows::core::RuntimeType for ScrollBar {
 }
 unsafe impl ::windows::core::Interface for ScrollBar {
     type Vtable = IScrollBar_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf57ae6ca_d1a6_4b90_a4e9_54df1ba8d2ec);
+    const IID: ::windows::core::GUID = <IScrollBar as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ScrollBar {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.ScrollBar";
@@ -15890,7 +15890,7 @@ unsafe impl ::windows::core::RuntimeType for ScrollEventArgs {
 }
 unsafe impl ::windows::core::Interface for ScrollEventArgs {
     type Vtable = IScrollEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc57e5168_3afe_448d_b752_2f364c75d743);
+    const IID: ::windows::core::GUID = <IScrollEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ScrollEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.ScrollEventArgs";
@@ -16254,7 +16254,7 @@ unsafe impl ::windows::core::RuntimeType for Selector {
 }
 unsafe impl ::windows::core::Interface for Selector {
     type Vtable = ISelector_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe30eb3a5_b36b_42dc_8527_cd25136c083c);
+    const IID: ::windows::core::GUID = <ISelector as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Selector {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.Selector";
@@ -16526,7 +16526,7 @@ unsafe impl ::windows::core::RuntimeType for SelectorItem {
 }
 unsafe impl ::windows::core::Interface for SelectorItem {
     type Vtable = ISelectorItem_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x541c8d6c_0283_4581_b945_2a64c28a0646);
+    const IID: ::windows::core::GUID = <ISelectorItem as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SelectorItem {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.SelectorItem";
@@ -16804,7 +16804,7 @@ unsafe impl ::windows::core::RuntimeType for SettingsFlyoutTemplateSettings {
 }
 unsafe impl ::windows::core::Interface for SettingsFlyoutTemplateSettings {
     type Vtable = ISettingsFlyoutTemplateSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbcf14c10_cea7_43f1_9d68_57605ded69d4);
+    const IID: ::windows::core::GUID = <ISettingsFlyoutTemplateSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SettingsFlyoutTemplateSettings {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.SettingsFlyoutTemplateSettings";
@@ -17002,7 +17002,7 @@ unsafe impl ::windows::core::RuntimeType for SplitViewTemplateSettings {
 }
 unsafe impl ::windows::core::Interface for SplitViewTemplateSettings {
     type Vtable = ISplitViewTemplateSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc16ab5a7_4996_4443_b199_6b6b89124eab);
+    const IID: ::windows::core::GUID = <ISplitViewTemplateSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SplitViewTemplateSettings {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.SplitViewTemplateSettings";
@@ -17172,7 +17172,7 @@ unsafe impl ::windows::core::RuntimeType for Thumb {
 }
 unsafe impl ::windows::core::Interface for Thumb {
     type Vtable = IThumb_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8b2b281_0d6a_45cf_b333_2402b037f099);
+    const IID: ::windows::core::GUID = <IThumb as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Thumb {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.Thumb";
@@ -17411,7 +17411,7 @@ unsafe impl ::windows::core::RuntimeType for TickBar {
 }
 unsafe impl ::windows::core::Interface for TickBar {
     type Vtable = ITickBar_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x994683fa_f1f6_487d_a5ac_c15921bfa995);
+    const IID: ::windows::core::GUID = <ITickBar as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TickBar {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.TickBar";
@@ -17739,7 +17739,7 @@ unsafe impl ::windows::core::RuntimeType for ToggleButton {
 }
 unsafe impl ::windows::core::Interface for ToggleButton {
     type Vtable = IToggleButton_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x589877fb_0fc7_4036_9d8b_127dfa75c16d);
+    const IID: ::windows::core::GUID = <IToggleButton as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ToggleButton {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.ToggleButton";
@@ -18048,7 +18048,7 @@ unsafe impl ::windows::core::RuntimeType for ToggleSwitchTemplateSettings {
 }
 unsafe impl ::windows::core::Interface for ToggleSwitchTemplateSettings {
     type Vtable = IToggleSwitchTemplateSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02b7bdcd_628a_4363_86e0_51d6e2e89e58);
+    const IID: ::windows::core::GUID = <IToggleSwitchTemplateSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ToggleSwitchTemplateSettings {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.ToggleSwitchTemplateSettings";
@@ -18157,7 +18157,7 @@ unsafe impl ::windows::core::RuntimeType for ToolTipTemplateSettings {
 }
 unsafe impl ::windows::core::Interface for ToolTipTemplateSettings {
     type Vtable = IToolTipTemplateSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4388247_0ec4_4506_affd_afac2225b48c);
+    const IID: ::windows::core::GUID = <IToolTipTemplateSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ToolTipTemplateSettings {
     const NAME: &'static str = "Windows.UI.Xaml.Controls.Primitives.ToolTipTemplateSettings";

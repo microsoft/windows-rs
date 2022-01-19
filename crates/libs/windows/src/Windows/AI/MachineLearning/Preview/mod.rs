@@ -617,7 +617,7 @@ unsafe impl ::windows::core::RuntimeType for ImageVariableDescriptorPreview {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ImageVariableDescriptorPreview {
     type Vtable = IImageVariableDescriptorPreview_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ae1fa72_029e_4dc5_a2f8_5fb763154150);
+    const IID: ::windows::core::GUID = <IImageVariableDescriptorPreview as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for ImageVariableDescriptorPreview {
@@ -806,7 +806,7 @@ unsafe impl ::windows::core::RuntimeType for InferencingOptionsPreview {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for InferencingOptionsPreview {
     type Vtable = IInferencingOptionsPreview_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47bc8205_4d36_47a9_8f68_ffcb339dd0fc);
+    const IID: ::windows::core::GUID = <IInferencingOptionsPreview as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for InferencingOptionsPreview {
@@ -968,7 +968,7 @@ unsafe impl ::windows::core::RuntimeType for LearningModelBindingPreview {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for LearningModelBindingPreview {
     type Vtable = ILearningModelBindingPreview_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93c901e8_6c78_4b4f_aec1_a6bb9e691624);
+    const IID: ::windows::core::GUID = <ILearningModelBindingPreview as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for LearningModelBindingPreview {
@@ -1196,7 +1196,7 @@ unsafe impl ::windows::core::RuntimeType for LearningModelDescriptionPreview {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for LearningModelDescriptionPreview {
     type Vtable = ILearningModelDescriptionPreview_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf52c09c6_8611_40ad_8e59_de3fd7030a40);
+    const IID: ::windows::core::GUID = <ILearningModelDescriptionPreview as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for LearningModelDescriptionPreview {
@@ -1342,7 +1342,7 @@ unsafe impl ::windows::core::RuntimeType for LearningModelEvaluationResultPrevie
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for LearningModelEvaluationResultPreview {
     type Vtable = ILearningModelEvaluationResultPreview_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf25ea9f_9863_4088_8498_87a1f4686f92);
+    const IID: ::windows::core::GUID = <ILearningModelEvaluationResultPreview as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for LearningModelEvaluationResultPreview {
@@ -1533,7 +1533,7 @@ unsafe impl ::windows::core::RuntimeType for LearningModelPreview {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for LearningModelPreview {
     type Vtable = ILearningModelPreview_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x049c266a_93b4_478c_aeb8_70157bf0ff94);
+    const IID: ::windows::core::GUID = <ILearningModelPreview as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for LearningModelPreview {
@@ -1657,7 +1657,7 @@ unsafe impl ::windows::core::RuntimeType for LearningModelVariableDescriptorPrev
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for LearningModelVariableDescriptorPreview {
     type Vtable = ILearningModelVariableDescriptorPreview_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb13df682_fc30_492b_8ea0_ed1f53c0b038);
+    const IID: ::windows::core::GUID = <ILearningModelVariableDescriptorPreview as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for LearningModelVariableDescriptorPreview {
@@ -1843,7 +1843,7 @@ unsafe impl ::windows::core::RuntimeType for MapVariableDescriptorPreview {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for MapVariableDescriptorPreview {
     type Vtable = IMapVariableDescriptorPreview_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cb38370_c02b_4236_b3e8_6bdca49c3129);
+    const IID: ::windows::core::GUID = <IMapVariableDescriptorPreview as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for MapVariableDescriptorPreview {
@@ -2002,7 +2002,7 @@ unsafe impl ::windows::core::RuntimeType for SequenceVariableDescriptorPreview {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SequenceVariableDescriptorPreview {
     type Vtable = ISequenceVariableDescriptorPreview_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9cd8f292_98b2_4530_a1b6_2ded5fecbc26);
+    const IID: ::windows::core::GUID = <ISequenceVariableDescriptorPreview as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for SequenceVariableDescriptorPreview {
@@ -2170,7 +2170,7 @@ unsafe impl ::windows::core::RuntimeType for TensorVariableDescriptorPreview {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for TensorVariableDescriptorPreview {
     type Vtable = ITensorVariableDescriptorPreview_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa80f501a_9aac_4233_9784_aceaf92510b5);
+    const IID: ::windows::core::GUID = <ITensorVariableDescriptorPreview as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for TensorVariableDescriptorPreview {

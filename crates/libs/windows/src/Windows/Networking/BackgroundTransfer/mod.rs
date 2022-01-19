@@ -316,7 +316,7 @@ unsafe impl ::windows::core::RuntimeType for BackgroundDownloader {
 }
 unsafe impl ::windows::core::Interface for BackgroundDownloader {
     type Vtable = IBackgroundDownloader_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1c79333_6649_4b1d_a826_a4b3dd234d0b);
+    const IID: ::windows::core::GUID = <IBackgroundDownloader as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BackgroundDownloader {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundDownloader";
@@ -468,7 +468,7 @@ unsafe impl ::windows::core::RuntimeType for BackgroundTransferCompletionGroup {
 }
 unsafe impl ::windows::core::Interface for BackgroundTransferCompletionGroup {
     type Vtable = IBackgroundTransferCompletionGroup_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d930225_986b_574d_7950_0add47f5d706);
+    const IID: ::windows::core::GUID = <IBackgroundTransferCompletionGroup as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BackgroundTransferCompletionGroup {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundTransferCompletionGroup";
@@ -559,7 +559,7 @@ unsafe impl ::windows::core::RuntimeType for BackgroundTransferCompletionGroupTr
 }
 unsafe impl ::windows::core::Interface for BackgroundTransferCompletionGroupTriggerDetails {
     type Vtable = IBackgroundTransferCompletionGroupTriggerDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b6be286_6e47_5136_7fcb_fa4389f46f5b);
+    const IID: ::windows::core::GUID = <IBackgroundTransferCompletionGroupTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BackgroundTransferCompletionGroupTriggerDetails {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundTransferCompletionGroupTriggerDetails";
@@ -674,7 +674,7 @@ unsafe impl ::windows::core::RuntimeType for BackgroundTransferContentPart {
 }
 unsafe impl ::windows::core::Interface for BackgroundTransferContentPart {
     type Vtable = IBackgroundTransferContentPart_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8e15657_d7d1_4ed8_838e_674ac217ace6);
+    const IID: ::windows::core::GUID = <IBackgroundTransferContentPart as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BackgroundTransferContentPart {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundTransferContentPart";
@@ -866,7 +866,7 @@ unsafe impl ::windows::core::RuntimeType for BackgroundTransferGroup {
 }
 unsafe impl ::windows::core::Interface for BackgroundTransferGroup {
     type Vtable = IBackgroundTransferGroup_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8c3e3e4_6459_4540_85eb_aaa1c8903677);
+    const IID: ::windows::core::GUID = <IBackgroundTransferGroup as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BackgroundTransferGroup {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundTransferGroup";
@@ -994,7 +994,7 @@ unsafe impl ::windows::core::RuntimeType for BackgroundTransferRangesDownloadedE
 }
 unsafe impl ::windows::core::Interface for BackgroundTransferRangesDownloadedEventArgs {
     type Vtable = IBackgroundTransferRangesDownloadedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ebc7453_bf48_4a88_9248_b0c165184f5c);
+    const IID: ::windows::core::GUID = <IBackgroundTransferRangesDownloadedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BackgroundTransferRangesDownloadedEventArgs {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundTransferRangesDownloadedEventArgs";
@@ -1414,7 +1414,7 @@ unsafe impl ::windows::core::RuntimeType for BackgroundUploader {
 }
 unsafe impl ::windows::core::Interface for BackgroundUploader {
     type Vtable = IBackgroundUploader_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc595c9ae_cead_465b_8801_c55ac90a01ce);
+    const IID: ::windows::core::GUID = <IBackgroundUploader as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BackgroundUploader {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundUploader";
@@ -1770,7 +1770,7 @@ unsafe impl ::windows::core::RuntimeType for DownloadOperation {
 }
 unsafe impl ::windows::core::Interface for DownloadOperation {
     type Vtable = IDownloadOperation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd87ebb0_5714_4e09_ba68_bef73903b0d7);
+    const IID: ::windows::core::GUID = <IDownloadOperation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DownloadOperation {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.DownloadOperation";
@@ -3118,7 +3118,7 @@ unsafe impl ::windows::core::RuntimeType for ResponseInformation {
 }
 unsafe impl ::windows::core::Interface for ResponseInformation {
     type Vtable = IResponseInformation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8bb9a12_f713_4792_8b68_d9d297f91d2e);
+    const IID: ::windows::core::GUID = <IResponseInformation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ResponseInformation {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.ResponseInformation";
@@ -3208,7 +3208,7 @@ unsafe impl ::windows::core::RuntimeType for UnconstrainedTransferRequestResult 
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for UnconstrainedTransferRequestResult {
     type Vtable = IUnconstrainedTransferRequestResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c24b81f_d944_4112_a98e_6a69522b7ebb);
+    const IID: ::windows::core::GUID = <IUnconstrainedTransferRequestResult as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for UnconstrainedTransferRequestResult {
@@ -3427,7 +3427,7 @@ unsafe impl ::windows::core::RuntimeType for UploadOperation {
 }
 unsafe impl ::windows::core::Interface for UploadOperation {
     type Vtable = IUploadOperation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e5624e0_7389_434c_8b35_427fd36bbdae);
+    const IID: ::windows::core::GUID = <IUploadOperation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UploadOperation {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.UploadOperation";

@@ -278,7 +278,7 @@ unsafe impl ::windows::core::RuntimeType for SpiBusInfo {
 }
 unsafe impl ::windows::core::Interface for SpiBusInfo {
     type Vtable = ISpiBusInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9929444a_54f2_48c6_b952_9c32fc02c669);
+    const IID: ::windows::core::GUID = <ISpiBusInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpiBusInfo {
     const NAME: &'static str = "Windows.Devices.Spi.SpiBusInfo";
@@ -428,7 +428,7 @@ unsafe impl ::windows::core::RuntimeType for SpiConnectionSettings {
 }
 unsafe impl ::windows::core::Interface for SpiConnectionSettings {
     type Vtable = ISpiConnectionSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5283a37f_f935_4b9f_a7a7_3a7890afa5ce);
+    const IID: ::windows::core::GUID = <ISpiConnectionSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpiConnectionSettings {
     const NAME: &'static str = "Windows.Devices.Spi.SpiConnectionSettings";
@@ -530,7 +530,7 @@ unsafe impl ::windows::core::RuntimeType for SpiController {
 }
 unsafe impl ::windows::core::Interface for SpiController {
     type Vtable = ISpiController_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8d3c829_9895_4159_a934_8741f1ee6d27);
+    const IID: ::windows::core::GUID = <ISpiController as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpiController {
     const NAME: &'static str = "Windows.Devices.Spi.SpiController";
@@ -679,7 +679,7 @@ unsafe impl ::windows::core::RuntimeType for SpiDevice {
 }
 unsafe impl ::windows::core::Interface for SpiDevice {
     type Vtable = ISpiDevice_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05d5356d_11b6_4d39_84d5_95dfb4c9f2ce);
+    const IID: ::windows::core::GUID = <ISpiDevice as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpiDevice {
     const NAME: &'static str = "Windows.Devices.Spi.SpiDevice";

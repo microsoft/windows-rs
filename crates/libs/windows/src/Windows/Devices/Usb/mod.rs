@@ -627,7 +627,7 @@ unsafe impl ::windows::core::RuntimeType for UsbBulkInEndpointDescriptor {
 }
 unsafe impl ::windows::core::Interface for UsbBulkInEndpointDescriptor {
     type Vtable = IUsbBulkInEndpointDescriptor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c6e4846_06cf_42a9_9dc2_971c1b14b6e3);
+    const IID: ::windows::core::GUID = <IUsbBulkInEndpointDescriptor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbBulkInEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbBulkInEndpointDescriptor";
@@ -752,7 +752,7 @@ unsafe impl ::windows::core::RuntimeType for UsbBulkInPipe {
 }
 unsafe impl ::windows::core::Interface for UsbBulkInPipe {
     type Vtable = IUsbBulkInPipe_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf01d2d3b_4548_4d50_b326_d82cdabe1220);
+    const IID: ::windows::core::GUID = <IUsbBulkInPipe as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbBulkInPipe {
     const NAME: &'static str = "Windows.Devices.Usb.UsbBulkInPipe";
@@ -849,7 +849,7 @@ unsafe impl ::windows::core::RuntimeType for UsbBulkOutEndpointDescriptor {
 }
 unsafe impl ::windows::core::Interface for UsbBulkOutEndpointDescriptor {
     type Vtable = IUsbBulkOutEndpointDescriptor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2820847a_ffee_4f60_9be1_956cac3ecb65);
+    const IID: ::windows::core::GUID = <IUsbBulkOutEndpointDescriptor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbBulkOutEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbBulkOutEndpointDescriptor";
@@ -961,7 +961,7 @@ unsafe impl ::windows::core::RuntimeType for UsbBulkOutPipe {
 }
 unsafe impl ::windows::core::Interface for UsbBulkOutPipe {
     type Vtable = IUsbBulkOutPipe_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8e9ee6e_0115_45aa_8b21_37b225bccee7);
+    const IID: ::windows::core::GUID = <IUsbBulkOutPipe as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbBulkOutPipe {
     const NAME: &'static str = "Windows.Devices.Usb.UsbBulkOutPipe";
@@ -1060,7 +1060,7 @@ unsafe impl ::windows::core::RuntimeType for UsbConfiguration {
 }
 unsafe impl ::windows::core::Interface for UsbConfiguration {
     type Vtable = IUsbConfiguration_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68177429_36a9_46d7_b873_fc689251ec30);
+    const IID: ::windows::core::GUID = <IUsbConfiguration as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbConfiguration {
     const NAME: &'static str = "Windows.Devices.Usb.UsbConfiguration";
@@ -1184,7 +1184,7 @@ unsafe impl ::windows::core::RuntimeType for UsbConfigurationDescriptor {
 }
 unsafe impl ::windows::core::Interface for UsbConfigurationDescriptor {
     type Vtable = IUsbConfigurationDescriptor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2176d92_b442_407a_8207_7d646c0385f3);
+    const IID: ::windows::core::GUID = <IUsbConfigurationDescriptor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbConfigurationDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbConfigurationDescriptor";
@@ -1347,7 +1347,7 @@ unsafe impl ::windows::core::RuntimeType for UsbControlRequestType {
 }
 unsafe impl ::windows::core::Interface for UsbControlRequestType {
     type Vtable = IUsbControlRequestType_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e9465a6_d73d_46de_94be_aae7f07c0f5c);
+    const IID: ::windows::core::GUID = <IUsbControlRequestType as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbControlRequestType {
     const NAME: &'static str = "Windows.Devices.Usb.UsbControlRequestType";
@@ -1471,7 +1471,7 @@ unsafe impl ::windows::core::RuntimeType for UsbDescriptor {
 }
 unsafe impl ::windows::core::Interface for UsbDescriptor {
     type Vtable = IUsbDescriptor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a89f216_5f9d_4874_8904_da9ad3f5528f);
+    const IID: ::windows::core::GUID = <IUsbDescriptor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbDescriptor";
@@ -1651,7 +1651,7 @@ unsafe impl ::windows::core::RuntimeType for UsbDevice {
 }
 unsafe impl ::windows::core::Interface for UsbDevice {
     type Vtable = IUsbDevice_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5249b992_c456_44d5_ad5e_24f5a089f63b);
+    const IID: ::windows::core::GUID = <IUsbDevice as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbDevice {
     const NAME: &'static str = "Windows.Devices.Usb.UsbDevice";
@@ -1800,7 +1800,7 @@ unsafe impl ::windows::core::RuntimeType for UsbDeviceClass {
 }
 unsafe impl ::windows::core::Interface for UsbDeviceClass {
     type Vtable = IUsbDeviceClass_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x051942f9_845e_47eb_b12a_38f2f617afe7);
+    const IID: ::windows::core::GUID = <IUsbDeviceClass as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbDeviceClass {
     const NAME: &'static str = "Windows.Devices.Usb.UsbDeviceClass";
@@ -1941,7 +1941,7 @@ unsafe impl ::windows::core::RuntimeType for UsbDeviceClasses {
 }
 unsafe impl ::windows::core::Interface for UsbDeviceClasses {
     type Vtable = IUsbDeviceClasses_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x686f955d_9b92_4b30_9781_c22c55ac35cb);
+    const IID: ::windows::core::GUID = <IUsbDeviceClasses as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbDeviceClasses {
     const NAME: &'static str = "Windows.Devices.Usb.UsbDeviceClasses";
@@ -2062,7 +2062,7 @@ unsafe impl ::windows::core::RuntimeType for UsbDeviceDescriptor {
 }
 unsafe impl ::windows::core::Interface for UsbDeviceDescriptor {
     type Vtable = IUsbDeviceDescriptor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f48d1f6_ba97_4322_b92c_b5b189216588);
+    const IID: ::windows::core::GUID = <IUsbDeviceDescriptor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbDeviceDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbDeviceDescriptor";
@@ -2210,7 +2210,7 @@ unsafe impl ::windows::core::RuntimeType for UsbEndpointDescriptor {
 }
 unsafe impl ::windows::core::Interface for UsbEndpointDescriptor {
     type Vtable = IUsbEndpointDescriptor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b4862d9_8df7_4b40_ac83_578f139f0575);
+    const IID: ::windows::core::GUID = <IUsbEndpointDescriptor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbEndpointDescriptor";
@@ -2375,7 +2375,7 @@ unsafe impl ::windows::core::RuntimeType for UsbInterface {
 }
 unsafe impl ::windows::core::Interface for UsbInterface {
     type Vtable = IUsbInterface_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0322b95_7f47_48ab_a727_678c25be2112);
+    const IID: ::windows::core::GUID = <IUsbInterface as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbInterface {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterface";
@@ -2507,7 +2507,7 @@ unsafe impl ::windows::core::RuntimeType for UsbInterfaceDescriptor {
 }
 unsafe impl ::windows::core::Interface for UsbInterfaceDescriptor {
     type Vtable = IUsbInterfaceDescriptor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x199670c7_b7ee_4f90_8cd5_94a2e257598a);
+    const IID: ::windows::core::GUID = <IUsbInterfaceDescriptor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbInterfaceDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterfaceDescriptor";
@@ -2650,7 +2650,7 @@ unsafe impl ::windows::core::RuntimeType for UsbInterfaceSetting {
 }
 unsafe impl ::windows::core::Interface for UsbInterfaceSetting {
     type Vtable = IUsbInterfaceSetting_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1827bba7_8da7_4af7_8f4c_7f3032e781f5);
+    const IID: ::windows::core::GUID = <IUsbInterfaceSetting as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbInterfaceSetting {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterfaceSetting";
@@ -2756,7 +2756,7 @@ unsafe impl ::windows::core::RuntimeType for UsbInterruptInEndpointDescriptor {
 }
 unsafe impl ::windows::core::Interface for UsbInterruptInEndpointDescriptor {
     type Vtable = IUsbInterruptInEndpointDescriptor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0528967_c911_4c3a_86b2_419c2da89039);
+    const IID: ::windows::core::GUID = <IUsbInterruptInEndpointDescriptor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbInterruptInEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterruptInEndpointDescriptor";
@@ -2838,7 +2838,7 @@ unsafe impl ::windows::core::RuntimeType for UsbInterruptInEventArgs {
 }
 unsafe impl ::windows::core::Interface for UsbInterruptInEventArgs {
     type Vtable = IUsbInterruptInEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7b04092_1418_4936_8209_299cf5605583);
+    const IID: ::windows::core::GUID = <IUsbInterruptInEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbInterruptInEventArgs {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterruptInEventArgs";
@@ -2943,7 +2943,7 @@ unsafe impl ::windows::core::RuntimeType for UsbInterruptInPipe {
 }
 unsafe impl ::windows::core::Interface for UsbInterruptInPipe {
     type Vtable = IUsbInterruptInPipe_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa007116_84d7_48c7_8a3f_4c0b235f2ea6);
+    const IID: ::windows::core::GUID = <IUsbInterruptInPipe as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbInterruptInPipe {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterruptInPipe";
@@ -3049,7 +3049,7 @@ unsafe impl ::windows::core::RuntimeType for UsbInterruptOutEndpointDescriptor {
 }
 unsafe impl ::windows::core::Interface for UsbInterruptOutEndpointDescriptor {
     type Vtable = IUsbInterruptOutEndpointDescriptor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc9fed81_10ca_4533_952d_9e278341e80f);
+    const IID: ::windows::core::GUID = <IUsbInterruptOutEndpointDescriptor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbInterruptOutEndpointDescriptor {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterruptOutEndpointDescriptor";
@@ -3161,7 +3161,7 @@ unsafe impl ::windows::core::RuntimeType for UsbInterruptOutPipe {
 }
 unsafe impl ::windows::core::Interface for UsbInterruptOutPipe {
     type Vtable = IUsbInterruptOutPipe_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe984c8a9_aaf9_49d0_b96c_f661ab4a7f95);
+    const IID: ::windows::core::GUID = <IUsbInterruptOutPipe as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbInterruptOutPipe {
     const NAME: &'static str = "Windows.Devices.Usb.UsbInterruptOutPipe";
@@ -3378,7 +3378,7 @@ unsafe impl ::windows::core::RuntimeType for UsbSetupPacket {
 }
 unsafe impl ::windows::core::Interface for UsbSetupPacket {
     type Vtable = IUsbSetupPacket_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x104ba132_c78f_4c51_b654_e49d02f2cb03);
+    const IID: ::windows::core::GUID = <IUsbSetupPacket as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UsbSetupPacket {
     const NAME: &'static str = "Windows.Devices.Usb.UsbSetupPacket";

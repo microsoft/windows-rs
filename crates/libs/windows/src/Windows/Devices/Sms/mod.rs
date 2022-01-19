@@ -122,7 +122,7 @@ unsafe impl ::windows::core::RuntimeType for DeleteSmsMessageOperation {
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 unsafe impl ::windows::core::Interface for DeleteSmsMessageOperation {
     type Vtable = super::super::Foundation::IAsyncAction_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a648006_843a_4da9_865b_9d26e5dfad7b);
+    const IID: ::windows::core::GUID = <super::super::Foundation::IAsyncAction as ::windows::core::Interface>::IID;
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::windows::core::RuntimeName for DeleteSmsMessageOperation {
@@ -353,7 +353,7 @@ unsafe impl ::windows::core::RuntimeType for DeleteSmsMessagesOperation {
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 unsafe impl ::windows::core::Interface for DeleteSmsMessagesOperation {
     type Vtable = super::super::Foundation::IAsyncAction_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a648006_843a_4da9_865b_9d26e5dfad7b);
+    const IID: ::windows::core::GUID = <super::super::Foundation::IAsyncAction as ::windows::core::Interface>::IID;
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::windows::core::RuntimeName for DeleteSmsMessagesOperation {
@@ -587,7 +587,7 @@ unsafe impl ::windows::core::RuntimeType for GetSmsDeviceOperation {
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 unsafe impl ::windows::core::Interface for GetSmsDeviceOperation {
     type Vtable = super::super::Foundation::IAsyncOperation_Vtbl<SmsDevice>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::Foundation::IAsyncOperation<SmsDevice> as ::windows::core::Interface>::IID;
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::windows::core::RuntimeName for GetSmsDeviceOperation {
@@ -821,7 +821,7 @@ unsafe impl ::windows::core::RuntimeType for GetSmsMessageOperation {
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 unsafe impl ::windows::core::Interface for GetSmsMessageOperation {
     type Vtable = super::super::Foundation::IAsyncOperation_Vtbl<ISmsMessage>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::Foundation::IAsyncOperation<ISmsMessage> as ::windows::core::Interface>::IID;
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::windows::core::RuntimeName for GetSmsMessageOperation {
@@ -1070,7 +1070,7 @@ unsafe impl ::windows::core::RuntimeType for GetSmsMessagesOperation {
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 unsafe impl ::windows::core::Interface for GetSmsMessagesOperation {
     type Vtable = super::super::Foundation::IAsyncOperationWithProgress_Vtbl<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::Foundation::IAsyncOperationWithProgress<super::super::Foundation::Collections::IVectorView<ISmsMessage>, i32> as ::windows::core::Interface>::IID;
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::windows::core::RuntimeName for GetSmsMessagesOperation {
@@ -2770,7 +2770,7 @@ unsafe impl ::windows::core::RuntimeType for SendSmsMessageOperation {
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 unsafe impl ::windows::core::Interface for SendSmsMessageOperation {
     type Vtable = super::super::Foundation::IAsyncAction_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a648006_843a_4da9_865b_9d26e5dfad7b);
+    const IID: ::windows::core::GUID = <super::super::Foundation::IAsyncAction as ::windows::core::Interface>::IID;
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::windows::core::RuntimeName for SendSmsMessageOperation {
@@ -3129,7 +3129,7 @@ unsafe impl ::windows::core::RuntimeType for SmsAppMessage {
 }
 unsafe impl ::windows::core::Interface for SmsAppMessage {
     type Vtable = ISmsAppMessage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8bb8494_d3a0_4a0a_86d7_291033a8cf54);
+    const IID: ::windows::core::GUID = <ISmsAppMessage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SmsAppMessage {
     const NAME: &'static str = "Windows.Devices.Sms.SmsAppMessage";
@@ -3285,7 +3285,7 @@ unsafe impl ::windows::core::RuntimeType for SmsBinaryMessage {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SmsBinaryMessage {
     type Vtable = ISmsBinaryMessage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bf4e813_3b53_4c6e_b61a_d86a63755650);
+    const IID: ::windows::core::GUID = <ISmsBinaryMessage as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for SmsBinaryMessage {
@@ -3542,7 +3542,7 @@ unsafe impl ::windows::core::RuntimeType for SmsBroadcastMessage {
 }
 unsafe impl ::windows::core::Interface for SmsBroadcastMessage {
     type Vtable = ISmsBroadcastMessage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75aebbf1_e4b7_4874_a09c_2956e592f957);
+    const IID: ::windows::core::GUID = <ISmsBroadcastMessage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SmsBroadcastMessage {
     const NAME: &'static str = "Windows.Devices.Sms.SmsBroadcastMessage";
@@ -3845,7 +3845,7 @@ unsafe impl ::windows::core::RuntimeType for SmsDevice {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SmsDevice {
     type Vtable = ISmsDevice_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x091791ed_872b_4eec_9c72_ab11627b34ec);
+    const IID: ::windows::core::GUID = <ISmsDevice as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for SmsDevice {
@@ -4069,7 +4069,7 @@ unsafe impl ::windows::core::RuntimeType for SmsDevice2 {
 }
 unsafe impl ::windows::core::Interface for SmsDevice2 {
     type Vtable = ISmsDevice2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd8a5c13_e522_46cb_b8d5_9ead30fb6c47);
+    const IID: ::windows::core::GUID = <ISmsDevice2 as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SmsDevice2 {
     const NAME: &'static str = "Windows.Devices.Sms.SmsDevice2";
@@ -4193,7 +4193,7 @@ unsafe impl ::windows::core::RuntimeType for SmsDeviceMessageStore {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SmsDeviceMessageStore {
     type Vtable = ISmsDeviceMessageStore_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9889f253_f188_4427_8d54_ce0c2423c5c1);
+    const IID: ::windows::core::GUID = <ISmsDeviceMessageStore as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for SmsDeviceMessageStore {
@@ -4639,7 +4639,7 @@ unsafe impl ::windows::core::RuntimeType for SmsFilterRule {
 }
 unsafe impl ::windows::core::Interface for SmsFilterRule {
     type Vtable = ISmsFilterRule_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40e32fae_b049_4fbc_afe9_e2a610eff55c);
+    const IID: ::windows::core::GUID = <ISmsFilterRule as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SmsFilterRule {
     const NAME: &'static str = "Windows.Devices.Sms.SmsFilterRule";
@@ -4741,7 +4741,7 @@ unsafe impl ::windows::core::RuntimeType for SmsFilterRules {
 }
 unsafe impl ::windows::core::Interface for SmsFilterRules {
     type Vtable = ISmsFilterRules_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e47eafb_79cd_4881_9894_55a4135b23fa);
+    const IID: ::windows::core::GUID = <ISmsFilterRules as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SmsFilterRules {
     const NAME: &'static str = "Windows.Devices.Sms.SmsFilterRules";
@@ -4941,7 +4941,7 @@ unsafe impl ::windows::core::RuntimeType for SmsMessageReceivedEventArgs {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SmsMessageReceivedEventArgs {
     type Vtable = ISmsMessageReceivedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08e80a98_b8e5_41c1_a3d8_d3abfae22675);
+    const IID: ::windows::core::GUID = <ISmsMessageReceivedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for SmsMessageReceivedEventArgs {
@@ -5180,7 +5180,7 @@ unsafe impl ::windows::core::RuntimeType for SmsMessageReceivedTriggerDetails {
 }
 unsafe impl ::windows::core::Interface for SmsMessageReceivedTriggerDetails {
     type Vtable = ISmsMessageReceivedTriggerDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bcfcbd4_2657_4128_ad5f_e3877132bdb1);
+    const IID: ::windows::core::GUID = <ISmsMessageReceivedTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SmsMessageReceivedTriggerDetails {
     const NAME: &'static str = "Windows.Devices.Sms.SmsMessageReceivedTriggerDetails";
@@ -5301,7 +5301,7 @@ unsafe impl ::windows::core::RuntimeType for SmsMessageRegistration {
 }
 unsafe impl ::windows::core::Interface for SmsMessageRegistration {
     type Vtable = ISmsMessageRegistration_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1720503e_f34f_446b_83b3_0ff19923b409);
+    const IID: ::windows::core::GUID = <ISmsMessageRegistration as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SmsMessageRegistration {
     const NAME: &'static str = "Windows.Devices.Sms.SmsMessageRegistration";
@@ -5487,7 +5487,7 @@ unsafe impl ::windows::core::RuntimeType for SmsReceivedEventDetails {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SmsReceivedEventDetails {
     type Vtable = ISmsReceivedEventDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bb50f15_e46d_4c82_847d_5a0304c1d53d);
+    const IID: ::windows::core::GUID = <ISmsReceivedEventDetails as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for SmsReceivedEventDetails {
@@ -5628,7 +5628,7 @@ unsafe impl ::windows::core::RuntimeType for SmsSendMessageResult {
 }
 unsafe impl ::windows::core::Interface for SmsSendMessageResult {
     type Vtable = ISmsSendMessageResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb139af2_78c9_4feb_9622_452328088d62);
+    const IID: ::windows::core::GUID = <ISmsSendMessageResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SmsSendMessageResult {
     const NAME: &'static str = "Windows.Devices.Sms.SmsSendMessageResult";
@@ -5799,7 +5799,7 @@ unsafe impl ::windows::core::RuntimeType for SmsStatusMessage {
 }
 unsafe impl ::windows::core::Interface for SmsStatusMessage {
     type Vtable = ISmsStatusMessage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6d28342_b70b_4677_9379_c9783fdff8f4);
+    const IID: ::windows::core::GUID = <ISmsStatusMessage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SmsStatusMessage {
     const NAME: &'static str = "Windows.Devices.Sms.SmsStatusMessage";
@@ -6052,7 +6052,7 @@ unsafe impl ::windows::core::RuntimeType for SmsTextMessage {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SmsTextMessage {
     type Vtable = ISmsTextMessage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd61c904c_a495_487f_9a6f_971548c5bc9f);
+    const IID: ::windows::core::GUID = <ISmsTextMessage as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for SmsTextMessage {
@@ -6346,7 +6346,7 @@ unsafe impl ::windows::core::RuntimeType for SmsTextMessage2 {
 }
 unsafe impl ::windows::core::Interface for SmsTextMessage2 {
     type Vtable = ISmsTextMessage2_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22a0d893_4555_4755_b5a1_e7fd84955f8d);
+    const IID: ::windows::core::GUID = <ISmsTextMessage2 as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SmsTextMessage2 {
     const NAME: &'static str = "Windows.Devices.Sms.SmsTextMessage2";
@@ -6515,7 +6515,7 @@ unsafe impl ::windows::core::RuntimeType for SmsVoicemailMessage {
 }
 unsafe impl ::windows::core::Interface for SmsVoicemailMessage {
     type Vtable = ISmsVoicemailMessage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x271aa0a6_95b1_44ff_bcb8_b8fdd7e08bc3);
+    const IID: ::windows::core::GUID = <ISmsVoicemailMessage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SmsVoicemailMessage {
     const NAME: &'static str = "Windows.Devices.Sms.SmsVoicemailMessage";
@@ -6709,7 +6709,7 @@ unsafe impl ::windows::core::RuntimeType for SmsWapMessage {
 }
 unsafe impl ::windows::core::Interface for SmsWapMessage {
     type Vtable = ISmsWapMessage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd937743_7a55_4d3b_9021_f22e022d09c5);
+    const IID: ::windows::core::GUID = <ISmsWapMessage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SmsWapMessage {
     const NAME: &'static str = "Windows.Devices.Sms.SmsWapMessage";

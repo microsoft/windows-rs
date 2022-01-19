@@ -38,7 +38,7 @@ unsafe impl ::windows::core::RuntimeType for CoreAppWindowPreview {
 }
 unsafe impl ::windows::core::Interface for CoreAppWindowPreview {
     type Vtable = ICoreAppWindowPreview_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4f6e665_365e_5fde_87a5_9543c3a15aa8);
+    const IID: ::windows::core::GUID = <ICoreAppWindowPreview as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CoreAppWindowPreview {
     const NAME: &'static str = "Windows.UI.Core.Preview.CoreAppWindowPreview";
@@ -212,7 +212,7 @@ unsafe impl ::windows::core::RuntimeType for SystemNavigationCloseRequestedPrevi
 }
 unsafe impl ::windows::core::Interface for SystemNavigationCloseRequestedPreviewEventArgs {
     type Vtable = ISystemNavigationCloseRequestedPreviewEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83d00de1_cbe5_4f31_8414_361da046518f);
+    const IID: ::windows::core::GUID = <ISystemNavigationCloseRequestedPreviewEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SystemNavigationCloseRequestedPreviewEventArgs {
     const NAME: &'static str = "Windows.UI.Core.Preview.SystemNavigationCloseRequestedPreviewEventArgs";
@@ -312,7 +312,7 @@ unsafe impl ::windows::core::RuntimeType for SystemNavigationManagerPreview {
 }
 unsafe impl ::windows::core::Interface for SystemNavigationManagerPreview {
     type Vtable = ISystemNavigationManagerPreview_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec5f0488_6425_4777_a536_cb5634427f0d);
+    const IID: ::windows::core::GUID = <ISystemNavigationManagerPreview as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SystemNavigationManagerPreview {
     const NAME: &'static str = "Windows.UI.Core.Preview.SystemNavigationManagerPreview";

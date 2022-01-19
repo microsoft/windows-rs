@@ -1174,7 +1174,7 @@ unsafe impl ::windows::core::RuntimeType for PrintManager {
 }
 unsafe impl ::windows::core::Interface for PrintManager {
     type Vtable = IPrintManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff2a9694_8c99_44fd_ae4a_19d9aa9a0f0a);
+    const IID: ::windows::core::GUID = <IPrintManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintManager {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintManager";
@@ -1660,7 +1660,7 @@ unsafe impl ::windows::core::RuntimeType for PrintPageInfo {
 }
 unsafe impl ::windows::core::Interface for PrintPageInfo {
     type Vtable = IPrintPageInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd4be9c9_a6a1_4ada_930e_da872a4f23d3);
+    const IID: ::windows::core::GUID = <IPrintPageInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintPageInfo {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintPageInfo";
@@ -1768,7 +1768,7 @@ unsafe impl ::windows::core::RuntimeType for PrintPageRange {
 }
 unsafe impl ::windows::core::Interface for PrintPageRange {
     type Vtable = IPrintPageRange_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8a06c54_6e7c_51c5_57fd_0660c2d71513);
+    const IID: ::windows::core::GUID = <IPrintPageRange as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintPageRange {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintPageRange";
@@ -1880,7 +1880,7 @@ unsafe impl ::windows::core::RuntimeType for PrintPageRangeOptions {
 }
 unsafe impl ::windows::core::Interface for PrintPageRangeOptions {
     type Vtable = IPrintPageRangeOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce6db728_1357_46b2_a923_79f995f448fc);
+    const IID: ::windows::core::GUID = <IPrintPageRangeOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintPageRangeOptions {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintPageRangeOptions";
@@ -2152,7 +2152,7 @@ unsafe impl ::windows::core::RuntimeType for PrintTask {
 }
 unsafe impl ::windows::core::Interface for PrintTask {
     type Vtable = IPrintTask_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61d80247_6cf6_4fad_84e2_a5e82e2d4ceb);
+    const IID: ::windows::core::GUID = <IPrintTask as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintTask {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTask";
@@ -2233,7 +2233,7 @@ unsafe impl ::windows::core::RuntimeType for PrintTaskCompletedEventArgs {
 }
 unsafe impl ::windows::core::Interface for PrintTaskCompletedEventArgs {
     type Vtable = IPrintTaskCompletedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bcd34af_24e9_4c10_8d07_14c346ba3fce);
+    const IID: ::windows::core::GUID = <IPrintTaskCompletedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintTaskCompletedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskCompletedEventArgs";
@@ -2552,7 +2552,7 @@ unsafe impl ::windows::core::RuntimeType for PrintTaskOptions {
 }
 unsafe impl ::windows::core::Interface for PrintTaskOptions {
     type Vtable = IPrintTaskOptionsCore_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bdbb474_4ed1_41eb_be3c_72d18ed67337);
+    const IID: ::windows::core::GUID = <IPrintTaskOptionsCore as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintTaskOptions {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskOptions";
@@ -2699,7 +2699,7 @@ unsafe impl ::windows::core::RuntimeType for PrintTaskProgressingEventArgs {
 }
 unsafe impl ::windows::core::Interface for PrintTaskProgressingEventArgs {
     type Vtable = IPrintTaskProgressingEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x810cd3cb_b410_4282_a073_5ac378234174);
+    const IID: ::windows::core::GUID = <IPrintTaskProgressingEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintTaskProgressingEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskProgressingEventArgs";
@@ -2797,7 +2797,7 @@ unsafe impl ::windows::core::RuntimeType for PrintTaskRequest {
 }
 unsafe impl ::windows::core::Interface for PrintTaskRequest {
     type Vtable = IPrintTaskRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ff61e2e_2722_4240_a67c_f364849a17f3);
+    const IID: ::windows::core::GUID = <IPrintTaskRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintTaskRequest {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskRequest";
@@ -2875,7 +2875,7 @@ unsafe impl ::windows::core::RuntimeType for PrintTaskRequestedDeferral {
 }
 unsafe impl ::windows::core::Interface for PrintTaskRequestedDeferral {
     type Vtable = IPrintTaskRequestedDeferral_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfefb3f0_ce3e_42c7_9496_64800c622c44);
+    const IID: ::windows::core::GUID = <IPrintTaskRequestedDeferral as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintTaskRequestedDeferral {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskRequestedDeferral";
@@ -2956,7 +2956,7 @@ unsafe impl ::windows::core::RuntimeType for PrintTaskRequestedEventArgs {
 }
 unsafe impl ::windows::core::Interface for PrintTaskRequestedEventArgs {
     type Vtable = IPrintTaskRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0aff924_a31b_454c_a7b6_5d0cc522fc16);
+    const IID: ::windows::core::GUID = <IPrintTaskRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintTaskRequestedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskRequestedEventArgs";
@@ -3051,7 +3051,7 @@ unsafe impl ::windows::core::RuntimeType for PrintTaskSourceRequestedArgs {
 }
 unsafe impl ::windows::core::Interface for PrintTaskSourceRequestedArgs {
     type Vtable = IPrintTaskSourceRequestedArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9f067be_f456_41f0_9c98_5ce73e851410);
+    const IID: ::windows::core::GUID = <IPrintTaskSourceRequestedArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintTaskSourceRequestedArgs {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskSourceRequestedArgs";
@@ -3129,7 +3129,7 @@ unsafe impl ::windows::core::RuntimeType for PrintTaskSourceRequestedDeferral {
 }
 unsafe impl ::windows::core::Interface for PrintTaskSourceRequestedDeferral {
     type Vtable = IPrintTaskSourceRequestedDeferral_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a1560d1_6992_4d9d_8555_4ca4563fb166);
+    const IID: ::windows::core::GUID = <IPrintTaskSourceRequestedDeferral as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintTaskSourceRequestedDeferral {
     const NAME: &'static str = "Windows.Graphics.Printing.PrintTaskSourceRequestedDeferral";

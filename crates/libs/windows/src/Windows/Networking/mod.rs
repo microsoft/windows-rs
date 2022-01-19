@@ -135,7 +135,7 @@ unsafe impl ::windows::core::RuntimeType for EndpointPair {
 }
 unsafe impl ::windows::core::Interface for EndpointPair {
     type Vtable = IEndpointPair_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33a0aa36_f8fa_4b30_b856_76517c3bd06d);
+    const IID: ::windows::core::GUID = <IEndpointPair as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EndpointPair {
     const NAME: &'static str = "Windows.Networking.EndpointPair";
@@ -290,7 +290,7 @@ unsafe impl ::windows::core::RuntimeType for HostName {
 }
 unsafe impl ::windows::core::Interface for HostName {
     type Vtable = IHostName_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf8ecaad_ed96_49a7_9084_d416cae88dcb);
+    const IID: ::windows::core::GUID = <IHostName as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HostName {
     const NAME: &'static str = "Windows.Networking.HostName";

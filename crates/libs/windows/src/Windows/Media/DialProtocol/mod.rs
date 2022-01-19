@@ -60,7 +60,7 @@ unsafe impl ::windows::core::RuntimeType for DialApp {
 }
 unsafe impl ::windows::core::Interface for DialApp {
     type Vtable = IDialApp_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x555ffbd3_45b7_49f3_bbd7_302db6084646);
+    const IID: ::windows::core::GUID = <IDialApp as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DialApp {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialApp";
@@ -209,7 +209,7 @@ unsafe impl ::windows::core::RuntimeType for DialAppStateDetails {
 }
 unsafe impl ::windows::core::Interface for DialAppStateDetails {
     type Vtable = IDialAppStateDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xddc4a4a1_f5de_400d_bea4_8c8466bb2961);
+    const IID: ::windows::core::GUID = <IDialAppStateDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DialAppStateDetails {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialAppStateDetails";
@@ -373,7 +373,7 @@ unsafe impl ::windows::core::RuntimeType for DialDevice {
 }
 unsafe impl ::windows::core::Interface for DialDevice {
     type Vtable = IDialDevice_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfff0edaf_759f_41d2_a20a_7f29ce0b3784);
+    const IID: ::windows::core::GUID = <IDialDevice as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DialDevice {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialDevice";
@@ -587,7 +587,7 @@ unsafe impl ::windows::core::RuntimeType for DialDevicePicker {
 }
 unsafe impl ::windows::core::Interface for DialDevicePicker {
     type Vtable = IDialDevicePicker_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba7e520a_ff59_4f4b_bdac_d89f495ad6e1);
+    const IID: ::windows::core::GUID = <IDialDevicePicker as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DialDevicePicker {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialDevicePicker";
@@ -669,7 +669,7 @@ unsafe impl ::windows::core::RuntimeType for DialDevicePickerFilter {
 }
 unsafe impl ::windows::core::Interface for DialDevicePickerFilter {
     type Vtable = IDialDevicePickerFilter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc17c93ba_86c0_485d_b8d6_0f9a8f641590);
+    const IID: ::windows::core::GUID = <IDialDevicePickerFilter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DialDevicePickerFilter {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialDevicePickerFilter";
@@ -750,7 +750,7 @@ unsafe impl ::windows::core::RuntimeType for DialDeviceSelectedEventArgs {
 }
 unsafe impl ::windows::core::Interface for DialDeviceSelectedEventArgs {
     type Vtable = IDialDeviceSelectedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x480b92ad_ac76_47eb_9c06_a19304da0247);
+    const IID: ::windows::core::GUID = <IDialDeviceSelectedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DialDeviceSelectedEventArgs {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialDeviceSelectedEventArgs";
@@ -831,7 +831,7 @@ unsafe impl ::windows::core::RuntimeType for DialDisconnectButtonClickedEventArg
 }
 unsafe impl ::windows::core::Interface for DialDisconnectButtonClickedEventArgs {
     type Vtable = IDialDisconnectButtonClickedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52765152_9c81_4e55_adc2_0ebe99cde3b6);
+    const IID: ::windows::core::GUID = <IDialDisconnectButtonClickedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DialDisconnectButtonClickedEventArgs {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialDisconnectButtonClickedEventArgs";
@@ -943,7 +943,7 @@ unsafe impl ::windows::core::RuntimeType for DialReceiverApp {
 }
 unsafe impl ::windows::core::Interface for DialReceiverApp {
     type Vtable = IDialReceiverApp_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd3e7c57_5045_470e_b304_4dd9b13e7d11);
+    const IID: ::windows::core::GUID = <IDialReceiverApp as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DialReceiverApp {
     const NAME: &'static str = "Windows.Media.DialProtocol.DialReceiverApp";

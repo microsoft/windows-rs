@@ -531,7 +531,7 @@ unsafe impl ::windows::core::RuntimeType for AlarmNotificationTriggerDetails {
 }
 unsafe impl ::windows::core::Interface for AlarmNotificationTriggerDetails {
     type Vtable = IAlarmNotificationTriggerDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38f5fa30_c738_4da2_908c_775d83c36abb);
+    const IID: ::windows::core::GUID = <IAlarmNotificationTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AlarmNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.AlarmNotificationTriggerDetails";
@@ -640,7 +640,7 @@ unsafe impl ::windows::core::RuntimeType for AppNotificationInfo {
 }
 unsafe impl ::windows::core::Interface for AppNotificationInfo {
     type Vtable = IAppNotificationInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2157bea5_e286_45d3_9bea_f790fc216e0e);
+    const IID: ::windows::core::GUID = <IAppNotificationInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppNotificationInfo {
     const NAME: &'static str = "Windows.Phone.Notification.Management.AppNotificationInfo";
@@ -727,7 +727,7 @@ unsafe impl ::windows::core::RuntimeType for BinaryId {
 }
 unsafe impl ::windows::core::Interface for BinaryId {
     type Vtable = IBinaryId_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f0da531_5595_44b4_9181_ce4efa3fc168);
+    const IID: ::windows::core::GUID = <IBinaryId as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BinaryId {
     const NAME: &'static str = "Windows.Phone.Notification.Management.BinaryId";
@@ -893,7 +893,7 @@ unsafe impl ::windows::core::RuntimeType for CalendarChangedNotificationTriggerD
 }
 unsafe impl ::windows::core::Interface for CalendarChangedNotificationTriggerDetails {
     type Vtable = ICalendarChangedNotificationTriggerDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b8a3bfc_279d_42ab_9c68_3e87977bf216);
+    const IID: ::windows::core::GUID = <ICalendarChangedNotificationTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CalendarChangedNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.CalendarChangedNotificationTriggerDetails";
@@ -1112,7 +1112,7 @@ unsafe impl ::windows::core::RuntimeType for CortanaTileNotificationTriggerDetai
 }
 unsafe impl ::windows::core::Interface for CortanaTileNotificationTriggerDetails {
     type Vtable = ICortanaTileNotificationTriggerDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc0f01d5_1489_46bb_b73b_7f90067ecf27);
+    const IID: ::windows::core::GUID = <ICortanaTileNotificationTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CortanaTileNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.CortanaTileNotificationTriggerDetails";
@@ -1221,7 +1221,7 @@ unsafe impl ::windows::core::RuntimeType for EmailAccountInfo {
 }
 unsafe impl ::windows::core::Interface for EmailAccountInfo {
     type Vtable = IEmailAccountInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdfbc02ab_bda0_4568_927e_b2ede35818a1);
+    const IID: ::windows::core::GUID = <IEmailAccountInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EmailAccountInfo {
     const NAME: &'static str = "Windows.Phone.Notification.Management.EmailAccountInfo";
@@ -1308,7 +1308,7 @@ unsafe impl ::windows::core::RuntimeType for EmailFolderInfo {
 }
 unsafe impl ::windows::core::Interface for EmailFolderInfo {
     type Vtable = IEmailFolderInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc207150e_e237_46d6_90e6_4f529eeac1e2);
+    const IID: ::windows::core::GUID = <IEmailFolderInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EmailFolderInfo {
     const NAME: &'static str = "Windows.Phone.Notification.Management.EmailFolderInfo";
@@ -1483,7 +1483,7 @@ unsafe impl ::windows::core::RuntimeType for EmailNotificationTriggerDetails {
 }
 unsafe impl ::windows::core::Interface for EmailNotificationTriggerDetails {
     type Vtable = IEmailNotificationTriggerDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3b82612_46cf_4e70_8e0d_7b2e04ab492b);
+    const IID: ::windows::core::GUID = <IEmailNotificationTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EmailNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.EmailNotificationTriggerDetails";
@@ -1654,7 +1654,7 @@ unsafe impl ::windows::core::RuntimeType for EmailReadNotificationTriggerDetails
 }
 unsafe impl ::windows::core::Interface for EmailReadNotificationTriggerDetails {
     type Vtable = IEmailReadNotificationTriggerDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5b7a087_06f3_4e3e_8c42_325e67010413);
+    const IID: ::windows::core::GUID = <IEmailReadNotificationTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EmailReadNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.EmailReadNotificationTriggerDetails";
@@ -2472,7 +2472,7 @@ unsafe impl ::windows::core::RuntimeType for MediaControlsTriggerDetails {
 }
 unsafe impl ::windows::core::Interface for MediaControlsTriggerDetails {
     type Vtable = IMediaControlsTriggerDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfab4648b_ae45_4548_91ca_4ab0548e33b5);
+    const IID: ::windows::core::GUID = <IMediaControlsTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaControlsTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.MediaControlsTriggerDetails";
@@ -2623,7 +2623,7 @@ unsafe impl ::windows::core::RuntimeType for MediaMetadata {
 }
 unsafe impl ::windows::core::Interface for MediaMetadata {
     type Vtable = IMediaMetadata_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b50ddf7_bb6c_4330_b3cd_0704a54cdb80);
+    const IID: ::windows::core::GUID = <IMediaMetadata as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaMetadata {
     const NAME: &'static str = "Windows.Phone.Notification.Management.MediaMetadata";
@@ -2822,7 +2822,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallDetails {
 }
 unsafe impl ::windows::core::Interface for PhoneCallDetails {
     type Vtable = IPhoneCallDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c1b6f53_f071_483e_bf33_ebd44b724447);
+    const IID: ::windows::core::GUID = <IPhoneCallDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PhoneCallDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.PhoneCallDetails";
@@ -3036,7 +3036,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneLineDetails {
 }
 unsafe impl ::windows::core::Interface for PhoneLineDetails {
     type Vtable = IPhoneLineDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47eb32dc_33ed_49b9_995c_a296bac82b77);
+    const IID: ::windows::core::GUID = <IPhoneLineDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PhoneLineDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.PhoneLineDetails";
@@ -3234,7 +3234,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneNotificationTriggerDetails {
 }
 unsafe impl ::windows::core::Interface for PhoneNotificationTriggerDetails {
     type Vtable = IPhoneNotificationTriggerDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xccc2fdf7_09c3_4118_91bc_ca6323a8d383);
+    const IID: ::windows::core::GUID = <IPhoneNotificationTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PhoneNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.PhoneNotificationTriggerDetails";
@@ -3602,7 +3602,7 @@ unsafe impl ::windows::core::RuntimeType for ReminderNotificationTriggerDetails 
 }
 unsafe impl ::windows::core::Interface for ReminderNotificationTriggerDetails {
     type Vtable = IReminderNotificationTriggerDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bddaa5d_9f61_4bf0_9feb_10502bc0b0c2);
+    const IID: ::windows::core::GUID = <IReminderNotificationTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ReminderNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.ReminderNotificationTriggerDetails";
@@ -3748,7 +3748,7 @@ unsafe impl ::windows::core::RuntimeType for SpeedDialEntry {
 }
 unsafe impl ::windows::core::Interface for SpeedDialEntry {
     type Vtable = ISpeedDialEntry_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9240b6db_872c_46dc_b62a_be4541b166f8);
+    const IID: ::windows::core::GUID = <ISpeedDialEntry as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SpeedDialEntry {
     const NAME: &'static str = "Windows.Phone.Notification.Management.SpeedDialEntry";
@@ -3835,7 +3835,7 @@ unsafe impl ::windows::core::RuntimeType for TextResponse {
 }
 unsafe impl ::windows::core::Interface for TextResponse {
     type Vtable = ITextResponse_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9cb74c3_2457_4cdb_8110_72f5e8e883e8);
+    const IID: ::windows::core::GUID = <ITextResponse as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TextResponse {
     const NAME: &'static str = "Windows.Phone.Notification.Management.TextResponse";
@@ -4000,7 +4000,7 @@ unsafe impl ::windows::core::RuntimeType for ToastNotificationTriggerDetails {
 }
 unsafe impl ::windows::core::Interface for ToastNotificationTriggerDetails {
     type Vtable = IToastNotificationTriggerDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9314895_4e6d_4e9d_afec_9e921b875ae8);
+    const IID: ::windows::core::GUID = <IToastNotificationTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ToastNotificationTriggerDetails {
     const NAME: &'static str = "Windows.Phone.Notification.Management.ToastNotificationTriggerDetails";
@@ -4163,7 +4163,7 @@ unsafe impl ::windows::core::RuntimeType for VolumeInfo {
 }
 unsafe impl ::windows::core::Interface for VolumeInfo {
     type Vtable = IVolumeInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x944dd118_7704_4481_b92e_d3ed3ece6322);
+    const IID: ::windows::core::GUID = <IVolumeInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VolumeInfo {
     const NAME: &'static str = "Windows.Phone.Notification.Management.VolumeInfo";

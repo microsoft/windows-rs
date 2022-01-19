@@ -289,7 +289,7 @@ unsafe impl ::windows::core::RuntimeType for CurrencyFormatter {
 }
 unsafe impl ::windows::core::Interface for CurrencyFormatter {
     type Vtable = ICurrencyFormatter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11730ca5_4b00_41b2_b332_73b12a497d54);
+    const IID: ::windows::core::GUID = <ICurrencyFormatter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CurrencyFormatter {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.CurrencyFormatter";
@@ -776,7 +776,7 @@ unsafe impl ::windows::core::RuntimeType for DecimalFormatter {
 }
 unsafe impl ::windows::core::Interface for DecimalFormatter {
     type Vtable = INumberFormatter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5007c49_7676_4db7_8631_1b6ff265caa9);
+    const IID: ::windows::core::GUID = <INumberFormatter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DecimalFormatter {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.DecimalFormatter";
@@ -2140,7 +2140,7 @@ unsafe impl ::windows::core::RuntimeType for IncrementNumberRounder {
 }
 unsafe impl ::windows::core::Interface for IncrementNumberRounder {
     type Vtable = INumberRounder_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5473c375_38ed_4631_b80c_ef34fc48b7f5);
+    const IID: ::windows::core::GUID = <INumberRounder as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for IncrementNumberRounder {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.IncrementNumberRounder";
@@ -2293,7 +2293,7 @@ unsafe impl ::windows::core::RuntimeType for NumeralSystemTranslator {
 }
 unsafe impl ::windows::core::Interface for NumeralSystemTranslator {
     type Vtable = INumeralSystemTranslator_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28f5bc2c_8c23_4234_ad2e_fa5a3a426e9b);
+    const IID: ::windows::core::GUID = <INumeralSystemTranslator as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for NumeralSystemTranslator {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.NumeralSystemTranslator";
@@ -2598,7 +2598,7 @@ unsafe impl ::windows::core::RuntimeType for PercentFormatter {
 }
 unsafe impl ::windows::core::Interface for PercentFormatter {
     type Vtable = INumberFormatter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5007c49_7676_4db7_8631_1b6ff265caa9);
+    const IID: ::windows::core::GUID = <INumberFormatter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PercentFormatter {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.PercentFormatter";
@@ -3057,7 +3057,7 @@ unsafe impl ::windows::core::RuntimeType for PermilleFormatter {
 }
 unsafe impl ::windows::core::Interface for PermilleFormatter {
     type Vtable = INumberFormatter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5007c49_7676_4db7_8631_1b6ff265caa9);
+    const IID: ::windows::core::GUID = <INumberFormatter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PermilleFormatter {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.PermilleFormatter";
@@ -3402,7 +3402,7 @@ unsafe impl ::windows::core::RuntimeType for SignificantDigitsNumberRounder {
 }
 unsafe impl ::windows::core::Interface for SignificantDigitsNumberRounder {
     type Vtable = INumberRounder_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5473c375_38ed_4631_b80c_ef34fc48b7f5);
+    const IID: ::windows::core::GUID = <INumberRounder as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SignificantDigitsNumberRounder {
     const NAME: &'static str = "Windows.Globalization.NumberFormatting.SignificantDigitsNumberRounder";

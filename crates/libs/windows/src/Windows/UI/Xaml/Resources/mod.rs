@@ -61,7 +61,7 @@ unsafe impl ::windows::core::RuntimeType for CustomXamlResourceLoader {
 }
 unsafe impl ::windows::core::Interface for CustomXamlResourceLoader {
     type Vtable = ICustomXamlResourceLoader_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x511a84ab_4a88_419f_852e_54083b90b078);
+    const IID: ::windows::core::GUID = <ICustomXamlResourceLoader as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CustomXamlResourceLoader {
     const NAME: &'static str = "Windows.UI.Xaml.Resources.CustomXamlResourceLoader";

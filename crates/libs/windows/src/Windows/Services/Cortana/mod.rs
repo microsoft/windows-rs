@@ -127,7 +127,7 @@ unsafe impl ::windows::core::RuntimeType for CortanaActionableInsights {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for CortanaActionableInsights {
     type Vtable = ICortanaActionableInsights_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x951ec6b1_fc83_586d_8b84_2452c8981625);
+    const IID: ::windows::core::GUID = <ICortanaActionableInsights as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for CortanaActionableInsights {
@@ -256,7 +256,7 @@ unsafe impl ::windows::core::RuntimeType for CortanaActionableInsightsOptions {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for CortanaActionableInsightsOptions {
     type Vtable = ICortanaActionableInsightsOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaac2bbcf_9782_5420_b81e_7ae56af31815);
+    const IID: ::windows::core::GUID = <ICortanaActionableInsightsOptions as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for CortanaActionableInsightsOptions {
@@ -480,7 +480,7 @@ unsafe impl ::windows::core::RuntimeType for CortanaPermissionsManager {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for CortanaPermissionsManager {
     type Vtable = ICortanaPermissionsManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x191330e0_8695_438a_9545_3da4e822ddb4);
+    const IID: ::windows::core::GUID = <ICortanaPermissionsManager as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for CortanaPermissionsManager {
@@ -618,7 +618,7 @@ unsafe impl ::windows::core::RuntimeType for CortanaSettings {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for CortanaSettings {
     type Vtable = ICortanaSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54d571a7_8062_40f4_abe7_dedfd697b019);
+    const IID: ::windows::core::GUID = <ICortanaSettings as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for CortanaSettings {

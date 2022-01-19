@@ -187,7 +187,7 @@ unsafe impl ::windows::core::RuntimeType for AppBarAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for AppBarAutomationPeer {
     type Vtable = IAppBarAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b4acfeb_89fa_4f13_84be_35ca5b7c9590);
+    const IID: ::windows::core::GUID = <IAppBarAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppBarAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.AppBarAutomationPeer";
@@ -441,7 +441,7 @@ unsafe impl ::windows::core::RuntimeType for AppBarButtonAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for AppBarButtonAutomationPeer {
     type Vtable = IAppBarButtonAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x443262b2_4f6d_4b76_9d2e_3eff777e8864);
+    const IID: ::windows::core::GUID = <IAppBarButtonAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppBarButtonAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.AppBarButtonAutomationPeer";
@@ -688,7 +688,7 @@ unsafe impl ::windows::core::RuntimeType for AppBarToggleButtonAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for AppBarToggleButtonAutomationPeer {
     type Vtable = IAppBarToggleButtonAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8464efad_9655_4aff_9550_63ae9ec8fe9c);
+    const IID: ::windows::core::GUID = <IAppBarToggleButtonAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppBarToggleButtonAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.AppBarToggleButtonAutomationPeer";
@@ -906,7 +906,7 @@ unsafe impl ::windows::core::RuntimeType for AutoSuggestBoxAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for AutoSuggestBoxAutomationPeer {
     type Vtable = IAutoSuggestBoxAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f32c302_f99b_491d_9726_a5e181643efa);
+    const IID: ::windows::core::GUID = <IAutoSuggestBoxAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AutoSuggestBoxAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.AutoSuggestBoxAutomationPeer";
@@ -1860,7 +1860,7 @@ unsafe impl ::windows::core::RuntimeType for AutomationPeer {
 }
 unsafe impl ::windows::core::Interface for AutomationPeer {
     type Vtable = IAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35aac87a_62ee_4d3e_a24c_2bc8432d68b7);
+    const IID: ::windows::core::GUID = <IAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.AutomationPeer";
@@ -2024,7 +2024,7 @@ unsafe impl ::windows::core::RuntimeType for AutomationPeerAnnotation {
 }
 unsafe impl ::windows::core::Interface for AutomationPeerAnnotation {
     type Vtable = IAutomationPeerAnnotation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c456061_52cf_43fa_82f8_07f137351e5a);
+    const IID: ::windows::core::GUID = <IAutomationPeerAnnotation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AutomationPeerAnnotation {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.AutomationPeerAnnotation";
@@ -2177,7 +2177,7 @@ unsafe impl ::windows::core::RuntimeType for ButtonAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for ButtonAutomationPeer {
     type Vtable = IButtonAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb77efbe_39ec_4508_8ac3_51a1424027d7);
+    const IID: ::windows::core::GUID = <IButtonAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ButtonAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.ButtonAutomationPeer";
@@ -2355,7 +2355,7 @@ unsafe impl ::windows::core::RuntimeType for ButtonBaseAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for ButtonBaseAutomationPeer {
     type Vtable = IButtonBaseAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4f3b5b6_7585_4e0b_96d2_08cf6f28befa);
+    const IID: ::windows::core::GUID = <IButtonBaseAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ButtonBaseAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.ButtonBaseAutomationPeer";
@@ -2540,7 +2540,7 @@ unsafe impl ::windows::core::RuntimeType for CalendarDatePickerAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for CalendarDatePickerAutomationPeer {
     type Vtable = ICalendarDatePickerAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40d8938e_db5e_4b03_beba_d10f62419787);
+    const IID: ::windows::core::GUID = <ICalendarDatePickerAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CalendarDatePickerAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.CalendarDatePickerAutomationPeer";
@@ -2747,7 +2747,7 @@ unsafe impl ::windows::core::RuntimeType for CaptureElementAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for CaptureElementAutomationPeer {
     type Vtable = ICaptureElementAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcc44ee0_fa45_45c6_8bb7_320d808f5958);
+    const IID: ::windows::core::GUID = <ICaptureElementAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CaptureElementAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.CaptureElementAutomationPeer";
@@ -2902,7 +2902,7 @@ unsafe impl ::windows::core::RuntimeType for CheckBoxAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for CheckBoxAutomationPeer {
     type Vtable = ICheckBoxAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb15bc42_c0a9_46c6_ac24_b83de429c733);
+    const IID: ::windows::core::GUID = <ICheckBoxAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CheckBoxAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.CheckBoxAutomationPeer";
@@ -3123,7 +3123,7 @@ unsafe impl ::windows::core::RuntimeType for ColorPickerSliderAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for ColorPickerSliderAutomationPeer {
     type Vtable = IColorPickerSliderAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa514215a_7293_4577_924c_47d4e0bf9b90);
+    const IID: ::windows::core::GUID = <IColorPickerSliderAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ColorPickerSliderAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.ColorPickerSliderAutomationPeer";
@@ -3344,7 +3344,7 @@ unsafe impl ::windows::core::RuntimeType for ColorSpectrumAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for ColorSpectrumAutomationPeer {
     type Vtable = IColorSpectrumAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15d5ba03_010d_4ff7_9087_f4dd09f831b7);
+    const IID: ::windows::core::GUID = <IColorSpectrumAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ColorSpectrumAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.ColorSpectrumAutomationPeer";
@@ -3619,7 +3619,7 @@ unsafe impl ::windows::core::RuntimeType for ComboBoxAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for ComboBoxAutomationPeer {
     type Vtable = IComboBoxAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7eb40d0b_75c5_4263_ba6a_d4a54fb0f239);
+    const IID: ::windows::core::GUID = <IComboBoxAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ComboBoxAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.ComboBoxAutomationPeer";
@@ -3944,7 +3944,7 @@ unsafe impl ::windows::core::RuntimeType for ComboBoxItemAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for ComboBoxItemAutomationPeer {
     type Vtable = IComboBoxItemAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12ddc76e_9552_446a_82ee_938cc371800f);
+    const IID: ::windows::core::GUID = <IComboBoxItemAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ComboBoxItemAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.ComboBoxItemAutomationPeer";
@@ -4103,7 +4103,7 @@ unsafe impl ::windows::core::RuntimeType for ComboBoxItemDataAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for ComboBoxItemDataAutomationPeer {
     type Vtable = IComboBoxItemDataAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4fef6df2_289c_4c04_831b_5a668c6d7104);
+    const IID: ::windows::core::GUID = <IComboBoxItemDataAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ComboBoxItemDataAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.ComboBoxItemDataAutomationPeer";
@@ -4356,7 +4356,7 @@ unsafe impl ::windows::core::RuntimeType for DatePickerAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for DatePickerAutomationPeer {
     type Vtable = IDatePickerAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd07d357f_a0b9_45dc_991a_76c505e7d0f5);
+    const IID: ::windows::core::GUID = <IDatePickerAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DatePickerAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.DatePickerAutomationPeer";
@@ -4488,7 +4488,7 @@ unsafe impl ::windows::core::RuntimeType for DatePickerFlyoutPresenterAutomation
 }
 unsafe impl ::windows::core::Interface for DatePickerFlyoutPresenterAutomationPeer {
     type Vtable = IDatePickerFlyoutPresenterAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x752aed38_c2bf_4880_82b2_a6c05e90c135);
+    const IID: ::windows::core::GUID = <IDatePickerFlyoutPresenterAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DatePickerFlyoutPresenterAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.DatePickerFlyoutPresenterAutomationPeer";
@@ -4643,7 +4643,7 @@ unsafe impl ::windows::core::RuntimeType for FlipViewAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for FlipViewAutomationPeer {
     type Vtable = IFlipViewAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ec0353a_4284_4b00_aef8_a2688ea5e3c4);
+    const IID: ::windows::core::GUID = <IFlipViewAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FlipViewAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.FlipViewAutomationPeer";
@@ -4890,7 +4890,7 @@ unsafe impl ::windows::core::RuntimeType for FlipViewItemAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for FlipViewItemAutomationPeer {
     type Vtable = IFlipViewItemAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc83034de_fa08_4bd3_aeb2_d2e5bfa04df9);
+    const IID: ::windows::core::GUID = <IFlipViewItemAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FlipViewItemAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.FlipViewItemAutomationPeer";
@@ -5049,7 +5049,7 @@ unsafe impl ::windows::core::RuntimeType for FlipViewItemDataAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for FlipViewItemDataAutomationPeer {
     type Vtable = IFlipViewItemDataAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0986175_00bc_4118_8a6f_16ee9c15d968);
+    const IID: ::windows::core::GUID = <IFlipViewItemDataAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FlipViewItemDataAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.FlipViewItemDataAutomationPeer";
@@ -5302,7 +5302,7 @@ unsafe impl ::windows::core::RuntimeType for FlyoutPresenterAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for FlyoutPresenterAutomationPeer {
     type Vtable = IFlyoutPresenterAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa01840b4_5fca_456f_98ea_300eb40b585e);
+    const IID: ::windows::core::GUID = <IFlyoutPresenterAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FlyoutPresenterAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.FlyoutPresenterAutomationPeer";
@@ -5482,7 +5482,7 @@ unsafe impl ::windows::core::RuntimeType for FrameworkElementAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for FrameworkElementAutomationPeer {
     type Vtable = IFrameworkElementAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb90ad781_bfeb_4451_bd47_9f3a63ebd24a);
+    const IID: ::windows::core::GUID = <IFrameworkElementAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FrameworkElementAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.FrameworkElementAutomationPeer";
@@ -5617,7 +5617,7 @@ unsafe impl ::windows::core::RuntimeType for GridViewAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for GridViewAutomationPeer {
     type Vtable = IGridViewAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c4401a4_d951_49ca_8f82_c7f3c60681b0);
+    const IID: ::windows::core::GUID = <IGridViewAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GridViewAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.GridViewAutomationPeer";
@@ -5910,7 +5910,7 @@ unsafe impl ::windows::core::RuntimeType for GridViewHeaderItemAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for GridViewHeaderItemAutomationPeer {
     type Vtable = IGridViewHeaderItemAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3dcef3a_e08a_48e7_b23a_2be5b66e474e);
+    const IID: ::windows::core::GUID = <IGridViewHeaderItemAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GridViewHeaderItemAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.GridViewHeaderItemAutomationPeer";
@@ -6085,7 +6085,7 @@ unsafe impl ::windows::core::RuntimeType for GridViewItemAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for GridViewItemAutomationPeer {
     type Vtable = IGridViewItemAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93ef2d07_346c_4166_a4ba_bc6a181e7f33);
+    const IID: ::windows::core::GUID = <IGridViewItemAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GridViewItemAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.GridViewItemAutomationPeer";
@@ -6244,7 +6244,7 @@ unsafe impl ::windows::core::RuntimeType for GridViewItemDataAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for GridViewItemDataAutomationPeer {
     type Vtable = IGridViewItemDataAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3f4868f_29d4_4094_8c54_ea61a88294a4);
+    const IID: ::windows::core::GUID = <IGridViewItemDataAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GridViewItemDataAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.GridViewItemDataAutomationPeer";
@@ -6497,7 +6497,7 @@ unsafe impl ::windows::core::RuntimeType for GroupItemAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for GroupItemAutomationPeer {
     type Vtable = IGroupItemAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1914fe6d_0740_4236_9ee1_38cf19c1c388);
+    const IID: ::windows::core::GUID = <IGroupItemAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GroupItemAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.GroupItemAutomationPeer";
@@ -6652,7 +6652,7 @@ unsafe impl ::windows::core::RuntimeType for HubAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for HubAutomationPeer {
     type Vtable = IHubAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ddee056_4ebc_4620_a05d_903e3c9a4ead);
+    const IID: ::windows::core::GUID = <IHubAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HubAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.HubAutomationPeer";
@@ -6813,7 +6813,7 @@ unsafe impl ::windows::core::RuntimeType for HubSectionAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for HubSectionAutomationPeer {
     type Vtable = IHubSectionAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16d91ff7_7431_4d82_83ce_cfa3192b0f18);
+    const IID: ::windows::core::GUID = <IHubSectionAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HubSectionAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.HubSectionAutomationPeer";
@@ -7000,7 +7000,7 @@ unsafe impl ::windows::core::RuntimeType for HyperlinkButtonAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for HyperlinkButtonAutomationPeer {
     type Vtable = IHyperlinkButtonAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa7afcb1_0edf_46d9_aa9e_0eb21d140097);
+    const IID: ::windows::core::GUID = <IHyperlinkButtonAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HyperlinkButtonAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.HyperlinkButtonAutomationPeer";
@@ -10002,7 +10002,7 @@ unsafe impl ::windows::core::RuntimeType for ImageAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for ImageAutomationPeer {
     type Vtable = IImageAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b0bbf8c_60a2_48bf_ab2c_1a52a451d2d4);
+    const IID: ::windows::core::GUID = <IImageAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ImageAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.ImageAutomationPeer";
@@ -10134,7 +10134,7 @@ unsafe impl ::windows::core::RuntimeType for InkToolbarAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for InkToolbarAutomationPeer {
     type Vtable = IInkToolbarAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x123baaa4_f2e8_4bcb_9382_5dfdd11fe45f);
+    const IID: ::windows::core::GUID = <IInkToolbarAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InkToolbarAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.InkToolbarAutomationPeer";
@@ -10309,7 +10309,7 @@ unsafe impl ::windows::core::RuntimeType for ItemAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for ItemAutomationPeer {
     type Vtable = IItemAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x953c34f6_3b31_47a7_b3bf_25d3ae99c317);
+    const IID: ::windows::core::GUID = <IItemAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ItemAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.ItemAutomationPeer";
@@ -10487,7 +10487,7 @@ unsafe impl ::windows::core::RuntimeType for ItemsControlAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for ItemsControlAutomationPeer {
     type Vtable = IItemsControlAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96e76bf1_37f7_4088_925d_65268e83e34d);
+    const IID: ::windows::core::GUID = <IItemsControlAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ItemsControlAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.ItemsControlAutomationPeer";
@@ -10668,7 +10668,7 @@ unsafe impl ::windows::core::RuntimeType for ListBoxAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for ListBoxAutomationPeer {
     type Vtable = IListBoxAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cd0d608_b402_4a6e_bd9a_343f8845eb32);
+    const IID: ::windows::core::GUID = <IListBoxAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ListBoxAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.ListBoxAutomationPeer";
@@ -10915,7 +10915,7 @@ unsafe impl ::windows::core::RuntimeType for ListBoxItemAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for ListBoxItemAutomationPeer {
     type Vtable = IListBoxItemAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bc6e1c6_2997_42df_99eb_92bc1dd149fb);
+    const IID: ::windows::core::GUID = <IListBoxItemAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ListBoxItemAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.ListBoxItemAutomationPeer";
@@ -11074,7 +11074,7 @@ unsafe impl ::windows::core::RuntimeType for ListBoxItemDataAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for ListBoxItemDataAutomationPeer {
     type Vtable = IListBoxItemDataAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd7d5fee_fde0_482a_8084_dcebba5b9806);
+    const IID: ::windows::core::GUID = <IListBoxItemDataAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ListBoxItemDataAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.ListBoxItemDataAutomationPeer";
@@ -11304,7 +11304,7 @@ unsafe impl ::windows::core::RuntimeType for ListPickerFlyoutPresenterAutomation
 }
 unsafe impl ::windows::core::Interface for ListPickerFlyoutPresenterAutomationPeer {
     type Vtable = IListPickerFlyoutPresenterAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56dfdc58_2395_4060_8047_8ea463698a24);
+    const IID: ::windows::core::GUID = <IListPickerFlyoutPresenterAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ListPickerFlyoutPresenterAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.ListPickerFlyoutPresenterAutomationPeer";
@@ -11459,7 +11459,7 @@ unsafe impl ::windows::core::RuntimeType for ListViewAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for ListViewAutomationPeer {
     type Vtable = IListViewAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73cecc87_c0dc_4260_9148_75e9864a7230);
+    const IID: ::windows::core::GUID = <IListViewAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ListViewAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.ListViewAutomationPeer";
@@ -11770,7 +11770,7 @@ unsafe impl ::windows::core::RuntimeType for ListViewBaseAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for ListViewBaseAutomationPeer {
     type Vtable = IListViewBaseAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87ec7649_b83d_4e55_9afd_bd835e748f5c);
+    const IID: ::windows::core::GUID = <IListViewBaseAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ListViewBaseAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.ListViewBaseAutomationPeer";
@@ -12020,7 +12020,7 @@ unsafe impl ::windows::core::RuntimeType for ListViewBaseHeaderItemAutomationPee
 }
 unsafe impl ::windows::core::Interface for ListViewBaseHeaderItemAutomationPeer {
     type Vtable = IListViewBaseHeaderItemAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7cb8b732_c1f0_4a3c_bc14_85dd48dedb85);
+    const IID: ::windows::core::GUID = <IListViewBaseHeaderItemAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ListViewBaseHeaderItemAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.ListViewBaseHeaderItemAutomationPeer";
@@ -12175,7 +12175,7 @@ unsafe impl ::windows::core::RuntimeType for ListViewHeaderItemAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for ListViewHeaderItemAutomationPeer {
     type Vtable = IListViewHeaderItemAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x67ab1e4b_ad61_4c88_ba45_0f3a8d061f8f);
+    const IID: ::windows::core::GUID = <IListViewHeaderItemAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ListViewHeaderItemAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.ListViewHeaderItemAutomationPeer";
@@ -12350,7 +12350,7 @@ unsafe impl ::windows::core::RuntimeType for ListViewItemAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for ListViewItemAutomationPeer {
     type Vtable = IListViewItemAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca114e70_a16d_4d09_a1cf_1856ef98a9ec);
+    const IID: ::windows::core::GUID = <IListViewItemAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ListViewItemAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.ListViewItemAutomationPeer";
@@ -12509,7 +12509,7 @@ unsafe impl ::windows::core::RuntimeType for ListViewItemDataAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for ListViewItemDataAutomationPeer {
     type Vtable = IListViewItemDataAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15a8d7fd_d7a5_4a6c_963c_6f7ce464671a);
+    const IID: ::windows::core::GUID = <IListViewItemDataAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ListViewItemDataAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.ListViewItemDataAutomationPeer";
@@ -12863,7 +12863,7 @@ unsafe impl ::windows::core::RuntimeType for LoopingSelectorAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for LoopingSelectorAutomationPeer {
     type Vtable = ILoopingSelectorAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50b406ca_bae9_4816_8a3a_0cb4f96478a2);
+    const IID: ::windows::core::GUID = <ILoopingSelectorAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LoopingSelectorAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.LoopingSelectorAutomationPeer";
@@ -13142,7 +13142,7 @@ unsafe impl ::windows::core::RuntimeType for LoopingSelectorItemAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for LoopingSelectorItemAutomationPeer {
     type Vtable = ILoopingSelectorItemAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3fa68bf_04cf_4f4c_8d3e_4780a19d4788);
+    const IID: ::windows::core::GUID = <ILoopingSelectorItemAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LoopingSelectorItemAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.LoopingSelectorItemAutomationPeer";
@@ -13333,7 +13333,7 @@ unsafe impl ::windows::core::RuntimeType for LoopingSelectorItemDataAutomationPe
 }
 unsafe impl ::windows::core::Interface for LoopingSelectorItemDataAutomationPeer {
     type Vtable = ILoopingSelectorItemDataAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef567e32_7cd2_4d32_9590_1f588d5ef38d);
+    const IID: ::windows::core::GUID = <ILoopingSelectorItemDataAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LoopingSelectorItemDataAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.LoopingSelectorItemDataAutomationPeer";
@@ -13631,7 +13631,7 @@ unsafe impl ::windows::core::RuntimeType for MapControlAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for MapControlAutomationPeer {
     type Vtable = IMapControlAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x425beee4_f2e8_4bcb_9382_5dfdd11fe45f);
+    const IID: ::windows::core::GUID = <IMapControlAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MapControlAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.MapControlAutomationPeer";
@@ -13864,7 +13864,7 @@ unsafe impl ::windows::core::RuntimeType for MediaElementAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for MediaElementAutomationPeer {
     type Vtable = IMediaElementAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba0b9fc2_a6e2_41a5_b17a_d1594613efba);
+    const IID: ::windows::core::GUID = <IMediaElementAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaElementAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.MediaElementAutomationPeer";
@@ -14019,7 +14019,7 @@ unsafe impl ::windows::core::RuntimeType for MediaPlayerElementAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for MediaPlayerElementAutomationPeer {
     type Vtable = IMediaPlayerElementAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02bed209_3f65_4fdd_b5ca_c4750d4e6ea4);
+    const IID: ::windows::core::GUID = <IMediaPlayerElementAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaPlayerElementAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.MediaPlayerElementAutomationPeer";
@@ -14174,7 +14174,7 @@ unsafe impl ::windows::core::RuntimeType for MediaTransportControlsAutomationPee
 }
 unsafe impl ::windows::core::Interface for MediaTransportControlsAutomationPeer {
     type Vtable = IMediaTransportControlsAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3ad8d93_79f8_4958_a3c8_980defb83d15);
+    const IID: ::windows::core::GUID = <IMediaTransportControlsAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaTransportControlsAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.MediaTransportControlsAutomationPeer";
@@ -14329,7 +14329,7 @@ unsafe impl ::windows::core::RuntimeType for MenuBarAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for MenuBarAutomationPeer {
     type Vtable = IMenuBarAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b6adcf1_f274_5592_85a8_7b099e99b320);
+    const IID: ::windows::core::GUID = <IMenuBarAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MenuBarAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.MenuBarAutomationPeer";
@@ -14511,7 +14511,7 @@ unsafe impl ::windows::core::RuntimeType for MenuBarItemAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for MenuBarItemAutomationPeer {
     type Vtable = IMenuBarItemAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0fce49b4_cff5_5c4b_98ee_e75fdddf799a);
+    const IID: ::windows::core::GUID = <IMenuBarItemAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MenuBarItemAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.MenuBarItemAutomationPeer";
@@ -14724,7 +14724,7 @@ unsafe impl ::windows::core::RuntimeType for MenuFlyoutItemAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for MenuFlyoutItemAutomationPeer {
     type Vtable = IMenuFlyoutItemAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1fc19462_21df_456e_aa11_8fac6b4b2af6);
+    const IID: ::windows::core::GUID = <IMenuFlyoutItemAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MenuFlyoutItemAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.MenuFlyoutItemAutomationPeer";
@@ -14905,7 +14905,7 @@ unsafe impl ::windows::core::RuntimeType for MenuFlyoutPresenterAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for MenuFlyoutPresenterAutomationPeer {
     type Vtable = IMenuFlyoutPresenterAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe244a871_fcbb_48fc_8a93_41ea134b53ce);
+    const IID: ::windows::core::GUID = <IMenuFlyoutPresenterAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MenuFlyoutPresenterAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.MenuFlyoutPresenterAutomationPeer";
@@ -15106,7 +15106,7 @@ unsafe impl ::windows::core::RuntimeType for NavigationViewItemAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for NavigationViewItemAutomationPeer {
     type Vtable = INavigationViewItemAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x309847a5_9971_4d8d_a81c_085c7086a1b9);
+    const IID: ::windows::core::GUID = <INavigationViewItemAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for NavigationViewItemAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.NavigationViewItemAutomationPeer";
@@ -15281,7 +15281,7 @@ unsafe impl ::windows::core::RuntimeType for PasswordBoxAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for PasswordBoxAutomationPeer {
     type Vtable = IPasswordBoxAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x684f065e_3df3_4b9f_82ad_8819db3b218a);
+    const IID: ::windows::core::GUID = <IPasswordBoxAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PasswordBoxAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.PasswordBoxAutomationPeer";
@@ -15496,7 +15496,7 @@ unsafe impl ::windows::core::RuntimeType for PersonPictureAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for PersonPictureAutomationPeer {
     type Vtable = IPersonPictureAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27156d4c_a66f_4aaf_8286_4f796d30628c);
+    const IID: ::windows::core::GUID = <IPersonPictureAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PersonPictureAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.PersonPictureAutomationPeer";
@@ -15628,7 +15628,7 @@ unsafe impl ::windows::core::RuntimeType for PickerFlyoutPresenterAutomationPeer
 }
 unsafe impl ::windows::core::Interface for PickerFlyoutPresenterAutomationPeer {
     type Vtable = IPickerFlyoutPresenterAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28414bf7_8382_4eae_93c1_d6f035aa8155);
+    const IID: ::windows::core::GUID = <IPickerFlyoutPresenterAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PickerFlyoutPresenterAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.PickerFlyoutPresenterAutomationPeer";
@@ -15867,7 +15867,7 @@ unsafe impl ::windows::core::RuntimeType for PivotAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for PivotAutomationPeer {
     type Vtable = IPivotAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe715a8f8_3b9d_402c_81e2_6e912ef58981);
+    const IID: ::windows::core::GUID = <IPivotAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PivotAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.PivotAutomationPeer";
@@ -16111,7 +16111,7 @@ unsafe impl ::windows::core::RuntimeType for PivotItemAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for PivotItemAutomationPeer {
     type Vtable = IPivotItemAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a4241ad_5d55_4d27_b40f_2d37506fbe78);
+    const IID: ::windows::core::GUID = <IPivotItemAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PivotItemAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.PivotItemAutomationPeer";
@@ -16304,7 +16304,7 @@ unsafe impl ::windows::core::RuntimeType for PivotItemDataAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for PivotItemDataAutomationPeer {
     type Vtable = IPivotItemDataAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2a3b788_ea1d_48b7_88ee_f08b6aa07fee);
+    const IID: ::windows::core::GUID = <IPivotItemDataAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PivotItemDataAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.PivotItemDataAutomationPeer";
@@ -16537,7 +16537,7 @@ unsafe impl ::windows::core::RuntimeType for ProgressBarAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for ProgressBarAutomationPeer {
     type Vtable = IProgressBarAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93f48f86_d840_4fb6_ac2f_5f779b854b0d);
+    const IID: ::windows::core::GUID = <IProgressBarAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ProgressBarAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.ProgressBarAutomationPeer";
@@ -16738,7 +16738,7 @@ unsafe impl ::windows::core::RuntimeType for ProgressRingAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for ProgressRingAutomationPeer {
     type Vtable = IProgressRingAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc305eee_39d3_4eeb_ac33_2394de123e2e);
+    const IID: ::windows::core::GUID = <IProgressRingAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ProgressRingAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.ProgressRingAutomationPeer";
@@ -16929,7 +16929,7 @@ unsafe impl ::windows::core::RuntimeType for RadioButtonAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for RadioButtonAutomationPeer {
     type Vtable = IRadioButtonAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e6a5ed8_0b30_4743_b102_dcdf548e3131);
+    const IID: ::windows::core::GUID = <IRadioButtonAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RadioButtonAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.RadioButtonAutomationPeer";
@@ -17236,7 +17236,7 @@ unsafe impl ::windows::core::RuntimeType for RangeBaseAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for RangeBaseAutomationPeer {
     type Vtable = IRangeBaseAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe454b549_4b2c_42ad_b04b_d35947d1ee50);
+    const IID: ::windows::core::GUID = <IRangeBaseAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RangeBaseAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.RangeBaseAutomationPeer";
@@ -17417,7 +17417,7 @@ unsafe impl ::windows::core::RuntimeType for RatingControlAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for RatingControlAutomationPeer {
     type Vtable = IRatingControlAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d14349a_9963_4a47_823c_f457cb3209d5);
+    const IID: ::windows::core::GUID = <IRatingControlAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RatingControlAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.RatingControlAutomationPeer";
@@ -17615,7 +17615,7 @@ unsafe impl ::windows::core::RuntimeType for RepeatButtonAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for RepeatButtonAutomationPeer {
     type Vtable = IRepeatButtonAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29e41ad5_a8ac_4e8a_83d8_09e37e054257);
+    const IID: ::windows::core::GUID = <IRepeatButtonAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RepeatButtonAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.RepeatButtonAutomationPeer";
@@ -17816,7 +17816,7 @@ unsafe impl ::windows::core::RuntimeType for RichEditBoxAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for RichEditBoxAutomationPeer {
     type Vtable = IRichEditBoxAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc69f5c04_16ee_467a_a833_c3da8458ad64);
+    const IID: ::windows::core::GUID = <IRichEditBoxAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RichEditBoxAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.RichEditBoxAutomationPeer";
@@ -17971,7 +17971,7 @@ unsafe impl ::windows::core::RuntimeType for RichTextBlockAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for RichTextBlockAutomationPeer {
     type Vtable = IRichTextBlockAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93a01a9c_9609_41fa_82f3_909c09f49a72);
+    const IID: ::windows::core::GUID = <IRichTextBlockAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RichTextBlockAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.RichTextBlockAutomationPeer";
@@ -18126,7 +18126,7 @@ unsafe impl ::windows::core::RuntimeType for RichTextBlockOverflowAutomationPeer
 }
 unsafe impl ::windows::core::Interface for RichTextBlockOverflowAutomationPeer {
     type Vtable = IRichTextBlockOverflowAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c9a409a_2736_437b_ab36_a16a202f105d);
+    const IID: ::windows::core::GUID = <IRichTextBlockOverflowAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RichTextBlockOverflowAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.RichTextBlockOverflowAutomationPeer";
@@ -18281,7 +18281,7 @@ unsafe impl ::windows::core::RuntimeType for ScrollBarAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for ScrollBarAutomationPeer {
     type Vtable = IScrollBarAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69e0c369_bbe7_41f2_87ca_aad813fe550e);
+    const IID: ::windows::core::GUID = <IScrollBarAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ScrollBarAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.ScrollBarAutomationPeer";
@@ -18548,7 +18548,7 @@ unsafe impl ::windows::core::RuntimeType for ScrollViewerAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for ScrollViewerAutomationPeer {
     type Vtable = IScrollViewerAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd985f259_1b09_4e88_88fd_421750dc6b45);
+    const IID: ::windows::core::GUID = <IScrollViewerAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ScrollViewerAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.ScrollViewerAutomationPeer";
@@ -18729,7 +18729,7 @@ unsafe impl ::windows::core::RuntimeType for SearchBoxAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for SearchBoxAutomationPeer {
     type Vtable = ISearchBoxAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x854011a4_18a6_4f30_939b_8871afa3f5e9);
+    const IID: ::windows::core::GUID = <ISearchBoxAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SearchBoxAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.SearchBoxAutomationPeer";
@@ -18911,7 +18911,7 @@ unsafe impl ::windows::core::RuntimeType for SelectorAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for SelectorAutomationPeer {
     type Vtable = ISelectorAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x162ac829_7115_43ec_b383_a7b71644069d);
+    const IID: ::windows::core::GUID = <ISelectorAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SelectorAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.SelectorAutomationPeer";
@@ -19172,7 +19172,7 @@ unsafe impl ::windows::core::RuntimeType for SelectorItemAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for SelectorItemAutomationPeer {
     type Vtable = ISelectorItemAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae8b3477_860a_45bb_bf7c_e1b27419d1dd);
+    const IID: ::windows::core::GUID = <ISelectorItemAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SelectorItemAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.SelectorItemAutomationPeer";
@@ -19394,7 +19394,7 @@ unsafe impl ::windows::core::RuntimeType for SemanticZoomAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for SemanticZoomAutomationPeer {
     type Vtable = ISemanticZoomAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c2fac6c_a977_47fc_b44e_2754c0b2bea9);
+    const IID: ::windows::core::GUID = <ISemanticZoomAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SemanticZoomAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.SemanticZoomAutomationPeer";
@@ -19575,7 +19575,7 @@ unsafe impl ::windows::core::RuntimeType for SettingsFlyoutAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for SettingsFlyoutAutomationPeer {
     type Vtable = ISettingsFlyoutAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0de0cdb_30cf_47a6_a5eb_9c77f0b0d6dd);
+    const IID: ::windows::core::GUID = <ISettingsFlyoutAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SettingsFlyoutAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.SettingsFlyoutAutomationPeer";
@@ -19730,7 +19730,7 @@ unsafe impl ::windows::core::RuntimeType for SliderAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for SliderAutomationPeer {
     type Vtable = ISliderAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec30015a_d611_46d0_ae4f_6ecf27dfbaa5);
+    const IID: ::windows::core::GUID = <ISliderAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SliderAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.SliderAutomationPeer";
@@ -19931,7 +19931,7 @@ unsafe impl ::windows::core::RuntimeType for TextBlockAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for TextBlockAutomationPeer {
     type Vtable = ITextBlockAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe2057f5_6715_4e69_a050_92bd0ce232a9);
+    const IID: ::windows::core::GUID = <ITextBlockAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TextBlockAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.TextBlockAutomationPeer";
@@ -20086,7 +20086,7 @@ unsafe impl ::windows::core::RuntimeType for TextBoxAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for TextBoxAutomationPeer {
     type Vtable = ITextBoxAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a4f1ca0_5e5d_4d26_9067_e740bf657a9f);
+    const IID: ::windows::core::GUID = <ITextBoxAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TextBoxAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.TextBoxAutomationPeer";
@@ -20241,7 +20241,7 @@ unsafe impl ::windows::core::RuntimeType for ThumbAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for ThumbAutomationPeer {
     type Vtable = IThumbAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc2949b5_b45e_4d6d_892f_d9422c950efb);
+    const IID: ::windows::core::GUID = <IThumbAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ThumbAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.ThumbAutomationPeer";
@@ -20396,7 +20396,7 @@ unsafe impl ::windows::core::RuntimeType for TimePickerAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for TimePickerAutomationPeer {
     type Vtable = ITimePickerAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa43d44ef_3285_4df7_b4a4_e4cdf36a3a17);
+    const IID: ::windows::core::GUID = <ITimePickerAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TimePickerAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.TimePickerAutomationPeer";
@@ -20528,7 +20528,7 @@ unsafe impl ::windows::core::RuntimeType for TimePickerFlyoutPresenterAutomation
 }
 unsafe impl ::windows::core::Interface for TimePickerFlyoutPresenterAutomationPeer {
     type Vtable = ITimePickerFlyoutPresenterAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda93ee27_82f1_4701_8706_be297bf06043);
+    const IID: ::windows::core::GUID = <ITimePickerFlyoutPresenterAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TimePickerFlyoutPresenterAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.TimePickerFlyoutPresenterAutomationPeer";
@@ -20698,7 +20698,7 @@ unsafe impl ::windows::core::RuntimeType for ToggleButtonAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for ToggleButtonAutomationPeer {
     type Vtable = IToggleButtonAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62dbe6c5_bc0a_45bb_bf77_ea0f1502891f);
+    const IID: ::windows::core::GUID = <IToggleButtonAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ToggleButtonAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.ToggleButtonAutomationPeer";
@@ -20914,7 +20914,7 @@ unsafe impl ::windows::core::RuntimeType for ToggleMenuFlyoutItemAutomationPeer 
 }
 unsafe impl ::windows::core::Interface for ToggleMenuFlyoutItemAutomationPeer {
     type Vtable = IToggleMenuFlyoutItemAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b57eafe_6af1_4903_8373_3437bf352345);
+    const IID: ::windows::core::GUID = <IToggleMenuFlyoutItemAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ToggleMenuFlyoutItemAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.ToggleMenuFlyoutItemAutomationPeer";
@@ -21110,7 +21110,7 @@ unsafe impl ::windows::core::RuntimeType for ToggleSwitchAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for ToggleSwitchAutomationPeer {
     type Vtable = IToggleSwitchAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc011f174_e89e_4790_bf9a_78ebb5f59e9f);
+    const IID: ::windows::core::GUID = <IToggleSwitchAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ToggleSwitchAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.ToggleSwitchAutomationPeer";
@@ -21312,7 +21312,7 @@ unsafe impl ::windows::core::RuntimeType for TreeViewItemAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for TreeViewItemAutomationPeer {
     type Vtable = ITreeViewItemAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2331d648_b617_437f_920c_71d450503e65);
+    const IID: ::windows::core::GUID = <ITreeViewItemAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TreeViewItemAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.TreeViewItemAutomationPeer";
@@ -21513,7 +21513,7 @@ unsafe impl ::windows::core::RuntimeType for TreeViewListAutomationPeer {
 }
 unsafe impl ::windows::core::Interface for TreeViewListAutomationPeer {
     type Vtable = ITreeViewListAutomationPeer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71c1b5bc_bb29_4479_a8a8_606be6b823ae);
+    const IID: ::windows::core::GUID = <ITreeViewListAutomationPeer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TreeViewListAutomationPeer {
     const NAME: &'static str = "Windows.UI.Xaml.Automation.Peers.TreeViewListAutomationPeer";

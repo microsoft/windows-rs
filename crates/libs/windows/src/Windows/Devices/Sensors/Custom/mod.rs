@@ -118,7 +118,7 @@ unsafe impl ::windows::core::RuntimeType for CustomSensor {
 }
 unsafe impl ::windows::core::Interface for CustomSensor {
     type Vtable = ICustomSensor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa136f9ad_4034_4b4d_99dd_531aac649c09);
+    const IID: ::windows::core::GUID = <ICustomSensor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CustomSensor {
     const NAME: &'static str = "Windows.Devices.Sensors.Custom.CustomSensor";
@@ -218,7 +218,7 @@ unsafe impl ::windows::core::RuntimeType for CustomSensorReading {
 }
 unsafe impl ::windows::core::Interface for CustomSensorReading {
     type Vtable = ICustomSensorReading_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64004f4d_446a_4366_a87a_5f963268ec53);
+    const IID: ::windows::core::GUID = <ICustomSensorReading as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CustomSensorReading {
     const NAME: &'static str = "Windows.Devices.Sensors.Custom.CustomSensorReading";
@@ -299,7 +299,7 @@ unsafe impl ::windows::core::RuntimeType for CustomSensorReadingChangedEventArgs
 }
 unsafe impl ::windows::core::Interface for CustomSensorReadingChangedEventArgs {
     type Vtable = ICustomSensorReadingChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b202023_cffd_4cc1_8ff0_e21823d76fcc);
+    const IID: ::windows::core::GUID = <ICustomSensorReadingChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CustomSensorReadingChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.Sensors.Custom.CustomSensorReadingChangedEventArgs";

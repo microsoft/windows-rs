@@ -1271,7 +1271,7 @@ unsafe impl ::windows::core::RuntimeType for MarkupExtension {
 }
 unsafe impl ::windows::core::Interface for MarkupExtension {
     type Vtable = IMarkupExtension_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ee3416d_562b_486e_9ee5_0f0cbcc8048c);
+    const IID: ::windows::core::GUID = <IMarkupExtension as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MarkupExtension {
     const NAME: &'static str = "Windows.UI.Xaml.Markup.MarkupExtension";
@@ -1357,7 +1357,7 @@ unsafe impl ::windows::core::RuntimeType for XamlBinaryWriter {
 }
 unsafe impl ::windows::core::Interface for XamlBinaryWriter {
     type Vtable = IXamlBinaryWriter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x829d2ad3_620a_46f6_845d_436a05927100);
+    const IID: ::windows::core::GUID = <IXamlBinaryWriter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for XamlBinaryWriter {
     const NAME: &'static str = "Windows.UI.Xaml.Markup.XamlBinaryWriter";
@@ -1581,7 +1581,7 @@ unsafe impl ::windows::core::RuntimeType for XamlBindingHelper {
 }
 unsafe impl ::windows::core::Interface for XamlBindingHelper {
     type Vtable = IXamlBindingHelper_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfaa6fb06_8ab9_4ef7_8ae7_fbd30bbfd06d);
+    const IID: ::windows::core::GUID = <IXamlBindingHelper as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for XamlBindingHelper {
     const NAME: &'static str = "Windows.UI.Xaml.Markup.XamlBindingHelper";
@@ -1663,7 +1663,7 @@ unsafe impl ::windows::core::RuntimeType for XamlMarkupHelper {
 }
 unsafe impl ::windows::core::Interface for XamlMarkupHelper {
     type Vtable = IXamlMarkupHelper_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0e6673c_5342_44ef_85a7_ed327a739d9a);
+    const IID: ::windows::core::GUID = <IXamlMarkupHelper as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for XamlMarkupHelper {
     const NAME: &'static str = "Windows.UI.Xaml.Markup.XamlMarkupHelper";
@@ -1755,7 +1755,7 @@ unsafe impl ::windows::core::RuntimeType for XamlReader {
 }
 unsafe impl ::windows::core::Interface for XamlReader {
     type Vtable = IXamlReader_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24374cf1_cceb_48bf_a514_41b0186f84c2);
+    const IID: ::windows::core::GUID = <IXamlReader as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for XamlReader {
     const NAME: &'static str = "Windows.UI.Xaml.Markup.XamlReader";

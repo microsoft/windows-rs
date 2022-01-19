@@ -233,7 +233,7 @@ unsafe impl ::windows::core::RuntimeType for Certificate {
 }
 unsafe impl ::windows::core::Interface for Certificate {
     type Vtable = ICertificate_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x333f740c_04d8_43b3_b278_8c5fcc9be5a0);
+    const IID: ::windows::core::GUID = <ICertificate as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Certificate {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.Certificate";
@@ -331,7 +331,7 @@ unsafe impl ::windows::core::RuntimeType for CertificateChain {
 }
 unsafe impl ::windows::core::Interface for CertificateChain {
     type Vtable = ICertificateChain_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20bf5385_3691_4501_a62c_fd97278b31ee);
+    const IID: ::windows::core::GUID = <ICertificateChain as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CertificateChain {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateChain";
@@ -554,7 +554,7 @@ unsafe impl ::windows::core::RuntimeType for CertificateExtension {
 }
 unsafe impl ::windows::core::Interface for CertificateExtension {
     type Vtable = ICertificateExtension_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84cf0656_a9e6_454d_8e45_2ea7c4bcd53b);
+    const IID: ::windows::core::GUID = <ICertificateExtension as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CertificateExtension {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateExtension";
@@ -738,7 +738,7 @@ unsafe impl ::windows::core::RuntimeType for CertificateKeyUsages {
 }
 unsafe impl ::windows::core::Interface for CertificateKeyUsages {
     type Vtable = ICertificateKeyUsages_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ac6206f_e1cf_486a_b485_a69c83e46fd1);
+    const IID: ::windows::core::GUID = <ICertificateKeyUsages as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CertificateKeyUsages {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateKeyUsages";
@@ -918,7 +918,7 @@ unsafe impl ::windows::core::RuntimeType for CertificateQuery {
 }
 unsafe impl ::windows::core::Interface for CertificateQuery {
     type Vtable = ICertificateQuery_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b082a31_a728_4916_b5ee_ffcb8acf2417);
+    const IID: ::windows::core::GUID = <ICertificateQuery as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CertificateQuery {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateQuery";
@@ -1245,7 +1245,7 @@ unsafe impl ::windows::core::RuntimeType for CertificateRequestProperties {
 }
 unsafe impl ::windows::core::Interface for CertificateRequestProperties {
     type Vtable = ICertificateRequestProperties_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x487e84f6_94e2_4dce_8833_1a700a37a29a);
+    const IID: ::windows::core::GUID = <ICertificateRequestProperties as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CertificateRequestProperties {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateRequestProperties";
@@ -1336,7 +1336,7 @@ unsafe impl ::windows::core::RuntimeType for CertificateStore {
 }
 unsafe impl ::windows::core::Interface for CertificateStore {
     type Vtable = ICertificateStore_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0bff720_344e_4331_af14_a7f7a7ebc93a);
+    const IID: ::windows::core::GUID = <ICertificateStore as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CertificateStore {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CertificateStore";
@@ -1562,7 +1562,7 @@ unsafe impl ::windows::core::RuntimeType for ChainBuildingParameters {
 }
 unsafe impl ::windows::core::Interface for ChainBuildingParameters {
     type Vtable = IChainBuildingParameters_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x422ba922_7c8d_47b7_b59b_b12703733ac3);
+    const IID: ::windows::core::GUID = <IChainBuildingParameters as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ChainBuildingParameters {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.ChainBuildingParameters";
@@ -1670,7 +1670,7 @@ unsafe impl ::windows::core::RuntimeType for ChainValidationParameters {
 }
 unsafe impl ::windows::core::Interface for ChainValidationParameters {
     type Vtable = IChainValidationParameters_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4743b4a_7eb0_4b56_a040_b9c8e655ddf3);
+    const IID: ::windows::core::GUID = <IChainValidationParameters as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ChainValidationParameters {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.ChainValidationParameters";
@@ -1843,7 +1843,7 @@ unsafe impl ::windows::core::RuntimeType for CmsAttachedSignature {
 }
 unsafe impl ::windows::core::Interface for CmsAttachedSignature {
     type Vtable = ICmsAttachedSignature_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61899d9d_3757_4ecb_bddc_0ca357d7a936);
+    const IID: ::windows::core::GUID = <ICmsAttachedSignature as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CmsAttachedSignature {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CmsAttachedSignature";
@@ -1969,7 +1969,7 @@ unsafe impl ::windows::core::RuntimeType for CmsDetachedSignature {
 }
 unsafe impl ::windows::core::Interface for CmsDetachedSignature {
     type Vtable = ICmsDetachedSignature_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f1ef154_f65e_4536_8339_5944081db2ca);
+    const IID: ::windows::core::GUID = <ICmsDetachedSignature as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CmsDetachedSignature {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CmsDetachedSignature";
@@ -2083,7 +2083,7 @@ unsafe impl ::windows::core::RuntimeType for CmsSignerInfo {
 }
 unsafe impl ::windows::core::Interface for CmsSignerInfo {
     type Vtable = ICmsSignerInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50d020db_1d2f_4c1a_b5c5_d0188ff91f47);
+    const IID: ::windows::core::GUID = <ICmsSignerInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CmsSignerInfo {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CmsSignerInfo";
@@ -2182,7 +2182,7 @@ unsafe impl ::windows::core::RuntimeType for CmsTimestampInfo {
 }
 unsafe impl ::windows::core::Interface for CmsTimestampInfo {
     type Vtable = ICmsTimestampInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f5f00f2_2c18_4f88_8435_c534086076f5);
+    const IID: ::windows::core::GUID = <ICmsTimestampInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CmsTimestampInfo {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.CmsTimestampInfo";
@@ -3619,7 +3619,7 @@ unsafe impl ::windows::core::RuntimeType for PfxImportParameters {
 }
 unsafe impl ::windows::core::Interface for PfxImportParameters {
     type Vtable = IPfxImportParameters_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x680d3511_9a08_47c8_864a_2edd4d8eb46c);
+    const IID: ::windows::core::GUID = <IPfxImportParameters as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PfxImportParameters {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.PfxImportParameters";
@@ -3879,7 +3879,7 @@ unsafe impl ::windows::core::RuntimeType for SubjectAlternativeNameInfo {
 }
 unsafe impl ::windows::core::Interface for SubjectAlternativeNameInfo {
     type Vtable = ISubjectAlternativeNameInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x582859f1_569d_4c20_be7b_4e1c9a0bc52b);
+    const IID: ::windows::core::GUID = <ISubjectAlternativeNameInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SubjectAlternativeNameInfo {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.SubjectAlternativeNameInfo";
@@ -3997,7 +3997,7 @@ unsafe impl ::windows::core::RuntimeType for UserCertificateEnrollmentManager {
 }
 unsafe impl ::windows::core::Interface for UserCertificateEnrollmentManager {
     type Vtable = IUserCertificateEnrollmentManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96313718_22e1_4819_b20b_ab46a6eca06e);
+    const IID: ::windows::core::GUID = <IUserCertificateEnrollmentManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserCertificateEnrollmentManager {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.UserCertificateEnrollmentManager";
@@ -4096,7 +4096,7 @@ unsafe impl ::windows::core::RuntimeType for UserCertificateStore {
 }
 unsafe impl ::windows::core::Interface for UserCertificateStore {
     type Vtable = IUserCertificateStore_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9fb1d83_789f_4b4e_9180_045a757aac6d);
+    const IID: ::windows::core::GUID = <IUserCertificateStore as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserCertificateStore {
     const NAME: &'static str = "Windows.Security.Cryptography.Certificates.UserCertificateStore";

@@ -125,7 +125,7 @@ unsafe impl ::windows::core::RuntimeType for Playlist {
 }
 unsafe impl ::windows::core::Interface for Playlist {
     type Vtable = IPlaylist_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x803736f5_cf44_4d97_83b3_7a089e9ab663);
+    const IID: ::windows::core::GUID = <IPlaylist as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Playlist {
     const NAME: &'static str = "Windows.Media.Playlists.Playlist";

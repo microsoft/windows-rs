@@ -146,7 +146,7 @@ unsafe impl ::windows::core::RuntimeType for GameServicePropertyCollection {
 }
 unsafe impl ::windows::core::Interface for GameServicePropertyCollection {
     type Vtable = IGameServicePropertyCollection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07e57fc8_debb_4609_9cc8_529d16bc2bd9);
+    const IID: ::windows::core::GUID = <IGameServicePropertyCollection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GameServicePropertyCollection {
     const NAME: &'static str = "Windows.Phone.System.UserProfile.GameServices.Core.GameServicePropertyCollection";

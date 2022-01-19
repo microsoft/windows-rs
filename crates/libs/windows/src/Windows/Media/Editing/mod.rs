@@ -156,7 +156,7 @@ unsafe impl ::windows::core::RuntimeType for BackgroundAudioTrack {
 }
 unsafe impl ::windows::core::Interface for BackgroundAudioTrack {
     type Vtable = IBackgroundAudioTrack_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b91b3bd_9e21_4266_a9c2_67dd011a2357);
+    const IID: ::windows::core::GUID = <IBackgroundAudioTrack as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BackgroundAudioTrack {
     const NAME: &'static str = "Windows.Media.Editing.BackgroundAudioTrack";
@@ -238,7 +238,7 @@ unsafe impl ::windows::core::RuntimeType for EmbeddedAudioTrack {
 }
 unsafe impl ::windows::core::Interface for EmbeddedAudioTrack {
     type Vtable = IEmbeddedAudioTrack_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55ee5a7a_2d30_3fba_a190_4f1a6454f88f);
+    const IID: ::windows::core::GUID = <IEmbeddedAudioTrack as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EmbeddedAudioTrack {
     const NAME: &'static str = "Windows.Media.Editing.EmbeddedAudioTrack";
@@ -888,7 +888,7 @@ unsafe impl ::windows::core::RuntimeType for MediaClip {
 }
 unsafe impl ::windows::core::Interface for MediaClip {
     type Vtable = IMediaClip_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53f25366_5fba_3ea4_8693_24761811140a);
+    const IID: ::windows::core::GUID = <IMediaClip as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaClip {
     const NAME: &'static str = "Windows.Media.Editing.MediaClip";
@@ -1124,7 +1124,7 @@ unsafe impl ::windows::core::RuntimeType for MediaComposition {
 }
 unsafe impl ::windows::core::Interface for MediaComposition {
     type Vtable = IMediaComposition_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e06e605_dc71_41d6_b837_2d2bc14a2947);
+    const IID: ::windows::core::GUID = <IMediaComposition as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaComposition {
     const NAME: &'static str = "Windows.Media.Editing.MediaComposition";
@@ -1289,7 +1289,7 @@ unsafe impl ::windows::core::RuntimeType for MediaOverlay {
 }
 unsafe impl ::windows::core::Interface for MediaOverlay {
     type Vtable = IMediaOverlay_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa902ae5d_7869_4830_8ab1_94dc01c05fa4);
+    const IID: ::windows::core::GUID = <IMediaOverlay as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaOverlay {
     const NAME: &'static str = "Windows.Media.Editing.MediaOverlay";
@@ -1408,7 +1408,7 @@ unsafe impl ::windows::core::RuntimeType for MediaOverlayLayer {
 }
 unsafe impl ::windows::core::Interface for MediaOverlayLayer {
     type Vtable = IMediaOverlayLayer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6d9ba57_eeda_46c6_bbe5_e398c84168ac);
+    const IID: ::windows::core::GUID = <IMediaOverlayLayer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaOverlayLayer {
     const NAME: &'static str = "Windows.Media.Editing.MediaOverlayLayer";

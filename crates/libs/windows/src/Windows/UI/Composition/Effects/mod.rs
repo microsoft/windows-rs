@@ -169,7 +169,7 @@ unsafe impl ::windows::core::RuntimeType for SceneLightingEffect {
 }
 unsafe impl ::windows::core::Interface for SceneLightingEffect {
     type Vtable = ISceneLightingEffect_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91bb5e52_95d1_4f8b_9a5a_6408b24b8c6a);
+    const IID: ::windows::core::GUID = <ISceneLightingEffect as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SceneLightingEffect {
     const NAME: &'static str = "Windows.UI.Composition.Effects.SceneLightingEffect";

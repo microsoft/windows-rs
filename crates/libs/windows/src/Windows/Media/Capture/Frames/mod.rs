@@ -50,7 +50,7 @@ unsafe impl ::windows::core::RuntimeType for AudioMediaFrame {
 }
 unsafe impl ::windows::core::Interface for AudioMediaFrame {
     type Vtable = IAudioMediaFrame_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3a9feff_8021_441b_9a46_e7f0137b7981);
+    const IID: ::windows::core::GUID = <IAudioMediaFrame as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AudioMediaFrame {
     const NAME: &'static str = "Windows.Media.Capture.Frames.AudioMediaFrame";
@@ -140,7 +140,7 @@ unsafe impl ::windows::core::RuntimeType for BufferMediaFrame {
 }
 unsafe impl ::windows::core::Interface for BufferMediaFrame {
     type Vtable = IBufferMediaFrame_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5b153c7_9b84_4062_b79c_a365b2596854);
+    const IID: ::windows::core::GUID = <IBufferMediaFrame as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BufferMediaFrame {
     const NAME: &'static str = "Windows.Media.Capture.Frames.BufferMediaFrame";
@@ -262,7 +262,7 @@ unsafe impl ::windows::core::RuntimeType for DepthMediaFrame {
 }
 unsafe impl ::windows::core::Interface for DepthMediaFrame {
     type Vtable = IDepthMediaFrame_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47135e4f_8549_45c0_925b_80d35efdb10a);
+    const IID: ::windows::core::GUID = <IDepthMediaFrame as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DepthMediaFrame {
     const NAME: &'static str = "Windows.Media.Capture.Frames.DepthMediaFrame";
@@ -351,7 +351,7 @@ unsafe impl ::windows::core::RuntimeType for DepthMediaFrameFormat {
 }
 unsafe impl ::windows::core::Interface for DepthMediaFrameFormat {
     type Vtable = IDepthMediaFrameFormat_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc312cf40_d729_453e_8780_2e04f140d28e);
+    const IID: ::windows::core::GUID = <IDepthMediaFrameFormat as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DepthMediaFrameFormat {
     const NAME: &'static str = "Windows.Media.Capture.Frames.DepthMediaFrameFormat";
@@ -1006,7 +1006,7 @@ unsafe impl ::windows::core::RuntimeType for InfraredMediaFrame {
 }
 unsafe impl ::windows::core::Interface for InfraredMediaFrame {
     type Vtable = IInfraredMediaFrame_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3fd13503_004b_4f0e_91ac_465299b41658);
+    const IID: ::windows::core::GUID = <IInfraredMediaFrame as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InfraredMediaFrame {
     const NAME: &'static str = "Windows.Media.Capture.Frames.InfraredMediaFrame";
@@ -1078,7 +1078,7 @@ unsafe impl ::windows::core::RuntimeType for MediaFrameArrivedEventArgs {
 }
 unsafe impl ::windows::core::Interface for MediaFrameArrivedEventArgs {
     type Vtable = IMediaFrameArrivedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b430add_a490_4435_ada1_9affd55239f7);
+    const IID: ::windows::core::GUID = <IMediaFrameArrivedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaFrameArrivedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameArrivedEventArgs";
@@ -1202,7 +1202,7 @@ unsafe impl ::windows::core::RuntimeType for MediaFrameFormat {
 }
 unsafe impl ::windows::core::Interface for MediaFrameFormat {
     type Vtable = IMediaFrameFormat_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71902b4e_b279_4a97_a9db_bd5a2fb78f39);
+    const IID: ::windows::core::GUID = <IMediaFrameFormat as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaFrameFormat {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameFormat";
@@ -1335,7 +1335,7 @@ unsafe impl ::windows::core::RuntimeType for MediaFrameReader {
 }
 unsafe impl ::windows::core::Interface for MediaFrameReader {
     type Vtable = IMediaFrameReader_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4c94395_2028_48ed_90b0_d1c1b162e24c);
+    const IID: ::windows::core::GUID = <IMediaFrameReader as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaFrameReader {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameReader";
@@ -1575,7 +1575,7 @@ unsafe impl ::windows::core::RuntimeType for MediaFrameReference {
 }
 unsafe impl ::windows::core::Interface for MediaFrameReference {
     type Vtable = IMediaFrameReference_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6b88641_f0dc_4044_8dc9_961cedd05bad);
+    const IID: ::windows::core::GUID = <IMediaFrameReference as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaFrameReference {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameReference";
@@ -1740,7 +1740,7 @@ unsafe impl ::windows::core::RuntimeType for MediaFrameSource {
 }
 unsafe impl ::windows::core::Interface for MediaFrameSource {
     type Vtable = IMediaFrameSource_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6782953_90db_46a8_8add_2aa884a8d253);
+    const IID: ::windows::core::GUID = <IMediaFrameSource as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaFrameSource {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameSource";
@@ -1867,7 +1867,7 @@ unsafe impl ::windows::core::RuntimeType for MediaFrameSourceController {
 }
 unsafe impl ::windows::core::Interface for MediaFrameSourceController {
     type Vtable = IMediaFrameSourceController_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d076635_316d_4b8f_b7b6_eeb04a8c6525);
+    const IID: ::windows::core::GUID = <IMediaFrameSourceController as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaFrameSourceController {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameSourceController";
@@ -1956,7 +1956,7 @@ unsafe impl ::windows::core::RuntimeType for MediaFrameSourceGetPropertyResult {
 }
 unsafe impl ::windows::core::Interface for MediaFrameSourceGetPropertyResult {
     type Vtable = IMediaFrameSourceGetPropertyResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x088616c2_3a64_4bd5_bd2b_e7c898d2f37a);
+    const IID: ::windows::core::GUID = <IMediaFrameSourceGetPropertyResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaFrameSourceGetPropertyResult {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameSourceGetPropertyResult";
@@ -2114,7 +2114,7 @@ unsafe impl ::windows::core::RuntimeType for MediaFrameSourceGroup {
 }
 unsafe impl ::windows::core::Interface for MediaFrameSourceGroup {
     type Vtable = IMediaFrameSourceGroup_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f605b87_4832_4b5f_ae3d_412faab37d34);
+    const IID: ::windows::core::GUID = <IMediaFrameSourceGroup as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaFrameSourceGroup {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameSourceGroup";
@@ -2272,7 +2272,7 @@ unsafe impl ::windows::core::RuntimeType for MediaFrameSourceInfo {
 }
 unsafe impl ::windows::core::Interface for MediaFrameSourceInfo {
     type Vtable = IMediaFrameSourceInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87bdc9cd_4601_408f_91cf_038318cd0af3);
+    const IID: ::windows::core::GUID = <IMediaFrameSourceInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaFrameSourceInfo {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MediaFrameSourceInfo";
@@ -2409,7 +2409,7 @@ unsafe impl ::windows::core::RuntimeType for MultiSourceMediaFrameArrivedEventAr
 }
 unsafe impl ::windows::core::Interface for MultiSourceMediaFrameArrivedEventArgs {
     type Vtable = IMultiSourceMediaFrameArrivedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63115e01_cf51_48fd_aab0_6d693eb48127);
+    const IID: ::windows::core::GUID = <IMultiSourceMediaFrameArrivedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MultiSourceMediaFrameArrivedEventArgs {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MultiSourceMediaFrameArrivedEventArgs";
@@ -2542,7 +2542,7 @@ unsafe impl ::windows::core::RuntimeType for MultiSourceMediaFrameReader {
 }
 unsafe impl ::windows::core::Interface for MultiSourceMediaFrameReader {
     type Vtable = IMultiSourceMediaFrameReader_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d144402_f763_488d_98f2_b437bcf075e7);
+    const IID: ::windows::core::GUID = <IMultiSourceMediaFrameReader as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MultiSourceMediaFrameReader {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MultiSourceMediaFrameReader";
@@ -2686,7 +2686,7 @@ unsafe impl ::windows::core::RuntimeType for MultiSourceMediaFrameReference {
 }
 unsafe impl ::windows::core::Interface for MultiSourceMediaFrameReference {
     type Vtable = IMultiSourceMediaFrameReference_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x21964b1a_7fe2_44d6_92e5_298e6d2810e9);
+    const IID: ::windows::core::GUID = <IMultiSourceMediaFrameReference as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MultiSourceMediaFrameReference {
     const NAME: &'static str = "Windows.Media.Capture.Frames.MultiSourceMediaFrameReference";
@@ -2852,7 +2852,7 @@ unsafe impl ::windows::core::RuntimeType for VideoMediaFrame {
 }
 unsafe impl ::windows::core::Interface for VideoMediaFrame {
     type Vtable = IVideoMediaFrame_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00dd4ccb_32bd_4fe1_a013_7cc13cf5dbcf);
+    const IID: ::windows::core::GUID = <IVideoMediaFrame as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VideoMediaFrame {
     const NAME: &'static str = "Windows.Media.Capture.Frames.VideoMediaFrame";
@@ -2957,7 +2957,7 @@ unsafe impl ::windows::core::RuntimeType for VideoMediaFrameFormat {
 }
 unsafe impl ::windows::core::Interface for VideoMediaFrameFormat {
     type Vtable = IVideoMediaFrameFormat_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46027fc0_d71b_45c7_8f14_6d9a0ae604e4);
+    const IID: ::windows::core::GUID = <IVideoMediaFrameFormat as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VideoMediaFrameFormat {
     const NAME: &'static str = "Windows.Media.Capture.Frames.VideoMediaFrameFormat";

@@ -98,7 +98,7 @@ unsafe impl ::windows::core::RuntimeType for AccountsSettingsPane {
 }
 unsafe impl ::windows::core::Interface for AccountsSettingsPane {
     type Vtable = IAccountsSettingsPane_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81ea942c_4f09_4406_a538_838d9b14b7e6);
+    const IID: ::windows::core::GUID = <IAccountsSettingsPane as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AccountsSettingsPane {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.AccountsSettingsPane";
@@ -235,7 +235,7 @@ unsafe impl ::windows::core::RuntimeType for AccountsSettingsPaneCommandsRequest
 }
 unsafe impl ::windows::core::Interface for AccountsSettingsPaneCommandsRequestedEventArgs {
     type Vtable = IAccountsSettingsPaneCommandsRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b68c099_db19_45d0_9abf_95d3773c9330);
+    const IID: ::windows::core::GUID = <IAccountsSettingsPaneCommandsRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AccountsSettingsPaneCommandsRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.AccountsSettingsPaneCommandsRequestedEventArgs";
@@ -311,7 +311,7 @@ unsafe impl ::windows::core::RuntimeType for AccountsSettingsPaneEventDeferral {
 }
 unsafe impl ::windows::core::Interface for AccountsSettingsPaneEventDeferral {
     type Vtable = IAccountsSettingsPaneEventDeferral_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcbf25d3f_e5ba_40ef_93da_65e096e5fb04);
+    const IID: ::windows::core::GUID = <IAccountsSettingsPaneEventDeferral as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AccountsSettingsPaneEventDeferral {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.AccountsSettingsPaneEventDeferral";
@@ -420,7 +420,7 @@ unsafe impl ::windows::core::RuntimeType for CredentialCommand {
 }
 unsafe impl ::windows::core::Interface for CredentialCommand {
     type Vtable = ICredentialCommand_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5f665e6_6143_4a7a_a971_b017ba978ce2);
+    const IID: ::windows::core::GUID = <ICredentialCommand as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CredentialCommand {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.CredentialCommand";
@@ -1019,7 +1019,7 @@ unsafe impl ::windows::core::RuntimeType for SettingsCommand {
 #[cfg(feature = "UI_Popups")]
 unsafe impl ::windows::core::Interface for SettingsCommand {
     type Vtable = super::Popups::IUICommand_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ff93a75_4145_47ff_ac7f_dff1c1fa5b0f);
+    const IID: ::windows::core::GUID = <super::Popups::IUICommand as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "UI_Popups")]
 impl ::windows::core::RuntimeName for SettingsCommand {
@@ -1211,7 +1211,7 @@ unsafe impl ::windows::core::RuntimeType for SettingsPane {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SettingsPane {
     type Vtable = ISettingsPane_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1cd0932_4570_4c69_8d38_89446561ace0);
+    const IID: ::windows::core::GUID = <ISettingsPane as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for SettingsPane {
@@ -1308,7 +1308,7 @@ unsafe impl ::windows::core::RuntimeType for SettingsPaneCommandsRequest {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SettingsPaneCommandsRequest {
     type Vtable = ISettingsPaneCommandsRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44df23ae_5d6e_4068_a168_f47643182114);
+    const IID: ::windows::core::GUID = <ISettingsPaneCommandsRequest as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for SettingsPaneCommandsRequest {
@@ -1405,7 +1405,7 @@ unsafe impl ::windows::core::RuntimeType for SettingsPaneCommandsRequestedEventA
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SettingsPaneCommandsRequestedEventArgs {
     type Vtable = ISettingsPaneCommandsRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x205f5d24_1b48_4629_a6ca_2fdfedafb75d);
+    const IID: ::windows::core::GUID = <ISettingsPaneCommandsRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for SettingsPaneCommandsRequestedEventArgs {
@@ -1614,7 +1614,7 @@ unsafe impl ::windows::core::RuntimeType for WebAccountCommand {
 }
 unsafe impl ::windows::core::Interface for WebAccountCommand {
     type Vtable = IWebAccountCommand_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcaa39398_9cfa_4246_b0c4_a913a3896541);
+    const IID: ::windows::core::GUID = <IWebAccountCommand as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebAccountCommand {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.WebAccountCommand";
@@ -1771,7 +1771,7 @@ unsafe impl ::windows::core::RuntimeType for WebAccountInvokedArgs {
 }
 unsafe impl ::windows::core::Interface for WebAccountInvokedArgs {
     type Vtable = IWebAccountInvokedArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7abcc40_a1d8_4c5d_9a7f_1d34b2f90ad2);
+    const IID: ::windows::core::GUID = <IWebAccountInvokedArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebAccountInvokedArgs {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.WebAccountInvokedArgs";
@@ -1872,7 +1872,7 @@ unsafe impl ::windows::core::RuntimeType for WebAccountProviderCommand {
 }
 unsafe impl ::windows::core::Interface for WebAccountProviderCommand {
     type Vtable = IWebAccountProviderCommand_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd69bdd9a_a0a6_4e9b_88dc_c71e757a3501);
+    const IID: ::windows::core::GUID = <IWebAccountProviderCommand as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebAccountProviderCommand {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.WebAccountProviderCommand";

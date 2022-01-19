@@ -212,7 +212,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneNumberFormatter {
 }
 unsafe impl ::windows::core::Interface for PhoneNumberFormatter {
     type Vtable = IPhoneNumberFormatter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1556b49e_bad4_4b4a_900d_4407adb7c981);
+    const IID: ::windows::core::GUID = <IPhoneNumberFormatter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PhoneNumberFormatter {
     const NAME: &'static str = "Windows.Globalization.PhoneNumberFormatting.PhoneNumberFormatter";
@@ -389,7 +389,7 @@ unsafe impl ::windows::core::RuntimeType for PhoneNumberInfo {
 }
 unsafe impl ::windows::core::Interface for PhoneNumberInfo {
     type Vtable = IPhoneNumberInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c7ce4dd_c8b4_4ea3_9aef_b342e2c5b417);
+    const IID: ::windows::core::GUID = <IPhoneNumberInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PhoneNumberInfo {
     const NAME: &'static str = "Windows.Globalization.PhoneNumberFormatting.PhoneNumberInfo";

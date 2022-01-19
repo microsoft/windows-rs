@@ -104,7 +104,7 @@ unsafe impl ::windows::core::RuntimeType for XsltProcessor {
 }
 unsafe impl ::windows::core::Interface for XsltProcessor {
     type Vtable = IXsltProcessor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b64703f_550c_48c6_a90f_93a5b964518f);
+    const IID: ::windows::core::GUID = <IXsltProcessor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for XsltProcessor {
     const NAME: &'static str = "Windows.Data.Xml.Xsl.XsltProcessor";

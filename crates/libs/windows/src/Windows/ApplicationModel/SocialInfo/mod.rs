@@ -453,7 +453,7 @@ unsafe impl ::windows::core::RuntimeType for SocialFeedChildItem {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SocialFeedChildItem {
     type Vtable = ISocialFeedChildItem_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b6a985a_d59d_40be_980c_488a2ab30a83);
+    const IID: ::windows::core::GUID = <ISocialFeedChildItem as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for SocialFeedChildItem {
@@ -590,7 +590,7 @@ unsafe impl ::windows::core::RuntimeType for SocialFeedContent {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SocialFeedContent {
     type Vtable = ISocialFeedContent_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa234e429_3e39_494d_a37c_f462a2494514);
+    const IID: ::windows::core::GUID = <ISocialFeedContent as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for SocialFeedContent {
@@ -845,7 +845,7 @@ unsafe impl ::windows::core::RuntimeType for SocialFeedItem {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SocialFeedItem {
     type Vtable = ISocialFeedItem_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f1392ab_1f72_4d33_b695_de3e1db60317);
+    const IID: ::windows::core::GUID = <ISocialFeedItem as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for SocialFeedItem {
@@ -1086,7 +1086,7 @@ unsafe impl ::windows::core::RuntimeType for SocialFeedSharedItem {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SocialFeedSharedItem {
     type Vtable = ISocialFeedSharedItem_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7bfb9e40_a6aa_45a7_9ff6_54c42105dd1f);
+    const IID: ::windows::core::GUID = <ISocialFeedSharedItem as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for SocialFeedSharedItem {
@@ -1312,7 +1312,7 @@ unsafe impl ::windows::core::RuntimeType for SocialItemThumbnail {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SocialItemThumbnail {
     type Vtable = ISocialItemThumbnail_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5cbf831a_3f08_497f_917f_57e09d84b141);
+    const IID: ::windows::core::GUID = <ISocialItemThumbnail as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for SocialItemThumbnail {
@@ -1464,7 +1464,7 @@ unsafe impl ::windows::core::RuntimeType for SocialUserInfo {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SocialUserInfo {
     type Vtable = ISocialUserInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e5e1bd1_90d0_4e1d_9554_844d46607f61);
+    const IID: ::windows::core::GUID = <ISocialUserInfo as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for SocialUserInfo {

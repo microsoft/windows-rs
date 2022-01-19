@@ -220,7 +220,7 @@ unsafe impl ::windows::core::RuntimeType for AppInstallItem {
 }
 unsafe impl ::windows::core::Interface for AppInstallItem {
     type Vtable = IAppInstallItem_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49d3dfab_168a_4cbf_a93a_9e448c82737d);
+    const IID: ::windows::core::GUID = <IAppInstallItem as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppInstallItem {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallItem";
@@ -708,7 +708,7 @@ unsafe impl ::windows::core::RuntimeType for AppInstallManager {
 }
 unsafe impl ::windows::core::Interface for AppInstallManager {
     type Vtable = IAppInstallManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9353e170_8441_4b45_bd72_7c2fa925beee);
+    const IID: ::windows::core::GUID = <IAppInstallManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppInstallManager {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallManager";
@@ -789,7 +789,7 @@ unsafe impl ::windows::core::RuntimeType for AppInstallManagerItemEventArgs {
 }
 unsafe impl ::windows::core::Interface for AppInstallManagerItemEventArgs {
     type Vtable = IAppInstallManagerItemEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc505743_4674_4dd1_957e_c25682086a14);
+    const IID: ::windows::core::GUID = <IAppInstallManagerItemEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppInstallManagerItemEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallManagerItemEventArgs";
@@ -1066,7 +1066,7 @@ unsafe impl ::windows::core::RuntimeType for AppInstallOptions {
 }
 unsafe impl ::windows::core::Interface for AppInstallOptions {
     type Vtable = IAppInstallOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9808300_1cb8_4eb6_8c9f_6a30c64a5b51);
+    const IID: ::windows::core::GUID = <IAppInstallOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppInstallOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallOptions";
@@ -1244,7 +1244,7 @@ unsafe impl ::windows::core::RuntimeType for AppInstallStatus {
 }
 unsafe impl ::windows::core::Interface for AppInstallStatus {
     type Vtable = IAppInstallStatus_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x936dccfa_2450_4126_88b1_6127a644dd5c);
+    const IID: ::windows::core::GUID = <IAppInstallStatus as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppInstallStatus {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.AppInstallStatus";
@@ -1422,7 +1422,7 @@ unsafe impl ::windows::core::RuntimeType for AppUpdateOptions {
 }
 unsafe impl ::windows::core::Interface for AppUpdateOptions {
     type Vtable = IAppUpdateOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26f0b02f_c2f3_4aea_af8c_6308dd9db85f);
+    const IID: ::windows::core::GUID = <IAppUpdateOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppUpdateOptions {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.AppUpdateOptions";
@@ -1533,7 +1533,7 @@ unsafe impl ::windows::core::RuntimeType for GetEntitlementResult {
 }
 unsafe impl ::windows::core::Interface for GetEntitlementResult {
     type Vtable = IGetEntitlementResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74fc843f_1a9e_4609_8e4d_819086d08a3d);
+    const IID: ::windows::core::GUID = <IGetEntitlementResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GetEntitlementResult {
     const NAME: &'static str = "Windows.ApplicationModel.Store.Preview.InstallControl.GetEntitlementResult";

@@ -458,7 +458,7 @@ unsafe impl ::windows::core::RuntimeType for IppAttributeError {
 }
 unsafe impl ::windows::core::Interface for IppAttributeError {
     type Vtable = IIppAttributeError_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x750feda1_9eef_5c39_93e4_46149bbcef27);
+    const IID: ::windows::core::GUID = <IIppAttributeError as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for IppAttributeError {
     const NAME: &'static str = "Windows.Devices.Printers.IppAttributeError";
@@ -1032,7 +1032,7 @@ unsafe impl ::windows::core::RuntimeType for IppAttributeValue {
 }
 unsafe impl ::windows::core::Interface for IppAttributeValue {
     type Vtable = IIppAttributeValue_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99407fed_e2bb_59a3_988b_28a974052a26);
+    const IID: ::windows::core::GUID = <IIppAttributeValue as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for IppAttributeValue {
     const NAME: &'static str = "Windows.Devices.Printers.IppAttributeValue";
@@ -1180,7 +1180,7 @@ unsafe impl ::windows::core::RuntimeType for IppIntegerRange {
 }
 unsafe impl ::windows::core::Interface for IppIntegerRange {
     type Vtable = IIppIntegerRange_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92907346_c3ea_5ed6_bdb1_3752c62c6f7f);
+    const IID: ::windows::core::GUID = <IIppIntegerRange as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for IppIntegerRange {
     const NAME: &'static str = "Windows.Devices.Printers.IppIntegerRange";
@@ -1306,7 +1306,7 @@ unsafe impl ::windows::core::RuntimeType for IppPrintDevice {
 }
 unsafe impl ::windows::core::Interface for IppPrintDevice {
     type Vtable = IIppPrintDevice_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd748ac56_76f3_5dc6_afd4_c2a8686b9359);
+    const IID: ::windows::core::GUID = <IIppPrintDevice as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for IppPrintDevice {
     const NAME: &'static str = "Windows.Devices.Printers.IppPrintDevice";
@@ -1415,7 +1415,7 @@ unsafe impl ::windows::core::RuntimeType for IppResolution {
 }
 unsafe impl ::windows::core::Interface for IppResolution {
     type Vtable = IIppResolution_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb493f86_6bf3_56f5_86ce_263d08aead63);
+    const IID: ::windows::core::GUID = <IIppResolution as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for IppResolution {
     const NAME: &'static str = "Windows.Devices.Printers.IppResolution";
@@ -1533,7 +1533,7 @@ unsafe impl ::windows::core::RuntimeType for IppSetAttributesResult {
 }
 unsafe impl ::windows::core::Interface for IppSetAttributesResult {
     type Vtable = IIppSetAttributesResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d1c7f55_aa9d_58a3_90e9_17bdc5281f07);
+    const IID: ::windows::core::GUID = <IIppSetAttributesResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for IppSetAttributesResult {
     const NAME: &'static str = "Windows.Devices.Printers.IppSetAttributesResult";
@@ -1634,7 +1634,7 @@ unsafe impl ::windows::core::RuntimeType for IppTextWithLanguage {
 }
 unsafe impl ::windows::core::Interface for IppTextWithLanguage {
     type Vtable = IIppTextWithLanguage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x326447a6_5149_5936_90e8_0c736036bf77);
+    const IID: ::windows::core::GUID = <IIppTextWithLanguage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for IppTextWithLanguage {
     const NAME: &'static str = "Windows.Devices.Printers.IppTextWithLanguage";
@@ -1735,7 +1735,7 @@ unsafe impl ::windows::core::RuntimeType for Print3DDevice {
 }
 unsafe impl ::windows::core::Interface for Print3DDevice {
     type Vtable = IPrint3DDevice_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x041c3d19_9713_42a2_9813_7dc3337428d3);
+    const IID: ::windows::core::GUID = <IPrint3DDevice as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Print3DDevice {
     const NAME: &'static str = "Windows.Devices.Printers.Print3DDevice";
@@ -1835,7 +1835,7 @@ unsafe impl ::windows::core::RuntimeType for PrintSchema {
 }
 unsafe impl ::windows::core::Interface for PrintSchema {
     type Vtable = IPrintSchema_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2b98316_26b8_4bfb_8138_9f962c22a35b);
+    const IID: ::windows::core::GUID = <IPrintSchema as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PrintSchema {
     const NAME: &'static str = "Windows.Devices.Printers.PrintSchema";

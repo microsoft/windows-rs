@@ -279,7 +279,7 @@ unsafe impl ::windows::core::RuntimeType for OnlineIdAuthenticator {
 }
 unsafe impl ::windows::core::Interface for OnlineIdAuthenticator {
     type Vtable = IOnlineIdAuthenticator_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa003f58a_29ab_4817_b884_d7516dad18b9);
+    const IID: ::windows::core::GUID = <IOnlineIdAuthenticator as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for OnlineIdAuthenticator {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdAuthenticator";
@@ -376,7 +376,7 @@ unsafe impl ::windows::core::RuntimeType for OnlineIdServiceTicket {
 }
 unsafe impl ::windows::core::Interface for OnlineIdServiceTicket {
     type Vtable = IOnlineIdServiceTicket_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc95c547f_d781_4a94_acb8_c59874238c26);
+    const IID: ::windows::core::GUID = <IOnlineIdServiceTicket as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for OnlineIdServiceTicket {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdServiceTicket";
@@ -484,7 +484,7 @@ unsafe impl ::windows::core::RuntimeType for OnlineIdServiceTicketRequest {
 }
 unsafe impl ::windows::core::Interface for OnlineIdServiceTicketRequest {
     type Vtable = IOnlineIdServiceTicketRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x297445d3_fb63_4135_8909_4e354c061466);
+    const IID: ::windows::core::GUID = <IOnlineIdServiceTicketRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for OnlineIdServiceTicketRequest {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdServiceTicketRequest";
@@ -615,7 +615,7 @@ unsafe impl ::windows::core::RuntimeType for OnlineIdSystemAuthenticatorForUser 
 }
 unsafe impl ::windows::core::Interface for OnlineIdSystemAuthenticatorForUser {
     type Vtable = IOnlineIdSystemAuthenticatorForUser_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5798befb_1de4_4186_a2e6_b563f86aaf44);
+    const IID: ::windows::core::GUID = <IOnlineIdSystemAuthenticatorForUser as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for OnlineIdSystemAuthenticatorForUser {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdSystemAuthenticatorForUser";
@@ -704,7 +704,7 @@ unsafe impl ::windows::core::RuntimeType for OnlineIdSystemIdentity {
 }
 unsafe impl ::windows::core::Interface for OnlineIdSystemIdentity {
     type Vtable = IOnlineIdSystemIdentity_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x743cd20d_b6ca_434d_8124_53ea12685307);
+    const IID: ::windows::core::GUID = <IOnlineIdSystemIdentity as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for OnlineIdSystemIdentity {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdSystemIdentity";
@@ -801,7 +801,7 @@ unsafe impl ::windows::core::RuntimeType for OnlineIdSystemTicketResult {
 }
 unsafe impl ::windows::core::Interface for OnlineIdSystemTicketResult {
     type Vtable = IOnlineIdSystemTicketResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb0a5ff8_b098_4acd_9d13_9e640652b5b6);
+    const IID: ::windows::core::GUID = <IOnlineIdSystemTicketResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for OnlineIdSystemTicketResult {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.OnlineIdSystemTicketResult";
@@ -971,7 +971,7 @@ unsafe impl ::windows::core::RuntimeType for SignOutUserOperation {
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::core::Interface for SignOutUserOperation {
     type Vtable = super::super::super::Foundation::IAsyncAction_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a648006_843a_4da9_865b_9d26e5dfad7b);
+    const IID: ::windows::core::GUID = <super::super::super::Foundation::IAsyncAction as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for SignOutUserOperation {
@@ -1209,7 +1209,7 @@ unsafe impl ::windows::core::RuntimeType for UserAuthenticationOperation {
 #[cfg(feature = "Foundation")]
 unsafe impl ::windows::core::Interface for UserAuthenticationOperation {
     type Vtable = super::super::super::Foundation::IAsyncOperation_Vtbl<UserIdentity>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::super::Foundation::IAsyncOperation<UserIdentity> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation")]
 impl ::windows::core::RuntimeName for UserAuthenticationOperation {
@@ -1441,7 +1441,7 @@ unsafe impl ::windows::core::RuntimeType for UserIdentity {
 }
 unsafe impl ::windows::core::Interface for UserIdentity {
     type Vtable = IUserIdentity_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2146d9cd_0742_4be3_8a1c_7c7ae679aa88);
+    const IID: ::windows::core::GUID = <IUserIdentity as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserIdentity {
     const NAME: &'static str = "Windows.Security.Authentication.OnlineId.UserIdentity";

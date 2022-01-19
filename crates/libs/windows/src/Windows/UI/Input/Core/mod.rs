@@ -113,7 +113,7 @@ unsafe impl ::windows::core::RuntimeType for RadialControllerIndependentInputSou
 }
 unsafe impl ::windows::core::Interface for RadialControllerIndependentInputSource {
     type Vtable = IRadialControllerIndependentInputSource_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577ef6_4cee_11e6_b535_001bdc06ab3b);
+    const IID: ::windows::core::GUID = <IRadialControllerIndependentInputSource as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RadialControllerIndependentInputSource {
     const NAME: &'static str = "Windows.UI.Input.Core.RadialControllerIndependentInputSource";

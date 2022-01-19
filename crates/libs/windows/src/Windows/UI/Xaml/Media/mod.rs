@@ -213,7 +213,7 @@ unsafe impl ::windows::core::RuntimeType for AcrylicBrush {
 }
 unsafe impl ::windows::core::Interface for AcrylicBrush {
     type Vtable = IAcrylicBrush_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79bbcf4e_cd66_4f1b_a8b6_cd6d2977c18d);
+    const IID: ::windows::core::GUID = <IAcrylicBrush as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AcrylicBrush {
     const NAME: &'static str = "Windows.UI.Xaml.Media.AcrylicBrush";
@@ -546,7 +546,7 @@ unsafe impl ::windows::core::RuntimeType for ArcSegment {
 }
 unsafe impl ::windows::core::Interface for ArcSegment {
     type Vtable = IArcSegment_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07940c5f_63fb_4469_91be_f1097c168052);
+    const IID: ::windows::core::GUID = <IArcSegment as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ArcSegment {
     const NAME: &'static str = "Windows.UI.Xaml.Media.ArcSegment";
@@ -804,7 +804,7 @@ unsafe impl ::windows::core::RuntimeType for BezierSegment {
 }
 unsafe impl ::windows::core::Interface for BezierSegment {
     type Vtable = IBezierSegment_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf4bb9ee_8984_49b7_81df_3f35994b95eb);
+    const IID: ::windows::core::GUID = <IBezierSegment as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BezierSegment {
     const NAME: &'static str = "Windows.UI.Xaml.Media.BezierSegment";
@@ -924,7 +924,7 @@ unsafe impl ::windows::core::RuntimeType for BitmapCache {
 }
 unsafe impl ::windows::core::Interface for BitmapCache {
     type Vtable = IBitmapCache_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79c2219e_44d2_4610_9735_9bec83809ecf);
+    const IID: ::windows::core::GUID = <IBitmapCache as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BitmapCache {
     const NAME: &'static str = "Windows.UI.Xaml.Media.BitmapCache";
@@ -1108,7 +1108,7 @@ unsafe impl ::windows::core::RuntimeType for Brush {
 }
 unsafe impl ::windows::core::Interface for Brush {
     type Vtable = IBrush_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8806a321_1e06_422c_a1cc_01696559e021);
+    const IID: ::windows::core::GUID = <IBrush as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Brush {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Brush";
@@ -1338,7 +1338,7 @@ unsafe impl ::windows::core::RuntimeType for BrushCollection {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for BrushCollection {
     type Vtable = super::super::super::Foundation::Collections::IVector_Vtbl<Brush>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::super::Foundation::Collections::IVector<Brush> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for BrushCollection {
@@ -1517,7 +1517,7 @@ unsafe impl ::windows::core::RuntimeType for CacheMode {
 }
 unsafe impl ::windows::core::Interface for CacheMode {
     type Vtable = ICacheMode_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98dc8b11_c6f9_4dab_b838_5fd5ec8c7350);
+    const IID: ::windows::core::GUID = <ICacheMode as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CacheMode {
     const NAME: &'static str = "Windows.UI.Xaml.Media.CacheMode";
@@ -1830,7 +1830,7 @@ unsafe impl ::windows::core::RuntimeType for CompositeTransform {
 }
 unsafe impl ::windows::core::Interface for CompositeTransform {
     type Vtable = ICompositeTransform_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8a4385b_f24a_4701_a265_a78846f142b9);
+    const IID: ::windows::core::GUID = <ICompositeTransform as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositeTransform {
     const NAME: &'static str = "Windows.UI.Xaml.Media.CompositeTransform";
@@ -2012,7 +2012,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionTarget {
 }
 unsafe impl ::windows::core::Interface for CompositionTarget {
     type Vtable = ICompositionTarget_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26cfbff0_713c_4bec_8803_e101f7b14ed3);
+    const IID: ::windows::core::GUID = <ICompositionTarget as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionTarget {
     const NAME: &'static str = "Windows.UI.Xaml.Media.CompositionTarget";
@@ -2196,7 +2196,7 @@ unsafe impl ::windows::core::RuntimeType for DoubleCollection {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for DoubleCollection {
     type Vtable = super::super::super::Foundation::Collections::IVector_Vtbl<f64>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::super::Foundation::Collections::IVector<f64> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for DoubleCollection {
@@ -2451,7 +2451,7 @@ unsafe impl ::windows::core::RuntimeType for EllipseGeometry {
 }
 unsafe impl ::windows::core::Interface for EllipseGeometry {
     type Vtable = IEllipseGeometry_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4f61bba_4ea2_40d6_aa6c_8d38aa87651f);
+    const IID: ::windows::core::GUID = <IEllipseGeometry as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EllipseGeometry {
     const NAME: &'static str = "Windows.UI.Xaml.Media.EllipseGeometry";
@@ -2661,7 +2661,7 @@ unsafe impl ::windows::core::RuntimeType for FontFamily {
 }
 unsafe impl ::windows::core::Interface for FontFamily {
     type Vtable = IFontFamily_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92467e64_d66a_4cf4_9322_3d23b3c0c361);
+    const IID: ::windows::core::GUID = <IFontFamily as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FontFamily {
     const NAME: &'static str = "Windows.UI.Xaml.Media.FontFamily";
@@ -2769,7 +2769,7 @@ unsafe impl ::windows::core::RuntimeType for GeneralTransform {
 }
 unsafe impl ::windows::core::Interface for GeneralTransform {
     type Vtable = IGeneralTransform_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa06798b7_a2ec_415f_ade2_eade9333f2c7);
+    const IID: ::windows::core::GUID = <IGeneralTransform as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GeneralTransform {
     const NAME: &'static str = "Windows.UI.Xaml.Media.GeneralTransform";
@@ -2910,7 +2910,7 @@ unsafe impl ::windows::core::RuntimeType for Geometry {
 }
 unsafe impl ::windows::core::Interface for Geometry {
     type Vtable = IGeometry_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa123889_0acd_417b_b62d_5ca1bf4dfc0e);
+    const IID: ::windows::core::GUID = <IGeometry as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Geometry {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Geometry";
@@ -3114,7 +3114,7 @@ unsafe impl ::windows::core::RuntimeType for GeometryCollection {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for GeometryCollection {
     type Vtable = super::super::super::Foundation::Collections::IVector_Vtbl<Geometry>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::super::Foundation::Collections::IVector<Geometry> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for GeometryCollection {
@@ -3320,7 +3320,7 @@ unsafe impl ::windows::core::RuntimeType for GeometryGroup {
 }
 unsafe impl ::windows::core::Interface for GeometryGroup {
     type Vtable = IGeometryGroup_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55225a61_8677_4c8c_8e46_ee3dc355114b);
+    const IID: ::windows::core::GUID = <IGeometryGroup as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GeometryGroup {
     const NAME: &'static str = "Windows.UI.Xaml.Media.GeometryGroup";
@@ -3520,7 +3520,7 @@ unsafe impl ::windows::core::RuntimeType for GradientBrush {
 }
 unsafe impl ::windows::core::Interface for GradientBrush {
     type Vtable = IGradientBrush_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2166e69f_935a_4191_8e3c_1c8dfdfcdc78);
+    const IID: ::windows::core::GUID = <IGradientBrush as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GradientBrush {
     const NAME: &'static str = "Windows.UI.Xaml.Media.GradientBrush";
@@ -3740,7 +3740,7 @@ unsafe impl ::windows::core::RuntimeType for GradientStop {
 }
 unsafe impl ::windows::core::Interface for GradientStop {
     type Vtable = IGradientStop_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x665f44fe_2e59_4c4a_ab53_076a100ccd81);
+    const IID: ::windows::core::GUID = <IGradientStop as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GradientStop {
     const NAME: &'static str = "Windows.UI.Xaml.Media.GradientStop";
@@ -3944,7 +3944,7 @@ unsafe impl ::windows::core::RuntimeType for GradientStopCollection {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for GradientStopCollection {
     type Vtable = super::super::super::Foundation::Collections::IVector_Vtbl<GradientStop>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::super::Foundation::Collections::IVector<GradientStop> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for GradientStopCollection {
@@ -6400,7 +6400,7 @@ unsafe impl ::windows::core::RuntimeType for ImageBrush {
 }
 unsafe impl ::windows::core::Interface for ImageBrush {
     type Vtable = IImageBrush_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9fd11377_c12a_4493_bf7d_f3a8ad74b554);
+    const IID: ::windows::core::GUID = <IImageBrush as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ImageBrush {
     const NAME: &'static str = "Windows.UI.Xaml.Media.ImageBrush";
@@ -6558,7 +6558,7 @@ unsafe impl ::windows::core::RuntimeType for ImageSource {
 }
 unsafe impl ::windows::core::Interface for ImageSource {
     type Vtable = IImageSource_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x737ef309_ea41_4d96_a71c_98e98efcab07);
+    const IID: ::windows::core::GUID = <IImageSource as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ImageSource {
     const NAME: &'static str = "Windows.UI.Xaml.Media.ImageSource";
@@ -6707,7 +6707,7 @@ unsafe impl ::windows::core::RuntimeType for LineGeometry {
 }
 unsafe impl ::windows::core::Interface for LineGeometry {
     type Vtable = ILineGeometry_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30edd4a2_8fc5_40af_a7a2_c27fe7aa1363);
+    const IID: ::windows::core::GUID = <ILineGeometry as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LineGeometry {
     const NAME: &'static str = "Windows.UI.Xaml.Media.LineGeometry";
@@ -6854,7 +6854,7 @@ unsafe impl ::windows::core::RuntimeType for LineSegment {
 }
 unsafe impl ::windows::core::Interface for LineSegment {
     type Vtable = ILineSegment_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef6a2e25_3ff0_4420_a411_7182a4cecb15);
+    const IID: ::windows::core::GUID = <ILineSegment as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LineSegment {
     const NAME: &'static str = "Windows.UI.Xaml.Media.LineSegment";
@@ -7036,7 +7036,7 @@ unsafe impl ::windows::core::RuntimeType for LinearGradientBrush {
 }
 unsafe impl ::windows::core::Interface for LinearGradientBrush {
     type Vtable = ILinearGradientBrush_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e96d16b_bb84_4c6f_9dbf_9d6c5c6d9c39);
+    const IID: ::windows::core::GUID = <ILinearGradientBrush as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LinearGradientBrush {
     const NAME: &'static str = "Windows.UI.Xaml.Media.LinearGradientBrush";
@@ -7203,7 +7203,7 @@ unsafe impl ::windows::core::RuntimeType for LoadedImageSourceLoadCompletedEvent
 }
 unsafe impl ::windows::core::Interface for LoadedImageSourceLoadCompletedEventArgs {
     type Vtable = ILoadedImageSourceLoadCompletedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ac60b1e_7837_4489_b3e5_d0d5ad0a56c4);
+    const IID: ::windows::core::GUID = <ILoadedImageSourceLoadCompletedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LoadedImageSourceLoadCompletedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Media.LoadedImageSourceLoadCompletedEventArgs";
@@ -7391,7 +7391,7 @@ unsafe impl ::windows::core::RuntimeType for LoadedImageSurface {
 }
 unsafe impl ::windows::core::Interface for LoadedImageSurface {
     type Vtable = ILoadedImageSurface_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x050c8313_6737_45ba_8531_33094febef55);
+    const IID: ::windows::core::GUID = <ILoadedImageSurface as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LoadedImageSurface {
     const NAME: &'static str = "Windows.UI.Xaml.Media.LoadedImageSurface";
@@ -7591,7 +7591,7 @@ unsafe impl ::windows::core::RuntimeType for Matrix3DProjection {
 }
 unsafe impl ::windows::core::Interface for Matrix3DProjection {
     type Vtable = IMatrix3DProjection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f03e149_bfc9_4c01_b578_50338cec97fc);
+    const IID: ::windows::core::GUID = <IMatrix3DProjection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Matrix3DProjection {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Matrix3DProjection";
@@ -7738,7 +7738,7 @@ unsafe impl ::windows::core::RuntimeType for MatrixHelper {
 }
 unsafe impl ::windows::core::Interface for MatrixHelper {
     type Vtable = IMatrixHelper_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3cf4882_06b5_48c8_9eb2_1763e9364038);
+    const IID: ::windows::core::GUID = <IMatrixHelper as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MatrixHelper {
     const NAME: &'static str = "Windows.UI.Xaml.Media.MatrixHelper";
@@ -7843,7 +7843,7 @@ unsafe impl ::windows::core::RuntimeType for MatrixTransform {
 }
 unsafe impl ::windows::core::Interface for MatrixTransform {
     type Vtable = IMatrixTransform_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xedfdd551_5fed_45fc_ae62_92a4b6cf9707);
+    const IID: ::windows::core::GUID = <IMatrixTransform as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MatrixTransform {
     const NAME: &'static str = "Windows.UI.Xaml.Media.MatrixTransform";
@@ -8052,7 +8052,7 @@ unsafe impl ::windows::core::RuntimeType for MediaTransportControlsThumbnailRequ
 }
 unsafe impl ::windows::core::Interface for MediaTransportControlsThumbnailRequestedEventArgs {
     type Vtable = IMediaTransportControlsThumbnailRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4a8b21c_e3c2_485c_ae69_f1537b76755a);
+    const IID: ::windows::core::GUID = <IMediaTransportControlsThumbnailRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaTransportControlsThumbnailRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Media.MediaTransportControlsThumbnailRequestedEventArgs";
@@ -8149,7 +8149,7 @@ unsafe impl ::windows::core::RuntimeType for PartialMediaFailureDetectedEventArg
 }
 unsafe impl ::windows::core::Interface for PartialMediaFailureDetectedEventArgs {
     type Vtable = IPartialMediaFailureDetectedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02b65a91_e5a1_442b_88d3_2dc127bfc59b);
+    const IID: ::windows::core::GUID = <IPartialMediaFailureDetectedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PartialMediaFailureDetectedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Media.PartialMediaFailureDetectedEventArgs";
@@ -8318,7 +8318,7 @@ unsafe impl ::windows::core::RuntimeType for PathFigure {
 }
 unsafe impl ::windows::core::Interface for PathFigure {
     type Vtable = IPathFigure_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d955c8c_5fa9_4dda_a3cc_10fcdcaa20d7);
+    const IID: ::windows::core::GUID = <IPathFigure as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PathFigure {
     const NAME: &'static str = "Windows.UI.Xaml.Media.PathFigure";
@@ -8522,7 +8522,7 @@ unsafe impl ::windows::core::RuntimeType for PathFigureCollection {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for PathFigureCollection {
     type Vtable = super::super::super::Foundation::Collections::IVector_Vtbl<PathFigure>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::super::Foundation::Collections::IVector<PathFigure> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for PathFigureCollection {
@@ -8728,7 +8728,7 @@ unsafe impl ::windows::core::RuntimeType for PathGeometry {
 }
 unsafe impl ::windows::core::Interface for PathGeometry {
     type Vtable = IPathGeometry_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x081b9df8_bae6_4bcb_813c_bde0e46dc8b7);
+    const IID: ::windows::core::GUID = <IPathGeometry as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PathGeometry {
     const NAME: &'static str = "Windows.UI.Xaml.Media.PathGeometry";
@@ -8840,7 +8840,7 @@ unsafe impl ::windows::core::RuntimeType for PathSegment {
 }
 unsafe impl ::windows::core::Interface for PathSegment {
     type Vtable = IPathSegment_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcfa71cf_9ce3_474f_8157_10b6435a616b);
+    const IID: ::windows::core::GUID = <IPathSegment as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PathSegment {
     const NAME: &'static str = "Windows.UI.Xaml.Media.PathSegment";
@@ -9044,7 +9044,7 @@ unsafe impl ::windows::core::RuntimeType for PathSegmentCollection {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for PathSegmentCollection {
     type Vtable = super::super::super::Foundation::Collections::IVector_Vtbl<PathSegment>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::super::Foundation::Collections::IVector<PathSegment> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for PathSegmentCollection {
@@ -9523,7 +9523,7 @@ unsafe impl ::windows::core::RuntimeType for PlaneProjection {
 }
 unsafe impl ::windows::core::Interface for PlaneProjection {
     type Vtable = IPlaneProjection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6f82bfa_6726_469a_b259_a5188347ca8f);
+    const IID: ::windows::core::GUID = <IPlaneProjection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PlaneProjection {
     const NAME: &'static str = "Windows.UI.Xaml.Media.PlaneProjection";
@@ -9747,7 +9747,7 @@ unsafe impl ::windows::core::RuntimeType for PointCollection {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for PointCollection {
     type Vtable = super::super::super::Foundation::Collections::IVector_Vtbl<super::super::super::Foundation::Point>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::super::Foundation::Collections::IVector<super::super::super::Foundation::Point> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for PointCollection {
@@ -9933,7 +9933,7 @@ unsafe impl ::windows::core::RuntimeType for PolyBezierSegment {
 }
 unsafe impl ::windows::core::Interface for PolyBezierSegment {
     type Vtable = IPolyBezierSegment_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36805271_38c4_4bcf_96cd_028a6d38af25);
+    const IID: ::windows::core::GUID = <IPolyBezierSegment as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PolyBezierSegment {
     const NAME: &'static str = "Windows.UI.Xaml.Media.PolyBezierSegment";
@@ -10080,7 +10080,7 @@ unsafe impl ::windows::core::RuntimeType for PolyLineSegment {
 }
 unsafe impl ::windows::core::Interface for PolyLineSegment {
     type Vtable = IPolyLineSegment_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b397f87_a2e6_479d_bdc8_6f4464646887);
+    const IID: ::windows::core::GUID = <IPolyLineSegment as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PolyLineSegment {
     const NAME: &'static str = "Windows.UI.Xaml.Media.PolyLineSegment";
@@ -10227,7 +10227,7 @@ unsafe impl ::windows::core::RuntimeType for PolyQuadraticBezierSegment {
 }
 unsafe impl ::windows::core::Interface for PolyQuadraticBezierSegment {
     type Vtable = IPolyQuadraticBezierSegment_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd5ced7d_e6db_4c96_b6a1_3fce96e987a6);
+    const IID: ::windows::core::GUID = <IPolyQuadraticBezierSegment as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PolyQuadraticBezierSegment {
     const NAME: &'static str = "Windows.UI.Xaml.Media.PolyQuadraticBezierSegment";
@@ -10339,7 +10339,7 @@ unsafe impl ::windows::core::RuntimeType for Projection {
 }
 unsafe impl ::windows::core::Interface for Projection {
     type Vtable = IProjection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3443557_7f39_4d04_a89c_844338cac897);
+    const IID: ::windows::core::GUID = <IProjection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Projection {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Projection";
@@ -10488,7 +10488,7 @@ unsafe impl ::windows::core::RuntimeType for QuadraticBezierSegment {
 }
 unsafe impl ::windows::core::Interface for QuadraticBezierSegment {
     type Vtable = IQuadraticBezierSegment_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c509a5b_bf18_455a_a078_914b5232d8af);
+    const IID: ::windows::core::GUID = <IQuadraticBezierSegment as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for QuadraticBezierSegment {
     const NAME: &'static str = "Windows.UI.Xaml.Media.QuadraticBezierSegment";
@@ -10608,7 +10608,7 @@ unsafe impl ::windows::core::RuntimeType for RateChangedRoutedEventArgs {
 }
 unsafe impl ::windows::core::Interface for RateChangedRoutedEventArgs {
     type Vtable = IRateChangedRoutedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9016aa6f_3ca8_4c80_8e2f_8851a68f131f);
+    const IID: ::windows::core::GUID = <IRateChangedRoutedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RateChangedRoutedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Media.RateChangedRoutedEventArgs";
@@ -10813,7 +10813,7 @@ unsafe impl ::windows::core::RuntimeType for RectangleGeometry {
 }
 unsafe impl ::windows::core::Interface for RectangleGeometry {
     type Vtable = IRectangleGeometry_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa25a1f58_c575_4196_91cf_9fdfb10445c3);
+    const IID: ::windows::core::GUID = <IRectangleGeometry as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RectangleGeometry {
     const NAME: &'static str = "Windows.UI.Xaml.Media.RectangleGeometry";
@@ -10935,7 +10935,7 @@ unsafe impl ::windows::core::RuntimeType for RenderedEventArgs {
 }
 unsafe impl ::windows::core::Interface for RenderedEventArgs {
     type Vtable = IRenderedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe349817d_81c7_4938_828c_a7e2797b35a6);
+    const IID: ::windows::core::GUID = <IRenderedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RenderedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Media.RenderedEventArgs";
@@ -11017,7 +11017,7 @@ unsafe impl ::windows::core::RuntimeType for RenderingEventArgs {
 }
 unsafe impl ::windows::core::Interface for RenderingEventArgs {
     type Vtable = IRenderingEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bf7d30d_9748_4aed_8380_d7890eb776a0);
+    const IID: ::windows::core::GUID = <IRenderingEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RenderingEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Media.RenderingEventArgs";
@@ -11110,7 +11110,7 @@ unsafe impl ::windows::core::RuntimeType for RevealBackgroundBrush {
 }
 unsafe impl ::windows::core::Interface for RevealBackgroundBrush {
     type Vtable = IRevealBackgroundBrush_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x261dcc0e_1991_4cdf_aee0_6350a3f90bb9);
+    const IID: ::windows::core::GUID = <IRevealBackgroundBrush as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RevealBackgroundBrush {
     const NAME: &'static str = "Windows.UI.Xaml.Media.RevealBackgroundBrush";
@@ -11309,7 +11309,7 @@ unsafe impl ::windows::core::RuntimeType for RevealBorderBrush {
 }
 unsafe impl ::windows::core::Interface for RevealBorderBrush {
     type Vtable = IRevealBorderBrush_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x060ba115_c542_483c_8202_5f03331866c9);
+    const IID: ::windows::core::GUID = <IRevealBorderBrush as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RevealBorderBrush {
     const NAME: &'static str = "Windows.UI.Xaml.Media.RevealBorderBrush";
@@ -11571,7 +11571,7 @@ unsafe impl ::windows::core::RuntimeType for RevealBrush {
 }
 unsafe impl ::windows::core::Interface for RevealBrush {
     type Vtable = IRevealBrush_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2036a0ed_8271_4398_9019_25872093f13f);
+    const IID: ::windows::core::GUID = <IRevealBrush as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RevealBrush {
     const NAME: &'static str = "Windows.UI.Xaml.Media.RevealBrush";
@@ -11831,7 +11831,7 @@ unsafe impl ::windows::core::RuntimeType for RotateTransform {
 }
 unsafe impl ::windows::core::Interface for RotateTransform {
     type Vtable = IRotateTransform_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x688ea9b9_1e4e_4596_86e3_428b27334faf);
+    const IID: ::windows::core::GUID = <IRotateTransform as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RotateTransform {
     const NAME: &'static str = "Windows.UI.Xaml.Media.RotateTransform";
@@ -12056,7 +12056,7 @@ unsafe impl ::windows::core::RuntimeType for ScaleTransform {
 }
 unsafe impl ::windows::core::Interface for ScaleTransform {
     type Vtable = IScaleTransform_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed67f18d_936e_43ab_929a_e9cd0a511e52);
+    const IID: ::windows::core::GUID = <IScaleTransform as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ScaleTransform {
     const NAME: &'static str = "Windows.UI.Xaml.Media.ScaleTransform";
@@ -12188,7 +12188,7 @@ unsafe impl ::windows::core::RuntimeType for Shadow {
 }
 unsafe impl ::windows::core::Interface for Shadow {
     type Vtable = IShadow_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6813a583_f3b4_5fcf_8694_2cd0aefc2fad);
+    const IID: ::windows::core::GUID = <IShadow as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Shadow {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Shadow";
@@ -12373,7 +12373,7 @@ unsafe impl ::windows::core::RuntimeType for SkewTransform {
 }
 unsafe impl ::windows::core::Interface for SkewTransform {
     type Vtable = ISkewTransform_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e8a3b15_7a0f_4617_9e98_1e65bdc92115);
+    const IID: ::windows::core::GUID = <ISkewTransform as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SkewTransform {
     const NAME: &'static str = "Windows.UI.Xaml.Media.SkewTransform";
@@ -12550,7 +12550,7 @@ unsafe impl ::windows::core::RuntimeType for SolidColorBrush {
 }
 unsafe impl ::windows::core::Interface for SolidColorBrush {
     type Vtable = ISolidColorBrush_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d850850_66f3_48df_9a8f_824bd5e070af);
+    const IID: ::windows::core::GUID = <ISolidColorBrush as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SolidColorBrush {
     const NAME: &'static str = "Windows.UI.Xaml.Media.SolidColorBrush";
@@ -12862,7 +12862,7 @@ unsafe impl ::windows::core::RuntimeType for ThemeShadow {
 }
 unsafe impl ::windows::core::Interface for ThemeShadow {
     type Vtable = IThemeShadow_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3eccad09_7985_5f39_8b62_6c10696dca6f);
+    const IID: ::windows::core::GUID = <IThemeShadow as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ThemeShadow {
     const NAME: &'static str = "Windows.UI.Xaml.Media.ThemeShadow";
@@ -13040,7 +13040,7 @@ unsafe impl ::windows::core::RuntimeType for TileBrush {
 }
 unsafe impl ::windows::core::Interface for TileBrush {
     type Vtable = ITileBrush_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc201cf06_cd84_48a5_9607_664d7361cd61);
+    const IID: ::windows::core::GUID = <ITileBrush as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TileBrush {
     const NAME: &'static str = "Windows.UI.Xaml.Media.TileBrush";
@@ -13253,7 +13253,7 @@ unsafe impl ::windows::core::RuntimeType for TimelineMarker {
 }
 unsafe impl ::windows::core::Interface for TimelineMarker {
     type Vtable = ITimelineMarker_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa68ef02d_45ba_4e50_8cad_aaea3a227af5);
+    const IID: ::windows::core::GUID = <ITimelineMarker as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TimelineMarker {
     const NAME: &'static str = "Windows.UI.Xaml.Media.TimelineMarker";
@@ -13457,7 +13457,7 @@ unsafe impl ::windows::core::RuntimeType for TimelineMarkerCollection {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for TimelineMarkerCollection {
     type Vtable = super::super::super::Foundation::Collections::IVector_Vtbl<TimelineMarker>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::super::Foundation::Collections::IVector<TimelineMarker> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for TimelineMarkerCollection {
@@ -13629,7 +13629,7 @@ unsafe impl ::windows::core::RuntimeType for TimelineMarkerRoutedEventArgs {
 }
 unsafe impl ::windows::core::Interface for TimelineMarkerRoutedEventArgs {
     type Vtable = ITimelineMarkerRoutedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c3b3ef3_2c88_4d9c_99b6_46cdbd48d4c1);
+    const IID: ::windows::core::GUID = <ITimelineMarkerRoutedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TimelineMarkerRoutedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.Media.TimelineMarkerRoutedEventArgs";
@@ -13799,7 +13799,7 @@ unsafe impl ::windows::core::RuntimeType for Transform {
 }
 unsafe impl ::windows::core::Interface for Transform {
     type Vtable = ITransform_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4df74078_bfd6_4ed1_9682_d2fd8bf2fe6f);
+    const IID: ::windows::core::GUID = <ITransform as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Transform {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Transform";
@@ -14023,7 +14023,7 @@ unsafe impl ::windows::core::RuntimeType for TransformCollection {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for TransformCollection {
     type Vtable = super::super::super::Foundation::Collections::IVector_Vtbl<Transform>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::super::Foundation::Collections::IVector<Transform> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for TransformCollection {
@@ -14217,7 +14217,7 @@ unsafe impl ::windows::core::RuntimeType for TransformGroup {
 }
 unsafe impl ::windows::core::Interface for TransformGroup {
     type Vtable = ITransformGroup_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63418ccc_8d2d_4737_b951_2afce1ddc4c4);
+    const IID: ::windows::core::GUID = <ITransformGroup as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TransformGroup {
     const NAME: &'static str = "Windows.UI.Xaml.Media.TransformGroup";
@@ -14402,7 +14402,7 @@ unsafe impl ::windows::core::RuntimeType for TranslateTransform {
 }
 unsafe impl ::windows::core::Interface for TranslateTransform {
     type Vtable = ITranslateTransform_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc975905c_3c36_4229_817b_178f64c0e113);
+    const IID: ::windows::core::GUID = <ITranslateTransform as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TranslateTransform {
     const NAME: &'static str = "Windows.UI.Xaml.Media.TranslateTransform";
@@ -14623,7 +14623,7 @@ unsafe impl ::windows::core::RuntimeType for VisualTreeHelper {
 }
 unsafe impl ::windows::core::Interface for VisualTreeHelper {
     type Vtable = IVisualTreeHelper_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24b935e3_52c7_4141_8bac_a73d06130569);
+    const IID: ::windows::core::GUID = <IVisualTreeHelper as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VisualTreeHelper {
     const NAME: &'static str = "Windows.UI.Xaml.Media.VisualTreeHelper";
@@ -14736,7 +14736,7 @@ unsafe impl ::windows::core::RuntimeType for XamlCompositionBrushBase {
 }
 unsafe impl ::windows::core::Interface for XamlCompositionBrushBase {
     type Vtable = IXamlCompositionBrushBase_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03e432d9_b35c_4a79_811c_c5652004da0e);
+    const IID: ::windows::core::GUID = <IXamlCompositionBrushBase as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for XamlCompositionBrushBase {
     const NAME: &'static str = "Windows.UI.Xaml.Media.XamlCompositionBrushBase";
@@ -14931,7 +14931,7 @@ unsafe impl ::windows::core::RuntimeType for XamlLight {
 }
 unsafe impl ::windows::core::Interface for XamlLight {
     type Vtable = IXamlLight_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cc3fc1f_b327_4a18_9648_7c84db26ce22);
+    const IID: ::windows::core::GUID = <IXamlLight as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for XamlLight {
     const NAME: &'static str = "Windows.UI.Xaml.Media.XamlLight";

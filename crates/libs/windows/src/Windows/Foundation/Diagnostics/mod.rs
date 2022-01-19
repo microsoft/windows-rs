@@ -222,7 +222,7 @@ unsafe impl ::windows::core::RuntimeType for ErrorDetails {
 }
 unsafe impl ::windows::core::Interface for ErrorDetails {
     type Vtable = IErrorDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x378cbb01_2cc9_428f_8c55_2c990d463e8f);
+    const IID: ::windows::core::GUID = <IErrorDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ErrorDetails {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.ErrorDetails";
@@ -416,7 +416,7 @@ unsafe impl ::windows::core::RuntimeType for FileLoggingSession {
 }
 unsafe impl ::windows::core::Interface for FileLoggingSession {
     type Vtable = IFileLoggingSession_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24c74216_fed2_404c_895f_1f9699cb02f7);
+    const IID: ::windows::core::GUID = <IFileLoggingSession as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FileLoggingSession {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.FileLoggingSession";
@@ -1632,7 +1632,7 @@ unsafe impl ::windows::core::RuntimeType for LogFileGeneratedEventArgs {
 }
 unsafe impl ::windows::core::Interface for LogFileGeneratedEventArgs {
     type Vtable = ILogFileGeneratedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x269e976f_0d38_4c1a_b53f_b395d881df84);
+    const IID: ::windows::core::GUID = <ILogFileGeneratedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LogFileGeneratedEventArgs {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LogFileGeneratedEventArgs";
@@ -1844,7 +1844,7 @@ unsafe impl ::windows::core::RuntimeType for LoggingActivity {
 }
 unsafe impl ::windows::core::Interface for LoggingActivity {
     type Vtable = ILoggingActivity_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc032941_b766_4cb5_9848_97ac6ba6d60c);
+    const IID: ::windows::core::GUID = <ILoggingActivity as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LoggingActivity {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingActivity";
@@ -2139,7 +2139,7 @@ unsafe impl ::windows::core::RuntimeType for LoggingChannel {
 }
 unsafe impl ::windows::core::Interface for LoggingChannel {
     type Vtable = ILoggingChannel_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9a50343_11d7_4f01_b5ca_cf495278c0a8);
+    const IID: ::windows::core::GUID = <ILoggingChannel as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LoggingChannel {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingChannel";
@@ -2310,7 +2310,7 @@ unsafe impl ::windows::core::RuntimeType for LoggingChannelOptions {
 }
 unsafe impl ::windows::core::Interface for LoggingChannelOptions {
     type Vtable = ILoggingChannelOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3e847ff_0ebb_4a53_8c54_dec24926cb2c);
+    const IID: ::windows::core::GUID = <ILoggingChannelOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LoggingChannelOptions {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingChannelOptions";
@@ -3010,7 +3010,7 @@ unsafe impl ::windows::core::RuntimeType for LoggingFields {
 }
 unsafe impl ::windows::core::Interface for LoggingFields {
     type Vtable = ILoggingFields_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7f6b7af_762d_4579_83bd_52c23bc333bc);
+    const IID: ::windows::core::GUID = <ILoggingFields as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LoggingFields {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingFields";
@@ -3244,7 +3244,7 @@ unsafe impl ::windows::core::RuntimeType for LoggingOptions {
 }
 unsafe impl ::windows::core::Interface for LoggingOptions {
     type Vtable = ILoggingOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90bc7850_0192_4f5d_ac26_006adaca12d8);
+    const IID: ::windows::core::GUID = <ILoggingOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LoggingOptions {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingOptions";
@@ -3366,7 +3366,7 @@ unsafe impl ::windows::core::RuntimeType for LoggingSession {
 }
 unsafe impl ::windows::core::Interface for LoggingSession {
     type Vtable = ILoggingSession_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6221f306_9380_4ad7_baf5_41ea9310d768);
+    const IID: ::windows::core::GUID = <ILoggingSession as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for LoggingSession {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.LoggingSession";
@@ -3503,7 +3503,7 @@ unsafe impl ::windows::core::RuntimeType for RuntimeBrokerErrorSettings {
 }
 unsafe impl ::windows::core::Interface for RuntimeBrokerErrorSettings {
     type Vtable = IErrorReportingSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16369792_b03e_4ba1_8bb8_d28f4ab4d2c0);
+    const IID: ::windows::core::GUID = <IErrorReportingSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RuntimeBrokerErrorSettings {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.RuntimeBrokerErrorSettings";
@@ -3614,7 +3614,7 @@ unsafe impl ::windows::core::RuntimeType for TracingStatusChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for TracingStatusChangedEventArgs {
     type Vtable = ITracingStatusChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x410b7711_ff3b_477f_9c9a_d2efda302dc3);
+    const IID: ::windows::core::GUID = <ITracingStatusChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TracingStatusChangedEventArgs {
     const NAME: &'static str = "Windows.Foundation.Diagnostics.TracingStatusChangedEventArgs";

@@ -1416,7 +1416,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystem {
 }
 unsafe impl ::windows::core::Interface for RemoteSystem {
     type Vtable = IRemoteSystem_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed5838cd_1e10_4a8c_b4a6_4e5fd6f97721);
+    const IID: ::windows::core::GUID = <IRemoteSystem as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoteSystem {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystem";
@@ -1527,7 +1527,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemAddedEventArgs {
 }
 unsafe impl ::windows::core::Interface for RemoteSystemAddedEventArgs {
     type Vtable = IRemoteSystemAddedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f39560f_e534_4697_8836_7abea151516e);
+    const IID: ::windows::core::GUID = <IRemoteSystemAddedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoteSystemAddedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemAddedEventArgs";
@@ -1657,7 +1657,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemApp {
 }
 unsafe impl ::windows::core::Interface for RemoteSystemApp {
     type Vtable = IRemoteSystemApp_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80e5bcbd_d54d_41b1_9b16_6810a871ed4f);
+    const IID: ::windows::core::GUID = <IRemoteSystemApp as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoteSystemApp {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemApp";
@@ -1775,7 +1775,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemAppRegistration {
 }
 unsafe impl ::windows::core::Interface for RemoteSystemAppRegistration {
     type Vtable = IRemoteSystemAppRegistration_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb47947b5_7035_4a5a_b8df_962d8f8431f4);
+    const IID: ::windows::core::GUID = <IRemoteSystemAppRegistration as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoteSystemAppRegistration {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemAppRegistration";
@@ -1896,7 +1896,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemAuthorizationKindFilter
 }
 unsafe impl ::windows::core::Interface for RemoteSystemAuthorizationKindFilter {
     type Vtable = IRemoteSystemAuthorizationKindFilter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b0dde8e_04d0_40f4_a27f_c2acbbd6b734);
+    const IID: ::windows::core::GUID = <IRemoteSystemAuthorizationKindFilter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoteSystemAuthorizationKindFilter {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemAuthorizationKindFilter";
@@ -2012,7 +2012,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemConnectionInfo {
 }
 unsafe impl ::windows::core::Interface for RemoteSystemConnectionInfo {
     type Vtable = IRemoteSystemConnectionInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23278bc3_0d09_52cb_9c6a_eed2940bee43);
+    const IID: ::windows::core::GUID = <IRemoteSystemConnectionInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoteSystemConnectionInfo {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemConnectionInfo";
@@ -2152,7 +2152,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemConnectionRequest {
 }
 unsafe impl ::windows::core::Interface for RemoteSystemConnectionRequest {
     type Vtable = IRemoteSystemConnectionRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84ed4104_8d5e_4d72_8238_7621576c7a67);
+    const IID: ::windows::core::GUID = <IRemoteSystemConnectionRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoteSystemConnectionRequest {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemConnectionRequest";
@@ -2275,7 +2275,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemDiscoveryTypeFilter {
 }
 unsafe impl ::windows::core::Interface for RemoteSystemDiscoveryTypeFilter {
     type Vtable = IRemoteSystemDiscoveryTypeFilter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42d9041f_ee5a_43da_ac6a_6fee25460741);
+    const IID: ::windows::core::GUID = <IRemoteSystemDiscoveryTypeFilter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoteSystemDiscoveryTypeFilter {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemDiscoveryTypeFilter";
@@ -2369,7 +2369,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemEnumerationCompletedEve
 }
 unsafe impl ::windows::core::Interface for RemoteSystemEnumerationCompletedEventArgs {
     type Vtable = IRemoteSystemEnumerationCompletedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6e83d5f_4030_4354_a060_14f1b22c545d);
+    const IID: ::windows::core::GUID = <IRemoteSystemEnumerationCompletedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoteSystemEnumerationCompletedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemEnumerationCompletedEventArgs";
@@ -2464,7 +2464,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemKindFilter {
 }
 unsafe impl ::windows::core::Interface for RemoteSystemKindFilter {
     type Vtable = IRemoteSystemKindFilter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38e1c9ec_22c3_4ef6_901a_bbb1c7aad4ed);
+    const IID: ::windows::core::GUID = <IRemoteSystemKindFilter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoteSystemKindFilter {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemKindFilter";
@@ -2671,7 +2671,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemRemovedEventArgs {
 }
 unsafe impl ::windows::core::Interface for RemoteSystemRemovedEventArgs {
     type Vtable = IRemoteSystemRemovedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b3d16bb_7306_49ea_b7df_67d5714cb013);
+    const IID: ::windows::core::GUID = <IRemoteSystemRemovedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoteSystemRemovedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemRemovedEventArgs";
@@ -2818,7 +2818,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemSession {
 }
 unsafe impl ::windows::core::Interface for RemoteSystemSession {
     type Vtable = IRemoteSystemSession_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69476a01_9ada_490f_9549_d31cb14c9e95);
+    const IID: ::windows::core::GUID = <IRemoteSystemSession as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoteSystemSession {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSession";
@@ -2925,7 +2925,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionAddedEventArgs {
 }
 unsafe impl ::windows::core::Interface for RemoteSystemSessionAddedEventArgs {
     type Vtable = IRemoteSystemSessionAddedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd585d754_bc97_4c39_99b4_beca76e04c3f);
+    const IID: ::windows::core::GUID = <IRemoteSystemSessionAddedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoteSystemSessionAddedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionAddedEventArgs";
@@ -3050,7 +3050,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionController {
 }
 unsafe impl ::windows::core::Interface for RemoteSystemSessionController {
     type Vtable = IRemoteSystemSessionController_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe48b2dd2_6820_4867_b425_d89c0a3ef7ba);
+    const IID: ::windows::core::GUID = <IRemoteSystemSessionController as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoteSystemSessionController {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionController";
@@ -3139,7 +3139,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionCreationResult {
 }
 unsafe impl ::windows::core::Interface for RemoteSystemSessionCreationResult {
     type Vtable = IRemoteSystemSessionCreationResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa79812c2_37de_448c_8b83_a30aa3c4ead6);
+    const IID: ::windows::core::GUID = <IRemoteSystemSessionCreationResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoteSystemSessionCreationResult {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionCreationResult";
@@ -3249,7 +3249,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionDisconnectedEven
 }
 unsafe impl ::windows::core::Interface for RemoteSystemSessionDisconnectedEventArgs {
     type Vtable = IRemoteSystemSessionDisconnectedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde0bc69b_77c5_461c_8209_7c6c5d3111ab);
+    const IID: ::windows::core::GUID = <IRemoteSystemSessionDisconnectedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoteSystemSessionDisconnectedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionDisconnectedEventArgs";
@@ -3376,7 +3376,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionInfo {
 }
 unsafe impl ::windows::core::Interface for RemoteSystemSessionInfo {
     type Vtable = IRemoteSystemSessionInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff4df648_8b0a_4e9a_9905_69e4b841c588);
+    const IID: ::windows::core::GUID = <IRemoteSystemSessionInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoteSystemSessionInfo {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionInfo";
@@ -3465,7 +3465,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionInvitation {
 }
 unsafe impl ::windows::core::Interface for RemoteSystemSessionInvitation {
     type Vtable = IRemoteSystemSessionInvitation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e32cc91_51d7_4766_a121_25516c3b8294);
+    const IID: ::windows::core::GUID = <IRemoteSystemSessionInvitation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoteSystemSessionInvitation {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionInvitation";
@@ -3560,7 +3560,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionInvitationListen
 }
 unsafe impl ::windows::core::Interface for RemoteSystemSessionInvitationListener {
     type Vtable = IRemoteSystemSessionInvitationListener_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08f4003f_bc71_49e1_874a_31ddff9a27b9);
+    const IID: ::windows::core::GUID = <IRemoteSystemSessionInvitationListener as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoteSystemSessionInvitationListener {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionInvitationListener";
@@ -3641,7 +3641,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionInvitationReceiv
 }
 unsafe impl ::windows::core::Interface for RemoteSystemSessionInvitationReceivedEventArgs {
     type Vtable = IRemoteSystemSessionInvitationReceivedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e964a2d_a10d_4edb_8dea_54d20ac19543);
+    const IID: ::windows::core::GUID = <IRemoteSystemSessionInvitationReceivedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoteSystemSessionInvitationReceivedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionInvitationReceivedEventArgs";
@@ -3727,7 +3727,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionJoinRequest {
 }
 unsafe impl ::windows::core::Interface for RemoteSystemSessionJoinRequest {
     type Vtable = IRemoteSystemSessionJoinRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20600068_7994_4331_86d1_d89d882585ee);
+    const IID: ::windows::core::GUID = <IRemoteSystemSessionJoinRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoteSystemSessionJoinRequest {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionJoinRequest";
@@ -3817,7 +3817,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionJoinRequestedEve
 }
 unsafe impl ::windows::core::Interface for RemoteSystemSessionJoinRequestedEventArgs {
     type Vtable = IRemoteSystemSessionJoinRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdbca4fc3_82b9_4816_9c24_e40e61774bd8);
+    const IID: ::windows::core::GUID = <IRemoteSystemSessionJoinRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoteSystemSessionJoinRequestedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionJoinRequestedEventArgs";
@@ -3906,7 +3906,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionJoinResult {
 }
 unsafe impl ::windows::core::Interface for RemoteSystemSessionJoinResult {
     type Vtable = IRemoteSystemSessionJoinResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce7b1f04_a03e_41a4_900b_1e79328c1267);
+    const IID: ::windows::core::GUID = <IRemoteSystemSessionJoinResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoteSystemSessionJoinResult {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionJoinResult";
@@ -4079,7 +4079,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionMessageChannel {
 }
 unsafe impl ::windows::core::Interface for RemoteSystemSessionMessageChannel {
     type Vtable = IRemoteSystemSessionMessageChannel_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9524d12a_73d9_4c10_b751_c26784437127);
+    const IID: ::windows::core::GUID = <IRemoteSystemSessionMessageChannel as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoteSystemSessionMessageChannel {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionMessageChannel";
@@ -4200,7 +4200,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionOptions {
 }
 unsafe impl ::windows::core::Interface for RemoteSystemSessionOptions {
     type Vtable = IRemoteSystemSessionOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x740ed755_8418_4f01_9353_e21c9ecc6cfc);
+    const IID: ::windows::core::GUID = <IRemoteSystemSessionOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoteSystemSessionOptions {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionOptions";
@@ -4290,7 +4290,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionParticipant {
 }
 unsafe impl ::windows::core::Interface for RemoteSystemSessionParticipant {
     type Vtable = IRemoteSystemSessionParticipant_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e90058c_acf9_4729_8a17_44e7baed5dcc);
+    const IID: ::windows::core::GUID = <IRemoteSystemSessionParticipant as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoteSystemSessionParticipant {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionParticipant";
@@ -4371,7 +4371,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionParticipantAdded
 }
 unsafe impl ::windows::core::Interface for RemoteSystemSessionParticipantAddedEventArgs {
     type Vtable = IRemoteSystemSessionParticipantAddedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd35a57d8_c9a1_4bb7_b6b0_79bb91adf93d);
+    const IID: ::windows::core::GUID = <IRemoteSystemSessionParticipantAddedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoteSystemSessionParticipantAddedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionParticipantAddedEventArgs";
@@ -4452,7 +4452,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionParticipantRemov
 }
 unsafe impl ::windows::core::Interface for RemoteSystemSessionParticipantRemovedEventArgs {
     type Vtable = IRemoteSystemSessionParticipantRemovedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x866ef088_de68_4abf_88a1_f90d16274192);
+    const IID: ::windows::core::GUID = <IRemoteSystemSessionParticipantRemovedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoteSystemSessionParticipantRemovedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionParticipantRemovedEventArgs";
@@ -4588,7 +4588,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionParticipantWatch
 }
 unsafe impl ::windows::core::Interface for RemoteSystemSessionParticipantWatcher {
     type Vtable = IRemoteSystemSessionParticipantWatcher_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcdd02cc_aa87_4d79_b6cc_4459b3e92075);
+    const IID: ::windows::core::GUID = <IRemoteSystemSessionParticipantWatcher as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoteSystemSessionParticipantWatcher {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionParticipantWatcher";
@@ -4701,7 +4701,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionRemovedEventArgs
 }
 unsafe impl ::windows::core::Interface for RemoteSystemSessionRemovedEventArgs {
     type Vtable = IRemoteSystemSessionRemovedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf82914e_39a1_4dea_9d63_43798d5bbbd0);
+    const IID: ::windows::core::GUID = <IRemoteSystemSessionRemovedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoteSystemSessionRemovedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionRemovedEventArgs";
@@ -4782,7 +4782,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionUpdatedEventArgs
 }
 unsafe impl ::windows::core::Interface for RemoteSystemSessionUpdatedEventArgs {
     type Vtable = IRemoteSystemSessionUpdatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16875069_231e_4c91_8ec8_b3a39d9e55a3);
+    const IID: ::windows::core::GUID = <IRemoteSystemSessionUpdatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoteSystemSessionUpdatedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionUpdatedEventArgs";
@@ -4872,7 +4872,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionValueSetReceived
 }
 unsafe impl ::windows::core::Interface for RemoteSystemSessionValueSetReceivedEventArgs {
     type Vtable = IRemoteSystemSessionValueSetReceivedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06f31785_2da5_4e58_a78f_9e8d0784ee25);
+    const IID: ::windows::core::GUID = <IRemoteSystemSessionValueSetReceivedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoteSystemSessionValueSetReceivedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionValueSetReceivedEventArgs";
@@ -5008,7 +5008,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemSessionWatcher {
 }
 unsafe impl ::windows::core::Interface for RemoteSystemSessionWatcher {
     type Vtable = IRemoteSystemSessionWatcher_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8003e340_0c41_4a62_b6d7_bdbe2b19be2d);
+    const IID: ::windows::core::GUID = <IRemoteSystemSessionWatcher as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoteSystemSessionWatcher {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemSessionWatcher";
@@ -5191,7 +5191,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemStatusTypeFilter {
 }
 unsafe impl ::windows::core::Interface for RemoteSystemStatusTypeFilter {
     type Vtable = IRemoteSystemStatusTypeFilter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c39514e_cbb6_4777_8534_2e0c521affa2);
+    const IID: ::windows::core::GUID = <IRemoteSystemStatusTypeFilter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoteSystemStatusTypeFilter {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemStatusTypeFilter";
@@ -5294,7 +5294,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemUpdatedEventArgs {
 }
 unsafe impl ::windows::core::Interface for RemoteSystemUpdatedEventArgs {
     type Vtable = IRemoteSystemUpdatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7502ff0e_dbcb_4155_b4ca_b30a04f27627);
+    const IID: ::windows::core::GUID = <IRemoteSystemUpdatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoteSystemUpdatedEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemUpdatedEventArgs";
@@ -5460,7 +5460,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemWatcher {
 }
 unsafe impl ::windows::core::Interface for RemoteSystemWatcher {
     type Vtable = IRemoteSystemWatcher_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d600c7e_2c07_48c5_889c_455d2b099771);
+    const IID: ::windows::core::GUID = <IRemoteSystemWatcher as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoteSystemWatcher {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemWatcher";
@@ -5570,7 +5570,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemWatcherErrorOccurredEve
 }
 unsafe impl ::windows::core::Interface for RemoteSystemWatcherErrorOccurredEventArgs {
     type Vtable = IRemoteSystemWatcherErrorOccurredEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74c5c6af_5114_4426_9216_20d81f8519ae);
+    const IID: ::windows::core::GUID = <IRemoteSystemWatcherErrorOccurredEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoteSystemWatcherErrorOccurredEventArgs {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemWatcherErrorOccurredEventArgs";
@@ -5665,7 +5665,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteSystemWebAccountFilter {
 }
 unsafe impl ::windows::core::Interface for RemoteSystemWebAccountFilter {
     type Vtable = IRemoteSystemWebAccountFilter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3fb75873_87c8_5d8f_977e_f69f96d67238);
+    const IID: ::windows::core::GUID = <IRemoteSystemWebAccountFilter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoteSystemWebAccountFilter {
     const NAME: &'static str = "Windows.System.RemoteSystems.RemoteSystemWebAccountFilter";

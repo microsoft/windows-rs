@@ -125,7 +125,7 @@ unsafe impl ::windows::core::RuntimeType for ContactPickerUI {
 }
 unsafe impl ::windows::core::Interface for ContactPickerUI {
     type Vtable = IContactPickerUI_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2cc1366_cf66_43c4_a96a_a5a112db4746);
+    const IID: ::windows::core::GUID = <IContactPickerUI as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactPickerUI {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.Provider.ContactPickerUI";
@@ -204,7 +204,7 @@ unsafe impl ::windows::core::RuntimeType for ContactRemovedEventArgs {
 }
 unsafe impl ::windows::core::Interface for ContactRemovedEventArgs {
     type Vtable = IContactRemovedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f354338_3302_4d13_ad8d_adcc0ff9e47c);
+    const IID: ::windows::core::GUID = <IContactRemovedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ContactRemovedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Contacts.Provider.ContactRemovedEventArgs";

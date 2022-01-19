@@ -38,7 +38,7 @@ unsafe impl ::windows::core::RuntimeType for ApplicationDataManager {
 }
 unsafe impl ::windows::core::Interface for ApplicationDataManager {
     type Vtable = IApplicationDataManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74d10432_2e99_4000_9a3a_64307e858129);
+    const IID: ::windows::core::GUID = <IApplicationDataManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ApplicationDataManager {
     const NAME: &'static str = "Windows.Management.Core.ApplicationDataManager";

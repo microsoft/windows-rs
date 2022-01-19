@@ -466,7 +466,7 @@ unsafe impl ::windows::core::RuntimeType for KeyCredential {
 }
 unsafe impl ::windows::core::Interface for KeyCredential {
     type Vtable = IKeyCredential_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9585ef8d_457b_4847_b11a_fa960bbdb138);
+    const IID: ::windows::core::GUID = <IKeyCredential as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for KeyCredential {
     const NAME: &'static str = "Windows.Security.Credentials.KeyCredential";
@@ -565,7 +565,7 @@ unsafe impl ::windows::core::RuntimeType for KeyCredentialAttestationResult {
 }
 unsafe impl ::windows::core::Interface for KeyCredentialAttestationResult {
     type Vtable = IKeyCredentialAttestationResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78aab3a1_a3c1_4103_b6cc_472c44171cbb);
+    const IID: ::windows::core::GUID = <IKeyCredentialAttestationResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for KeyCredentialAttestationResult {
     const NAME: &'static str = "Windows.Security.Credentials.KeyCredentialAttestationResult";
@@ -765,7 +765,7 @@ unsafe impl ::windows::core::RuntimeType for KeyCredentialOperationResult {
 }
 unsafe impl ::windows::core::Interface for KeyCredentialOperationResult {
     type Vtable = IKeyCredentialOperationResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf53786c1_5261_4cdd_976d_cc909ac71620);
+    const IID: ::windows::core::GUID = <IKeyCredentialOperationResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for KeyCredentialOperationResult {
     const NAME: &'static str = "Windows.Security.Credentials.KeyCredentialOperationResult";
@@ -854,7 +854,7 @@ unsafe impl ::windows::core::RuntimeType for KeyCredentialRetrievalResult {
 }
 unsafe impl ::windows::core::Interface for KeyCredentialRetrievalResult {
     type Vtable = IKeyCredentialRetrievalResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x58cd7703_8d87_4249_9b58_f6598cc9644e);
+    const IID: ::windows::core::GUID = <IKeyCredentialRetrievalResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for KeyCredentialRetrievalResult {
     const NAME: &'static str = "Windows.Security.Credentials.KeyCredentialRetrievalResult";
@@ -1032,7 +1032,7 @@ unsafe impl ::windows::core::RuntimeType for PasswordCredential {
 }
 unsafe impl ::windows::core::Interface for PasswordCredential {
     type Vtable = IPasswordCredential_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ab18989_c720_41a7_a6c1_feadb36329a0);
+    const IID: ::windows::core::GUID = <IPasswordCredential as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PasswordCredential {
     const NAME: &'static str = "Windows.Security.Credentials.PasswordCredential";
@@ -1201,7 +1201,7 @@ unsafe impl ::windows::core::RuntimeType for PasswordCredentialPropertyStore {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for PasswordCredentialPropertyStore {
     type Vtable = super::super::Foundation::Collections::IPropertySet_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a43ed9f_f4e6_4421_acf9_1dab2986820c);
+    const IID: ::windows::core::GUID = <super::super::Foundation::Collections::IPropertySet as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for PasswordCredentialPropertyStore {
@@ -1457,7 +1457,7 @@ unsafe impl ::windows::core::RuntimeType for PasswordVault {
 }
 unsafe impl ::windows::core::Interface for PasswordVault {
     type Vtable = IPasswordVault_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x61fd2c0b_c8d4_48c1_a54f_bc5a64205af2);
+    const IID: ::windows::core::GUID = <IPasswordVault as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PasswordVault {
     const NAME: &'static str = "Windows.Security.Credentials.PasswordVault";
@@ -1610,7 +1610,7 @@ unsafe impl ::windows::core::RuntimeType for WebAccount {
 }
 unsafe impl ::windows::core::Interface for WebAccount {
     type Vtable = IWebAccount_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69473eb2_8031_49be_80bb_96cb46d99aba);
+    const IID: ::windows::core::GUID = <IWebAccount as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebAccount {
     const NAME: &'static str = "Windows.Security.Credentials.WebAccount";
@@ -1806,7 +1806,7 @@ unsafe impl ::windows::core::RuntimeType for WebAccountProvider {
 }
 unsafe impl ::windows::core::Interface for WebAccountProvider {
     type Vtable = IWebAccountProvider_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29dcc8c3_7ab9_4a7c_a336_b942f9dbf7c7);
+    const IID: ::windows::core::GUID = <IWebAccountProvider as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebAccountProvider {
     const NAME: &'static str = "Windows.Security.Credentials.WebAccountProvider";

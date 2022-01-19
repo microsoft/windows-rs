@@ -33,7 +33,7 @@ unsafe impl ::windows::core::RuntimeType for ConnectionRequestedEventArgs {
 }
 unsafe impl ::windows::core::Interface for ConnectionRequestedEventArgs {
     type Vtable = IConnectionRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb6891ae_4f1e_4c66_bd0d_46924a942e08);
+    const IID: ::windows::core::GUID = <IConnectionRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ConnectionRequestedEventArgs {
     const NAME: &'static str = "Windows.Networking.Proximity.ConnectionRequestedEventArgs";
@@ -968,7 +968,7 @@ unsafe impl ::windows::core::RuntimeType for PeerInformation {
 }
 unsafe impl ::windows::core::Interface for PeerInformation {
     type Vtable = IPeerInformation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20024f08_9fff_45f4_b6e9_408b2ebef373);
+    const IID: ::windows::core::GUID = <IPeerInformation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PeerInformation {
     const NAME: &'static str = "Windows.Networking.Proximity.PeerInformation";
@@ -1163,7 +1163,7 @@ unsafe impl ::windows::core::RuntimeType for PeerWatcher {
 }
 unsafe impl ::windows::core::Interface for PeerWatcher {
     type Vtable = IPeerWatcher_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cee21f8_2fa6_4679_9691_03c94a420f34);
+    const IID: ::windows::core::GUID = <IPeerWatcher as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PeerWatcher {
     const NAME: &'static str = "Windows.Networking.Proximity.PeerWatcher";
@@ -1418,7 +1418,7 @@ unsafe impl ::windows::core::RuntimeType for ProximityDevice {
 }
 unsafe impl ::windows::core::Interface for ProximityDevice {
     type Vtable = IProximityDevice_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefa8a552_f6e1_4329_a0fc_ab6b0fd28262);
+    const IID: ::windows::core::GUID = <IProximityDevice as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ProximityDevice {
     const NAME: &'static str = "Windows.Networking.Proximity.ProximityDevice";
@@ -1524,7 +1524,7 @@ unsafe impl ::windows::core::RuntimeType for ProximityMessage {
 }
 unsafe impl ::windows::core::Interface for ProximityMessage {
     type Vtable = IProximityMessage_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefab0782_f6e1_4675_a045_d8e320c24808);
+    const IID: ::windows::core::GUID = <IProximityMessage as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ProximityMessage {
     const NAME: &'static str = "Windows.Networking.Proximity.ProximityMessage";
@@ -1654,7 +1654,7 @@ unsafe impl ::windows::core::RuntimeType for TriggeredConnectionStateChangedEven
 }
 unsafe impl ::windows::core::Interface for TriggeredConnectionStateChangedEventArgs {
     type Vtable = ITriggeredConnectionStateChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6a780ad_f6e1_4d54_96e2_33f620bca88a);
+    const IID: ::windows::core::GUID = <ITriggeredConnectionStateChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TriggeredConnectionStateChangedEventArgs {
     const NAME: &'static str = "Windows.Networking.Proximity.TriggeredConnectionStateChangedEventArgs";

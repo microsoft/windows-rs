@@ -192,7 +192,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataAccountPartnerAccountInfo {
 }
 unsafe impl ::windows::core::Interface for UserDataAccountPartnerAccountInfo {
     type Vtable = IUserDataAccountPartnerAccountInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f200037_f6ef_4ec3_8630_012c59c1149f);
+    const IID: ::windows::core::GUID = <IUserDataAccountPartnerAccountInfo as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserDataAccountPartnerAccountInfo {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountPartnerAccountInfo";
@@ -295,7 +295,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataAccountProviderAddAccountOp
 }
 unsafe impl ::windows::core::Interface for UserDataAccountProviderAddAccountOperation {
     type Vtable = IUserDataAccountProviderAddAccountOperation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9c72530_3f84_4b5d_8eaa_45e97aa842ed);
+    const IID: ::windows::core::GUID = <IUserDataAccountProviderAddAccountOperation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserDataAccountProviderAddAccountOperation {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderAddAccountOperation";
@@ -468,7 +468,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataAccountProviderResolveError
 }
 unsafe impl ::windows::core::Interface for UserDataAccountProviderResolveErrorsOperation {
     type Vtable = IUserDataAccountProviderResolveErrorsOperation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6235dc15_bfcb_41e1_9957_9759a28846cc);
+    const IID: ::windows::core::GUID = <IUserDataAccountProviderResolveErrorsOperation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserDataAccountProviderResolveErrorsOperation {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderResolveErrorsOperation";
@@ -584,7 +584,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataAccountProviderSettingsOper
 }
 unsafe impl ::windows::core::Interface for UserDataAccountProviderSettingsOperation {
     type Vtable = IUserDataAccountProviderSettingsOperation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92034db7_8648_4f30_acfa_3002658ca80d);
+    const IID: ::windows::core::GUID = <IUserDataAccountProviderSettingsOperation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UserDataAccountProviderSettingsOperation {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.Provider.UserDataAccountProviderSettingsOperation";

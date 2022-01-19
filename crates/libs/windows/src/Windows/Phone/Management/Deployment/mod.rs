@@ -75,7 +75,7 @@ unsafe impl ::windows::core::RuntimeType for Enterprise {
 }
 unsafe impl ::windows::core::Interface for Enterprise {
     type Vtable = IEnterprise_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96592f8d_856c_4426_a947_b06307718078);
+    const IID: ::windows::core::GUID = <IEnterprise as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Enterprise {
     const NAME: &'static str = "Windows.Phone.Management.Deployment.Enterprise";
@@ -215,7 +215,7 @@ unsafe impl ::windows::core::RuntimeType for EnterpriseEnrollmentResult {
 }
 unsafe impl ::windows::core::Interface for EnterpriseEnrollmentResult {
     type Vtable = IEnterpriseEnrollmentResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ff71ce6_90db_4342_b326_1729aa91301c);
+    const IID: ::windows::core::GUID = <IEnterpriseEnrollmentResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EnterpriseEnrollmentResult {
     const NAME: &'static str = "Windows.Phone.Management.Deployment.EnterpriseEnrollmentResult";
@@ -604,7 +604,7 @@ unsafe impl ::windows::core::RuntimeType for PackageInstallResult {
 }
 unsafe impl ::windows::core::Interface for PackageInstallResult {
     type Vtable = IPackageInstallResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33e8eed5_0f7e_4473_967c_7d6e1c0e7de1);
+    const IID: ::windows::core::GUID = <IPackageInstallResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PackageInstallResult {
     const NAME: &'static str = "Windows.Phone.Management.Deployment.PackageInstallResult";

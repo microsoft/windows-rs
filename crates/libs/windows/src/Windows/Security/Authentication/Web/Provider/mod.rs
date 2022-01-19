@@ -1222,7 +1222,7 @@ unsafe impl ::windows::core::RuntimeType for WebAccountClientView {
 }
 unsafe impl ::windows::core::Interface for WebAccountClientView {
     type Vtable = IWebAccountClientView_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7bd66ba_0bc7_4c66_bfd4_65d3082cbca8);
+    const IID: ::windows::core::GUID = <IWebAccountClientView as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebAccountClientView {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountClientView";
@@ -1565,7 +1565,7 @@ unsafe impl ::windows::core::RuntimeType for WebAccountProviderAddAccountOperati
 }
 unsafe impl ::windows::core::Interface for WebAccountProviderAddAccountOperation {
     type Vtable = IWebAccountProviderAddAccountOperation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73ebdccf_4378_4c79_9335_a5d7ab81594e);
+    const IID: ::windows::core::GUID = <IWebAccountProviderAddAccountOperation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebAccountProviderAddAccountOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderAddAccountOperation";
@@ -1688,7 +1688,7 @@ unsafe impl ::windows::core::RuntimeType for WebAccountProviderDeleteAccountOper
 }
 unsafe impl ::windows::core::Interface for WebAccountProviderDeleteAccountOperation {
     type Vtable = IWebAccountProviderDeleteAccountOperation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0abb48b8_9e01_49c9_a355_7d48caf7d6ca);
+    const IID: ::windows::core::GUID = <IWebAccountProviderDeleteAccountOperation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebAccountProviderDeleteAccountOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderDeleteAccountOperation";
@@ -1867,7 +1867,7 @@ unsafe impl ::windows::core::RuntimeType for WebAccountProviderGetTokenSilentOpe
 }
 unsafe impl ::windows::core::Interface for WebAccountProviderGetTokenSilentOperation {
     type Vtable = IWebAccountProviderTokenOperation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95c613be_2034_4c38_9434_d26c14b2b4b2);
+    const IID: ::windows::core::GUID = <IWebAccountProviderTokenOperation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebAccountProviderGetTokenSilentOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderGetTokenSilentOperation";
@@ -2050,7 +2050,7 @@ unsafe impl ::windows::core::RuntimeType for WebAccountProviderManageAccountOper
 }
 unsafe impl ::windows::core::Interface for WebAccountProviderManageAccountOperation {
     type Vtable = IWebAccountProviderManageAccountOperation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed20dc5c_d21b_463e_a9b7_c1fd0edae978);
+    const IID: ::windows::core::GUID = <IWebAccountProviderManageAccountOperation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebAccountProviderManageAccountOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderManageAccountOperation";
@@ -2234,7 +2234,7 @@ unsafe impl ::windows::core::RuntimeType for WebAccountProviderRequestTokenOpera
 }
 unsafe impl ::windows::core::Interface for WebAccountProviderRequestTokenOperation {
     type Vtable = IWebAccountProviderTokenOperation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95c613be_2034_4c38_9434_d26c14b2b4b2);
+    const IID: ::windows::core::GUID = <IWebAccountProviderTokenOperation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebAccountProviderRequestTokenOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderRequestTokenOperation";
@@ -2456,7 +2456,7 @@ unsafe impl ::windows::core::RuntimeType for WebAccountProviderRetrieveCookiesOp
 }
 unsafe impl ::windows::core::Interface for WebAccountProviderRetrieveCookiesOperation {
     type Vtable = IWebAccountProviderRetrieveCookiesOperation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a040441_0fa3_4ab1_a01c_20b110358594);
+    const IID: ::windows::core::GUID = <IWebAccountProviderRetrieveCookiesOperation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebAccountProviderRetrieveCookiesOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderRetrieveCookiesOperation";
@@ -2618,7 +2618,7 @@ unsafe impl ::windows::core::RuntimeType for WebAccountProviderSignOutAccountOpe
 }
 unsafe impl ::windows::core::Interface for WebAccountProviderSignOutAccountOperation {
     type Vtable = IWebAccountProviderSignOutAccountOperation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb890e21d_0c55_47bc_8c72_04a6fc7cac07);
+    const IID: ::windows::core::GUID = <IWebAccountProviderSignOutAccountOperation as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebAccountProviderSignOutAccountOperation {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderSignOutAccountOperation";
@@ -2752,7 +2752,7 @@ unsafe impl ::windows::core::RuntimeType for WebAccountProviderTriggerDetails {
 }
 unsafe impl ::windows::core::Interface for WebAccountProviderTriggerDetails {
     type Vtable = IWebAccountProviderTokenObjects_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x408f284b_1328_42db_89a4_0bce7a717d8e);
+    const IID: ::windows::core::GUID = <IWebAccountProviderTokenObjects as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebAccountProviderTriggerDetails {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebAccountProviderTriggerDetails";
@@ -3031,7 +3031,7 @@ unsafe impl ::windows::core::RuntimeType for WebProviderTokenRequest {
 }
 unsafe impl ::windows::core::Interface for WebProviderTokenRequest {
     type Vtable = IWebProviderTokenRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e18778b_8805_454b_9f11_468d2af1095a);
+    const IID: ::windows::core::GUID = <IWebProviderTokenRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebProviderTokenRequest {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebProviderTokenRequest";
@@ -3126,7 +3126,7 @@ unsafe impl ::windows::core::RuntimeType for WebProviderTokenResponse {
 }
 unsafe impl ::windows::core::Interface for WebProviderTokenResponse {
     type Vtable = IWebProviderTokenResponse_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef213793_ef55_4186_b7ce_8cb2e7f9849e);
+    const IID: ::windows::core::GUID = <IWebProviderTokenResponse as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WebProviderTokenResponse {
     const NAME: &'static str = "Windows.Security.Authentication.Web.Provider.WebProviderTokenResponse";

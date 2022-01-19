@@ -118,7 +118,7 @@ unsafe impl ::windows::core::RuntimeType for AdaptiveTrigger {
 }
 unsafe impl ::windows::core::Interface for AdaptiveTrigger {
     type Vtable = IAdaptiveTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5f04119_0cd9_49f1_a23f_44e547ab9f1a);
+    const IID: ::windows::core::GUID = <IAdaptiveTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AdaptiveTrigger {
     const NAME: &'static str = "Windows.UI.Xaml.AdaptiveTrigger";
@@ -430,7 +430,7 @@ unsafe impl ::windows::core::RuntimeType for Application {
 }
 unsafe impl ::windows::core::Interface for Application {
     type Vtable = IApplication_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74b861a1_7487_46a9_9a6e_c78b512726c5);
+    const IID: ::windows::core::GUID = <IApplication as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Application {
     const NAME: &'static str = "Windows.UI.Xaml.Application";
@@ -636,7 +636,7 @@ unsafe impl ::windows::core::RuntimeType for ApplicationInitializationCallbackPa
 }
 unsafe impl ::windows::core::Interface for ApplicationInitializationCallbackParams {
     type Vtable = IApplicationInitializationCallbackParams_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x751b792e_5772_4488_8b87_f547faa64474);
+    const IID: ::windows::core::GUID = <IApplicationInitializationCallbackParams as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ApplicationInitializationCallbackParams {
     const NAME: &'static str = "Windows.UI.Xaml.ApplicationInitializationCallbackParams";
@@ -839,7 +839,7 @@ unsafe impl ::windows::core::RuntimeType for BindingFailedEventArgs {
 }
 unsafe impl ::windows::core::Interface for BindingFailedEventArgs {
     type Vtable = IBindingFailedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32c1d013_4dbd_446d_bbb8_0de35048a449);
+    const IID: ::windows::core::GUID = <IBindingFailedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BindingFailedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.BindingFailedEventArgs";
@@ -1077,7 +1077,7 @@ unsafe impl ::windows::core::RuntimeType for BringIntoViewOptions {
 }
 unsafe impl ::windows::core::Interface for BringIntoViewOptions {
     type Vtable = IBringIntoViewOptions_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19bdd1b5_c7cb_46d9_a4dd_a1bbe83ef2fb);
+    const IID: ::windows::core::GUID = <IBringIntoViewOptions as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BringIntoViewOptions {
     const NAME: &'static str = "Windows.UI.Xaml.BringIntoViewOptions";
@@ -1246,7 +1246,7 @@ unsafe impl ::windows::core::RuntimeType for BringIntoViewRequestedEventArgs {
 }
 unsafe impl ::windows::core::Interface for BringIntoViewRequestedEventArgs {
     type Vtable = IBringIntoViewRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e629ec4_2206_4c8b_94ae_bdb66a4ebfd1);
+    const IID: ::windows::core::GUID = <IBringIntoViewRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BringIntoViewRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.BringIntoViewRequestedEventArgs";
@@ -1374,7 +1374,7 @@ unsafe impl ::windows::core::RuntimeType for BrushTransition {
 }
 unsafe impl ::windows::core::Interface for BrushTransition {
     type Vtable = IBrushTransition_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1116972c_9dad_5429_a7dd_b2b7d061ab8e);
+    const IID: ::windows::core::GUID = <IBrushTransition as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for BrushTransition {
     const NAME: &'static str = "Windows.UI.Xaml.BrushTransition";
@@ -1938,7 +1938,7 @@ unsafe impl ::windows::core::RuntimeType for ColorPaletteResources {
 }
 unsafe impl ::windows::core::Interface for ColorPaletteResources {
     type Vtable = IColorPaletteResources_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x258088c4_aef2_5d3f_833b_c36db6278ed9);
+    const IID: ::windows::core::GUID = <IColorPaletteResources as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ColorPaletteResources {
     const NAME: &'static str = "Windows.UI.Xaml.ColorPaletteResources";
@@ -2177,7 +2177,7 @@ unsafe impl ::windows::core::RuntimeType for CornerRadiusHelper {
 }
 unsafe impl ::windows::core::Interface for CornerRadiusHelper {
     type Vtable = ICornerRadiusHelper_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd7be182_1cdb_4288_b8c8_85ee79297bfc);
+    const IID: ::windows::core::GUID = <ICornerRadiusHelper as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CornerRadiusHelper {
     const NAME: &'static str = "Windows.UI.Xaml.CornerRadiusHelper";
@@ -2359,7 +2359,7 @@ unsafe impl ::windows::core::RuntimeType for DataContextChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for DataContextChangedEventArgs {
     type Vtable = IDataContextChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7da68e21_0b8f_4f9f_a143_f8e7780136a2);
+    const IID: ::windows::core::GUID = <IDataContextChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DataContextChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.DataContextChangedEventArgs";
@@ -2496,7 +2496,7 @@ unsafe impl ::windows::core::RuntimeType for DataTemplate {
 }
 unsafe impl ::windows::core::Interface for DataTemplate {
     type Vtable = IDataTemplate_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9910aec7_8ab5_4118_9bc6_09f45a35073d);
+    const IID: ::windows::core::GUID = <IDataTemplate as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DataTemplate {
     const NAME: &'static str = "Windows.UI.Xaml.DataTemplate";
@@ -2679,7 +2679,7 @@ unsafe impl ::windows::core::RuntimeType for DataTemplateKey {
 }
 unsafe impl ::windows::core::Interface for DataTemplateKey {
     type Vtable = IDataTemplateKey_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x873b6c28_cceb_4b61_86fa_b2cec39cc2fa);
+    const IID: ::windows::core::GUID = <IDataTemplateKey as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DataTemplateKey {
     const NAME: &'static str = "Windows.UI.Xaml.DataTemplateKey";
@@ -2845,7 +2845,7 @@ unsafe impl ::windows::core::RuntimeType for DebugSettings {
 }
 unsafe impl ::windows::core::Interface for DebugSettings {
     type Vtable = IDebugSettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d451f98_c6a7_4d17_8398_d83a067183d8);
+    const IID: ::windows::core::GUID = <IDebugSettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DebugSettings {
     const NAME: &'static str = "Windows.UI.Xaml.DebugSettings";
@@ -2974,7 +2974,7 @@ unsafe impl ::windows::core::RuntimeType for DependencyObject {
 }
 unsafe impl ::windows::core::Interface for DependencyObject {
     type Vtable = IDependencyObject_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c526665_f60e_4912_af59_5fe0680f089d);
+    const IID: ::windows::core::GUID = <IDependencyObject as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DependencyObject {
     const NAME: &'static str = "Windows.UI.Xaml.DependencyObject";
@@ -3188,7 +3188,7 @@ unsafe impl ::windows::core::RuntimeType for DependencyObjectCollection {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for DependencyObjectCollection {
     type Vtable = super::super::Foundation::Collections::IObservableVector_Vtbl<DependencyObject>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::Foundation::Collections::IObservableVector<DependencyObject> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for DependencyObjectCollection {
@@ -3427,7 +3427,7 @@ unsafe impl ::windows::core::RuntimeType for DependencyProperty {
 }
 unsafe impl ::windows::core::Interface for DependencyProperty {
     type Vtable = IDependencyProperty_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85b13970_9bc4_4e96_acf1_30c8fd3d55c8);
+    const IID: ::windows::core::GUID = <IDependencyProperty as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DependencyProperty {
     const NAME: &'static str = "Windows.UI.Xaml.DependencyProperty";
@@ -3602,7 +3602,7 @@ unsafe impl ::windows::core::RuntimeType for DependencyPropertyChangedEventArgs 
 }
 unsafe impl ::windows::core::Interface for DependencyPropertyChangedEventArgs {
     type Vtable = IDependencyPropertyChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81212c2b_24d0_4957_abc3_224470a93a4e);
+    const IID: ::windows::core::GUID = <IDependencyPropertyChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DependencyPropertyChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.DependencyPropertyChangedEventArgs";
@@ -3821,7 +3821,7 @@ unsafe impl ::windows::core::RuntimeType for DispatcherTimer {
 }
 unsafe impl ::windows::core::Interface for DispatcherTimer {
     type Vtable = IDispatcherTimer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd160ce46_cd22_4f5f_8c97_40e61da3e2dc);
+    const IID: ::windows::core::GUID = <IDispatcherTimer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DispatcherTimer {
     const NAME: &'static str = "Windows.UI.Xaml.DispatcherTimer";
@@ -3989,7 +3989,7 @@ unsafe impl ::windows::core::RuntimeType for DragEventArgs {
 }
 unsafe impl ::windows::core::Interface for DragEventArgs {
     type Vtable = IDragEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb440c7c3_02b4_4980_9342_25dae1c0f188);
+    const IID: ::windows::core::GUID = <IDragEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DragEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.DragEventArgs";
@@ -4165,7 +4165,7 @@ unsafe impl ::windows::core::RuntimeType for DragOperationDeferral {
 }
 unsafe impl ::windows::core::Interface for DragOperationDeferral {
     type Vtable = IDragOperationDeferral_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba73ecba_1b73_4086_b3d3_c223beea1633);
+    const IID: ::windows::core::GUID = <IDragOperationDeferral as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DragOperationDeferral {
     const NAME: &'static str = "Windows.UI.Xaml.DragOperationDeferral";
@@ -4300,7 +4300,7 @@ unsafe impl ::windows::core::RuntimeType for DragStartingEventArgs {
 }
 unsafe impl ::windows::core::Interface for DragStartingEventArgs {
     type Vtable = IDragStartingEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6800d3fa_90b8_46f9_8e30_5ac25f73f0f9);
+    const IID: ::windows::core::GUID = <IDragStartingEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DragStartingEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.DragStartingEventArgs";
@@ -4422,7 +4422,7 @@ unsafe impl ::windows::core::RuntimeType for DragUI {
 }
 unsafe impl ::windows::core::Interface for DragUI {
     type Vtable = IDragUI_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d9bd838_7c60_4842_9170_346fe10a226a);
+    const IID: ::windows::core::GUID = <IDragUI as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DragUI {
     const NAME: &'static str = "Windows.UI.Xaml.DragUI";
@@ -4576,7 +4576,7 @@ unsafe impl ::windows::core::RuntimeType for DragUIOverride {
 }
 unsafe impl ::windows::core::Interface for DragUIOverride {
     type Vtable = IDragUIOverride_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd6c9dfa_c961_4861_b7a5_bf4fe4a8a6ef);
+    const IID: ::windows::core::GUID = <IDragUIOverride as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DragUIOverride {
     const NAME: &'static str = "Windows.UI.Xaml.DragUIOverride";
@@ -4658,7 +4658,7 @@ unsafe impl ::windows::core::RuntimeType for DropCompletedEventArgs {
 }
 unsafe impl ::windows::core::Interface for DropCompletedEventArgs {
     type Vtable = IDropCompletedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c4fc188_95bc_4261_9ec5_21cab677b734);
+    const IID: ::windows::core::GUID = <IDropCompletedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DropCompletedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.DropCompletedEventArgs";
@@ -4867,7 +4867,7 @@ unsafe impl ::windows::core::RuntimeType for DurationHelper {
 }
 unsafe impl ::windows::core::Interface for DurationHelper {
     type Vtable = IDurationHelper_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25c1659f_4497_4135_940f_ee96f4d6e934);
+    const IID: ::windows::core::GUID = <IDurationHelper as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for DurationHelper {
     const NAME: &'static str = "Windows.UI.Xaml.DurationHelper";
@@ -5003,7 +5003,7 @@ unsafe impl ::windows::core::RuntimeType for EffectiveViewportChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for EffectiveViewportChangedEventArgs {
     type Vtable = IEffectiveViewportChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55ee2e81_1c18_59ed_bd3d_c4ca8fa7d190);
+    const IID: ::windows::core::GUID = <IEffectiveViewportChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EffectiveViewportChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.EffectiveViewportChangedEventArgs";
@@ -5122,7 +5122,7 @@ unsafe impl ::windows::core::RuntimeType for ElementFactoryGetArgs {
 }
 unsafe impl ::windows::core::Interface for ElementFactoryGetArgs {
     type Vtable = IElementFactoryGetArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb508774_41a3_5829_9255_cf452d041df4);
+    const IID: ::windows::core::GUID = <IElementFactoryGetArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ElementFactoryGetArgs {
     const NAME: &'static str = "Windows.UI.Xaml.ElementFactoryGetArgs";
@@ -5241,7 +5241,7 @@ unsafe impl ::windows::core::RuntimeType for ElementFactoryRecycleArgs {
 }
 unsafe impl ::windows::core::Interface for ElementFactoryRecycleArgs {
     type Vtable = IElementFactoryRecycleArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86f16b14_37e8_5dd8_a90c_25d3710318b0);
+    const IID: ::windows::core::GUID = <IElementFactoryRecycleArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ElementFactoryRecycleArgs {
     const NAME: &'static str = "Windows.UI.Xaml.ElementFactoryRecycleArgs";
@@ -5480,7 +5480,7 @@ unsafe impl ::windows::core::RuntimeType for ElementSoundPlayer {
 }
 unsafe impl ::windows::core::Interface for ElementSoundPlayer {
     type Vtable = IElementSoundPlayer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x387773a5_f036_460c_9b81_f3d6ea43f6f2);
+    const IID: ::windows::core::GUID = <IElementSoundPlayer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ElementSoundPlayer {
     const NAME: &'static str = "Windows.UI.Xaml.ElementSoundPlayer";
@@ -5762,7 +5762,7 @@ unsafe impl ::windows::core::RuntimeType for EventTrigger {
 }
 unsafe impl ::windows::core::Interface for EventTrigger {
     type Vtable = IEventTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdef8f855_0b49_4087_b1a9_b8b38488f786);
+    const IID: ::windows::core::GUID = <IEventTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for EventTrigger {
     const NAME: &'static str = "Windows.UI.Xaml.EventTrigger";
@@ -5883,7 +5883,7 @@ unsafe impl ::windows::core::RuntimeType for ExceptionRoutedEventArgs {
 }
 unsafe impl ::windows::core::Interface for ExceptionRoutedEventArgs {
     type Vtable = IExceptionRoutedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd9ff16a_4b62_4a6c_a49d_0671ef6136be);
+    const IID: ::windows::core::GUID = <IExceptionRoutedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ExceptionRoutedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.ExceptionRoutedEventArgs";
@@ -7094,7 +7094,7 @@ unsafe impl ::windows::core::RuntimeType for FrameworkElement {
 }
 unsafe impl ::windows::core::Interface for FrameworkElement {
     type Vtable = IFrameworkElement_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa391d09b_4a99_4b7c_9d8d_6fa5d01f6fbf);
+    const IID: ::windows::core::GUID = <IFrameworkElement as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FrameworkElement {
     const NAME: &'static str = "Windows.UI.Xaml.FrameworkElement";
@@ -7258,7 +7258,7 @@ unsafe impl ::windows::core::RuntimeType for FrameworkTemplate {
 }
 unsafe impl ::windows::core::Interface for FrameworkTemplate {
     type Vtable = IFrameworkTemplate_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1e254d8_a446_4a27_9a9d_a0f59e1258a5);
+    const IID: ::windows::core::GUID = <IFrameworkTemplate as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FrameworkTemplate {
     const NAME: &'static str = "Windows.UI.Xaml.FrameworkTemplate";
@@ -7388,7 +7388,7 @@ unsafe impl ::windows::core::RuntimeType for FrameworkView {
 }
 unsafe impl ::windows::core::Interface for FrameworkView {
     type Vtable = IFrameworkView_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xddba664b_b603_47aa_942d_3833174f0d80);
+    const IID: ::windows::core::GUID = <IFrameworkView as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FrameworkView {
     const NAME: &'static str = "Windows.UI.Xaml.FrameworkView";
@@ -7503,7 +7503,7 @@ unsafe impl ::windows::core::RuntimeType for FrameworkViewSource {
 }
 unsafe impl ::windows::core::Interface for FrameworkViewSource {
     type Vtable = IFrameworkViewSource_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3b077da_35ad_4b09_b5b2_27420041ba9f);
+    const IID: ::windows::core::GUID = <IFrameworkViewSource as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for FrameworkViewSource {
     const NAME: &'static str = "Windows.UI.Xaml.FrameworkViewSource";
@@ -7693,7 +7693,7 @@ unsafe impl ::windows::core::RuntimeType for GridLengthHelper {
 }
 unsafe impl ::windows::core::Interface for GridLengthHelper {
     type Vtable = IGridLengthHelper_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a826ce1_07a0_4083_b6d1_b1d917b976ac);
+    const IID: ::windows::core::GUID = <IGridLengthHelper as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GridLengthHelper {
     const NAME: &'static str = "Windows.UI.Xaml.GridLengthHelper";
@@ -12124,7 +12124,7 @@ unsafe impl ::windows::core::RuntimeType for MediaFailedRoutedEventArgs {
 }
 unsafe impl ::windows::core::Interface for MediaFailedRoutedEventArgs {
     type Vtable = IMediaFailedRoutedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46d1fa8d_5149_4153_ba3c_b03e64ee531e);
+    const IID: ::windows::core::GUID = <IMediaFailedRoutedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for MediaFailedRoutedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.MediaFailedRoutedEventArgs";
@@ -12278,7 +12278,7 @@ unsafe impl ::windows::core::RuntimeType for PointHelper {
 }
 unsafe impl ::windows::core::Interface for PointHelper {
     type Vtable = IPointHelper_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x727bdd92_64b0_49cf_a321_a9793e73e2e7);
+    const IID: ::windows::core::GUID = <IPointHelper as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PointHelper {
     const NAME: &'static str = "Windows.UI.Xaml.PointHelper";
@@ -12513,7 +12513,7 @@ unsafe impl ::windows::core::RuntimeType for PropertyMetadata {
 }
 unsafe impl ::windows::core::Interface for PropertyMetadata {
     type Vtable = IPropertyMetadata_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x814ef30d_8d18_448a_8644_f2cb51e70380);
+    const IID: ::windows::core::GUID = <IPropertyMetadata as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PropertyMetadata {
     const NAME: &'static str = "Windows.UI.Xaml.PropertyMetadata";
@@ -12606,7 +12606,7 @@ unsafe impl ::windows::core::RuntimeType for PropertyPath {
 }
 unsafe impl ::windows::core::Interface for PropertyPath {
     type Vtable = IPropertyPath_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x300e5d8a_1ff3_4d2c_95ec_27f81debacb8);
+    const IID: ::windows::core::GUID = <IPropertyPath as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PropertyPath {
     const NAME: &'static str = "Windows.UI.Xaml.PropertyPath";
@@ -12816,7 +12816,7 @@ unsafe impl ::windows::core::RuntimeType for RectHelper {
 }
 unsafe impl ::windows::core::Interface for RectHelper {
     type Vtable = IRectHelper_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa38781e2_4bfb_4ee2_afe5_89f31b37478d);
+    const IID: ::windows::core::GUID = <IRectHelper as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RectHelper {
     const NAME: &'static str = "Windows.UI.Xaml.RectHelper";
@@ -13008,7 +13008,7 @@ unsafe impl ::windows::core::RuntimeType for ResourceDictionary {
 }
 unsafe impl ::windows::core::Interface for ResourceDictionary {
     type Vtable = IResourceDictionary_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1ea4f24_d6de_4191_8e3a_f48601f7489c);
+    const IID: ::windows::core::GUID = <IResourceDictionary as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ResourceDictionary {
     const NAME: &'static str = "Windows.UI.Xaml.ResourceDictionary";
@@ -13168,7 +13168,7 @@ unsafe impl ::windows::core::RuntimeType for RoutedEvent {
 }
 unsafe impl ::windows::core::Interface for RoutedEvent {
     type Vtable = IRoutedEvent_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6b25818_43c1_4c70_865c_7bdd5a32e327);
+    const IID: ::windows::core::GUID = <IRoutedEvent as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RoutedEvent {
     const NAME: &'static str = "Windows.UI.Xaml.RoutedEvent";
@@ -13269,7 +13269,7 @@ unsafe impl ::windows::core::RuntimeType for RoutedEventArgs {
 }
 unsafe impl ::windows::core::Interface for RoutedEventArgs {
     type Vtable = IRoutedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c985ac6_d802_4b38_a223_bf070c43fedf);
+    const IID: ::windows::core::GUID = <IRoutedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RoutedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.RoutedEventArgs";
@@ -13455,7 +13455,7 @@ unsafe impl ::windows::core::RuntimeType for ScalarTransition {
 }
 unsafe impl ::windows::core::Interface for ScalarTransition {
     type Vtable = IScalarTransition_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4cb68238_e15d_524e_a73c_9d4dcfbea226);
+    const IID: ::windows::core::GUID = <IScalarTransition as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ScalarTransition {
     const NAME: &'static str = "Windows.UI.Xaml.ScalarTransition";
@@ -13586,7 +13586,7 @@ unsafe impl ::windows::core::RuntimeType for Setter {
 }
 unsafe impl ::windows::core::Interface for Setter {
     type Vtable = ISetter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa73ded29_b4ae_4a81_be85_e690ba0d3b6e);
+    const IID: ::windows::core::GUID = <ISetter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Setter {
     const NAME: &'static str = "Windows.UI.Xaml.Setter";
@@ -13707,7 +13707,7 @@ unsafe impl ::windows::core::RuntimeType for SetterBase {
 }
 unsafe impl ::windows::core::Interface for SetterBase {
     type Vtable = ISetterBase_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x418be27c_2ac4_4f22_8097_dea3aeeb2fb3);
+    const IID: ::windows::core::GUID = <ISetterBase as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SetterBase {
     const NAME: &'static str = "Windows.UI.Xaml.SetterBase";
@@ -13911,7 +13911,7 @@ unsafe impl ::windows::core::RuntimeType for SetterBaseCollection {
 }
 unsafe impl ::windows::core::Interface for SetterBaseCollection {
     type Vtable = ISetterBaseCollection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03c40ca8_909e_4117_811c_a4529496bdf1);
+    const IID: ::windows::core::GUID = <ISetterBaseCollection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SetterBaseCollection {
     const NAME: &'static str = "Windows.UI.Xaml.SetterBaseCollection";
@@ -14070,7 +14070,7 @@ unsafe impl ::windows::core::RuntimeType for SizeChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for SizeChangedEventArgs {
     type Vtable = ISizeChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5312e60_5cc1_42a1_920c_1af46be2f986);
+    const IID: ::windows::core::GUID = <ISizeChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SizeChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.SizeChangedEventArgs";
@@ -14278,7 +14278,7 @@ unsafe impl ::windows::core::RuntimeType for SizeHelper {
 }
 unsafe impl ::windows::core::Interface for SizeHelper {
     type Vtable = ISizeHelper_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7225a94_5d03_4a03_ba94_967fc68fcefe);
+    const IID: ::windows::core::GUID = <ISizeHelper as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for SizeHelper {
     const NAME: &'static str = "Windows.UI.Xaml.SizeHelper";
@@ -14383,7 +14383,7 @@ unsafe impl ::windows::core::RuntimeType for StateTrigger {
 }
 unsafe impl ::windows::core::Interface for StateTrigger {
     type Vtable = IStateTrigger_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x67adef2e_d8d9_49f7_a1fd_2e35eedd23cd);
+    const IID: ::windows::core::GUID = <IStateTrigger as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StateTrigger {
     const NAME: &'static str = "Windows.UI.Xaml.StateTrigger";
@@ -14501,7 +14501,7 @@ unsafe impl ::windows::core::RuntimeType for StateTriggerBase {
 }
 unsafe impl ::windows::core::Interface for StateTriggerBase {
     type Vtable = IStateTriggerBase_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48b20698_af06_466c_8052_93666dde0e49);
+    const IID: ::windows::core::GUID = <IStateTriggerBase as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StateTriggerBase {
     const NAME: &'static str = "Windows.UI.Xaml.StateTriggerBase";
@@ -14663,7 +14663,7 @@ unsafe impl ::windows::core::RuntimeType for Style {
 }
 unsafe impl ::windows::core::Interface for Style {
     type Vtable = IStyle_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4a9f225_9db7_4a7d_b6d1_f74edb9293c2);
+    const IID: ::windows::core::GUID = <IStyle as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Style {
     const NAME: &'static str = "Windows.UI.Xaml.Style";
@@ -14894,7 +14894,7 @@ unsafe impl ::windows::core::RuntimeType for TargetPropertyPath {
 }
 unsafe impl ::windows::core::Interface for TargetPropertyPath {
     type Vtable = ITargetPropertyPath_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40740f8e_085f_4ced_be70_6f47acf15ad0);
+    const IID: ::windows::core::GUID = <ITargetPropertyPath as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TargetPropertyPath {
     const NAME: &'static str = "Windows.UI.Xaml.TargetPropertyPath";
@@ -15176,7 +15176,7 @@ unsafe impl ::windows::core::RuntimeType for ThicknessHelper {
 }
 unsafe impl ::windows::core::Interface for ThicknessHelper {
     type Vtable = IThicknessHelper_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa86bae4b_1e8f_4eeb_9013_0b2838a97b34);
+    const IID: ::windows::core::GUID = <IThicknessHelper as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for ThicknessHelper {
     const NAME: &'static str = "Windows.UI.Xaml.ThicknessHelper";
@@ -15248,7 +15248,7 @@ unsafe impl ::windows::core::RuntimeType for TriggerAction {
 }
 unsafe impl ::windows::core::Interface for TriggerAction {
     type Vtable = ITriggerAction_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2c0df02_63d5_4b46_9b83_0868d3079621);
+    const IID: ::windows::core::GUID = <ITriggerAction as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TriggerAction {
     const NAME: &'static str = "Windows.UI.Xaml.TriggerAction";
@@ -15452,7 +15452,7 @@ unsafe impl ::windows::core::RuntimeType for TriggerActionCollection {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for TriggerActionCollection {
     type Vtable = super::super::Foundation::Collections::IVector_Vtbl<TriggerAction>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::Foundation::Collections::IVector<TriggerAction> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for TriggerActionCollection {
@@ -15603,7 +15603,7 @@ unsafe impl ::windows::core::RuntimeType for TriggerBase {
 }
 unsafe impl ::windows::core::Interface for TriggerBase {
     type Vtable = ITriggerBase_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7ea222f_dee6_4393_a8b2_8923d641f395);
+    const IID: ::windows::core::GUID = <ITriggerBase as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for TriggerBase {
     const NAME: &'static str = "Windows.UI.Xaml.TriggerBase";
@@ -15800,7 +15800,7 @@ unsafe impl ::windows::core::RuntimeType for TriggerCollection {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for TriggerCollection {
     type Vtable = super::super::Foundation::Collections::IVector_Vtbl<TriggerBase>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::Foundation::Collections::IVector<TriggerBase> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for TriggerCollection {
@@ -18004,7 +18004,7 @@ unsafe impl ::windows::core::RuntimeType for UIElement {
 }
 unsafe impl ::windows::core::Interface for UIElement {
     type Vtable = IUIElement_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x676d0be9_b65c_41c6_ba40_58cf87f201c1);
+    const IID: ::windows::core::GUID = <IUIElement as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UIElement {
     const NAME: &'static str = "Windows.UI.Xaml.UIElement";
@@ -18265,7 +18265,7 @@ unsafe impl ::windows::core::RuntimeType for UIElementWeakCollection {
 }
 unsafe impl ::windows::core::Interface for UIElementWeakCollection {
     type Vtable = IUIElementWeakCollection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10341223_e66d_519e_acf8_556bd244eac3);
+    const IID: ::windows::core::GUID = <IUIElementWeakCollection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UIElementWeakCollection {
     const NAME: &'static str = "Windows.UI.Xaml.UIElementWeakCollection";
@@ -18435,7 +18435,7 @@ unsafe impl ::windows::core::RuntimeType for UnhandledExceptionEventArgs {
 }
 unsafe impl ::windows::core::Interface for UnhandledExceptionEventArgs {
     type Vtable = IUnhandledExceptionEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7230269c_054e_4cf3_86c5_be90eb6863d5);
+    const IID: ::windows::core::GUID = <IUnhandledExceptionEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for UnhandledExceptionEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.UnhandledExceptionEventArgs";
@@ -18634,7 +18634,7 @@ unsafe impl ::windows::core::RuntimeType for Vector3Transition {
 }
 unsafe impl ::windows::core::Interface for Vector3Transition {
     type Vtable = IVector3Transition_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2e209dc_c4a2_5101_9a68_fa0150505589);
+    const IID: ::windows::core::GUID = <IVector3Transition as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Vector3Transition {
     const NAME: &'static str = "Windows.UI.Xaml.Vector3Transition";
@@ -18869,7 +18869,7 @@ unsafe impl ::windows::core::RuntimeType for VisualState {
 }
 unsafe impl ::windows::core::Interface for VisualState {
     type Vtable = IVisualState_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6320affc_c31a_4450_afde_f6ea7bd1f586);
+    const IID: ::windows::core::GUID = <IVisualState as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VisualState {
     const NAME: &'static str = "Windows.UI.Xaml.VisualState";
@@ -19010,7 +19010,7 @@ unsafe impl ::windows::core::RuntimeType for VisualStateChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for VisualStateChangedEventArgs {
     type Vtable = IVisualStateChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe216ab1_f31f_4791_8989_c70e1d9b59ff);
+    const IID: ::windows::core::GUID = <IVisualStateChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VisualStateChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.VisualStateChangedEventArgs";
@@ -19232,7 +19232,7 @@ unsafe impl ::windows::core::RuntimeType for VisualStateGroup {
 }
 unsafe impl ::windows::core::Interface for VisualStateGroup {
     type Vtable = IVisualStateGroup_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4f9d9a4_e028_44de_9b15_4929ae0a26c2);
+    const IID: ::windows::core::GUID = <IVisualStateGroup as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VisualStateGroup {
     const NAME: &'static str = "Windows.UI.Xaml.VisualStateGroup";
@@ -19396,7 +19396,7 @@ unsafe impl ::windows::core::RuntimeType for VisualStateManager {
 }
 unsafe impl ::windows::core::Interface for VisualStateManager {
     type Vtable = IVisualStateManager_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fda9f9a_6fab_4112_9258_1006a3c3476e);
+    const IID: ::windows::core::GUID = <IVisualStateManager as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VisualStateManager {
     const NAME: &'static str = "Windows.UI.Xaml.VisualStateManager";
@@ -19580,7 +19580,7 @@ unsafe impl ::windows::core::RuntimeType for VisualTransition {
 }
 unsafe impl ::windows::core::Interface for VisualTransition {
     type Vtable = IVisualTransition_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55c5905e_2bc7_400d_aaa4_1a2981491ee0);
+    const IID: ::windows::core::GUID = <IVisualTransition as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VisualTransition {
     const NAME: &'static str = "Windows.UI.Xaml.VisualTransition";
@@ -19825,7 +19825,7 @@ unsafe impl ::windows::core::RuntimeType for Window {
 }
 unsafe impl ::windows::core::Interface for Window {
     type Vtable = IWindow_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3276167d_c9f6_462d_9de2_ae4c1fd8c2e5);
+    const IID: ::windows::core::GUID = <IWindow as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for Window {
     const NAME: &'static str = "Windows.UI.Xaml.Window";
@@ -20092,7 +20092,7 @@ unsafe impl ::windows::core::RuntimeType for WindowCreatedEventArgs {
 }
 unsafe impl ::windows::core::Interface for WindowCreatedEventArgs {
     type Vtable = IWindowCreatedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31b71470_feff_4654_af48_9b398ab5772b);
+    const IID: ::windows::core::GUID = <IWindowCreatedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WindowCreatedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.WindowCreatedEventArgs";
@@ -20407,7 +20407,7 @@ unsafe impl ::windows::core::RuntimeType for XamlRoot {
 }
 unsafe impl ::windows::core::Interface for XamlRoot {
     type Vtable = IXamlRoot_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34b50756_1696_5b6d_8e9b_c71464ccad5a);
+    const IID: ::windows::core::GUID = <IXamlRoot as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for XamlRoot {
     const NAME: &'static str = "Windows.UI.Xaml.XamlRoot";
@@ -20479,7 +20479,7 @@ unsafe impl ::windows::core::RuntimeType for XamlRootChangedEventArgs {
 }
 unsafe impl ::windows::core::Interface for XamlRootChangedEventArgs {
     type Vtable = IXamlRootChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92d71c21_d23c_5a17_bcb8_001504b6bb19);
+    const IID: ::windows::core::GUID = <IXamlRootChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for XamlRootChangedEventArgs {
     const NAME: &'static str = "Windows.UI.Xaml.XamlRootChangedEventArgs";

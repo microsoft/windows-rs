@@ -395,7 +395,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiDirectAdvertisement {
 }
 unsafe impl ::windows::core::Interface for WiFiDirectAdvertisement {
     type Vtable = IWiFiDirectAdvertisement_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab511a2d_2a06_49a1_a584_61435c7905a6);
+    const IID: ::windows::core::GUID = <IWiFiDirectAdvertisement as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WiFiDirectAdvertisement {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.WiFiDirectAdvertisement";
@@ -545,7 +545,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiDirectAdvertisementPublisher {
 }
 unsafe impl ::windows::core::Interface for WiFiDirectAdvertisementPublisher {
     type Vtable = IWiFiDirectAdvertisementPublisher_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb35a2d1a_9b1f_45d9_925a_694d66df68ef);
+    const IID: ::windows::core::GUID = <IWiFiDirectAdvertisementPublisher as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WiFiDirectAdvertisementPublisher {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.WiFiDirectAdvertisementPublisher";
@@ -664,7 +664,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiDirectAdvertisementPublisherSta
 }
 unsafe impl ::windows::core::Interface for WiFiDirectAdvertisementPublisherStatusChangedEventArgs {
     type Vtable = IWiFiDirectAdvertisementPublisherStatusChangedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaafde53c_5481_46e6_90dd_32116518f192);
+    const IID: ::windows::core::GUID = <IWiFiDirectAdvertisementPublisherStatusChangedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WiFiDirectAdvertisementPublisherStatusChangedEventArgs {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.WiFiDirectAdvertisementPublisherStatusChangedEventArgs";
@@ -788,7 +788,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiDirectConnectionListener {
 }
 unsafe impl ::windows::core::Interface for WiFiDirectConnectionListener {
     type Vtable = IWiFiDirectConnectionListener_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x699c1b0d_8d13_4ee9_b9ec_9c72f8251f7d);
+    const IID: ::windows::core::GUID = <IWiFiDirectConnectionListener as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WiFiDirectConnectionListener {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.WiFiDirectConnectionListener";
@@ -916,7 +916,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiDirectConnectionParameters {
 }
 unsafe impl ::windows::core::Interface for WiFiDirectConnectionParameters {
     type Vtable = IWiFiDirectConnectionParameters_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2e55405_5702_4b16_a02c_bbcd21ef6098);
+    const IID: ::windows::core::GUID = <IWiFiDirectConnectionParameters as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WiFiDirectConnectionParameters {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.WiFiDirectConnectionParameters";
@@ -1030,7 +1030,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiDirectConnectionRequest {
 }
 unsafe impl ::windows::core::Interface for WiFiDirectConnectionRequest {
     type Vtable = IWiFiDirectConnectionRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8eb99605_914f_49c3_a614_d18dc5b19b43);
+    const IID: ::windows::core::GUID = <IWiFiDirectConnectionRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WiFiDirectConnectionRequest {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.WiFiDirectConnectionRequest";
@@ -1137,7 +1137,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiDirectConnectionRequestedEventA
 }
 unsafe impl ::windows::core::Interface for WiFiDirectConnectionRequestedEventArgs {
     type Vtable = IWiFiDirectConnectionRequestedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf99d20be_d38d_484f_8215_e7b65abf244c);
+    const IID: ::windows::core::GUID = <IWiFiDirectConnectionRequestedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WiFiDirectConnectionRequestedEventArgs {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.WiFiDirectConnectionRequestedEventArgs";
@@ -1324,7 +1324,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiDirectDevice {
 }
 unsafe impl ::windows::core::Interface for WiFiDirectDevice {
     type Vtable = IWiFiDirectDevice_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72deaaa8_72eb_4dae_8a28_8513355d2777);
+    const IID: ::windows::core::GUID = <IWiFiDirectDevice as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WiFiDirectDevice {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.WiFiDirectDevice";
@@ -1551,7 +1551,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiDirectInformationElement {
 }
 unsafe impl ::windows::core::Interface for WiFiDirectInformationElement {
     type Vtable = IWiFiDirectInformationElement_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaffb72d6_76bb_497e_ac8b_dc72838bc309);
+    const IID: ::windows::core::GUID = <IWiFiDirectInformationElement as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WiFiDirectInformationElement {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.WiFiDirectInformationElement";
@@ -1665,7 +1665,7 @@ unsafe impl ::windows::core::RuntimeType for WiFiDirectLegacySettings {
 }
 unsafe impl ::windows::core::Interface for WiFiDirectLegacySettings {
     type Vtable = IWiFiDirectLegacySettings_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa64fdbba_f2fd_4567_a91b_f5c2f5321057);
+    const IID: ::windows::core::GUID = <IWiFiDirectLegacySettings as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WiFiDirectLegacySettings {
     const NAME: &'static str = "Windows.Devices.WiFiDirect.WiFiDirectLegacySettings";

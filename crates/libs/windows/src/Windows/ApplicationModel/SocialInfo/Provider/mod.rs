@@ -226,7 +226,7 @@ unsafe impl ::windows::core::RuntimeType for SocialDashboardItemUpdater {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SocialDashboardItemUpdater {
     type Vtable = ISocialDashboardItemUpdater_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cde9dc9_4800_46cd_869b_1973ec685bde);
+    const IID: ::windows::core::GUID = <ISocialDashboardItemUpdater as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for SocialDashboardItemUpdater {
@@ -354,7 +354,7 @@ unsafe impl ::windows::core::RuntimeType for SocialFeedUpdater {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SocialFeedUpdater {
     type Vtable = ISocialFeedUpdater_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a0c0aa7_ed89_4bd5_a8d9_15f4d9861c10);
+    const IID: ::windows::core::GUID = <ISocialFeedUpdater as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for SocialFeedUpdater {

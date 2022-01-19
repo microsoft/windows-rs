@@ -108,7 +108,7 @@ unsafe impl ::windows::core::RuntimeType for CastingConnection {
 }
 unsafe impl ::windows::core::Interface for CastingConnection {
     type Vtable = ICastingConnection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd951653_c2f1_4498_8b78_5fb4cd3640dd);
+    const IID: ::windows::core::GUID = <ICastingConnection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CastingConnection {
     const NAME: &'static str = "Windows.Media.Casting.CastingConnection";
@@ -223,7 +223,7 @@ unsafe impl ::windows::core::RuntimeType for CastingConnectionErrorOccurredEvent
 }
 unsafe impl ::windows::core::Interface for CastingConnectionErrorOccurredEventArgs {
     type Vtable = ICastingConnectionErrorOccurredEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7fb3c69_8719_4f00_81fb_961863c79a32);
+    const IID: ::windows::core::GUID = <ICastingConnectionErrorOccurredEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CastingConnectionErrorOccurredEventArgs {
     const NAME: &'static str = "Windows.Media.Casting.CastingConnectionErrorOccurredEventArgs";
@@ -438,7 +438,7 @@ unsafe impl ::windows::core::RuntimeType for CastingDevice {
 }
 unsafe impl ::windows::core::Interface for CastingDevice {
     type Vtable = ICastingDevice_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde721c83_4a43_4ad1_a6d2_2492a796c3f2);
+    const IID: ::windows::core::GUID = <ICastingDevice as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CastingDevice {
     const NAME: &'static str = "Windows.Media.Casting.CastingDevice";
@@ -582,7 +582,7 @@ unsafe impl ::windows::core::RuntimeType for CastingDevicePicker {
 }
 unsafe impl ::windows::core::Interface for CastingDevicePicker {
     type Vtable = ICastingDevicePicker_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcd39924_0591_49be_aacb_4b82ee756a95);
+    const IID: ::windows::core::GUID = <ICastingDevicePicker as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CastingDevicePicker {
     const NAME: &'static str = "Windows.Media.Casting.CastingDevicePicker";
@@ -703,7 +703,7 @@ unsafe impl ::windows::core::RuntimeType for CastingDevicePickerFilter {
 }
 unsafe impl ::windows::core::Interface for CastingDevicePickerFilter {
     type Vtable = ICastingDevicePickerFilter_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe8c619c_b563_4354_ae33_9fdaad8c6291);
+    const IID: ::windows::core::GUID = <ICastingDevicePickerFilter as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CastingDevicePickerFilter {
     const NAME: &'static str = "Windows.Media.Casting.CastingDevicePickerFilter";
@@ -784,7 +784,7 @@ unsafe impl ::windows::core::RuntimeType for CastingDeviceSelectedEventArgs {
 }
 unsafe impl ::windows::core::Interface for CastingDeviceSelectedEventArgs {
     type Vtable = ICastingDeviceSelectedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc439e86_dd57_4d0d_9400_af45e4fb3663);
+    const IID: ::windows::core::GUID = <ICastingDeviceSelectedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CastingDeviceSelectedEventArgs {
     const NAME: &'static str = "Windows.Media.Casting.CastingDeviceSelectedEventArgs";
@@ -930,7 +930,7 @@ unsafe impl ::windows::core::RuntimeType for CastingSource {
 }
 unsafe impl ::windows::core::Interface for CastingSource {
     type Vtable = ICastingSource_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf429ea72_3467_47e6_a027_522923e9d727);
+    const IID: ::windows::core::GUID = <ICastingSource as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CastingSource {
     const NAME: &'static str = "Windows.Media.Casting.CastingSource";

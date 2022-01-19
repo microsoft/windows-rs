@@ -161,7 +161,7 @@ unsafe impl ::windows::core::RuntimeType for GipFirmwareUpdateResult {
 }
 unsafe impl ::windows::core::Interface for GipFirmwareUpdateResult {
     type Vtable = IGipFirmwareUpdateResult_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b794d32_8553_4292_8e03_e16651a2f8bc);
+    const IID: ::windows::core::GUID = <IGipFirmwareUpdateResult as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GipFirmwareUpdateResult {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.GipFirmwareUpdateResult";
@@ -322,7 +322,7 @@ unsafe impl ::windows::core::RuntimeType for GipGameControllerProvider {
 }
 unsafe impl ::windows::core::Interface for GipGameControllerProvider {
     type Vtable = IGipGameControllerProvider_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdbcf1e19_1af5_45a8_bf02_a0ee50c823fc);
+    const IID: ::windows::core::GUID = <IGipGameControllerProvider as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for GipGameControllerProvider {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.GipGameControllerProvider";
@@ -517,7 +517,7 @@ unsafe impl ::windows::core::RuntimeType for HidGameControllerProvider {
 }
 unsafe impl ::windows::core::Interface for HidGameControllerProvider {
     type Vtable = IHidGameControllerProvider_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95ce3af4_abf0_4b68_a081_3b7de73ff0e7);
+    const IID: ::windows::core::GUID = <IHidGameControllerProvider as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HidGameControllerProvider {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.HidGameControllerProvider";
@@ -1449,7 +1449,7 @@ unsafe impl ::windows::core::RuntimeType for XusbGameControllerProvider {
 }
 unsafe impl ::windows::core::Interface for XusbGameControllerProvider {
     type Vtable = IXusbGameControllerProvider_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e2971eb_0efb_48b4_808b_837643b2f216);
+    const IID: ::windows::core::GUID = <IXusbGameControllerProvider as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for XusbGameControllerProvider {
     const NAME: &'static str = "Windows.Gaming.Input.Custom.XusbGameControllerProvider";

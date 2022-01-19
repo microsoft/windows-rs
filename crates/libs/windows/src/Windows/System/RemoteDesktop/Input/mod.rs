@@ -101,7 +101,7 @@ unsafe impl ::windows::core::RuntimeType for RemoteTextConnection {
 }
 unsafe impl ::windows::core::Interface for RemoteTextConnection {
     type Vtable = IRemoteTextConnection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e7bb02a_183e_5e66_b5e4_3e6e5c570cf1);
+    const IID: ::windows::core::GUID = <IRemoteTextConnection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for RemoteTextConnection {
     const NAME: &'static str = "Windows.System.RemoteDesktop.Input.RemoteTextConnection";

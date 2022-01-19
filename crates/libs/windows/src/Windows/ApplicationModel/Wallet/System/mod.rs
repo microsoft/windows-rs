@@ -178,7 +178,7 @@ unsafe impl ::windows::core::RuntimeType for WalletItemSystemStore {
 }
 unsafe impl ::windows::core::Interface for WalletItemSystemStore {
     type Vtable = IWalletItemSystemStore_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x522e2bff_96a2_4a17_8d19_fe1d9f837561);
+    const IID: ::windows::core::GUID = <IWalletItemSystemStore as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for WalletItemSystemStore {
     const NAME: &'static str = "Windows.ApplicationModel.Wallet.System.WalletItemSystemStore";

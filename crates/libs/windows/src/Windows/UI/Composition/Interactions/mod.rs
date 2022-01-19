@@ -162,7 +162,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionConditionalValue {
 }
 unsafe impl ::windows::core::Interface for CompositionConditionalValue {
     type Vtable = ICompositionConditionalValue_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43250538_eb73_4561_a71d_1a43eaeb7a9b);
+    const IID: ::windows::core::GUID = <ICompositionConditionalValue as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionConditionalValue {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.CompositionConditionalValue";
@@ -434,7 +434,7 @@ unsafe impl ::windows::core::RuntimeType for CompositionInteractionSourceCollect
 }
 unsafe impl ::windows::core::Interface for CompositionInteractionSourceCollection {
     type Vtable = ICompositionInteractionSourceCollection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b468e4b_a5bf_47d8_a547_3894155a158c);
+    const IID: ::windows::core::GUID = <ICompositionInteractionSourceCollection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for CompositionInteractionSourceCollection {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.CompositionInteractionSourceCollection";
@@ -1755,7 +1755,7 @@ unsafe impl ::windows::core::RuntimeType for InteractionSourceConfiguration {
 }
 unsafe impl ::windows::core::Interface for InteractionSourceConfiguration {
     type Vtable = IInteractionSourceConfiguration_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa78347e5_a9d1_4d02_985e_b930cd0b9da4);
+    const IID: ::windows::core::GUID = <IInteractionSourceConfiguration as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InteractionSourceConfiguration {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionSourceConfiguration";
@@ -2391,7 +2391,7 @@ unsafe impl ::windows::core::RuntimeType for InteractionTracker {
 }
 unsafe impl ::windows::core::Interface for InteractionTracker {
     type Vtable = IInteractionTracker_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a8e8cb1_1000_4416_8363_cc27fb877308);
+    const IID: ::windows::core::GUID = <IInteractionTracker as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InteractionTracker {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTracker";
@@ -2576,7 +2576,7 @@ unsafe impl ::windows::core::RuntimeType for InteractionTrackerCustomAnimationSt
 }
 unsafe impl ::windows::core::Interface for InteractionTrackerCustomAnimationStateEnteredArgs {
     type Vtable = IInteractionTrackerCustomAnimationStateEnteredArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d1c8cf1_d7b0_434c_a5d2_2d7611864834);
+    const IID: ::windows::core::GUID = <IInteractionTrackerCustomAnimationStateEnteredArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InteractionTrackerCustomAnimationStateEnteredArgs {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerCustomAnimationStateEnteredArgs";
@@ -2665,7 +2665,7 @@ unsafe impl ::windows::core::RuntimeType for InteractionTrackerIdleStateEnteredA
 }
 unsafe impl ::windows::core::Interface for InteractionTrackerIdleStateEnteredArgs {
     type Vtable = IInteractionTrackerIdleStateEnteredArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50012faa_1510_4142_a1a5_019b09f8857b);
+    const IID: ::windows::core::GUID = <IInteractionTrackerIdleStateEnteredArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InteractionTrackerIdleStateEnteredArgs {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerIdleStateEnteredArgs";
@@ -2837,7 +2837,7 @@ unsafe impl ::windows::core::RuntimeType for InteractionTrackerInertiaModifier {
 }
 unsafe impl ::windows::core::Interface for InteractionTrackerInertiaModifier {
     type Vtable = IInteractionTrackerInertiaModifier_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0e2c920_26b4_4da2_8b61_5e683979bbe2);
+    const IID: ::windows::core::GUID = <IInteractionTrackerInertiaModifier as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InteractionTrackerInertiaModifier {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerInertiaModifier";
@@ -3115,7 +3115,7 @@ unsafe impl ::windows::core::RuntimeType for InteractionTrackerInertiaMotion {
 }
 unsafe impl ::windows::core::Interface for InteractionTrackerInertiaMotion {
     type Vtable = IInteractionTrackerInertiaMotion_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04922fdc_f154_4cb8_bf33_cc1ba611e6db);
+    const IID: ::windows::core::GUID = <IInteractionTrackerInertiaMotion as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InteractionTrackerInertiaMotion {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerInertiaMotion";
@@ -3413,7 +3413,7 @@ unsafe impl ::windows::core::RuntimeType for InteractionTrackerInertiaNaturalMot
 }
 unsafe impl ::windows::core::Interface for InteractionTrackerInertiaNaturalMotion {
     type Vtable = IInteractionTrackerInertiaNaturalMotion_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70acdaae_27dc_48ed_a3c3_6d61c9a029d2);
+    const IID: ::windows::core::GUID = <IInteractionTrackerInertiaNaturalMotion as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InteractionTrackerInertiaNaturalMotion {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerInertiaNaturalMotion";
@@ -3711,7 +3711,7 @@ unsafe impl ::windows::core::RuntimeType for InteractionTrackerInertiaRestingVal
 }
 unsafe impl ::windows::core::Interface for InteractionTrackerInertiaRestingValue {
     type Vtable = IInteractionTrackerInertiaRestingValue_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86f7ec09_5096_4170_9cc8_df2fe101bb93);
+    const IID: ::windows::core::GUID = <IInteractionTrackerInertiaRestingValue as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InteractionTrackerInertiaRestingValue {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerInertiaRestingValue";
@@ -3948,7 +3948,7 @@ unsafe impl ::windows::core::RuntimeType for InteractionTrackerInertiaStateEnter
 }
 unsafe impl ::windows::core::Interface for InteractionTrackerInertiaStateEnteredArgs {
     type Vtable = IInteractionTrackerInertiaStateEnteredArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87108cf2_e7ff_4f7d_9ffd_d72f1e409b63);
+    const IID: ::windows::core::GUID = <IInteractionTrackerInertiaStateEnteredArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InteractionTrackerInertiaStateEnteredArgs {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerInertiaStateEnteredArgs";
@@ -4037,7 +4037,7 @@ unsafe impl ::windows::core::RuntimeType for InteractionTrackerInteractingStateE
 }
 unsafe impl ::windows::core::Interface for InteractionTrackerInteractingStateEnteredArgs {
     type Vtable = IInteractionTrackerInteractingStateEnteredArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7263939_a17b_4011_99fd_b5c24f143748);
+    const IID: ::windows::core::GUID = <IInteractionTrackerInteractingStateEnteredArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InteractionTrackerInteractingStateEnteredArgs {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerInteractingStateEnteredArgs";
@@ -4146,7 +4146,7 @@ unsafe impl ::windows::core::RuntimeType for InteractionTrackerRequestIgnoredArg
 }
 unsafe impl ::windows::core::Interface for InteractionTrackerRequestIgnoredArgs {
     type Vtable = IInteractionTrackerRequestIgnoredArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80dd82f1_ce25_488f_91dd_cb6455ccff2e);
+    const IID: ::windows::core::GUID = <IInteractionTrackerRequestIgnoredArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InteractionTrackerRequestIgnoredArgs {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerRequestIgnoredArgs";
@@ -4244,7 +4244,7 @@ unsafe impl ::windows::core::RuntimeType for InteractionTrackerValuesChangedArgs
 }
 unsafe impl ::windows::core::Interface for InteractionTrackerValuesChangedArgs {
     type Vtable = IInteractionTrackerValuesChangedArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf1578ef_d3df_4501_b9e6_f02fb22f73d0);
+    const IID: ::windows::core::GUID = <IInteractionTrackerValuesChangedArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InteractionTrackerValuesChangedArgs {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerValuesChangedArgs";
@@ -4416,7 +4416,7 @@ unsafe impl ::windows::core::RuntimeType for InteractionTrackerVector2InertiaMod
 }
 unsafe impl ::windows::core::Interface for InteractionTrackerVector2InertiaModifier {
     type Vtable = IInteractionTrackerVector2InertiaModifier_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87e08ab0_3086_4853_a4b7_77882ad5d7e3);
+    const IID: ::windows::core::GUID = <IInteractionTrackerVector2InertiaModifier as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InteractionTrackerVector2InertiaModifier {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerVector2InertiaModifier";
@@ -4694,7 +4694,7 @@ unsafe impl ::windows::core::RuntimeType for InteractionTrackerVector2InertiaNat
 }
 unsafe impl ::windows::core::Interface for InteractionTrackerVector2InertiaNaturalMotion {
     type Vtable = IInteractionTrackerVector2InertiaNaturalMotion_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f17695c_162d_4c07_9400_c282b28276ca);
+    const IID: ::windows::core::GUID = <IInteractionTrackerVector2InertiaNaturalMotion as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for InteractionTrackerVector2InertiaNaturalMotion {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.InteractionTrackerVector2InertiaNaturalMotion";
@@ -5198,7 +5198,7 @@ unsafe impl ::windows::core::RuntimeType for VisualInteractionSource {
 }
 unsafe impl ::windows::core::Interface for VisualInteractionSource {
     type Vtable = IVisualInteractionSource_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca0e8a86_d8d6_4111_b088_70347bd2b0ed);
+    const IID: ::windows::core::GUID = <IVisualInteractionSource as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for VisualInteractionSource {
     const NAME: &'static str = "Windows.UI.Composition.Interactions.VisualInteractionSource";

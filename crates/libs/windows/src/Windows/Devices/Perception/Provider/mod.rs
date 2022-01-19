@@ -827,7 +827,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionControlGroup {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionControlGroup {
     type Vtable = IPerceptionControlGroup_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x172c4882_2fd9_4c4e_ba34_fdf20a73dde5);
+    const IID: ::windows::core::GUID = <IPerceptionControlGroup as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PerceptionControlGroup {
@@ -960,7 +960,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionCorrelation {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionCorrelation {
     type Vtable = IPerceptionCorrelation_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4131a82_dff5_4047_8a19_3b4d805f7176);
+    const IID: ::windows::core::GUID = <IPerceptionCorrelation as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PerceptionCorrelation {
@@ -1075,7 +1075,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionCorrelationGroup {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionCorrelationGroup {
     type Vtable = IPerceptionCorrelationGroup_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x752a0906_36a7_47bb_9b79_56cc6b746770);
+    const IID: ::windows::core::GUID = <IPerceptionCorrelationGroup as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PerceptionCorrelationGroup {
@@ -1190,7 +1190,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionFaceAuthenticationGroup {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionFaceAuthenticationGroup {
     type Vtable = IPerceptionFaceAuthenticationGroup_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8019814_4a91_41b0_83a6_881a1775353e);
+    const IID: ::windows::core::GUID = <IPerceptionFaceAuthenticationGroup as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PerceptionFaceAuthenticationGroup {
@@ -1315,7 +1315,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionFrame {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionFrame {
     type Vtable = IPerceptionFrame_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7cfe7825_54bb_4d9d_bec5_8ef66151d2ac);
+    const IID: ::windows::core::GUID = <IPerceptionFrame as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PerceptionFrame {
@@ -1489,7 +1489,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionFrameProviderInfo {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionFrameProviderInfo {
     type Vtable = IPerceptionFrameProviderInfo_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcca959e8_797e_4e83_9b87_036a74142fc4);
+    const IID: ::windows::core::GUID = <IPerceptionFrameProviderInfo as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PerceptionFrameProviderInfo {
@@ -1689,7 +1689,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionPropertyChangeRequest {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionPropertyChangeRequest {
     type Vtable = IPerceptionPropertyChangeRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c5aeb51_350b_4df8_9414_59e09815510b);
+    const IID: ::windows::core::GUID = <IPerceptionPropertyChangeRequest as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PerceptionPropertyChangeRequest {
@@ -2015,7 +2015,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionVideoFrameAllocator {
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionVideoFrameAllocator {
     type Vtable = IPerceptionVideoFrameAllocator_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c38a7da_fdd8_4ed4_a039_2a6f9b235038);
+    const IID: ::windows::core::GUID = <IPerceptionVideoFrameAllocator as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PerceptionVideoFrameAllocator {

@@ -224,7 +224,7 @@ unsafe impl ::windows::core::RuntimeType for PnpObject {
 }
 unsafe impl ::windows::core::Interface for PnpObject {
     type Vtable = IPnpObject_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95c66258_733b_4a8f_93a3_db078ac870c1);
+    const IID: ::windows::core::GUID = <IPnpObject as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PnpObject {
     const NAME: &'static str = "Windows.Devices.Enumeration.Pnp.PnpObject";
@@ -350,7 +350,7 @@ unsafe impl ::windows::core::RuntimeType for PnpObjectCollection {
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::Interface for PnpObjectCollection {
     type Vtable = super::super::super::Foundation::Collections::IVectorView_Vtbl<PnpObject>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+    const IID: ::windows::core::GUID = <super::super::super::Foundation::Collections::IVectorView<PnpObject> as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::windows::core::RuntimeName for PnpObjectCollection {
@@ -562,7 +562,7 @@ unsafe impl ::windows::core::RuntimeType for PnpObjectUpdate {
 }
 unsafe impl ::windows::core::Interface for PnpObjectUpdate {
     type Vtable = IPnpObjectUpdate_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f59e812_001e_4844_bcc6_432886856a17);
+    const IID: ::windows::core::GUID = <IPnpObjectUpdate as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PnpObjectUpdate {
     const NAME: &'static str = "Windows.Devices.Enumeration.Pnp.PnpObjectUpdate";
@@ -728,7 +728,7 @@ unsafe impl ::windows::core::RuntimeType for PnpObjectWatcher {
 }
 unsafe impl ::windows::core::Interface for PnpObjectWatcher {
     type Vtable = IPnpObjectWatcher_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83c95ca8_4772_4a7a_aca8_e48c42a89c44);
+    const IID: ::windows::core::GUID = <IPnpObjectWatcher as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PnpObjectWatcher {
     const NAME: &'static str = "Windows.Devices.Enumeration.Pnp.PnpObjectWatcher";

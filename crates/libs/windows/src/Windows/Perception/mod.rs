@@ -126,7 +126,7 @@ unsafe impl ::windows::core::RuntimeType for PerceptionTimestamp {
 }
 unsafe impl ::windows::core::Interface for PerceptionTimestamp {
     type Vtable = IPerceptionTimestamp_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87c24804_a22e_4adb_ba26_d78ef639bcf4);
+    const IID: ::windows::core::GUID = <IPerceptionTimestamp as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for PerceptionTimestamp {
     const NAME: &'static str = "Windows.Perception.PerceptionTimestamp";

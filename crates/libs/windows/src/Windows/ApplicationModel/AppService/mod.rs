@@ -53,7 +53,7 @@ unsafe impl ::windows::core::RuntimeType for AppServiceClosedEventArgs {
 }
 unsafe impl ::windows::core::Interface for AppServiceClosedEventArgs {
     type Vtable = IAppServiceClosedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde6016f6_cb03_4d35_ac8d_cc6303239731);
+    const IID: ::windows::core::GUID = <IAppServiceClosedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppServiceClosedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceClosedEventArgs";
@@ -280,7 +280,7 @@ unsafe impl ::windows::core::RuntimeType for AppServiceConnection {
 }
 unsafe impl ::windows::core::Interface for AppServiceConnection {
     type Vtable = IAppServiceConnection_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9dd474a2_871f_4d52_89a9_9e090531bd27);
+    const IID: ::windows::core::GUID = <IAppServiceConnection as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppServiceConnection {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceConnection";
@@ -422,7 +422,7 @@ unsafe impl ::windows::core::RuntimeType for AppServiceDeferral {
 }
 unsafe impl ::windows::core::Interface for AppServiceDeferral {
     type Vtable = IAppServiceDeferral_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e1b5322_eab0_4248_ae04_fdf93838e472);
+    const IID: ::windows::core::GUID = <IAppServiceDeferral as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppServiceDeferral {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceDeferral";
@@ -513,7 +513,7 @@ unsafe impl ::windows::core::RuntimeType for AppServiceRequest {
 }
 unsafe impl ::windows::core::Interface for AppServiceRequest {
     type Vtable = IAppServiceRequest_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20e58d9d_18de_4b01_80ba_90a76204e3c8);
+    const IID: ::windows::core::GUID = <IAppServiceRequest as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppServiceRequest {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceRequest";
@@ -602,7 +602,7 @@ unsafe impl ::windows::core::RuntimeType for AppServiceRequestReceivedEventArgs 
 }
 unsafe impl ::windows::core::Interface for AppServiceRequestReceivedEventArgs {
     type Vtable = IAppServiceRequestReceivedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e122360_ff65_44ae_9e45_857fe4180681);
+    const IID: ::windows::core::GUID = <IAppServiceRequestReceivedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppServiceRequestReceivedEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceRequestReceivedEventArgs";
@@ -692,7 +692,7 @@ unsafe impl ::windows::core::RuntimeType for AppServiceResponse {
 }
 unsafe impl ::windows::core::Interface for AppServiceResponse {
     type Vtable = IAppServiceResponse_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d503cec_9aa3_4e68_9559_9de63e372ce4);
+    const IID: ::windows::core::GUID = <IAppServiceResponse as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppServiceResponse {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceResponse";
@@ -851,7 +851,7 @@ unsafe impl ::windows::core::RuntimeType for AppServiceTriggerDetails {
 }
 unsafe impl ::windows::core::Interface for AppServiceTriggerDetails {
     type Vtable = IAppServiceTriggerDetails_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88a2dcac_ad28_41b8_80bb_bdf1b2169e19);
+    const IID: ::windows::core::GUID = <IAppServiceTriggerDetails as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for AppServiceTriggerDetails {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.AppServiceTriggerDetails";
@@ -1188,7 +1188,7 @@ unsafe impl ::windows::core::RuntimeType for StatelessAppServiceResponse {
 }
 unsafe impl ::windows::core::Interface for StatelessAppServiceResponse {
     type Vtable = IStatelessAppServiceResponse_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43754af7_a9ec_52fe_82e7_939b68dc9388);
+    const IID: ::windows::core::GUID = <IStatelessAppServiceResponse as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for StatelessAppServiceResponse {
     const NAME: &'static str = "Windows.ApplicationModel.AppService.StatelessAppServiceResponse";

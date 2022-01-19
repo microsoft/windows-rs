@@ -201,7 +201,7 @@ unsafe impl ::windows::core::RuntimeType for HolographicCamera {
 }
 unsafe impl ::windows::core::Interface for HolographicCamera {
     type Vtable = IHolographicCamera_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4e98445_9bed_4980_9ba0_e87680d1cb74);
+    const IID: ::windows::core::GUID = <IHolographicCamera as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HolographicCamera {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicCamera";
@@ -361,7 +361,7 @@ unsafe impl ::windows::core::RuntimeType for HolographicCameraPose {
 }
 unsafe impl ::windows::core::Interface for HolographicCameraPose {
     type Vtable = IHolographicCameraPose_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d7d7e30_12de_45bd_912b_c7f6561599d1);
+    const IID: ::windows::core::GUID = <IHolographicCameraPose as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HolographicCameraPose {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicCameraPose";
@@ -515,7 +515,7 @@ unsafe impl ::windows::core::RuntimeType for HolographicCameraRenderingParameter
 }
 unsafe impl ::windows::core::Interface for HolographicCameraRenderingParameters {
     type Vtable = IHolographicCameraRenderingParameters_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8eac2ed1_5bf4_4e16_8236_ae0800c11d0d);
+    const IID: ::windows::core::GUID = <IHolographicCameraRenderingParameters as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HolographicCameraRenderingParameters {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicCameraRenderingParameters";
@@ -606,7 +606,7 @@ unsafe impl ::windows::core::RuntimeType for HolographicCameraViewportParameters
 }
 unsafe impl ::windows::core::Interface for HolographicCameraViewportParameters {
     type Vtable = IHolographicCameraViewportParameters_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80cdf3f7_842a_41e1_93ed_5692ab1fbb10);
+    const IID: ::windows::core::GUID = <IHolographicCameraViewportParameters as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HolographicCameraViewportParameters {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicCameraViewportParameters";
@@ -785,7 +785,7 @@ unsafe impl ::windows::core::RuntimeType for HolographicDisplay {
 }
 unsafe impl ::windows::core::Interface for HolographicDisplay {
     type Vtable = IHolographicDisplay_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9acea414_1d9f_4090_a388_90c06f6eae9c);
+    const IID: ::windows::core::GUID = <IHolographicDisplay as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HolographicDisplay {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicDisplay";
@@ -943,7 +943,7 @@ unsafe impl ::windows::core::RuntimeType for HolographicFrame {
 }
 unsafe impl ::windows::core::Interface for HolographicFrame {
     type Vtable = IHolographicFrame_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6988eb6_a8b9_3054_a6eb_d624b6536375);
+    const IID: ::windows::core::GUID = <IHolographicFrame as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HolographicFrame {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFrame";
@@ -1070,7 +1070,7 @@ unsafe impl ::windows::core::RuntimeType for HolographicFramePrediction {
 }
 unsafe impl ::windows::core::Interface for HolographicFramePrediction {
     type Vtable = IHolographicFramePrediction_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x520f4de1_5c0a_4e79_a81e_6abe02bb2739);
+    const IID: ::windows::core::GUID = <IHolographicFramePrediction as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HolographicFramePrediction {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFramePrediction";
@@ -1222,7 +1222,7 @@ unsafe impl ::windows::core::RuntimeType for HolographicFramePresentationMonitor
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for HolographicFramePresentationMonitor {
     type Vtable = IHolographicFramePresentationMonitor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca87256c_6fae_428e_bb83_25dfee51136b);
+    const IID: ::windows::core::GUID = <IHolographicFramePresentationMonitor as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for HolographicFramePresentationMonitor {
@@ -1385,7 +1385,7 @@ unsafe impl ::windows::core::RuntimeType for HolographicFramePresentationReport 
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for HolographicFramePresentationReport {
     type Vtable = IHolographicFramePresentationReport_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80baf614_f2f4_4c8a_8de3_065c78f6d5de);
+    const IID: ::windows::core::GUID = <IHolographicFramePresentationReport as ::windows::core::Interface>::IID;
 }
 #[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for HolographicFramePresentationReport {
@@ -1512,7 +1512,7 @@ unsafe impl ::windows::core::RuntimeType for HolographicFrameRenderingReport {
 }
 unsafe impl ::windows::core::Interface for HolographicFrameRenderingReport {
     type Vtable = IHolographicFrameRenderingReport_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05f32de4_e384_51b3_b934_f0d3a0f78606);
+    const IID: ::windows::core::GUID = <IHolographicFrameRenderingReport as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HolographicFrameRenderingReport {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFrameRenderingReport";
@@ -1600,7 +1600,7 @@ unsafe impl ::windows::core::RuntimeType for HolographicFrameScanoutMonitor {
 }
 unsafe impl ::windows::core::Interface for HolographicFrameScanoutMonitor {
     type Vtable = IHolographicFrameScanoutMonitor_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e83efa9_843c_5401_8095_9bc1b8b08638);
+    const IID: ::windows::core::GUID = <IHolographicFrameScanoutMonitor as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HolographicFrameScanoutMonitor {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFrameScanoutMonitor";
@@ -1742,7 +1742,7 @@ unsafe impl ::windows::core::RuntimeType for HolographicFrameScanoutReport {
 }
 unsafe impl ::windows::core::Interface for HolographicFrameScanoutReport {
     type Vtable = IHolographicFrameScanoutReport_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ebbe606_03a0_5ca0_b46e_bba068d7233f);
+    const IID: ::windows::core::GUID = <IHolographicFrameScanoutReport as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HolographicFrameScanoutReport {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFrameScanoutReport";
@@ -1860,7 +1860,7 @@ unsafe impl ::windows::core::RuntimeType for HolographicQuadLayer {
 }
 unsafe impl ::windows::core::Interface for HolographicQuadLayer {
     type Vtable = IHolographicQuadLayer_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x903460c9_c9d9_5d5c_41ac_a2d5ab0fd331);
+    const IID: ::windows::core::GUID = <IHolographicQuadLayer as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HolographicQuadLayer {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicQuadLayer";
@@ -2014,7 +2014,7 @@ unsafe impl ::windows::core::RuntimeType for HolographicQuadLayerUpdateParameter
 }
 unsafe impl ::windows::core::Interface for HolographicQuadLayerUpdateParameters {
     type Vtable = IHolographicQuadLayerUpdateParameters_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b0ea3b0_798d_5bca_55c2_2c0c762ebb08);
+    const IID: ::windows::core::GUID = <IHolographicQuadLayerUpdateParameters as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HolographicQuadLayerUpdateParameters {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicQuadLayerUpdateParameters";
@@ -2276,7 +2276,7 @@ unsafe impl ::windows::core::RuntimeType for HolographicSpace {
 }
 unsafe impl ::windows::core::Interface for HolographicSpace {
     type Vtable = IHolographicSpace_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4380dba6_5e78_434f_807c_3433d1efe8b7);
+    const IID: ::windows::core::GUID = <IHolographicSpace as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HolographicSpace {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicSpace";
@@ -2366,7 +2366,7 @@ unsafe impl ::windows::core::RuntimeType for HolographicSpaceCameraAddedEventArg
 }
 unsafe impl ::windows::core::Interface for HolographicSpaceCameraAddedEventArgs {
     type Vtable = IHolographicSpaceCameraAddedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x58f1da35_bbb3_3c8f_993d_6c80e7feb99f);
+    const IID: ::windows::core::GUID = <IHolographicSpaceCameraAddedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HolographicSpaceCameraAddedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicSpaceCameraAddedEventArgs";
@@ -2447,7 +2447,7 @@ unsafe impl ::windows::core::RuntimeType for HolographicSpaceCameraRemovedEventA
 }
 unsafe impl ::windows::core::Interface for HolographicSpaceCameraRemovedEventArgs {
     type Vtable = IHolographicSpaceCameraRemovedEventArgs_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x805444a8_f2ae_322e_8da9_836a0a95a4c1);
+    const IID: ::windows::core::GUID = <IHolographicSpaceCameraRemovedEventArgs as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HolographicSpaceCameraRemovedEventArgs {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicSpaceCameraRemovedEventArgs";
@@ -2701,7 +2701,7 @@ unsafe impl ::windows::core::RuntimeType for HolographicViewConfiguration {
 }
 unsafe impl ::windows::core::Interface for HolographicViewConfiguration {
     type Vtable = IHolographicViewConfiguration_Vtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c1de6e6_67e9_5004_b02c_67a3a122b576);
+    const IID: ::windows::core::GUID = <IHolographicViewConfiguration as ::windows::core::Interface>::IID;
 }
 impl ::windows::core::RuntimeName for HolographicViewConfiguration {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicViewConfiguration";
