@@ -3,7 +3,7 @@ use windows::Win32::Foundation::S_OK;
 use windows::UI::Xaml::Markup::*;
 use windows::UI::Xaml::Interop::*;
 
-// TODO: we can't necessarily infer the namespace for the trait types for a particular interfaces
+// TODO: we can't infer the namespace for the trait types for a particular interfaces
 // because associated traits aren't yet supported by Rust. 
 
 // TODO: this doesn't support QI to IXamlType (as it does for COM hierarchies)
