@@ -1,6 +1,4 @@
-windows::core::include_bindings!();
-
-use crate::Windows::Win32::Globalization::{SetThreadPreferredUILanguages, MUI_LANGUAGE_NAME};
+use windows::Win32::Globalization::{SetThreadPreferredUILanguages, MUI_LANGUAGE_NAME};
 
 pub fn set_thread_ui_language(language_tag: &str) -> bool {
     unsafe {
