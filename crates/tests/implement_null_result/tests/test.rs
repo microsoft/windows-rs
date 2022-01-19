@@ -6,7 +6,7 @@ use windows::UI::Xaml::Interop::*;
 // TODO: we can't necessarily infer the namespace for the trait types for a particular interfaces
 // because associated traits aren't yet supported by Rust. 
 
-// TODO: does this add support for QI to IXamlType (as it does for COM hierarchies)?
+// TODO: this doesn't support QI to IXamlType (as it does for COM hierarchies)
 #[implement(IXamlType2)]
 struct Test();
 

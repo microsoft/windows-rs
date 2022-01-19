@@ -178,7 +178,10 @@ impl ImplementType {
         self.type_name.clone().into()
     }
     fn to_vtbl_ident(&self) -> TokenStream {
-        self.to_ident().join("_Vtbl")
+        let ident = self.to_ident();
+        quote! {
+            <#ident as ::windows::core::Interface>::Vtable
+        }
     }
 }
 
