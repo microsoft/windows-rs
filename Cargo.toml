@@ -9,4 +9,5 @@ members = [
 # TODO: fix once enums are typed again
 exclude = [
     "crates/tests/win32",
+    "crates/tests/winrt",
 ]
