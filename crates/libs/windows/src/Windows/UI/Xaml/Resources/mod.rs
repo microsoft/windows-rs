@@ -11,7 +11,7 @@ impl CustomXamlResourceLoader {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Resources'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<CustomXamlResourceLoader> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<CustomXamlResourceLoader> {
         Self::ICustomXamlResourceLoaderFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();

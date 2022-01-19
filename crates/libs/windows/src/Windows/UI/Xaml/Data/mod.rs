@@ -154,7 +154,7 @@ impl Binding {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Data'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<Binding> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<Binding> {
         Self::IBindingFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -287,7 +287,7 @@ impl BindingBase {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Data'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<BindingBase> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<BindingBase> {
         Self::IBindingBaseFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -898,7 +898,7 @@ impl CurrentChangingEventArgs {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Data'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<CurrentChangingEventArgs> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<CurrentChangingEventArgs> {
         Self::ICurrentChangingEventArgsFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -3132,7 +3132,7 @@ impl RelativeSource {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Data'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<RelativeSource> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<RelativeSource> {
         Self::IRelativeSourceFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();

@@ -490,7 +490,7 @@ impl DesktopWindowXamlSource {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Hosting'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<DesktopWindowXamlSource> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<DesktopWindowXamlSource> {
         Self::IDesktopWindowXamlSourceFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();

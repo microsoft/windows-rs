@@ -127,7 +127,7 @@ impl AcrylicBrush {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Media'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<AcrylicBrush> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<AcrylicBrush> {
         Self::IAcrylicBrushFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -11076,7 +11076,7 @@ impl RevealBackgroundBrush {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Media'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<RevealBackgroundBrush> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<RevealBackgroundBrush> {
         Self::IRevealBackgroundBrushFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -11275,7 +11275,7 @@ impl RevealBorderBrush {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Media'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<RevealBorderBrush> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<RevealBorderBrush> {
         Self::IRevealBorderBrushFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -12828,7 +12828,7 @@ impl ThemeShadow {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Media'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<ThemeShadow> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<ThemeShadow> {
         Self::IThemeShadowFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -14861,7 +14861,7 @@ impl XamlLight {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Media'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<XamlLight> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<XamlLight> {
         Self::IXamlLightFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();

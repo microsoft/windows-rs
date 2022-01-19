@@ -1237,7 +1237,7 @@ impl MarkupExtension {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Markup'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<MarkupExtension> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<MarkupExtension> {
         Self::IMarkupExtensionFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();

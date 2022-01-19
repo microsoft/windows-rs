@@ -1346,7 +1346,7 @@ impl CarouselPanel {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<CarouselPanel> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<CarouselPanel> {
         Self::ICarouselPanelFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1689,7 +1689,7 @@ impl ColorPickerSlider {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<ColorPickerSlider> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<ColorPickerSlider> {
         Self::IColorPickerSliderFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -2113,7 +2113,7 @@ impl ColorSpectrum {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<ColorSpectrum> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<ColorSpectrum> {
         Self::IColorSpectrumFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -2554,7 +2554,7 @@ impl CommandBarFlyoutCommandBar {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<CommandBarFlyoutCommandBar> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<CommandBarFlyoutCommandBar> {
         Self::ICommandBarFlyoutCommandBarFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -4650,7 +4650,7 @@ impl FlyoutShowOptions {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<FlyoutShowOptions> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<FlyoutShowOptions> {
         Self::IFlyoutShowOptionsFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -5209,7 +5209,7 @@ impl GridViewItemPresenter {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<GridViewItemPresenter> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<GridViewItemPresenter> {
         Self::IGridViewItemPresenterFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -10316,7 +10316,7 @@ impl ListViewItemPresenter {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<ListViewItemPresenter> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<ListViewItemPresenter> {
         Self::IListViewItemPresenterFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -12250,7 +12250,7 @@ impl NavigationViewItemPresenter {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<NavigationViewItemPresenter> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<NavigationViewItemPresenter> {
         Self::INavigationViewItemPresenterFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -13147,7 +13147,7 @@ impl PivotHeaderItem {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<PivotHeaderItem> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<PivotHeaderItem> {
         Self::IPivotHeaderItemFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -17686,7 +17686,7 @@ impl ToggleButton {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Primitives'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<ToggleButton> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<ToggleButton> {
         Self::IToggleButtonFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();

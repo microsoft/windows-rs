@@ -881,7 +881,7 @@ impl Path {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Shapes'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<Path> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<Path> {
         Self::IPathFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();

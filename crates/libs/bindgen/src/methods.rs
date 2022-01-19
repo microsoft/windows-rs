@@ -4,13 +4,13 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
     let signature = method.signature(&def.generics);
     let params = if kind == InterfaceKind::Composable { &signature.params[..signature.params.len() - 2] } else { &signature.params };
 
-    let name = if kind == InterfaceKind::Composable && signature.params.len() == 2 {
-        "new".into()
+    let (name, name_compose) = if kind == InterfaceKind::Composable && signature.params.len() == 2 {
+        ("new".into(), "compose".into())
     } else {
-        method_names.add(method)
+        let name = method_names.add(method);
+        let name_compose = name.join("_compose");
+        (name, name_compose)
     };
-
-    let name_compose = name.join("_compose");
 
     let vname = virtual_names.add(method);
 

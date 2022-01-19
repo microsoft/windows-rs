@@ -276,7 +276,7 @@ impl BasicConnectedAnimationConfiguration {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<BasicConnectedAnimationConfiguration> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<BasicConnectedAnimationConfiguration> {
         Self::IBasicConnectedAnimationConfigurationFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -2660,7 +2660,7 @@ impl DirectConnectedAnimationConfiguration {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<DirectConnectedAnimationConfiguration> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<DirectConnectedAnimationConfiguration> {
         Self::IDirectConnectedAnimationConfigurationFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -6754,7 +6754,7 @@ impl GravityConnectedAnimationConfiguration {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<GravityConnectedAnimationConfiguration> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<GravityConnectedAnimationConfiguration> {
         Self::IGravityConnectedAnimationConfigurationFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();

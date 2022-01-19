@@ -4417,7 +4417,7 @@ impl KeyboardAccelerator {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Input'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<KeyboardAccelerator> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<KeyboardAccelerator> {
         Self::IKeyboardAcceleratorFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -6002,7 +6002,7 @@ impl ManipulationStartedRoutedEventArgs {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Input'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<ManipulationStartedRoutedEventArgs> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<ManipulationStartedRoutedEventArgs> {
         Self::IManipulationStartedRoutedEventArgsFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -7126,7 +7126,7 @@ impl StandardUICommand {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Input'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<StandardUICommand> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<StandardUICommand> {
         Self::IStandardUICommandFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -7789,7 +7789,7 @@ impl XamlUICommand {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Input'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<XamlUICommand> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<XamlUICommand> {
         Self::IXamlUICommandFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();

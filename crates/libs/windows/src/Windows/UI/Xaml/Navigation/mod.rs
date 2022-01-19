@@ -39,7 +39,7 @@ impl FrameNavigationOptions {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<FrameNavigationOptions> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<FrameNavigationOptions> {
         Self::IFrameNavigationOptionsFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();

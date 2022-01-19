@@ -1853,7 +1853,7 @@ impl SvgImageSource {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<SvgImageSource> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<SvgImageSource> {
         Self::ISvgImageSourceFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();

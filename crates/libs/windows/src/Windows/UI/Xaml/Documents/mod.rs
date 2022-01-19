@@ -5371,7 +5371,7 @@ impl Span {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Documents'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<Span> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<Span> {
         Self::ISpanFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -6156,7 +6156,7 @@ impl TextHighlighter {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Documents'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<TextHighlighter> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<TextHighlighter> {
         Self::ITextHighlighterFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();

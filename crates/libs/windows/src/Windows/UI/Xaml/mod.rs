@@ -65,7 +65,7 @@ impl AdaptiveTrigger {
         })
     }
     #[doc = "*Required features: 'UI_Xaml'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<AdaptiveTrigger> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<AdaptiveTrigger> {
         Self::IAdaptiveTriggerFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -370,7 +370,7 @@ impl Application {
         })
     }
     #[doc = "*Required features: 'UI_Xaml'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<Application> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<Application> {
         Self::IApplicationFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1340,7 +1340,7 @@ impl BrushTransition {
         })
     }
     #[doc = "*Required features: 'UI_Xaml'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<BrushTransition> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<BrushTransition> {
         Self::IBrushTransitionFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1838,7 +1838,7 @@ impl ColorPaletteResources {
         })
     }
     #[doc = "*Required features: 'UI_Xaml'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<ColorPaletteResources> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<ColorPaletteResources> {
         Self::IColorPaletteResourcesFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -2426,7 +2426,7 @@ impl DataTemplate {
         })
     }
     #[doc = "*Required features: 'UI_Xaml'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<DataTemplate> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<DataTemplate> {
         Self::IDataTemplateFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -2630,7 +2630,7 @@ impl DataTemplateKey {
         })
     }
     #[doc = "*Required features: 'UI_Xaml'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<DataTemplateKey> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<DataTemplateKey> {
         Self::IDataTemplateKeyFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -3037,7 +3037,7 @@ impl DependencyObjectCollection {
     }
     #[doc = "*Required features: 'UI_Xaml', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<DependencyObjectCollection> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<DependencyObjectCollection> {
         Self::IDependencyObjectCollectionFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -3787,7 +3787,7 @@ impl DispatcherTimer {
         })
     }
     #[doc = "*Required features: 'UI_Xaml'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<DispatcherTimer> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<DispatcherTimer> {
         Self::IDispatcherTimerFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -5088,7 +5088,7 @@ impl ElementFactoryGetArgs {
         })
     }
     #[doc = "*Required features: 'UI_Xaml'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<ElementFactoryGetArgs> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<ElementFactoryGetArgs> {
         Self::IElementFactoryGetArgsFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -5207,7 +5207,7 @@ impl ElementFactoryRecycleArgs {
         })
     }
     #[doc = "*Required features: 'UI_Xaml'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<ElementFactoryRecycleArgs> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<ElementFactoryRecycleArgs> {
         Self::IElementFactoryRecycleArgsFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -12974,7 +12974,7 @@ impl ResourceDictionary {
         })
     }
     #[doc = "*Required features: 'UI_Xaml'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<ResourceDictionary> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<ResourceDictionary> {
         Self::IResourceDictionaryFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -13235,7 +13235,7 @@ impl RoutedEventArgs {
         })
     }
     #[doc = "*Required features: 'UI_Xaml'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<RoutedEventArgs> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<RoutedEventArgs> {
         Self::IRoutedEventArgsFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -13421,7 +13421,7 @@ impl ScalarTransition {
         })
     }
     #[doc = "*Required features: 'UI_Xaml'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<ScalarTransition> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<ScalarTransition> {
         Self::IScalarTransitionFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -18144,7 +18144,7 @@ impl UIElementWeakCollection {
         })
     }
     #[doc = "*Required features: 'UI_Xaml'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<UIElementWeakCollection> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<UIElementWeakCollection> {
         Self::IUIElementWeakCollectionFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -18600,7 +18600,7 @@ impl Vector3Transition {
         })
     }
     #[doc = "*Required features: 'UI_Xaml'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<Vector3Transition> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<Vector3Transition> {
         Self::IVector3TransitionFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -19311,7 +19311,7 @@ impl VisualStateManager {
         })
     }
     #[doc = "*Required features: 'UI_Xaml'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<VisualStateManager> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<VisualStateManager> {
         Self::IVisualStateManagerFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -19546,7 +19546,7 @@ impl VisualTransition {
         })
     }
     #[doc = "*Required features: 'UI_Xaml'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<VisualTransition> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<VisualTransition> {
         Self::IVisualTransitionFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();

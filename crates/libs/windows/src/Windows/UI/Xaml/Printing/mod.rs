@@ -743,7 +743,7 @@ impl PrintDocument {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Printing'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<PrintDocument> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<PrintDocument> {
         Self::IPrintDocumentFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();

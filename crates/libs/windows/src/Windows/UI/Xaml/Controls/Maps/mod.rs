@@ -26,7 +26,7 @@ impl CustomMapTileDataSource {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<CustomMapTileDataSource> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<CustomMapTileDataSource> {
         Self::ICustomMapTileDataSourceFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -209,7 +209,7 @@ impl HttpMapTileDataSource {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<HttpMapTileDataSource> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<HttpMapTileDataSource> {
         Self::IHttpMapTileDataSourceFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -2941,7 +2941,7 @@ impl LocalMapTileDataSource {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<LocalMapTileDataSource> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<LocalMapTileDataSource> {
         Self::ILocalMapTileDataSourceFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -6471,7 +6471,7 @@ impl MapCustomExperience {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<MapCustomExperience> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<MapCustomExperience> {
         Self::IMapCustomExperienceFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -6755,7 +6755,7 @@ impl MapElement {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<MapElement> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<MapElement> {
         Self::IMapElementFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -8740,7 +8740,7 @@ impl MapLayer {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<MapLayer> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<MapLayer> {
         Self::IMapLayerFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -8909,7 +8909,7 @@ impl MapModel3D {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<MapModel3D> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<MapModel3D> {
         Self::IMapModel3DFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -11105,7 +11105,7 @@ impl MapTileDataSource {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<MapTileDataSource> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<MapTileDataSource> {
         Self::IMapTileDataSourceFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -11458,7 +11458,7 @@ impl MapTileSource {
         })
     }
     #[doc = "*Required features: 'UI_Xaml_Controls_Maps'*"]
-    pub fn new_compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<MapTileSource> {
+    pub fn compose<T: ::windows::core::Compose>(compose: T) -> ::windows::core::Result<MapTileSource> {
         Self::IMapTileSourceFactory(|this| unsafe {
             let (derived__, base__) = ::windows::core::Compose::compose(compose);
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
