@@ -1,5 +1,5 @@
 use std::ffi::{OsStr, OsString};
-use test_pwstr::Windows::Win32::Foundation::PWSTR;
+use windows::Win32::Foundation::PWSTR;
 use windows::core::*;
 
 #[test]
