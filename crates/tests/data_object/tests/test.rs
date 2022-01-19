@@ -23,7 +23,7 @@ struct Test {
 impl IDataObject_Impl for Test {
     fn GetData(&mut self, _: *const FORMATETC) -> Result<STGMEDIUM> {
         self.GetData = true;
-        Ok(STGMEDIUM { tymed: 0, Anonymous: STGMEDIUM_0 { pstg: core::ptr::null_mut() }, pUnkForRelease: None })
+        Ok(STGMEDIUM::default())
     }
 
     fn GetDataHere(&mut self, _: *const FORMATETC, _: *mut STGMEDIUM) -> Result<()> {
@@ -78,8 +78,6 @@ fn test() -> Result<()> {
         d.SetData(core::ptr::null_mut(), core::ptr::null_mut(), false)?;
         let _ = d.EnumFormatEtc(0);
         d.DAdvise(core::ptr::null_mut(), 0, None)?;
-        d.DUnadvise(0)?;
-        let _ = d.EnumDAdvise();
 
         let i = Test::to_impl(&d);
         assert!(i.GetData);
@@ -89,6 +87,13 @@ fn test() -> Result<()> {
         assert!(i.SetData);
         assert!(i.EnumFormatEtc);
         assert!(i.DAdvise);
+
+        assert!(!i.DUnadvise);
+        assert!(!i.EnumDAdvise);
+
+        d.DUnadvise(0)?;
+        let _ = d.EnumDAdvise();
+
         assert!(i.DUnadvise);
         assert!(i.EnumDAdvise);
 

@@ -42,7 +42,7 @@ pub fn gen(attributes: proc_macro::TokenStream, original_type: proc_macro::Token
         }
     });
 
-    let froms = attributes.implement.iter().enumerate().map(|(enumerate, implement)| {
+    let conversions = attributes.implement.iter().enumerate().map(|(enumerate, implement)| {
         let interface_ident = implement.to_ident();
         let offset: TokenStream = format!("{}", enumerate).into();
         quote! {
@@ -57,6 +57,13 @@ pub fn gen(attributes: proc_macro::TokenStream, original_type: proc_macro::Token
                     }
                 }
             }
+            impl ::windows::core::ToImpl<#interface_ident> for #original_ident {
+                unsafe fn to_impl(interface: &#interface_ident) -> &mut Self {
+                    let this: ::windows::core::RawPtr = ::core::mem::transmute_copy(interface);
+                    let this = (this as *mut ::windows::core::RawPtr).sub(2 + #offset) as *mut #impl_ident;
+                    &mut (*this).this
+                }
+            }
         }
     });
 
@@ -65,7 +72,7 @@ pub fn gen(attributes: proc_macro::TokenStream, original_type: proc_macro::Token
             base: ::core::option::Option<::windows::core::IInspectable>,
             identity: *const ::windows::core::IInspectableVtbl,
             vtables: (#(*const #vtbl_idents,)*),
-            _this: #original_ident,
+            this: #original_ident,
             count: ::windows::core::WeakRefCount,
         }
         impl #impl_ident {
@@ -76,7 +83,7 @@ pub fn gen(attributes: proc_macro::TokenStream, original_type: proc_macro::Token
                     base: ::core::option::Option::None,
                     identity: &Self::IDENTITY,
                     vtables:(#(&Self::VTABLES.#vtbl_count,)*),
-                    _this: this,
+                    this,
                     count: ::windows::core::WeakRefCount::new(),
                 }
             }
@@ -152,7 +159,7 @@ pub fn gen(attributes: proc_macro::TokenStream, original_type: proc_macro::Token
                 }
             }
         }
-        #(#froms)*
+        #(#conversions)*
     };
 
     let mut tokens = tokens.parse::<proc_macro::TokenStream>().unwrap();
