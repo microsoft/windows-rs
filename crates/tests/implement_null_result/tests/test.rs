@@ -1,13 +1,12 @@
-use test_implement_null_result::*;
 use windows::core::*;
-use Windows::Win32::Foundation::S_OK;
-use Windows::UI::Xaml::Markup::{IXamlType, IXamlType2};
+use windows::Win32::Foundation::S_OK;
+use windows::UI::Xaml::Markup::{IXamlType, IXamlType2, IXamlType2_Impl};
 
-#[implement(Windows::UI::Xaml::Markup::IXamlType2)]
+#[implement(IXamlType2)]
 struct Test();
 
 #[allow(non_snake_case)]
-impl Test {
+impl IXamlType2_Impl for Test {
     fn BoxedType(&self) -> Result<IXamlType> {
         Err(Error::OK)
     }
