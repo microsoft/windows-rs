@@ -35,8 +35,9 @@ pub fn gen_interface_trait(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
     let cfg = cfg.gen(gen);
     if let Some(default) = def.default_interface() {
         let name = gen_type_ident(def, gen);
+        let default_name = gen_type_ident(default, gen);
         let vtbl = gen_vtbl_ident(&default, gen);
-        let guid = gen_type_guid(&default, gen, &"Self".into());
+        let guid = gen_type_guid(&default, gen, &default_name);
         let namespace = gen.namespace(default.namespace());
 
         quote! {

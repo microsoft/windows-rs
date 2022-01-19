@@ -1,10 +1,9 @@
-use test_interop::{
-    Windows::Foundation::Collections::StringMap,
-    Windows::Win32::System::Com::{CoInitializeEx, COINIT_MULTITHREADED},
-    Windows::Win32::System::WinRT::RoActivateInstance,
+use windows::{
+    core::{Interface, Result},
+    Foundation::Collections::StringMap,
+    Win32::System::Com::{CoInitializeEx, COINIT_MULTITHREADED},
+    Win32::System::WinRT::RoActivateInstance,
 };
-
-use windows::core::{Interface, Result};
 
 // Calling RoActivateInstance is a useful interop test because it is a function defined by Win32 metadata
 // but refers to three types that are intrinsic to WinRT and thus directly mapped to type in the Windows
