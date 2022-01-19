@@ -1,4 +1,4 @@
-#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
 pub trait IStorageFile_Impl: Sized + Streams::IInputStreamReference_Impl + Streams::IRandomAccessStreamReference_Impl + IStorageItem_Impl {
     fn FileType(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
     fn ContentType(&mut self) -> ::windows::core::Result<::windows::core::HSTRING>;
@@ -13,11 +13,11 @@ pub trait IStorageFile_Impl: Sized + Streams::IInputStreamReference_Impl + Strea
     fn MoveOverload(&mut self, destinationfolder: &::core::option::Option<IStorageFolder>, desirednewname: &::windows::core::HSTRING, option: NameCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
     fn MoveAndReplaceAsync(&mut self, filetoreplace: &::core::option::Option<IStorageFile>) -> ::windows::core::Result<super::Foundation::IAsyncAction>;
 }
-#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
 impl ::windows::core::RuntimeName for IStorageFile {
     const NAME: &'static str = "Windows.Storage.IStorageFile";
 }
-#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
+#[cfg(all(feature = "Foundation", feature = "Storage_FileProperties", feature = "Storage_Streams"))]
 impl IStorageFile_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageFile_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageFile_Vtbl {
         unsafe extern "system" fn FileType<Impl: IStorageFile_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT {
@@ -244,7 +244,7 @@ impl IStorageFilePropertiesWithAvailability_Vtbl {
         iid == &<IStorageFilePropertiesWithAvailability as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_FileProperties"))]
 pub trait IStorageFolder_Impl: Sized + IStorageItem_Impl {
     fn CreateFileAsyncOverloadDefaultOptions(&mut self, desiredname: &::windows::core::HSTRING) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
     fn CreateFileAsync(&mut self, desiredname: &::windows::core::HSTRING, options: CreationCollisionOption) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFile>>;
@@ -257,11 +257,11 @@ pub trait IStorageFolder_Impl: Sized + IStorageItem_Impl {
     fn GetFoldersAsyncOverloadDefaultOptionsStartAndCount(&mut self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<StorageFolder>>>;
     fn GetItemsAsyncOverloadDefaultStartAndCount(&mut self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Foundation::Collections::IVectorView<IStorageItem>>>;
 }
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_FileProperties"))]
 impl ::windows::core::RuntimeName for IStorageFolder {
     const NAME: &'static str = "Windows.Storage.IStorageFolder";
 }
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_FileProperties"))]
 impl IStorageFolder_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageFolder_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageFolder_Vtbl {
         unsafe extern "system" fn CreateFileAsyncOverloadDefaultOptions<Impl: IStorageFolder_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, desiredname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
@@ -568,16 +568,16 @@ impl IStorageItem_Vtbl {
         iid == &<IStorageItem as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Storage_FileProperties"))]
 pub trait IStorageItem2_Impl: Sized + IStorageItem_Impl {
     fn GetParentAsync(&mut self) -> ::windows::core::Result<super::Foundation::IAsyncOperation<StorageFolder>>;
     fn IsEqual(&mut self, item: &::core::option::Option<IStorageItem>) -> ::windows::core::Result<bool>;
 }
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Storage_FileProperties"))]
 impl ::windows::core::RuntimeName for IStorageItem2 {
     const NAME: &'static str = "Windows.Storage.IStorageItem2";
 }
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Storage_FileProperties"))]
 impl IStorageItem2_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageItem2_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageItem2_Vtbl {
         unsafe extern "system" fn GetParentAsync<Impl: IStorageItem2_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {

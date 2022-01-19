@@ -86,7 +86,7 @@ impl IIndexableContent_Vtbl {
         iid == &<IIndexableContent as ::windows::core::Interface>::IID
     }
 }
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 pub trait IStorageFolderQueryOperations_Impl: Sized {
     fn GetIndexedStateAsync(&mut self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<IndexedState>>;
     fn CreateFileQueryOverloadDefault(&mut self) -> ::windows::core::Result<StorageFileQueryResult>;
@@ -106,11 +106,11 @@ pub trait IStorageFolderQueryOperations_Impl: Sized {
     fn IsCommonFolderQuerySupported(&mut self, query: CommonFolderQuery) -> ::windows::core::Result<bool>;
     fn IsCommonFileQuerySupported(&mut self, query: CommonFileQuery) -> ::windows::core::Result<bool>;
 }
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl ::windows::core::RuntimeName for IStorageFolderQueryOperations {
     const NAME: &'static str = "Windows.Storage.Search.IStorageFolderQueryOperations";
 }
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl IStorageFolderQueryOperations_Vtbl {
     pub const fn new<Identity: ::windows::core::IUnknownImpl, Impl: IStorageFolderQueryOperations_Impl, const BASE_OFFSET: isize, const IMPL_OFFSET: isize>() -> IStorageFolderQueryOperations_Vtbl {
         unsafe extern "system" fn GetIndexedStateAsync<Impl: IStorageFolderQueryOperations_Impl, const OFFSET: isize>(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT {
