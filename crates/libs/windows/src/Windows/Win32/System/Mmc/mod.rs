@@ -112,63 +112,155 @@ pub struct AppEvents_Vtbl {
 pub const AppEventsDHTMLConnector: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xade6444b_c91f_4e37_92a4_5bb430a33340);
 pub const Application: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49b2791a_b1ae_4c90_9b8e_e860ba07f889);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub type CCM_COMMANDID_MASK_CONSTANTS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CCM_COMMANDID_MASK_CONSTANTS(pub u32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const CCM_COMMANDID_MASK_RESERVED: CCM_COMMANDID_MASK_CONSTANTS = 4294901760u32;
+pub const CCM_COMMANDID_MASK_RESERVED: CCM_COMMANDID_MASK_CONSTANTS = CCM_COMMANDID_MASK_CONSTANTS(4294901760u32);
+impl ::core::marker::Copy for CCM_COMMANDID_MASK_CONSTANTS {}
+impl ::core::clone::Clone for CCM_COMMANDID_MASK_CONSTANTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CCM_COMMANDID_MASK_CONSTANTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CCM_COMMANDID_MASK_CONSTANTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CCM_COMMANDID_MASK_CONSTANTS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CCM_COMMANDID_MASK_CONSTANTS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CCM_COMMANDID_MASK_CONSTANTS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CCM_COMMANDID_MASK_CONSTANTS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CCM_COMMANDID_MASK_CONSTANTS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CCM_COMMANDID_MASK_CONSTANTS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub type CCM_INSERTIONALLOWED = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CCM_INSERTIONALLOWED(pub i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const CCM_INSERTIONALLOWED_TOP: CCM_INSERTIONALLOWED = 1i32;
+pub const CCM_INSERTIONALLOWED_TOP: CCM_INSERTIONALLOWED = CCM_INSERTIONALLOWED(1i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const CCM_INSERTIONALLOWED_NEW: CCM_INSERTIONALLOWED = 2i32;
+pub const CCM_INSERTIONALLOWED_NEW: CCM_INSERTIONALLOWED = CCM_INSERTIONALLOWED(2i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const CCM_INSERTIONALLOWED_TASK: CCM_INSERTIONALLOWED = 4i32;
+pub const CCM_INSERTIONALLOWED_TASK: CCM_INSERTIONALLOWED = CCM_INSERTIONALLOWED(4i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const CCM_INSERTIONALLOWED_VIEW: CCM_INSERTIONALLOWED = 8i32;
+pub const CCM_INSERTIONALLOWED_VIEW: CCM_INSERTIONALLOWED = CCM_INSERTIONALLOWED(8i32);
+impl ::core::marker::Copy for CCM_INSERTIONALLOWED {}
+impl ::core::clone::Clone for CCM_INSERTIONALLOWED {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CCM_INSERTIONALLOWED {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CCM_INSERTIONALLOWED {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CCM_INSERTIONALLOWED").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub type CCM_INSERTIONPOINTID = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CCM_INSERTIONPOINTID(pub i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const CCM_INSERTIONPOINTID_MASK_SPECIAL: CCM_INSERTIONPOINTID = -65536i32;
+pub const CCM_INSERTIONPOINTID_MASK_SPECIAL: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(-65536i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const CCM_INSERTIONPOINTID_MASK_SHARED: CCM_INSERTIONPOINTID = -2147483648i32;
+pub const CCM_INSERTIONPOINTID_MASK_SHARED: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(-2147483648i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const CCM_INSERTIONPOINTID_MASK_CREATE_PRIMARY: CCM_INSERTIONPOINTID = 1073741824i32;
+pub const CCM_INSERTIONPOINTID_MASK_CREATE_PRIMARY: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(1073741824i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const CCM_INSERTIONPOINTID_MASK_ADD_PRIMARY: CCM_INSERTIONPOINTID = 536870912i32;
+pub const CCM_INSERTIONPOINTID_MASK_ADD_PRIMARY: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(536870912i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const CCM_INSERTIONPOINTID_MASK_ADD_3RDPARTY: CCM_INSERTIONPOINTID = 268435456i32;
+pub const CCM_INSERTIONPOINTID_MASK_ADD_3RDPARTY: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(268435456i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const CCM_INSERTIONPOINTID_MASK_RESERVED: CCM_INSERTIONPOINTID = 268369920i32;
+pub const CCM_INSERTIONPOINTID_MASK_RESERVED: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(268369920i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const CCM_INSERTIONPOINTID_MASK_FLAGINDEX: CCM_INSERTIONPOINTID = 31i32;
+pub const CCM_INSERTIONPOINTID_MASK_FLAGINDEX: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(31i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const CCM_INSERTIONPOINTID_PRIMARY_TOP: CCM_INSERTIONPOINTID = -1610612736i32;
+pub const CCM_INSERTIONPOINTID_PRIMARY_TOP: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(-1610612736i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const CCM_INSERTIONPOINTID_PRIMARY_NEW: CCM_INSERTIONPOINTID = -1610612735i32;
+pub const CCM_INSERTIONPOINTID_PRIMARY_NEW: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(-1610612735i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const CCM_INSERTIONPOINTID_PRIMARY_TASK: CCM_INSERTIONPOINTID = -1610612734i32;
+pub const CCM_INSERTIONPOINTID_PRIMARY_TASK: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(-1610612734i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const CCM_INSERTIONPOINTID_PRIMARY_VIEW: CCM_INSERTIONPOINTID = -1610612733i32;
+pub const CCM_INSERTIONPOINTID_PRIMARY_VIEW: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(-1610612733i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const CCM_INSERTIONPOINTID_PRIMARY_HELP: CCM_INSERTIONPOINTID = -1610612732i32;
+pub const CCM_INSERTIONPOINTID_PRIMARY_HELP: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(-1610612732i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const CCM_INSERTIONPOINTID_3RDPARTY_NEW: CCM_INSERTIONPOINTID = -1879048191i32;
+pub const CCM_INSERTIONPOINTID_3RDPARTY_NEW: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(-1879048191i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const CCM_INSERTIONPOINTID_3RDPARTY_TASK: CCM_INSERTIONPOINTID = -1879048190i32;
+pub const CCM_INSERTIONPOINTID_3RDPARTY_TASK: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(-1879048190i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const CCM_INSERTIONPOINTID_ROOT_MENU: CCM_INSERTIONPOINTID = -2147483648i32;
+pub const CCM_INSERTIONPOINTID_ROOT_MENU: CCM_INSERTIONPOINTID = CCM_INSERTIONPOINTID(-2147483648i32);
+impl ::core::marker::Copy for CCM_INSERTIONPOINTID {}
+impl ::core::clone::Clone for CCM_INSERTIONPOINTID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CCM_INSERTIONPOINTID {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CCM_INSERTIONPOINTID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CCM_INSERTIONPOINTID").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub type CCM_SPECIAL = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CCM_SPECIAL(pub i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const CCM_SPECIAL_SEPARATOR: CCM_SPECIAL = 1i32;
+pub const CCM_SPECIAL_SEPARATOR: CCM_SPECIAL = CCM_SPECIAL(1i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const CCM_SPECIAL_SUBMENU: CCM_SPECIAL = 2i32;
+pub const CCM_SPECIAL_SUBMENU: CCM_SPECIAL = CCM_SPECIAL(2i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const CCM_SPECIAL_DEFAULT_ITEM: CCM_SPECIAL = 4i32;
+pub const CCM_SPECIAL_DEFAULT_ITEM: CCM_SPECIAL = CCM_SPECIAL(4i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const CCM_SPECIAL_INSERTION_POINT: CCM_SPECIAL = 8i32;
+pub const CCM_SPECIAL_INSERTION_POINT: CCM_SPECIAL = CCM_SPECIAL(8i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const CCM_SPECIAL_TESTONLY: CCM_SPECIAL = 16i32;
+pub const CCM_SPECIAL_TESTONLY: CCM_SPECIAL = CCM_SPECIAL(16i32);
+impl ::core::marker::Copy for CCM_SPECIAL {}
+impl ::core::clone::Clone for CCM_SPECIAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CCM_SPECIAL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CCM_SPECIAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CCM_SPECIAL").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Mmc', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -692,15 +784,31 @@ pub struct ContextMenu_Vtbl {
     pub Count: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut i32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub type DATA_OBJECT_TYPES = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DATA_OBJECT_TYPES(pub i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const CCT_SCOPE: DATA_OBJECT_TYPES = 32768i32;
+pub const CCT_SCOPE: DATA_OBJECT_TYPES = DATA_OBJECT_TYPES(32768i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const CCT_RESULT: DATA_OBJECT_TYPES = 32769i32;
+pub const CCT_RESULT: DATA_OBJECT_TYPES = DATA_OBJECT_TYPES(32769i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const CCT_SNAPIN_MANAGER: DATA_OBJECT_TYPES = 32770i32;
+pub const CCT_SNAPIN_MANAGER: DATA_OBJECT_TYPES = DATA_OBJECT_TYPES(32770i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const CCT_UNINITIALIZED: DATA_OBJECT_TYPES = 65535i32;
+pub const CCT_UNINITIALIZED: DATA_OBJECT_TYPES = DATA_OBJECT_TYPES(65535i32);
+impl ::core::marker::Copy for DATA_OBJECT_TYPES {}
+impl ::core::clone::Clone for DATA_OBJECT_TYPES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DATA_OBJECT_TYPES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DATA_OBJECT_TYPES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DATA_OBJECT_TYPES").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Mmc', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
@@ -5561,21 +5669,37 @@ pub struct IViewExtensionCallback_Vtbl {
     AddView: usize,
 }
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub type IconIdentifier = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct IconIdentifier(pub i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const Icon_None: IconIdentifier = 0i32;
+pub const Icon_None: IconIdentifier = IconIdentifier(0i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const Icon_Error: IconIdentifier = 32513i32;
+pub const Icon_Error: IconIdentifier = IconIdentifier(32513i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const Icon_Question: IconIdentifier = 32514i32;
+pub const Icon_Question: IconIdentifier = IconIdentifier(32514i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const Icon_Warning: IconIdentifier = 32515i32;
+pub const Icon_Warning: IconIdentifier = IconIdentifier(32515i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const Icon_Information: IconIdentifier = 32516i32;
+pub const Icon_Information: IconIdentifier = IconIdentifier(32516i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const Icon_First: IconIdentifier = 32513i32;
+pub const Icon_First: IconIdentifier = IconIdentifier(32513i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const Icon_Last: IconIdentifier = 32516i32;
+pub const Icon_Last: IconIdentifier = IconIdentifier(32516i32);
+impl ::core::marker::Copy for IconIdentifier {}
+impl ::core::clone::Clone for IconIdentifier {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for IconIdentifier {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IconIdentifier {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IconIdentifier").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub struct MENUBUTTONDATA {
@@ -5675,27 +5799,59 @@ pub const MMCLV_VIEWSTYLE_REPORT: u32 = 1u32;
 pub const MMCLV_VIEWSTYLE_SMALLICON: u32 = 2u32;
 pub const MMCVersionInfo: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6fedb1d_cf21_4bd9_af3b_c5468e9c6684);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub type MMC_ACTION_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MMC_ACTION_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMC_ACTION_UNINITIALIZED: MMC_ACTION_TYPE = -1i32;
+pub const MMC_ACTION_UNINITIALIZED: MMC_ACTION_TYPE = MMC_ACTION_TYPE(-1i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMC_ACTION_ID: MMC_ACTION_TYPE = 0i32;
+pub const MMC_ACTION_ID: MMC_ACTION_TYPE = MMC_ACTION_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMC_ACTION_LINK: MMC_ACTION_TYPE = 1i32;
+pub const MMC_ACTION_LINK: MMC_ACTION_TYPE = MMC_ACTION_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMC_ACTION_SCRIPT: MMC_ACTION_TYPE = 2i32;
+pub const MMC_ACTION_SCRIPT: MMC_ACTION_TYPE = MMC_ACTION_TYPE(2i32);
+impl ::core::marker::Copy for MMC_ACTION_TYPE {}
+impl ::core::clone::Clone for MMC_ACTION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MMC_ACTION_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MMC_ACTION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MMC_ACTION_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub type MMC_BUTTON_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MMC_BUTTON_STATE(pub i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const ENABLED: MMC_BUTTON_STATE = 1i32;
+pub const ENABLED: MMC_BUTTON_STATE = MMC_BUTTON_STATE(1i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const CHECKED: MMC_BUTTON_STATE = 2i32;
+pub const CHECKED: MMC_BUTTON_STATE = MMC_BUTTON_STATE(2i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const HIDDEN: MMC_BUTTON_STATE = 4i32;
+pub const HIDDEN: MMC_BUTTON_STATE = MMC_BUTTON_STATE(4i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const INDETERMINATE: MMC_BUTTON_STATE = 8i32;
+pub const INDETERMINATE: MMC_BUTTON_STATE = MMC_BUTTON_STATE(8i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const BUTTONPRESSED: MMC_BUTTON_STATE = 16i32;
+pub const BUTTONPRESSED: MMC_BUTTON_STATE = MMC_BUTTON_STATE(16i32);
+impl ::core::marker::Copy for MMC_BUTTON_STATE {}
+impl ::core::clone::Clone for MMC_BUTTON_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MMC_BUTTON_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MMC_BUTTON_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MMC_BUTTON_STATE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub struct MMC_COLUMN_DATA {
@@ -5762,41 +5918,73 @@ impl ::core::default::Default for MMC_COLUMN_SET_DATA {
     }
 }
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub type MMC_CONSOLE_VERB = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MMC_CONSOLE_VERB(pub i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMC_VERB_NONE: MMC_CONSOLE_VERB = 0i32;
+pub const MMC_VERB_NONE: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(0i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMC_VERB_OPEN: MMC_CONSOLE_VERB = 32768i32;
+pub const MMC_VERB_OPEN: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(32768i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMC_VERB_COPY: MMC_CONSOLE_VERB = 32769i32;
+pub const MMC_VERB_COPY: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(32769i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMC_VERB_PASTE: MMC_CONSOLE_VERB = 32770i32;
+pub const MMC_VERB_PASTE: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(32770i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMC_VERB_DELETE: MMC_CONSOLE_VERB = 32771i32;
+pub const MMC_VERB_DELETE: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(32771i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMC_VERB_PROPERTIES: MMC_CONSOLE_VERB = 32772i32;
+pub const MMC_VERB_PROPERTIES: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(32772i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMC_VERB_RENAME: MMC_CONSOLE_VERB = 32773i32;
+pub const MMC_VERB_RENAME: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(32773i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMC_VERB_REFRESH: MMC_CONSOLE_VERB = 32774i32;
+pub const MMC_VERB_REFRESH: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(32774i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMC_VERB_PRINT: MMC_CONSOLE_VERB = 32775i32;
+pub const MMC_VERB_PRINT: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(32775i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMC_VERB_CUT: MMC_CONSOLE_VERB = 32776i32;
+pub const MMC_VERB_CUT: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(32776i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMC_VERB_MAX: MMC_CONSOLE_VERB = 32777i32;
+pub const MMC_VERB_MAX: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(32777i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMC_VERB_FIRST: MMC_CONSOLE_VERB = 32768i32;
+pub const MMC_VERB_FIRST: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(32768i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMC_VERB_LAST: MMC_CONSOLE_VERB = 32776i32;
+pub const MMC_VERB_LAST: MMC_CONSOLE_VERB = MMC_CONSOLE_VERB(32776i32);
+impl ::core::marker::Copy for MMC_CONSOLE_VERB {}
+impl ::core::clone::Clone for MMC_CONSOLE_VERB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MMC_CONSOLE_VERB {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MMC_CONSOLE_VERB {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MMC_CONSOLE_VERB").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub type MMC_CONTROL_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MMC_CONTROL_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const TOOLBAR: MMC_CONTROL_TYPE = 0i32;
+pub const TOOLBAR: MMC_CONTROL_TYPE = MMC_CONTROL_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MENUBUTTON: MMC_CONTROL_TYPE = 1i32;
+pub const MENUBUTTON: MMC_CONTROL_TYPE = MMC_CONTROL_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const COMBOBOXBAR: MMC_CONTROL_TYPE = 2i32;
+pub const COMBOBOXBAR: MMC_CONTROL_TYPE = MMC_CONTROL_TYPE(2i32);
+impl ::core::marker::Copy for MMC_CONTROL_TYPE {}
+impl ::core::clone::Clone for MMC_CONTROL_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MMC_CONTROL_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MMC_CONTROL_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MMC_CONTROL_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_DEFAULT_OPERATION_COPY: u32 = 1u32;
 #[repr(C)]
@@ -5922,21 +6110,53 @@ impl ::core::default::Default for MMC_FILTERDATA {
     }
 }
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub type MMC_FILTER_CHANGE_CODE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MMC_FILTER_CHANGE_CODE(pub i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MFCC_DISABLE: MMC_FILTER_CHANGE_CODE = 0i32;
+pub const MFCC_DISABLE: MMC_FILTER_CHANGE_CODE = MMC_FILTER_CHANGE_CODE(0i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MFCC_ENABLE: MMC_FILTER_CHANGE_CODE = 1i32;
+pub const MFCC_ENABLE: MMC_FILTER_CHANGE_CODE = MMC_FILTER_CHANGE_CODE(1i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MFCC_VALUE_CHANGE: MMC_FILTER_CHANGE_CODE = 2i32;
+pub const MFCC_VALUE_CHANGE: MMC_FILTER_CHANGE_CODE = MMC_FILTER_CHANGE_CODE(2i32);
+impl ::core::marker::Copy for MMC_FILTER_CHANGE_CODE {}
+impl ::core::clone::Clone for MMC_FILTER_CHANGE_CODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MMC_FILTER_CHANGE_CODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MMC_FILTER_CHANGE_CODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MMC_FILTER_CHANGE_CODE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub type MMC_FILTER_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MMC_FILTER_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMC_STRING_FILTER: MMC_FILTER_TYPE = 0i32;
+pub const MMC_STRING_FILTER: MMC_FILTER_TYPE = MMC_FILTER_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMC_INT_FILTER: MMC_FILTER_TYPE = 1i32;
+pub const MMC_INT_FILTER: MMC_FILTER_TYPE = MMC_FILTER_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMC_FILTER_NOVALUE: MMC_FILTER_TYPE = 32768i32;
+pub const MMC_FILTER_NOVALUE: MMC_FILTER_TYPE = MMC_FILTER_TYPE(32768i32);
+impl ::core::marker::Copy for MMC_FILTER_TYPE {}
+impl ::core::clone::Clone for MMC_FILTER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MMC_FILTER_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MMC_FILTER_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MMC_FILTER_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_IMAGECALLBACK: i32 = -1i32;
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
@@ -5986,85 +6206,117 @@ impl ::core::default::Default for MMC_LISTPAD_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub type MMC_MENU_COMMAND_IDS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MMC_MENU_COMMAND_IDS(pub i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMCC_STANDARD_VIEW_SELECT: MMC_MENU_COMMAND_IDS = -1i32;
+pub const MMCC_STANDARD_VIEW_SELECT: MMC_MENU_COMMAND_IDS = MMC_MENU_COMMAND_IDS(-1i32);
+impl ::core::marker::Copy for MMC_MENU_COMMAND_IDS {}
+impl ::core::clone::Clone for MMC_MENU_COMMAND_IDS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MMC_MENU_COMMAND_IDS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MMC_MENU_COMMAND_IDS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MMC_MENU_COMMAND_IDS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_MULTI_SELECT_COOKIE: i32 = -2i32;
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_NODEID_SLOW_RETRIEVAL: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub type MMC_NOTIFY_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MMC_NOTIFY_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMCN_ACTIVATE: MMC_NOTIFY_TYPE = 32769i32;
+pub const MMCN_ACTIVATE: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32769i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMCN_ADD_IMAGES: MMC_NOTIFY_TYPE = 32770i32;
+pub const MMCN_ADD_IMAGES: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32770i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMCN_BTN_CLICK: MMC_NOTIFY_TYPE = 32771i32;
+pub const MMCN_BTN_CLICK: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32771i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMCN_CLICK: MMC_NOTIFY_TYPE = 32772i32;
+pub const MMCN_CLICK: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32772i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMCN_COLUMN_CLICK: MMC_NOTIFY_TYPE = 32773i32;
+pub const MMCN_COLUMN_CLICK: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32773i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMCN_CONTEXTMENU: MMC_NOTIFY_TYPE = 32774i32;
+pub const MMCN_CONTEXTMENU: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32774i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMCN_CUTORMOVE: MMC_NOTIFY_TYPE = 32775i32;
+pub const MMCN_CUTORMOVE: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32775i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMCN_DBLCLICK: MMC_NOTIFY_TYPE = 32776i32;
+pub const MMCN_DBLCLICK: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32776i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMCN_DELETE: MMC_NOTIFY_TYPE = 32777i32;
+pub const MMCN_DELETE: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32777i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMCN_DESELECT_ALL: MMC_NOTIFY_TYPE = 32778i32;
+pub const MMCN_DESELECT_ALL: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32778i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMCN_EXPAND: MMC_NOTIFY_TYPE = 32779i32;
+pub const MMCN_EXPAND: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32779i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMCN_HELP: MMC_NOTIFY_TYPE = 32780i32;
+pub const MMCN_HELP: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32780i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMCN_MENU_BTNCLICK: MMC_NOTIFY_TYPE = 32781i32;
+pub const MMCN_MENU_BTNCLICK: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32781i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMCN_MINIMIZED: MMC_NOTIFY_TYPE = 32782i32;
+pub const MMCN_MINIMIZED: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32782i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMCN_PASTE: MMC_NOTIFY_TYPE = 32783i32;
+pub const MMCN_PASTE: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32783i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMCN_PROPERTY_CHANGE: MMC_NOTIFY_TYPE = 32784i32;
+pub const MMCN_PROPERTY_CHANGE: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32784i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMCN_QUERY_PASTE: MMC_NOTIFY_TYPE = 32785i32;
+pub const MMCN_QUERY_PASTE: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32785i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMCN_REFRESH: MMC_NOTIFY_TYPE = 32786i32;
+pub const MMCN_REFRESH: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32786i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMCN_REMOVE_CHILDREN: MMC_NOTIFY_TYPE = 32787i32;
+pub const MMCN_REMOVE_CHILDREN: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32787i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMCN_RENAME: MMC_NOTIFY_TYPE = 32788i32;
+pub const MMCN_RENAME: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32788i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMCN_SELECT: MMC_NOTIFY_TYPE = 32789i32;
+pub const MMCN_SELECT: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32789i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMCN_SHOW: MMC_NOTIFY_TYPE = 32790i32;
+pub const MMCN_SHOW: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32790i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMCN_VIEW_CHANGE: MMC_NOTIFY_TYPE = 32791i32;
+pub const MMCN_VIEW_CHANGE: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32791i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMCN_SNAPINHELP: MMC_NOTIFY_TYPE = 32792i32;
+pub const MMCN_SNAPINHELP: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32792i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMCN_CONTEXTHELP: MMC_NOTIFY_TYPE = 32793i32;
+pub const MMCN_CONTEXTHELP: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32793i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMCN_INITOCX: MMC_NOTIFY_TYPE = 32794i32;
+pub const MMCN_INITOCX: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32794i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMCN_FILTER_CHANGE: MMC_NOTIFY_TYPE = 32795i32;
+pub const MMCN_FILTER_CHANGE: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32795i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMCN_FILTERBTN_CLICK: MMC_NOTIFY_TYPE = 32796i32;
+pub const MMCN_FILTERBTN_CLICK: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32796i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMCN_RESTORE_VIEW: MMC_NOTIFY_TYPE = 32797i32;
+pub const MMCN_RESTORE_VIEW: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32797i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMCN_PRINT: MMC_NOTIFY_TYPE = 32798i32;
+pub const MMCN_PRINT: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32798i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMCN_PRELOAD: MMC_NOTIFY_TYPE = 32799i32;
+pub const MMCN_PRELOAD: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32799i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMCN_LISTPAD: MMC_NOTIFY_TYPE = 32800i32;
+pub const MMCN_LISTPAD: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32800i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMCN_EXPANDSYNC: MMC_NOTIFY_TYPE = 32801i32;
+pub const MMCN_EXPANDSYNC: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32801i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMCN_COLUMNS_CHANGED: MMC_NOTIFY_TYPE = 32802i32;
+pub const MMCN_COLUMNS_CHANGED: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32802i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMCN_CANPASTE_OUTOFPROC: MMC_NOTIFY_TYPE = 32803i32;
+pub const MMCN_CANPASTE_OUTOFPROC: MMC_NOTIFY_TYPE = MMC_NOTIFY_TYPE(32803i32);
+impl ::core::marker::Copy for MMC_NOTIFY_TYPE {}
+impl ::core::clone::Clone for MMC_NOTIFY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MMC_NOTIFY_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MMC_NOTIFY_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MMC_NOTIFY_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_NW_OPTION_CUSTOMTITLE: u32 = 8u32;
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
@@ -6080,13 +6332,29 @@ pub const MMC_NW_OPTION_NOTOOLBARS: u32 = 2u32;
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_NW_OPTION_SHORTTITLE: u32 = 4u32;
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub type MMC_PROPERTY_ACTION = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MMC_PROPERTY_ACTION(pub i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMC_PROPACT_DELETING: MMC_PROPERTY_ACTION = 1i32;
+pub const MMC_PROPACT_DELETING: MMC_PROPERTY_ACTION = MMC_PROPERTY_ACTION(1i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMC_PROPACT_CHANGING: MMC_PROPERTY_ACTION = 2i32;
+pub const MMC_PROPACT_CHANGING: MMC_PROPERTY_ACTION = MMC_PROPERTY_ACTION(2i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMC_PROPACT_INITIALIZED: MMC_PROPERTY_ACTION = 3i32;
+pub const MMC_PROPACT_INITIALIZED: MMC_PROPERTY_ACTION = MMC_PROPERTY_ACTION(3i32);
+impl ::core::marker::Copy for MMC_PROPERTY_ACTION {}
+impl ::core::clone::Clone for MMC_PROPERTY_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MMC_PROPERTY_ACTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MMC_PROPERTY_ACTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MMC_PROPERTY_ACTION").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_PROP_CHANGEAFFECTSUI: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
@@ -6145,23 +6413,55 @@ impl ::core::default::Default for MMC_RESTORE_VIEW {
     }
 }
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub type MMC_RESULT_VIEW_STYLE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MMC_RESULT_VIEW_STYLE(pub i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMC_SINGLESEL: MMC_RESULT_VIEW_STYLE = 1i32;
+pub const MMC_SINGLESEL: MMC_RESULT_VIEW_STYLE = MMC_RESULT_VIEW_STYLE(1i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMC_SHOWSELALWAYS: MMC_RESULT_VIEW_STYLE = 2i32;
+pub const MMC_SHOWSELALWAYS: MMC_RESULT_VIEW_STYLE = MMC_RESULT_VIEW_STYLE(2i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMC_NOSORTHEADER: MMC_RESULT_VIEW_STYLE = 4i32;
+pub const MMC_NOSORTHEADER: MMC_RESULT_VIEW_STYLE = MMC_RESULT_VIEW_STYLE(4i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMC_ENSUREFOCUSVISIBLE: MMC_RESULT_VIEW_STYLE = 8i32;
+pub const MMC_ENSUREFOCUSVISIBLE: MMC_RESULT_VIEW_STYLE = MMC_RESULT_VIEW_STYLE(8i32);
+impl ::core::marker::Copy for MMC_RESULT_VIEW_STYLE {}
+impl ::core::clone::Clone for MMC_RESULT_VIEW_STYLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MMC_RESULT_VIEW_STYLE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MMC_RESULT_VIEW_STYLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MMC_RESULT_VIEW_STYLE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub type MMC_SCOPE_ITEM_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MMC_SCOPE_ITEM_STATE(pub i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMC_SCOPE_ITEM_STATE_NORMAL: MMC_SCOPE_ITEM_STATE = 1i32;
+pub const MMC_SCOPE_ITEM_STATE_NORMAL: MMC_SCOPE_ITEM_STATE = MMC_SCOPE_ITEM_STATE(1i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMC_SCOPE_ITEM_STATE_BOLD: MMC_SCOPE_ITEM_STATE = 2i32;
+pub const MMC_SCOPE_ITEM_STATE_BOLD: MMC_SCOPE_ITEM_STATE = MMC_SCOPE_ITEM_STATE(2i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMC_SCOPE_ITEM_STATE_EXPANDEDONCE: MMC_SCOPE_ITEM_STATE = 3i32;
+pub const MMC_SCOPE_ITEM_STATE_EXPANDEDONCE: MMC_SCOPE_ITEM_STATE = MMC_SCOPE_ITEM_STATE(3i32);
+impl ::core::marker::Copy for MMC_SCOPE_ITEM_STATE {}
+impl ::core::clone::Clone for MMC_SCOPE_ITEM_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MMC_SCOPE_ITEM_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MMC_SCOPE_ITEM_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MMC_SCOPE_ITEM_STATE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Mmc', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
@@ -6474,17 +6774,33 @@ impl ::core::default::Default for MMC_TASK_DISPLAY_SYMBOL {
     }
 }
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub type MMC_TASK_DISPLAY_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MMC_TASK_DISPLAY_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMC_TASK_DISPLAY_UNINITIALIZED: MMC_TASK_DISPLAY_TYPE = 0i32;
+pub const MMC_TASK_DISPLAY_UNINITIALIZED: MMC_TASK_DISPLAY_TYPE = MMC_TASK_DISPLAY_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMC_TASK_DISPLAY_TYPE_SYMBOL: MMC_TASK_DISPLAY_TYPE = 1i32;
+pub const MMC_TASK_DISPLAY_TYPE_SYMBOL: MMC_TASK_DISPLAY_TYPE = MMC_TASK_DISPLAY_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMC_TASK_DISPLAY_TYPE_VANILLA_GIF: MMC_TASK_DISPLAY_TYPE = 2i32;
+pub const MMC_TASK_DISPLAY_TYPE_VANILLA_GIF: MMC_TASK_DISPLAY_TYPE = MMC_TASK_DISPLAY_TYPE(2i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMC_TASK_DISPLAY_TYPE_CHOCOLATE_GIF: MMC_TASK_DISPLAY_TYPE = 3i32;
+pub const MMC_TASK_DISPLAY_TYPE_CHOCOLATE_GIF: MMC_TASK_DISPLAY_TYPE = MMC_TASK_DISPLAY_TYPE(3i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMC_TASK_DISPLAY_TYPE_BITMAP: MMC_TASK_DISPLAY_TYPE = 4i32;
+pub const MMC_TASK_DISPLAY_TYPE_BITMAP: MMC_TASK_DISPLAY_TYPE = MMC_TASK_DISPLAY_TYPE(4i32);
+impl ::core::marker::Copy for MMC_TASK_DISPLAY_TYPE {}
+impl ::core::clone::Clone for MMC_TASK_DISPLAY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MMC_TASK_DISPLAY_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MMC_TASK_DISPLAY_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MMC_TASK_DISPLAY_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_VER: u32 = 512u32;
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
@@ -6506,13 +6822,29 @@ pub const MMC_VIEW_OPTIONS_OWNERDATALIST: u32 = 4u32;
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub const MMC_VIEW_OPTIONS_USEFONTLINKING: u32 = 32u32;
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub type MMC_VIEW_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MMC_VIEW_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMC_VIEW_TYPE_LIST: MMC_VIEW_TYPE = 0i32;
+pub const MMC_VIEW_TYPE_LIST: MMC_VIEW_TYPE = MMC_VIEW_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMC_VIEW_TYPE_HTML: MMC_VIEW_TYPE = 1i32;
+pub const MMC_VIEW_TYPE_HTML: MMC_VIEW_TYPE = MMC_VIEW_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const MMC_VIEW_TYPE_OCX: MMC_VIEW_TYPE = 2i32;
+pub const MMC_VIEW_TYPE_OCX: MMC_VIEW_TYPE = MMC_VIEW_TYPE(2i32);
+impl ::core::marker::Copy for MMC_VIEW_TYPE {}
+impl ::core::clone::Clone for MMC_VIEW_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MMC_VIEW_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MMC_VIEW_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MMC_VIEW_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub struct MMC_VISIBLE_COLUMNS {
@@ -9320,21 +9652,53 @@ pub struct _Application_Vtbl {
     pub VersionMinor: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, versionminor: *mut i32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub type _ColumnSortOrder = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct _ColumnSortOrder(pub i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const SortOrder_Ascending: _ColumnSortOrder = 0i32;
+pub const SortOrder_Ascending: _ColumnSortOrder = _ColumnSortOrder(0i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const SortOrder_Descending: _ColumnSortOrder = 1i32;
+pub const SortOrder_Descending: _ColumnSortOrder = _ColumnSortOrder(1i32);
+impl ::core::marker::Copy for _ColumnSortOrder {}
+impl ::core::clone::Clone for _ColumnSortOrder {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for _ColumnSortOrder {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for _ColumnSortOrder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_ColumnSortOrder").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub type _DocumentMode = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct _DocumentMode(pub i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const DocumentMode_Author: _DocumentMode = 0i32;
+pub const DocumentMode_Author: _DocumentMode = _DocumentMode(0i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const DocumentMode_User: _DocumentMode = 1i32;
+pub const DocumentMode_User: _DocumentMode = _DocumentMode(1i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const DocumentMode_User_MDI: _DocumentMode = 2i32;
+pub const DocumentMode_User_MDI: _DocumentMode = _DocumentMode(2i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const DocumentMode_User_SDI: _DocumentMode = 3i32;
+pub const DocumentMode_User_SDI: _DocumentMode = _DocumentMode(3i32);
+impl ::core::marker::Copy for _DocumentMode {}
+impl ::core::clone::Clone for _DocumentMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for _DocumentMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for _DocumentMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_DocumentMode").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Mmc', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
@@ -9458,38 +9822,86 @@ pub struct _EventConnector_Vtbl {
     pub Disconnect: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub type _ExportListOptions = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct _ExportListOptions(pub i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const ExportListOptions_Default: _ExportListOptions = 0i32;
+pub const ExportListOptions_Default: _ExportListOptions = _ExportListOptions(0i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const ExportListOptions_Unicode: _ExportListOptions = 1i32;
+pub const ExportListOptions_Unicode: _ExportListOptions = _ExportListOptions(1i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const ExportListOptions_TabDelimited: _ExportListOptions = 2i32;
+pub const ExportListOptions_TabDelimited: _ExportListOptions = _ExportListOptions(2i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const ExportListOptions_SelectedItemsOnly: _ExportListOptions = 4i32;
+pub const ExportListOptions_SelectedItemsOnly: _ExportListOptions = _ExportListOptions(4i32);
+impl ::core::marker::Copy for _ExportListOptions {}
+impl ::core::clone::Clone for _ExportListOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for _ExportListOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for _ExportListOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_ExportListOptions").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub type _ListViewMode = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct _ListViewMode(pub i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const ListMode_Small_Icons: _ListViewMode = 0i32;
+pub const ListMode_Small_Icons: _ListViewMode = _ListViewMode(0i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const ListMode_Large_Icons: _ListViewMode = 1i32;
+pub const ListMode_Large_Icons: _ListViewMode = _ListViewMode(1i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const ListMode_List: _ListViewMode = 2i32;
+pub const ListMode_List: _ListViewMode = _ListViewMode(2i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const ListMode_Detail: _ListViewMode = 3i32;
+pub const ListMode_Detail: _ListViewMode = _ListViewMode(3i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const ListMode_Filtered: _ListViewMode = 4i32;
+pub const ListMode_Filtered: _ListViewMode = _ListViewMode(4i32);
+impl ::core::marker::Copy for _ListViewMode {}
+impl ::core::clone::Clone for _ListViewMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for _ListViewMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for _ListViewMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_ListViewMode").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub type _ViewOptions = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct _ViewOptions(pub i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const ViewOption_Default: _ViewOptions = 0i32;
+pub const ViewOption_Default: _ViewOptions = _ViewOptions(0i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const ViewOption_ScopeTreeHidden: _ViewOptions = 1i32;
+pub const ViewOption_ScopeTreeHidden: _ViewOptions = _ViewOptions(1i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const ViewOption_NoToolBars: _ViewOptions = 2i32;
+pub const ViewOption_NoToolBars: _ViewOptions = _ViewOptions(2i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const ViewOption_NotPersistable: _ViewOptions = 4i32;
+pub const ViewOption_NotPersistable: _ViewOptions = _ViewOptions(4i32);
 #[doc = "*Required features: 'Win32_System_Mmc'*"]
-pub const ViewOption_ActionPaneHidden: _ViewOptions = 8i32;
+pub const ViewOption_ActionPaneHidden: _ViewOptions = _ViewOptions(8i32);
+impl ::core::marker::Copy for _ViewOptions {}
+impl ::core::clone::Clone for _ViewOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for _ViewOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for _ViewOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_ViewOptions").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

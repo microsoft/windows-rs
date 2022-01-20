@@ -103,27 +103,59 @@ impl ::core::default::Default for CALLFRAMEPARAMINFO {
     }
 }
 #[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
-pub type CALLFRAME_COPY = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CALLFRAME_COPY(pub i32);
 #[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
-pub const CALLFRAME_COPY_NESTED: CALLFRAME_COPY = 1i32;
+pub const CALLFRAME_COPY_NESTED: CALLFRAME_COPY = CALLFRAME_COPY(1i32);
 #[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
-pub const CALLFRAME_COPY_INDEPENDENT: CALLFRAME_COPY = 2i32;
+pub const CALLFRAME_COPY_INDEPENDENT: CALLFRAME_COPY = CALLFRAME_COPY(2i32);
+impl ::core::marker::Copy for CALLFRAME_COPY {}
+impl ::core::clone::Clone for CALLFRAME_COPY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CALLFRAME_COPY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CALLFRAME_COPY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CALLFRAME_COPY").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
-pub type CALLFRAME_FREE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CALLFRAME_FREE(pub i32);
 #[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
-pub const CALLFRAME_FREE_NONE: CALLFRAME_FREE = 0i32;
+pub const CALLFRAME_FREE_NONE: CALLFRAME_FREE = CALLFRAME_FREE(0i32);
 #[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
-pub const CALLFRAME_FREE_IN: CALLFRAME_FREE = 1i32;
+pub const CALLFRAME_FREE_IN: CALLFRAME_FREE = CALLFRAME_FREE(1i32);
 #[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
-pub const CALLFRAME_FREE_INOUT: CALLFRAME_FREE = 2i32;
+pub const CALLFRAME_FREE_INOUT: CALLFRAME_FREE = CALLFRAME_FREE(2i32);
 #[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
-pub const CALLFRAME_FREE_OUT: CALLFRAME_FREE = 4i32;
+pub const CALLFRAME_FREE_OUT: CALLFRAME_FREE = CALLFRAME_FREE(4i32);
 #[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
-pub const CALLFRAME_FREE_TOP_INOUT: CALLFRAME_FREE = 8i32;
+pub const CALLFRAME_FREE_TOP_INOUT: CALLFRAME_FREE = CALLFRAME_FREE(8i32);
 #[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
-pub const CALLFRAME_FREE_TOP_OUT: CALLFRAME_FREE = 16i32;
+pub const CALLFRAME_FREE_TOP_OUT: CALLFRAME_FREE = CALLFRAME_FREE(16i32);
 #[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
-pub const CALLFRAME_FREE_ALL: CALLFRAME_FREE = 31i32;
+pub const CALLFRAME_FREE_ALL: CALLFRAME_FREE = CALLFRAME_FREE(31i32);
+impl ::core::marker::Copy for CALLFRAME_FREE {}
+impl ::core::clone::Clone for CALLFRAME_FREE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CALLFRAME_FREE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CALLFRAME_FREE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CALLFRAME_FREE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Com_CallObj', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -171,23 +203,55 @@ impl ::core::default::Default for CALLFRAME_MARSHALCONTEXT {
     }
 }
 #[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
-pub type CALLFRAME_NULL = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CALLFRAME_NULL(pub i32);
 #[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
-pub const CALLFRAME_NULL_NONE: CALLFRAME_NULL = 0i32;
+pub const CALLFRAME_NULL_NONE: CALLFRAME_NULL = CALLFRAME_NULL(0i32);
 #[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
-pub const CALLFRAME_NULL_INOUT: CALLFRAME_NULL = 2i32;
+pub const CALLFRAME_NULL_INOUT: CALLFRAME_NULL = CALLFRAME_NULL(2i32);
 #[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
-pub const CALLFRAME_NULL_OUT: CALLFRAME_NULL = 4i32;
+pub const CALLFRAME_NULL_OUT: CALLFRAME_NULL = CALLFRAME_NULL(4i32);
 #[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
-pub const CALLFRAME_NULL_ALL: CALLFRAME_NULL = 6i32;
+pub const CALLFRAME_NULL_ALL: CALLFRAME_NULL = CALLFRAME_NULL(6i32);
+impl ::core::marker::Copy for CALLFRAME_NULL {}
+impl ::core::clone::Clone for CALLFRAME_NULL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CALLFRAME_NULL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CALLFRAME_NULL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CALLFRAME_NULL").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
-pub type CALLFRAME_WALK = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CALLFRAME_WALK(pub i32);
 #[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
-pub const CALLFRAME_WALK_IN: CALLFRAME_WALK = 1i32;
+pub const CALLFRAME_WALK_IN: CALLFRAME_WALK = CALLFRAME_WALK(1i32);
 #[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
-pub const CALLFRAME_WALK_INOUT: CALLFRAME_WALK = 2i32;
+pub const CALLFRAME_WALK_INOUT: CALLFRAME_WALK = CALLFRAME_WALK(2i32);
 #[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
-pub const CALLFRAME_WALK_OUT: CALLFRAME_WALK = 4i32;
+pub const CALLFRAME_WALK_OUT: CALLFRAME_WALK = CALLFRAME_WALK(4i32);
+impl ::core::marker::Copy for CALLFRAME_WALK {}
+impl ::core::clone::Clone for CALLFRAME_WALK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CALLFRAME_WALK {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CALLFRAME_WALK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CALLFRAME_WALK").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Com_CallObj'*"]
 #[inline]
 pub unsafe fn CoGetInterceptor<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(iidintercepted: *const ::windows::core::GUID, punkouter: Param1, iid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {

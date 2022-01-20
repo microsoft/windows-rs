@@ -5900,43 +5900,59 @@ pub unsafe fn DirectInput8Create<'a, Param0: ::windows::core::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
-pub type GPIOBUTTONS_BUTTON_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct GPIOBUTTONS_BUTTON_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
-pub const GPIO_BUTTON_POWER: GPIOBUTTONS_BUTTON_TYPE = 0i32;
+pub const GPIO_BUTTON_POWER: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
-pub const GPIO_BUTTON_WINDOWS: GPIOBUTTONS_BUTTON_TYPE = 1i32;
+pub const GPIO_BUTTON_WINDOWS: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
-pub const GPIO_BUTTON_VOLUME_UP: GPIOBUTTONS_BUTTON_TYPE = 2i32;
+pub const GPIO_BUTTON_VOLUME_UP: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
-pub const GPIO_BUTTON_VOLUME_DOWN: GPIOBUTTONS_BUTTON_TYPE = 3i32;
+pub const GPIO_BUTTON_VOLUME_DOWN: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
-pub const GPIO_BUTTON_ROTATION_LOCK: GPIOBUTTONS_BUTTON_TYPE = 4i32;
+pub const GPIO_BUTTON_ROTATION_LOCK: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(4i32);
 #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
-pub const GPIO_BUTTON_BACK: GPIOBUTTONS_BUTTON_TYPE = 5i32;
+pub const GPIO_BUTTON_BACK: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(5i32);
 #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
-pub const GPIO_BUTTON_SEARCH: GPIOBUTTONS_BUTTON_TYPE = 6i32;
+pub const GPIO_BUTTON_SEARCH: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(6i32);
 #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
-pub const GPIO_BUTTON_CAMERA_FOCUS: GPIOBUTTONS_BUTTON_TYPE = 7i32;
+pub const GPIO_BUTTON_CAMERA_FOCUS: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(7i32);
 #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
-pub const GPIO_BUTTON_CAMERA_SHUTTER: GPIOBUTTONS_BUTTON_TYPE = 8i32;
+pub const GPIO_BUTTON_CAMERA_SHUTTER: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(8i32);
 #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
-pub const GPIO_BUTTON_RINGER_TOGGLE: GPIOBUTTONS_BUTTON_TYPE = 9i32;
+pub const GPIO_BUTTON_RINGER_TOGGLE: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(9i32);
 #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
-pub const GPIO_BUTTON_HEADSET: GPIOBUTTONS_BUTTON_TYPE = 10i32;
+pub const GPIO_BUTTON_HEADSET: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(10i32);
 #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
-pub const GPIO_BUTTON_HWKB_DEPLOY: GPIOBUTTONS_BUTTON_TYPE = 11i32;
+pub const GPIO_BUTTON_HWKB_DEPLOY: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(11i32);
 #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
-pub const GPIO_BUTTON_CAMERA_LENS: GPIOBUTTONS_BUTTON_TYPE = 12i32;
+pub const GPIO_BUTTON_CAMERA_LENS: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(12i32);
 #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
-pub const GPIO_BUTTON_OEM_CUSTOM: GPIOBUTTONS_BUTTON_TYPE = 13i32;
+pub const GPIO_BUTTON_OEM_CUSTOM: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(13i32);
 #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
-pub const GPIO_BUTTON_OEM_CUSTOM2: GPIOBUTTONS_BUTTON_TYPE = 14i32;
+pub const GPIO_BUTTON_OEM_CUSTOM2: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(14i32);
 #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
-pub const GPIO_BUTTON_OEM_CUSTOM3: GPIOBUTTONS_BUTTON_TYPE = 15i32;
+pub const GPIO_BUTTON_OEM_CUSTOM3: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(15i32);
 #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
-pub const GPIO_BUTTON_COUNT_MIN: GPIOBUTTONS_BUTTON_TYPE = 5i32;
+pub const GPIO_BUTTON_COUNT_MIN: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(5i32);
 #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
-pub const GPIO_BUTTON_COUNT: GPIOBUTTONS_BUTTON_TYPE = 16i32;
+pub const GPIO_BUTTON_COUNT: GPIOBUTTONS_BUTTON_TYPE = GPIOBUTTONS_BUTTON_TYPE(16i32);
+impl ::core::marker::Copy for GPIOBUTTONS_BUTTON_TYPE {}
+impl ::core::clone::Clone for GPIOBUTTONS_BUTTON_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for GPIOBUTTONS_BUTTON_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GPIOBUTTONS_BUTTON_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GPIOBUTTONS_BUTTON_TYPE").field(&self.0).finish()
+    }
+}
 pub const GUID_Button: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa36d02f0_c9f3_11cf_bfc7_444553540000);
 pub const GUID_ConstantForce: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13541c20_8e33_11d0_9ad0_00a0c9a06e35);
 pub const GUID_CustomForce: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13541c2b_8e33_11d0_9ad0_00a0c9a06e35);
@@ -6402,11 +6418,27 @@ impl ::core::default::Default for HIDP_EXTENDED_ATTRIBUTES {
     }
 }
 #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
-pub type HIDP_KEYBOARD_DIRECTION = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HIDP_KEYBOARD_DIRECTION(pub i32);
 #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
-pub const HidP_Keyboard_Break: HIDP_KEYBOARD_DIRECTION = 0i32;
+pub const HidP_Keyboard_Break: HIDP_KEYBOARD_DIRECTION = HIDP_KEYBOARD_DIRECTION(0i32);
 #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
-pub const HidP_Keyboard_Make: HIDP_KEYBOARD_DIRECTION = 1i32;
+pub const HidP_Keyboard_Make: HIDP_KEYBOARD_DIRECTION = HIDP_KEYBOARD_DIRECTION(1i32);
+impl ::core::marker::Copy for HIDP_KEYBOARD_DIRECTION {}
+impl ::core::clone::Clone for HIDP_KEYBOARD_DIRECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for HIDP_KEYBOARD_DIRECTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HIDP_KEYBOARD_DIRECTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HIDP_KEYBOARD_DIRECTION").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct HIDP_KEYBOARD_MODIFIER_STATE {
@@ -6521,13 +6553,29 @@ impl ::core::default::Default for HIDP_LINK_COLLECTION_NODE {
     }
 }
 #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
-pub type HIDP_REPORT_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HIDP_REPORT_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
-pub const HidP_Input: HIDP_REPORT_TYPE = 0i32;
+pub const HidP_Input: HIDP_REPORT_TYPE = HIDP_REPORT_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
-pub const HidP_Output: HIDP_REPORT_TYPE = 1i32;
+pub const HidP_Output: HIDP_REPORT_TYPE = HIDP_REPORT_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
-pub const HidP_Feature: HIDP_REPORT_TYPE = 2i32;
+pub const HidP_Feature: HIDP_REPORT_TYPE = HIDP_REPORT_TYPE(2i32);
+impl ::core::marker::Copy for HIDP_REPORT_TYPE {}
+impl ::core::clone::Clone for HIDP_REPORT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for HIDP_REPORT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HIDP_REPORT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HIDP_REPORT_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct HIDP_UNKNOWN_TOKEN {

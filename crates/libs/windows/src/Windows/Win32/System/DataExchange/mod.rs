@@ -165,61 +165,149 @@ impl ::core::default::Default for CONVINFO {
     }
 }
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub type CONVINFO_CONVERSATION_STATE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CONVINFO_CONVERSATION_STATE(pub u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const XST_ADVACKRCVD: CONVINFO_CONVERSATION_STATE = 13u32;
+pub const XST_ADVACKRCVD: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(13u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const XST_ADVDATAACKRCVD: CONVINFO_CONVERSATION_STATE = 16u32;
+pub const XST_ADVDATAACKRCVD: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(16u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const XST_ADVDATASENT: CONVINFO_CONVERSATION_STATE = 15u32;
+pub const XST_ADVDATASENT: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(15u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const XST_ADVSENT: CONVINFO_CONVERSATION_STATE = 11u32;
+pub const XST_ADVSENT: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(11u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const XST_CONNECTED: CONVINFO_CONVERSATION_STATE = 2u32;
+pub const XST_CONNECTED: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(2u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const XST_DATARCVD: CONVINFO_CONVERSATION_STATE = 6u32;
+pub const XST_DATARCVD: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(6u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const XST_EXECACKRCVD: CONVINFO_CONVERSATION_STATE = 10u32;
+pub const XST_EXECACKRCVD: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(10u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const XST_EXECSENT: CONVINFO_CONVERSATION_STATE = 9u32;
+pub const XST_EXECSENT: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(9u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const XST_INCOMPLETE: CONVINFO_CONVERSATION_STATE = 1u32;
+pub const XST_INCOMPLETE: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(1u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const XST_INIT1: CONVINFO_CONVERSATION_STATE = 3u32;
+pub const XST_INIT1: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(3u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const XST_INIT2: CONVINFO_CONVERSATION_STATE = 4u32;
+pub const XST_INIT2: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(4u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const XST_NULL: CONVINFO_CONVERSATION_STATE = 0u32;
+pub const XST_NULL: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(0u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const XST_POKEACKRCVD: CONVINFO_CONVERSATION_STATE = 8u32;
+pub const XST_POKEACKRCVD: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(8u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const XST_POKESENT: CONVINFO_CONVERSATION_STATE = 7u32;
+pub const XST_POKESENT: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(7u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const XST_REQSENT: CONVINFO_CONVERSATION_STATE = 5u32;
+pub const XST_REQSENT: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(5u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const XST_UNADVACKRCVD: CONVINFO_CONVERSATION_STATE = 14u32;
+pub const XST_UNADVACKRCVD: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(14u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const XST_UNADVSENT: CONVINFO_CONVERSATION_STATE = 12u32;
+pub const XST_UNADVSENT: CONVINFO_CONVERSATION_STATE = CONVINFO_CONVERSATION_STATE(12u32);
+impl ::core::marker::Copy for CONVINFO_CONVERSATION_STATE {}
+impl ::core::clone::Clone for CONVINFO_CONVERSATION_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CONVINFO_CONVERSATION_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CONVINFO_CONVERSATION_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CONVINFO_CONVERSATION_STATE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CONVINFO_CONVERSATION_STATE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CONVINFO_CONVERSATION_STATE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CONVINFO_CONVERSATION_STATE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CONVINFO_CONVERSATION_STATE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CONVINFO_CONVERSATION_STATE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub type CONVINFO_STATUS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CONVINFO_STATUS(pub u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const ST_ADVISE: CONVINFO_STATUS = 2u32;
+pub const ST_ADVISE: CONVINFO_STATUS = CONVINFO_STATUS(2u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const ST_BLOCKED: CONVINFO_STATUS = 8u32;
+pub const ST_BLOCKED: CONVINFO_STATUS = CONVINFO_STATUS(8u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const ST_BLOCKNEXT: CONVINFO_STATUS = 128u32;
+pub const ST_BLOCKNEXT: CONVINFO_STATUS = CONVINFO_STATUS(128u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const ST_CLIENT: CONVINFO_STATUS = 16u32;
+pub const ST_CLIENT: CONVINFO_STATUS = CONVINFO_STATUS(16u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const ST_CONNECTED: CONVINFO_STATUS = 1u32;
+pub const ST_CONNECTED: CONVINFO_STATUS = CONVINFO_STATUS(1u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const ST_INLIST: CONVINFO_STATUS = 64u32;
+pub const ST_INLIST: CONVINFO_STATUS = CONVINFO_STATUS(64u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const ST_ISLOCAL: CONVINFO_STATUS = 4u32;
+pub const ST_ISLOCAL: CONVINFO_STATUS = CONVINFO_STATUS(4u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const ST_ISSELF: CONVINFO_STATUS = 256u32;
+pub const ST_ISSELF: CONVINFO_STATUS = CONVINFO_STATUS(256u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const ST_TERMINATED: CONVINFO_STATUS = 32u32;
+pub const ST_TERMINATED: CONVINFO_STATUS = CONVINFO_STATUS(32u32);
+impl ::core::marker::Copy for CONVINFO_STATUS {}
+impl ::core::clone::Clone for CONVINFO_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CONVINFO_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CONVINFO_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CONVINFO_STATUS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CONVINFO_STATUS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CONVINFO_STATUS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CONVINFO_STATUS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CONVINFO_STATUS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CONVINFO_STATUS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub struct COPYDATASTRUCT {
@@ -524,47 +612,135 @@ impl ::core::default::Default for DDEUP {
     }
 }
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub type DDE_CLIENT_TRANSACTION_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DDE_CLIENT_TRANSACTION_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const XTYP_ADVSTART: DDE_CLIENT_TRANSACTION_TYPE = 4144u32;
+pub const XTYP_ADVSTART: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(4144u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const XTYP_ADVSTOP: DDE_CLIENT_TRANSACTION_TYPE = 32832u32;
+pub const XTYP_ADVSTOP: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(32832u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const XTYP_EXECUTE: DDE_CLIENT_TRANSACTION_TYPE = 16464u32;
+pub const XTYP_EXECUTE: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(16464u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const XTYP_POKE: DDE_CLIENT_TRANSACTION_TYPE = 16528u32;
+pub const XTYP_POKE: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(16528u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const XTYP_REQUEST: DDE_CLIENT_TRANSACTION_TYPE = 8368u32;
+pub const XTYP_REQUEST: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(8368u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const XTYP_ADVDATA: DDE_CLIENT_TRANSACTION_TYPE = 16400u32;
+pub const XTYP_ADVDATA: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(16400u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const XTYP_ADVREQ: DDE_CLIENT_TRANSACTION_TYPE = 8226u32;
+pub const XTYP_ADVREQ: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(8226u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const XTYP_CONNECT: DDE_CLIENT_TRANSACTION_TYPE = 4194u32;
+pub const XTYP_CONNECT: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(4194u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const XTYP_CONNECT_CONFIRM: DDE_CLIENT_TRANSACTION_TYPE = 32882u32;
+pub const XTYP_CONNECT_CONFIRM: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(32882u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const XTYP_DISCONNECT: DDE_CLIENT_TRANSACTION_TYPE = 32962u32;
+pub const XTYP_DISCONNECT: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(32962u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const XTYP_MONITOR: DDE_CLIENT_TRANSACTION_TYPE = 33010u32;
+pub const XTYP_MONITOR: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(33010u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const XTYP_REGISTER: DDE_CLIENT_TRANSACTION_TYPE = 32930u32;
+pub const XTYP_REGISTER: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(32930u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const XTYP_UNREGISTER: DDE_CLIENT_TRANSACTION_TYPE = 32978u32;
+pub const XTYP_UNREGISTER: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(32978u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const XTYP_WILDCONNECT: DDE_CLIENT_TRANSACTION_TYPE = 8418u32;
+pub const XTYP_WILDCONNECT: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(8418u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const XTYP_XACT_COMPLETE: DDE_CLIENT_TRANSACTION_TYPE = 32896u32;
+pub const XTYP_XACT_COMPLETE: DDE_CLIENT_TRANSACTION_TYPE = DDE_CLIENT_TRANSACTION_TYPE(32896u32);
+impl ::core::marker::Copy for DDE_CLIENT_TRANSACTION_TYPE {}
+impl ::core::clone::Clone for DDE_CLIENT_TRANSACTION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DDE_CLIENT_TRANSACTION_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DDE_CLIENT_TRANSACTION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DDE_CLIENT_TRANSACTION_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for DDE_CLIENT_TRANSACTION_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DDE_CLIENT_TRANSACTION_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DDE_CLIENT_TRANSACTION_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DDE_CLIENT_TRANSACTION_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DDE_CLIENT_TRANSACTION_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub type DDE_ENABLE_CALLBACK_CMD = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DDE_ENABLE_CALLBACK_CMD(pub u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const EC_ENABLEALL: DDE_ENABLE_CALLBACK_CMD = 0u32;
+pub const EC_ENABLEALL: DDE_ENABLE_CALLBACK_CMD = DDE_ENABLE_CALLBACK_CMD(0u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const EC_ENABLEONE: DDE_ENABLE_CALLBACK_CMD = 128u32;
+pub const EC_ENABLEONE: DDE_ENABLE_CALLBACK_CMD = DDE_ENABLE_CALLBACK_CMD(128u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const EC_DISABLE: DDE_ENABLE_CALLBACK_CMD = 8u32;
+pub const EC_DISABLE: DDE_ENABLE_CALLBACK_CMD = DDE_ENABLE_CALLBACK_CMD(8u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const EC_QUERYWAITING: DDE_ENABLE_CALLBACK_CMD = 2u32;
+pub const EC_QUERYWAITING: DDE_ENABLE_CALLBACK_CMD = DDE_ENABLE_CALLBACK_CMD(2u32);
+impl ::core::marker::Copy for DDE_ENABLE_CALLBACK_CMD {}
+impl ::core::clone::Clone for DDE_ENABLE_CALLBACK_CMD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DDE_ENABLE_CALLBACK_CMD {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DDE_ENABLE_CALLBACK_CMD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DDE_ENABLE_CALLBACK_CMD").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for DDE_ENABLE_CALLBACK_CMD {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DDE_ENABLE_CALLBACK_CMD {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DDE_ENABLE_CALLBACK_CMD {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DDE_ENABLE_CALLBACK_CMD {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DDE_ENABLE_CALLBACK_CMD {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const DDE_FACK: u32 = 32768u32;
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
@@ -582,63 +758,151 @@ pub const DDE_FRELEASE: u32 = 8192u32;
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const DDE_FREQUESTED: u32 = 4096u32;
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub type DDE_INITIALIZE_COMMAND = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DDE_INITIALIZE_COMMAND(pub u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const APPCLASS_MONITOR: DDE_INITIALIZE_COMMAND = 1u32;
+pub const APPCLASS_MONITOR: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(1u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const APPCLASS_STANDARD: DDE_INITIALIZE_COMMAND = 0u32;
+pub const APPCLASS_STANDARD: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(0u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const APPCMD_CLIENTONLY: DDE_INITIALIZE_COMMAND = 16u32;
+pub const APPCMD_CLIENTONLY: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(16u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const APPCMD_FILTERINITS: DDE_INITIALIZE_COMMAND = 32u32;
+pub const APPCMD_FILTERINITS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(32u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const CBF_FAIL_ALLSVRXACTIONS: DDE_INITIALIZE_COMMAND = 258048u32;
+pub const CBF_FAIL_ALLSVRXACTIONS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(258048u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const CBF_FAIL_ADVISES: DDE_INITIALIZE_COMMAND = 16384u32;
+pub const CBF_FAIL_ADVISES: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(16384u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const CBF_FAIL_CONNECTIONS: DDE_INITIALIZE_COMMAND = 8192u32;
+pub const CBF_FAIL_CONNECTIONS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(8192u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const CBF_FAIL_EXECUTES: DDE_INITIALIZE_COMMAND = 32768u32;
+pub const CBF_FAIL_EXECUTES: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(32768u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const CBF_FAIL_POKES: DDE_INITIALIZE_COMMAND = 65536u32;
+pub const CBF_FAIL_POKES: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(65536u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const CBF_FAIL_REQUESTS: DDE_INITIALIZE_COMMAND = 131072u32;
+pub const CBF_FAIL_REQUESTS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(131072u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const CBF_FAIL_SELFCONNECTIONS: DDE_INITIALIZE_COMMAND = 4096u32;
+pub const CBF_FAIL_SELFCONNECTIONS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(4096u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const CBF_SKIP_ALLNOTIFICATIONS: DDE_INITIALIZE_COMMAND = 3932160u32;
+pub const CBF_SKIP_ALLNOTIFICATIONS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(3932160u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const CBF_SKIP_CONNECT_CONFIRMS: DDE_INITIALIZE_COMMAND = 262144u32;
+pub const CBF_SKIP_CONNECT_CONFIRMS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(262144u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const CBF_SKIP_DISCONNECTS: DDE_INITIALIZE_COMMAND = 2097152u32;
+pub const CBF_SKIP_DISCONNECTS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(2097152u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const CBF_SKIP_REGISTRATIONS: DDE_INITIALIZE_COMMAND = 524288u32;
+pub const CBF_SKIP_REGISTRATIONS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(524288u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const CBF_SKIP_UNREGISTRATIONS: DDE_INITIALIZE_COMMAND = 1048576u32;
+pub const CBF_SKIP_UNREGISTRATIONS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(1048576u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const MF_CALLBACKS: DDE_INITIALIZE_COMMAND = 134217728u32;
+pub const MF_CALLBACKS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(134217728u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const MF_CONV: DDE_INITIALIZE_COMMAND = 1073741824u32;
+pub const MF_CONV: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(1073741824u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const MF_ERRORS: DDE_INITIALIZE_COMMAND = 268435456u32;
+pub const MF_ERRORS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(268435456u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const MF_HSZ_INFO: DDE_INITIALIZE_COMMAND = 16777216u32;
+pub const MF_HSZ_INFO: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(16777216u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const MF_LINKS: DDE_INITIALIZE_COMMAND = 536870912u32;
+pub const MF_LINKS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(536870912u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const MF_POSTMSGS: DDE_INITIALIZE_COMMAND = 67108864u32;
+pub const MF_POSTMSGS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(67108864u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const MF_SENDMSGS: DDE_INITIALIZE_COMMAND = 33554432u32;
+pub const MF_SENDMSGS: DDE_INITIALIZE_COMMAND = DDE_INITIALIZE_COMMAND(33554432u32);
+impl ::core::marker::Copy for DDE_INITIALIZE_COMMAND {}
+impl ::core::clone::Clone for DDE_INITIALIZE_COMMAND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DDE_INITIALIZE_COMMAND {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DDE_INITIALIZE_COMMAND {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DDE_INITIALIZE_COMMAND").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for DDE_INITIALIZE_COMMAND {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DDE_INITIALIZE_COMMAND {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DDE_INITIALIZE_COMMAND {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DDE_INITIALIZE_COMMAND {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DDE_INITIALIZE_COMMAND {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub type DDE_NAME_SERVICE_CMD = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DDE_NAME_SERVICE_CMD(pub u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const DNS_REGISTER: DDE_NAME_SERVICE_CMD = 1u32;
+pub const DNS_REGISTER: DDE_NAME_SERVICE_CMD = DDE_NAME_SERVICE_CMD(1u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const DNS_UNREGISTER: DDE_NAME_SERVICE_CMD = 2u32;
+pub const DNS_UNREGISTER: DDE_NAME_SERVICE_CMD = DDE_NAME_SERVICE_CMD(2u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const DNS_FILTERON: DDE_NAME_SERVICE_CMD = 4u32;
+pub const DNS_FILTERON: DDE_NAME_SERVICE_CMD = DDE_NAME_SERVICE_CMD(4u32);
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
-pub const DNS_FILTEROFF: DDE_NAME_SERVICE_CMD = 8u32;
+pub const DNS_FILTEROFF: DDE_NAME_SERVICE_CMD = DDE_NAME_SERVICE_CMD(8u32);
+impl ::core::marker::Copy for DDE_NAME_SERVICE_CMD {}
+impl ::core::clone::Clone for DDE_NAME_SERVICE_CMD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DDE_NAME_SERVICE_CMD {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DDE_NAME_SERVICE_CMD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DDE_NAME_SERVICE_CMD").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for DDE_NAME_SERVICE_CMD {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DDE_NAME_SERVICE_CMD {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DDE_NAME_SERVICE_CMD {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DDE_NAME_SERVICE_CMD {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DDE_NAME_SERVICE_CMD {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]
 pub const DMLERR_ADVACKTIMEOUT: u32 = 16384u32;
 #[doc = "*Required features: 'Win32_System_DataExchange'*"]

@@ -1,12 +1,28 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub type FOREIGN_STATUS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FOREIGN_STATUS(pub i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_STATUS_FOREIGN: FOREIGN_STATUS = 0i32;
+pub const MQ_STATUS_FOREIGN: FOREIGN_STATUS = FOREIGN_STATUS(0i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_STATUS_NOT_FOREIGN: FOREIGN_STATUS = 1i32;
+pub const MQ_STATUS_NOT_FOREIGN: FOREIGN_STATUS = FOREIGN_STATUS(1i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_STATUS_UNKNOWN: FOREIGN_STATUS = 2i32;
+pub const MQ_STATUS_UNKNOWN: FOREIGN_STATUS = FOREIGN_STATUS(2i32);
+impl ::core::marker::Copy for FOREIGN_STATUS {}
+impl ::core::clone::Clone for FOREIGN_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FOREIGN_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FOREIGN_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FOREIGN_STATUS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_MessageQueuing', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
@@ -10081,519 +10097,839 @@ pub struct IMSMQTransactionDispenser3_Vtbl {
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
 pub const LONG_LIVED: u32 = 4294967294u32;
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub type MQACCESS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MQACCESS(pub i32);
+#[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
+pub const MQ_RECEIVE_ACCESS: MQACCESS = MQACCESS(1i32);
+#[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
+pub const MQ_SEND_ACCESS: MQACCESS = MQACCESS(2i32);
+#[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
+pub const MQ_PEEK_ACCESS: MQACCESS = MQACCESS(32i32);
+#[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
+pub const MQ_ADMIN_ACCESS: MQACCESS = MQACCESS(128i32);
+impl ::core::marker::Copy for MQACCESS {}
+impl ::core::clone::Clone for MQACCESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MQACCESS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MQACCESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MQACCESS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MQAUTHENTICATE(pub i32);
+#[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
+pub const MQ_AUTHENTICATE_NONE: MQAUTHENTICATE = MQAUTHENTICATE(0i32);
+#[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
+pub const MQ_AUTHENTICATE: MQAUTHENTICATE = MQAUTHENTICATE(1i32);
+impl ::core::marker::Copy for MQAUTHENTICATE {}
+impl ::core::clone::Clone for MQAUTHENTICATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MQAUTHENTICATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MQAUTHENTICATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MQAUTHENTICATE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_RECEIVE_ACCESS: MQACCESS = 1i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MQCALG(pub i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_SEND_ACCESS: MQACCESS = 2i32;
+pub const MQMSG_CALG_MD2: MQCALG = MQCALG(32769i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_PEEK_ACCESS: MQACCESS = 32i32;
+pub const MQMSG_CALG_MD4: MQCALG = MQCALG(32770i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ADMIN_ACCESS: MQACCESS = 128i32;
+pub const MQMSG_CALG_MD5: MQCALG = MQCALG(32771i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub type MQAUTHENTICATE = i32;
+pub const MQMSG_CALG_SHA: MQCALG = MQCALG(32772i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_AUTHENTICATE_NONE: MQAUTHENTICATE = 0i32;
+pub const MQMSG_CALG_SHA1: MQCALG = MQCALG(32772i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_AUTHENTICATE: MQAUTHENTICATE = 1i32;
+pub const MQMSG_CALG_MAC: MQCALG = MQCALG(32773i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub type MQCALG = i32;
+pub const MQMSG_CALG_RSA_SIGN: MQCALG = MQCALG(9216i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_CALG_MD2: MQCALG = 32769i32;
+pub const MQMSG_CALG_DSS_SIGN: MQCALG = MQCALG(8704i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_CALG_MD4: MQCALG = 32770i32;
+pub const MQMSG_CALG_RSA_KEYX: MQCALG = MQCALG(41984i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_CALG_MD5: MQCALG = 32771i32;
+pub const MQMSG_CALG_DES: MQCALG = MQCALG(26113i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_CALG_SHA: MQCALG = 32772i32;
+pub const MQMSG_CALG_RC2: MQCALG = MQCALG(26114i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_CALG_SHA1: MQCALG = 32772i32;
+pub const MQMSG_CALG_RC4: MQCALG = MQCALG(26625i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_CALG_MAC: MQCALG = 32773i32;
+pub const MQMSG_CALG_SEAL: MQCALG = MQCALG(26626i32);
+impl ::core::marker::Copy for MQCALG {}
+impl ::core::clone::Clone for MQCALG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MQCALG {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MQCALG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MQCALG").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_CALG_RSA_SIGN: MQCALG = 9216i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MQCERT_REGISTER(pub i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_CALG_DSS_SIGN: MQCALG = 8704i32;
+pub const MQCERT_REGISTER_ALWAYS: MQCERT_REGISTER = MQCERT_REGISTER(1i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_CALG_RSA_KEYX: MQCALG = 41984i32;
+pub const MQCERT_REGISTER_IF_NOT_EXIST: MQCERT_REGISTER = MQCERT_REGISTER(2i32);
+impl ::core::marker::Copy for MQCERT_REGISTER {}
+impl ::core::clone::Clone for MQCERT_REGISTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MQCERT_REGISTER {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MQCERT_REGISTER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MQCERT_REGISTER").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_CALG_DES: MQCALG = 26113i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MQDEFAULT(pub i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_CALG_RC2: MQCALG = 26114i32;
+pub const DEFAULT_M_PRIORITY: MQDEFAULT = MQDEFAULT(3i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_CALG_RC4: MQCALG = 26625i32;
+pub const DEFAULT_M_DELIVERY: MQDEFAULT = MQDEFAULT(0i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_CALG_SEAL: MQCALG = 26626i32;
+pub const DEFAULT_M_ACKNOWLEDGE: MQDEFAULT = MQDEFAULT(0i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub type MQCERT_REGISTER = i32;
+pub const DEFAULT_M_JOURNAL: MQDEFAULT = MQDEFAULT(0i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQCERT_REGISTER_ALWAYS: MQCERT_REGISTER = 1i32;
+pub const DEFAULT_M_APPSPECIFIC: MQDEFAULT = MQDEFAULT(0i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQCERT_REGISTER_IF_NOT_EXIST: MQCERT_REGISTER = 2i32;
+pub const DEFAULT_M_PRIV_LEVEL: MQDEFAULT = MQDEFAULT(0i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub type MQDEFAULT = i32;
+pub const DEFAULT_M_AUTH_LEVEL: MQDEFAULT = MQDEFAULT(0i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const DEFAULT_M_PRIORITY: MQDEFAULT = 3i32;
+pub const DEFAULT_M_SENDERID_TYPE: MQDEFAULT = MQDEFAULT(1i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const DEFAULT_M_DELIVERY: MQDEFAULT = 0i32;
+pub const DEFAULT_Q_JOURNAL: MQDEFAULT = MQDEFAULT(0i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const DEFAULT_M_ACKNOWLEDGE: MQDEFAULT = 0i32;
+pub const DEFAULT_Q_BASEPRIORITY: MQDEFAULT = MQDEFAULT(0i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const DEFAULT_M_JOURNAL: MQDEFAULT = 0i32;
+pub const DEFAULT_Q_QUOTA: MQDEFAULT = MQDEFAULT(-1i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const DEFAULT_M_APPSPECIFIC: MQDEFAULT = 0i32;
+pub const DEFAULT_Q_JOURNAL_QUOTA: MQDEFAULT = MQDEFAULT(-1i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const DEFAULT_M_PRIV_LEVEL: MQDEFAULT = 0i32;
+pub const DEFAULT_Q_TRANSACTION: MQDEFAULT = MQDEFAULT(0i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const DEFAULT_M_AUTH_LEVEL: MQDEFAULT = 0i32;
+pub const DEFAULT_Q_AUTHENTICATE: MQDEFAULT = MQDEFAULT(0i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const DEFAULT_M_SENDERID_TYPE: MQDEFAULT = 1i32;
+pub const DEFAULT_Q_PRIV_LEVEL: MQDEFAULT = MQDEFAULT(1i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const DEFAULT_Q_JOURNAL: MQDEFAULT = 0i32;
+pub const DEFAULT_M_LOOKUPID: MQDEFAULT = MQDEFAULT(0i32);
+impl ::core::marker::Copy for MQDEFAULT {}
+impl ::core::clone::Clone for MQDEFAULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MQDEFAULT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MQDEFAULT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MQDEFAULT").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const DEFAULT_Q_BASEPRIORITY: MQDEFAULT = 0i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MQERROR(pub i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const DEFAULT_Q_QUOTA: MQDEFAULT = -1i32;
+pub const MQ_ERROR: MQERROR = MQERROR(-1072824319i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const DEFAULT_Q_JOURNAL_QUOTA: MQDEFAULT = -1i32;
+pub const MQ_ERROR_PROPERTY: MQERROR = MQERROR(-1072824318i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const DEFAULT_Q_TRANSACTION: MQDEFAULT = 0i32;
+pub const MQ_ERROR_QUEUE_NOT_FOUND: MQERROR = MQERROR(-1072824317i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const DEFAULT_Q_AUTHENTICATE: MQDEFAULT = 0i32;
+pub const MQ_ERROR_QUEUE_NOT_ACTIVE: MQERROR = MQERROR(-1072824316i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const DEFAULT_Q_PRIV_LEVEL: MQDEFAULT = 1i32;
+pub const MQ_ERROR_QUEUE_EXISTS: MQERROR = MQERROR(-1072824315i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const DEFAULT_M_LOOKUPID: MQDEFAULT = 0i32;
+pub const MQ_ERROR_INVALID_PARAMETER: MQERROR = MQERROR(-1072824314i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub type MQERROR = i32;
+pub const MQ_ERROR_INVALID_HANDLE: MQERROR = MQERROR(-1072824313i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR: MQERROR = -1072824319i32;
+pub const MQ_ERROR_OPERATION_CANCELLED: MQERROR = MQERROR(-1072824312i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_PROPERTY: MQERROR = -1072824318i32;
+pub const MQ_ERROR_SHARING_VIOLATION: MQERROR = MQERROR(-1072824311i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_QUEUE_NOT_FOUND: MQERROR = -1072824317i32;
+pub const MQ_ERROR_SERVICE_NOT_AVAILABLE: MQERROR = MQERROR(-1072824309i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_QUEUE_NOT_ACTIVE: MQERROR = -1072824316i32;
+pub const MQ_ERROR_MACHINE_NOT_FOUND: MQERROR = MQERROR(-1072824307i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_QUEUE_EXISTS: MQERROR = -1072824315i32;
+pub const MQ_ERROR_ILLEGAL_SORT: MQERROR = MQERROR(-1072824304i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_INVALID_PARAMETER: MQERROR = -1072824314i32;
+pub const MQ_ERROR_ILLEGAL_USER: MQERROR = MQERROR(-1072824303i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_INVALID_HANDLE: MQERROR = -1072824313i32;
+pub const MQ_ERROR_NO_DS: MQERROR = MQERROR(-1072824301i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_OPERATION_CANCELLED: MQERROR = -1072824312i32;
+pub const MQ_ERROR_ILLEGAL_QUEUE_PATHNAME: MQERROR = MQERROR(-1072824300i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_SHARING_VIOLATION: MQERROR = -1072824311i32;
+pub const MQ_ERROR_ILLEGAL_PROPERTY_VALUE: MQERROR = MQERROR(-1072824296i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_SERVICE_NOT_AVAILABLE: MQERROR = -1072824309i32;
+pub const MQ_ERROR_ILLEGAL_PROPERTY_VT: MQERROR = MQERROR(-1072824295i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_MACHINE_NOT_FOUND: MQERROR = -1072824307i32;
+pub const MQ_ERROR_BUFFER_OVERFLOW: MQERROR = MQERROR(-1072824294i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_ILLEGAL_SORT: MQERROR = -1072824304i32;
+pub const MQ_ERROR_IO_TIMEOUT: MQERROR = MQERROR(-1072824293i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_ILLEGAL_USER: MQERROR = -1072824303i32;
+pub const MQ_ERROR_ILLEGAL_CURSOR_ACTION: MQERROR = MQERROR(-1072824292i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_NO_DS: MQERROR = -1072824301i32;
+pub const MQ_ERROR_MESSAGE_ALREADY_RECEIVED: MQERROR = MQERROR(-1072824291i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_ILLEGAL_QUEUE_PATHNAME: MQERROR = -1072824300i32;
+pub const MQ_ERROR_ILLEGAL_FORMATNAME: MQERROR = MQERROR(-1072824290i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_ILLEGAL_PROPERTY_VALUE: MQERROR = -1072824296i32;
+pub const MQ_ERROR_FORMATNAME_BUFFER_TOO_SMALL: MQERROR = MQERROR(-1072824289i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_ILLEGAL_PROPERTY_VT: MQERROR = -1072824295i32;
+pub const MQ_ERROR_UNSUPPORTED_FORMATNAME_OPERATION: MQERROR = MQERROR(-1072824288i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_BUFFER_OVERFLOW: MQERROR = -1072824294i32;
+pub const MQ_ERROR_ILLEGAL_SECURITY_DESCRIPTOR: MQERROR = MQERROR(-1072824287i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_IO_TIMEOUT: MQERROR = -1072824293i32;
+pub const MQ_ERROR_SENDERID_BUFFER_TOO_SMALL: MQERROR = MQERROR(-1072824286i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_ILLEGAL_CURSOR_ACTION: MQERROR = -1072824292i32;
+pub const MQ_ERROR_SECURITY_DESCRIPTOR_TOO_SMALL: MQERROR = MQERROR(-1072824285i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_MESSAGE_ALREADY_RECEIVED: MQERROR = -1072824291i32;
+pub const MQ_ERROR_CANNOT_IMPERSONATE_CLIENT: MQERROR = MQERROR(-1072824284i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_ILLEGAL_FORMATNAME: MQERROR = -1072824290i32;
+pub const MQ_ERROR_ACCESS_DENIED: MQERROR = MQERROR(-1072824283i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_FORMATNAME_BUFFER_TOO_SMALL: MQERROR = -1072824289i32;
+pub const MQ_ERROR_PRIVILEGE_NOT_HELD: MQERROR = MQERROR(-1072824282i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_UNSUPPORTED_FORMATNAME_OPERATION: MQERROR = -1072824288i32;
+pub const MQ_ERROR_INSUFFICIENT_RESOURCES: MQERROR = MQERROR(-1072824281i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_ILLEGAL_SECURITY_DESCRIPTOR: MQERROR = -1072824287i32;
+pub const MQ_ERROR_USER_BUFFER_TOO_SMALL: MQERROR = MQERROR(-1072824280i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_SENDERID_BUFFER_TOO_SMALL: MQERROR = -1072824286i32;
+pub const MQ_ERROR_MESSAGE_STORAGE_FAILED: MQERROR = MQERROR(-1072824278i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_SECURITY_DESCRIPTOR_TOO_SMALL: MQERROR = -1072824285i32;
+pub const MQ_ERROR_SENDER_CERT_BUFFER_TOO_SMALL: MQERROR = MQERROR(-1072824277i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_CANNOT_IMPERSONATE_CLIENT: MQERROR = -1072824284i32;
+pub const MQ_ERROR_INVALID_CERTIFICATE: MQERROR = MQERROR(-1072824276i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_ACCESS_DENIED: MQERROR = -1072824283i32;
+pub const MQ_ERROR_CORRUPTED_INTERNAL_CERTIFICATE: MQERROR = MQERROR(-1072824275i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_PRIVILEGE_NOT_HELD: MQERROR = -1072824282i32;
+pub const MQ_ERROR_INTERNAL_USER_CERT_EXIST: MQERROR = MQERROR(-1072824274i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_INSUFFICIENT_RESOURCES: MQERROR = -1072824281i32;
+pub const MQ_ERROR_NO_INTERNAL_USER_CERT: MQERROR = MQERROR(-1072824273i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_USER_BUFFER_TOO_SMALL: MQERROR = -1072824280i32;
+pub const MQ_ERROR_CORRUPTED_SECURITY_DATA: MQERROR = MQERROR(-1072824272i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_MESSAGE_STORAGE_FAILED: MQERROR = -1072824278i32;
+pub const MQ_ERROR_CORRUPTED_PERSONAL_CERT_STORE: MQERROR = MQERROR(-1072824271i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_SENDER_CERT_BUFFER_TOO_SMALL: MQERROR = -1072824277i32;
+pub const MQ_ERROR_COMPUTER_DOES_NOT_SUPPORT_ENCRYPTION: MQERROR = MQERROR(-1072824269i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_INVALID_CERTIFICATE: MQERROR = -1072824276i32;
+pub const MQ_ERROR_BAD_SECURITY_CONTEXT: MQERROR = MQERROR(-1072824267i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_CORRUPTED_INTERNAL_CERTIFICATE: MQERROR = -1072824275i32;
+pub const MQ_ERROR_COULD_NOT_GET_USER_SID: MQERROR = MQERROR(-1072824266i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_INTERNAL_USER_CERT_EXIST: MQERROR = -1072824274i32;
+pub const MQ_ERROR_COULD_NOT_GET_ACCOUNT_INFO: MQERROR = MQERROR(-1072824265i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_NO_INTERNAL_USER_CERT: MQERROR = -1072824273i32;
+pub const MQ_ERROR_ILLEGAL_MQCOLUMNS: MQERROR = MQERROR(-1072824264i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_CORRUPTED_SECURITY_DATA: MQERROR = -1072824272i32;
+pub const MQ_ERROR_ILLEGAL_PROPID: MQERROR = MQERROR(-1072824263i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_CORRUPTED_PERSONAL_CERT_STORE: MQERROR = -1072824271i32;
+pub const MQ_ERROR_ILLEGAL_RELATION: MQERROR = MQERROR(-1072824262i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_COMPUTER_DOES_NOT_SUPPORT_ENCRYPTION: MQERROR = -1072824269i32;
+pub const MQ_ERROR_ILLEGAL_PROPERTY_SIZE: MQERROR = MQERROR(-1072824261i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_BAD_SECURITY_CONTEXT: MQERROR = -1072824267i32;
+pub const MQ_ERROR_ILLEGAL_RESTRICTION_PROPID: MQERROR = MQERROR(-1072824260i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_COULD_NOT_GET_USER_SID: MQERROR = -1072824266i32;
+pub const MQ_ERROR_ILLEGAL_MQQUEUEPROPS: MQERROR = MQERROR(-1072824259i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_COULD_NOT_GET_ACCOUNT_INFO: MQERROR = -1072824265i32;
+pub const MQ_ERROR_PROPERTY_NOTALLOWED: MQERROR = MQERROR(-1072824258i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_ILLEGAL_MQCOLUMNS: MQERROR = -1072824264i32;
+pub const MQ_ERROR_INSUFFICIENT_PROPERTIES: MQERROR = MQERROR(-1072824257i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_ILLEGAL_PROPID: MQERROR = -1072824263i32;
+pub const MQ_ERROR_MACHINE_EXISTS: MQERROR = MQERROR(-1072824256i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_ILLEGAL_RELATION: MQERROR = -1072824262i32;
+pub const MQ_ERROR_ILLEGAL_MQQMPROPS: MQERROR = MQERROR(-1072824255i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_ILLEGAL_PROPERTY_SIZE: MQERROR = -1072824261i32;
+pub const MQ_ERROR_DS_IS_FULL: MQERROR = MQERROR(-1072824254i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_ILLEGAL_RESTRICTION_PROPID: MQERROR = -1072824260i32;
+pub const MQ_ERROR_DS_ERROR: MQERROR = MQERROR(-1072824253i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_ILLEGAL_MQQUEUEPROPS: MQERROR = -1072824259i32;
+pub const MQ_ERROR_INVALID_OWNER: MQERROR = MQERROR(-1072824252i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_PROPERTY_NOTALLOWED: MQERROR = -1072824258i32;
+pub const MQ_ERROR_UNSUPPORTED_ACCESS_MODE: MQERROR = MQERROR(-1072824251i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_INSUFFICIENT_PROPERTIES: MQERROR = -1072824257i32;
+pub const MQ_ERROR_RESULT_BUFFER_TOO_SMALL: MQERROR = MQERROR(-1072824250i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_MACHINE_EXISTS: MQERROR = -1072824256i32;
+pub const MQ_ERROR_DELETE_CN_IN_USE: MQERROR = MQERROR(-1072824248i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_ILLEGAL_MQQMPROPS: MQERROR = -1072824255i32;
+pub const MQ_ERROR_NO_RESPONSE_FROM_OBJECT_SERVER: MQERROR = MQERROR(-1072824247i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_DS_IS_FULL: MQERROR = -1072824254i32;
+pub const MQ_ERROR_OBJECT_SERVER_NOT_AVAILABLE: MQERROR = MQERROR(-1072824246i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_DS_ERROR: MQERROR = -1072824253i32;
+pub const MQ_ERROR_QUEUE_NOT_AVAILABLE: MQERROR = MQERROR(-1072824245i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_INVALID_OWNER: MQERROR = -1072824252i32;
+pub const MQ_ERROR_DTC_CONNECT: MQERROR = MQERROR(-1072824244i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_UNSUPPORTED_ACCESS_MODE: MQERROR = -1072824251i32;
+pub const MQ_ERROR_TRANSACTION_IMPORT: MQERROR = MQERROR(-1072824242i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_RESULT_BUFFER_TOO_SMALL: MQERROR = -1072824250i32;
+pub const MQ_ERROR_TRANSACTION_USAGE: MQERROR = MQERROR(-1072824240i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_DELETE_CN_IN_USE: MQERROR = -1072824248i32;
+pub const MQ_ERROR_TRANSACTION_SEQUENCE: MQERROR = MQERROR(-1072824239i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_NO_RESPONSE_FROM_OBJECT_SERVER: MQERROR = -1072824247i32;
+pub const MQ_ERROR_MISSING_CONNECTOR_TYPE: MQERROR = MQERROR(-1072824235i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_OBJECT_SERVER_NOT_AVAILABLE: MQERROR = -1072824246i32;
+pub const MQ_ERROR_STALE_HANDLE: MQERROR = MQERROR(-1072824234i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_QUEUE_NOT_AVAILABLE: MQERROR = -1072824245i32;
+pub const MQ_ERROR_TRANSACTION_ENLIST: MQERROR = MQERROR(-1072824232i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_DTC_CONNECT: MQERROR = -1072824244i32;
+pub const MQ_ERROR_QUEUE_DELETED: MQERROR = MQERROR(-1072824230i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_TRANSACTION_IMPORT: MQERROR = -1072824242i32;
+pub const MQ_ERROR_ILLEGAL_CONTEXT: MQERROR = MQERROR(-1072824229i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_TRANSACTION_USAGE: MQERROR = -1072824240i32;
+pub const MQ_ERROR_ILLEGAL_SORT_PROPID: MQERROR = MQERROR(-1072824228i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_TRANSACTION_SEQUENCE: MQERROR = -1072824239i32;
+pub const MQ_ERROR_LABEL_TOO_LONG: MQERROR = MQERROR(-1072824227i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_MISSING_CONNECTOR_TYPE: MQERROR = -1072824235i32;
+pub const MQ_ERROR_LABEL_BUFFER_TOO_SMALL: MQERROR = MQERROR(-1072824226i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_STALE_HANDLE: MQERROR = -1072824234i32;
+pub const MQ_ERROR_MQIS_SERVER_EMPTY: MQERROR = MQERROR(-1072824225i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_TRANSACTION_ENLIST: MQERROR = -1072824232i32;
+pub const MQ_ERROR_MQIS_READONLY_MODE: MQERROR = MQERROR(-1072824224i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_QUEUE_DELETED: MQERROR = -1072824230i32;
+pub const MQ_ERROR_SYMM_KEY_BUFFER_TOO_SMALL: MQERROR = MQERROR(-1072824223i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_ILLEGAL_CONTEXT: MQERROR = -1072824229i32;
+pub const MQ_ERROR_SIGNATURE_BUFFER_TOO_SMALL: MQERROR = MQERROR(-1072824222i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_ILLEGAL_SORT_PROPID: MQERROR = -1072824228i32;
+pub const MQ_ERROR_PROV_NAME_BUFFER_TOO_SMALL: MQERROR = MQERROR(-1072824221i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_LABEL_TOO_LONG: MQERROR = -1072824227i32;
+pub const MQ_ERROR_ILLEGAL_OPERATION: MQERROR = MQERROR(-1072824220i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_LABEL_BUFFER_TOO_SMALL: MQERROR = -1072824226i32;
+pub const MQ_ERROR_WRITE_NOT_ALLOWED: MQERROR = MQERROR(-1072824219i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_MQIS_SERVER_EMPTY: MQERROR = -1072824225i32;
+pub const MQ_ERROR_WKS_CANT_SERVE_CLIENT: MQERROR = MQERROR(-1072824218i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_MQIS_READONLY_MODE: MQERROR = -1072824224i32;
+pub const MQ_ERROR_DEPEND_WKS_LICENSE_OVERFLOW: MQERROR = MQERROR(-1072824217i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_SYMM_KEY_BUFFER_TOO_SMALL: MQERROR = -1072824223i32;
+pub const MQ_CORRUPTED_QUEUE_WAS_DELETED: MQERROR = MQERROR(-1072824216i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_SIGNATURE_BUFFER_TOO_SMALL: MQERROR = -1072824222i32;
+pub const MQ_ERROR_REMOTE_MACHINE_NOT_AVAILABLE: MQERROR = MQERROR(-1072824215i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_PROV_NAME_BUFFER_TOO_SMALL: MQERROR = -1072824221i32;
+pub const MQ_ERROR_UNSUPPORTED_OPERATION: MQERROR = MQERROR(-1072824214i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_ILLEGAL_OPERATION: MQERROR = -1072824220i32;
+pub const MQ_ERROR_ENCRYPTION_PROVIDER_NOT_SUPPORTED: MQERROR = MQERROR(-1072824213i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_WRITE_NOT_ALLOWED: MQERROR = -1072824219i32;
+pub const MQ_ERROR_CANNOT_SET_CRYPTO_SEC_DESCR: MQERROR = MQERROR(-1072824212i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_WKS_CANT_SERVE_CLIENT: MQERROR = -1072824218i32;
+pub const MQ_ERROR_CERTIFICATE_NOT_PROVIDED: MQERROR = MQERROR(-1072824211i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_DEPEND_WKS_LICENSE_OVERFLOW: MQERROR = -1072824217i32;
+pub const MQ_ERROR_Q_DNS_PROPERTY_NOT_SUPPORTED: MQERROR = MQERROR(-1072824210i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_CORRUPTED_QUEUE_WAS_DELETED: MQERROR = -1072824216i32;
+pub const MQ_ERROR_CANT_CREATE_CERT_STORE: MQERROR = MQERROR(-1072824209i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_REMOTE_MACHINE_NOT_AVAILABLE: MQERROR = -1072824215i32;
+pub const MQ_ERROR_CANNOT_CREATE_CERT_STORE: MQERROR = MQERROR(-1072824209i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_UNSUPPORTED_OPERATION: MQERROR = -1072824214i32;
+pub const MQ_ERROR_CANT_OPEN_CERT_STORE: MQERROR = MQERROR(-1072824208i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_ENCRYPTION_PROVIDER_NOT_SUPPORTED: MQERROR = -1072824213i32;
+pub const MQ_ERROR_CANNOT_OPEN_CERT_STORE: MQERROR = MQERROR(-1072824208i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_CANNOT_SET_CRYPTO_SEC_DESCR: MQERROR = -1072824212i32;
+pub const MQ_ERROR_ILLEGAL_ENTERPRISE_OPERATION: MQERROR = MQERROR(-1072824207i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_CERTIFICATE_NOT_PROVIDED: MQERROR = -1072824211i32;
+pub const MQ_ERROR_CANNOT_GRANT_ADD_GUID: MQERROR = MQERROR(-1072824206i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_Q_DNS_PROPERTY_NOT_SUPPORTED: MQERROR = -1072824210i32;
+pub const MQ_ERROR_CANNOT_LOAD_MSMQOCM: MQERROR = MQERROR(-1072824205i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_CANT_CREATE_CERT_STORE: MQERROR = -1072824209i32;
+pub const MQ_ERROR_NO_ENTRY_POINT_MSMQOCM: MQERROR = MQERROR(-1072824204i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_CANNOT_CREATE_CERT_STORE: MQERROR = -1072824209i32;
+pub const MQ_ERROR_NO_MSMQ_SERVERS_ON_DC: MQERROR = MQERROR(-1072824203i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_CANT_OPEN_CERT_STORE: MQERROR = -1072824208i32;
+pub const MQ_ERROR_CANNOT_JOIN_DOMAIN: MQERROR = MQERROR(-1072824202i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_CANNOT_OPEN_CERT_STORE: MQERROR = -1072824208i32;
+pub const MQ_ERROR_CANNOT_CREATE_ON_GC: MQERROR = MQERROR(-1072824201i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_ILLEGAL_ENTERPRISE_OPERATION: MQERROR = -1072824207i32;
+pub const MQ_ERROR_GUID_NOT_MATCHING: MQERROR = MQERROR(-1072824200i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_CANNOT_GRANT_ADD_GUID: MQERROR = -1072824206i32;
+pub const MQ_ERROR_PUBLIC_KEY_NOT_FOUND: MQERROR = MQERROR(-1072824199i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_CANNOT_LOAD_MSMQOCM: MQERROR = -1072824205i32;
+pub const MQ_ERROR_PUBLIC_KEY_DOES_NOT_EXIST: MQERROR = MQERROR(-1072824198i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_NO_ENTRY_POINT_MSMQOCM: MQERROR = -1072824204i32;
+pub const MQ_ERROR_ILLEGAL_MQPRIVATEPROPS: MQERROR = MQERROR(-1072824197i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_NO_MSMQ_SERVERS_ON_DC: MQERROR = -1072824203i32;
+pub const MQ_ERROR_NO_GC_IN_DOMAIN: MQERROR = MQERROR(-1072824196i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_CANNOT_JOIN_DOMAIN: MQERROR = -1072824202i32;
+pub const MQ_ERROR_NO_MSMQ_SERVERS_ON_GC: MQERROR = MQERROR(-1072824195i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_CANNOT_CREATE_ON_GC: MQERROR = -1072824201i32;
+pub const MQ_ERROR_CANNOT_GET_DN: MQERROR = MQERROR(-1072824194i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_GUID_NOT_MATCHING: MQERROR = -1072824200i32;
+pub const MQ_ERROR_CANNOT_HASH_DATA_EX: MQERROR = MQERROR(-1072824193i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_PUBLIC_KEY_NOT_FOUND: MQERROR = -1072824199i32;
+pub const MQ_ERROR_CANNOT_SIGN_DATA_EX: MQERROR = MQERROR(-1072824192i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_PUBLIC_KEY_DOES_NOT_EXIST: MQERROR = -1072824198i32;
+pub const MQ_ERROR_CANNOT_CREATE_HASH_EX: MQERROR = MQERROR(-1072824191i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_ILLEGAL_MQPRIVATEPROPS: MQERROR = -1072824197i32;
+pub const MQ_ERROR_FAIL_VERIFY_SIGNATURE_EX: MQERROR = MQERROR(-1072824190i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_NO_GC_IN_DOMAIN: MQERROR = -1072824196i32;
+pub const MQ_ERROR_CANNOT_DELETE_PSC_OBJECTS: MQERROR = MQERROR(-1072824189i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_NO_MSMQ_SERVERS_ON_GC: MQERROR = -1072824195i32;
+pub const MQ_ERROR_NO_MQUSER_OU: MQERROR = MQERROR(-1072824188i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_CANNOT_GET_DN: MQERROR = -1072824194i32;
+pub const MQ_ERROR_CANNOT_LOAD_MQAD: MQERROR = MQERROR(-1072824187i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_CANNOT_HASH_DATA_EX: MQERROR = -1072824193i32;
+pub const MQ_ERROR_CANNOT_LOAD_MQDSSRV: MQERROR = MQERROR(-1072824186i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_CANNOT_SIGN_DATA_EX: MQERROR = -1072824192i32;
+pub const MQ_ERROR_PROPERTIES_CONFLICT: MQERROR = MQERROR(-1072824185i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_CANNOT_CREATE_HASH_EX: MQERROR = -1072824191i32;
+pub const MQ_ERROR_MESSAGE_NOT_FOUND: MQERROR = MQERROR(-1072824184i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_FAIL_VERIFY_SIGNATURE_EX: MQERROR = -1072824190i32;
+pub const MQ_ERROR_CANT_RESOLVE_SITES: MQERROR = MQERROR(-1072824183i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_CANNOT_DELETE_PSC_OBJECTS: MQERROR = -1072824189i32;
+pub const MQ_ERROR_NOT_SUPPORTED_BY_DEPENDENT_CLIENTS: MQERROR = MQERROR(-1072824182i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_NO_MQUSER_OU: MQERROR = -1072824188i32;
+pub const MQ_ERROR_OPERATION_NOT_SUPPORTED_BY_REMOTE_COMPUTER: MQERROR = MQERROR(-1072824181i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_CANNOT_LOAD_MQAD: MQERROR = -1072824187i32;
+pub const MQ_ERROR_NOT_A_CORRECT_OBJECT_CLASS: MQERROR = MQERROR(-1072824180i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_CANNOT_LOAD_MQDSSRV: MQERROR = -1072824186i32;
+pub const MQ_ERROR_MULTI_SORT_KEYS: MQERROR = MQERROR(-1072824179i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_PROPERTIES_CONFLICT: MQERROR = -1072824185i32;
+pub const MQ_ERROR_GC_NEEDED: MQERROR = MQERROR(-1072824178i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_MESSAGE_NOT_FOUND: MQERROR = -1072824184i32;
+pub const MQ_ERROR_DS_BIND_ROOT_FOREST: MQERROR = MQERROR(-1072824177i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_CANT_RESOLVE_SITES: MQERROR = -1072824183i32;
+pub const MQ_ERROR_DS_LOCAL_USER: MQERROR = MQERROR(-1072824176i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_NOT_SUPPORTED_BY_DEPENDENT_CLIENTS: MQERROR = -1072824182i32;
+pub const MQ_ERROR_Q_ADS_PROPERTY_NOT_SUPPORTED: MQERROR = MQERROR(-1072824175i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_OPERATION_NOT_SUPPORTED_BY_REMOTE_COMPUTER: MQERROR = -1072824181i32;
+pub const MQ_ERROR_BAD_XML_FORMAT: MQERROR = MQERROR(-1072824174i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_NOT_A_CORRECT_OBJECT_CLASS: MQERROR = -1072824180i32;
+pub const MQ_ERROR_UNSUPPORTED_CLASS: MQERROR = MQERROR(-1072824173i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_MULTI_SORT_KEYS: MQERROR = -1072824179i32;
+pub const MQ_ERROR_UNINITIALIZED_OBJECT: MQERROR = MQERROR(-1072824172i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_GC_NEEDED: MQERROR = -1072824178i32;
+pub const MQ_ERROR_CANNOT_CREATE_PSC_OBJECTS: MQERROR = MQERROR(-1072824171i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_DS_BIND_ROOT_FOREST: MQERROR = -1072824177i32;
+pub const MQ_ERROR_CANNOT_UPDATE_PSC_OBJECTS: MQERROR = MQERROR(-1072824170i32);
+impl ::core::marker::Copy for MQERROR {}
+impl ::core::clone::Clone for MQERROR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MQERROR {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MQERROR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MQERROR").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_DS_LOCAL_USER: MQERROR = -1072824176i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MQJOURNAL(pub i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_Q_ADS_PROPERTY_NOT_SUPPORTED: MQERROR = -1072824175i32;
+pub const MQ_JOURNAL_NONE: MQJOURNAL = MQJOURNAL(0i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_BAD_XML_FORMAT: MQERROR = -1072824174i32;
+pub const MQ_JOURNAL: MQJOURNAL = MQJOURNAL(1i32);
+impl ::core::marker::Copy for MQJOURNAL {}
+impl ::core::clone::Clone for MQJOURNAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MQJOURNAL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MQJOURNAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MQJOURNAL").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_UNSUPPORTED_CLASS: MQERROR = -1072824173i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MQMAX(pub i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_UNINITIALIZED_OBJECT: MQERROR = -1072824172i32;
+pub const MQ_MAX_Q_NAME_LEN: MQMAX = MQMAX(124i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_CANNOT_CREATE_PSC_OBJECTS: MQERROR = -1072824171i32;
+pub const MQ_MAX_Q_LABEL_LEN: MQMAX = MQMAX(124i32);
+impl ::core::marker::Copy for MQMAX {}
+impl ::core::clone::Clone for MQMAX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MQMAX {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MQMAX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MQMAX").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_ERROR_CANNOT_UPDATE_PSC_OBJECTS: MQERROR = -1072824170i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MQMSGACKNOWLEDGEMENT(pub i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub type MQJOURNAL = i32;
+pub const MQMSG_ACKNOWLEDGMENT_NONE: MQMSGACKNOWLEDGEMENT = MQMSGACKNOWLEDGEMENT(0i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_JOURNAL_NONE: MQJOURNAL = 0i32;
+pub const MQMSG_ACKNOWLEDGMENT_POS_ARRIVAL: MQMSGACKNOWLEDGEMENT = MQMSGACKNOWLEDGEMENT(1i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_JOURNAL: MQJOURNAL = 1i32;
+pub const MQMSG_ACKNOWLEDGMENT_POS_RECEIVE: MQMSGACKNOWLEDGEMENT = MQMSGACKNOWLEDGEMENT(2i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub type MQMAX = i32;
+pub const MQMSG_ACKNOWLEDGMENT_NEG_ARRIVAL: MQMSGACKNOWLEDGEMENT = MQMSGACKNOWLEDGEMENT(4i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_MAX_Q_NAME_LEN: MQMAX = 124i32;
+pub const MQMSG_ACKNOWLEDGMENT_NEG_RECEIVE: MQMSGACKNOWLEDGEMENT = MQMSGACKNOWLEDGEMENT(8i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_MAX_Q_LABEL_LEN: MQMAX = 124i32;
+pub const MQMSG_ACKNOWLEDGMENT_NACK_REACH_QUEUE: MQMSGACKNOWLEDGEMENT = MQMSGACKNOWLEDGEMENT(4i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub type MQMSGACKNOWLEDGEMENT = i32;
+pub const MQMSG_ACKNOWLEDGMENT_FULL_REACH_QUEUE: MQMSGACKNOWLEDGEMENT = MQMSGACKNOWLEDGEMENT(5i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_ACKNOWLEDGMENT_NONE: MQMSGACKNOWLEDGEMENT = 0i32;
+pub const MQMSG_ACKNOWLEDGMENT_NACK_RECEIVE: MQMSGACKNOWLEDGEMENT = MQMSGACKNOWLEDGEMENT(12i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_ACKNOWLEDGMENT_POS_ARRIVAL: MQMSGACKNOWLEDGEMENT = 1i32;
+pub const MQMSG_ACKNOWLEDGMENT_FULL_RECEIVE: MQMSGACKNOWLEDGEMENT = MQMSGACKNOWLEDGEMENT(14i32);
+impl ::core::marker::Copy for MQMSGACKNOWLEDGEMENT {}
+impl ::core::clone::Clone for MQMSGACKNOWLEDGEMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MQMSGACKNOWLEDGEMENT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MQMSGACKNOWLEDGEMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MQMSGACKNOWLEDGEMENT").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_ACKNOWLEDGMENT_POS_RECEIVE: MQMSGACKNOWLEDGEMENT = 2i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MQMSGAUTHENTICATION(pub i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_ACKNOWLEDGMENT_NEG_ARRIVAL: MQMSGACKNOWLEDGEMENT = 4i32;
+pub const MQMSG_AUTHENTICATION_NOT_REQUESTED: MQMSGAUTHENTICATION = MQMSGAUTHENTICATION(0i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_ACKNOWLEDGMENT_NEG_RECEIVE: MQMSGACKNOWLEDGEMENT = 8i32;
+pub const MQMSG_AUTHENTICATION_REQUESTED: MQMSGAUTHENTICATION = MQMSGAUTHENTICATION(1i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_ACKNOWLEDGMENT_NACK_REACH_QUEUE: MQMSGACKNOWLEDGEMENT = 4i32;
+pub const MQMSG_AUTHENTICATED_SIG10: MQMSGAUTHENTICATION = MQMSGAUTHENTICATION(1i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_ACKNOWLEDGMENT_FULL_REACH_QUEUE: MQMSGACKNOWLEDGEMENT = 5i32;
+pub const MQMSG_AUTHENTICATION_REQUESTED_EX: MQMSGAUTHENTICATION = MQMSGAUTHENTICATION(3i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_ACKNOWLEDGMENT_NACK_RECEIVE: MQMSGACKNOWLEDGEMENT = 12i32;
+pub const MQMSG_AUTHENTICATED_SIG20: MQMSGAUTHENTICATION = MQMSGAUTHENTICATION(3i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_ACKNOWLEDGMENT_FULL_RECEIVE: MQMSGACKNOWLEDGEMENT = 14i32;
+pub const MQMSG_AUTHENTICATED_SIG30: MQMSGAUTHENTICATION = MQMSGAUTHENTICATION(5i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub type MQMSGAUTHENTICATION = i32;
+pub const MQMSG_AUTHENTICATED_SIGXML: MQMSGAUTHENTICATION = MQMSGAUTHENTICATION(9i32);
+impl ::core::marker::Copy for MQMSGAUTHENTICATION {}
+impl ::core::clone::Clone for MQMSGAUTHENTICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MQMSGAUTHENTICATION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MQMSGAUTHENTICATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MQMSGAUTHENTICATION").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_AUTHENTICATION_NOT_REQUESTED: MQMSGAUTHENTICATION = 0i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MQMSGAUTHLEVEL(pub i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_AUTHENTICATION_REQUESTED: MQMSGAUTHENTICATION = 1i32;
+pub const MQMSG_AUTH_LEVEL_NONE: MQMSGAUTHLEVEL = MQMSGAUTHLEVEL(0i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_AUTHENTICATED_SIG10: MQMSGAUTHENTICATION = 1i32;
+pub const MQMSG_AUTH_LEVEL_ALWAYS: MQMSGAUTHLEVEL = MQMSGAUTHLEVEL(1i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_AUTHENTICATION_REQUESTED_EX: MQMSGAUTHENTICATION = 3i32;
+pub const MQMSG_AUTH_LEVEL_MSMQ10: MQMSGAUTHLEVEL = MQMSGAUTHLEVEL(2i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_AUTHENTICATED_SIG20: MQMSGAUTHENTICATION = 3i32;
+pub const MQMSG_AUTH_LEVEL_SIG10: MQMSGAUTHLEVEL = MQMSGAUTHLEVEL(2i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_AUTHENTICATED_SIG30: MQMSGAUTHENTICATION = 5i32;
+pub const MQMSG_AUTH_LEVEL_MSMQ20: MQMSGAUTHLEVEL = MQMSGAUTHLEVEL(4i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_AUTHENTICATED_SIGXML: MQMSGAUTHENTICATION = 9i32;
+pub const MQMSG_AUTH_LEVEL_SIG20: MQMSGAUTHLEVEL = MQMSGAUTHLEVEL(4i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub type MQMSGAUTHLEVEL = i32;
+pub const MQMSG_AUTH_LEVEL_SIG30: MQMSGAUTHLEVEL = MQMSGAUTHLEVEL(8i32);
+impl ::core::marker::Copy for MQMSGAUTHLEVEL {}
+impl ::core::clone::Clone for MQMSGAUTHLEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MQMSGAUTHLEVEL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MQMSGAUTHLEVEL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MQMSGAUTHLEVEL").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_AUTH_LEVEL_NONE: MQMSGAUTHLEVEL = 0i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MQMSGCLASS(pub i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_AUTH_LEVEL_ALWAYS: MQMSGAUTHLEVEL = 1i32;
+pub const MQMSG_CLASS_NORMAL: MQMSGCLASS = MQMSGCLASS(0i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_AUTH_LEVEL_MSMQ10: MQMSGAUTHLEVEL = 2i32;
+pub const MQMSG_CLASS_REPORT: MQMSGCLASS = MQMSGCLASS(1i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_AUTH_LEVEL_SIG10: MQMSGAUTHLEVEL = 2i32;
+pub const MQMSG_CLASS_ACK_REACH_QUEUE: MQMSGCLASS = MQMSGCLASS(2i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_AUTH_LEVEL_MSMQ20: MQMSGAUTHLEVEL = 4i32;
+pub const MQMSG_CLASS_ACK_RECEIVE: MQMSGCLASS = MQMSGCLASS(16384i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_AUTH_LEVEL_SIG20: MQMSGAUTHLEVEL = 4i32;
+pub const MQMSG_CLASS_NACK_BAD_DST_Q: MQMSGCLASS = MQMSGCLASS(32768i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_AUTH_LEVEL_SIG30: MQMSGAUTHLEVEL = 8i32;
+pub const MQMSG_CLASS_NACK_PURGED: MQMSGCLASS = MQMSGCLASS(32769i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub type MQMSGCLASS = i32;
+pub const MQMSG_CLASS_NACK_REACH_QUEUE_TIMEOUT: MQMSGCLASS = MQMSGCLASS(32770i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_CLASS_NORMAL: MQMSGCLASS = 0i32;
+pub const MQMSG_CLASS_NACK_Q_EXCEED_QUOTA: MQMSGCLASS = MQMSGCLASS(32771i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_CLASS_REPORT: MQMSGCLASS = 1i32;
+pub const MQMSG_CLASS_NACK_ACCESS_DENIED: MQMSGCLASS = MQMSGCLASS(32772i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_CLASS_ACK_REACH_QUEUE: MQMSGCLASS = 2i32;
+pub const MQMSG_CLASS_NACK_HOP_COUNT_EXCEEDED: MQMSGCLASS = MQMSGCLASS(32773i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_CLASS_ACK_RECEIVE: MQMSGCLASS = 16384i32;
+pub const MQMSG_CLASS_NACK_BAD_SIGNATURE: MQMSGCLASS = MQMSGCLASS(32774i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_CLASS_NACK_BAD_DST_Q: MQMSGCLASS = 32768i32;
+pub const MQMSG_CLASS_NACK_BAD_ENCRYPTION: MQMSGCLASS = MQMSGCLASS(32775i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_CLASS_NACK_PURGED: MQMSGCLASS = 32769i32;
+pub const MQMSG_CLASS_NACK_COULD_NOT_ENCRYPT: MQMSGCLASS = MQMSGCLASS(32776i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_CLASS_NACK_REACH_QUEUE_TIMEOUT: MQMSGCLASS = 32770i32;
+pub const MQMSG_CLASS_NACK_NOT_TRANSACTIONAL_Q: MQMSGCLASS = MQMSGCLASS(32777i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_CLASS_NACK_Q_EXCEED_QUOTA: MQMSGCLASS = 32771i32;
+pub const MQMSG_CLASS_NACK_NOT_TRANSACTIONAL_MSG: MQMSGCLASS = MQMSGCLASS(32778i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_CLASS_NACK_ACCESS_DENIED: MQMSGCLASS = 32772i32;
+pub const MQMSG_CLASS_NACK_UNSUPPORTED_CRYPTO_PROVIDER: MQMSGCLASS = MQMSGCLASS(32779i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_CLASS_NACK_HOP_COUNT_EXCEEDED: MQMSGCLASS = 32773i32;
+pub const MQMSG_CLASS_NACK_SOURCE_COMPUTER_GUID_CHANGED: MQMSGCLASS = MQMSGCLASS(32780i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_CLASS_NACK_BAD_SIGNATURE: MQMSGCLASS = 32774i32;
+pub const MQMSG_CLASS_NACK_Q_DELETED: MQMSGCLASS = MQMSGCLASS(49152i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_CLASS_NACK_BAD_ENCRYPTION: MQMSGCLASS = 32775i32;
+pub const MQMSG_CLASS_NACK_Q_PURGED: MQMSGCLASS = MQMSGCLASS(49153i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_CLASS_NACK_COULD_NOT_ENCRYPT: MQMSGCLASS = 32776i32;
+pub const MQMSG_CLASS_NACK_RECEIVE_TIMEOUT: MQMSGCLASS = MQMSGCLASS(49154i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_CLASS_NACK_NOT_TRANSACTIONAL_Q: MQMSGCLASS = 32777i32;
+pub const MQMSG_CLASS_NACK_RECEIVE_TIMEOUT_AT_SENDER: MQMSGCLASS = MQMSGCLASS(49155i32);
+impl ::core::marker::Copy for MQMSGCLASS {}
+impl ::core::clone::Clone for MQMSGCLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MQMSGCLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MQMSGCLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MQMSGCLASS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_CLASS_NACK_NOT_TRANSACTIONAL_MSG: MQMSGCLASS = 32778i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MQMSGCURSOR(pub i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_CLASS_NACK_UNSUPPORTED_CRYPTO_PROVIDER: MQMSGCLASS = 32779i32;
+pub const MQMSG_FIRST: MQMSGCURSOR = MQMSGCURSOR(0i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_CLASS_NACK_SOURCE_COMPUTER_GUID_CHANGED: MQMSGCLASS = 32780i32;
+pub const MQMSG_CURRENT: MQMSGCURSOR = MQMSGCURSOR(1i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_CLASS_NACK_Q_DELETED: MQMSGCLASS = 49152i32;
+pub const MQMSG_NEXT: MQMSGCURSOR = MQMSGCURSOR(2i32);
+impl ::core::marker::Copy for MQMSGCURSOR {}
+impl ::core::clone::Clone for MQMSGCURSOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MQMSGCURSOR {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MQMSGCURSOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MQMSGCURSOR").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_CLASS_NACK_Q_PURGED: MQMSGCLASS = 49153i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MQMSGDELIVERY(pub i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_CLASS_NACK_RECEIVE_TIMEOUT: MQMSGCLASS = 49154i32;
+pub const MQMSG_DELIVERY_EXPRESS: MQMSGDELIVERY = MQMSGDELIVERY(0i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_CLASS_NACK_RECEIVE_TIMEOUT_AT_SENDER: MQMSGCLASS = 49155i32;
+pub const MQMSG_DELIVERY_RECOVERABLE: MQMSGDELIVERY = MQMSGDELIVERY(1i32);
+impl ::core::marker::Copy for MQMSGDELIVERY {}
+impl ::core::clone::Clone for MQMSGDELIVERY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MQMSGDELIVERY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MQMSGDELIVERY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MQMSGDELIVERY").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub type MQMSGCURSOR = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MQMSGIDSIZE(pub i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_FIRST: MQMSGCURSOR = 0i32;
+pub const MQMSG_MSGID_SIZE: MQMSGIDSIZE = MQMSGIDSIZE(20i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_CURRENT: MQMSGCURSOR = 1i32;
+pub const MQMSG_CORRELATIONID_SIZE: MQMSGIDSIZE = MQMSGIDSIZE(20i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_NEXT: MQMSGCURSOR = 2i32;
+pub const MQMSG_XACTID_SIZE: MQMSGIDSIZE = MQMSGIDSIZE(20i32);
+impl ::core::marker::Copy for MQMSGIDSIZE {}
+impl ::core::clone::Clone for MQMSGIDSIZE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MQMSGIDSIZE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MQMSGIDSIZE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MQMSGIDSIZE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub type MQMSGDELIVERY = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MQMSGJOURNAL(pub i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_DELIVERY_EXPRESS: MQMSGDELIVERY = 0i32;
+pub const MQMSG_JOURNAL_NONE: MQMSGJOURNAL = MQMSGJOURNAL(0i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_DELIVERY_RECOVERABLE: MQMSGDELIVERY = 1i32;
+pub const MQMSG_DEADLETTER: MQMSGJOURNAL = MQMSGJOURNAL(1i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub type MQMSGIDSIZE = i32;
+pub const MQMSG_JOURNAL: MQMSGJOURNAL = MQMSGJOURNAL(2i32);
+impl ::core::marker::Copy for MQMSGJOURNAL {}
+impl ::core::clone::Clone for MQMSGJOURNAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MQMSGJOURNAL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MQMSGJOURNAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MQMSGJOURNAL").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_MSGID_SIZE: MQMSGIDSIZE = 20i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MQMSGMAX(pub i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_CORRELATIONID_SIZE: MQMSGIDSIZE = 20i32;
+pub const MQ_MAX_MSG_LABEL_LEN: MQMSGMAX = MQMSGMAX(249i32);
+impl ::core::marker::Copy for MQMSGMAX {}
+impl ::core::clone::Clone for MQMSGMAX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MQMSGMAX {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MQMSGMAX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MQMSGMAX").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_XACTID_SIZE: MQMSGIDSIZE = 20i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MQMSGPRIVLEVEL(pub i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub type MQMSGJOURNAL = i32;
+pub const MQMSG_PRIV_LEVEL_NONE: MQMSGPRIVLEVEL = MQMSGPRIVLEVEL(0i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_JOURNAL_NONE: MQMSGJOURNAL = 0i32;
+pub const MQMSG_PRIV_LEVEL_BODY_BASE: MQMSGPRIVLEVEL = MQMSGPRIVLEVEL(1i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_DEADLETTER: MQMSGJOURNAL = 1i32;
+pub const MQMSG_PRIV_LEVEL_BODY_ENHANCED: MQMSGPRIVLEVEL = MQMSGPRIVLEVEL(3i32);
+impl ::core::marker::Copy for MQMSGPRIVLEVEL {}
+impl ::core::clone::Clone for MQMSGPRIVLEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MQMSGPRIVLEVEL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MQMSGPRIVLEVEL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MQMSGPRIVLEVEL").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_JOURNAL: MQMSGJOURNAL = 2i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MQMSGSENDERIDTYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub type MQMSGMAX = i32;
+pub const MQMSG_SENDERID_TYPE_NONE: MQMSGSENDERIDTYPE = MQMSGSENDERIDTYPE(0i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_MAX_MSG_LABEL_LEN: MQMSGMAX = 249i32;
+pub const MQMSG_SENDERID_TYPE_SID: MQMSGSENDERIDTYPE = MQMSGSENDERIDTYPE(1i32);
+impl ::core::marker::Copy for MQMSGSENDERIDTYPE {}
+impl ::core::clone::Clone for MQMSGSENDERIDTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MQMSGSENDERIDTYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MQMSGSENDERIDTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MQMSGSENDERIDTYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub type MQMSGPRIVLEVEL = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MQMSGTRACE(pub i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_PRIV_LEVEL_NONE: MQMSGPRIVLEVEL = 0i32;
+pub const MQMSG_TRACE_NONE: MQMSGTRACE = MQMSGTRACE(0i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_PRIV_LEVEL_BODY_BASE: MQMSGPRIVLEVEL = 1i32;
-#[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_PRIV_LEVEL_BODY_ENHANCED: MQMSGPRIVLEVEL = 3i32;
-#[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub type MQMSGSENDERIDTYPE = i32;
-#[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_SENDERID_TYPE_NONE: MQMSGSENDERIDTYPE = 0i32;
-#[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_SENDERID_TYPE_SID: MQMSGSENDERIDTYPE = 1i32;
-#[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub type MQMSGTRACE = i32;
-#[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_TRACE_NONE: MQMSGTRACE = 0i32;
-#[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQMSG_SEND_ROUTE_TO_REPORT_QUEUE: MQMSGTRACE = 1i32;
+pub const MQMSG_SEND_ROUTE_TO_REPORT_QUEUE: MQMSGTRACE = MQMSGTRACE(1i32);
+impl ::core::marker::Copy for MQMSGTRACE {}
+impl ::core::clone::Clone for MQMSGTRACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MQMSGTRACE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MQMSGTRACE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MQMSGTRACE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
 pub const MQMSG_AUTHENTICATED_QM_MESSAGE: u32 = 11u32;
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
@@ -10607,19 +10943,51 @@ pub const MQMSG_NOT_LAST_IN_XACT: u32 = 0u32;
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
 pub const MQMSG_PRIV_LEVEL_BODY_AES: u32 = 5u32;
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub type MQPRIORITY = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MQPRIORITY(pub i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_MIN_PRIORITY: MQPRIORITY = 0i32;
+pub const MQ_MIN_PRIORITY: MQPRIORITY = MQPRIORITY(0i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_MAX_PRIORITY: MQPRIORITY = 7i32;
+pub const MQ_MAX_PRIORITY: MQPRIORITY = MQPRIORITY(7i32);
+impl ::core::marker::Copy for MQPRIORITY {}
+impl ::core::clone::Clone for MQPRIORITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MQPRIORITY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MQPRIORITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MQPRIORITY").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub type MQPRIVLEVEL = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MQPRIVLEVEL(pub i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_PRIV_LEVEL_NONE: MQPRIVLEVEL = 0i32;
+pub const MQ_PRIV_LEVEL_NONE: MQPRIVLEVEL = MQPRIVLEVEL(0i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_PRIV_LEVEL_OPTIONAL: MQPRIVLEVEL = 1i32;
+pub const MQ_PRIV_LEVEL_OPTIONAL: MQPRIVLEVEL = MQPRIVLEVEL(1i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_PRIV_LEVEL_BODY: MQPRIVLEVEL = 2i32;
+pub const MQ_PRIV_LEVEL_BODY: MQPRIVLEVEL = MQPRIVLEVEL(2i32);
+impl ::core::marker::Copy for MQPRIVLEVEL {}
+impl ::core::clone::Clone for MQPRIVLEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MQPRIVLEVEL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MQPRIVLEVEL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MQPRIVLEVEL").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
 pub const MQSEC_CHANGE_QUEUE_PERMISSIONS: u32 = 262144u32;
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
@@ -10641,47 +11009,111 @@ pub const MQSEC_TAKE_QUEUE_OWNERSHIP: u32 = 524288u32;
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
 pub const MQSEC_WRITE_MESSAGE: u32 = 4u32;
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub type MQSHARE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MQSHARE(pub i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_DENY_NONE: MQSHARE = 0i32;
+pub const MQ_DENY_NONE: MQSHARE = MQSHARE(0i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_DENY_RECEIVE_SHARE: MQSHARE = 1i32;
+pub const MQ_DENY_RECEIVE_SHARE: MQSHARE = MQSHARE(1i32);
+impl ::core::marker::Copy for MQSHARE {}
+impl ::core::clone::Clone for MQSHARE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MQSHARE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MQSHARE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MQSHARE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub type MQTRANSACTION = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MQTRANSACTION(pub i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_NO_TRANSACTION: MQTRANSACTION = 0i32;
+pub const MQ_NO_TRANSACTION: MQTRANSACTION = MQTRANSACTION(0i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_MTS_TRANSACTION: MQTRANSACTION = 1i32;
+pub const MQ_MTS_TRANSACTION: MQTRANSACTION = MQTRANSACTION(1i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_XA_TRANSACTION: MQTRANSACTION = 2i32;
+pub const MQ_XA_TRANSACTION: MQTRANSACTION = MQTRANSACTION(2i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_SINGLE_MESSAGE: MQTRANSACTION = 3i32;
+pub const MQ_SINGLE_MESSAGE: MQTRANSACTION = MQTRANSACTION(3i32);
+impl ::core::marker::Copy for MQTRANSACTION {}
+impl ::core::clone::Clone for MQTRANSACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MQTRANSACTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MQTRANSACTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MQTRANSACTION").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub type MQTRANSACTIONAL = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MQTRANSACTIONAL(pub i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_TRANSACTIONAL_NONE: MQTRANSACTIONAL = 0i32;
+pub const MQ_TRANSACTIONAL_NONE: MQTRANSACTIONAL = MQTRANSACTIONAL(0i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_TRANSACTIONAL: MQTRANSACTIONAL = 1i32;
+pub const MQ_TRANSACTIONAL: MQTRANSACTIONAL = MQTRANSACTIONAL(1i32);
+impl ::core::marker::Copy for MQTRANSACTIONAL {}
+impl ::core::clone::Clone for MQTRANSACTIONAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MQTRANSACTIONAL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MQTRANSACTIONAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MQTRANSACTIONAL").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub type MQWARNING = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MQWARNING(pub i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_INFORMATION_PROPERTY: MQWARNING = 1074659329i32;
+pub const MQ_INFORMATION_PROPERTY: MQWARNING = MQWARNING(1074659329i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_INFORMATION_ILLEGAL_PROPERTY: MQWARNING = 1074659330i32;
+pub const MQ_INFORMATION_ILLEGAL_PROPERTY: MQWARNING = MQWARNING(1074659330i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_INFORMATION_PROPERTY_IGNORED: MQWARNING = 1074659331i32;
+pub const MQ_INFORMATION_PROPERTY_IGNORED: MQWARNING = MQWARNING(1074659331i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_INFORMATION_UNSUPPORTED_PROPERTY: MQWARNING = 1074659332i32;
+pub const MQ_INFORMATION_UNSUPPORTED_PROPERTY: MQWARNING = MQWARNING(1074659332i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_INFORMATION_DUPLICATE_PROPERTY: MQWARNING = 1074659333i32;
+pub const MQ_INFORMATION_DUPLICATE_PROPERTY: MQWARNING = MQWARNING(1074659333i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_INFORMATION_OPERATION_PENDING: MQWARNING = 1074659334i32;
+pub const MQ_INFORMATION_OPERATION_PENDING: MQWARNING = MQWARNING(1074659334i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_INFORMATION_FORMATNAME_BUFFER_TOO_SMALL: MQWARNING = 1074659337i32;
+pub const MQ_INFORMATION_FORMATNAME_BUFFER_TOO_SMALL: MQWARNING = MQWARNING(1074659337i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_INFORMATION_INTERNAL_USER_CERT_EXIST: MQWARNING = 1074659338i32;
+pub const MQ_INFORMATION_INTERNAL_USER_CERT_EXIST: MQWARNING = MQWARNING(1074659338i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_INFORMATION_OWNER_IGNORED: MQWARNING = 1074659339i32;
+pub const MQ_INFORMATION_OWNER_IGNORED: MQWARNING = MQWARNING(1074659339i32);
+impl ::core::marker::Copy for MQWARNING {}
+impl ::core::clone::Clone for MQWARNING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MQWARNING {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MQWARNING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MQWARNING").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
 pub const MQ_ACTION_PEEK_CURRENT: u32 = 2147483648u32;
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
@@ -11034,61 +11466,125 @@ pub const QUERY_SORTASCEND: u32 = 0u32;
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
 pub const QUERY_SORTDESCEND: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub type QUEUE_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct QUEUE_STATE(pub i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_QUEUE_STATE_LOCAL_CONNECTION: QUEUE_STATE = 0i32;
+pub const MQ_QUEUE_STATE_LOCAL_CONNECTION: QUEUE_STATE = QUEUE_STATE(0i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_QUEUE_STATE_DISCONNECTED: QUEUE_STATE = 1i32;
+pub const MQ_QUEUE_STATE_DISCONNECTED: QUEUE_STATE = QUEUE_STATE(1i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_QUEUE_STATE_WAITING: QUEUE_STATE = 2i32;
+pub const MQ_QUEUE_STATE_WAITING: QUEUE_STATE = QUEUE_STATE(2i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_QUEUE_STATE_NEEDVALIDATE: QUEUE_STATE = 3i32;
+pub const MQ_QUEUE_STATE_NEEDVALIDATE: QUEUE_STATE = QUEUE_STATE(3i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_QUEUE_STATE_ONHOLD: QUEUE_STATE = 4i32;
+pub const MQ_QUEUE_STATE_ONHOLD: QUEUE_STATE = QUEUE_STATE(4i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_QUEUE_STATE_NONACTIVE: QUEUE_STATE = 5i32;
+pub const MQ_QUEUE_STATE_NONACTIVE: QUEUE_STATE = QUEUE_STATE(5i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_QUEUE_STATE_CONNECTED: QUEUE_STATE = 6i32;
+pub const MQ_QUEUE_STATE_CONNECTED: QUEUE_STATE = QUEUE_STATE(6i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_QUEUE_STATE_DISCONNECTING: QUEUE_STATE = 7i32;
+pub const MQ_QUEUE_STATE_DISCONNECTING: QUEUE_STATE = QUEUE_STATE(7i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_QUEUE_STATE_LOCKED: QUEUE_STATE = 8i32;
+pub const MQ_QUEUE_STATE_LOCKED: QUEUE_STATE = QUEUE_STATE(8i32);
+impl ::core::marker::Copy for QUEUE_STATE {}
+impl ::core::clone::Clone for QUEUE_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for QUEUE_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for QUEUE_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("QUEUE_STATE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub type QUEUE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct QUEUE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_TYPE_PUBLIC: QUEUE_TYPE = 0i32;
+pub const MQ_TYPE_PUBLIC: QUEUE_TYPE = QUEUE_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_TYPE_PRIVATE: QUEUE_TYPE = 1i32;
+pub const MQ_TYPE_PRIVATE: QUEUE_TYPE = QUEUE_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_TYPE_MACHINE: QUEUE_TYPE = 2i32;
+pub const MQ_TYPE_MACHINE: QUEUE_TYPE = QUEUE_TYPE(2i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_TYPE_CONNECTOR: QUEUE_TYPE = 3i32;
+pub const MQ_TYPE_CONNECTOR: QUEUE_TYPE = QUEUE_TYPE(3i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_TYPE_MULTICAST: QUEUE_TYPE = 4i32;
+pub const MQ_TYPE_MULTICAST: QUEUE_TYPE = QUEUE_TYPE(4i32);
+impl ::core::marker::Copy for QUEUE_TYPE {}
+impl ::core::clone::Clone for QUEUE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for QUEUE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for QUEUE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("QUEUE_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub type RELOPS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RELOPS(pub i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const REL_NOP: RELOPS = 0i32;
+pub const REL_NOP: RELOPS = RELOPS(0i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const REL_EQ: RELOPS = 1i32;
+pub const REL_EQ: RELOPS = RELOPS(1i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const REL_NEQ: RELOPS = 2i32;
+pub const REL_NEQ: RELOPS = RELOPS(2i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const REL_LT: RELOPS = 3i32;
+pub const REL_LT: RELOPS = RELOPS(3i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const REL_GT: RELOPS = 4i32;
+pub const REL_GT: RELOPS = RELOPS(4i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const REL_LE: RELOPS = 5i32;
+pub const REL_LE: RELOPS = RELOPS(5i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const REL_GE: RELOPS = 6i32;
+pub const REL_GE: RELOPS = RELOPS(6i32);
+impl ::core::marker::Copy for RELOPS {}
+impl ::core::clone::Clone for RELOPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RELOPS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RELOPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RELOPS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub type XACT_STATUS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XACT_STATUS(pub i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_XACT_STATUS_XACT: XACT_STATUS = 0i32;
+pub const MQ_XACT_STATUS_XACT: XACT_STATUS = XACT_STATUS(0i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_XACT_STATUS_NOT_XACT: XACT_STATUS = 1i32;
+pub const MQ_XACT_STATUS_NOT_XACT: XACT_STATUS = XACT_STATUS(1i32);
 #[doc = "*Required features: 'Win32_System_MessageQueuing'*"]
-pub const MQ_XACT_STATUS_UNKNOWN: XACT_STATUS = 2i32;
+pub const MQ_XACT_STATUS_UNKNOWN: XACT_STATUS = XACT_STATUS(2i32);
+impl ::core::marker::Copy for XACT_STATUS {}
+impl ::core::clone::Clone for XACT_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XACT_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XACT_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XACT_STATUS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_MessageQueuing', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]

@@ -2,41 +2,57 @@
 #[cfg(feature = "Win32_System_Search_Common")]
 pub mod Common;
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type ACCESS_MASKENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ACCESS_MASKENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const PERM_EXCLUSIVE: ACCESS_MASKENUM = 512i32;
+pub const PERM_EXCLUSIVE: ACCESS_MASKENUM = ACCESS_MASKENUM(512i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const PERM_READDESIGN: ACCESS_MASKENUM = 1024i32;
+pub const PERM_READDESIGN: ACCESS_MASKENUM = ACCESS_MASKENUM(1024i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const PERM_WRITEDESIGN: ACCESS_MASKENUM = 2048i32;
+pub const PERM_WRITEDESIGN: ACCESS_MASKENUM = ACCESS_MASKENUM(2048i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const PERM_WITHGRANT: ACCESS_MASKENUM = 4096i32;
+pub const PERM_WITHGRANT: ACCESS_MASKENUM = ACCESS_MASKENUM(4096i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const PERM_REFERENCE: ACCESS_MASKENUM = 8192i32;
+pub const PERM_REFERENCE: ACCESS_MASKENUM = ACCESS_MASKENUM(8192i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const PERM_CREATE: ACCESS_MASKENUM = 16384i32;
+pub const PERM_CREATE: ACCESS_MASKENUM = ACCESS_MASKENUM(16384i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const PERM_INSERT: ACCESS_MASKENUM = 32768i32;
+pub const PERM_INSERT: ACCESS_MASKENUM = ACCESS_MASKENUM(32768i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const PERM_DELETE: ACCESS_MASKENUM = 65536i32;
+pub const PERM_DELETE: ACCESS_MASKENUM = ACCESS_MASKENUM(65536i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const PERM_READCONTROL: ACCESS_MASKENUM = 131072i32;
+pub const PERM_READCONTROL: ACCESS_MASKENUM = ACCESS_MASKENUM(131072i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const PERM_WRITEPERMISSIONS: ACCESS_MASKENUM = 262144i32;
+pub const PERM_WRITEPERMISSIONS: ACCESS_MASKENUM = ACCESS_MASKENUM(262144i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const PERM_WRITEOWNER: ACCESS_MASKENUM = 524288i32;
+pub const PERM_WRITEOWNER: ACCESS_MASKENUM = ACCESS_MASKENUM(524288i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const PERM_MAXIMUM_ALLOWED: ACCESS_MASKENUM = 33554432i32;
+pub const PERM_MAXIMUM_ALLOWED: ACCESS_MASKENUM = ACCESS_MASKENUM(33554432i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const PERM_ALL: ACCESS_MASKENUM = 268435456i32;
+pub const PERM_ALL: ACCESS_MASKENUM = ACCESS_MASKENUM(268435456i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const PERM_EXECUTE: ACCESS_MASKENUM = 536870912i32;
+pub const PERM_EXECUTE: ACCESS_MASKENUM = ACCESS_MASKENUM(536870912i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const PERM_READ: ACCESS_MASKENUM = -2147483648i32;
+pub const PERM_READ: ACCESS_MASKENUM = ACCESS_MASKENUM(-2147483648i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const PERM_UPDATE: ACCESS_MASKENUM = 1073741824i32;
+pub const PERM_UPDATE: ACCESS_MASKENUM = ACCESS_MASKENUM(1073741824i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const PERM_DROP: ACCESS_MASKENUM = 256i32;
+pub const PERM_DROP: ACCESS_MASKENUM = ACCESS_MASKENUM(256i32);
+impl ::core::marker::Copy for ACCESS_MASKENUM {}
+impl ::core::clone::Clone for ACCESS_MASKENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ACCESS_MASKENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ACCESS_MASKENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ACCESS_MASKENUM").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -79,13 +95,29 @@ impl ::core::default::Default for AUTHENTICATION_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type AUTH_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct AUTH_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const eAUTH_TYPE_ANONYMOUS: AUTH_TYPE = 0i32;
+pub const eAUTH_TYPE_ANONYMOUS: AUTH_TYPE = AUTH_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const eAUTH_TYPE_NTLM: AUTH_TYPE = 1i32;
+pub const eAUTH_TYPE_NTLM: AUTH_TYPE = AUTH_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const eAUTH_TYPE_BASIC: AUTH_TYPE = 2i32;
+pub const eAUTH_TYPE_BASIC: AUTH_TYPE = AUTH_TYPE(2i32);
+impl ::core::marker::Copy for AUTH_TYPE {}
+impl ::core::clone::Clone for AUTH_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for AUTH_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AUTH_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AUTH_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub const BCP6xFILEFMT: u32 = 9u32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
@@ -182,11 +214,27 @@ pub const BUCKET_EXPONENTIAL: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub const BUCKET_LINEAR: u32 = 0u32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type CASE_REQUIREMENT = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CASE_REQUIREMENT(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const CASE_REQUIREMENT_ANY: CASE_REQUIREMENT = 0i32;
+pub const CASE_REQUIREMENT_ANY: CASE_REQUIREMENT = CASE_REQUIREMENT(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const CASE_REQUIREMENT_UPPER_IF_AQS: CASE_REQUIREMENT = 1i32;
+pub const CASE_REQUIREMENT_UPPER_IF_AQS: CASE_REQUIREMENT = CASE_REQUIREMENT(1i32);
+impl ::core::marker::Copy for CASE_REQUIREMENT {}
+impl ::core::clone::Clone for CASE_REQUIREMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CASE_REQUIREMENT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CASE_REQUIREMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CASE_REQUIREMENT").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_Storage_IndexServer', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
@@ -319,15 +367,31 @@ pub const CDBSELFDISPIDS: u32 = 8u32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CERT_E_NOT_FOUND_OR_NO_PERMISSSION: i32 = -2147211263i32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type CHANNEL_AGENT_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CHANNEL_AGENT_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const CHANNEL_AGENT_DYNAMIC_SCHEDULE: CHANNEL_AGENT_FLAGS = 1i32;
+pub const CHANNEL_AGENT_DYNAMIC_SCHEDULE: CHANNEL_AGENT_FLAGS = CHANNEL_AGENT_FLAGS(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const CHANNEL_AGENT_PRECACHE_SOME: CHANNEL_AGENT_FLAGS = 2i32;
+pub const CHANNEL_AGENT_PRECACHE_SOME: CHANNEL_AGENT_FLAGS = CHANNEL_AGENT_FLAGS(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const CHANNEL_AGENT_PRECACHE_ALL: CHANNEL_AGENT_FLAGS = 4i32;
+pub const CHANNEL_AGENT_PRECACHE_ALL: CHANNEL_AGENT_FLAGS = CHANNEL_AGENT_FLAGS(4i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const CHANNEL_AGENT_PRECACHE_SCRNSAVER: CHANNEL_AGENT_FLAGS = 8i32;
+pub const CHANNEL_AGENT_PRECACHE_SCRNSAVER: CHANNEL_AGENT_FLAGS = CHANNEL_AGENT_FLAGS(8i32);
+impl ::core::marker::Copy for CHANNEL_AGENT_FLAGS {}
+impl ::core::clone::Clone for CHANNEL_AGENT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CHANNEL_AGENT_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CHANNEL_AGENT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CHANNEL_AGENT_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CI_E_CORRUPT_FWIDX: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073473491i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
@@ -366,15 +430,31 @@ pub const CLSID_SQLOLEDB: ::windows::core::GUID = ::windows::core::GUID::from_u1
 pub const CLSID_SQLOLEDB_ENUMERATOR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdfa22b8e_e68d_11d0_97e4_00c04fc2ad98);
 pub const CLSID_SQLOLEDB_ERROR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0932c62_38e5_11d0_97ab_00c04fc2ad98);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type CLUSION_REASON = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSION_REASON(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const CLUSIONREASON_UNKNOWNSCOPE: CLUSION_REASON = 0i32;
+pub const CLUSIONREASON_UNKNOWNSCOPE: CLUSION_REASON = CLUSION_REASON(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const CLUSIONREASON_DEFAULT: CLUSION_REASON = 1i32;
+pub const CLUSIONREASON_DEFAULT: CLUSION_REASON = CLUSION_REASON(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const CLUSIONREASON_USER: CLUSION_REASON = 2i32;
+pub const CLUSIONREASON_USER: CLUSION_REASON = CLUSION_REASON(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const CLUSIONREASON_GROUPPOLICY: CLUSION_REASON = 3i32;
+pub const CLUSIONREASON_GROUPPOLICY: CLUSION_REASON = CLUSION_REASON(3i32);
+impl ::core::marker::Copy for CLUSION_REASON {}
+impl ::core::clone::Clone for CLUSION_REASON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSION_REASON {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSION_REASON {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSION_REASON").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CMDLINE_E_ALREADY_INIT: i32 = -2147216123i32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
@@ -469,21 +549,65 @@ impl ::core::default::Default for COLUMNSET {
     }
 }
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type CONDITION_CREATION_OPTIONS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CONDITION_CREATION_OPTIONS(pub u32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const CONDITION_CREATION_DEFAULT: CONDITION_CREATION_OPTIONS = 0u32;
+pub const CONDITION_CREATION_DEFAULT: CONDITION_CREATION_OPTIONS = CONDITION_CREATION_OPTIONS(0u32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const CONDITION_CREATION_NONE: CONDITION_CREATION_OPTIONS = 0u32;
+pub const CONDITION_CREATION_NONE: CONDITION_CREATION_OPTIONS = CONDITION_CREATION_OPTIONS(0u32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const CONDITION_CREATION_SIMPLIFY: CONDITION_CREATION_OPTIONS = 1u32;
+pub const CONDITION_CREATION_SIMPLIFY: CONDITION_CREATION_OPTIONS = CONDITION_CREATION_OPTIONS(1u32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const CONDITION_CREATION_VECTOR_AND: CONDITION_CREATION_OPTIONS = 2u32;
+pub const CONDITION_CREATION_VECTOR_AND: CONDITION_CREATION_OPTIONS = CONDITION_CREATION_OPTIONS(2u32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const CONDITION_CREATION_VECTOR_OR: CONDITION_CREATION_OPTIONS = 4u32;
+pub const CONDITION_CREATION_VECTOR_OR: CONDITION_CREATION_OPTIONS = CONDITION_CREATION_OPTIONS(4u32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const CONDITION_CREATION_VECTOR_LEAF: CONDITION_CREATION_OPTIONS = 8u32;
+pub const CONDITION_CREATION_VECTOR_LEAF: CONDITION_CREATION_OPTIONS = CONDITION_CREATION_OPTIONS(8u32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const CONDITION_CREATION_USE_CONTENT_LOCALE: CONDITION_CREATION_OPTIONS = 16u32;
+pub const CONDITION_CREATION_USE_CONTENT_LOCALE: CONDITION_CREATION_OPTIONS = CONDITION_CREATION_OPTIONS(16u32);
+impl ::core::marker::Copy for CONDITION_CREATION_OPTIONS {}
+impl ::core::clone::Clone for CONDITION_CREATION_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CONDITION_CREATION_OPTIONS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CONDITION_CREATION_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CONDITION_CREATION_OPTIONS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CONDITION_CREATION_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CONDITION_CREATION_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CONDITION_CREATION_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CONDITION_CREATION_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CONDITION_CREATION_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_Storage_IndexServer', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
@@ -544,17 +668,33 @@ pub const CQUERYMETADISPIDS: u32 = 10u32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CQUERYPROPERTY: u32 = 64u32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type CREATESUBSCRIPTIONFLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CREATESUBSCRIPTIONFLAGS(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const CREATESUBS_ADDTOFAVORITES: CREATESUBSCRIPTIONFLAGS = 1i32;
+pub const CREATESUBS_ADDTOFAVORITES: CREATESUBSCRIPTIONFLAGS = CREATESUBSCRIPTIONFLAGS(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const CREATESUBS_FROMFAVORITES: CREATESUBSCRIPTIONFLAGS = 2i32;
+pub const CREATESUBS_FROMFAVORITES: CREATESUBSCRIPTIONFLAGS = CREATESUBSCRIPTIONFLAGS(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const CREATESUBS_NOUI: CREATESUBSCRIPTIONFLAGS = 4i32;
+pub const CREATESUBS_NOUI: CREATESUBSCRIPTIONFLAGS = CREATESUBSCRIPTIONFLAGS(4i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const CREATESUBS_NOSAVE: CREATESUBSCRIPTIONFLAGS = 8i32;
+pub const CREATESUBS_NOSAVE: CREATESUBSCRIPTIONFLAGS = CREATESUBSCRIPTIONFLAGS(8i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const CREATESUBS_SOFTWAREUPDATE: CREATESUBSCRIPTIONFLAGS = 16i32;
+pub const CREATESUBS_SOFTWAREUPDATE: CREATESUBSCRIPTIONFLAGS = CREATESUBSCRIPTIONFLAGS(16i32);
+impl ::core::marker::Copy for CREATESUBSCRIPTIONFLAGS {}
+impl ::core::clone::Clone for CREATESUBSCRIPTIONFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CREATESUBSCRIPTIONFLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CREATESUBSCRIPTIONFLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CREATESUBSCRIPTIONFLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub const CRESTRICTIONS_DBSCHEMA_ASSERTIONS: u32 = 3u32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
@@ -658,45 +798,77 @@ pub const CSearchManager: ::windows::core::GUID = ::windows::core::GUID::from_u1
 pub const CSearchRoot: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30766bd2_ea1c_4f28_bf27_0b44e2f68db7);
 pub const CSearchScopeRule: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe63de750_3bd7_4be5_9c84_6b4281988c44);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type CatalogPausedReason = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CatalogPausedReason(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const CATALOG_PAUSED_REASON_NONE: CatalogPausedReason = 0i32;
+pub const CATALOG_PAUSED_REASON_NONE: CatalogPausedReason = CatalogPausedReason(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const CATALOG_PAUSED_REASON_HIGH_IO: CatalogPausedReason = 1i32;
+pub const CATALOG_PAUSED_REASON_HIGH_IO: CatalogPausedReason = CatalogPausedReason(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const CATALOG_PAUSED_REASON_HIGH_CPU: CatalogPausedReason = 2i32;
+pub const CATALOG_PAUSED_REASON_HIGH_CPU: CatalogPausedReason = CatalogPausedReason(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const CATALOG_PAUSED_REASON_HIGH_NTF_RATE: CatalogPausedReason = 3i32;
+pub const CATALOG_PAUSED_REASON_HIGH_NTF_RATE: CatalogPausedReason = CatalogPausedReason(3i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const CATALOG_PAUSED_REASON_LOW_BATTERY: CatalogPausedReason = 4i32;
+pub const CATALOG_PAUSED_REASON_LOW_BATTERY: CatalogPausedReason = CatalogPausedReason(4i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const CATALOG_PAUSED_REASON_LOW_MEMORY: CatalogPausedReason = 5i32;
+pub const CATALOG_PAUSED_REASON_LOW_MEMORY: CatalogPausedReason = CatalogPausedReason(5i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const CATALOG_PAUSED_REASON_LOW_DISK: CatalogPausedReason = 6i32;
+pub const CATALOG_PAUSED_REASON_LOW_DISK: CatalogPausedReason = CatalogPausedReason(6i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const CATALOG_PAUSED_REASON_DELAYED_RECOVERY: CatalogPausedReason = 7i32;
+pub const CATALOG_PAUSED_REASON_DELAYED_RECOVERY: CatalogPausedReason = CatalogPausedReason(7i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const CATALOG_PAUSED_REASON_USER_ACTIVE: CatalogPausedReason = 8i32;
+pub const CATALOG_PAUSED_REASON_USER_ACTIVE: CatalogPausedReason = CatalogPausedReason(8i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const CATALOG_PAUSED_REASON_EXTERNAL: CatalogPausedReason = 9i32;
+pub const CATALOG_PAUSED_REASON_EXTERNAL: CatalogPausedReason = CatalogPausedReason(9i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const CATALOG_PAUSED_REASON_UPGRADING: CatalogPausedReason = 10i32;
+pub const CATALOG_PAUSED_REASON_UPGRADING: CatalogPausedReason = CatalogPausedReason(10i32);
+impl ::core::marker::Copy for CatalogPausedReason {}
+impl ::core::clone::Clone for CatalogPausedReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CatalogPausedReason {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CatalogPausedReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CatalogPausedReason").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type CatalogStatus = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CatalogStatus(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const CATALOG_STATUS_IDLE: CatalogStatus = 0i32;
+pub const CATALOG_STATUS_IDLE: CatalogStatus = CatalogStatus(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const CATALOG_STATUS_PAUSED: CatalogStatus = 1i32;
+pub const CATALOG_STATUS_PAUSED: CatalogStatus = CatalogStatus(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const CATALOG_STATUS_RECOVERING: CatalogStatus = 2i32;
+pub const CATALOG_STATUS_RECOVERING: CatalogStatus = CatalogStatus(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const CATALOG_STATUS_FULL_CRAWL: CatalogStatus = 3i32;
+pub const CATALOG_STATUS_FULL_CRAWL: CatalogStatus = CatalogStatus(3i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const CATALOG_STATUS_INCREMENTAL_CRAWL: CatalogStatus = 4i32;
+pub const CATALOG_STATUS_INCREMENTAL_CRAWL: CatalogStatus = CatalogStatus(4i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const CATALOG_STATUS_PROCESSING_NOTIFICATIONS: CatalogStatus = 5i32;
+pub const CATALOG_STATUS_PROCESSING_NOTIFICATIONS: CatalogStatus = CatalogStatus(5i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const CATALOG_STATUS_SHUTTING_DOWN: CatalogStatus = 6i32;
+pub const CATALOG_STATUS_SHUTTING_DOWN: CatalogStatus = CatalogStatus(6i32);
+impl ::core::marker::Copy for CatalogStatus {}
+impl ::core::clone::Clone for CatalogStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CatalogStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CatalogStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CatalogStatus").field(&self.0).finish()
+    }
+}
 pub const CompoundCondition: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x116f8d13_101e_4fa5_84d4_ff8279381935);
 pub const ConditionFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe03e85b0_7be3_4000_ba98_6c13de9fa486);
 #[repr(C)]
@@ -732,33 +904,81 @@ impl ::core::default::Default for DATE_STRUCT {
     }
 }
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBACCESSORFLAGSENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBACCESSORFLAGSENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBACCESSOR_INVALID: DBACCESSORFLAGSENUM = 0i32;
+pub const DBACCESSOR_INVALID: DBACCESSORFLAGSENUM = DBACCESSORFLAGSENUM(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBACCESSOR_PASSBYREF: DBACCESSORFLAGSENUM = 1i32;
+pub const DBACCESSOR_PASSBYREF: DBACCESSORFLAGSENUM = DBACCESSORFLAGSENUM(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBACCESSOR_ROWDATA: DBACCESSORFLAGSENUM = 2i32;
+pub const DBACCESSOR_ROWDATA: DBACCESSORFLAGSENUM = DBACCESSORFLAGSENUM(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBACCESSOR_PARAMETERDATA: DBACCESSORFLAGSENUM = 4i32;
+pub const DBACCESSOR_PARAMETERDATA: DBACCESSORFLAGSENUM = DBACCESSORFLAGSENUM(4i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBACCESSOR_OPTIMIZED: DBACCESSORFLAGSENUM = 8i32;
+pub const DBACCESSOR_OPTIMIZED: DBACCESSORFLAGSENUM = DBACCESSORFLAGSENUM(8i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBACCESSOR_INHERITED: DBACCESSORFLAGSENUM = 16i32;
+pub const DBACCESSOR_INHERITED: DBACCESSORFLAGSENUM = DBACCESSORFLAGSENUM(16i32);
+impl ::core::marker::Copy for DBACCESSORFLAGSENUM {}
+impl ::core::clone::Clone for DBACCESSORFLAGSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBACCESSORFLAGSENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBACCESSORFLAGSENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBACCESSORFLAGSENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBASYNCHOPENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBASYNCHOPENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBASYNCHOP_OPEN: DBASYNCHOPENUM = 0i32;
+pub const DBASYNCHOP_OPEN: DBASYNCHOPENUM = DBASYNCHOPENUM(0i32);
+impl ::core::marker::Copy for DBASYNCHOPENUM {}
+impl ::core::clone::Clone for DBASYNCHOPENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBASYNCHOPENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBASYNCHOPENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBASYNCHOPENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBASYNCHPHASEENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBASYNCHPHASEENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBASYNCHPHASE_INITIALIZATION: DBASYNCHPHASEENUM = 0i32;
+pub const DBASYNCHPHASE_INITIALIZATION: DBASYNCHPHASEENUM = DBASYNCHPHASEENUM(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBASYNCHPHASE_POPULATION: DBASYNCHPHASEENUM = 1i32;
+pub const DBASYNCHPHASE_POPULATION: DBASYNCHPHASEENUM = DBASYNCHPHASEENUM(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBASYNCHPHASE_COMPLETE: DBASYNCHPHASEENUM = 2i32;
+pub const DBASYNCHPHASE_COMPLETE: DBASYNCHPHASEENUM = DBASYNCHPHASEENUM(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBASYNCHPHASE_CANCELED: DBASYNCHPHASEENUM = 3i32;
+pub const DBASYNCHPHASE_CANCELED: DBASYNCHPHASEENUM = DBASYNCHPHASEENUM(3i32);
+impl ::core::marker::Copy for DBASYNCHPHASEENUM {}
+impl ::core::clone::Clone for DBASYNCHPHASEENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBASYNCHPHASEENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBASYNCHPHASEENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBASYNCHPHASEENUM").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -832,9 +1052,25 @@ impl ::core::default::Default for DBBINDEXT {
     }
 }
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBBINDFLAGENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBBINDFLAGENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBBINDFLAG_HTML: DBBINDFLAGENUM = 1i32;
+pub const DBBINDFLAG_HTML: DBBINDFLAGENUM = DBBINDFLAGENUM(1i32);
+impl ::core::marker::Copy for DBBINDFLAGENUM {}
+impl ::core::clone::Clone for DBBINDFLAGENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBBINDFLAGENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBBINDFLAGENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBBINDFLAGENUM").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Search', 'Win32_System_Com'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -968,75 +1204,139 @@ impl ::core::default::Default for DBBINDING {
     }
 }
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBBINDSTATUSENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBBINDSTATUSENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBBINDSTATUS_OK: DBBINDSTATUSENUM = 0i32;
+pub const DBBINDSTATUS_OK: DBBINDSTATUSENUM = DBBINDSTATUSENUM(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBBINDSTATUS_BADORDINAL: DBBINDSTATUSENUM = 1i32;
+pub const DBBINDSTATUS_BADORDINAL: DBBINDSTATUSENUM = DBBINDSTATUSENUM(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBBINDSTATUS_UNSUPPORTEDCONVERSION: DBBINDSTATUSENUM = 2i32;
+pub const DBBINDSTATUS_UNSUPPORTEDCONVERSION: DBBINDSTATUSENUM = DBBINDSTATUSENUM(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBBINDSTATUS_BADBINDINFO: DBBINDSTATUSENUM = 3i32;
+pub const DBBINDSTATUS_BADBINDINFO: DBBINDSTATUSENUM = DBBINDSTATUSENUM(3i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBBINDSTATUS_BADSTORAGEFLAGS: DBBINDSTATUSENUM = 4i32;
+pub const DBBINDSTATUS_BADSTORAGEFLAGS: DBBINDSTATUSENUM = DBBINDSTATUSENUM(4i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBBINDSTATUS_NOINTERFACE: DBBINDSTATUSENUM = 5i32;
+pub const DBBINDSTATUS_NOINTERFACE: DBBINDSTATUSENUM = DBBINDSTATUSENUM(5i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBBINDSTATUS_MULTIPLESTORAGE: DBBINDSTATUSENUM = 6i32;
+pub const DBBINDSTATUS_MULTIPLESTORAGE: DBBINDSTATUSENUM = DBBINDSTATUSENUM(6i32);
+impl ::core::marker::Copy for DBBINDSTATUSENUM {}
+impl ::core::clone::Clone for DBBINDSTATUSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBBINDSTATUSENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBBINDSTATUSENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBBINDSTATUSENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBBINDURLFLAGENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBBINDURLFLAGENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBBINDURLFLAG_READ: DBBINDURLFLAGENUM = 1i32;
+pub const DBBINDURLFLAG_READ: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBBINDURLFLAG_WRITE: DBBINDURLFLAGENUM = 2i32;
+pub const DBBINDURLFLAG_WRITE: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBBINDURLFLAG_READWRITE: DBBINDURLFLAGENUM = 3i32;
+pub const DBBINDURLFLAG_READWRITE: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(3i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBBINDURLFLAG_SHARE_DENY_READ: DBBINDURLFLAGENUM = 4i32;
+pub const DBBINDURLFLAG_SHARE_DENY_READ: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(4i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBBINDURLFLAG_SHARE_DENY_WRITE: DBBINDURLFLAGENUM = 8i32;
+pub const DBBINDURLFLAG_SHARE_DENY_WRITE: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(8i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBBINDURLFLAG_SHARE_EXCLUSIVE: DBBINDURLFLAGENUM = 12i32;
+pub const DBBINDURLFLAG_SHARE_EXCLUSIVE: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(12i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBBINDURLFLAG_SHARE_DENY_NONE: DBBINDURLFLAGENUM = 16i32;
+pub const DBBINDURLFLAG_SHARE_DENY_NONE: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(16i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBBINDURLFLAG_ASYNCHRONOUS: DBBINDURLFLAGENUM = 4096i32;
+pub const DBBINDURLFLAG_ASYNCHRONOUS: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(4096i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBBINDURLFLAG_COLLECTION: DBBINDURLFLAGENUM = 8192i32;
+pub const DBBINDURLFLAG_COLLECTION: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(8192i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBBINDURLFLAG_DELAYFETCHSTREAM: DBBINDURLFLAGENUM = 16384i32;
+pub const DBBINDURLFLAG_DELAYFETCHSTREAM: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(16384i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBBINDURLFLAG_DELAYFETCHCOLUMNS: DBBINDURLFLAGENUM = 32768i32;
+pub const DBBINDURLFLAG_DELAYFETCHCOLUMNS: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(32768i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBBINDURLFLAG_RECURSIVE: DBBINDURLFLAGENUM = 4194304i32;
+pub const DBBINDURLFLAG_RECURSIVE: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(4194304i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBBINDURLFLAG_OUTPUT: DBBINDURLFLAGENUM = 8388608i32;
+pub const DBBINDURLFLAG_OUTPUT: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(8388608i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBBINDURLFLAG_WAITFORINIT: DBBINDURLFLAGENUM = 16777216i32;
+pub const DBBINDURLFLAG_WAITFORINIT: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(16777216i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBBINDURLFLAG_OPENIFEXISTS: DBBINDURLFLAGENUM = 33554432i32;
+pub const DBBINDURLFLAG_OPENIFEXISTS: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(33554432i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBBINDURLFLAG_OVERWRITE: DBBINDURLFLAGENUM = 67108864i32;
+pub const DBBINDURLFLAG_OVERWRITE: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(67108864i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBBINDURLFLAG_ISSTRUCTUREDDOCUMENT: DBBINDURLFLAGENUM = 134217728i32;
+pub const DBBINDURLFLAG_ISSTRUCTUREDDOCUMENT: DBBINDURLFLAGENUM = DBBINDURLFLAGENUM(134217728i32);
+impl ::core::marker::Copy for DBBINDURLFLAGENUM {}
+impl ::core::clone::Clone for DBBINDURLFLAGENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBBINDURLFLAGENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBBINDURLFLAGENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBBINDURLFLAGENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBBINDURLSTATUSENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBBINDURLSTATUSENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBBINDURLSTATUS_S_OK: DBBINDURLSTATUSENUM = 0i32;
+pub const DBBINDURLSTATUS_S_OK: DBBINDURLSTATUSENUM = DBBINDURLSTATUSENUM(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBBINDURLSTATUS_S_DENYNOTSUPPORTED: DBBINDURLSTATUSENUM = 1i32;
+pub const DBBINDURLSTATUS_S_DENYNOTSUPPORTED: DBBINDURLSTATUSENUM = DBBINDURLSTATUSENUM(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBBINDURLSTATUS_S_DENYTYPENOTSUPPORTED: DBBINDURLSTATUSENUM = 4i32;
+pub const DBBINDURLSTATUS_S_DENYTYPENOTSUPPORTED: DBBINDURLSTATUSENUM = DBBINDURLSTATUSENUM(4i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBBINDURLSTATUS_S_REDIRECTED: DBBINDURLSTATUSENUM = 8i32;
+pub const DBBINDURLSTATUS_S_REDIRECTED: DBBINDURLSTATUSENUM = DBBINDURLSTATUSENUM(8i32);
+impl ::core::marker::Copy for DBBINDURLSTATUSENUM {}
+impl ::core::clone::Clone for DBBINDURLSTATUSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBBINDURLSTATUSENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBBINDURLSTATUSENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBBINDURLSTATUSENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBBOOKMARK = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBBOOKMARK(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBBMK_INVALID: DBBOOKMARK = 0i32;
+pub const DBBMK_INVALID: DBBOOKMARK = DBBOOKMARK(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBBMK_FIRST: DBBOOKMARK = 1i32;
+pub const DBBMK_FIRST: DBBOOKMARK = DBBOOKMARK(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBBMK_LAST: DBBOOKMARK = 2i32;
+pub const DBBMK_LAST: DBBOOKMARK = DBBOOKMARK(2i32);
+impl ::core::marker::Copy for DBBOOKMARK {}
+impl ::core::clone::Clone for DBBOOKMARK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBBOOKMARK {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBBOOKMARK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBBOOKMARK").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_Storage_IndexServer'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -1226,77 +1526,173 @@ impl ::core::default::Default for DBCOLUMNDESC {
     }
 }
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBCOLUMNDESCFLAGSENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBCOLUMNDESCFLAGSENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOLUMNDESCFLAGS_TYPENAME: DBCOLUMNDESCFLAGSENUM = 1i32;
+pub const DBCOLUMNDESCFLAGS_TYPENAME: DBCOLUMNDESCFLAGSENUM = DBCOLUMNDESCFLAGSENUM(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOLUMNDESCFLAGS_ITYPEINFO: DBCOLUMNDESCFLAGSENUM = 2i32;
+pub const DBCOLUMNDESCFLAGS_ITYPEINFO: DBCOLUMNDESCFLAGSENUM = DBCOLUMNDESCFLAGSENUM(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOLUMNDESCFLAGS_PROPERTIES: DBCOLUMNDESCFLAGSENUM = 4i32;
+pub const DBCOLUMNDESCFLAGS_PROPERTIES: DBCOLUMNDESCFLAGSENUM = DBCOLUMNDESCFLAGSENUM(4i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOLUMNDESCFLAGS_CLSID: DBCOLUMNDESCFLAGSENUM = 8i32;
+pub const DBCOLUMNDESCFLAGS_CLSID: DBCOLUMNDESCFLAGSENUM = DBCOLUMNDESCFLAGSENUM(8i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOLUMNDESCFLAGS_COLSIZE: DBCOLUMNDESCFLAGSENUM = 16i32;
+pub const DBCOLUMNDESCFLAGS_COLSIZE: DBCOLUMNDESCFLAGSENUM = DBCOLUMNDESCFLAGSENUM(16i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOLUMNDESCFLAGS_DBCID: DBCOLUMNDESCFLAGSENUM = 32i32;
+pub const DBCOLUMNDESCFLAGS_DBCID: DBCOLUMNDESCFLAGSENUM = DBCOLUMNDESCFLAGSENUM(32i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOLUMNDESCFLAGS_WTYPE: DBCOLUMNDESCFLAGSENUM = 64i32;
+pub const DBCOLUMNDESCFLAGS_WTYPE: DBCOLUMNDESCFLAGSENUM = DBCOLUMNDESCFLAGSENUM(64i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOLUMNDESCFLAGS_PRECISION: DBCOLUMNDESCFLAGSENUM = 128i32;
+pub const DBCOLUMNDESCFLAGS_PRECISION: DBCOLUMNDESCFLAGSENUM = DBCOLUMNDESCFLAGSENUM(128i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOLUMNDESCFLAGS_SCALE: DBCOLUMNDESCFLAGSENUM = 256i32;
+pub const DBCOLUMNDESCFLAGS_SCALE: DBCOLUMNDESCFLAGSENUM = DBCOLUMNDESCFLAGSENUM(256i32);
+impl ::core::marker::Copy for DBCOLUMNDESCFLAGSENUM {}
+impl ::core::clone::Clone for DBCOLUMNDESCFLAGSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBCOLUMNDESCFLAGSENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBCOLUMNDESCFLAGSENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBCOLUMNDESCFLAGSENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBCOLUMNFLAGS15ENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBCOLUMNFLAGS15ENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOLUMNFLAGS_ISCHAPTER: DBCOLUMNFLAGS15ENUM = 8192i32;
+pub const DBCOLUMNFLAGS_ISCHAPTER: DBCOLUMNFLAGS15ENUM = DBCOLUMNFLAGS15ENUM(8192i32);
+impl ::core::marker::Copy for DBCOLUMNFLAGS15ENUM {}
+impl ::core::clone::Clone for DBCOLUMNFLAGS15ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBCOLUMNFLAGS15ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBCOLUMNFLAGS15ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBCOLUMNFLAGS15ENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBCOLUMNFLAGSENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBCOLUMNFLAGSENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOLUMNFLAGS_ISBOOKMARK: DBCOLUMNFLAGSENUM = 1i32;
+pub const DBCOLUMNFLAGS_ISBOOKMARK: DBCOLUMNFLAGSENUM = DBCOLUMNFLAGSENUM(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOLUMNFLAGS_MAYDEFER: DBCOLUMNFLAGSENUM = 2i32;
+pub const DBCOLUMNFLAGS_MAYDEFER: DBCOLUMNFLAGSENUM = DBCOLUMNFLAGSENUM(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOLUMNFLAGS_WRITE: DBCOLUMNFLAGSENUM = 4i32;
+pub const DBCOLUMNFLAGS_WRITE: DBCOLUMNFLAGSENUM = DBCOLUMNFLAGSENUM(4i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOLUMNFLAGS_WRITEUNKNOWN: DBCOLUMNFLAGSENUM = 8i32;
+pub const DBCOLUMNFLAGS_WRITEUNKNOWN: DBCOLUMNFLAGSENUM = DBCOLUMNFLAGSENUM(8i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOLUMNFLAGS_ISFIXEDLENGTH: DBCOLUMNFLAGSENUM = 16i32;
+pub const DBCOLUMNFLAGS_ISFIXEDLENGTH: DBCOLUMNFLAGSENUM = DBCOLUMNFLAGSENUM(16i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOLUMNFLAGS_ISNULLABLE: DBCOLUMNFLAGSENUM = 32i32;
+pub const DBCOLUMNFLAGS_ISNULLABLE: DBCOLUMNFLAGSENUM = DBCOLUMNFLAGSENUM(32i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOLUMNFLAGS_MAYBENULL: DBCOLUMNFLAGSENUM = 64i32;
+pub const DBCOLUMNFLAGS_MAYBENULL: DBCOLUMNFLAGSENUM = DBCOLUMNFLAGSENUM(64i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOLUMNFLAGS_ISLONG: DBCOLUMNFLAGSENUM = 128i32;
+pub const DBCOLUMNFLAGS_ISLONG: DBCOLUMNFLAGSENUM = DBCOLUMNFLAGSENUM(128i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOLUMNFLAGS_ISROWID: DBCOLUMNFLAGSENUM = 256i32;
+pub const DBCOLUMNFLAGS_ISROWID: DBCOLUMNFLAGSENUM = DBCOLUMNFLAGSENUM(256i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOLUMNFLAGS_ISROWVER: DBCOLUMNFLAGSENUM = 512i32;
+pub const DBCOLUMNFLAGS_ISROWVER: DBCOLUMNFLAGSENUM = DBCOLUMNFLAGSENUM(512i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOLUMNFLAGS_CACHEDEFERRED: DBCOLUMNFLAGSENUM = 4096i32;
+pub const DBCOLUMNFLAGS_CACHEDEFERRED: DBCOLUMNFLAGSENUM = DBCOLUMNFLAGSENUM(4096i32);
+impl ::core::marker::Copy for DBCOLUMNFLAGSENUM {}
+impl ::core::clone::Clone for DBCOLUMNFLAGSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBCOLUMNFLAGSENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBCOLUMNFLAGSENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBCOLUMNFLAGSENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBCOLUMNFLAGSENUM20 = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBCOLUMNFLAGSENUM20(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOLUMNFLAGS_SCALEISNEGATIVE: DBCOLUMNFLAGSENUM20 = 16384i32;
+pub const DBCOLUMNFLAGS_SCALEISNEGATIVE: DBCOLUMNFLAGSENUM20 = DBCOLUMNFLAGSENUM20(16384i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOLUMNFLAGS_RESERVED: DBCOLUMNFLAGSENUM20 = 32768i32;
+pub const DBCOLUMNFLAGS_RESERVED: DBCOLUMNFLAGSENUM20 = DBCOLUMNFLAGSENUM20(32768i32);
+impl ::core::marker::Copy for DBCOLUMNFLAGSENUM20 {}
+impl ::core::clone::Clone for DBCOLUMNFLAGSENUM20 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBCOLUMNFLAGSENUM20 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBCOLUMNFLAGSENUM20 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBCOLUMNFLAGSENUM20").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBCOLUMNFLAGSENUM21 = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBCOLUMNFLAGSENUM21(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOLUMNFLAGS_ISROWURL: DBCOLUMNFLAGSENUM21 = 65536i32;
+pub const DBCOLUMNFLAGS_ISROWURL: DBCOLUMNFLAGSENUM21 = DBCOLUMNFLAGSENUM21(65536i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOLUMNFLAGS_ISDEFAULTSTREAM: DBCOLUMNFLAGSENUM21 = 131072i32;
+pub const DBCOLUMNFLAGS_ISDEFAULTSTREAM: DBCOLUMNFLAGSENUM21 = DBCOLUMNFLAGSENUM21(131072i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOLUMNFLAGS_ISCOLLECTION: DBCOLUMNFLAGSENUM21 = 262144i32;
+pub const DBCOLUMNFLAGS_ISCOLLECTION: DBCOLUMNFLAGSENUM21 = DBCOLUMNFLAGSENUM21(262144i32);
+impl ::core::marker::Copy for DBCOLUMNFLAGSENUM21 {}
+impl ::core::clone::Clone for DBCOLUMNFLAGSENUM21 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBCOLUMNFLAGSENUM21 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBCOLUMNFLAGSENUM21 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBCOLUMNFLAGSENUM21").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBCOLUMNFLAGSENUM26 = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBCOLUMNFLAGSENUM26(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOLUMNFLAGS_ISSTREAM: DBCOLUMNFLAGSENUM26 = 524288i32;
+pub const DBCOLUMNFLAGS_ISSTREAM: DBCOLUMNFLAGSENUM26 = DBCOLUMNFLAGSENUM26(524288i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOLUMNFLAGS_ISROWSET: DBCOLUMNFLAGSENUM26 = 1048576i32;
+pub const DBCOLUMNFLAGS_ISROWSET: DBCOLUMNFLAGSENUM26 = DBCOLUMNFLAGSENUM26(1048576i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOLUMNFLAGS_ISROW: DBCOLUMNFLAGSENUM26 = 2097152i32;
+pub const DBCOLUMNFLAGS_ISROW: DBCOLUMNFLAGSENUM26 = DBCOLUMNFLAGSENUM26(2097152i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOLUMNFLAGS_ROWSPECIFICCOLUMN: DBCOLUMNFLAGSENUM26 = 4194304i32;
+pub const DBCOLUMNFLAGS_ROWSPECIFICCOLUMN: DBCOLUMNFLAGSENUM26 = DBCOLUMNFLAGSENUM26(4194304i32);
+impl ::core::marker::Copy for DBCOLUMNFLAGSENUM26 {}
+impl ::core::clone::Clone for DBCOLUMNFLAGSENUM26 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBCOLUMNFLAGSENUM26 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBCOLUMNFLAGSENUM26 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBCOLUMNFLAGSENUM26").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_Storage_IndexServer', 'Win32_System_Com'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -1389,59 +1785,139 @@ impl ::core::default::Default for DBCOLUMNINFO {
     }
 }
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBCOMMANDPERSISTFLAGENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBCOMMANDPERSISTFLAGENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOMMANDPERSISTFLAG_NOSAVE: DBCOMMANDPERSISTFLAGENUM = 1i32;
+pub const DBCOMMANDPERSISTFLAG_NOSAVE: DBCOMMANDPERSISTFLAGENUM = DBCOMMANDPERSISTFLAGENUM(1i32);
+impl ::core::marker::Copy for DBCOMMANDPERSISTFLAGENUM {}
+impl ::core::clone::Clone for DBCOMMANDPERSISTFLAGENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBCOMMANDPERSISTFLAGENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBCOMMANDPERSISTFLAGENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBCOMMANDPERSISTFLAGENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBCOMMANDPERSISTFLAGENUM21 = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBCOMMANDPERSISTFLAGENUM21(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOMMANDPERSISTFLAG_DEFAULT: DBCOMMANDPERSISTFLAGENUM21 = 0i32;
+pub const DBCOMMANDPERSISTFLAG_DEFAULT: DBCOMMANDPERSISTFLAGENUM21 = DBCOMMANDPERSISTFLAGENUM21(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOMMANDPERSISTFLAG_PERSISTVIEW: DBCOMMANDPERSISTFLAGENUM21 = 2i32;
+pub const DBCOMMANDPERSISTFLAG_PERSISTVIEW: DBCOMMANDPERSISTFLAGENUM21 = DBCOMMANDPERSISTFLAGENUM21(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOMMANDPERSISTFLAG_PERSISTPROCEDURE: DBCOMMANDPERSISTFLAGENUM21 = 4i32;
+pub const DBCOMMANDPERSISTFLAG_PERSISTPROCEDURE: DBCOMMANDPERSISTFLAGENUM21 = DBCOMMANDPERSISTFLAGENUM21(4i32);
+impl ::core::marker::Copy for DBCOMMANDPERSISTFLAGENUM21 {}
+impl ::core::clone::Clone for DBCOMMANDPERSISTFLAGENUM21 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBCOMMANDPERSISTFLAGENUM21 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBCOMMANDPERSISTFLAGENUM21 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBCOMMANDPERSISTFLAGENUM21").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBCOMPAREENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBCOMPAREENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOMPARE_LT: DBCOMPAREENUM = 0i32;
+pub const DBCOMPARE_LT: DBCOMPAREENUM = DBCOMPAREENUM(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOMPARE_EQ: DBCOMPAREENUM = 1i32;
+pub const DBCOMPARE_EQ: DBCOMPAREENUM = DBCOMPAREENUM(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOMPARE_GT: DBCOMPAREENUM = 2i32;
+pub const DBCOMPARE_GT: DBCOMPAREENUM = DBCOMPAREENUM(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOMPARE_NE: DBCOMPAREENUM = 3i32;
+pub const DBCOMPARE_NE: DBCOMPAREENUM = DBCOMPAREENUM(3i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOMPARE_NOTCOMPARABLE: DBCOMPAREENUM = 4i32;
+pub const DBCOMPARE_NOTCOMPARABLE: DBCOMPAREENUM = DBCOMPAREENUM(4i32);
+impl ::core::marker::Copy for DBCOMPAREENUM {}
+impl ::core::clone::Clone for DBCOMPAREENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBCOMPAREENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBCOMPAREENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBCOMPAREENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBCOMPAREOPSENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBCOMPAREOPSENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOMPAREOPS_LT: DBCOMPAREOPSENUM = 0i32;
+pub const DBCOMPAREOPS_LT: DBCOMPAREOPSENUM = DBCOMPAREOPSENUM(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOMPAREOPS_LE: DBCOMPAREOPSENUM = 1i32;
+pub const DBCOMPAREOPS_LE: DBCOMPAREOPSENUM = DBCOMPAREOPSENUM(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOMPAREOPS_EQ: DBCOMPAREOPSENUM = 2i32;
+pub const DBCOMPAREOPS_EQ: DBCOMPAREOPSENUM = DBCOMPAREOPSENUM(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOMPAREOPS_GE: DBCOMPAREOPSENUM = 3i32;
+pub const DBCOMPAREOPS_GE: DBCOMPAREOPSENUM = DBCOMPAREOPSENUM(3i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOMPAREOPS_GT: DBCOMPAREOPSENUM = 4i32;
+pub const DBCOMPAREOPS_GT: DBCOMPAREOPSENUM = DBCOMPAREOPSENUM(4i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOMPAREOPS_BEGINSWITH: DBCOMPAREOPSENUM = 5i32;
+pub const DBCOMPAREOPS_BEGINSWITH: DBCOMPAREOPSENUM = DBCOMPAREOPSENUM(5i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOMPAREOPS_CONTAINS: DBCOMPAREOPSENUM = 6i32;
+pub const DBCOMPAREOPS_CONTAINS: DBCOMPAREOPSENUM = DBCOMPAREOPSENUM(6i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOMPAREOPS_NE: DBCOMPAREOPSENUM = 7i32;
+pub const DBCOMPAREOPS_NE: DBCOMPAREOPSENUM = DBCOMPAREOPSENUM(7i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOMPAREOPS_IGNORE: DBCOMPAREOPSENUM = 8i32;
+pub const DBCOMPAREOPS_IGNORE: DBCOMPAREOPSENUM = DBCOMPAREOPSENUM(8i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOMPAREOPS_CASESENSITIVE: DBCOMPAREOPSENUM = 4096i32;
+pub const DBCOMPAREOPS_CASESENSITIVE: DBCOMPAREOPSENUM = DBCOMPAREOPSENUM(4096i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOMPAREOPS_CASEINSENSITIVE: DBCOMPAREOPSENUM = 8192i32;
+pub const DBCOMPAREOPS_CASEINSENSITIVE: DBCOMPAREOPSENUM = DBCOMPAREOPSENUM(8192i32);
+impl ::core::marker::Copy for DBCOMPAREOPSENUM {}
+impl ::core::clone::Clone for DBCOMPAREOPSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBCOMPAREOPSENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBCOMPAREOPSENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBCOMPAREOPSENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBCOMPAREOPSENUM20 = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBCOMPAREOPSENUM20(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOMPAREOPS_NOTBEGINSWITH: DBCOMPAREOPSENUM20 = 9i32;
+pub const DBCOMPAREOPS_NOTBEGINSWITH: DBCOMPAREOPSENUM20 = DBCOMPAREOPSENUM20(9i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOMPAREOPS_NOTCONTAINS: DBCOMPAREOPSENUM20 = 10i32;
+pub const DBCOMPAREOPS_NOTCONTAINS: DBCOMPAREOPSENUM20 = DBCOMPAREOPSENUM20(10i32);
+impl ::core::marker::Copy for DBCOMPAREOPSENUM20 {}
+impl ::core::clone::Clone for DBCOMPAREOPSENUM20 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBCOMPAREOPSENUM20 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBCOMPAREOPSENUM20 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBCOMPAREOPSENUM20").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBCOMPUTEMODE_COMPUTED: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
@@ -1575,41 +2051,105 @@ impl ::core::default::Default for DBCONSTRAINTDESC {
     }
 }
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBCONSTRAINTTYPEENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBCONSTRAINTTYPEENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCONSTRAINTTYPE_UNIQUE: DBCONSTRAINTTYPEENUM = 0i32;
+pub const DBCONSTRAINTTYPE_UNIQUE: DBCONSTRAINTTYPEENUM = DBCONSTRAINTTYPEENUM(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCONSTRAINTTYPE_FOREIGNKEY: DBCONSTRAINTTYPEENUM = 1i32;
+pub const DBCONSTRAINTTYPE_FOREIGNKEY: DBCONSTRAINTTYPEENUM = DBCONSTRAINTTYPEENUM(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCONSTRAINTTYPE_PRIMARYKEY: DBCONSTRAINTTYPEENUM = 2i32;
+pub const DBCONSTRAINTTYPE_PRIMARYKEY: DBCONSTRAINTTYPEENUM = DBCONSTRAINTTYPEENUM(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCONSTRAINTTYPE_CHECK: DBCONSTRAINTTYPEENUM = 3i32;
+pub const DBCONSTRAINTTYPE_CHECK: DBCONSTRAINTTYPEENUM = DBCONSTRAINTTYPEENUM(3i32);
+impl ::core::marker::Copy for DBCONSTRAINTTYPEENUM {}
+impl ::core::clone::Clone for DBCONSTRAINTTYPEENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBCONSTRAINTTYPEENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBCONSTRAINTTYPEENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBCONSTRAINTTYPEENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBCONVERTFLAGSENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBCONVERTFLAGSENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCONVERTFLAGS_COLUMN: DBCONVERTFLAGSENUM = 0i32;
+pub const DBCONVERTFLAGS_COLUMN: DBCONVERTFLAGSENUM = DBCONVERTFLAGSENUM(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCONVERTFLAGS_PARAMETER: DBCONVERTFLAGSENUM = 1i32;
+pub const DBCONVERTFLAGS_PARAMETER: DBCONVERTFLAGSENUM = DBCONVERTFLAGSENUM(1i32);
+impl ::core::marker::Copy for DBCONVERTFLAGSENUM {}
+impl ::core::clone::Clone for DBCONVERTFLAGSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBCONVERTFLAGSENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBCONVERTFLAGSENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBCONVERTFLAGSENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBCONVERTFLAGSENUM20 = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBCONVERTFLAGSENUM20(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCONVERTFLAGS_ISLONG: DBCONVERTFLAGSENUM20 = 2i32;
+pub const DBCONVERTFLAGS_ISLONG: DBCONVERTFLAGSENUM20 = DBCONVERTFLAGSENUM20(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCONVERTFLAGS_ISFIXEDLENGTH: DBCONVERTFLAGSENUM20 = 4i32;
+pub const DBCONVERTFLAGS_ISFIXEDLENGTH: DBCONVERTFLAGSENUM20 = DBCONVERTFLAGSENUM20(4i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCONVERTFLAGS_FROMVARIANT: DBCONVERTFLAGSENUM20 = 8i32;
+pub const DBCONVERTFLAGS_FROMVARIANT: DBCONVERTFLAGSENUM20 = DBCONVERTFLAGSENUM20(8i32);
+impl ::core::marker::Copy for DBCONVERTFLAGSENUM20 {}
+impl ::core::clone::Clone for DBCONVERTFLAGSENUM20 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBCONVERTFLAGSENUM20 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBCONVERTFLAGSENUM20 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBCONVERTFLAGSENUM20").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBCOPYFLAGSENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBCOPYFLAGSENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOPY_ASYNC: DBCOPYFLAGSENUM = 256i32;
+pub const DBCOPY_ASYNC: DBCOPYFLAGSENUM = DBCOPYFLAGSENUM(256i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOPY_REPLACE_EXISTING: DBCOPYFLAGSENUM = 512i32;
+pub const DBCOPY_REPLACE_EXISTING: DBCOPYFLAGSENUM = DBCOPYFLAGSENUM(512i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOPY_ALLOW_EMULATION: DBCOPYFLAGSENUM = 1024i32;
+pub const DBCOPY_ALLOW_EMULATION: DBCOPYFLAGSENUM = DBCOPYFLAGSENUM(1024i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOPY_NON_RECURSIVE: DBCOPYFLAGSENUM = 2048i32;
+pub const DBCOPY_NON_RECURSIVE: DBCOPYFLAGSENUM = DBCOPYFLAGSENUM(2048i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBCOPY_ATOMIC: DBCOPYFLAGSENUM = 4096i32;
+pub const DBCOPY_ATOMIC: DBCOPYFLAGSENUM = DBCOPYFLAGSENUM(4096i32);
+impl ::core::marker::Copy for DBCOPYFLAGSENUM {}
+impl ::core::clone::Clone for DBCOPYFLAGSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBCOPYFLAGSENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBCOPYFLAGSENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBCOPYFLAGSENUM").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -1685,55 +2225,87 @@ impl ::core::default::Default for DBCOST {
     }
 }
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBCOSTUNITENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBCOSTUNITENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBUNIT_INVALID: DBCOSTUNITENUM = 0i32;
+pub const DBUNIT_INVALID: DBCOSTUNITENUM = DBCOSTUNITENUM(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBUNIT_WEIGHT: DBCOSTUNITENUM = 1i32;
+pub const DBUNIT_WEIGHT: DBCOSTUNITENUM = DBCOSTUNITENUM(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBUNIT_PERCENT: DBCOSTUNITENUM = 2i32;
+pub const DBUNIT_PERCENT: DBCOSTUNITENUM = DBCOSTUNITENUM(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBUNIT_MAXIMUM: DBCOSTUNITENUM = 4i32;
+pub const DBUNIT_MAXIMUM: DBCOSTUNITENUM = DBCOSTUNITENUM(4i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBUNIT_MINIMUM: DBCOSTUNITENUM = 8i32;
+pub const DBUNIT_MINIMUM: DBCOSTUNITENUM = DBCOSTUNITENUM(8i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBUNIT_MICRO_SECOND: DBCOSTUNITENUM = 16i32;
+pub const DBUNIT_MICRO_SECOND: DBCOSTUNITENUM = DBCOSTUNITENUM(16i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBUNIT_MILLI_SECOND: DBCOSTUNITENUM = 32i32;
+pub const DBUNIT_MILLI_SECOND: DBCOSTUNITENUM = DBCOSTUNITENUM(32i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBUNIT_SECOND: DBCOSTUNITENUM = 64i32;
+pub const DBUNIT_SECOND: DBCOSTUNITENUM = DBCOSTUNITENUM(64i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBUNIT_MINUTE: DBCOSTUNITENUM = 128i32;
+pub const DBUNIT_MINUTE: DBCOSTUNITENUM = DBCOSTUNITENUM(128i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBUNIT_HOUR: DBCOSTUNITENUM = 256i32;
+pub const DBUNIT_HOUR: DBCOSTUNITENUM = DBCOSTUNITENUM(256i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBUNIT_BYTE: DBCOSTUNITENUM = 512i32;
+pub const DBUNIT_BYTE: DBCOSTUNITENUM = DBCOSTUNITENUM(512i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBUNIT_KILO_BYTE: DBCOSTUNITENUM = 1024i32;
+pub const DBUNIT_KILO_BYTE: DBCOSTUNITENUM = DBCOSTUNITENUM(1024i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBUNIT_MEGA_BYTE: DBCOSTUNITENUM = 2048i32;
+pub const DBUNIT_MEGA_BYTE: DBCOSTUNITENUM = DBCOSTUNITENUM(2048i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBUNIT_GIGA_BYTE: DBCOSTUNITENUM = 4096i32;
+pub const DBUNIT_GIGA_BYTE: DBCOSTUNITENUM = DBCOSTUNITENUM(4096i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBUNIT_NUM_MSGS: DBCOSTUNITENUM = 8192i32;
+pub const DBUNIT_NUM_MSGS: DBCOSTUNITENUM = DBCOSTUNITENUM(8192i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBUNIT_NUM_LOCKS: DBCOSTUNITENUM = 16384i32;
+pub const DBUNIT_NUM_LOCKS: DBCOSTUNITENUM = DBCOSTUNITENUM(16384i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBUNIT_NUM_ROWS: DBCOSTUNITENUM = 32768i32;
+pub const DBUNIT_NUM_ROWS: DBCOSTUNITENUM = DBCOSTUNITENUM(32768i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBUNIT_OTHER: DBCOSTUNITENUM = 65536i32;
+pub const DBUNIT_OTHER: DBCOSTUNITENUM = DBCOSTUNITENUM(65536i32);
+impl ::core::marker::Copy for DBCOSTUNITENUM {}
+impl ::core::clone::Clone for DBCOSTUNITENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBCOSTUNITENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBCOSTUNITENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBCOSTUNITENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBDATACONVERTENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBDATACONVERTENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBDATACONVERT_DEFAULT: DBDATACONVERTENUM = 0i32;
+pub const DBDATACONVERT_DEFAULT: DBDATACONVERTENUM = DBDATACONVERTENUM(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBDATACONVERT_SETDATABEHAVIOR: DBDATACONVERTENUM = 1i32;
+pub const DBDATACONVERT_SETDATABEHAVIOR: DBDATACONVERTENUM = DBDATACONVERTENUM(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBDATACONVERT_LENGTHFROMNTS: DBDATACONVERTENUM = 2i32;
+pub const DBDATACONVERT_LENGTHFROMNTS: DBDATACONVERTENUM = DBDATACONVERTENUM(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBDATACONVERT_DSTISFIXEDLENGTH: DBDATACONVERTENUM = 4i32;
+pub const DBDATACONVERT_DSTISFIXEDLENGTH: DBDATACONVERTENUM = DBDATACONVERTENUM(4i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBDATACONVERT_DECIMALSCALE: DBDATACONVERTENUM = 8i32;
+pub const DBDATACONVERT_DECIMALSCALE: DBDATACONVERTENUM = DBDATACONVERTENUM(8i32);
+impl ::core::marker::Copy for DBDATACONVERTENUM {}
+impl ::core::clone::Clone for DBDATACONVERTENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBDATACONVERTENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBDATACONVERTENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBDATACONVERTENUM").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub struct DBDATE {
@@ -1767,37 +2339,101 @@ impl ::core::default::Default for DBDATE {
     }
 }
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBDEFERRABILITYENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBDEFERRABILITYENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBDEFERRABILITY_DEFERRED: DBDEFERRABILITYENUM = 1i32;
+pub const DBDEFERRABILITY_DEFERRED: DBDEFERRABILITYENUM = DBDEFERRABILITYENUM(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBDEFERRABILITY_DEFERRABLE: DBDEFERRABILITYENUM = 2i32;
+pub const DBDEFERRABILITY_DEFERRABLE: DBDEFERRABILITYENUM = DBDEFERRABILITYENUM(2i32);
+impl ::core::marker::Copy for DBDEFERRABILITYENUM {}
+impl ::core::clone::Clone for DBDEFERRABILITYENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBDEFERRABILITYENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBDEFERRABILITYENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBDEFERRABILITYENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBDELETEFLAGSENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBDELETEFLAGSENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBDELETE_ASYNC: DBDELETEFLAGSENUM = 256i32;
+pub const DBDELETE_ASYNC: DBDELETEFLAGSENUM = DBDELETEFLAGSENUM(256i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBDELETE_ATOMIC: DBDELETEFLAGSENUM = 4096i32;
+pub const DBDELETE_ATOMIC: DBDELETEFLAGSENUM = DBDELETEFLAGSENUM(4096i32);
+impl ::core::marker::Copy for DBDELETEFLAGSENUM {}
+impl ::core::clone::Clone for DBDELETEFLAGSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBDELETEFLAGSENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBDELETEFLAGSENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBDELETEFLAGSENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBEVENTPHASEENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBEVENTPHASEENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBEVENTPHASE_OKTODO: DBEVENTPHASEENUM = 0i32;
+pub const DBEVENTPHASE_OKTODO: DBEVENTPHASEENUM = DBEVENTPHASEENUM(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBEVENTPHASE_ABOUTTODO: DBEVENTPHASEENUM = 1i32;
+pub const DBEVENTPHASE_ABOUTTODO: DBEVENTPHASEENUM = DBEVENTPHASEENUM(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBEVENTPHASE_SYNCHAFTER: DBEVENTPHASEENUM = 2i32;
+pub const DBEVENTPHASE_SYNCHAFTER: DBEVENTPHASEENUM = DBEVENTPHASEENUM(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBEVENTPHASE_FAILEDTODO: DBEVENTPHASEENUM = 3i32;
+pub const DBEVENTPHASE_FAILEDTODO: DBEVENTPHASEENUM = DBEVENTPHASEENUM(3i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBEVENTPHASE_DIDEVENT: DBEVENTPHASEENUM = 4i32;
+pub const DBEVENTPHASE_DIDEVENT: DBEVENTPHASEENUM = DBEVENTPHASEENUM(4i32);
+impl ::core::marker::Copy for DBEVENTPHASEENUM {}
+impl ::core::clone::Clone for DBEVENTPHASEENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBEVENTPHASEENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBEVENTPHASEENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBEVENTPHASEENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBEXECLIMITSENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBEXECLIMITSENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBEXECLIMITS_ABORT: DBEXECLIMITSENUM = 1i32;
+pub const DBEXECLIMITS_ABORT: DBEXECLIMITSENUM = DBEXECLIMITSENUM(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBEXECLIMITS_STOP: DBEXECLIMITSENUM = 2i32;
+pub const DBEXECLIMITS_STOP: DBEXECLIMITSENUM = DBEXECLIMITSENUM(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBEXECLIMITS_SUSPEND: DBEXECLIMITSENUM = 3i32;
+pub const DBEXECLIMITS_SUSPEND: DBEXECLIMITSENUM = DBEXECLIMITSENUM(3i32);
+impl ::core::marker::Copy for DBEXECLIMITSENUM {}
+impl ::core::clone::Clone for DBEXECLIMITSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBEXECLIMITSENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBEXECLIMITSENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBEXECLIMITSENUM").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -2026,79 +2662,143 @@ impl ::core::default::Default for DBINDEXCOLUMNDESC {
     }
 }
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBINDEX_COL_ORDERENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBINDEX_COL_ORDERENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBINDEX_COL_ORDER_ASC: DBINDEX_COL_ORDERENUM = 0i32;
+pub const DBINDEX_COL_ORDER_ASC: DBINDEX_COL_ORDERENUM = DBINDEX_COL_ORDERENUM(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBINDEX_COL_ORDER_DESC: DBINDEX_COL_ORDERENUM = 1i32;
+pub const DBINDEX_COL_ORDER_DESC: DBINDEX_COL_ORDERENUM = DBINDEX_COL_ORDERENUM(1i32);
+impl ::core::marker::Copy for DBINDEX_COL_ORDERENUM {}
+impl ::core::clone::Clone for DBINDEX_COL_ORDERENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBINDEX_COL_ORDERENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBINDEX_COL_ORDERENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBINDEX_COL_ORDERENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBLITERALENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBLITERALENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBLITERAL_INVALID: DBLITERALENUM = 0i32;
+pub const DBLITERAL_INVALID: DBLITERALENUM = DBLITERALENUM(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBLITERAL_BINARY_LITERAL: DBLITERALENUM = 1i32;
+pub const DBLITERAL_BINARY_LITERAL: DBLITERALENUM = DBLITERALENUM(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBLITERAL_CATALOG_NAME: DBLITERALENUM = 2i32;
+pub const DBLITERAL_CATALOG_NAME: DBLITERALENUM = DBLITERALENUM(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBLITERAL_CATALOG_SEPARATOR: DBLITERALENUM = 3i32;
+pub const DBLITERAL_CATALOG_SEPARATOR: DBLITERALENUM = DBLITERALENUM(3i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBLITERAL_CHAR_LITERAL: DBLITERALENUM = 4i32;
+pub const DBLITERAL_CHAR_LITERAL: DBLITERALENUM = DBLITERALENUM(4i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBLITERAL_COLUMN_ALIAS: DBLITERALENUM = 5i32;
+pub const DBLITERAL_COLUMN_ALIAS: DBLITERALENUM = DBLITERALENUM(5i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBLITERAL_COLUMN_NAME: DBLITERALENUM = 6i32;
+pub const DBLITERAL_COLUMN_NAME: DBLITERALENUM = DBLITERALENUM(6i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBLITERAL_CORRELATION_NAME: DBLITERALENUM = 7i32;
+pub const DBLITERAL_CORRELATION_NAME: DBLITERALENUM = DBLITERALENUM(7i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBLITERAL_CURSOR_NAME: DBLITERALENUM = 8i32;
+pub const DBLITERAL_CURSOR_NAME: DBLITERALENUM = DBLITERALENUM(8i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBLITERAL_ESCAPE_PERCENT: DBLITERALENUM = 9i32;
+pub const DBLITERAL_ESCAPE_PERCENT: DBLITERALENUM = DBLITERALENUM(9i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBLITERAL_ESCAPE_UNDERSCORE: DBLITERALENUM = 10i32;
+pub const DBLITERAL_ESCAPE_UNDERSCORE: DBLITERALENUM = DBLITERALENUM(10i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBLITERAL_INDEX_NAME: DBLITERALENUM = 11i32;
+pub const DBLITERAL_INDEX_NAME: DBLITERALENUM = DBLITERALENUM(11i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBLITERAL_LIKE_PERCENT: DBLITERALENUM = 12i32;
+pub const DBLITERAL_LIKE_PERCENT: DBLITERALENUM = DBLITERALENUM(12i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBLITERAL_LIKE_UNDERSCORE: DBLITERALENUM = 13i32;
+pub const DBLITERAL_LIKE_UNDERSCORE: DBLITERALENUM = DBLITERALENUM(13i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBLITERAL_PROCEDURE_NAME: DBLITERALENUM = 14i32;
+pub const DBLITERAL_PROCEDURE_NAME: DBLITERALENUM = DBLITERALENUM(14i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBLITERAL_QUOTE: DBLITERALENUM = 15i32;
+pub const DBLITERAL_QUOTE: DBLITERALENUM = DBLITERALENUM(15i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBLITERAL_SCHEMA_NAME: DBLITERALENUM = 16i32;
+pub const DBLITERAL_SCHEMA_NAME: DBLITERALENUM = DBLITERALENUM(16i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBLITERAL_TABLE_NAME: DBLITERALENUM = 17i32;
+pub const DBLITERAL_TABLE_NAME: DBLITERALENUM = DBLITERALENUM(17i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBLITERAL_TEXT_COMMAND: DBLITERALENUM = 18i32;
+pub const DBLITERAL_TEXT_COMMAND: DBLITERALENUM = DBLITERALENUM(18i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBLITERAL_USER_NAME: DBLITERALENUM = 19i32;
+pub const DBLITERAL_USER_NAME: DBLITERALENUM = DBLITERALENUM(19i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBLITERAL_VIEW_NAME: DBLITERALENUM = 20i32;
+pub const DBLITERAL_VIEW_NAME: DBLITERALENUM = DBLITERALENUM(20i32);
+impl ::core::marker::Copy for DBLITERALENUM {}
+impl ::core::clone::Clone for DBLITERALENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBLITERALENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBLITERALENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBLITERALENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBLITERALENUM20 = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBLITERALENUM20(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBLITERAL_CUBE_NAME: DBLITERALENUM20 = 21i32;
+pub const DBLITERAL_CUBE_NAME: DBLITERALENUM20 = DBLITERALENUM20(21i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBLITERAL_DIMENSION_NAME: DBLITERALENUM20 = 22i32;
+pub const DBLITERAL_DIMENSION_NAME: DBLITERALENUM20 = DBLITERALENUM20(22i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBLITERAL_HIERARCHY_NAME: DBLITERALENUM20 = 23i32;
+pub const DBLITERAL_HIERARCHY_NAME: DBLITERALENUM20 = DBLITERALENUM20(23i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBLITERAL_LEVEL_NAME: DBLITERALENUM20 = 24i32;
+pub const DBLITERAL_LEVEL_NAME: DBLITERALENUM20 = DBLITERALENUM20(24i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBLITERAL_MEMBER_NAME: DBLITERALENUM20 = 25i32;
+pub const DBLITERAL_MEMBER_NAME: DBLITERALENUM20 = DBLITERALENUM20(25i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBLITERAL_PROPERTY_NAME: DBLITERALENUM20 = 26i32;
+pub const DBLITERAL_PROPERTY_NAME: DBLITERALENUM20 = DBLITERALENUM20(26i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBLITERAL_SCHEMA_SEPARATOR: DBLITERALENUM20 = 27i32;
+pub const DBLITERAL_SCHEMA_SEPARATOR: DBLITERALENUM20 = DBLITERALENUM20(27i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBLITERAL_QUOTE_SUFFIX: DBLITERALENUM20 = 28i32;
+pub const DBLITERAL_QUOTE_SUFFIX: DBLITERALENUM20 = DBLITERALENUM20(28i32);
+impl ::core::marker::Copy for DBLITERALENUM20 {}
+impl ::core::clone::Clone for DBLITERALENUM20 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBLITERALENUM20 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBLITERALENUM20 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBLITERALENUM20").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBLITERALENUM21 = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBLITERALENUM21(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBLITERAL_ESCAPE_PERCENT_SUFFIX: DBLITERALENUM21 = 29i32;
+pub const DBLITERAL_ESCAPE_PERCENT_SUFFIX: DBLITERALENUM21 = DBLITERALENUM21(29i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBLITERAL_ESCAPE_UNDERSCORE_SUFFIX: DBLITERALENUM21 = 30i32;
+pub const DBLITERAL_ESCAPE_UNDERSCORE_SUFFIX: DBLITERALENUM21 = DBLITERALENUM21(30i32);
+impl ::core::marker::Copy for DBLITERALENUM21 {}
+impl ::core::clone::Clone for DBLITERALENUM21 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBLITERALENUM21 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBLITERALENUM21 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBLITERALENUM21").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -2195,33 +2895,81 @@ impl ::core::default::Default for DBLITERALINFO {
     }
 }
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBMATCHTYPEENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBMATCHTYPEENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBMATCHTYPE_FULL: DBMATCHTYPEENUM = 0i32;
+pub const DBMATCHTYPE_FULL: DBMATCHTYPEENUM = DBMATCHTYPEENUM(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBMATCHTYPE_NONE: DBMATCHTYPEENUM = 1i32;
+pub const DBMATCHTYPE_NONE: DBMATCHTYPEENUM = DBMATCHTYPEENUM(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBMATCHTYPE_PARTIAL: DBMATCHTYPEENUM = 2i32;
+pub const DBMATCHTYPE_PARTIAL: DBMATCHTYPEENUM = DBMATCHTYPEENUM(2i32);
+impl ::core::marker::Copy for DBMATCHTYPEENUM {}
+impl ::core::clone::Clone for DBMATCHTYPEENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBMATCHTYPEENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBMATCHTYPEENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBMATCHTYPEENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBMAXCHAR: u32 = 8001u32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBMEMOWNERENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBMEMOWNERENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBMEMOWNER_CLIENTOWNED: DBMEMOWNERENUM = 0i32;
+pub const DBMEMOWNER_CLIENTOWNED: DBMEMOWNERENUM = DBMEMOWNERENUM(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBMEMOWNER_PROVIDEROWNED: DBMEMOWNERENUM = 1i32;
+pub const DBMEMOWNER_PROVIDEROWNED: DBMEMOWNERENUM = DBMEMOWNERENUM(1i32);
+impl ::core::marker::Copy for DBMEMOWNERENUM {}
+impl ::core::clone::Clone for DBMEMOWNERENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBMEMOWNERENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBMEMOWNERENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBMEMOWNERENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBMOVEFLAGSENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBMOVEFLAGSENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBMOVE_REPLACE_EXISTING: DBMOVEFLAGSENUM = 1i32;
+pub const DBMOVE_REPLACE_EXISTING: DBMOVEFLAGSENUM = DBMOVEFLAGSENUM(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBMOVE_ASYNC: DBMOVEFLAGSENUM = 256i32;
+pub const DBMOVE_ASYNC: DBMOVEFLAGSENUM = DBMOVEFLAGSENUM(256i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBMOVE_DONT_UPDATE_LINKS: DBMOVEFLAGSENUM = 512i32;
+pub const DBMOVE_DONT_UPDATE_LINKS: DBMOVEFLAGSENUM = DBMOVEFLAGSENUM(512i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBMOVE_ALLOW_EMULATION: DBMOVEFLAGSENUM = 1024i32;
+pub const DBMOVE_ALLOW_EMULATION: DBMOVEFLAGSENUM = DBMOVEFLAGSENUM(1024i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBMOVE_ATOMIC: DBMOVEFLAGSENUM = 4096i32;
+pub const DBMOVE_ATOMIC: DBMOVEFLAGSENUM = DBMOVEFLAGSENUM(4096i32);
+impl ::core::marker::Copy for DBMOVEFLAGSENUM {}
+impl ::core::clone::Clone for DBMOVEFLAGSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBMOVEFLAGSENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBMOVEFLAGSENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBMOVEFLAGSENUM").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -2390,21 +3138,53 @@ impl ::core::default::Default for DBPARAMBINDINFO {
     }
 }
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBPARAMFLAGSENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBPARAMFLAGSENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPARAMFLAGS_ISINPUT: DBPARAMFLAGSENUM = 1i32;
+pub const DBPARAMFLAGS_ISINPUT: DBPARAMFLAGSENUM = DBPARAMFLAGSENUM(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPARAMFLAGS_ISOUTPUT: DBPARAMFLAGSENUM = 2i32;
+pub const DBPARAMFLAGS_ISOUTPUT: DBPARAMFLAGSENUM = DBPARAMFLAGSENUM(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPARAMFLAGS_ISSIGNED: DBPARAMFLAGSENUM = 16i32;
+pub const DBPARAMFLAGS_ISSIGNED: DBPARAMFLAGSENUM = DBPARAMFLAGSENUM(16i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPARAMFLAGS_ISNULLABLE: DBPARAMFLAGSENUM = 64i32;
+pub const DBPARAMFLAGS_ISNULLABLE: DBPARAMFLAGSENUM = DBPARAMFLAGSENUM(64i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPARAMFLAGS_ISLONG: DBPARAMFLAGSENUM = 128i32;
+pub const DBPARAMFLAGS_ISLONG: DBPARAMFLAGSENUM = DBPARAMFLAGSENUM(128i32);
+impl ::core::marker::Copy for DBPARAMFLAGSENUM {}
+impl ::core::clone::Clone for DBPARAMFLAGSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBPARAMFLAGSENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBPARAMFLAGSENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBPARAMFLAGSENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBPARAMFLAGSENUM20 = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBPARAMFLAGSENUM20(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPARAMFLAGS_SCALEISNEGATIVE: DBPARAMFLAGSENUM20 = 256i32;
+pub const DBPARAMFLAGS_SCALEISNEGATIVE: DBPARAMFLAGSENUM20 = DBPARAMFLAGSENUM20(256i32);
+impl ::core::marker::Copy for DBPARAMFLAGSENUM20 {}
+impl ::core::clone::Clone for DBPARAMFLAGSENUM20 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBPARAMFLAGSENUM20 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBPARAMFLAGSENUM20 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBPARAMFLAGSENUM20").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_System_Com'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -2501,13 +3281,29 @@ impl ::core::default::Default for DBPARAMINFO {
     }
 }
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBPARAMIOENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBPARAMIOENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPARAMIO_NOTPARAM: DBPARAMIOENUM = 0i32;
+pub const DBPARAMIO_NOTPARAM: DBPARAMIOENUM = DBPARAMIOENUM(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPARAMIO_INPUT: DBPARAMIOENUM = 1i32;
+pub const DBPARAMIO_INPUT: DBPARAMIOENUM = DBPARAMIOENUM(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPARAMIO_OUTPUT: DBPARAMIOENUM = 2i32;
+pub const DBPARAMIO_OUTPUT: DBPARAMIOENUM = DBPARAMIOENUM(2i32);
+impl ::core::marker::Copy for DBPARAMIOENUM {}
+impl ::core::clone::Clone for DBPARAMIOENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBPARAMIOENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBPARAMIOENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBPARAMIOENUM").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -2591,51 +3387,115 @@ pub const DBPARAMTYPE_OUTPUT: u32 = 3u32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPARAMTYPE_RETURNVALUE: u32 = 4u32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBPARTENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBPARTENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPART_INVALID: DBPARTENUM = 0i32;
+pub const DBPART_INVALID: DBPARTENUM = DBPARTENUM(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPART_VALUE: DBPARTENUM = 1i32;
+pub const DBPART_VALUE: DBPARTENUM = DBPARTENUM(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPART_LENGTH: DBPARTENUM = 2i32;
+pub const DBPART_LENGTH: DBPARTENUM = DBPARTENUM(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPART_STATUS: DBPARTENUM = 4i32;
+pub const DBPART_STATUS: DBPARTENUM = DBPARTENUM(4i32);
+impl ::core::marker::Copy for DBPARTENUM {}
+impl ::core::clone::Clone for DBPARTENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBPARTENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBPARTENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBPARTENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBPENDINGSTATUSENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBPENDINGSTATUSENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPENDINGSTATUS_NEW: DBPENDINGSTATUSENUM = 1i32;
+pub const DBPENDINGSTATUS_NEW: DBPENDINGSTATUSENUM = DBPENDINGSTATUSENUM(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPENDINGSTATUS_CHANGED: DBPENDINGSTATUSENUM = 2i32;
+pub const DBPENDINGSTATUS_CHANGED: DBPENDINGSTATUSENUM = DBPENDINGSTATUSENUM(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPENDINGSTATUS_DELETED: DBPENDINGSTATUSENUM = 4i32;
+pub const DBPENDINGSTATUS_DELETED: DBPENDINGSTATUSENUM = DBPENDINGSTATUSENUM(4i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPENDINGSTATUS_UNCHANGED: DBPENDINGSTATUSENUM = 8i32;
+pub const DBPENDINGSTATUS_UNCHANGED: DBPENDINGSTATUSENUM = DBPENDINGSTATUSENUM(8i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPENDINGSTATUS_INVALIDROW: DBPENDINGSTATUSENUM = 16i32;
+pub const DBPENDINGSTATUS_INVALIDROW: DBPENDINGSTATUSENUM = DBPENDINGSTATUSENUM(16i32);
+impl ::core::marker::Copy for DBPENDINGSTATUSENUM {}
+impl ::core::clone::Clone for DBPENDINGSTATUSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBPENDINGSTATUSENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBPENDINGSTATUSENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBPENDINGSTATUSENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBPOSITIONFLAGSENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBPOSITIONFLAGSENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPOSITION_OK: DBPOSITIONFLAGSENUM = 0i32;
+pub const DBPOSITION_OK: DBPOSITIONFLAGSENUM = DBPOSITIONFLAGSENUM(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPOSITION_NOROW: DBPOSITIONFLAGSENUM = 1i32;
+pub const DBPOSITION_NOROW: DBPOSITIONFLAGSENUM = DBPOSITIONFLAGSENUM(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPOSITION_BOF: DBPOSITIONFLAGSENUM = 2i32;
+pub const DBPOSITION_BOF: DBPOSITIONFLAGSENUM = DBPOSITIONFLAGSENUM(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPOSITION_EOF: DBPOSITIONFLAGSENUM = 3i32;
+pub const DBPOSITION_EOF: DBPOSITIONFLAGSENUM = DBPOSITIONFLAGSENUM(3i32);
+impl ::core::marker::Copy for DBPOSITIONFLAGSENUM {}
+impl ::core::clone::Clone for DBPOSITIONFLAGSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBPOSITIONFLAGSENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBPOSITIONFLAGSENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBPOSITIONFLAGSENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBPROMPTOPTIONSENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBPROMPTOPTIONSENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROMPTOPTIONS_NONE: DBPROMPTOPTIONSENUM = 0i32;
+pub const DBPROMPTOPTIONS_NONE: DBPROMPTOPTIONSENUM = DBPROMPTOPTIONSENUM(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROMPTOPTIONS_WIZARDSHEET: DBPROMPTOPTIONSENUM = 1i32;
+pub const DBPROMPTOPTIONS_WIZARDSHEET: DBPROMPTOPTIONSENUM = DBPROMPTOPTIONSENUM(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROMPTOPTIONS_PROPERTYSHEET: DBPROMPTOPTIONSENUM = 2i32;
+pub const DBPROMPTOPTIONS_PROPERTYSHEET: DBPROMPTOPTIONSENUM = DBPROMPTOPTIONSENUM(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROMPTOPTIONS_BROWSEONLY: DBPROMPTOPTIONSENUM = 8i32;
+pub const DBPROMPTOPTIONS_BROWSEONLY: DBPROMPTOPTIONSENUM = DBPROMPTOPTIONSENUM(8i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROMPTOPTIONS_DISABLE_PROVIDER_SELECTION: DBPROMPTOPTIONSENUM = 16i32;
+pub const DBPROMPTOPTIONS_DISABLE_PROVIDER_SELECTION: DBPROMPTOPTIONSENUM = DBPROMPTOPTIONSENUM(16i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROMPTOPTIONS_DISABLESAVEPASSWORD: DBPROMPTOPTIONSENUM = 32i32;
+pub const DBPROMPTOPTIONS_DISABLESAVEPASSWORD: DBPROMPTOPTIONSENUM = DBPROMPTOPTIONSENUM(32i32);
+impl ::core::marker::Copy for DBPROMPTOPTIONSENUM {}
+impl ::core::clone::Clone for DBPROMPTOPTIONSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBPROMPTOPTIONSENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBPROMPTOPTIONSENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBPROMPTOPTIONSENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROMPT_COMPLETE: u32 = 2u32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
@@ -2718,593 +3578,769 @@ impl ::core::default::Default for DBPROP {
     }
 }
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBPROPENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBPROPENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_ABORTPRESERVE: DBPROPENUM = 2i32;
+pub const DBPROP_ABORTPRESERVE: DBPROPENUM = DBPROPENUM(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_ACTIVESESSIONS: DBPROPENUM = 3i32;
+pub const DBPROP_ACTIVESESSIONS: DBPROPENUM = DBPROPENUM(3i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_APPENDONLY: DBPROPENUM = 187i32;
+pub const DBPROP_APPENDONLY: DBPROPENUM = DBPROPENUM(187i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_ASYNCTXNABORT: DBPROPENUM = 168i32;
+pub const DBPROP_ASYNCTXNABORT: DBPROPENUM = DBPROPENUM(168i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_ASYNCTXNCOMMIT: DBPROPENUM = 4i32;
+pub const DBPROP_ASYNCTXNCOMMIT: DBPROPENUM = DBPROPENUM(4i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_AUTH_CACHE_AUTHINFO: DBPROPENUM = 5i32;
+pub const DBPROP_AUTH_CACHE_AUTHINFO: DBPROPENUM = DBPROPENUM(5i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_AUTH_ENCRYPT_PASSWORD: DBPROPENUM = 6i32;
+pub const DBPROP_AUTH_ENCRYPT_PASSWORD: DBPROPENUM = DBPROPENUM(6i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_AUTH_INTEGRATED: DBPROPENUM = 7i32;
+pub const DBPROP_AUTH_INTEGRATED: DBPROPENUM = DBPROPENUM(7i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_AUTH_MASK_PASSWORD: DBPROPENUM = 8i32;
+pub const DBPROP_AUTH_MASK_PASSWORD: DBPROPENUM = DBPROPENUM(8i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_AUTH_PASSWORD: DBPROPENUM = 9i32;
+pub const DBPROP_AUTH_PASSWORD: DBPROPENUM = DBPROPENUM(9i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_AUTH_PERSIST_ENCRYPTED: DBPROPENUM = 10i32;
+pub const DBPROP_AUTH_PERSIST_ENCRYPTED: DBPROPENUM = DBPROPENUM(10i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_AUTH_PERSIST_SENSITIVE_AUTHINFO: DBPROPENUM = 11i32;
+pub const DBPROP_AUTH_PERSIST_SENSITIVE_AUTHINFO: DBPROPENUM = DBPROPENUM(11i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_AUTH_USERID: DBPROPENUM = 12i32;
+pub const DBPROP_AUTH_USERID: DBPROPENUM = DBPROPENUM(12i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_BLOCKINGSTORAGEOBJECTS: DBPROPENUM = 13i32;
+pub const DBPROP_BLOCKINGSTORAGEOBJECTS: DBPROPENUM = DBPROPENUM(13i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_BOOKMARKS: DBPROPENUM = 14i32;
+pub const DBPROP_BOOKMARKS: DBPROPENUM = DBPROPENUM(14i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_BOOKMARKSKIPPED: DBPROPENUM = 15i32;
+pub const DBPROP_BOOKMARKSKIPPED: DBPROPENUM = DBPROPENUM(15i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_BOOKMARKTYPE: DBPROPENUM = 16i32;
+pub const DBPROP_BOOKMARKTYPE: DBPROPENUM = DBPROPENUM(16i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_BYREFACCESSORS: DBPROPENUM = 120i32;
+pub const DBPROP_BYREFACCESSORS: DBPROPENUM = DBPROPENUM(120i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_CACHEDEFERRED: DBPROPENUM = 17i32;
+pub const DBPROP_CACHEDEFERRED: DBPROPENUM = DBPROPENUM(17i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_CANFETCHBACKWARDS: DBPROPENUM = 18i32;
+pub const DBPROP_CANFETCHBACKWARDS: DBPROPENUM = DBPROPENUM(18i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_CANHOLDROWS: DBPROPENUM = 19i32;
+pub const DBPROP_CANHOLDROWS: DBPROPENUM = DBPROPENUM(19i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_CANSCROLLBACKWARDS: DBPROPENUM = 21i32;
+pub const DBPROP_CANSCROLLBACKWARDS: DBPROPENUM = DBPROPENUM(21i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_CATALOGLOCATION: DBPROPENUM = 22i32;
+pub const DBPROP_CATALOGLOCATION: DBPROPENUM = DBPROPENUM(22i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_CATALOGTERM: DBPROPENUM = 23i32;
+pub const DBPROP_CATALOGTERM: DBPROPENUM = DBPROPENUM(23i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_CATALOGUSAGE: DBPROPENUM = 24i32;
+pub const DBPROP_CATALOGUSAGE: DBPROPENUM = DBPROPENUM(24i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_CHANGEINSERTEDROWS: DBPROPENUM = 188i32;
+pub const DBPROP_CHANGEINSERTEDROWS: DBPROPENUM = DBPROPENUM(188i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_COL_AUTOINCREMENT: DBPROPENUM = 26i32;
+pub const DBPROP_COL_AUTOINCREMENT: DBPROPENUM = DBPROPENUM(26i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_COL_DEFAULT: DBPROPENUM = 27i32;
+pub const DBPROP_COL_DEFAULT: DBPROPENUM = DBPROPENUM(27i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_COL_DESCRIPTION: DBPROPENUM = 28i32;
+pub const DBPROP_COL_DESCRIPTION: DBPROPENUM = DBPROPENUM(28i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_COL_FIXEDLENGTH: DBPROPENUM = 167i32;
+pub const DBPROP_COL_FIXEDLENGTH: DBPROPENUM = DBPROPENUM(167i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_COL_NULLABLE: DBPROPENUM = 29i32;
+pub const DBPROP_COL_NULLABLE: DBPROPENUM = DBPROPENUM(29i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_COL_PRIMARYKEY: DBPROPENUM = 30i32;
+pub const DBPROP_COL_PRIMARYKEY: DBPROPENUM = DBPROPENUM(30i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_COL_UNIQUE: DBPROPENUM = 31i32;
+pub const DBPROP_COL_UNIQUE: DBPROPENUM = DBPROPENUM(31i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_COLUMNDEFINITION: DBPROPENUM = 32i32;
+pub const DBPROP_COLUMNDEFINITION: DBPROPENUM = DBPROPENUM(32i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_COLUMNRESTRICT: DBPROPENUM = 33i32;
+pub const DBPROP_COLUMNRESTRICT: DBPROPENUM = DBPROPENUM(33i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_COMMANDTIMEOUT: DBPROPENUM = 34i32;
+pub const DBPROP_COMMANDTIMEOUT: DBPROPENUM = DBPROPENUM(34i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_COMMITPRESERVE: DBPROPENUM = 35i32;
+pub const DBPROP_COMMITPRESERVE: DBPROPENUM = DBPROPENUM(35i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_CONCATNULLBEHAVIOR: DBPROPENUM = 36i32;
+pub const DBPROP_CONCATNULLBEHAVIOR: DBPROPENUM = DBPROPENUM(36i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_CURRENTCATALOG: DBPROPENUM = 37i32;
+pub const DBPROP_CURRENTCATALOG: DBPROPENUM = DBPROPENUM(37i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_DATASOURCENAME: DBPROPENUM = 38i32;
+pub const DBPROP_DATASOURCENAME: DBPROPENUM = DBPROPENUM(38i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_DATASOURCEREADONLY: DBPROPENUM = 39i32;
+pub const DBPROP_DATASOURCEREADONLY: DBPROPENUM = DBPROPENUM(39i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_DBMSNAME: DBPROPENUM = 40i32;
+pub const DBPROP_DBMSNAME: DBPROPENUM = DBPROPENUM(40i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_DBMSVER: DBPROPENUM = 41i32;
+pub const DBPROP_DBMSVER: DBPROPENUM = DBPROPENUM(41i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_DEFERRED: DBPROPENUM = 42i32;
+pub const DBPROP_DEFERRED: DBPROPENUM = DBPROPENUM(42i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_DELAYSTORAGEOBJECTS: DBPROPENUM = 43i32;
+pub const DBPROP_DELAYSTORAGEOBJECTS: DBPROPENUM = DBPROPENUM(43i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_DSOTHREADMODEL: DBPROPENUM = 169i32;
+pub const DBPROP_DSOTHREADMODEL: DBPROPENUM = DBPROPENUM(169i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_GROUPBY: DBPROPENUM = 44i32;
+pub const DBPROP_GROUPBY: DBPROPENUM = DBPROPENUM(44i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_HETEROGENEOUSTABLES: DBPROPENUM = 45i32;
+pub const DBPROP_HETEROGENEOUSTABLES: DBPROPENUM = DBPROPENUM(45i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IAccessor: DBPROPENUM = 121i32;
+pub const DBPROP_IAccessor: DBPROPENUM = DBPROPENUM(121i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IColumnsInfo: DBPROPENUM = 122i32;
+pub const DBPROP_IColumnsInfo: DBPROPENUM = DBPROPENUM(122i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IColumnsRowset: DBPROPENUM = 123i32;
+pub const DBPROP_IColumnsRowset: DBPROPENUM = DBPROPENUM(123i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IConnectionPointContainer: DBPROPENUM = 124i32;
+pub const DBPROP_IConnectionPointContainer: DBPROPENUM = DBPROPENUM(124i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IConvertType: DBPROPENUM = 194i32;
+pub const DBPROP_IConvertType: DBPROPENUM = DBPROPENUM(194i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IRowset: DBPROPENUM = 126i32;
+pub const DBPROP_IRowset: DBPROPENUM = DBPROPENUM(126i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IRowsetChange: DBPROPENUM = 127i32;
+pub const DBPROP_IRowsetChange: DBPROPENUM = DBPROPENUM(127i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IRowsetIdentity: DBPROPENUM = 128i32;
+pub const DBPROP_IRowsetIdentity: DBPROPENUM = DBPROPENUM(128i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IRowsetIndex: DBPROPENUM = 159i32;
+pub const DBPROP_IRowsetIndex: DBPROPENUM = DBPROPENUM(159i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IRowsetInfo: DBPROPENUM = 129i32;
+pub const DBPROP_IRowsetInfo: DBPROPENUM = DBPROPENUM(129i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IRowsetLocate: DBPROPENUM = 130i32;
+pub const DBPROP_IRowsetLocate: DBPROPENUM = DBPROPENUM(130i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IRowsetResynch: DBPROPENUM = 132i32;
+pub const DBPROP_IRowsetResynch: DBPROPENUM = DBPROPENUM(132i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IRowsetScroll: DBPROPENUM = 133i32;
+pub const DBPROP_IRowsetScroll: DBPROPENUM = DBPROPENUM(133i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IRowsetUpdate: DBPROPENUM = 134i32;
+pub const DBPROP_IRowsetUpdate: DBPROPENUM = DBPROPENUM(134i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_ISupportErrorInfo: DBPROPENUM = 135i32;
+pub const DBPROP_ISupportErrorInfo: DBPROPENUM = DBPROPENUM(135i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_ILockBytes: DBPROPENUM = 136i32;
+pub const DBPROP_ILockBytes: DBPROPENUM = DBPROPENUM(136i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_ISequentialStream: DBPROPENUM = 137i32;
+pub const DBPROP_ISequentialStream: DBPROPENUM = DBPROPENUM(137i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IStorage: DBPROPENUM = 138i32;
+pub const DBPROP_IStorage: DBPROPENUM = DBPROPENUM(138i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IStream: DBPROPENUM = 139i32;
+pub const DBPROP_IStream: DBPROPENUM = DBPROPENUM(139i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IDENTIFIERCASE: DBPROPENUM = 46i32;
+pub const DBPROP_IDENTIFIERCASE: DBPROPENUM = DBPROPENUM(46i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IMMOBILEROWS: DBPROPENUM = 47i32;
+pub const DBPROP_IMMOBILEROWS: DBPROPENUM = DBPROPENUM(47i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_INDEX_AUTOUPDATE: DBPROPENUM = 48i32;
+pub const DBPROP_INDEX_AUTOUPDATE: DBPROPENUM = DBPROPENUM(48i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_INDEX_CLUSTERED: DBPROPENUM = 49i32;
+pub const DBPROP_INDEX_CLUSTERED: DBPROPENUM = DBPROPENUM(49i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_INDEX_FILLFACTOR: DBPROPENUM = 50i32;
+pub const DBPROP_INDEX_FILLFACTOR: DBPROPENUM = DBPROPENUM(50i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_INDEX_INITIALSIZE: DBPROPENUM = 51i32;
+pub const DBPROP_INDEX_INITIALSIZE: DBPROPENUM = DBPROPENUM(51i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_INDEX_NULLCOLLATION: DBPROPENUM = 52i32;
+pub const DBPROP_INDEX_NULLCOLLATION: DBPROPENUM = DBPROPENUM(52i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_INDEX_NULLS: DBPROPENUM = 53i32;
+pub const DBPROP_INDEX_NULLS: DBPROPENUM = DBPROPENUM(53i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_INDEX_PRIMARYKEY: DBPROPENUM = 54i32;
+pub const DBPROP_INDEX_PRIMARYKEY: DBPROPENUM = DBPROPENUM(54i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_INDEX_SORTBOOKMARKS: DBPROPENUM = 55i32;
+pub const DBPROP_INDEX_SORTBOOKMARKS: DBPROPENUM = DBPROPENUM(55i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_INDEX_TEMPINDEX: DBPROPENUM = 163i32;
+pub const DBPROP_INDEX_TEMPINDEX: DBPROPENUM = DBPROPENUM(163i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_INDEX_TYPE: DBPROPENUM = 56i32;
+pub const DBPROP_INDEX_TYPE: DBPROPENUM = DBPROPENUM(56i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_INDEX_UNIQUE: DBPROPENUM = 57i32;
+pub const DBPROP_INDEX_UNIQUE: DBPROPENUM = DBPROPENUM(57i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_INIT_DATASOURCE: DBPROPENUM = 59i32;
+pub const DBPROP_INIT_DATASOURCE: DBPROPENUM = DBPROPENUM(59i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_INIT_HWND: DBPROPENUM = 60i32;
+pub const DBPROP_INIT_HWND: DBPROPENUM = DBPROPENUM(60i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_INIT_IMPERSONATION_LEVEL: DBPROPENUM = 61i32;
+pub const DBPROP_INIT_IMPERSONATION_LEVEL: DBPROPENUM = DBPROPENUM(61i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_INIT_LCID: DBPROPENUM = 186i32;
+pub const DBPROP_INIT_LCID: DBPROPENUM = DBPROPENUM(186i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_INIT_LOCATION: DBPROPENUM = 62i32;
+pub const DBPROP_INIT_LOCATION: DBPROPENUM = DBPROPENUM(62i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_INIT_MODE: DBPROPENUM = 63i32;
+pub const DBPROP_INIT_MODE: DBPROPENUM = DBPROPENUM(63i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_INIT_PROMPT: DBPROPENUM = 64i32;
+pub const DBPROP_INIT_PROMPT: DBPROPENUM = DBPROPENUM(64i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_INIT_PROTECTION_LEVEL: DBPROPENUM = 65i32;
+pub const DBPROP_INIT_PROTECTION_LEVEL: DBPROPENUM = DBPROPENUM(65i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_INIT_PROVIDERSTRING: DBPROPENUM = 160i32;
+pub const DBPROP_INIT_PROVIDERSTRING: DBPROPENUM = DBPROPENUM(160i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_INIT_TIMEOUT: DBPROPENUM = 66i32;
+pub const DBPROP_INIT_TIMEOUT: DBPROPENUM = DBPROPENUM(66i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_LITERALBOOKMARKS: DBPROPENUM = 67i32;
+pub const DBPROP_LITERALBOOKMARKS: DBPROPENUM = DBPROPENUM(67i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_LITERALIDENTITY: DBPROPENUM = 68i32;
+pub const DBPROP_LITERALIDENTITY: DBPROPENUM = DBPROPENUM(68i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_MAXINDEXSIZE: DBPROPENUM = 70i32;
+pub const DBPROP_MAXINDEXSIZE: DBPROPENUM = DBPROPENUM(70i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_MAXOPENROWS: DBPROPENUM = 71i32;
+pub const DBPROP_MAXOPENROWS: DBPROPENUM = DBPROPENUM(71i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_MAXPENDINGROWS: DBPROPENUM = 72i32;
+pub const DBPROP_MAXPENDINGROWS: DBPROPENUM = DBPROPENUM(72i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_MAXROWS: DBPROPENUM = 73i32;
+pub const DBPROP_MAXROWS: DBPROPENUM = DBPROPENUM(73i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_MAXROWSIZE: DBPROPENUM = 74i32;
+pub const DBPROP_MAXROWSIZE: DBPROPENUM = DBPROPENUM(74i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_MAXROWSIZEINCLUDESBLOB: DBPROPENUM = 75i32;
+pub const DBPROP_MAXROWSIZEINCLUDESBLOB: DBPROPENUM = DBPROPENUM(75i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_MAXTABLESINSELECT: DBPROPENUM = 76i32;
+pub const DBPROP_MAXTABLESINSELECT: DBPROPENUM = DBPROPENUM(76i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_MAYWRITECOLUMN: DBPROPENUM = 77i32;
+pub const DBPROP_MAYWRITECOLUMN: DBPROPENUM = DBPROPENUM(77i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_MEMORYUSAGE: DBPROPENUM = 78i32;
+pub const DBPROP_MEMORYUSAGE: DBPROPENUM = DBPROPENUM(78i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_MULTIPLEPARAMSETS: DBPROPENUM = 191i32;
+pub const DBPROP_MULTIPLEPARAMSETS: DBPROPENUM = DBPROPENUM(191i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_MULTIPLERESULTS: DBPROPENUM = 196i32;
+pub const DBPROP_MULTIPLERESULTS: DBPROPENUM = DBPROPENUM(196i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_MULTIPLESTORAGEOBJECTS: DBPROPENUM = 80i32;
+pub const DBPROP_MULTIPLESTORAGEOBJECTS: DBPROPENUM = DBPROPENUM(80i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_MULTITABLEUPDATE: DBPROPENUM = 81i32;
+pub const DBPROP_MULTITABLEUPDATE: DBPROPENUM = DBPROPENUM(81i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_NOTIFICATIONGRANULARITY: DBPROPENUM = 198i32;
+pub const DBPROP_NOTIFICATIONGRANULARITY: DBPROPENUM = DBPROPENUM(198i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_NOTIFICATIONPHASES: DBPROPENUM = 82i32;
+pub const DBPROP_NOTIFICATIONPHASES: DBPROPENUM = DBPROPENUM(82i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_NOTIFYCOLUMNSET: DBPROPENUM = 171i32;
+pub const DBPROP_NOTIFYCOLUMNSET: DBPROPENUM = DBPROPENUM(171i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_NOTIFYROWDELETE: DBPROPENUM = 173i32;
+pub const DBPROP_NOTIFYROWDELETE: DBPROPENUM = DBPROPENUM(173i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_NOTIFYROWFIRSTCHANGE: DBPROPENUM = 174i32;
+pub const DBPROP_NOTIFYROWFIRSTCHANGE: DBPROPENUM = DBPROPENUM(174i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_NOTIFYROWINSERT: DBPROPENUM = 175i32;
+pub const DBPROP_NOTIFYROWINSERT: DBPROPENUM = DBPROPENUM(175i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_NOTIFYROWRESYNCH: DBPROPENUM = 177i32;
+pub const DBPROP_NOTIFYROWRESYNCH: DBPROPENUM = DBPROPENUM(177i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_NOTIFYROWSETCHANGED: DBPROPENUM = 211i32;
+pub const DBPROP_NOTIFYROWSETCHANGED: DBPROPENUM = DBPROPENUM(211i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_NOTIFYROWSETRELEASE: DBPROPENUM = 178i32;
+pub const DBPROP_NOTIFYROWSETRELEASE: DBPROPENUM = DBPROPENUM(178i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_NOTIFYROWSETFETCHPOSITIONCHANGE: DBPROPENUM = 179i32;
+pub const DBPROP_NOTIFYROWSETFETCHPOSITIONCHANGE: DBPROPENUM = DBPROPENUM(179i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_NOTIFYROWUNDOCHANGE: DBPROPENUM = 180i32;
+pub const DBPROP_NOTIFYROWUNDOCHANGE: DBPROPENUM = DBPROPENUM(180i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_NOTIFYROWUNDODELETE: DBPROPENUM = 181i32;
+pub const DBPROP_NOTIFYROWUNDODELETE: DBPROPENUM = DBPROPENUM(181i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_NOTIFYROWUNDOINSERT: DBPROPENUM = 182i32;
+pub const DBPROP_NOTIFYROWUNDOINSERT: DBPROPENUM = DBPROPENUM(182i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_NOTIFYROWUPDATE: DBPROPENUM = 183i32;
+pub const DBPROP_NOTIFYROWUPDATE: DBPROPENUM = DBPROPENUM(183i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_NULLCOLLATION: DBPROPENUM = 83i32;
+pub const DBPROP_NULLCOLLATION: DBPROPENUM = DBPROPENUM(83i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_OLEOBJECTS: DBPROPENUM = 84i32;
+pub const DBPROP_OLEOBJECTS: DBPROPENUM = DBPROPENUM(84i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_ORDERBYCOLUMNSINSELECT: DBPROPENUM = 85i32;
+pub const DBPROP_ORDERBYCOLUMNSINSELECT: DBPROPENUM = DBPROPENUM(85i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_ORDEREDBOOKMARKS: DBPROPENUM = 86i32;
+pub const DBPROP_ORDEREDBOOKMARKS: DBPROPENUM = DBPROPENUM(86i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_OTHERINSERT: DBPROPENUM = 87i32;
+pub const DBPROP_OTHERINSERT: DBPROPENUM = DBPROPENUM(87i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_OTHERUPDATEDELETE: DBPROPENUM = 88i32;
+pub const DBPROP_OTHERUPDATEDELETE: DBPROPENUM = DBPROPENUM(88i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_OUTPUTPARAMETERAVAILABILITY: DBPROPENUM = 184i32;
+pub const DBPROP_OUTPUTPARAMETERAVAILABILITY: DBPROPENUM = DBPROPENUM(184i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_OWNINSERT: DBPROPENUM = 89i32;
+pub const DBPROP_OWNINSERT: DBPROPENUM = DBPROPENUM(89i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_OWNUPDATEDELETE: DBPROPENUM = 90i32;
+pub const DBPROP_OWNUPDATEDELETE: DBPROPENUM = DBPROPENUM(90i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_PERSISTENTIDTYPE: DBPROPENUM = 185i32;
+pub const DBPROP_PERSISTENTIDTYPE: DBPROPENUM = DBPROPENUM(185i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_PREPAREABORTBEHAVIOR: DBPROPENUM = 91i32;
+pub const DBPROP_PREPAREABORTBEHAVIOR: DBPROPENUM = DBPROPENUM(91i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_PREPARECOMMITBEHAVIOR: DBPROPENUM = 92i32;
+pub const DBPROP_PREPARECOMMITBEHAVIOR: DBPROPENUM = DBPROPENUM(92i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_PROCEDURETERM: DBPROPENUM = 93i32;
+pub const DBPROP_PROCEDURETERM: DBPROPENUM = DBPROPENUM(93i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_PROVIDERNAME: DBPROPENUM = 96i32;
+pub const DBPROP_PROVIDERNAME: DBPROPENUM = DBPROPENUM(96i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_PROVIDEROLEDBVER: DBPROPENUM = 97i32;
+pub const DBPROP_PROVIDEROLEDBVER: DBPROPENUM = DBPROPENUM(97i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_PROVIDERVER: DBPROPENUM = 98i32;
+pub const DBPROP_PROVIDERVER: DBPROPENUM = DBPROPENUM(98i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_QUICKRESTART: DBPROPENUM = 99i32;
+pub const DBPROP_QUICKRESTART: DBPROPENUM = DBPROPENUM(99i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_QUOTEDIDENTIFIERCASE: DBPROPENUM = 100i32;
+pub const DBPROP_QUOTEDIDENTIFIERCASE: DBPROPENUM = DBPROPENUM(100i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_REENTRANTEVENTS: DBPROPENUM = 101i32;
+pub const DBPROP_REENTRANTEVENTS: DBPROPENUM = DBPROPENUM(101i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_REMOVEDELETED: DBPROPENUM = 102i32;
+pub const DBPROP_REMOVEDELETED: DBPROPENUM = DBPROPENUM(102i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_REPORTMULTIPLECHANGES: DBPROPENUM = 103i32;
+pub const DBPROP_REPORTMULTIPLECHANGES: DBPROPENUM = DBPROPENUM(103i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_RETURNPENDINGINSERTS: DBPROPENUM = 189i32;
+pub const DBPROP_RETURNPENDINGINSERTS: DBPROPENUM = DBPROPENUM(189i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_ROWRESTRICT: DBPROPENUM = 104i32;
+pub const DBPROP_ROWRESTRICT: DBPROPENUM = DBPROPENUM(104i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_ROWSETCONVERSIONSONCOMMAND: DBPROPENUM = 192i32;
+pub const DBPROP_ROWSETCONVERSIONSONCOMMAND: DBPROPENUM = DBPROPENUM(192i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_ROWTHREADMODEL: DBPROPENUM = 105i32;
+pub const DBPROP_ROWTHREADMODEL: DBPROPENUM = DBPROPENUM(105i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_SCHEMATERM: DBPROPENUM = 106i32;
+pub const DBPROP_SCHEMATERM: DBPROPENUM = DBPROPENUM(106i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_SCHEMAUSAGE: DBPROPENUM = 107i32;
+pub const DBPROP_SCHEMAUSAGE: DBPROPENUM = DBPROPENUM(107i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_SERVERCURSOR: DBPROPENUM = 108i32;
+pub const DBPROP_SERVERCURSOR: DBPROPENUM = DBPROPENUM(108i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_SESS_AUTOCOMMITISOLEVELS: DBPROPENUM = 190i32;
+pub const DBPROP_SESS_AUTOCOMMITISOLEVELS: DBPROPENUM = DBPROPENUM(190i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_SQLSUPPORT: DBPROPENUM = 109i32;
+pub const DBPROP_SQLSUPPORT: DBPROPENUM = DBPROPENUM(109i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_STRONGIDENTITY: DBPROPENUM = 119i32;
+pub const DBPROP_STRONGIDENTITY: DBPROPENUM = DBPROPENUM(119i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_STRUCTUREDSTORAGE: DBPROPENUM = 111i32;
+pub const DBPROP_STRUCTUREDSTORAGE: DBPROPENUM = DBPROPENUM(111i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_SUBQUERIES: DBPROPENUM = 112i32;
+pub const DBPROP_SUBQUERIES: DBPROPENUM = DBPROPENUM(112i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_SUPPORTEDTXNDDL: DBPROPENUM = 161i32;
+pub const DBPROP_SUPPORTEDTXNDDL: DBPROPENUM = DBPROPENUM(161i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_SUPPORTEDTXNISOLEVELS: DBPROPENUM = 113i32;
+pub const DBPROP_SUPPORTEDTXNISOLEVELS: DBPROPENUM = DBPROPENUM(113i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_SUPPORTEDTXNISORETAIN: DBPROPENUM = 114i32;
+pub const DBPROP_SUPPORTEDTXNISORETAIN: DBPROPENUM = DBPROPENUM(114i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_TABLETERM: DBPROPENUM = 115i32;
+pub const DBPROP_TABLETERM: DBPROPENUM = DBPROPENUM(115i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_TBL_TEMPTABLE: DBPROPENUM = 140i32;
+pub const DBPROP_TBL_TEMPTABLE: DBPROPENUM = DBPROPENUM(140i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_TRANSACTEDOBJECT: DBPROPENUM = 116i32;
+pub const DBPROP_TRANSACTEDOBJECT: DBPROPENUM = DBPROPENUM(116i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_UPDATABILITY: DBPROPENUM = 117i32;
+pub const DBPROP_UPDATABILITY: DBPROPENUM = DBPROPENUM(117i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_USERNAME: DBPROPENUM = 118i32;
+pub const DBPROP_USERNAME: DBPROPENUM = DBPROPENUM(118i32);
+impl ::core::marker::Copy for DBPROPENUM {}
+impl ::core::clone::Clone for DBPROPENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBPROPENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBPROPENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBPROPENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBPROPENUM15 = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBPROPENUM15(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_FILTERCOMPAREOPS: DBPROPENUM15 = 209i32;
+pub const DBPROP_FILTERCOMPAREOPS: DBPROPENUM15 = DBPROPENUM15(209i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_FINDCOMPAREOPS: DBPROPENUM15 = 210i32;
+pub const DBPROP_FINDCOMPAREOPS: DBPROPENUM15 = DBPROPENUM15(210i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IChapteredRowset: DBPROPENUM15 = 202i32;
+pub const DBPROP_IChapteredRowset: DBPROPENUM15 = DBPROPENUM15(202i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IDBAsynchStatus: DBPROPENUM15 = 203i32;
+pub const DBPROP_IDBAsynchStatus: DBPROPENUM15 = DBPROPENUM15(203i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IRowsetFind: DBPROPENUM15 = 204i32;
+pub const DBPROP_IRowsetFind: DBPROPENUM15 = DBPROPENUM15(204i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IRowsetView: DBPROPENUM15 = 212i32;
+pub const DBPROP_IRowsetView: DBPROPENUM15 = DBPROPENUM15(212i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IViewChapter: DBPROPENUM15 = 213i32;
+pub const DBPROP_IViewChapter: DBPROPENUM15 = DBPROPENUM15(213i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IViewFilter: DBPROPENUM15 = 214i32;
+pub const DBPROP_IViewFilter: DBPROPENUM15 = DBPROPENUM15(214i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IViewRowset: DBPROPENUM15 = 215i32;
+pub const DBPROP_IViewRowset: DBPROPENUM15 = DBPROPENUM15(215i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IViewSort: DBPROPENUM15 = 216i32;
+pub const DBPROP_IViewSort: DBPROPENUM15 = DBPROPENUM15(216i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_INIT_ASYNCH: DBPROPENUM15 = 200i32;
+pub const DBPROP_INIT_ASYNCH: DBPROPENUM15 = DBPROPENUM15(200i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_MAXOPENCHAPTERS: DBPROPENUM15 = 199i32;
+pub const DBPROP_MAXOPENCHAPTERS: DBPROPENUM15 = DBPROPENUM15(199i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_MAXORSINFILTER: DBPROPENUM15 = 205i32;
+pub const DBPROP_MAXORSINFILTER: DBPROPENUM15 = DBPROPENUM15(205i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_MAXSORTCOLUMNS: DBPROPENUM15 = 206i32;
+pub const DBPROP_MAXSORTCOLUMNS: DBPROPENUM15 = DBPROPENUM15(206i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_ROWSET_ASYNCH: DBPROPENUM15 = 201i32;
+pub const DBPROP_ROWSET_ASYNCH: DBPROPENUM15 = DBPROPENUM15(201i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_SORTONINDEX: DBPROPENUM15 = 207i32;
+pub const DBPROP_SORTONINDEX: DBPROPENUM15 = DBPROPENUM15(207i32);
+impl ::core::marker::Copy for DBPROPENUM15 {}
+impl ::core::clone::Clone for DBPROPENUM15 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBPROPENUM15 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBPROPENUM15 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBPROPENUM15").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBPROPENUM20 = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBPROPENUM20(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IMultipleResults: DBPROPENUM20 = 217i32;
+pub const DBPROP_IMultipleResults: DBPROPENUM20 = DBPROPENUM20(217i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_DATASOURCE_TYPE: DBPROPENUM20 = 251i32;
+pub const DBPROP_DATASOURCE_TYPE: DBPROPENUM20 = DBPROPENUM20(251i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const MDPROP_AXES: DBPROPENUM20 = 252i32;
+pub const MDPROP_AXES: DBPROPENUM20 = DBPROPENUM20(252i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const MDPROP_FLATTENING_SUPPORT: DBPROPENUM20 = 253i32;
+pub const MDPROP_FLATTENING_SUPPORT: DBPROPENUM20 = DBPROPENUM20(253i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const MDPROP_MDX_JOINCUBES: DBPROPENUM20 = 254i32;
+pub const MDPROP_MDX_JOINCUBES: DBPROPENUM20 = DBPROPENUM20(254i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const MDPROP_NAMED_LEVELS: DBPROPENUM20 = 255i32;
+pub const MDPROP_NAMED_LEVELS: DBPROPENUM20 = DBPROPENUM20(255i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const MDPROP_RANGEROWSET: DBPROPENUM20 = 256i32;
+pub const MDPROP_RANGEROWSET: DBPROPENUM20 = DBPROPENUM20(256i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const MDPROP_MDX_SLICER: DBPROPENUM20 = 218i32;
+pub const MDPROP_MDX_SLICER: DBPROPENUM20 = DBPROPENUM20(218i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const MDPROP_MDX_CUBEQUALIFICATION: DBPROPENUM20 = 219i32;
+pub const MDPROP_MDX_CUBEQUALIFICATION: DBPROPENUM20 = DBPROPENUM20(219i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const MDPROP_MDX_OUTERREFERENCE: DBPROPENUM20 = 220i32;
+pub const MDPROP_MDX_OUTERREFERENCE: DBPROPENUM20 = DBPROPENUM20(220i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const MDPROP_MDX_QUERYBYPROPERTY: DBPROPENUM20 = 221i32;
+pub const MDPROP_MDX_QUERYBYPROPERTY: DBPROPENUM20 = DBPROPENUM20(221i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const MDPROP_MDX_CASESUPPORT: DBPROPENUM20 = 222i32;
+pub const MDPROP_MDX_CASESUPPORT: DBPROPENUM20 = DBPROPENUM20(222i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const MDPROP_MDX_STRING_COMPOP: DBPROPENUM20 = 224i32;
+pub const MDPROP_MDX_STRING_COMPOP: DBPROPENUM20 = DBPROPENUM20(224i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const MDPROP_MDX_DESCFLAGS: DBPROPENUM20 = 225i32;
+pub const MDPROP_MDX_DESCFLAGS: DBPROPENUM20 = DBPROPENUM20(225i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const MDPROP_MDX_SET_FUNCTIONS: DBPROPENUM20 = 226i32;
+pub const MDPROP_MDX_SET_FUNCTIONS: DBPROPENUM20 = DBPROPENUM20(226i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const MDPROP_MDX_MEMBER_FUNCTIONS: DBPROPENUM20 = 227i32;
+pub const MDPROP_MDX_MEMBER_FUNCTIONS: DBPROPENUM20 = DBPROPENUM20(227i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const MDPROP_MDX_NUMERIC_FUNCTIONS: DBPROPENUM20 = 228i32;
+pub const MDPROP_MDX_NUMERIC_FUNCTIONS: DBPROPENUM20 = DBPROPENUM20(228i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const MDPROP_MDX_FORMULAS: DBPROPENUM20 = 229i32;
+pub const MDPROP_MDX_FORMULAS: DBPROPENUM20 = DBPROPENUM20(229i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const MDPROP_AGGREGATECELL_UPDATE: DBPROPENUM20 = 230i32;
+pub const MDPROP_AGGREGATECELL_UPDATE: DBPROPENUM20 = DBPROPENUM20(230i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const MDPROP_MDX_AGGREGATECELL_UPDATE: DBPROPENUM20 = 230i32;
+pub const MDPROP_MDX_AGGREGATECELL_UPDATE: DBPROPENUM20 = DBPROPENUM20(230i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const MDPROP_MDX_OBJQUALIFICATION: DBPROPENUM20 = 261i32;
+pub const MDPROP_MDX_OBJQUALIFICATION: DBPROPENUM20 = DBPROPENUM20(261i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const MDPROP_MDX_NONMEASURE_EXPRESSIONS: DBPROPENUM20 = 262i32;
+pub const MDPROP_MDX_NONMEASURE_EXPRESSIONS: DBPROPENUM20 = DBPROPENUM20(262i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_ACCESSORDER: DBPROPENUM20 = 231i32;
+pub const DBPROP_ACCESSORDER: DBPROPENUM20 = DBPROPENUM20(231i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_BOOKMARKINFO: DBPROPENUM20 = 232i32;
+pub const DBPROP_BOOKMARKINFO: DBPROPENUM20 = DBPROPENUM20(232i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_INIT_CATALOG: DBPROPENUM20 = 233i32;
+pub const DBPROP_INIT_CATALOG: DBPROPENUM20 = DBPROPENUM20(233i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_ROW_BULKOPS: DBPROPENUM20 = 234i32;
+pub const DBPROP_ROW_BULKOPS: DBPROPENUM20 = DBPROPENUM20(234i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_PROVIDERFRIENDLYNAME: DBPROPENUM20 = 235i32;
+pub const DBPROP_PROVIDERFRIENDLYNAME: DBPROPENUM20 = DBPROPENUM20(235i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_LOCKMODE: DBPROPENUM20 = 236i32;
+pub const DBPROP_LOCKMODE: DBPROPENUM20 = DBPROPENUM20(236i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_MULTIPLECONNECTIONS: DBPROPENUM20 = 237i32;
+pub const DBPROP_MULTIPLECONNECTIONS: DBPROPENUM20 = DBPROPENUM20(237i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_UNIQUEROWS: DBPROPENUM20 = 238i32;
+pub const DBPROP_UNIQUEROWS: DBPROPENUM20 = DBPROPENUM20(238i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_SERVERDATAONINSERT: DBPROPENUM20 = 239i32;
+pub const DBPROP_SERVERDATAONINSERT: DBPROPENUM20 = DBPROPENUM20(239i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_STORAGEFLAGS: DBPROPENUM20 = 240i32;
+pub const DBPROP_STORAGEFLAGS: DBPROPENUM20 = DBPROPENUM20(240i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_CONNECTIONSTATUS: DBPROPENUM20 = 244i32;
+pub const DBPROP_CONNECTIONSTATUS: DBPROPENUM20 = DBPROPENUM20(244i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_ALTERCOLUMN: DBPROPENUM20 = 245i32;
+pub const DBPROP_ALTERCOLUMN: DBPROPENUM20 = DBPROPENUM20(245i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_COLUMNLCID: DBPROPENUM20 = 246i32;
+pub const DBPROP_COLUMNLCID: DBPROPENUM20 = DBPROPENUM20(246i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_RESETDATASOURCE: DBPROPENUM20 = 247i32;
+pub const DBPROP_RESETDATASOURCE: DBPROPENUM20 = DBPROPENUM20(247i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_INIT_OLEDBSERVICES: DBPROPENUM20 = 248i32;
+pub const DBPROP_INIT_OLEDBSERVICES: DBPROPENUM20 = DBPROPENUM20(248i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IRowsetRefresh: DBPROPENUM20 = 249i32;
+pub const DBPROP_IRowsetRefresh: DBPROPENUM20 = DBPROPENUM20(249i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_SERVERNAME: DBPROPENUM20 = 250i32;
+pub const DBPROP_SERVERNAME: DBPROPENUM20 = DBPROPENUM20(250i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IParentRowset: DBPROPENUM20 = 257i32;
+pub const DBPROP_IParentRowset: DBPROPENUM20 = DBPROPENUM20(257i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_HIDDENCOLUMNS: DBPROPENUM20 = 258i32;
+pub const DBPROP_HIDDENCOLUMNS: DBPROPENUM20 = DBPROPENUM20(258i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_PROVIDERMEMORY: DBPROPENUM20 = 259i32;
+pub const DBPROP_PROVIDERMEMORY: DBPROPENUM20 = DBPROPENUM20(259i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_CLIENTCURSOR: DBPROPENUM20 = 260i32;
+pub const DBPROP_CLIENTCURSOR: DBPROPENUM20 = DBPROPENUM20(260i32);
+impl ::core::marker::Copy for DBPROPENUM20 {}
+impl ::core::clone::Clone for DBPROPENUM20 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBPROPENUM20 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBPROPENUM20 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBPROPENUM20").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBPROPENUM21 = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBPROPENUM21(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_TRUSTEE_USERNAME: DBPROPENUM21 = 241i32;
+pub const DBPROP_TRUSTEE_USERNAME: DBPROPENUM21 = DBPROPENUM21(241i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_TRUSTEE_AUTHENTICATION: DBPROPENUM21 = 242i32;
+pub const DBPROP_TRUSTEE_AUTHENTICATION: DBPROPENUM21 = DBPROPENUM21(242i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_TRUSTEE_NEWAUTHENTICATION: DBPROPENUM21 = 243i32;
+pub const DBPROP_TRUSTEE_NEWAUTHENTICATION: DBPROPENUM21 = DBPROPENUM21(243i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IRow: DBPROPENUM21 = 263i32;
+pub const DBPROP_IRow: DBPROPENUM21 = DBPROPENUM21(263i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IRowChange: DBPROPENUM21 = 264i32;
+pub const DBPROP_IRowChange: DBPROPENUM21 = DBPROPENUM21(264i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IRowSchemaChange: DBPROPENUM21 = 265i32;
+pub const DBPROP_IRowSchemaChange: DBPROPENUM21 = DBPROPENUM21(265i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IGetRow: DBPROPENUM21 = 266i32;
+pub const DBPROP_IGetRow: DBPROPENUM21 = DBPROPENUM21(266i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IScopedOperations: DBPROPENUM21 = 267i32;
+pub const DBPROP_IScopedOperations: DBPROPENUM21 = DBPROPENUM21(267i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IBindResource: DBPROPENUM21 = 268i32;
+pub const DBPROP_IBindResource: DBPROPENUM21 = DBPROPENUM21(268i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_ICreateRow: DBPROPENUM21 = 269i32;
+pub const DBPROP_ICreateRow: DBPROPENUM21 = DBPROPENUM21(269i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_INIT_BINDFLAGS: DBPROPENUM21 = 270i32;
+pub const DBPROP_INIT_BINDFLAGS: DBPROPENUM21 = DBPROPENUM21(270i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_INIT_LOCKOWNER: DBPROPENUM21 = 271i32;
+pub const DBPROP_INIT_LOCKOWNER: DBPROPENUM21 = DBPROPENUM21(271i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_GENERATEURL: DBPROPENUM21 = 273i32;
+pub const DBPROP_GENERATEURL: DBPROPENUM21 = DBPROPENUM21(273i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IDBBinderProperties: DBPROPENUM21 = 274i32;
+pub const DBPROP_IDBBinderProperties: DBPROPENUM21 = DBPROPENUM21(274i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IColumnsInfo2: DBPROPENUM21 = 275i32;
+pub const DBPROP_IColumnsInfo2: DBPROPENUM21 = DBPROPENUM21(275i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IRegisterProvider: DBPROPENUM21 = 276i32;
+pub const DBPROP_IRegisterProvider: DBPROPENUM21 = DBPROPENUM21(276i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IGetSession: DBPROPENUM21 = 277i32;
+pub const DBPROP_IGetSession: DBPROPENUM21 = DBPROPENUM21(277i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IGetSourceRow: DBPROPENUM21 = 278i32;
+pub const DBPROP_IGetSourceRow: DBPROPENUM21 = DBPROPENUM21(278i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IRowsetCurrentIndex: DBPROPENUM21 = 279i32;
+pub const DBPROP_IRowsetCurrentIndex: DBPROPENUM21 = DBPROPENUM21(279i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_OPENROWSETSUPPORT: DBPROPENUM21 = 280i32;
+pub const DBPROP_OPENROWSETSUPPORT: DBPROPENUM21 = DBPROPENUM21(280i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_COL_ISLONG: DBPROPENUM21 = 281i32;
+pub const DBPROP_COL_ISLONG: DBPROPENUM21 = DBPROPENUM21(281i32);
+impl ::core::marker::Copy for DBPROPENUM21 {}
+impl ::core::clone::Clone for DBPROPENUM21 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBPROPENUM21 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBPROPENUM21 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBPROPENUM21").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBPROPENUM25 = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBPROPENUM25(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_COL_SEED: DBPROPENUM25 = 282i32;
+pub const DBPROP_COL_SEED: DBPROPENUM25 = DBPROPENUM25(282i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_COL_INCREMENT: DBPROPENUM25 = 283i32;
+pub const DBPROP_COL_INCREMENT: DBPROPENUM25 = DBPROPENUM25(283i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_INIT_GENERALTIMEOUT: DBPROPENUM25 = 284i32;
+pub const DBPROP_INIT_GENERALTIMEOUT: DBPROPENUM25 = DBPROPENUM25(284i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_COMSERVICES: DBPROPENUM25 = 285i32;
+pub const DBPROP_COMSERVICES: DBPROPENUM25 = DBPROPENUM25(285i32);
+impl ::core::marker::Copy for DBPROPENUM25 {}
+impl ::core::clone::Clone for DBPROPENUM25 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBPROPENUM25 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBPROPENUM25 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBPROPENUM25").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBPROPENUM25_DEPRECATED = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBPROPENUM25_DEPRECATED(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_ICommandCost: DBPROPENUM25_DEPRECATED = 141i32;
+pub const DBPROP_ICommandCost: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(141i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_ICommandTree: DBPROPENUM25_DEPRECATED = 142i32;
+pub const DBPROP_ICommandTree: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(142i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_ICommandValidate: DBPROPENUM25_DEPRECATED = 143i32;
+pub const DBPROP_ICommandValidate: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(143i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IDBSchemaCommand: DBPROPENUM25_DEPRECATED = 144i32;
+pub const DBPROP_IDBSchemaCommand: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(144i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IProvideMoniker: DBPROPENUM25_DEPRECATED = 125i32;
+pub const DBPROP_IProvideMoniker: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(125i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IQuery: DBPROPENUM25_DEPRECATED = 146i32;
+pub const DBPROP_IQuery: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(146i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IReadData: DBPROPENUM25_DEPRECATED = 147i32;
+pub const DBPROP_IReadData: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(147i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IRowsetAsynch: DBPROPENUM25_DEPRECATED = 148i32;
+pub const DBPROP_IRowsetAsynch: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(148i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IRowsetCopyRows: DBPROPENUM25_DEPRECATED = 149i32;
+pub const DBPROP_IRowsetCopyRows: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(149i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IRowsetKeys: DBPROPENUM25_DEPRECATED = 151i32;
+pub const DBPROP_IRowsetKeys: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(151i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IRowsetNewRowAfter: DBPROPENUM25_DEPRECATED = 152i32;
+pub const DBPROP_IRowsetNewRowAfter: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(152i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IRowsetNextRowset: DBPROPENUM25_DEPRECATED = 153i32;
+pub const DBPROP_IRowsetNextRowset: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(153i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IRowsetWatchAll: DBPROPENUM25_DEPRECATED = 155i32;
+pub const DBPROP_IRowsetWatchAll: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(155i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IRowsetWatchNotify: DBPROPENUM25_DEPRECATED = 156i32;
+pub const DBPROP_IRowsetWatchNotify: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(156i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IRowsetWatchRegion: DBPROPENUM25_DEPRECATED = 157i32;
+pub const DBPROP_IRowsetWatchRegion: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(157i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IRowsetWithParameters: DBPROPENUM25_DEPRECATED = 158i32;
+pub const DBPROP_IRowsetWithParameters: DBPROPENUM25_DEPRECATED = DBPROPENUM25_DEPRECATED(158i32);
+impl ::core::marker::Copy for DBPROPENUM25_DEPRECATED {}
+impl ::core::clone::Clone for DBPROPENUM25_DEPRECATED {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBPROPENUM25_DEPRECATED {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBPROPENUM25_DEPRECATED {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBPROPENUM25_DEPRECATED").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBPROPENUM26 = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBPROPENUM26(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_OUTPUTSTREAM: DBPROPENUM26 = 286i32;
+pub const DBPROP_OUTPUTSTREAM: DBPROPENUM26 = DBPROPENUM26(286i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_OUTPUTENCODING: DBPROPENUM26 = 287i32;
+pub const DBPROP_OUTPUTENCODING: DBPROPENUM26 = DBPROPENUM26(287i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_TABLESTATISTICS: DBPROPENUM26 = 288i32;
+pub const DBPROP_TABLESTATISTICS: DBPROPENUM26 = DBPROPENUM26(288i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_SKIPROWCOUNTRESULTS: DBPROPENUM26 = 291i32;
+pub const DBPROP_SKIPROWCOUNTRESULTS: DBPROPENUM26 = DBPROPENUM26(291i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_IRowsetBookmark: DBPROPENUM26 = 292i32;
+pub const DBPROP_IRowsetBookmark: DBPROPENUM26 = DBPROPENUM26(292i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const MDPROP_VISUALMODE: DBPROPENUM26 = 293i32;
+pub const MDPROP_VISUALMODE: DBPROPENUM26 = DBPROPENUM26(293i32);
+impl ::core::marker::Copy for DBPROPENUM26 {}
+impl ::core::clone::Clone for DBPROPENUM26 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBPROPENUM26 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBPROPENUM26 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBPROPENUM26").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBPROPFLAGSENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBPROPFLAGSENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROPFLAGS_NOTSUPPORTED: DBPROPFLAGSENUM = 0i32;
+pub const DBPROPFLAGS_NOTSUPPORTED: DBPROPFLAGSENUM = DBPROPFLAGSENUM(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROPFLAGS_COLUMN: DBPROPFLAGSENUM = 1i32;
+pub const DBPROPFLAGS_COLUMN: DBPROPFLAGSENUM = DBPROPFLAGSENUM(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROPFLAGS_DATASOURCE: DBPROPFLAGSENUM = 2i32;
+pub const DBPROPFLAGS_DATASOURCE: DBPROPFLAGSENUM = DBPROPFLAGSENUM(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROPFLAGS_DATASOURCECREATE: DBPROPFLAGSENUM = 4i32;
+pub const DBPROPFLAGS_DATASOURCECREATE: DBPROPFLAGSENUM = DBPROPFLAGSENUM(4i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROPFLAGS_DATASOURCEINFO: DBPROPFLAGSENUM = 8i32;
+pub const DBPROPFLAGS_DATASOURCEINFO: DBPROPFLAGSENUM = DBPROPFLAGSENUM(8i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROPFLAGS_DBINIT: DBPROPFLAGSENUM = 16i32;
+pub const DBPROPFLAGS_DBINIT: DBPROPFLAGSENUM = DBPROPFLAGSENUM(16i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROPFLAGS_INDEX: DBPROPFLAGSENUM = 32i32;
+pub const DBPROPFLAGS_INDEX: DBPROPFLAGSENUM = DBPROPFLAGSENUM(32i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROPFLAGS_ROWSET: DBPROPFLAGSENUM = 64i32;
+pub const DBPROPFLAGS_ROWSET: DBPROPFLAGSENUM = DBPROPFLAGSENUM(64i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROPFLAGS_TABLE: DBPROPFLAGSENUM = 128i32;
+pub const DBPROPFLAGS_TABLE: DBPROPFLAGSENUM = DBPROPFLAGSENUM(128i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROPFLAGS_COLUMNOK: DBPROPFLAGSENUM = 256i32;
+pub const DBPROPFLAGS_COLUMNOK: DBPROPFLAGSENUM = DBPROPFLAGSENUM(256i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROPFLAGS_READ: DBPROPFLAGSENUM = 512i32;
+pub const DBPROPFLAGS_READ: DBPROPFLAGSENUM = DBPROPFLAGSENUM(512i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROPFLAGS_WRITE: DBPROPFLAGSENUM = 1024i32;
+pub const DBPROPFLAGS_WRITE: DBPROPFLAGSENUM = DBPROPFLAGSENUM(1024i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROPFLAGS_REQUIRED: DBPROPFLAGSENUM = 2048i32;
+pub const DBPROPFLAGS_REQUIRED: DBPROPFLAGSENUM = DBPROPFLAGSENUM(2048i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROPFLAGS_SESSION: DBPROPFLAGSENUM = 4096i32;
+pub const DBPROPFLAGS_SESSION: DBPROPFLAGSENUM = DBPROPFLAGSENUM(4096i32);
+impl ::core::marker::Copy for DBPROPFLAGSENUM {}
+impl ::core::clone::Clone for DBPROPFLAGSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBPROPFLAGSENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBPROPFLAGSENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBPROPFLAGSENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBPROPFLAGSENUM21 = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBPROPFLAGSENUM21(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROPFLAGS_TRUSTEE: DBPROPFLAGSENUM21 = 8192i32;
+pub const DBPROPFLAGS_TRUSTEE: DBPROPFLAGSENUM21 = DBPROPFLAGSENUM21(8192i32);
+impl ::core::marker::Copy for DBPROPFLAGSENUM21 {}
+impl ::core::clone::Clone for DBPROPFLAGSENUM21 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBPROPFLAGSENUM21 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBPROPFLAGSENUM21 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBPROPFLAGSENUM21").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBPROPFLAGSENUM25 = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBPROPFLAGSENUM25(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROPFLAGS_VIEW: DBPROPFLAGSENUM25 = 16384i32;
+pub const DBPROPFLAGS_VIEW: DBPROPFLAGSENUM25 = DBPROPFLAGSENUM25(16384i32);
+impl ::core::marker::Copy for DBPROPFLAGSENUM25 {}
+impl ::core::clone::Clone for DBPROPFLAGSENUM25 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBPROPFLAGSENUM25 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBPROPFLAGSENUM25 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBPROPFLAGSENUM25").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBPROPFLAGSENUM26 = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBPROPFLAGSENUM26(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROPFLAGS_STREAM: DBPROPFLAGSENUM26 = 32768i32;
+pub const DBPROPFLAGS_STREAM: DBPROPFLAGSENUM26 = DBPROPFLAGSENUM26(32768i32);
+impl ::core::marker::Copy for DBPROPFLAGSENUM26 {}
+impl ::core::clone::Clone for DBPROPFLAGSENUM26 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBPROPFLAGSENUM26 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBPROPFLAGSENUM26 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBPROPFLAGSENUM26").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROPFLAGS_PERSIST: u32 = 8192u32;
 #[repr(C)]
@@ -3550,13 +4586,29 @@ impl ::core::default::Default for DBPROPINFOSET {
     }
 }
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBPROPOPTIONSENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBPROPOPTIONSENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROPOPTIONS_REQUIRED: DBPROPOPTIONSENUM = 0i32;
+pub const DBPROPOPTIONS_REQUIRED: DBPROPOPTIONSENUM = DBPROPOPTIONSENUM(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROPOPTIONS_SETIFCHEAP: DBPROPOPTIONSENUM = 1i32;
+pub const DBPROPOPTIONS_SETIFCHEAP: DBPROPOPTIONSENUM = DBPROPOPTIONSENUM(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROPOPTIONS_OPTIONAL: DBPROPOPTIONSENUM = 1i32;
+pub const DBPROPOPTIONS_OPTIONAL: DBPROPOPTIONSENUM = DBPROPOPTIONSENUM(1i32);
+impl ::core::marker::Copy for DBPROPOPTIONSENUM {}
+impl ::core::clone::Clone for DBPROPOPTIONSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBPROPOPTIONSENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBPROPOPTIONSENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBPROPOPTIONSENUM").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_Storage_IndexServer', 'Win32_System_Com', 'Win32_System_Ole'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -3664,29 +4716,61 @@ pub const DBPROPSET_SQLSERVERROWSET: ::windows::core::GUID = ::windows::core::GU
 pub const DBPROPSET_SQLSERVERSESSION: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28efaee5_2d2c_11d1_9807_00c04fc2ad98);
 pub const DBPROPSET_SQLSERVERSTREAM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f79c073_8a6d_4bca_a8a8_c9b79a9b962d);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBPROPSTATUSENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBPROPSTATUSENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROPSTATUS_OK: DBPROPSTATUSENUM = 0i32;
+pub const DBPROPSTATUS_OK: DBPROPSTATUSENUM = DBPROPSTATUSENUM(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROPSTATUS_NOTSUPPORTED: DBPROPSTATUSENUM = 1i32;
+pub const DBPROPSTATUS_NOTSUPPORTED: DBPROPSTATUSENUM = DBPROPSTATUSENUM(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROPSTATUS_BADVALUE: DBPROPSTATUSENUM = 2i32;
+pub const DBPROPSTATUS_BADVALUE: DBPROPSTATUSENUM = DBPROPSTATUSENUM(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROPSTATUS_BADOPTION: DBPROPSTATUSENUM = 3i32;
+pub const DBPROPSTATUS_BADOPTION: DBPROPSTATUSENUM = DBPROPSTATUSENUM(3i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROPSTATUS_BADCOLUMN: DBPROPSTATUSENUM = 4i32;
+pub const DBPROPSTATUS_BADCOLUMN: DBPROPSTATUSENUM = DBPROPSTATUSENUM(4i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROPSTATUS_NOTALLSETTABLE: DBPROPSTATUSENUM = 5i32;
+pub const DBPROPSTATUS_NOTALLSETTABLE: DBPROPSTATUSENUM = DBPROPSTATUSENUM(5i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROPSTATUS_NOTSETTABLE: DBPROPSTATUSENUM = 6i32;
+pub const DBPROPSTATUS_NOTSETTABLE: DBPROPSTATUSENUM = DBPROPSTATUSENUM(6i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROPSTATUS_NOTSET: DBPROPSTATUSENUM = 7i32;
+pub const DBPROPSTATUS_NOTSET: DBPROPSTATUSENUM = DBPROPSTATUSENUM(7i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROPSTATUS_CONFLICTING: DBPROPSTATUSENUM = 8i32;
+pub const DBPROPSTATUS_CONFLICTING: DBPROPSTATUSENUM = DBPROPSTATUSENUM(8i32);
+impl ::core::marker::Copy for DBPROPSTATUSENUM {}
+impl ::core::clone::Clone for DBPROPSTATUSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBPROPSTATUSENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBPROPSTATUSENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBPROPSTATUSENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBPROPSTATUSENUM21 = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBPROPSTATUSENUM21(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROPSTATUS_NOTAVAILABLE: DBPROPSTATUSENUM21 = 9i32;
+pub const DBPROPSTATUS_NOTAVAILABLE: DBPROPSTATUSENUM21 = DBPROPSTATUSENUM21(9i32);
+impl ::core::marker::Copy for DBPROPSTATUSENUM21 {}
+impl ::core::clone::Clone for DBPROPSTATUSENUM21 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBPROPSTATUSENUM21 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBPROPSTATUSENUM21 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBPROPSTATUSENUM21").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROPVAL_AO_RANDOM: i32 = 2i32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
@@ -4078,274 +5162,610 @@ pub const DBPROP_PersistSchema: u32 = 3u32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBPROP_Unicode: u32 = 6u32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBRANGEENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBRANGEENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBRANGE_INCLUSIVESTART: DBRANGEENUM = 0i32;
+pub const DBRANGE_INCLUSIVESTART: DBRANGEENUM = DBRANGEENUM(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBRANGE_INCLUSIVEEND: DBRANGEENUM = 0i32;
+pub const DBRANGE_INCLUSIVEEND: DBRANGEENUM = DBRANGEENUM(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBRANGE_EXCLUSIVESTART: DBRANGEENUM = 1i32;
+pub const DBRANGE_EXCLUSIVESTART: DBRANGEENUM = DBRANGEENUM(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBRANGE_EXCLUSIVEEND: DBRANGEENUM = 2i32;
+pub const DBRANGE_EXCLUSIVEEND: DBRANGEENUM = DBRANGEENUM(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBRANGE_EXCLUDENULLS: DBRANGEENUM = 4i32;
+pub const DBRANGE_EXCLUDENULLS: DBRANGEENUM = DBRANGEENUM(4i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBRANGE_PREFIX: DBRANGEENUM = 8i32;
+pub const DBRANGE_PREFIX: DBRANGEENUM = DBRANGEENUM(8i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBRANGE_MATCH: DBRANGEENUM = 16i32;
+pub const DBRANGE_MATCH: DBRANGEENUM = DBRANGEENUM(16i32);
+impl ::core::marker::Copy for DBRANGEENUM {}
+impl ::core::clone::Clone for DBRANGEENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBRANGEENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBRANGEENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBRANGEENUM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_System_Search'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBRANGEENUM20(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBRANGEENUM20 = i32;
+pub const DBRANGE_MATCH_N_SHIFT: DBRANGEENUM20 = DBRANGEENUM20(24i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBRANGE_MATCH_N_SHIFT: DBRANGEENUM20 = 24i32;
+pub const DBRANGE_MATCH_N_MASK: DBRANGEENUM20 = DBRANGEENUM20(255i32);
+impl ::core::marker::Copy for DBRANGEENUM20 {}
+impl ::core::clone::Clone for DBRANGEENUM20 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBRANGEENUM20 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBRANGEENUM20 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBRANGEENUM20").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_System_Search'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBREASONENUM(pub i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBREASON_ROWSET_FETCHPOSITIONCHANGE: DBREASONENUM = DBREASONENUM(0i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBREASON_ROWSET_RELEASE: DBREASONENUM = DBREASONENUM(1i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBREASON_COLUMN_SET: DBREASONENUM = DBREASONENUM(2i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBREASON_COLUMN_RECALCULATED: DBREASONENUM = DBREASONENUM(3i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBREASON_ROW_ACTIVATE: DBREASONENUM = DBREASONENUM(4i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBRANGE_MATCH_N_MASK: DBRANGEENUM20 = 255i32;
+pub const DBREASON_ROW_RELEASE: DBREASONENUM = DBREASONENUM(5i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBREASONENUM = i32;
+pub const DBREASON_ROW_DELETE: DBREASONENUM = DBREASONENUM(6i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBREASON_ROWSET_FETCHPOSITIONCHANGE: DBREASONENUM = 0i32;
+pub const DBREASON_ROW_FIRSTCHANGE: DBREASONENUM = DBREASONENUM(7i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBREASON_ROWSET_RELEASE: DBREASONENUM = 1i32;
+pub const DBREASON_ROW_INSERT: DBREASONENUM = DBREASONENUM(8i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBREASON_COLUMN_SET: DBREASONENUM = 2i32;
+pub const DBREASON_ROW_RESYNCH: DBREASONENUM = DBREASONENUM(9i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBREASON_COLUMN_RECALCULATED: DBREASONENUM = 3i32;
+pub const DBREASON_ROW_UNDOCHANGE: DBREASONENUM = DBREASONENUM(10i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBREASON_ROW_ACTIVATE: DBREASONENUM = 4i32;
+pub const DBREASON_ROW_UNDOINSERT: DBREASONENUM = DBREASONENUM(11i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBREASON_ROW_UNDODELETE: DBREASONENUM = DBREASONENUM(12i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBREASON_ROW_UPDATE: DBREASONENUM = DBREASONENUM(13i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBREASON_ROWSET_CHANGED: DBREASONENUM = DBREASONENUM(14i32);
+impl ::core::marker::Copy for DBREASONENUM {}
+impl ::core::clone::Clone for DBREASONENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBREASONENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBREASONENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBREASONENUM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_System_Search'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBREASONENUM15(pub i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBREASON_ROWPOSITION_CHANGED: DBREASONENUM15 = DBREASONENUM15(15i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBREASON_ROWPOSITION_CHAPTERCHANGED: DBREASONENUM15 = DBREASONENUM15(16i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBREASON_ROWPOSITION_CLEARED: DBREASONENUM15 = DBREASONENUM15(17i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBREASON_ROW_ASYNCHINSERT: DBREASONENUM15 = DBREASONENUM15(18i32);
+impl ::core::marker::Copy for DBREASONENUM15 {}
+impl ::core::clone::Clone for DBREASONENUM15 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBREASONENUM15 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBREASONENUM15 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBREASONENUM15").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_System_Search'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBREASONENUM25(pub i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBREASON_ROWSET_ROWSADDED: DBREASONENUM25 = DBREASONENUM25(19i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBREASON_ROWSET_POPULATIONCOMPLETE: DBREASONENUM25 = DBREASONENUM25(20i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBREASON_ROWSET_POPULATIONSTOPPED: DBREASONENUM25 = DBREASONENUM25(21i32);
+impl ::core::marker::Copy for DBREASONENUM25 {}
+impl ::core::clone::Clone for DBREASONENUM25 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBREASONENUM25 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBREASONENUM25 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBREASONENUM25").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_System_Search'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBRESOURCEKINDENUM(pub i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBRESOURCE_INVALID: DBRESOURCEKINDENUM = DBRESOURCEKINDENUM(0i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBRESOURCE_TOTAL: DBRESOURCEKINDENUM = DBRESOURCEKINDENUM(1i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBRESOURCE_CPU: DBRESOURCEKINDENUM = DBRESOURCEKINDENUM(2i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBRESOURCE_MEMORY: DBRESOURCEKINDENUM = DBRESOURCEKINDENUM(3i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBRESOURCE_DISK: DBRESOURCEKINDENUM = DBRESOURCEKINDENUM(4i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBRESOURCE_NETWORK: DBRESOURCEKINDENUM = DBRESOURCEKINDENUM(5i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBREASON_ROW_RELEASE: DBREASONENUM = 5i32;
+pub const DBRESOURCE_RESPONSE: DBRESOURCEKINDENUM = DBRESOURCEKINDENUM(6i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBREASON_ROW_DELETE: DBREASONENUM = 6i32;
+pub const DBRESOURCE_ROWS: DBRESOURCEKINDENUM = DBRESOURCEKINDENUM(7i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBREASON_ROW_FIRSTCHANGE: DBREASONENUM = 7i32;
+pub const DBRESOURCE_OTHER: DBRESOURCEKINDENUM = DBRESOURCEKINDENUM(8i32);
+impl ::core::marker::Copy for DBRESOURCEKINDENUM {}
+impl ::core::clone::Clone for DBRESOURCEKINDENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBRESOURCEKINDENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBRESOURCEKINDENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBRESOURCEKINDENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBREASON_ROW_INSERT: DBREASONENUM = 8i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBREASON_ROW_RESYNCH: DBREASONENUM = 9i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBREASON_ROW_UNDOCHANGE: DBREASONENUM = 10i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBREASON_ROW_UNDOINSERT: DBREASONENUM = 11i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBREASON_ROW_UNDODELETE: DBREASONENUM = 12i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBREASON_ROW_UPDATE: DBREASONENUM = 13i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBREASON_ROWSET_CHANGED: DBREASONENUM = 14i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBREASONENUM15 = i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBREASON_ROWPOSITION_CHANGED: DBREASONENUM15 = 15i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBREASON_ROWPOSITION_CHAPTERCHANGED: DBREASONENUM15 = 16i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBREASON_ROWPOSITION_CLEARED: DBREASONENUM15 = 17i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBREASON_ROW_ASYNCHINSERT: DBREASONENUM15 = 18i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBREASONENUM25 = i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBREASON_ROWSET_ROWSADDED: DBREASONENUM25 = 19i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBREASON_ROWSET_POPULATIONCOMPLETE: DBREASONENUM25 = 20i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBREASON_ROWSET_POPULATIONSTOPPED: DBREASONENUM25 = 21i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBRESOURCEKINDENUM = i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBRESOURCE_INVALID: DBRESOURCEKINDENUM = 0i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBRESOURCE_TOTAL: DBRESOURCEKINDENUM = 1i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBRESOURCE_CPU: DBRESOURCEKINDENUM = 2i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBRESOURCE_MEMORY: DBRESOURCEKINDENUM = 3i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBRESOURCE_DISK: DBRESOURCEKINDENUM = 4i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBRESOURCE_NETWORK: DBRESOURCEKINDENUM = 5i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBRESOURCE_RESPONSE: DBRESOURCEKINDENUM = 6i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBRESOURCE_ROWS: DBRESOURCEKINDENUM = 7i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBRESOURCE_OTHER: DBRESOURCEKINDENUM = 8i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBRESULTFLAGENUM = i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBRESULTFLAG_DEFAULT: DBRESULTFLAGENUM = 0i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBRESULTFLAG_ROWSET: DBRESULTFLAGENUM = 1i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBRESULTFLAG_ROW: DBRESULTFLAGENUM = 2i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBROWCHANGEKINDENUM = i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBROWCHANGEKIND_INSERT: DBROWCHANGEKINDENUM = 0i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBROWCHANGEKIND_DELETE: DBROWCHANGEKINDENUM = 1i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBROWCHANGEKIND_UPDATE: DBROWCHANGEKINDENUM = 2i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBROWCHANGEKIND_COUNT: DBROWCHANGEKINDENUM = 3i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBROWSTATUSENUM = i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBROWSTATUS_S_OK: DBROWSTATUSENUM = 0i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBROWSTATUS_S_MULTIPLECHANGES: DBROWSTATUSENUM = 2i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBROWSTATUS_S_PENDINGCHANGES: DBROWSTATUSENUM = 3i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBROWSTATUS_E_CANCELED: DBROWSTATUSENUM = 4i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBROWSTATUS_E_CANTRELEASE: DBROWSTATUSENUM = 6i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBROWSTATUS_E_CONCURRENCYVIOLATION: DBROWSTATUSENUM = 7i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBROWSTATUS_E_DELETED: DBROWSTATUSENUM = 8i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBROWSTATUS_E_PENDINGINSERT: DBROWSTATUSENUM = 9i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBROWSTATUS_E_NEWLYINSERTED: DBROWSTATUSENUM = 10i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBROWSTATUS_E_INTEGRITYVIOLATION: DBROWSTATUSENUM = 11i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBROWSTATUS_E_INVALID: DBROWSTATUSENUM = 12i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBROWSTATUS_E_MAXPENDCHANGESEXCEEDED: DBROWSTATUSENUM = 13i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBROWSTATUS_E_OBJECTOPEN: DBROWSTATUSENUM = 14i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBROWSTATUS_E_OUTOFMEMORY: DBROWSTATUSENUM = 15i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBROWSTATUS_E_PERMISSIONDENIED: DBROWSTATUSENUM = 16i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBROWSTATUS_E_LIMITREACHED: DBROWSTATUSENUM = 17i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBROWSTATUS_E_SCHEMAVIOLATION: DBROWSTATUSENUM = 18i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBROWSTATUS_E_FAIL: DBROWSTATUSENUM = 19i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBROWSTATUSENUM20 = i32;
-#[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBROWSTATUS_S_NOCHANGE: DBROWSTATUSENUM20 = 20i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBRESULTFLAGENUM(pub i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBRESULTFLAG_DEFAULT: DBRESULTFLAGENUM = DBRESULTFLAGENUM(0i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBRESULTFLAG_ROWSET: DBRESULTFLAGENUM = DBRESULTFLAGENUM(1i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBRESULTFLAG_ROW: DBRESULTFLAGENUM = DBRESULTFLAGENUM(2i32);
+impl ::core::marker::Copy for DBRESULTFLAGENUM {}
+impl ::core::clone::Clone for DBRESULTFLAGENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBRESULTFLAGENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBRESULTFLAGENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBRESULTFLAGENUM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_System_Search'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBROWCHANGEKINDENUM(pub i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBROWCHANGEKIND_INSERT: DBROWCHANGEKINDENUM = DBROWCHANGEKINDENUM(0i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBROWCHANGEKIND_DELETE: DBROWCHANGEKINDENUM = DBROWCHANGEKINDENUM(1i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBROWCHANGEKIND_UPDATE: DBROWCHANGEKINDENUM = DBROWCHANGEKINDENUM(2i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBROWCHANGEKIND_COUNT: DBROWCHANGEKINDENUM = DBROWCHANGEKINDENUM(3i32);
+impl ::core::marker::Copy for DBROWCHANGEKINDENUM {}
+impl ::core::clone::Clone for DBROWCHANGEKINDENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBROWCHANGEKINDENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBROWCHANGEKINDENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBROWCHANGEKINDENUM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_System_Search'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBROWSTATUSENUM(pub i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBROWSTATUS_S_OK: DBROWSTATUSENUM = DBROWSTATUSENUM(0i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBROWSTATUS_S_MULTIPLECHANGES: DBROWSTATUSENUM = DBROWSTATUSENUM(2i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBROWSTATUS_S_PENDINGCHANGES: DBROWSTATUSENUM = DBROWSTATUSENUM(3i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBROWSTATUS_E_CANCELED: DBROWSTATUSENUM = DBROWSTATUSENUM(4i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBROWSTATUS_E_CANTRELEASE: DBROWSTATUSENUM = DBROWSTATUSENUM(6i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBROWSTATUS_E_CONCURRENCYVIOLATION: DBROWSTATUSENUM = DBROWSTATUSENUM(7i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBROWSTATUS_E_DELETED: DBROWSTATUSENUM = DBROWSTATUSENUM(8i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBROWSTATUS_E_PENDINGINSERT: DBROWSTATUSENUM = DBROWSTATUSENUM(9i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBROWSTATUS_E_NEWLYINSERTED: DBROWSTATUSENUM = DBROWSTATUSENUM(10i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBROWSTATUS_E_INTEGRITYVIOLATION: DBROWSTATUSENUM = DBROWSTATUSENUM(11i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBROWSTATUS_E_INVALID: DBROWSTATUSENUM = DBROWSTATUSENUM(12i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBROWSTATUS_E_MAXPENDCHANGESEXCEEDED: DBROWSTATUSENUM = DBROWSTATUSENUM(13i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBROWSTATUS_E_OBJECTOPEN: DBROWSTATUSENUM = DBROWSTATUSENUM(14i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBROWSTATUS_E_OUTOFMEMORY: DBROWSTATUSENUM = DBROWSTATUSENUM(15i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBROWSTATUS_E_PERMISSIONDENIED: DBROWSTATUSENUM = DBROWSTATUSENUM(16i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBROWSTATUS_E_LIMITREACHED: DBROWSTATUSENUM = DBROWSTATUSENUM(17i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBROWSTATUS_E_SCHEMAVIOLATION: DBROWSTATUSENUM = DBROWSTATUSENUM(18i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBROWSTATUS_E_FAIL: DBROWSTATUSENUM = DBROWSTATUSENUM(19i32);
+impl ::core::marker::Copy for DBROWSTATUSENUM {}
+impl ::core::clone::Clone for DBROWSTATUSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBROWSTATUSENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBROWSTATUSENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBROWSTATUSENUM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_System_Search'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBROWSTATUSENUM20(pub i32);
+#[doc = "*Required features: 'Win32_System_Search'*"]
+pub const DBROWSTATUS_S_NOCHANGE: DBROWSTATUSENUM20 = DBROWSTATUSENUM20(20i32);
+impl ::core::marker::Copy for DBROWSTATUSENUM20 {}
+impl ::core::clone::Clone for DBROWSTATUSENUM20 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBROWSTATUSENUM20 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBROWSTATUSENUM20 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBROWSTATUSENUM20").field(&self.0).finish()
+    }
+}
 pub const DBSCHEMA_LINKEDSERVERS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9093caf4_2eac_11d1_9809_00c04fc2ad98);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBSEEKENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBSEEKENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSEEK_INVALID: DBSEEKENUM = 0i32;
+pub const DBSEEK_INVALID: DBSEEKENUM = DBSEEKENUM(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSEEK_FIRSTEQ: DBSEEKENUM = 1i32;
+pub const DBSEEK_FIRSTEQ: DBSEEKENUM = DBSEEKENUM(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSEEK_LASTEQ: DBSEEKENUM = 2i32;
+pub const DBSEEK_LASTEQ: DBSEEKENUM = DBSEEKENUM(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSEEK_AFTEREQ: DBSEEKENUM = 4i32;
+pub const DBSEEK_AFTEREQ: DBSEEKENUM = DBSEEKENUM(4i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSEEK_AFTER: DBSEEKENUM = 8i32;
+pub const DBSEEK_AFTER: DBSEEKENUM = DBSEEKENUM(8i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSEEK_BEFOREEQ: DBSEEKENUM = 16i32;
+pub const DBSEEK_BEFOREEQ: DBSEEKENUM = DBSEEKENUM(16i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSEEK_BEFORE: DBSEEKENUM = 32i32;
+pub const DBSEEK_BEFORE: DBSEEKENUM = DBSEEKENUM(32i32);
+impl ::core::marker::Copy for DBSEEKENUM {}
+impl ::core::clone::Clone for DBSEEKENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBSEEKENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBSEEKENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBSEEKENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBSORTENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBSORTENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSORT_ASCENDING: DBSORTENUM = 0i32;
+pub const DBSORT_ASCENDING: DBSORTENUM = DBSORTENUM(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSORT_DESCENDING: DBSORTENUM = 1i32;
+pub const DBSORT_DESCENDING: DBSORTENUM = DBSORTENUM(1i32);
+impl ::core::marker::Copy for DBSORTENUM {}
+impl ::core::clone::Clone for DBSORTENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBSORTENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBSORTENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBSORTENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBSOURCETYPEENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBSOURCETYPEENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSOURCETYPE_DATASOURCE: DBSOURCETYPEENUM = 1i32;
+pub const DBSOURCETYPE_DATASOURCE: DBSOURCETYPEENUM = DBSOURCETYPEENUM(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSOURCETYPE_ENUMERATOR: DBSOURCETYPEENUM = 2i32;
+pub const DBSOURCETYPE_ENUMERATOR: DBSOURCETYPEENUM = DBSOURCETYPEENUM(2i32);
+impl ::core::marker::Copy for DBSOURCETYPEENUM {}
+impl ::core::clone::Clone for DBSOURCETYPEENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBSOURCETYPEENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBSOURCETYPEENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBSOURCETYPEENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBSOURCETYPEENUM20 = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBSOURCETYPEENUM20(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSOURCETYPE_DATASOURCE_TDP: DBSOURCETYPEENUM20 = 1i32;
+pub const DBSOURCETYPE_DATASOURCE_TDP: DBSOURCETYPEENUM20 = DBSOURCETYPEENUM20(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSOURCETYPE_DATASOURCE_MDP: DBSOURCETYPEENUM20 = 3i32;
+pub const DBSOURCETYPE_DATASOURCE_MDP: DBSOURCETYPEENUM20 = DBSOURCETYPEENUM20(3i32);
+impl ::core::marker::Copy for DBSOURCETYPEENUM20 {}
+impl ::core::clone::Clone for DBSOURCETYPEENUM20 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBSOURCETYPEENUM20 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBSOURCETYPEENUM20 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBSOURCETYPEENUM20").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBSOURCETYPEENUM25 = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBSOURCETYPEENUM25(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSOURCETYPE_BINDER: DBSOURCETYPEENUM25 = 4i32;
+pub const DBSOURCETYPE_BINDER: DBSOURCETYPEENUM25 = DBSOURCETYPEENUM25(4i32);
+impl ::core::marker::Copy for DBSOURCETYPEENUM25 {}
+impl ::core::clone::Clone for DBSOURCETYPEENUM25 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBSOURCETYPEENUM25 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBSOURCETYPEENUM25 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBSOURCETYPEENUM25").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBSTATUSENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBSTATUSENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSTATUS_S_OK: DBSTATUSENUM = 0i32;
+pub const DBSTATUS_S_OK: DBSTATUSENUM = DBSTATUSENUM(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSTATUS_E_BADACCESSOR: DBSTATUSENUM = 1i32;
+pub const DBSTATUS_E_BADACCESSOR: DBSTATUSENUM = DBSTATUSENUM(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSTATUS_E_CANTCONVERTVALUE: DBSTATUSENUM = 2i32;
+pub const DBSTATUS_E_CANTCONVERTVALUE: DBSTATUSENUM = DBSTATUSENUM(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSTATUS_S_ISNULL: DBSTATUSENUM = 3i32;
+pub const DBSTATUS_S_ISNULL: DBSTATUSENUM = DBSTATUSENUM(3i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSTATUS_S_TRUNCATED: DBSTATUSENUM = 4i32;
+pub const DBSTATUS_S_TRUNCATED: DBSTATUSENUM = DBSTATUSENUM(4i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSTATUS_E_SIGNMISMATCH: DBSTATUSENUM = 5i32;
+pub const DBSTATUS_E_SIGNMISMATCH: DBSTATUSENUM = DBSTATUSENUM(5i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSTATUS_E_DATAOVERFLOW: DBSTATUSENUM = 6i32;
+pub const DBSTATUS_E_DATAOVERFLOW: DBSTATUSENUM = DBSTATUSENUM(6i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSTATUS_E_CANTCREATE: DBSTATUSENUM = 7i32;
+pub const DBSTATUS_E_CANTCREATE: DBSTATUSENUM = DBSTATUSENUM(7i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSTATUS_E_UNAVAILABLE: DBSTATUSENUM = 8i32;
+pub const DBSTATUS_E_UNAVAILABLE: DBSTATUSENUM = DBSTATUSENUM(8i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSTATUS_E_PERMISSIONDENIED: DBSTATUSENUM = 9i32;
+pub const DBSTATUS_E_PERMISSIONDENIED: DBSTATUSENUM = DBSTATUSENUM(9i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSTATUS_E_INTEGRITYVIOLATION: DBSTATUSENUM = 10i32;
+pub const DBSTATUS_E_INTEGRITYVIOLATION: DBSTATUSENUM = DBSTATUSENUM(10i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSTATUS_E_SCHEMAVIOLATION: DBSTATUSENUM = 11i32;
+pub const DBSTATUS_E_SCHEMAVIOLATION: DBSTATUSENUM = DBSTATUSENUM(11i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSTATUS_E_BADSTATUS: DBSTATUSENUM = 12i32;
+pub const DBSTATUS_E_BADSTATUS: DBSTATUSENUM = DBSTATUSENUM(12i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSTATUS_S_DEFAULT: DBSTATUSENUM = 13i32;
+pub const DBSTATUS_S_DEFAULT: DBSTATUSENUM = DBSTATUSENUM(13i32);
+impl ::core::marker::Copy for DBSTATUSENUM {}
+impl ::core::clone::Clone for DBSTATUSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBSTATUSENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBSTATUSENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBSTATUSENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBSTATUSENUM20 = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBSTATUSENUM20(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const MDSTATUS_S_CELLEMPTY: DBSTATUSENUM20 = 14i32;
+pub const MDSTATUS_S_CELLEMPTY: DBSTATUSENUM20 = DBSTATUSENUM20(14i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSTATUS_S_IGNORE: DBSTATUSENUM20 = 15i32;
+pub const DBSTATUS_S_IGNORE: DBSTATUSENUM20 = DBSTATUSENUM20(15i32);
+impl ::core::marker::Copy for DBSTATUSENUM20 {}
+impl ::core::clone::Clone for DBSTATUSENUM20 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBSTATUSENUM20 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBSTATUSENUM20 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBSTATUSENUM20").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBSTATUSENUM21 = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBSTATUSENUM21(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSTATUS_E_DOESNOTEXIST: DBSTATUSENUM21 = 16i32;
+pub const DBSTATUS_E_DOESNOTEXIST: DBSTATUSENUM21 = DBSTATUSENUM21(16i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSTATUS_E_INVALIDURL: DBSTATUSENUM21 = 17i32;
+pub const DBSTATUS_E_INVALIDURL: DBSTATUSENUM21 = DBSTATUSENUM21(17i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSTATUS_E_RESOURCELOCKED: DBSTATUSENUM21 = 18i32;
+pub const DBSTATUS_E_RESOURCELOCKED: DBSTATUSENUM21 = DBSTATUSENUM21(18i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSTATUS_E_RESOURCEEXISTS: DBSTATUSENUM21 = 19i32;
+pub const DBSTATUS_E_RESOURCEEXISTS: DBSTATUSENUM21 = DBSTATUSENUM21(19i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSTATUS_E_CANNOTCOMPLETE: DBSTATUSENUM21 = 20i32;
+pub const DBSTATUS_E_CANNOTCOMPLETE: DBSTATUSENUM21 = DBSTATUSENUM21(20i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSTATUS_E_VOLUMENOTFOUND: DBSTATUSENUM21 = 21i32;
+pub const DBSTATUS_E_VOLUMENOTFOUND: DBSTATUSENUM21 = DBSTATUSENUM21(21i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSTATUS_E_OUTOFSPACE: DBSTATUSENUM21 = 22i32;
+pub const DBSTATUS_E_OUTOFSPACE: DBSTATUSENUM21 = DBSTATUSENUM21(22i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSTATUS_S_CANNOTDELETESOURCE: DBSTATUSENUM21 = 23i32;
+pub const DBSTATUS_S_CANNOTDELETESOURCE: DBSTATUSENUM21 = DBSTATUSENUM21(23i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSTATUS_E_READONLY: DBSTATUSENUM21 = 24i32;
+pub const DBSTATUS_E_READONLY: DBSTATUSENUM21 = DBSTATUSENUM21(24i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSTATUS_E_RESOURCEOUTOFSCOPE: DBSTATUSENUM21 = 25i32;
+pub const DBSTATUS_E_RESOURCEOUTOFSCOPE: DBSTATUSENUM21 = DBSTATUSENUM21(25i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSTATUS_S_ALREADYEXISTS: DBSTATUSENUM21 = 26i32;
+pub const DBSTATUS_S_ALREADYEXISTS: DBSTATUSENUM21 = DBSTATUSENUM21(26i32);
+impl ::core::marker::Copy for DBSTATUSENUM21 {}
+impl ::core::clone::Clone for DBSTATUSENUM21 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBSTATUSENUM21 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBSTATUSENUM21 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBSTATUSENUM21").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBSTATUSENUM25 = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBSTATUSENUM25(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSTATUS_E_CANCELED: DBSTATUSENUM25 = 27i32;
+pub const DBSTATUS_E_CANCELED: DBSTATUSENUM25 = DBSTATUSENUM25(27i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSTATUS_E_NOTCOLLECTION: DBSTATUSENUM25 = 28i32;
+pub const DBSTATUS_E_NOTCOLLECTION: DBSTATUSENUM25 = DBSTATUSENUM25(28i32);
+impl ::core::marker::Copy for DBSTATUSENUM25 {}
+impl ::core::clone::Clone for DBSTATUSENUM25 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBSTATUSENUM25 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBSTATUSENUM25 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBSTATUSENUM25").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBSTATUSENUM26 = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBSTATUSENUM26(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSTATUS_S_ROWSETCOLUMN: DBSTATUSENUM26 = 29i32;
+pub const DBSTATUS_S_ROWSETCOLUMN: DBSTATUSENUM26 = DBSTATUSENUM26(29i32);
+impl ::core::marker::Copy for DBSTATUSENUM26 {}
+impl ::core::clone::Clone for DBSTATUSENUM26 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBSTATUSENUM26 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBSTATUSENUM26 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBSTATUSENUM26").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBTABLESTATISTICSTYPE26 = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBTABLESTATISTICSTYPE26(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSTAT_HISTOGRAM: DBTABLESTATISTICSTYPE26 = 1i32;
+pub const DBSTAT_HISTOGRAM: DBTABLESTATISTICSTYPE26 = DBTABLESTATISTICSTYPE26(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSTAT_COLUMN_CARDINALITY: DBTABLESTATISTICSTYPE26 = 2i32;
+pub const DBSTAT_COLUMN_CARDINALITY: DBTABLESTATISTICSTYPE26 = DBTABLESTATISTICSTYPE26(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBSTAT_TUPLE_CARDINALITY: DBTABLESTATISTICSTYPE26 = 4i32;
+pub const DBSTAT_TUPLE_CARDINALITY: DBTABLESTATISTICSTYPE26 = DBTABLESTATISTICSTYPE26(4i32);
+impl ::core::marker::Copy for DBTABLESTATISTICSTYPE26 {}
+impl ::core::clone::Clone for DBTABLESTATISTICSTYPE26 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBTABLESTATISTICSTYPE26 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBTABLESTATISTICSTYPE26 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBTABLESTATISTICSTYPE26").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub struct DBTIME {
@@ -4461,99 +5881,163 @@ impl ::core::default::Default for DBTIMESTAMP {
     }
 }
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBTYPEENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBTYPEENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBTYPE_EMPTY: DBTYPEENUM = 0i32;
+pub const DBTYPE_EMPTY: DBTYPEENUM = DBTYPEENUM(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBTYPE_NULL: DBTYPEENUM = 1i32;
+pub const DBTYPE_NULL: DBTYPEENUM = DBTYPEENUM(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBTYPE_I2: DBTYPEENUM = 2i32;
+pub const DBTYPE_I2: DBTYPEENUM = DBTYPEENUM(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBTYPE_I4: DBTYPEENUM = 3i32;
+pub const DBTYPE_I4: DBTYPEENUM = DBTYPEENUM(3i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBTYPE_R4: DBTYPEENUM = 4i32;
+pub const DBTYPE_R4: DBTYPEENUM = DBTYPEENUM(4i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBTYPE_R8: DBTYPEENUM = 5i32;
+pub const DBTYPE_R8: DBTYPEENUM = DBTYPEENUM(5i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBTYPE_CY: DBTYPEENUM = 6i32;
+pub const DBTYPE_CY: DBTYPEENUM = DBTYPEENUM(6i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBTYPE_DATE: DBTYPEENUM = 7i32;
+pub const DBTYPE_DATE: DBTYPEENUM = DBTYPEENUM(7i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBTYPE_BSTR: DBTYPEENUM = 8i32;
+pub const DBTYPE_BSTR: DBTYPEENUM = DBTYPEENUM(8i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBTYPE_IDISPATCH: DBTYPEENUM = 9i32;
+pub const DBTYPE_IDISPATCH: DBTYPEENUM = DBTYPEENUM(9i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBTYPE_ERROR: DBTYPEENUM = 10i32;
+pub const DBTYPE_ERROR: DBTYPEENUM = DBTYPEENUM(10i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBTYPE_BOOL: DBTYPEENUM = 11i32;
+pub const DBTYPE_BOOL: DBTYPEENUM = DBTYPEENUM(11i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBTYPE_VARIANT: DBTYPEENUM = 12i32;
+pub const DBTYPE_VARIANT: DBTYPEENUM = DBTYPEENUM(12i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBTYPE_IUNKNOWN: DBTYPEENUM = 13i32;
+pub const DBTYPE_IUNKNOWN: DBTYPEENUM = DBTYPEENUM(13i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBTYPE_DECIMAL: DBTYPEENUM = 14i32;
+pub const DBTYPE_DECIMAL: DBTYPEENUM = DBTYPEENUM(14i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBTYPE_UI1: DBTYPEENUM = 17i32;
+pub const DBTYPE_UI1: DBTYPEENUM = DBTYPEENUM(17i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBTYPE_ARRAY: DBTYPEENUM = 8192i32;
+pub const DBTYPE_ARRAY: DBTYPEENUM = DBTYPEENUM(8192i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBTYPE_BYREF: DBTYPEENUM = 16384i32;
+pub const DBTYPE_BYREF: DBTYPEENUM = DBTYPEENUM(16384i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBTYPE_I1: DBTYPEENUM = 16i32;
+pub const DBTYPE_I1: DBTYPEENUM = DBTYPEENUM(16i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBTYPE_UI2: DBTYPEENUM = 18i32;
+pub const DBTYPE_UI2: DBTYPEENUM = DBTYPEENUM(18i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBTYPE_UI4: DBTYPEENUM = 19i32;
+pub const DBTYPE_UI4: DBTYPEENUM = DBTYPEENUM(19i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBTYPE_I8: DBTYPEENUM = 20i32;
+pub const DBTYPE_I8: DBTYPEENUM = DBTYPEENUM(20i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBTYPE_UI8: DBTYPEENUM = 21i32;
+pub const DBTYPE_UI8: DBTYPEENUM = DBTYPEENUM(21i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBTYPE_GUID: DBTYPEENUM = 72i32;
+pub const DBTYPE_GUID: DBTYPEENUM = DBTYPEENUM(72i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBTYPE_VECTOR: DBTYPEENUM = 4096i32;
+pub const DBTYPE_VECTOR: DBTYPEENUM = DBTYPEENUM(4096i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBTYPE_RESERVED: DBTYPEENUM = 32768i32;
+pub const DBTYPE_RESERVED: DBTYPEENUM = DBTYPEENUM(32768i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBTYPE_BYTES: DBTYPEENUM = 128i32;
+pub const DBTYPE_BYTES: DBTYPEENUM = DBTYPEENUM(128i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBTYPE_STR: DBTYPEENUM = 129i32;
+pub const DBTYPE_STR: DBTYPEENUM = DBTYPEENUM(129i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBTYPE_WSTR: DBTYPEENUM = 130i32;
+pub const DBTYPE_WSTR: DBTYPEENUM = DBTYPEENUM(130i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBTYPE_NUMERIC: DBTYPEENUM = 131i32;
+pub const DBTYPE_NUMERIC: DBTYPEENUM = DBTYPEENUM(131i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBTYPE_UDT: DBTYPEENUM = 132i32;
+pub const DBTYPE_UDT: DBTYPEENUM = DBTYPEENUM(132i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBTYPE_DBDATE: DBTYPEENUM = 133i32;
+pub const DBTYPE_DBDATE: DBTYPEENUM = DBTYPEENUM(133i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBTYPE_DBTIME: DBTYPEENUM = 134i32;
+pub const DBTYPE_DBTIME: DBTYPEENUM = DBTYPEENUM(134i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBTYPE_DBTIMESTAMP: DBTYPEENUM = 135i32;
+pub const DBTYPE_DBTIMESTAMP: DBTYPEENUM = DBTYPEENUM(135i32);
+impl ::core::marker::Copy for DBTYPEENUM {}
+impl ::core::clone::Clone for DBTYPEENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBTYPEENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBTYPEENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBTYPEENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBTYPEENUM15 = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBTYPEENUM15(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBTYPE_HCHAPTER: DBTYPEENUM15 = 136i32;
+pub const DBTYPE_HCHAPTER: DBTYPEENUM15 = DBTYPEENUM15(136i32);
+impl ::core::marker::Copy for DBTYPEENUM15 {}
+impl ::core::clone::Clone for DBTYPEENUM15 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBTYPEENUM15 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBTYPEENUM15 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBTYPEENUM15").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBTYPEENUM20 = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBTYPEENUM20(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBTYPE_FILETIME: DBTYPEENUM20 = 64i32;
+pub const DBTYPE_FILETIME: DBTYPEENUM20 = DBTYPEENUM20(64i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBTYPE_PROPVARIANT: DBTYPEENUM20 = 138i32;
+pub const DBTYPE_PROPVARIANT: DBTYPEENUM20 = DBTYPEENUM20(138i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBTYPE_VARNUMERIC: DBTYPEENUM20 = 139i32;
+pub const DBTYPE_VARNUMERIC: DBTYPEENUM20 = DBTYPEENUM20(139i32);
+impl ::core::marker::Copy for DBTYPEENUM20 {}
+impl ::core::clone::Clone for DBTYPEENUM20 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBTYPEENUM20 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBTYPEENUM20 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBTYPEENUM20").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DBTYPE_SQLVARIANT: u32 = 144u32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBUPDELRULEENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBUPDELRULEENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBUPDELRULE_NOACTION: DBUPDELRULEENUM = 0i32;
+pub const DBUPDELRULE_NOACTION: DBUPDELRULEENUM = DBUPDELRULEENUM(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBUPDELRULE_CASCADE: DBUPDELRULEENUM = 1i32;
+pub const DBUPDELRULE_CASCADE: DBUPDELRULEENUM = DBUPDELRULEENUM(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBUPDELRULE_SETNULL: DBUPDELRULEENUM = 2i32;
+pub const DBUPDELRULE_SETNULL: DBUPDELRULEENUM = DBUPDELRULEENUM(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBUPDELRULE_SETDEFAULT: DBUPDELRULEENUM = 3i32;
+pub const DBUPDELRULE_SETDEFAULT: DBUPDELRULEENUM = DBUPDELRULEENUM(3i32);
+impl ::core::marker::Copy for DBUPDELRULEENUM {}
+impl ::core::clone::Clone for DBUPDELRULEENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBUPDELRULEENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBUPDELRULEENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBUPDELRULEENUM").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -4627,23 +6111,55 @@ impl ::core::default::Default for DBVECTOR {
     }
 }
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBWATCHMODEENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBWATCHMODEENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBWATCHMODE_ALL: DBWATCHMODEENUM = 1i32;
+pub const DBWATCHMODE_ALL: DBWATCHMODEENUM = DBWATCHMODEENUM(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBWATCHMODE_EXTEND: DBWATCHMODEENUM = 2i32;
+pub const DBWATCHMODE_EXTEND: DBWATCHMODEENUM = DBWATCHMODEENUM(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBWATCHMODE_MOVE: DBWATCHMODEENUM = 4i32;
+pub const DBWATCHMODE_MOVE: DBWATCHMODEENUM = DBWATCHMODEENUM(4i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBWATCHMODE_COUNT: DBWATCHMODEENUM = 8i32;
+pub const DBWATCHMODE_COUNT: DBWATCHMODEENUM = DBWATCHMODEENUM(8i32);
+impl ::core::marker::Copy for DBWATCHMODEENUM {}
+impl ::core::clone::Clone for DBWATCHMODEENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBWATCHMODEENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBWATCHMODEENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBWATCHMODEENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DBWATCHNOTIFYENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DBWATCHNOTIFYENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBWATCHNOTIFY_ROWSCHANGED: DBWATCHNOTIFYENUM = 1i32;
+pub const DBWATCHNOTIFY_ROWSCHANGED: DBWATCHNOTIFYENUM = DBWATCHNOTIFYENUM(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBWATCHNOTIFY_QUERYDONE: DBWATCHNOTIFYENUM = 2i32;
+pub const DBWATCHNOTIFY_QUERYDONE: DBWATCHNOTIFYENUM = DBWATCHNOTIFYENUM(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBWATCHNOTIFY_QUERYREEXECUTED: DBWATCHNOTIFYENUM = 3i32;
+pub const DBWATCHNOTIFY_QUERYREEXECUTED: DBWATCHNOTIFYENUM = DBWATCHNOTIFYENUM(3i32);
+impl ::core::marker::Copy for DBWATCHNOTIFYENUM {}
+impl ::core::clone::Clone for DBWATCHNOTIFYENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DBWATCHNOTIFYENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DBWATCHNOTIFYENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DBWATCHNOTIFYENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DB_ALL_EXCEPT_LIKE: u32 = 3u32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
@@ -5158,17 +6674,49 @@ impl ::core::default::Default for DCINFO {
     }
 }
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DCINFOTYPEENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DCINFOTYPEENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DCINFOTYPE_VERSION: DCINFOTYPEENUM = 1i32;
+pub const DCINFOTYPE_VERSION: DCINFOTYPEENUM = DCINFOTYPEENUM(1i32);
+impl ::core::marker::Copy for DCINFOTYPEENUM {}
+impl ::core::clone::Clone for DCINFOTYPEENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DCINFOTYPEENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DCINFOTYPEENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DCINFOTYPEENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type DELIVERY_AGENT_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DELIVERY_AGENT_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DELIVERY_AGENT_FLAG_NO_BROADCAST: DELIVERY_AGENT_FLAGS = 4i32;
+pub const DELIVERY_AGENT_FLAG_NO_BROADCAST: DELIVERY_AGENT_FLAGS = DELIVERY_AGENT_FLAGS(4i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DELIVERY_AGENT_FLAG_NO_RESTRICTIONS: DELIVERY_AGENT_FLAGS = 8i32;
+pub const DELIVERY_AGENT_FLAG_NO_RESTRICTIONS: DELIVERY_AGENT_FLAGS = DELIVERY_AGENT_FLAGS(8i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DELIVERY_AGENT_FLAG_SILENT_DIAL: DELIVERY_AGENT_FLAGS = 16i32;
+pub const DELIVERY_AGENT_FLAG_SILENT_DIAL: DELIVERY_AGENT_FLAGS = DELIVERY_AGENT_FLAGS(16i32);
+impl ::core::marker::Copy for DELIVERY_AGENT_FLAGS {}
+impl ::core::clone::Clone for DELIVERY_AGENT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DELIVERY_AGENT_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DELIVERY_AGENT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DELIVERY_AGENT_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub const DISPID_QUERY_ALL: u32 = 6u32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
@@ -5526,9 +7074,25 @@ pub struct DataSourceObject_Vtbl {
     pub base: super::Com::IDispatch_Vtbl,
 }
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type EBindInfoOptions = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct EBindInfoOptions(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const BIO_BINDER: EBindInfoOptions = 1i32;
+pub const BIO_BINDER: EBindInfoOptions = EBindInfoOptions(1i32);
+impl ::core::marker::Copy for EBindInfoOptions {}
+impl ::core::clone::Clone for EBindInfoOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for EBindInfoOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EBindInfoOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EBindInfoOptions").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Search'*"]
 #[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
@@ -6101,11 +7665,27 @@ pub const FLTRDMN_E_QI_FILTER_FAILED: i32 = -2147212286i32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub const FLTRDMN_E_UNEXPECTED: i32 = -2147212287i32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type FOLLOW_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FOLLOW_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const FF_INDEXCOMPLEXURLS: FOLLOW_FLAGS = 1i32;
+pub const FF_INDEXCOMPLEXURLS: FOLLOW_FLAGS = FOLLOW_FLAGS(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const FF_SUPPRESSINDEXING: FOLLOW_FLAGS = 2i32;
+pub const FF_SUPPRESSINDEXING: FOLLOW_FLAGS = FOLLOW_FLAGS(2i32);
+impl ::core::marker::Copy for FOLLOW_FLAGS {}
+impl ::core::clone::Clone for FOLLOW_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FOLLOW_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FOLLOW_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FOLLOW_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub const FTE_E_ADMIN_BLOB_CORRUPT: i32 = -2147207676i32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
@@ -11711,15 +13291,31 @@ pub const INET_S_AGENT_INCREASED_CACHE_SIZE: ::windows::core::HRESULT = ::window
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub const INET_S_AGENT_PART_FAIL: ::windows::core::HRESULT = ::windows::core::HRESULT(790401i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type INTERVAL_LIMIT_KIND = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct INTERVAL_LIMIT_KIND(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const ILK_EXPLICIT_INCLUDED: INTERVAL_LIMIT_KIND = 0i32;
+pub const ILK_EXPLICIT_INCLUDED: INTERVAL_LIMIT_KIND = INTERVAL_LIMIT_KIND(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const ILK_EXPLICIT_EXCLUDED: INTERVAL_LIMIT_KIND = 1i32;
+pub const ILK_EXPLICIT_EXCLUDED: INTERVAL_LIMIT_KIND = INTERVAL_LIMIT_KIND(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const ILK_NEGATIVE_INFINITY: INTERVAL_LIMIT_KIND = 2i32;
+pub const ILK_NEGATIVE_INFINITY: INTERVAL_LIMIT_KIND = INTERVAL_LIMIT_KIND(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const ILK_POSITIVE_INFINITY: INTERVAL_LIMIT_KIND = 3i32;
+pub const ILK_POSITIVE_INFINITY: INTERVAL_LIMIT_KIND = INTERVAL_LIMIT_KIND(3i32);
+impl ::core::marker::Copy for INTERVAL_LIMIT_KIND {}
+impl ::core::clone::Clone for INTERVAL_LIMIT_KIND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for INTERVAL_LIMIT_KIND {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for INTERVAL_LIMIT_KIND {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INTERVAL_LIMIT_KIND").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
 #[repr(transparent)]
 pub struct INamedEntity(::windows::core::IUnknown);
@@ -21504,19 +23100,51 @@ impl ::core::default::Default for KAGREQDIAG {
     }
 }
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type KAGREQDIAGFLAGSENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct KAGREQDIAGFLAGSENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const KAGREQDIAGFLAGS_HEADER: KAGREQDIAGFLAGSENUM = 1i32;
+pub const KAGREQDIAGFLAGS_HEADER: KAGREQDIAGFLAGSENUM = KAGREQDIAGFLAGSENUM(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const KAGREQDIAGFLAGS_RECORD: KAGREQDIAGFLAGSENUM = 2i32;
+pub const KAGREQDIAGFLAGS_RECORD: KAGREQDIAGFLAGSENUM = KAGREQDIAGFLAGSENUM(2i32);
+impl ::core::marker::Copy for KAGREQDIAGFLAGSENUM {}
+impl ::core::clone::Clone for KAGREQDIAGFLAGSENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for KAGREQDIAGFLAGSENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KAGREQDIAGFLAGSENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KAGREQDIAGFLAGSENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type LOCKMODEENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct LOCKMODEENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const LOCKMODE_INVALID: LOCKMODEENUM = 0i32;
+pub const LOCKMODE_INVALID: LOCKMODEENUM = LOCKMODEENUM(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const LOCKMODE_EXCLUSIVE: LOCKMODEENUM = 1i32;
+pub const LOCKMODE_EXCLUSIVE: LOCKMODEENUM = LOCKMODEENUM(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const LOCKMODE_SHARED: LOCKMODEENUM = 2i32;
+pub const LOCKMODE_SHARED: LOCKMODEENUM = LOCKMODEENUM(2i32);
+impl ::core::marker::Copy for LOCKMODEENUM {}
+impl ::core::clone::Clone for LOCKMODEENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for LOCKMODEENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LOCKMODEENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LOCKMODEENUM").field(&self.0).finish()
+    }
+}
 pub const LeafCondition: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52f15c89_5a17_48e1_bbcd_46a3f89c7cc2);
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub const MAXNAME: u32 = 129u32;
@@ -21933,13 +23561,45 @@ pub const MSDAORA8: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7
 pub const MSDAORA8_ERROR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f06a374_dd6a_43db_b4e0_1fc121e5e62b);
 pub const MSDAORA_ERROR: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8cc4cbf_fdff_11d0_b865_00a0c9081c1d);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type MSDSDBINITPROPENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MSDSDBINITPROPENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_MSDS_DBINIT_DATAPROVIDER: MSDSDBINITPROPENUM = 2i32;
+pub const DBPROP_MSDS_DBINIT_DATAPROVIDER: MSDSDBINITPROPENUM = MSDSDBINITPROPENUM(2i32);
+impl ::core::marker::Copy for MSDSDBINITPROPENUM {}
+impl ::core::clone::Clone for MSDSDBINITPROPENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MSDSDBINITPROPENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MSDSDBINITPROPENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MSDSDBINITPROPENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type MSDSSESSIONPROPENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MSDSSESSIONPROPENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const DBPROP_MSDS_SESS_UNIQUENAMES: MSDSSESSIONPROPENUM = 2i32;
+pub const DBPROP_MSDS_SESS_UNIQUENAMES: MSDSSESSIONPROPENUM = MSDSSESSIONPROPENUM(2i32);
+impl ::core::marker::Copy for MSDSSESSIONPROPENUM {}
+impl ::core::clone::Clone for MSDSSESSIONPROPENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MSDSSESSIONPROPENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MSDSSESSIONPROPENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MSDSSESSIONPROPENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub const MSG_CI_CORRUPT_INDEX_COMPONENT: ::windows::core::HRESULT = ::windows::core::HRESULT(1073745962i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
@@ -21983,13 +23643,29 @@ pub const MSS_E_INVALIDAPPNAME: i32 = -2147213056i32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub const MSS_E_UNICODEFILEHEADERMISSING: i32 = -2147213051i32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type NAMED_ENTITY_CERTAINTY = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NAMED_ENTITY_CERTAINTY(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const NEC_LOW: NAMED_ENTITY_CERTAINTY = 0i32;
+pub const NEC_LOW: NAMED_ENTITY_CERTAINTY = NAMED_ENTITY_CERTAINTY(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const NEC_MEDIUM: NAMED_ENTITY_CERTAINTY = 1i32;
+pub const NEC_MEDIUM: NAMED_ENTITY_CERTAINTY = NAMED_ENTITY_CERTAINTY(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const NEC_HIGH: NAMED_ENTITY_CERTAINTY = 2i32;
+pub const NEC_HIGH: NAMED_ENTITY_CERTAINTY = NAMED_ENTITY_CERTAINTY(2i32);
+impl ::core::marker::Copy for NAMED_ENTITY_CERTAINTY {}
+impl ::core::clone::Clone for NAMED_ENTITY_CERTAINTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NAMED_ENTITY_CERTAINTY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NAMED_ENTITY_CERTAINTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NAMED_ENTITY_CERTAINTY").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_Storage_IndexServer', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com_StructuredStorage"))]
@@ -22611,59 +24287,139 @@ pub const OLEDBVER: u32 = 624u32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub const OLEDB_BINDER_CUSTOM_ERROR: i32 = -2147212032i32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type OSPCOMP = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct OSPCOMP(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const OSPCOMP_EQ: OSPCOMP = 1i32;
+pub const OSPCOMP_EQ: OSPCOMP = OSPCOMP(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const OSPCOMP_DEFAULT: OSPCOMP = 1i32;
+pub const OSPCOMP_DEFAULT: OSPCOMP = OSPCOMP(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const OSPCOMP_LT: OSPCOMP = 2i32;
+pub const OSPCOMP_LT: OSPCOMP = OSPCOMP(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const OSPCOMP_LE: OSPCOMP = 3i32;
+pub const OSPCOMP_LE: OSPCOMP = OSPCOMP(3i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const OSPCOMP_GE: OSPCOMP = 4i32;
+pub const OSPCOMP_GE: OSPCOMP = OSPCOMP(4i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const OSPCOMP_GT: OSPCOMP = 5i32;
+pub const OSPCOMP_GT: OSPCOMP = OSPCOMP(5i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const OSPCOMP_NE: OSPCOMP = 6i32;
+pub const OSPCOMP_NE: OSPCOMP = OSPCOMP(6i32);
+impl ::core::marker::Copy for OSPCOMP {}
+impl ::core::clone::Clone for OSPCOMP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for OSPCOMP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OSPCOMP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OSPCOMP").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type OSPFIND = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct OSPFIND(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const OSPFIND_DEFAULT: OSPFIND = 0i32;
+pub const OSPFIND_DEFAULT: OSPFIND = OSPFIND(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const OSPFIND_UP: OSPFIND = 1i32;
+pub const OSPFIND_UP: OSPFIND = OSPFIND(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const OSPFIND_CASESENSITIVE: OSPFIND = 2i32;
+pub const OSPFIND_CASESENSITIVE: OSPFIND = OSPFIND(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const OSPFIND_UPCASESENSITIVE: OSPFIND = 3i32;
+pub const OSPFIND_UPCASESENSITIVE: OSPFIND = OSPFIND(3i32);
+impl ::core::marker::Copy for OSPFIND {}
+impl ::core::clone::Clone for OSPFIND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for OSPFIND {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OSPFIND {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OSPFIND").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type OSPFORMAT = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct OSPFORMAT(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const OSPFORMAT_RAW: OSPFORMAT = 0i32;
+pub const OSPFORMAT_RAW: OSPFORMAT = OSPFORMAT(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const OSPFORMAT_DEFAULT: OSPFORMAT = 0i32;
+pub const OSPFORMAT_DEFAULT: OSPFORMAT = OSPFORMAT(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const OSPFORMAT_FORMATTED: OSPFORMAT = 1i32;
+pub const OSPFORMAT_FORMATTED: OSPFORMAT = OSPFORMAT(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const OSPFORMAT_HTML: OSPFORMAT = 2i32;
+pub const OSPFORMAT_HTML: OSPFORMAT = OSPFORMAT(2i32);
+impl ::core::marker::Copy for OSPFORMAT {}
+impl ::core::clone::Clone for OSPFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for OSPFORMAT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OSPFORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OSPFORMAT").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type OSPRW = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct OSPRW(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const OSPRW_DEFAULT: OSPRW = 1i32;
+pub const OSPRW_DEFAULT: OSPRW = OSPRW(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const OSPRW_READONLY: OSPRW = 0i32;
+pub const OSPRW_READONLY: OSPRW = OSPRW(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const OSPRW_READWRITE: OSPRW = 1i32;
+pub const OSPRW_READWRITE: OSPRW = OSPRW(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const OSPRW_MIXED: OSPRW = 2i32;
+pub const OSPRW_MIXED: OSPRW = OSPRW(2i32);
+impl ::core::marker::Copy for OSPRW {}
+impl ::core::clone::Clone for OSPRW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for OSPRW {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OSPRW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OSPRW").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type OSPXFER = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct OSPXFER(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const OSPXFER_COMPLETE: OSPXFER = 0i32;
+pub const OSPXFER_COMPLETE: OSPXFER = OSPXFER(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const OSPXFER_ABORT: OSPXFER = 1i32;
+pub const OSPXFER_ABORT: OSPXFER = OSPXFER(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const OSPXFER_ERROR: OSPXFER = 2i32;
+pub const OSPXFER_ERROR: OSPXFER = OSPXFER(2i32);
+impl ::core::marker::Copy for OSPXFER {}
+impl ::core::clone::Clone for OSPXFER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for OSPXFER {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OSPXFER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OSPXFER").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub const OSP_IndexLabel: u32 = 0u32;
 pub const PDPO: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xccb4ec60_b9dc_11d1_ac80_00a0c9034873);
@@ -22713,21 +24469,53 @@ pub const PRAllBits: u32 = 7u32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub const PRAny: u32 = 512u32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type PRIORITIZE_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PRIORITIZE_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const PRIORITIZE_FLAG_RETRYFAILEDITEMS: PRIORITIZE_FLAGS = 1i32;
+pub const PRIORITIZE_FLAG_RETRYFAILEDITEMS: PRIORITIZE_FLAGS = PRIORITIZE_FLAGS(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const PRIORITIZE_FLAG_IGNOREFAILURECOUNT: PRIORITIZE_FLAGS = 2i32;
+pub const PRIORITIZE_FLAG_IGNOREFAILURECOUNT: PRIORITIZE_FLAGS = PRIORITIZE_FLAGS(2i32);
+impl ::core::marker::Copy for PRIORITIZE_FLAGS {}
+impl ::core::clone::Clone for PRIORITIZE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PRIORITIZE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PRIORITIZE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PRIORITIZE_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type PRIORITY_LEVEL = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PRIORITY_LEVEL(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const PRIORITY_LEVEL_FOREGROUND: PRIORITY_LEVEL = 0i32;
+pub const PRIORITY_LEVEL_FOREGROUND: PRIORITY_LEVEL = PRIORITY_LEVEL(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const PRIORITY_LEVEL_HIGH: PRIORITY_LEVEL = 1i32;
+pub const PRIORITY_LEVEL_HIGH: PRIORITY_LEVEL = PRIORITY_LEVEL(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const PRIORITY_LEVEL_LOW: PRIORITY_LEVEL = 2i32;
+pub const PRIORITY_LEVEL_LOW: PRIORITY_LEVEL = PRIORITY_LEVEL(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const PRIORITY_LEVEL_DEFAULT: PRIORITY_LEVEL = 3i32;
+pub const PRIORITY_LEVEL_DEFAULT: PRIORITY_LEVEL = PRIORITY_LEVEL(3i32);
+impl ::core::marker::Copy for PRIORITY_LEVEL {}
+impl ::core::clone::Clone for PRIORITY_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PRIORITY_LEVEL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PRIORITY_LEVEL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PRIORITY_LEVEL").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub const PROGID_MSPersist_Version_W: &'static str = "MSPersist.1";
 #[doc = "*Required features: 'Win32_System_Search'*"]
@@ -22771,13 +24559,29 @@ pub const PROPID_DBBMK_CHAPTER: u32 = 3u32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub const PROPID_DBSELF_SELF: u32 = 2u32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type PROXY_ACCESS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PROXY_ACCESS(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const PROXY_ACCESS_PRECONFIG: PROXY_ACCESS = 0i32;
+pub const PROXY_ACCESS_PRECONFIG: PROXY_ACCESS = PROXY_ACCESS(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const PROXY_ACCESS_DIRECT: PROXY_ACCESS = 1i32;
+pub const PROXY_ACCESS_DIRECT: PROXY_ACCESS = PROXY_ACCESS(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const PROXY_ACCESS_PROXY: PROXY_ACCESS = 2i32;
+pub const PROXY_ACCESS_PROXY: PROXY_ACCESS = PROXY_ACCESS(2i32);
+impl ::core::marker::Copy for PROXY_ACCESS {}
+impl ::core::clone::Clone for PROXY_ACCESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PROXY_ACCESS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PROXY_ACCESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PROXY_ACCESS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -22959,19 +24763,35 @@ pub const QUERY_E_TOP_LEVEL_IN_GROUP: ::windows::core::HRESULT = ::windows::core
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub const QUERY_E_UPGRADEINPROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147215848i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type QUERY_PARSER_MANAGER_OPTION = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct QUERY_PARSER_MANAGER_OPTION(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const QPMO_SCHEMA_BINARY_NAME: QUERY_PARSER_MANAGER_OPTION = 0i32;
+pub const QPMO_SCHEMA_BINARY_NAME: QUERY_PARSER_MANAGER_OPTION = QUERY_PARSER_MANAGER_OPTION(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const QPMO_PRELOCALIZED_SCHEMA_BINARY_PATH: QUERY_PARSER_MANAGER_OPTION = 1i32;
+pub const QPMO_PRELOCALIZED_SCHEMA_BINARY_PATH: QUERY_PARSER_MANAGER_OPTION = QUERY_PARSER_MANAGER_OPTION(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const QPMO_UNLOCALIZED_SCHEMA_BINARY_PATH: QUERY_PARSER_MANAGER_OPTION = 2i32;
+pub const QPMO_UNLOCALIZED_SCHEMA_BINARY_PATH: QUERY_PARSER_MANAGER_OPTION = QUERY_PARSER_MANAGER_OPTION(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const QPMO_LOCALIZED_SCHEMA_BINARY_PATH: QUERY_PARSER_MANAGER_OPTION = 3i32;
+pub const QPMO_LOCALIZED_SCHEMA_BINARY_PATH: QUERY_PARSER_MANAGER_OPTION = QUERY_PARSER_MANAGER_OPTION(3i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const QPMO_APPEND_LCID_TO_LOCALIZED_PATH: QUERY_PARSER_MANAGER_OPTION = 4i32;
+pub const QPMO_APPEND_LCID_TO_LOCALIZED_PATH: QUERY_PARSER_MANAGER_OPTION = QUERY_PARSER_MANAGER_OPTION(4i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const QPMO_LOCALIZER_SUPPORT: QUERY_PARSER_MANAGER_OPTION = 5i32;
+pub const QPMO_LOCALIZER_SUPPORT: QUERY_PARSER_MANAGER_OPTION = QUERY_PARSER_MANAGER_OPTION(5i32);
+impl ::core::marker::Copy for QUERY_PARSER_MANAGER_OPTION {}
+impl ::core::clone::Clone for QUERY_PARSER_MANAGER_OPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for QUERY_PARSER_MANAGER_OPTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for QUERY_PARSER_MANAGER_OPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("QUERY_PARSER_MANAGER_OPTION").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub const QUERY_SORTDEFAULT: u32 = 4u32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
@@ -23239,21 +25059,53 @@ impl ::core::default::Default for RMTPACK {
     }
 }
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type ROWSETEVENT_ITEMSTATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ROWSETEVENT_ITEMSTATE(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const ROWSETEVENT_ITEMSTATE_NOTINROWSET: ROWSETEVENT_ITEMSTATE = 0i32;
+pub const ROWSETEVENT_ITEMSTATE_NOTINROWSET: ROWSETEVENT_ITEMSTATE = ROWSETEVENT_ITEMSTATE(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const ROWSETEVENT_ITEMSTATE_INROWSET: ROWSETEVENT_ITEMSTATE = 1i32;
+pub const ROWSETEVENT_ITEMSTATE_INROWSET: ROWSETEVENT_ITEMSTATE = ROWSETEVENT_ITEMSTATE(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const ROWSETEVENT_ITEMSTATE_UNKNOWN: ROWSETEVENT_ITEMSTATE = 2i32;
+pub const ROWSETEVENT_ITEMSTATE_UNKNOWN: ROWSETEVENT_ITEMSTATE = ROWSETEVENT_ITEMSTATE(2i32);
+impl ::core::marker::Copy for ROWSETEVENT_ITEMSTATE {}
+impl ::core::clone::Clone for ROWSETEVENT_ITEMSTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ROWSETEVENT_ITEMSTATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ROWSETEVENT_ITEMSTATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ROWSETEVENT_ITEMSTATE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type ROWSETEVENT_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ROWSETEVENT_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const ROWSETEVENT_TYPE_DATAEXPIRED: ROWSETEVENT_TYPE = 0i32;
+pub const ROWSETEVENT_TYPE_DATAEXPIRED: ROWSETEVENT_TYPE = ROWSETEVENT_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const ROWSETEVENT_TYPE_FOREGROUNDLOST: ROWSETEVENT_TYPE = 1i32;
+pub const ROWSETEVENT_TYPE_FOREGROUNDLOST: ROWSETEVENT_TYPE = ROWSETEVENT_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const ROWSETEVENT_TYPE_SCOPESTATISTICS: ROWSETEVENT_TYPE = 2i32;
+pub const ROWSETEVENT_TYPE_SCOPESTATISTICS: ROWSETEVENT_TYPE = ROWSETEVENT_TYPE(2i32);
+impl ::core::marker::Copy for ROWSETEVENT_TYPE {}
+impl ::core::clone::Clone for ROWSETEVENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ROWSETEVENT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ROWSETEVENT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ROWSETEVENT_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub const RS_COMPLETED: u32 = 2147483648u32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
@@ -23375,13 +25227,29 @@ impl ::core::default::Default for SEARCH_COLUMN_PROPERTIES {
     }
 }
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type SEARCH_INDEXING_PHASE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SEARCH_INDEXING_PHASE(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SEARCH_INDEXING_PHASE_GATHERER: SEARCH_INDEXING_PHASE = 0i32;
+pub const SEARCH_INDEXING_PHASE_GATHERER: SEARCH_INDEXING_PHASE = SEARCH_INDEXING_PHASE(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SEARCH_INDEXING_PHASE_QUERYABLE: SEARCH_INDEXING_PHASE = 1i32;
+pub const SEARCH_INDEXING_PHASE_QUERYABLE: SEARCH_INDEXING_PHASE = SEARCH_INDEXING_PHASE(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SEARCH_INDEXING_PHASE_PERSISTED: SEARCH_INDEXING_PHASE = 2i32;
+pub const SEARCH_INDEXING_PHASE_PERSISTED: SEARCH_INDEXING_PHASE = SEARCH_INDEXING_PHASE(2i32);
+impl ::core::marker::Copy for SEARCH_INDEXING_PHASE {}
+impl ::core::clone::Clone for SEARCH_INDEXING_PHASE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SEARCH_INDEXING_PHASE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SEARCH_INDEXING_PHASE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SEARCH_INDEXING_PHASE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_System_Com'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
@@ -23497,43 +25365,107 @@ impl ::core::default::Default for SEARCH_ITEM_PERSISTENT_CHANGE {
     }
 }
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type SEARCH_KIND_OF_CHANGE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SEARCH_KIND_OF_CHANGE(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SEARCH_CHANGE_ADD: SEARCH_KIND_OF_CHANGE = 0i32;
+pub const SEARCH_CHANGE_ADD: SEARCH_KIND_OF_CHANGE = SEARCH_KIND_OF_CHANGE(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SEARCH_CHANGE_DELETE: SEARCH_KIND_OF_CHANGE = 1i32;
+pub const SEARCH_CHANGE_DELETE: SEARCH_KIND_OF_CHANGE = SEARCH_KIND_OF_CHANGE(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SEARCH_CHANGE_MODIFY: SEARCH_KIND_OF_CHANGE = 2i32;
+pub const SEARCH_CHANGE_MODIFY: SEARCH_KIND_OF_CHANGE = SEARCH_KIND_OF_CHANGE(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SEARCH_CHANGE_MOVE_RENAME: SEARCH_KIND_OF_CHANGE = 3i32;
+pub const SEARCH_CHANGE_MOVE_RENAME: SEARCH_KIND_OF_CHANGE = SEARCH_KIND_OF_CHANGE(3i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SEARCH_CHANGE_SEMANTICS_DIRECTORY: SEARCH_KIND_OF_CHANGE = 262144i32;
+pub const SEARCH_CHANGE_SEMANTICS_DIRECTORY: SEARCH_KIND_OF_CHANGE = SEARCH_KIND_OF_CHANGE(262144i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SEARCH_CHANGE_SEMANTICS_SHALLOW: SEARCH_KIND_OF_CHANGE = 524288i32;
+pub const SEARCH_CHANGE_SEMANTICS_SHALLOW: SEARCH_KIND_OF_CHANGE = SEARCH_KIND_OF_CHANGE(524288i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SEARCH_CHANGE_SEMANTICS_UPDATE_SECURITY: SEARCH_KIND_OF_CHANGE = 4194304i32;
+pub const SEARCH_CHANGE_SEMANTICS_UPDATE_SECURITY: SEARCH_KIND_OF_CHANGE = SEARCH_KIND_OF_CHANGE(4194304i32);
+impl ::core::marker::Copy for SEARCH_KIND_OF_CHANGE {}
+impl ::core::clone::Clone for SEARCH_KIND_OF_CHANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SEARCH_KIND_OF_CHANGE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SEARCH_KIND_OF_CHANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SEARCH_KIND_OF_CHANGE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type SEARCH_NOTIFICATION_PRIORITY = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SEARCH_NOTIFICATION_PRIORITY(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SEARCH_NORMAL_PRIORITY: SEARCH_NOTIFICATION_PRIORITY = 0i32;
+pub const SEARCH_NORMAL_PRIORITY: SEARCH_NOTIFICATION_PRIORITY = SEARCH_NOTIFICATION_PRIORITY(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SEARCH_HIGH_PRIORITY: SEARCH_NOTIFICATION_PRIORITY = 1i32;
+pub const SEARCH_HIGH_PRIORITY: SEARCH_NOTIFICATION_PRIORITY = SEARCH_NOTIFICATION_PRIORITY(1i32);
+impl ::core::marker::Copy for SEARCH_NOTIFICATION_PRIORITY {}
+impl ::core::clone::Clone for SEARCH_NOTIFICATION_PRIORITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SEARCH_NOTIFICATION_PRIORITY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SEARCH_NOTIFICATION_PRIORITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SEARCH_NOTIFICATION_PRIORITY").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type SEARCH_QUERY_SYNTAX = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SEARCH_QUERY_SYNTAX(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SEARCH_NO_QUERY_SYNTAX: SEARCH_QUERY_SYNTAX = 0i32;
+pub const SEARCH_NO_QUERY_SYNTAX: SEARCH_QUERY_SYNTAX = SEARCH_QUERY_SYNTAX(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SEARCH_ADVANCED_QUERY_SYNTAX: SEARCH_QUERY_SYNTAX = 1i32;
+pub const SEARCH_ADVANCED_QUERY_SYNTAX: SEARCH_QUERY_SYNTAX = SEARCH_QUERY_SYNTAX(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SEARCH_NATURAL_QUERY_SYNTAX: SEARCH_QUERY_SYNTAX = 2i32;
+pub const SEARCH_NATURAL_QUERY_SYNTAX: SEARCH_QUERY_SYNTAX = SEARCH_QUERY_SYNTAX(2i32);
+impl ::core::marker::Copy for SEARCH_QUERY_SYNTAX {}
+impl ::core::clone::Clone for SEARCH_QUERY_SYNTAX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SEARCH_QUERY_SYNTAX {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SEARCH_QUERY_SYNTAX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SEARCH_QUERY_SYNTAX").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type SEARCH_TERM_EXPANSION = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SEARCH_TERM_EXPANSION(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SEARCH_TERM_NO_EXPANSION: SEARCH_TERM_EXPANSION = 0i32;
+pub const SEARCH_TERM_NO_EXPANSION: SEARCH_TERM_EXPANSION = SEARCH_TERM_EXPANSION(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SEARCH_TERM_PREFIX_ALL: SEARCH_TERM_EXPANSION = 1i32;
+pub const SEARCH_TERM_PREFIX_ALL: SEARCH_TERM_EXPANSION = SEARCH_TERM_EXPANSION(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SEARCH_TERM_STEM_ALL: SEARCH_TERM_EXPANSION = 2i32;
+pub const SEARCH_TERM_STEM_ALL: SEARCH_TERM_EXPANSION = SEARCH_TERM_EXPANSION(2i32);
+impl ::core::marker::Copy for SEARCH_TERM_EXPANSION {}
+impl ::core::clone::Clone for SEARCH_TERM_EXPANSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SEARCH_TERM_EXPANSION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SEARCH_TERM_EXPANSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SEARCH_TERM_EXPANSION").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SEC_E_ACCESSDENIED: i32 = -2147216129i32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
@@ -25617,33 +27549,49 @@ pub const SQLINT4: u32 = 56u32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQLINT8: u32 = 127u32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type SQLINTERVAL = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SQLINTERVAL(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQL_IS_YEAR: SQLINTERVAL = 1i32;
+pub const SQL_IS_YEAR: SQLINTERVAL = SQLINTERVAL(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQL_IS_MONTH: SQLINTERVAL = 2i32;
+pub const SQL_IS_MONTH: SQLINTERVAL = SQLINTERVAL(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQL_IS_DAY: SQLINTERVAL = 3i32;
+pub const SQL_IS_DAY: SQLINTERVAL = SQLINTERVAL(3i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQL_IS_HOUR: SQLINTERVAL = 4i32;
+pub const SQL_IS_HOUR: SQLINTERVAL = SQLINTERVAL(4i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQL_IS_MINUTE: SQLINTERVAL = 5i32;
+pub const SQL_IS_MINUTE: SQLINTERVAL = SQLINTERVAL(5i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQL_IS_SECOND: SQLINTERVAL = 6i32;
+pub const SQL_IS_SECOND: SQLINTERVAL = SQLINTERVAL(6i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQL_IS_YEAR_TO_MONTH: SQLINTERVAL = 7i32;
+pub const SQL_IS_YEAR_TO_MONTH: SQLINTERVAL = SQLINTERVAL(7i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQL_IS_DAY_TO_HOUR: SQLINTERVAL = 8i32;
+pub const SQL_IS_DAY_TO_HOUR: SQLINTERVAL = SQLINTERVAL(8i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQL_IS_DAY_TO_MINUTE: SQLINTERVAL = 9i32;
+pub const SQL_IS_DAY_TO_MINUTE: SQLINTERVAL = SQLINTERVAL(9i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQL_IS_DAY_TO_SECOND: SQLINTERVAL = 10i32;
+pub const SQL_IS_DAY_TO_SECOND: SQLINTERVAL = SQLINTERVAL(10i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQL_IS_HOUR_TO_MINUTE: SQLINTERVAL = 11i32;
+pub const SQL_IS_HOUR_TO_MINUTE: SQLINTERVAL = SQLINTERVAL(11i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQL_IS_HOUR_TO_SECOND: SQLINTERVAL = 12i32;
+pub const SQL_IS_HOUR_TO_SECOND: SQLINTERVAL = SQLINTERVAL(12i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQL_IS_MINUTE_TO_SECOND: SQLINTERVAL = 13i32;
+pub const SQL_IS_MINUTE_TO_SECOND: SQLINTERVAL = SQLINTERVAL(13i32);
+impl ::core::marker::Copy for SQLINTERVAL {}
+impl ::core::clone::Clone for SQLINTERVAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SQLINTERVAL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SQLINTERVAL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SQLINTERVAL").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQLINTN: u32 = 38u32;
 #[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
@@ -26662,53 +28610,69 @@ pub const SQLVARBINARY: u32 = 37u32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQLVARCHAR: u32 = 39u32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type SQLVARENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SQLVARENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const VT_SS_EMPTY: SQLVARENUM = 0i32;
+pub const VT_SS_EMPTY: SQLVARENUM = SQLVARENUM(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const VT_SS_NULL: SQLVARENUM = 1i32;
+pub const VT_SS_NULL: SQLVARENUM = SQLVARENUM(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const VT_SS_UI1: SQLVARENUM = 17i32;
+pub const VT_SS_UI1: SQLVARENUM = SQLVARENUM(17i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const VT_SS_I2: SQLVARENUM = 2i32;
+pub const VT_SS_I2: SQLVARENUM = SQLVARENUM(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const VT_SS_I4: SQLVARENUM = 3i32;
+pub const VT_SS_I4: SQLVARENUM = SQLVARENUM(3i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const VT_SS_I8: SQLVARENUM = 20i32;
+pub const VT_SS_I8: SQLVARENUM = SQLVARENUM(20i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const VT_SS_R4: SQLVARENUM = 4i32;
+pub const VT_SS_R4: SQLVARENUM = SQLVARENUM(4i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const VT_SS_R8: SQLVARENUM = 5i32;
+pub const VT_SS_R8: SQLVARENUM = SQLVARENUM(5i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const VT_SS_MONEY: SQLVARENUM = 6i32;
+pub const VT_SS_MONEY: SQLVARENUM = SQLVARENUM(6i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const VT_SS_SMALLMONEY: SQLVARENUM = 200i32;
+pub const VT_SS_SMALLMONEY: SQLVARENUM = SQLVARENUM(200i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const VT_SS_WSTRING: SQLVARENUM = 201i32;
+pub const VT_SS_WSTRING: SQLVARENUM = SQLVARENUM(201i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const VT_SS_WVARSTRING: SQLVARENUM = 202i32;
+pub const VT_SS_WVARSTRING: SQLVARENUM = SQLVARENUM(202i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const VT_SS_STRING: SQLVARENUM = 203i32;
+pub const VT_SS_STRING: SQLVARENUM = SQLVARENUM(203i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const VT_SS_VARSTRING: SQLVARENUM = 204i32;
+pub const VT_SS_VARSTRING: SQLVARENUM = SQLVARENUM(204i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const VT_SS_BIT: SQLVARENUM = 11i32;
+pub const VT_SS_BIT: SQLVARENUM = SQLVARENUM(11i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const VT_SS_GUID: SQLVARENUM = 72i32;
+pub const VT_SS_GUID: SQLVARENUM = SQLVARENUM(72i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const VT_SS_NUMERIC: SQLVARENUM = 131i32;
+pub const VT_SS_NUMERIC: SQLVARENUM = SQLVARENUM(131i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const VT_SS_DECIMAL: SQLVARENUM = 205i32;
+pub const VT_SS_DECIMAL: SQLVARENUM = SQLVARENUM(205i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const VT_SS_DATETIME: SQLVARENUM = 135i32;
+pub const VT_SS_DATETIME: SQLVARENUM = SQLVARENUM(135i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const VT_SS_SMALLDATETIME: SQLVARENUM = 206i32;
+pub const VT_SS_SMALLDATETIME: SQLVARENUM = SQLVARENUM(206i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const VT_SS_BINARY: SQLVARENUM = 207i32;
+pub const VT_SS_BINARY: SQLVARENUM = SQLVARENUM(207i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const VT_SS_VARBINARY: SQLVARENUM = 208i32;
+pub const VT_SS_VARBINARY: SQLVARENUM = SQLVARENUM(208i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const VT_SS_UNKNOWN: SQLVARENUM = 209i32;
+pub const VT_SS_UNKNOWN: SQLVARENUM = SQLVARENUM(209i32);
+impl ::core::marker::Copy for SQLVARENUM {}
+impl ::core::clone::Clone for SQLVARENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SQLVARENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SQLVARENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SQLVARENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SQLVARIANT: u32 = 98u32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
@@ -30363,87 +32327,195 @@ pub const STREAM_FLAGS_DONTCACHEXSL: u32 = 32u32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub const STREAM_FLAGS_RESERVED: u32 = 4294901760u32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type STRUCTURED_QUERY_MULTIOPTION = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct STRUCTURED_QUERY_MULTIOPTION(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQMO_VIRTUAL_PROPERTY: STRUCTURED_QUERY_MULTIOPTION = 0i32;
+pub const SQMO_VIRTUAL_PROPERTY: STRUCTURED_QUERY_MULTIOPTION = STRUCTURED_QUERY_MULTIOPTION(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQMO_DEFAULT_PROPERTY: STRUCTURED_QUERY_MULTIOPTION = 1i32;
+pub const SQMO_DEFAULT_PROPERTY: STRUCTURED_QUERY_MULTIOPTION = STRUCTURED_QUERY_MULTIOPTION(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQMO_GENERATOR_FOR_TYPE: STRUCTURED_QUERY_MULTIOPTION = 2i32;
+pub const SQMO_GENERATOR_FOR_TYPE: STRUCTURED_QUERY_MULTIOPTION = STRUCTURED_QUERY_MULTIOPTION(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQMO_MAP_PROPERTY: STRUCTURED_QUERY_MULTIOPTION = 3i32;
+pub const SQMO_MAP_PROPERTY: STRUCTURED_QUERY_MULTIOPTION = STRUCTURED_QUERY_MULTIOPTION(3i32);
+impl ::core::marker::Copy for STRUCTURED_QUERY_MULTIOPTION {}
+impl ::core::clone::Clone for STRUCTURED_QUERY_MULTIOPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for STRUCTURED_QUERY_MULTIOPTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for STRUCTURED_QUERY_MULTIOPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("STRUCTURED_QUERY_MULTIOPTION").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type STRUCTURED_QUERY_PARSE_ERROR = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct STRUCTURED_QUERY_PARSE_ERROR(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQPE_NONE: STRUCTURED_QUERY_PARSE_ERROR = 0i32;
+pub const SQPE_NONE: STRUCTURED_QUERY_PARSE_ERROR = STRUCTURED_QUERY_PARSE_ERROR(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQPE_EXTRA_OPENING_PARENTHESIS: STRUCTURED_QUERY_PARSE_ERROR = 1i32;
+pub const SQPE_EXTRA_OPENING_PARENTHESIS: STRUCTURED_QUERY_PARSE_ERROR = STRUCTURED_QUERY_PARSE_ERROR(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQPE_EXTRA_CLOSING_PARENTHESIS: STRUCTURED_QUERY_PARSE_ERROR = 2i32;
+pub const SQPE_EXTRA_CLOSING_PARENTHESIS: STRUCTURED_QUERY_PARSE_ERROR = STRUCTURED_QUERY_PARSE_ERROR(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQPE_IGNORED_MODIFIER: STRUCTURED_QUERY_PARSE_ERROR = 3i32;
+pub const SQPE_IGNORED_MODIFIER: STRUCTURED_QUERY_PARSE_ERROR = STRUCTURED_QUERY_PARSE_ERROR(3i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQPE_IGNORED_CONNECTOR: STRUCTURED_QUERY_PARSE_ERROR = 4i32;
+pub const SQPE_IGNORED_CONNECTOR: STRUCTURED_QUERY_PARSE_ERROR = STRUCTURED_QUERY_PARSE_ERROR(4i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQPE_IGNORED_KEYWORD: STRUCTURED_QUERY_PARSE_ERROR = 5i32;
+pub const SQPE_IGNORED_KEYWORD: STRUCTURED_QUERY_PARSE_ERROR = STRUCTURED_QUERY_PARSE_ERROR(5i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQPE_UNHANDLED: STRUCTURED_QUERY_PARSE_ERROR = 6i32;
+pub const SQPE_UNHANDLED: STRUCTURED_QUERY_PARSE_ERROR = STRUCTURED_QUERY_PARSE_ERROR(6i32);
+impl ::core::marker::Copy for STRUCTURED_QUERY_PARSE_ERROR {}
+impl ::core::clone::Clone for STRUCTURED_QUERY_PARSE_ERROR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for STRUCTURED_QUERY_PARSE_ERROR {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for STRUCTURED_QUERY_PARSE_ERROR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("STRUCTURED_QUERY_PARSE_ERROR").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type STRUCTURED_QUERY_RESOLVE_OPTION = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct STRUCTURED_QUERY_RESOLVE_OPTION(pub u32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQRO_DEFAULT: STRUCTURED_QUERY_RESOLVE_OPTION = 0u32;
+pub const SQRO_DEFAULT: STRUCTURED_QUERY_RESOLVE_OPTION = STRUCTURED_QUERY_RESOLVE_OPTION(0u32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQRO_DONT_RESOLVE_DATETIME: STRUCTURED_QUERY_RESOLVE_OPTION = 1u32;
+pub const SQRO_DONT_RESOLVE_DATETIME: STRUCTURED_QUERY_RESOLVE_OPTION = STRUCTURED_QUERY_RESOLVE_OPTION(1u32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQRO_ALWAYS_ONE_INTERVAL: STRUCTURED_QUERY_RESOLVE_OPTION = 2u32;
+pub const SQRO_ALWAYS_ONE_INTERVAL: STRUCTURED_QUERY_RESOLVE_OPTION = STRUCTURED_QUERY_RESOLVE_OPTION(2u32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQRO_DONT_SIMPLIFY_CONDITION_TREES: STRUCTURED_QUERY_RESOLVE_OPTION = 4u32;
+pub const SQRO_DONT_SIMPLIFY_CONDITION_TREES: STRUCTURED_QUERY_RESOLVE_OPTION = STRUCTURED_QUERY_RESOLVE_OPTION(4u32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQRO_DONT_MAP_RELATIONS: STRUCTURED_QUERY_RESOLVE_OPTION = 8u32;
+pub const SQRO_DONT_MAP_RELATIONS: STRUCTURED_QUERY_RESOLVE_OPTION = STRUCTURED_QUERY_RESOLVE_OPTION(8u32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQRO_DONT_RESOLVE_RANGES: STRUCTURED_QUERY_RESOLVE_OPTION = 16u32;
+pub const SQRO_DONT_RESOLVE_RANGES: STRUCTURED_QUERY_RESOLVE_OPTION = STRUCTURED_QUERY_RESOLVE_OPTION(16u32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQRO_DONT_REMOVE_UNRESTRICTED_KEYWORDS: STRUCTURED_QUERY_RESOLVE_OPTION = 32u32;
+pub const SQRO_DONT_REMOVE_UNRESTRICTED_KEYWORDS: STRUCTURED_QUERY_RESOLVE_OPTION = STRUCTURED_QUERY_RESOLVE_OPTION(32u32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQRO_DONT_SPLIT_WORDS: STRUCTURED_QUERY_RESOLVE_OPTION = 64u32;
+pub const SQRO_DONT_SPLIT_WORDS: STRUCTURED_QUERY_RESOLVE_OPTION = STRUCTURED_QUERY_RESOLVE_OPTION(64u32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQRO_IGNORE_PHRASE_ORDER: STRUCTURED_QUERY_RESOLVE_OPTION = 128u32;
+pub const SQRO_IGNORE_PHRASE_ORDER: STRUCTURED_QUERY_RESOLVE_OPTION = STRUCTURED_QUERY_RESOLVE_OPTION(128u32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQRO_ADD_VALUE_TYPE_FOR_PLAIN_VALUES: STRUCTURED_QUERY_RESOLVE_OPTION = 256u32;
+pub const SQRO_ADD_VALUE_TYPE_FOR_PLAIN_VALUES: STRUCTURED_QUERY_RESOLVE_OPTION = STRUCTURED_QUERY_RESOLVE_OPTION(256u32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQRO_ADD_ROBUST_ITEM_NAME: STRUCTURED_QUERY_RESOLVE_OPTION = 512u32;
+pub const SQRO_ADD_ROBUST_ITEM_NAME: STRUCTURED_QUERY_RESOLVE_OPTION = STRUCTURED_QUERY_RESOLVE_OPTION(512u32);
+impl ::core::marker::Copy for STRUCTURED_QUERY_RESOLVE_OPTION {}
+impl ::core::clone::Clone for STRUCTURED_QUERY_RESOLVE_OPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for STRUCTURED_QUERY_RESOLVE_OPTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for STRUCTURED_QUERY_RESOLVE_OPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("STRUCTURED_QUERY_RESOLVE_OPTION").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for STRUCTURED_QUERY_RESOLVE_OPTION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for STRUCTURED_QUERY_RESOLVE_OPTION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for STRUCTURED_QUERY_RESOLVE_OPTION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for STRUCTURED_QUERY_RESOLVE_OPTION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for STRUCTURED_QUERY_RESOLVE_OPTION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type STRUCTURED_QUERY_SINGLE_OPTION = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct STRUCTURED_QUERY_SINGLE_OPTION(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQSO_SCHEMA: STRUCTURED_QUERY_SINGLE_OPTION = 0i32;
+pub const SQSO_SCHEMA: STRUCTURED_QUERY_SINGLE_OPTION = STRUCTURED_QUERY_SINGLE_OPTION(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQSO_LOCALE_WORD_BREAKING: STRUCTURED_QUERY_SINGLE_OPTION = 1i32;
+pub const SQSO_LOCALE_WORD_BREAKING: STRUCTURED_QUERY_SINGLE_OPTION = STRUCTURED_QUERY_SINGLE_OPTION(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQSO_WORD_BREAKER: STRUCTURED_QUERY_SINGLE_OPTION = 2i32;
+pub const SQSO_WORD_BREAKER: STRUCTURED_QUERY_SINGLE_OPTION = STRUCTURED_QUERY_SINGLE_OPTION(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQSO_NATURAL_SYNTAX: STRUCTURED_QUERY_SINGLE_OPTION = 3i32;
+pub const SQSO_NATURAL_SYNTAX: STRUCTURED_QUERY_SINGLE_OPTION = STRUCTURED_QUERY_SINGLE_OPTION(3i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQSO_AUTOMATIC_WILDCARD: STRUCTURED_QUERY_SINGLE_OPTION = 4i32;
+pub const SQSO_AUTOMATIC_WILDCARD: STRUCTURED_QUERY_SINGLE_OPTION = STRUCTURED_QUERY_SINGLE_OPTION(4i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQSO_TRACE_LEVEL: STRUCTURED_QUERY_SINGLE_OPTION = 5i32;
+pub const SQSO_TRACE_LEVEL: STRUCTURED_QUERY_SINGLE_OPTION = STRUCTURED_QUERY_SINGLE_OPTION(5i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQSO_LANGUAGE_KEYWORDS: STRUCTURED_QUERY_SINGLE_OPTION = 6i32;
+pub const SQSO_LANGUAGE_KEYWORDS: STRUCTURED_QUERY_SINGLE_OPTION = STRUCTURED_QUERY_SINGLE_OPTION(6i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQSO_SYNTAX: STRUCTURED_QUERY_SINGLE_OPTION = 7i32;
+pub const SQSO_SYNTAX: STRUCTURED_QUERY_SINGLE_OPTION = STRUCTURED_QUERY_SINGLE_OPTION(7i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQSO_TIME_ZONE: STRUCTURED_QUERY_SINGLE_OPTION = 8i32;
+pub const SQSO_TIME_ZONE: STRUCTURED_QUERY_SINGLE_OPTION = STRUCTURED_QUERY_SINGLE_OPTION(8i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQSO_IMPLICIT_CONNECTOR: STRUCTURED_QUERY_SINGLE_OPTION = 9i32;
+pub const SQSO_IMPLICIT_CONNECTOR: STRUCTURED_QUERY_SINGLE_OPTION = STRUCTURED_QUERY_SINGLE_OPTION(9i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQSO_CONNECTOR_CASE: STRUCTURED_QUERY_SINGLE_OPTION = 10i32;
+pub const SQSO_CONNECTOR_CASE: STRUCTURED_QUERY_SINGLE_OPTION = STRUCTURED_QUERY_SINGLE_OPTION(10i32);
+impl ::core::marker::Copy for STRUCTURED_QUERY_SINGLE_OPTION {}
+impl ::core::clone::Clone for STRUCTURED_QUERY_SINGLE_OPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for STRUCTURED_QUERY_SINGLE_OPTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for STRUCTURED_QUERY_SINGLE_OPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("STRUCTURED_QUERY_SINGLE_OPTION").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type STRUCTURED_QUERY_SYNTAX = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct STRUCTURED_QUERY_SYNTAX(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQS_NO_SYNTAX: STRUCTURED_QUERY_SYNTAX = 0i32;
+pub const SQS_NO_SYNTAX: STRUCTURED_QUERY_SYNTAX = STRUCTURED_QUERY_SYNTAX(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQS_ADVANCED_QUERY_SYNTAX: STRUCTURED_QUERY_SYNTAX = 1i32;
+pub const SQS_ADVANCED_QUERY_SYNTAX: STRUCTURED_QUERY_SYNTAX = STRUCTURED_QUERY_SYNTAX(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SQS_NATURAL_QUERY_SYNTAX: STRUCTURED_QUERY_SYNTAX = 2i32;
+pub const SQS_NATURAL_QUERY_SYNTAX: STRUCTURED_QUERY_SYNTAX = STRUCTURED_QUERY_SYNTAX(2i32);
+impl ::core::marker::Copy for STRUCTURED_QUERY_SYNTAX {}
+impl ::core::clone::Clone for STRUCTURED_QUERY_SYNTAX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for STRUCTURED_QUERY_SYNTAX {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for STRUCTURED_QUERY_SYNTAX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("STRUCTURED_QUERY_SYNTAX").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub const STS_ABORTXMLPARSE: i32 = -2147211756i32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
@@ -30561,35 +32633,51 @@ impl ::core::default::Default for SUBSCRIPTIONINFO {
     }
 }
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type SUBSCRIPTIONINFOFLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SUBSCRIPTIONINFOFLAGS(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SUBSINFO_SCHEDULE: SUBSCRIPTIONINFOFLAGS = 1i32;
+pub const SUBSINFO_SCHEDULE: SUBSCRIPTIONINFOFLAGS = SUBSCRIPTIONINFOFLAGS(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SUBSINFO_RECURSE: SUBSCRIPTIONINFOFLAGS = 2i32;
+pub const SUBSINFO_RECURSE: SUBSCRIPTIONINFOFLAGS = SUBSCRIPTIONINFOFLAGS(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SUBSINFO_WEBCRAWL: SUBSCRIPTIONINFOFLAGS = 4i32;
+pub const SUBSINFO_WEBCRAWL: SUBSCRIPTIONINFOFLAGS = SUBSCRIPTIONINFOFLAGS(4i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SUBSINFO_MAILNOT: SUBSCRIPTIONINFOFLAGS = 8i32;
+pub const SUBSINFO_MAILNOT: SUBSCRIPTIONINFOFLAGS = SUBSCRIPTIONINFOFLAGS(8i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SUBSINFO_MAXSIZEKB: SUBSCRIPTIONINFOFLAGS = 16i32;
+pub const SUBSINFO_MAXSIZEKB: SUBSCRIPTIONINFOFLAGS = SUBSCRIPTIONINFOFLAGS(16i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SUBSINFO_USER: SUBSCRIPTIONINFOFLAGS = 32i32;
+pub const SUBSINFO_USER: SUBSCRIPTIONINFOFLAGS = SUBSCRIPTIONINFOFLAGS(32i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SUBSINFO_PASSWORD: SUBSCRIPTIONINFOFLAGS = 64i32;
+pub const SUBSINFO_PASSWORD: SUBSCRIPTIONINFOFLAGS = SUBSCRIPTIONINFOFLAGS(64i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SUBSINFO_TASKFLAGS: SUBSCRIPTIONINFOFLAGS = 256i32;
+pub const SUBSINFO_TASKFLAGS: SUBSCRIPTIONINFOFLAGS = SUBSCRIPTIONINFOFLAGS(256i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SUBSINFO_GLEAM: SUBSCRIPTIONINFOFLAGS = 512i32;
+pub const SUBSINFO_GLEAM: SUBSCRIPTIONINFOFLAGS = SUBSCRIPTIONINFOFLAGS(512i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SUBSINFO_CHANGESONLY: SUBSCRIPTIONINFOFLAGS = 1024i32;
+pub const SUBSINFO_CHANGESONLY: SUBSCRIPTIONINFOFLAGS = SUBSCRIPTIONINFOFLAGS(1024i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SUBSINFO_CHANNELFLAGS: SUBSCRIPTIONINFOFLAGS = 2048i32;
+pub const SUBSINFO_CHANNELFLAGS: SUBSCRIPTIONINFOFLAGS = SUBSCRIPTIONINFOFLAGS(2048i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SUBSINFO_FRIENDLYNAME: SUBSCRIPTIONINFOFLAGS = 8192i32;
+pub const SUBSINFO_FRIENDLYNAME: SUBSCRIPTIONINFOFLAGS = SUBSCRIPTIONINFOFLAGS(8192i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SUBSINFO_NEEDPASSWORD: SUBSCRIPTIONINFOFLAGS = 16384i32;
+pub const SUBSINFO_NEEDPASSWORD: SUBSCRIPTIONINFOFLAGS = SUBSCRIPTIONINFOFLAGS(16384i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SUBSINFO_TYPE: SUBSCRIPTIONINFOFLAGS = 32768i32;
+pub const SUBSINFO_TYPE: SUBSCRIPTIONINFOFLAGS = SUBSCRIPTIONINFOFLAGS(32768i32);
+impl ::core::marker::Copy for SUBSCRIPTIONINFOFLAGS {}
+impl ::core::clone::Clone for SUBSCRIPTIONINFOFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SUBSCRIPTIONINFOFLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SUBSCRIPTIONINFOFLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SUBSCRIPTIONINFOFLAGS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub struct SUBSCRIPTIONITEMINFO {
@@ -30625,29 +32713,61 @@ impl ::core::default::Default for SUBSCRIPTIONITEMINFO {
     }
 }
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type SUBSCRIPTIONSCHEDULE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SUBSCRIPTIONSCHEDULE(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SUBSSCHED_AUTO: SUBSCRIPTIONSCHEDULE = 0i32;
+pub const SUBSSCHED_AUTO: SUBSCRIPTIONSCHEDULE = SUBSCRIPTIONSCHEDULE(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SUBSSCHED_DAILY: SUBSCRIPTIONSCHEDULE = 1i32;
+pub const SUBSSCHED_DAILY: SUBSCRIPTIONSCHEDULE = SUBSCRIPTIONSCHEDULE(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SUBSSCHED_WEEKLY: SUBSCRIPTIONSCHEDULE = 2i32;
+pub const SUBSSCHED_WEEKLY: SUBSCRIPTIONSCHEDULE = SUBSCRIPTIONSCHEDULE(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SUBSSCHED_CUSTOM: SUBSCRIPTIONSCHEDULE = 3i32;
+pub const SUBSSCHED_CUSTOM: SUBSCRIPTIONSCHEDULE = SUBSCRIPTIONSCHEDULE(3i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SUBSSCHED_MANUAL: SUBSCRIPTIONSCHEDULE = 4i32;
+pub const SUBSSCHED_MANUAL: SUBSCRIPTIONSCHEDULE = SUBSCRIPTIONSCHEDULE(4i32);
+impl ::core::marker::Copy for SUBSCRIPTIONSCHEDULE {}
+impl ::core::clone::Clone for SUBSCRIPTIONSCHEDULE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SUBSCRIPTIONSCHEDULE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SUBSCRIPTIONSCHEDULE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SUBSCRIPTIONSCHEDULE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type SUBSCRIPTIONTYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SUBSCRIPTIONTYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SUBSTYPE_URL: SUBSCRIPTIONTYPE = 0i32;
+pub const SUBSTYPE_URL: SUBSCRIPTIONTYPE = SUBSCRIPTIONTYPE(0i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SUBSTYPE_CHANNEL: SUBSCRIPTIONTYPE = 1i32;
+pub const SUBSTYPE_CHANNEL: SUBSCRIPTIONTYPE = SUBSCRIPTIONTYPE(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SUBSTYPE_DESKTOPURL: SUBSCRIPTIONTYPE = 2i32;
+pub const SUBSTYPE_DESKTOPURL: SUBSCRIPTIONTYPE = SUBSCRIPTIONTYPE(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SUBSTYPE_EXTERNAL: SUBSCRIPTIONTYPE = 3i32;
+pub const SUBSTYPE_EXTERNAL: SUBSCRIPTIONTYPE = SUBSCRIPTIONTYPE(3i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const SUBSTYPE_DESKTOPCHANNEL: SUBSCRIPTIONTYPE = 4i32;
+pub const SUBSTYPE_DESKTOPCHANNEL: SUBSCRIPTIONTYPE = SUBSCRIPTIONTYPE(4i32);
+impl ::core::marker::Copy for SUBSCRIPTIONTYPE {}
+impl ::core::clone::Clone for SUBSCRIPTIONTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SUBSCRIPTIONTYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SUBSCRIPTIONTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SUBSCRIPTIONTYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub const SUBSINFO_ALLFLAGS: u32 = 61311u32;
 #[doc = "*Required features: 'Win32_System_Search'*"]
@@ -30852,23 +32972,39 @@ impl ::core::default::Default for VECTORRESTRICTION {
     }
 }
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub type WEBCRAWL_RECURSEFLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WEBCRAWL_RECURSEFLAGS(pub i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const WEBCRAWL_DONT_MAKE_STICKY: WEBCRAWL_RECURSEFLAGS = 1i32;
+pub const WEBCRAWL_DONT_MAKE_STICKY: WEBCRAWL_RECURSEFLAGS = WEBCRAWL_RECURSEFLAGS(1i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const WEBCRAWL_GET_IMAGES: WEBCRAWL_RECURSEFLAGS = 2i32;
+pub const WEBCRAWL_GET_IMAGES: WEBCRAWL_RECURSEFLAGS = WEBCRAWL_RECURSEFLAGS(2i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const WEBCRAWL_GET_VIDEOS: WEBCRAWL_RECURSEFLAGS = 4i32;
+pub const WEBCRAWL_GET_VIDEOS: WEBCRAWL_RECURSEFLAGS = WEBCRAWL_RECURSEFLAGS(4i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const WEBCRAWL_GET_BGSOUNDS: WEBCRAWL_RECURSEFLAGS = 8i32;
+pub const WEBCRAWL_GET_BGSOUNDS: WEBCRAWL_RECURSEFLAGS = WEBCRAWL_RECURSEFLAGS(8i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const WEBCRAWL_GET_CONTROLS: WEBCRAWL_RECURSEFLAGS = 16i32;
+pub const WEBCRAWL_GET_CONTROLS: WEBCRAWL_RECURSEFLAGS = WEBCRAWL_RECURSEFLAGS(16i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const WEBCRAWL_LINKS_ELSEWHERE: WEBCRAWL_RECURSEFLAGS = 32i32;
+pub const WEBCRAWL_LINKS_ELSEWHERE: WEBCRAWL_RECURSEFLAGS = WEBCRAWL_RECURSEFLAGS(32i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const WEBCRAWL_IGNORE_ROBOTSTXT: WEBCRAWL_RECURSEFLAGS = 128i32;
+pub const WEBCRAWL_IGNORE_ROBOTSTXT: WEBCRAWL_RECURSEFLAGS = WEBCRAWL_RECURSEFLAGS(128i32);
 #[doc = "*Required features: 'Win32_System_Search'*"]
-pub const WEBCRAWL_ONLY_LINKS_TO_HTML: WEBCRAWL_RECURSEFLAGS = 256i32;
+pub const WEBCRAWL_ONLY_LINKS_TO_HTML: WEBCRAWL_RECURSEFLAGS = WEBCRAWL_RECURSEFLAGS(256i32);
+impl ::core::marker::Copy for WEBCRAWL_RECURSEFLAGS {}
+impl ::core::clone::Clone for WEBCRAWL_RECURSEFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WEBCRAWL_RECURSEFLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WEBCRAWL_RECURSEFLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WEBCRAWL_RECURSEFLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Search'*"]
 pub const XML_E_BADSXQL: i32 = -2147212799i32;
 #[doc = "*Required features: 'Win32_System_Search'*"]

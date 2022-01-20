@@ -1,10 +1,26 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub type ICS_TARGETTYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ICS_TARGETTYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const ICSTT_NAME: ICS_TARGETTYPE = 0i32;
+pub const ICSTT_NAME: ICS_TARGETTYPE = ICS_TARGETTYPE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const ICSTT_IPADDRESS: ICS_TARGETTYPE = 1i32;
+pub const ICSTT_IPADDRESS: ICS_TARGETTYPE = ICS_TARGETTYPE(1i32);
+impl ::core::marker::Copy for ICS_TARGETTYPE {}
+impl ::core::clone::Clone for ICS_TARGETTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ICS_TARGETTYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ICS_TARGETTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICS_TARGETTYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
@@ -1122,25 +1138,57 @@ impl ::core::default::Default for INET_FIREWALL_AC_CHANGE_0 {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub type INET_FIREWALL_AC_CHANGE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct INET_FIREWALL_AC_CHANGE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const INET_FIREWALL_AC_CHANGE_INVALID: INET_FIREWALL_AC_CHANGE_TYPE = 0i32;
+pub const INET_FIREWALL_AC_CHANGE_INVALID: INET_FIREWALL_AC_CHANGE_TYPE = INET_FIREWALL_AC_CHANGE_TYPE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const INET_FIREWALL_AC_CHANGE_CREATE: INET_FIREWALL_AC_CHANGE_TYPE = 1i32;
+pub const INET_FIREWALL_AC_CHANGE_CREATE: INET_FIREWALL_AC_CHANGE_TYPE = INET_FIREWALL_AC_CHANGE_TYPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const INET_FIREWALL_AC_CHANGE_DELETE: INET_FIREWALL_AC_CHANGE_TYPE = 2i32;
+pub const INET_FIREWALL_AC_CHANGE_DELETE: INET_FIREWALL_AC_CHANGE_TYPE = INET_FIREWALL_AC_CHANGE_TYPE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const INET_FIREWALL_AC_CHANGE_MAX: INET_FIREWALL_AC_CHANGE_TYPE = 3i32;
+pub const INET_FIREWALL_AC_CHANGE_MAX: INET_FIREWALL_AC_CHANGE_TYPE = INET_FIREWALL_AC_CHANGE_TYPE(3i32);
+impl ::core::marker::Copy for INET_FIREWALL_AC_CHANGE_TYPE {}
+impl ::core::clone::Clone for INET_FIREWALL_AC_CHANGE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for INET_FIREWALL_AC_CHANGE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for INET_FIREWALL_AC_CHANGE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INET_FIREWALL_AC_CHANGE_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub type INET_FIREWALL_AC_CREATION_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct INET_FIREWALL_AC_CREATION_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const INET_FIREWALL_AC_NONE: INET_FIREWALL_AC_CREATION_TYPE = 0i32;
+pub const INET_FIREWALL_AC_NONE: INET_FIREWALL_AC_CREATION_TYPE = INET_FIREWALL_AC_CREATION_TYPE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const INET_FIREWALL_AC_PACKAGE_ID_ONLY: INET_FIREWALL_AC_CREATION_TYPE = 1i32;
+pub const INET_FIREWALL_AC_PACKAGE_ID_ONLY: INET_FIREWALL_AC_CREATION_TYPE = INET_FIREWALL_AC_CREATION_TYPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const INET_FIREWALL_AC_BINARY: INET_FIREWALL_AC_CREATION_TYPE = 2i32;
+pub const INET_FIREWALL_AC_BINARY: INET_FIREWALL_AC_CREATION_TYPE = INET_FIREWALL_AC_CREATION_TYPE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const INET_FIREWALL_AC_MAX: INET_FIREWALL_AC_CREATION_TYPE = 4i32;
+pub const INET_FIREWALL_AC_MAX: INET_FIREWALL_AC_CREATION_TYPE = INET_FIREWALL_AC_CREATION_TYPE(4i32);
+impl ::core::marker::Copy for INET_FIREWALL_AC_CREATION_TYPE {}
+impl ::core::clone::Clone for INET_FIREWALL_AC_CREATION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for INET_FIREWALL_AC_CREATION_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for INET_FIREWALL_AC_CREATION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INET_FIREWALL_AC_CREATION_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
@@ -7082,87 +7130,151 @@ pub struct IUPnPNAT_Vtbl {
     NATEventManager: usize,
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub type NETCONMGR_ENUM_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NETCONMGR_ENUM_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCME_DEFAULT: NETCONMGR_ENUM_FLAGS = 0i32;
+pub const NCME_DEFAULT: NETCONMGR_ENUM_FLAGS = NETCONMGR_ENUM_FLAGS(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCME_HIDDEN: NETCONMGR_ENUM_FLAGS = 1i32;
+pub const NCME_HIDDEN: NETCONMGR_ENUM_FLAGS = NETCONMGR_ENUM_FLAGS(1i32);
+impl ::core::marker::Copy for NETCONMGR_ENUM_FLAGS {}
+impl ::core::clone::Clone for NETCONMGR_ENUM_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NETCONMGR_ENUM_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NETCONMGR_ENUM_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NETCONMGR_ENUM_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub type NETCONUI_CONNECT_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NETCONUI_CONNECT_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCUC_DEFAULT: NETCONUI_CONNECT_FLAGS = 0i32;
+pub const NCUC_DEFAULT: NETCONUI_CONNECT_FLAGS = NETCONUI_CONNECT_FLAGS(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCUC_NO_UI: NETCONUI_CONNECT_FLAGS = 1i32;
+pub const NCUC_NO_UI: NETCONUI_CONNECT_FLAGS = NETCONUI_CONNECT_FLAGS(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCUC_ENABLE_DISABLE: NETCONUI_CONNECT_FLAGS = 2i32;
+pub const NCUC_ENABLE_DISABLE: NETCONUI_CONNECT_FLAGS = NETCONUI_CONNECT_FLAGS(2i32);
+impl ::core::marker::Copy for NETCONUI_CONNECT_FLAGS {}
+impl ::core::clone::Clone for NETCONUI_CONNECT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NETCONUI_CONNECT_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NETCONUI_CONNECT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NETCONUI_CONNECT_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub type NETCON_CHARACTERISTIC_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NETCON_CHARACTERISTIC_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCCF_NONE: NETCON_CHARACTERISTIC_FLAGS = 0i32;
+pub const NCCF_NONE: NETCON_CHARACTERISTIC_FLAGS = NETCON_CHARACTERISTIC_FLAGS(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCCF_ALL_USERS: NETCON_CHARACTERISTIC_FLAGS = 1i32;
+pub const NCCF_ALL_USERS: NETCON_CHARACTERISTIC_FLAGS = NETCON_CHARACTERISTIC_FLAGS(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCCF_ALLOW_DUPLICATION: NETCON_CHARACTERISTIC_FLAGS = 2i32;
+pub const NCCF_ALLOW_DUPLICATION: NETCON_CHARACTERISTIC_FLAGS = NETCON_CHARACTERISTIC_FLAGS(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCCF_ALLOW_REMOVAL: NETCON_CHARACTERISTIC_FLAGS = 4i32;
+pub const NCCF_ALLOW_REMOVAL: NETCON_CHARACTERISTIC_FLAGS = NETCON_CHARACTERISTIC_FLAGS(4i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCCF_ALLOW_RENAME: NETCON_CHARACTERISTIC_FLAGS = 8i32;
+pub const NCCF_ALLOW_RENAME: NETCON_CHARACTERISTIC_FLAGS = NETCON_CHARACTERISTIC_FLAGS(8i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCCF_INCOMING_ONLY: NETCON_CHARACTERISTIC_FLAGS = 32i32;
+pub const NCCF_INCOMING_ONLY: NETCON_CHARACTERISTIC_FLAGS = NETCON_CHARACTERISTIC_FLAGS(32i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCCF_OUTGOING_ONLY: NETCON_CHARACTERISTIC_FLAGS = 64i32;
+pub const NCCF_OUTGOING_ONLY: NETCON_CHARACTERISTIC_FLAGS = NETCON_CHARACTERISTIC_FLAGS(64i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCCF_BRANDED: NETCON_CHARACTERISTIC_FLAGS = 128i32;
+pub const NCCF_BRANDED: NETCON_CHARACTERISTIC_FLAGS = NETCON_CHARACTERISTIC_FLAGS(128i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCCF_SHARED: NETCON_CHARACTERISTIC_FLAGS = 256i32;
+pub const NCCF_SHARED: NETCON_CHARACTERISTIC_FLAGS = NETCON_CHARACTERISTIC_FLAGS(256i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCCF_BRIDGED: NETCON_CHARACTERISTIC_FLAGS = 512i32;
+pub const NCCF_BRIDGED: NETCON_CHARACTERISTIC_FLAGS = NETCON_CHARACTERISTIC_FLAGS(512i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCCF_FIREWALLED: NETCON_CHARACTERISTIC_FLAGS = 1024i32;
+pub const NCCF_FIREWALLED: NETCON_CHARACTERISTIC_FLAGS = NETCON_CHARACTERISTIC_FLAGS(1024i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCCF_DEFAULT: NETCON_CHARACTERISTIC_FLAGS = 2048i32;
+pub const NCCF_DEFAULT: NETCON_CHARACTERISTIC_FLAGS = NETCON_CHARACTERISTIC_FLAGS(2048i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCCF_HOMENET_CAPABLE: NETCON_CHARACTERISTIC_FLAGS = 4096i32;
+pub const NCCF_HOMENET_CAPABLE: NETCON_CHARACTERISTIC_FLAGS = NETCON_CHARACTERISTIC_FLAGS(4096i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCCF_SHARED_PRIVATE: NETCON_CHARACTERISTIC_FLAGS = 8192i32;
+pub const NCCF_SHARED_PRIVATE: NETCON_CHARACTERISTIC_FLAGS = NETCON_CHARACTERISTIC_FLAGS(8192i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCCF_QUARANTINED: NETCON_CHARACTERISTIC_FLAGS = 16384i32;
+pub const NCCF_QUARANTINED: NETCON_CHARACTERISTIC_FLAGS = NETCON_CHARACTERISTIC_FLAGS(16384i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCCF_RESERVED: NETCON_CHARACTERISTIC_FLAGS = 32768i32;
+pub const NCCF_RESERVED: NETCON_CHARACTERISTIC_FLAGS = NETCON_CHARACTERISTIC_FLAGS(32768i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCCF_HOSTED_NETWORK: NETCON_CHARACTERISTIC_FLAGS = 65536i32;
+pub const NCCF_HOSTED_NETWORK: NETCON_CHARACTERISTIC_FLAGS = NETCON_CHARACTERISTIC_FLAGS(65536i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCCF_VIRTUAL_STATION: NETCON_CHARACTERISTIC_FLAGS = 131072i32;
+pub const NCCF_VIRTUAL_STATION: NETCON_CHARACTERISTIC_FLAGS = NETCON_CHARACTERISTIC_FLAGS(131072i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCCF_WIFI_DIRECT: NETCON_CHARACTERISTIC_FLAGS = 262144i32;
+pub const NCCF_WIFI_DIRECT: NETCON_CHARACTERISTIC_FLAGS = NETCON_CHARACTERISTIC_FLAGS(262144i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCCF_BLUETOOTH_MASK: NETCON_CHARACTERISTIC_FLAGS = 983040i32;
+pub const NCCF_BLUETOOTH_MASK: NETCON_CHARACTERISTIC_FLAGS = NETCON_CHARACTERISTIC_FLAGS(983040i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCCF_LAN_MASK: NETCON_CHARACTERISTIC_FLAGS = 15728640i32;
+pub const NCCF_LAN_MASK: NETCON_CHARACTERISTIC_FLAGS = NETCON_CHARACTERISTIC_FLAGS(15728640i32);
+impl ::core::marker::Copy for NETCON_CHARACTERISTIC_FLAGS {}
+impl ::core::clone::Clone for NETCON_CHARACTERISTIC_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NETCON_CHARACTERISTIC_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NETCON_CHARACTERISTIC_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NETCON_CHARACTERISTIC_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NETCON_MAX_NAME_LEN: u32 = 256u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub type NETCON_MEDIATYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NETCON_MEDIATYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCM_NONE: NETCON_MEDIATYPE = 0i32;
+pub const NCM_NONE: NETCON_MEDIATYPE = NETCON_MEDIATYPE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCM_DIRECT: NETCON_MEDIATYPE = 1i32;
+pub const NCM_DIRECT: NETCON_MEDIATYPE = NETCON_MEDIATYPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCM_ISDN: NETCON_MEDIATYPE = 2i32;
+pub const NCM_ISDN: NETCON_MEDIATYPE = NETCON_MEDIATYPE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCM_LAN: NETCON_MEDIATYPE = 3i32;
+pub const NCM_LAN: NETCON_MEDIATYPE = NETCON_MEDIATYPE(3i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCM_PHONE: NETCON_MEDIATYPE = 4i32;
+pub const NCM_PHONE: NETCON_MEDIATYPE = NETCON_MEDIATYPE(4i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCM_TUNNEL: NETCON_MEDIATYPE = 5i32;
+pub const NCM_TUNNEL: NETCON_MEDIATYPE = NETCON_MEDIATYPE(5i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCM_PPPOE: NETCON_MEDIATYPE = 6i32;
+pub const NCM_PPPOE: NETCON_MEDIATYPE = NETCON_MEDIATYPE(6i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCM_BRIDGE: NETCON_MEDIATYPE = 7i32;
+pub const NCM_BRIDGE: NETCON_MEDIATYPE = NETCON_MEDIATYPE(7i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCM_SHAREDACCESSHOST_LAN: NETCON_MEDIATYPE = 8i32;
+pub const NCM_SHAREDACCESSHOST_LAN: NETCON_MEDIATYPE = NETCON_MEDIATYPE(8i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCM_SHAREDACCESSHOST_RAS: NETCON_MEDIATYPE = 9i32;
+pub const NCM_SHAREDACCESSHOST_RAS: NETCON_MEDIATYPE = NETCON_MEDIATYPE(9i32);
+impl ::core::marker::Copy for NETCON_MEDIATYPE {}
+impl ::core::clone::Clone for NETCON_MEDIATYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NETCON_MEDIATYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NETCON_MEDIATYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NETCON_MEDIATYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7209,205 +7321,477 @@ impl ::core::default::Default for NETCON_PROPERTIES {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub type NETCON_STATUS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NETCON_STATUS(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCS_DISCONNECTED: NETCON_STATUS = 0i32;
+pub const NCS_DISCONNECTED: NETCON_STATUS = NETCON_STATUS(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCS_CONNECTING: NETCON_STATUS = 1i32;
+pub const NCS_CONNECTING: NETCON_STATUS = NETCON_STATUS(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCS_CONNECTED: NETCON_STATUS = 2i32;
+pub const NCS_CONNECTED: NETCON_STATUS = NETCON_STATUS(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCS_DISCONNECTING: NETCON_STATUS = 3i32;
+pub const NCS_DISCONNECTING: NETCON_STATUS = NETCON_STATUS(3i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCS_HARDWARE_NOT_PRESENT: NETCON_STATUS = 4i32;
+pub const NCS_HARDWARE_NOT_PRESENT: NETCON_STATUS = NETCON_STATUS(4i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCS_HARDWARE_DISABLED: NETCON_STATUS = 5i32;
+pub const NCS_HARDWARE_DISABLED: NETCON_STATUS = NETCON_STATUS(5i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCS_HARDWARE_MALFUNCTION: NETCON_STATUS = 6i32;
+pub const NCS_HARDWARE_MALFUNCTION: NETCON_STATUS = NETCON_STATUS(6i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCS_MEDIA_DISCONNECTED: NETCON_STATUS = 7i32;
+pub const NCS_MEDIA_DISCONNECTED: NETCON_STATUS = NETCON_STATUS(7i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCS_AUTHENTICATING: NETCON_STATUS = 8i32;
+pub const NCS_AUTHENTICATING: NETCON_STATUS = NETCON_STATUS(8i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCS_AUTHENTICATION_SUCCEEDED: NETCON_STATUS = 9i32;
+pub const NCS_AUTHENTICATION_SUCCEEDED: NETCON_STATUS = NETCON_STATUS(9i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCS_AUTHENTICATION_FAILED: NETCON_STATUS = 10i32;
+pub const NCS_AUTHENTICATION_FAILED: NETCON_STATUS = NETCON_STATUS(10i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCS_INVALID_ADDRESS: NETCON_STATUS = 11i32;
+pub const NCS_INVALID_ADDRESS: NETCON_STATUS = NETCON_STATUS(11i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCS_CREDENTIALS_REQUIRED: NETCON_STATUS = 12i32;
+pub const NCS_CREDENTIALS_REQUIRED: NETCON_STATUS = NETCON_STATUS(12i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCS_ACTION_REQUIRED: NETCON_STATUS = 13i32;
+pub const NCS_ACTION_REQUIRED: NETCON_STATUS = NETCON_STATUS(13i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCS_ACTION_REQUIRED_RETRY: NETCON_STATUS = 14i32;
+pub const NCS_ACTION_REQUIRED_RETRY: NETCON_STATUS = NETCON_STATUS(14i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCS_CONNECT_FAILED: NETCON_STATUS = 15i32;
+pub const NCS_CONNECT_FAILED: NETCON_STATUS = NETCON_STATUS(15i32);
+impl ::core::marker::Copy for NETCON_STATUS {}
+impl ::core::clone::Clone for NETCON_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NETCON_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NETCON_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NETCON_STATUS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub type NETCON_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NETCON_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCT_DIRECT_CONNECT: NETCON_TYPE = 0i32;
+pub const NCT_DIRECT_CONNECT: NETCON_TYPE = NETCON_TYPE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCT_INBOUND: NETCON_TYPE = 1i32;
+pub const NCT_INBOUND: NETCON_TYPE = NETCON_TYPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCT_INTERNET: NETCON_TYPE = 2i32;
+pub const NCT_INTERNET: NETCON_TYPE = NETCON_TYPE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCT_LAN: NETCON_TYPE = 3i32;
+pub const NCT_LAN: NETCON_TYPE = NETCON_TYPE(3i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCT_PHONE: NETCON_TYPE = 4i32;
+pub const NCT_PHONE: NETCON_TYPE = NETCON_TYPE(4i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCT_TUNNEL: NETCON_TYPE = 5i32;
+pub const NCT_TUNNEL: NETCON_TYPE = NETCON_TYPE(5i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NCT_BRIDGE: NETCON_TYPE = 6i32;
+pub const NCT_BRIDGE: NETCON_TYPE = NETCON_TYPE(6i32);
+impl ::core::marker::Copy for NETCON_TYPE {}
+impl ::core::clone::Clone for NETCON_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NETCON_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NETCON_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NETCON_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub type NETISO_ERROR_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NETISO_ERROR_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NETISO_ERROR_TYPE_NONE: NETISO_ERROR_TYPE = 0i32;
+pub const NETISO_ERROR_TYPE_NONE: NETISO_ERROR_TYPE = NETISO_ERROR_TYPE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NETISO_ERROR_TYPE_PRIVATE_NETWORK: NETISO_ERROR_TYPE = 1i32;
+pub const NETISO_ERROR_TYPE_PRIVATE_NETWORK: NETISO_ERROR_TYPE = NETISO_ERROR_TYPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NETISO_ERROR_TYPE_INTERNET_CLIENT: NETISO_ERROR_TYPE = 2i32;
+pub const NETISO_ERROR_TYPE_INTERNET_CLIENT: NETISO_ERROR_TYPE = NETISO_ERROR_TYPE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NETISO_ERROR_TYPE_INTERNET_CLIENT_SERVER: NETISO_ERROR_TYPE = 3i32;
+pub const NETISO_ERROR_TYPE_INTERNET_CLIENT_SERVER: NETISO_ERROR_TYPE = NETISO_ERROR_TYPE(3i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NETISO_ERROR_TYPE_MAX: NETISO_ERROR_TYPE = 4i32;
+pub const NETISO_ERROR_TYPE_MAX: NETISO_ERROR_TYPE = NETISO_ERROR_TYPE(4i32);
+impl ::core::marker::Copy for NETISO_ERROR_TYPE {}
+impl ::core::clone::Clone for NETISO_ERROR_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NETISO_ERROR_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NETISO_ERROR_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NETISO_ERROR_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub type NETISO_FLAG = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NETISO_FLAG(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NETISO_FLAG_FORCE_COMPUTE_BINARIES: NETISO_FLAG = 1i32;
+pub const NETISO_FLAG_FORCE_COMPUTE_BINARIES: NETISO_FLAG = NETISO_FLAG(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NETISO_FLAG_MAX: NETISO_FLAG = 2i32;
+pub const NETISO_FLAG_MAX: NETISO_FLAG = NETISO_FLAG(2i32);
+impl ::core::marker::Copy for NETISO_FLAG {}
+impl ::core::clone::Clone for NETISO_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NETISO_FLAG {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NETISO_FLAG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NETISO_FLAG").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NETISO_GEID_FOR_NEUTRAL_AWARE: u32 = 2u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const NETISO_GEID_FOR_WDAG: u32 = 1u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub type NET_FW_ACTION = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NET_FW_ACTION(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_ACTION_BLOCK: NET_FW_ACTION = 0i32;
+pub const NET_FW_ACTION_BLOCK: NET_FW_ACTION = NET_FW_ACTION(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_ACTION_ALLOW: NET_FW_ACTION = 1i32;
+pub const NET_FW_ACTION_ALLOW: NET_FW_ACTION = NET_FW_ACTION(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_ACTION_MAX: NET_FW_ACTION = 2i32;
+pub const NET_FW_ACTION_MAX: NET_FW_ACTION = NET_FW_ACTION(2i32);
+impl ::core::marker::Copy for NET_FW_ACTION {}
+impl ::core::clone::Clone for NET_FW_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NET_FW_ACTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NET_FW_ACTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NET_FW_ACTION").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub type NET_FW_AUTHENTICATE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NET_FW_AUTHENTICATE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_AUTHENTICATE_NONE: NET_FW_AUTHENTICATE_TYPE = 0i32;
+pub const NET_FW_AUTHENTICATE_NONE: NET_FW_AUTHENTICATE_TYPE = NET_FW_AUTHENTICATE_TYPE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_AUTHENTICATE_NO_ENCAPSULATION: NET_FW_AUTHENTICATE_TYPE = 1i32;
+pub const NET_FW_AUTHENTICATE_NO_ENCAPSULATION: NET_FW_AUTHENTICATE_TYPE = NET_FW_AUTHENTICATE_TYPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_AUTHENTICATE_WITH_INTEGRITY: NET_FW_AUTHENTICATE_TYPE = 2i32;
+pub const NET_FW_AUTHENTICATE_WITH_INTEGRITY: NET_FW_AUTHENTICATE_TYPE = NET_FW_AUTHENTICATE_TYPE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_AUTHENTICATE_AND_NEGOTIATE_ENCRYPTION: NET_FW_AUTHENTICATE_TYPE = 3i32;
+pub const NET_FW_AUTHENTICATE_AND_NEGOTIATE_ENCRYPTION: NET_FW_AUTHENTICATE_TYPE = NET_FW_AUTHENTICATE_TYPE(3i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_AUTHENTICATE_AND_ENCRYPT: NET_FW_AUTHENTICATE_TYPE = 4i32;
+pub const NET_FW_AUTHENTICATE_AND_ENCRYPT: NET_FW_AUTHENTICATE_TYPE = NET_FW_AUTHENTICATE_TYPE(4i32);
+impl ::core::marker::Copy for NET_FW_AUTHENTICATE_TYPE {}
+impl ::core::clone::Clone for NET_FW_AUTHENTICATE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NET_FW_AUTHENTICATE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NET_FW_AUTHENTICATE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NET_FW_AUTHENTICATE_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub type NET_FW_EDGE_TRAVERSAL_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NET_FW_EDGE_TRAVERSAL_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_EDGE_TRAVERSAL_TYPE_DENY: NET_FW_EDGE_TRAVERSAL_TYPE = 0i32;
+pub const NET_FW_EDGE_TRAVERSAL_TYPE_DENY: NET_FW_EDGE_TRAVERSAL_TYPE = NET_FW_EDGE_TRAVERSAL_TYPE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_EDGE_TRAVERSAL_TYPE_ALLOW: NET_FW_EDGE_TRAVERSAL_TYPE = 1i32;
+pub const NET_FW_EDGE_TRAVERSAL_TYPE_ALLOW: NET_FW_EDGE_TRAVERSAL_TYPE = NET_FW_EDGE_TRAVERSAL_TYPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_EDGE_TRAVERSAL_TYPE_DEFER_TO_APP: NET_FW_EDGE_TRAVERSAL_TYPE = 2i32;
+pub const NET_FW_EDGE_TRAVERSAL_TYPE_DEFER_TO_APP: NET_FW_EDGE_TRAVERSAL_TYPE = NET_FW_EDGE_TRAVERSAL_TYPE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_EDGE_TRAVERSAL_TYPE_DEFER_TO_USER: NET_FW_EDGE_TRAVERSAL_TYPE = 3i32;
+pub const NET_FW_EDGE_TRAVERSAL_TYPE_DEFER_TO_USER: NET_FW_EDGE_TRAVERSAL_TYPE = NET_FW_EDGE_TRAVERSAL_TYPE(3i32);
+impl ::core::marker::Copy for NET_FW_EDGE_TRAVERSAL_TYPE {}
+impl ::core::clone::Clone for NET_FW_EDGE_TRAVERSAL_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NET_FW_EDGE_TRAVERSAL_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NET_FW_EDGE_TRAVERSAL_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NET_FW_EDGE_TRAVERSAL_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub type NET_FW_IP_PROTOCOL = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NET_FW_IP_PROTOCOL(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_IP_PROTOCOL_TCP: NET_FW_IP_PROTOCOL = 6i32;
+pub const NET_FW_IP_PROTOCOL_TCP: NET_FW_IP_PROTOCOL = NET_FW_IP_PROTOCOL(6i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_IP_PROTOCOL_UDP: NET_FW_IP_PROTOCOL = 17i32;
+pub const NET_FW_IP_PROTOCOL_UDP: NET_FW_IP_PROTOCOL = NET_FW_IP_PROTOCOL(17i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_IP_PROTOCOL_ANY: NET_FW_IP_PROTOCOL = 256i32;
+pub const NET_FW_IP_PROTOCOL_ANY: NET_FW_IP_PROTOCOL = NET_FW_IP_PROTOCOL(256i32);
+impl ::core::marker::Copy for NET_FW_IP_PROTOCOL {}
+impl ::core::clone::Clone for NET_FW_IP_PROTOCOL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NET_FW_IP_PROTOCOL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NET_FW_IP_PROTOCOL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NET_FW_IP_PROTOCOL").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub type NET_FW_IP_VERSION = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NET_FW_IP_VERSION(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_IP_VERSION_V4: NET_FW_IP_VERSION = 0i32;
+pub const NET_FW_IP_VERSION_V4: NET_FW_IP_VERSION = NET_FW_IP_VERSION(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_IP_VERSION_V6: NET_FW_IP_VERSION = 1i32;
+pub const NET_FW_IP_VERSION_V6: NET_FW_IP_VERSION = NET_FW_IP_VERSION(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_IP_VERSION_ANY: NET_FW_IP_VERSION = 2i32;
+pub const NET_FW_IP_VERSION_ANY: NET_FW_IP_VERSION = NET_FW_IP_VERSION(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_IP_VERSION_MAX: NET_FW_IP_VERSION = 3i32;
+pub const NET_FW_IP_VERSION_MAX: NET_FW_IP_VERSION = NET_FW_IP_VERSION(3i32);
+impl ::core::marker::Copy for NET_FW_IP_VERSION {}
+impl ::core::clone::Clone for NET_FW_IP_VERSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NET_FW_IP_VERSION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NET_FW_IP_VERSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NET_FW_IP_VERSION").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub type NET_FW_MODIFY_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NET_FW_MODIFY_STATE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_MODIFY_STATE_OK: NET_FW_MODIFY_STATE = 0i32;
+pub const NET_FW_MODIFY_STATE_OK: NET_FW_MODIFY_STATE = NET_FW_MODIFY_STATE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_MODIFY_STATE_GP_OVERRIDE: NET_FW_MODIFY_STATE = 1i32;
+pub const NET_FW_MODIFY_STATE_GP_OVERRIDE: NET_FW_MODIFY_STATE = NET_FW_MODIFY_STATE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_MODIFY_STATE_INBOUND_BLOCKED: NET_FW_MODIFY_STATE = 2i32;
+pub const NET_FW_MODIFY_STATE_INBOUND_BLOCKED: NET_FW_MODIFY_STATE = NET_FW_MODIFY_STATE(2i32);
+impl ::core::marker::Copy for NET_FW_MODIFY_STATE {}
+impl ::core::clone::Clone for NET_FW_MODIFY_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NET_FW_MODIFY_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NET_FW_MODIFY_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NET_FW_MODIFY_STATE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub type NET_FW_POLICY_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NET_FW_POLICY_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_POLICY_GROUP: NET_FW_POLICY_TYPE = 0i32;
+pub const NET_FW_POLICY_GROUP: NET_FW_POLICY_TYPE = NET_FW_POLICY_TYPE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_POLICY_LOCAL: NET_FW_POLICY_TYPE = 1i32;
+pub const NET_FW_POLICY_LOCAL: NET_FW_POLICY_TYPE = NET_FW_POLICY_TYPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_POLICY_EFFECTIVE: NET_FW_POLICY_TYPE = 2i32;
+pub const NET_FW_POLICY_EFFECTIVE: NET_FW_POLICY_TYPE = NET_FW_POLICY_TYPE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_POLICY_TYPE_MAX: NET_FW_POLICY_TYPE = 3i32;
+pub const NET_FW_POLICY_TYPE_MAX: NET_FW_POLICY_TYPE = NET_FW_POLICY_TYPE(3i32);
+impl ::core::marker::Copy for NET_FW_POLICY_TYPE {}
+impl ::core::clone::Clone for NET_FW_POLICY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NET_FW_POLICY_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NET_FW_POLICY_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NET_FW_POLICY_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub type NET_FW_PROFILE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NET_FW_PROFILE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_PROFILE_DOMAIN: NET_FW_PROFILE_TYPE = 0i32;
+pub const NET_FW_PROFILE_DOMAIN: NET_FW_PROFILE_TYPE = NET_FW_PROFILE_TYPE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_PROFILE_STANDARD: NET_FW_PROFILE_TYPE = 1i32;
+pub const NET_FW_PROFILE_STANDARD: NET_FW_PROFILE_TYPE = NET_FW_PROFILE_TYPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_PROFILE_CURRENT: NET_FW_PROFILE_TYPE = 2i32;
+pub const NET_FW_PROFILE_CURRENT: NET_FW_PROFILE_TYPE = NET_FW_PROFILE_TYPE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_PROFILE_TYPE_MAX: NET_FW_PROFILE_TYPE = 3i32;
+pub const NET_FW_PROFILE_TYPE_MAX: NET_FW_PROFILE_TYPE = NET_FW_PROFILE_TYPE(3i32);
+impl ::core::marker::Copy for NET_FW_PROFILE_TYPE {}
+impl ::core::clone::Clone for NET_FW_PROFILE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NET_FW_PROFILE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NET_FW_PROFILE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NET_FW_PROFILE_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub type NET_FW_PROFILE_TYPE2 = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NET_FW_PROFILE_TYPE2(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_PROFILE2_DOMAIN: NET_FW_PROFILE_TYPE2 = 1i32;
+pub const NET_FW_PROFILE2_DOMAIN: NET_FW_PROFILE_TYPE2 = NET_FW_PROFILE_TYPE2(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_PROFILE2_PRIVATE: NET_FW_PROFILE_TYPE2 = 2i32;
+pub const NET_FW_PROFILE2_PRIVATE: NET_FW_PROFILE_TYPE2 = NET_FW_PROFILE_TYPE2(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_PROFILE2_PUBLIC: NET_FW_PROFILE_TYPE2 = 4i32;
+pub const NET_FW_PROFILE2_PUBLIC: NET_FW_PROFILE_TYPE2 = NET_FW_PROFILE_TYPE2(4i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_PROFILE2_ALL: NET_FW_PROFILE_TYPE2 = 2147483647i32;
+pub const NET_FW_PROFILE2_ALL: NET_FW_PROFILE_TYPE2 = NET_FW_PROFILE_TYPE2(2147483647i32);
+impl ::core::marker::Copy for NET_FW_PROFILE_TYPE2 {}
+impl ::core::clone::Clone for NET_FW_PROFILE_TYPE2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NET_FW_PROFILE_TYPE2 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NET_FW_PROFILE_TYPE2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NET_FW_PROFILE_TYPE2").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub type NET_FW_RULE_CATEGORY = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NET_FW_RULE_CATEGORY(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_RULE_CATEGORY_BOOT: NET_FW_RULE_CATEGORY = 0i32;
+pub const NET_FW_RULE_CATEGORY_BOOT: NET_FW_RULE_CATEGORY = NET_FW_RULE_CATEGORY(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_RULE_CATEGORY_STEALTH: NET_FW_RULE_CATEGORY = 1i32;
+pub const NET_FW_RULE_CATEGORY_STEALTH: NET_FW_RULE_CATEGORY = NET_FW_RULE_CATEGORY(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_RULE_CATEGORY_FIREWALL: NET_FW_RULE_CATEGORY = 2i32;
+pub const NET_FW_RULE_CATEGORY_FIREWALL: NET_FW_RULE_CATEGORY = NET_FW_RULE_CATEGORY(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_RULE_CATEGORY_CONSEC: NET_FW_RULE_CATEGORY = 3i32;
+pub const NET_FW_RULE_CATEGORY_CONSEC: NET_FW_RULE_CATEGORY = NET_FW_RULE_CATEGORY(3i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_RULE_CATEGORY_MAX: NET_FW_RULE_CATEGORY = 4i32;
+pub const NET_FW_RULE_CATEGORY_MAX: NET_FW_RULE_CATEGORY = NET_FW_RULE_CATEGORY(4i32);
+impl ::core::marker::Copy for NET_FW_RULE_CATEGORY {}
+impl ::core::clone::Clone for NET_FW_RULE_CATEGORY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NET_FW_RULE_CATEGORY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NET_FW_RULE_CATEGORY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NET_FW_RULE_CATEGORY").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub type NET_FW_RULE_DIRECTION = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NET_FW_RULE_DIRECTION(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_RULE_DIR_IN: NET_FW_RULE_DIRECTION = 1i32;
+pub const NET_FW_RULE_DIR_IN: NET_FW_RULE_DIRECTION = NET_FW_RULE_DIRECTION(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_RULE_DIR_OUT: NET_FW_RULE_DIRECTION = 2i32;
+pub const NET_FW_RULE_DIR_OUT: NET_FW_RULE_DIRECTION = NET_FW_RULE_DIRECTION(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_RULE_DIR_MAX: NET_FW_RULE_DIRECTION = 3i32;
+pub const NET_FW_RULE_DIR_MAX: NET_FW_RULE_DIRECTION = NET_FW_RULE_DIRECTION(3i32);
+impl ::core::marker::Copy for NET_FW_RULE_DIRECTION {}
+impl ::core::clone::Clone for NET_FW_RULE_DIRECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NET_FW_RULE_DIRECTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NET_FW_RULE_DIRECTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NET_FW_RULE_DIRECTION").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub type NET_FW_SCOPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NET_FW_SCOPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_SCOPE_ALL: NET_FW_SCOPE = 0i32;
+pub const NET_FW_SCOPE_ALL: NET_FW_SCOPE = NET_FW_SCOPE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_SCOPE_LOCAL_SUBNET: NET_FW_SCOPE = 1i32;
+pub const NET_FW_SCOPE_LOCAL_SUBNET: NET_FW_SCOPE = NET_FW_SCOPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_SCOPE_CUSTOM: NET_FW_SCOPE = 2i32;
+pub const NET_FW_SCOPE_CUSTOM: NET_FW_SCOPE = NET_FW_SCOPE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_SCOPE_MAX: NET_FW_SCOPE = 3i32;
+pub const NET_FW_SCOPE_MAX: NET_FW_SCOPE = NET_FW_SCOPE(3i32);
+impl ::core::marker::Copy for NET_FW_SCOPE {}
+impl ::core::clone::Clone for NET_FW_SCOPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NET_FW_SCOPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NET_FW_SCOPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NET_FW_SCOPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub type NET_FW_SERVICE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NET_FW_SERVICE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_SERVICE_FILE_AND_PRINT: NET_FW_SERVICE_TYPE = 0i32;
+pub const NET_FW_SERVICE_FILE_AND_PRINT: NET_FW_SERVICE_TYPE = NET_FW_SERVICE_TYPE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_SERVICE_UPNP: NET_FW_SERVICE_TYPE = 1i32;
+pub const NET_FW_SERVICE_UPNP: NET_FW_SERVICE_TYPE = NET_FW_SERVICE_TYPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_SERVICE_REMOTE_DESKTOP: NET_FW_SERVICE_TYPE = 2i32;
+pub const NET_FW_SERVICE_REMOTE_DESKTOP: NET_FW_SERVICE_TYPE = NET_FW_SERVICE_TYPE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_SERVICE_NONE: NET_FW_SERVICE_TYPE = 3i32;
+pub const NET_FW_SERVICE_NONE: NET_FW_SERVICE_TYPE = NET_FW_SERVICE_TYPE(3i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const NET_FW_SERVICE_TYPE_MAX: NET_FW_SERVICE_TYPE = 4i32;
+pub const NET_FW_SERVICE_TYPE_MAX: NET_FW_SERVICE_TYPE = NET_FW_SERVICE_TYPE(4i32);
+impl ::core::marker::Copy for NET_FW_SERVICE_TYPE {}
+impl ::core::clone::Clone for NET_FW_SERVICE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NET_FW_SERVICE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NET_FW_SERVICE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NET_FW_SERVICE_TYPE").field(&self.0).finish()
+    }
+}
 pub const NetFwAuthorizedApplication: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec9846b3_2762_4a6b_a214_6acb603462d2);
 pub const NetFwMgr: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x304ce942_6e39_40d8_943a_b913c40c9cd4);
 pub const NetFwOpenPort: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ca545c6_37ad_4a6c_bf92_9f7610067ef5);
@@ -7560,17 +7944,49 @@ pub type PFN_FWUPDATEDYNAMICKEYWORDADDRESS0 = ::core::option::Option<unsafe exte
 #[cfg(feature = "Win32_Foundation")]
 pub type PNETISO_EDP_ID_CALLBACK_FN = ::core::option::Option<unsafe extern "system" fn(context: *mut ::core::ffi::c_void, wszenterpriseid: super::super::Foundation::PWSTR, dwerr: u32)>;
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub type SHARINGCONNECTIONTYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SHARINGCONNECTIONTYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const ICSSHARINGTYPE_PUBLIC: SHARINGCONNECTIONTYPE = 0i32;
+pub const ICSSHARINGTYPE_PUBLIC: SHARINGCONNECTIONTYPE = SHARINGCONNECTIONTYPE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const ICSSHARINGTYPE_PRIVATE: SHARINGCONNECTIONTYPE = 1i32;
+pub const ICSSHARINGTYPE_PRIVATE: SHARINGCONNECTIONTYPE = SHARINGCONNECTIONTYPE(1i32);
+impl ::core::marker::Copy for SHARINGCONNECTIONTYPE {}
+impl ::core::clone::Clone for SHARINGCONNECTIONTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SHARINGCONNECTIONTYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SHARINGCONNECTIONTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SHARINGCONNECTIONTYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub type SHARINGCONNECTION_ENUM_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SHARINGCONNECTION_ENUM_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const ICSSC_DEFAULT: SHARINGCONNECTION_ENUM_FLAGS = 0i32;
+pub const ICSSC_DEFAULT: SHARINGCONNECTION_ENUM_FLAGS = SHARINGCONNECTION_ENUM_FLAGS(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const ICSSC_ENABLED: SHARINGCONNECTION_ENUM_FLAGS = 1i32;
+pub const ICSSC_ENABLED: SHARINGCONNECTION_ENUM_FLAGS = SHARINGCONNECTION_ENUM_FLAGS(1i32);
+impl ::core::marker::Copy for SHARINGCONNECTION_ENUM_FLAGS {}
+impl ::core::clone::Clone for SHARINGCONNECTION_ENUM_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SHARINGCONNECTION_ENUM_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SHARINGCONNECTION_ENUM_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SHARINGCONNECTION_ENUM_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
 pub const S_OBJECT_NO_LONGER_VALID: ::windows::core::HRESULT = ::windows::core::HRESULT(2i32);
 pub const UPnPNAT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae1e00aa_3fd5_403c_8a27_2bbdc30cd0e1);
@@ -7657,24 +8073,72 @@ impl ::core::default::Default for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_DATA0 {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub type _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_AUTO_RESOLVE: _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS = 1i32;
+pub const FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_AUTO_RESOLVE: _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS = _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_NON_AUTO_RESOLVE: _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS = 2i32;
+pub const FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_NON_AUTO_RESOLVE: _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS = _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_ALL: _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS = 3i32;
+pub const FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS_ALL: _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS = _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS(3i32);
+impl ::core::marker::Copy for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS {}
+impl ::core::clone::Clone for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_tag_FW_DYNAMIC_KEYWORD_ADDRESS_ENUM_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub type _tag_FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct _tag_FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS_AUTO_RESOLVE: _tag_FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS = 1i32;
+pub const FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS_AUTO_RESOLVE: _tag_FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS = _tag_FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS(1i32);
+impl ::core::marker::Copy for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS {}
+impl ::core::clone::Clone for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for _tag_FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_tag_FW_DYNAMIC_KEYWORD_ADDRESS_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub type _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const FW_DYNAMIC_KEYWORD_ORIGIN_INVALID: _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE = 0i32;
+pub const FW_DYNAMIC_KEYWORD_ORIGIN_INVALID: _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE = _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const FW_DYNAMIC_KEYWORD_ORIGIN_LOCAL: _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE = 1i32;
+pub const FW_DYNAMIC_KEYWORD_ORIGIN_LOCAL: _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE = _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_WindowsFirewall'*"]
-pub const FW_DYNAMIC_KEYWORD_ORIGIN_MDM: _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE = 2i32;
+pub const FW_DYNAMIC_KEYWORD_ORIGIN_MDM: _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE = _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE(2i32);
+impl ::core::marker::Copy for _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE {}
+impl ::core::clone::Clone for _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for _tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_tag_FW_DYNAMIC_KEYWORD_ORIGIN_TYPE").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

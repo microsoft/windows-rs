@@ -300,37 +300,81 @@ impl ::core::default::Default for CONSOLE_HISTORY_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_System_Console'*"]
-pub type CONSOLE_MODE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CONSOLE_MODE(pub u32);
 #[doc = "*Required features: 'Win32_System_Console'*"]
-pub const ENABLE_PROCESSED_INPUT: CONSOLE_MODE = 1u32;
+pub const ENABLE_PROCESSED_INPUT: CONSOLE_MODE = CONSOLE_MODE(1u32);
 #[doc = "*Required features: 'Win32_System_Console'*"]
-pub const ENABLE_LINE_INPUT: CONSOLE_MODE = 2u32;
+pub const ENABLE_LINE_INPUT: CONSOLE_MODE = CONSOLE_MODE(2u32);
 #[doc = "*Required features: 'Win32_System_Console'*"]
-pub const ENABLE_ECHO_INPUT: CONSOLE_MODE = 4u32;
+pub const ENABLE_ECHO_INPUT: CONSOLE_MODE = CONSOLE_MODE(4u32);
 #[doc = "*Required features: 'Win32_System_Console'*"]
-pub const ENABLE_WINDOW_INPUT: CONSOLE_MODE = 8u32;
+pub const ENABLE_WINDOW_INPUT: CONSOLE_MODE = CONSOLE_MODE(8u32);
 #[doc = "*Required features: 'Win32_System_Console'*"]
-pub const ENABLE_MOUSE_INPUT: CONSOLE_MODE = 16u32;
+pub const ENABLE_MOUSE_INPUT: CONSOLE_MODE = CONSOLE_MODE(16u32);
 #[doc = "*Required features: 'Win32_System_Console'*"]
-pub const ENABLE_INSERT_MODE: CONSOLE_MODE = 32u32;
+pub const ENABLE_INSERT_MODE: CONSOLE_MODE = CONSOLE_MODE(32u32);
 #[doc = "*Required features: 'Win32_System_Console'*"]
-pub const ENABLE_QUICK_EDIT_MODE: CONSOLE_MODE = 64u32;
+pub const ENABLE_QUICK_EDIT_MODE: CONSOLE_MODE = CONSOLE_MODE(64u32);
 #[doc = "*Required features: 'Win32_System_Console'*"]
-pub const ENABLE_EXTENDED_FLAGS: CONSOLE_MODE = 128u32;
+pub const ENABLE_EXTENDED_FLAGS: CONSOLE_MODE = CONSOLE_MODE(128u32);
 #[doc = "*Required features: 'Win32_System_Console'*"]
-pub const ENABLE_AUTO_POSITION: CONSOLE_MODE = 256u32;
+pub const ENABLE_AUTO_POSITION: CONSOLE_MODE = CONSOLE_MODE(256u32);
 #[doc = "*Required features: 'Win32_System_Console'*"]
-pub const ENABLE_VIRTUAL_TERMINAL_INPUT: CONSOLE_MODE = 512u32;
+pub const ENABLE_VIRTUAL_TERMINAL_INPUT: CONSOLE_MODE = CONSOLE_MODE(512u32);
 #[doc = "*Required features: 'Win32_System_Console'*"]
-pub const ENABLE_PROCESSED_OUTPUT: CONSOLE_MODE = 1u32;
+pub const ENABLE_PROCESSED_OUTPUT: CONSOLE_MODE = CONSOLE_MODE(1u32);
 #[doc = "*Required features: 'Win32_System_Console'*"]
-pub const ENABLE_WRAP_AT_EOL_OUTPUT: CONSOLE_MODE = 2u32;
+pub const ENABLE_WRAP_AT_EOL_OUTPUT: CONSOLE_MODE = CONSOLE_MODE(2u32);
 #[doc = "*Required features: 'Win32_System_Console'*"]
-pub const ENABLE_VIRTUAL_TERMINAL_PROCESSING: CONSOLE_MODE = 4u32;
+pub const ENABLE_VIRTUAL_TERMINAL_PROCESSING: CONSOLE_MODE = CONSOLE_MODE(4u32);
 #[doc = "*Required features: 'Win32_System_Console'*"]
-pub const DISABLE_NEWLINE_AUTO_RETURN: CONSOLE_MODE = 8u32;
+pub const DISABLE_NEWLINE_AUTO_RETURN: CONSOLE_MODE = CONSOLE_MODE(8u32);
 #[doc = "*Required features: 'Win32_System_Console'*"]
-pub const ENABLE_LVB_GRID_WORLDWIDE: CONSOLE_MODE = 16u32;
+pub const ENABLE_LVB_GRID_WORLDWIDE: CONSOLE_MODE = CONSOLE_MODE(16u32);
+impl ::core::marker::Copy for CONSOLE_MODE {}
+impl ::core::clone::Clone for CONSOLE_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CONSOLE_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CONSOLE_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CONSOLE_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CONSOLE_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CONSOLE_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CONSOLE_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CONSOLE_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CONSOLE_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Console'*"]
 pub const CONSOLE_MOUSE_DOWN: u32 = 8u32;
 #[doc = "*Required features: 'Win32_System_Console'*"]
@@ -1789,13 +1833,57 @@ impl ::core::default::Default for SMALL_RECT {
     }
 }
 #[doc = "*Required features: 'Win32_System_Console'*"]
-pub type STD_HANDLE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct STD_HANDLE(pub u32);
 #[doc = "*Required features: 'Win32_System_Console'*"]
-pub const STD_INPUT_HANDLE: STD_HANDLE = 4294967286u32;
+pub const STD_INPUT_HANDLE: STD_HANDLE = STD_HANDLE(4294967286u32);
 #[doc = "*Required features: 'Win32_System_Console'*"]
-pub const STD_OUTPUT_HANDLE: STD_HANDLE = 4294967285u32;
+pub const STD_OUTPUT_HANDLE: STD_HANDLE = STD_HANDLE(4294967285u32);
 #[doc = "*Required features: 'Win32_System_Console'*"]
-pub const STD_ERROR_HANDLE: STD_HANDLE = 4294967284u32;
+pub const STD_ERROR_HANDLE: STD_HANDLE = STD_HANDLE(4294967284u32);
+impl ::core::marker::Copy for STD_HANDLE {}
+impl ::core::clone::Clone for STD_HANDLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for STD_HANDLE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for STD_HANDLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("STD_HANDLE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for STD_HANDLE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for STD_HANDLE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for STD_HANDLE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for STD_HANDLE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for STD_HANDLE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Console', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]

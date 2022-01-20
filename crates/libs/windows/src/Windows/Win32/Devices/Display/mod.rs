@@ -1,24 +1,40 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub type AR_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct AR_STATE(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const AR_ENABLED: AR_STATE = 0i32;
+pub const AR_ENABLED: AR_STATE = AR_STATE(0i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const AR_DISABLED: AR_STATE = 1i32;
+pub const AR_DISABLED: AR_STATE = AR_STATE(1i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const AR_SUPPRESSED: AR_STATE = 2i32;
+pub const AR_SUPPRESSED: AR_STATE = AR_STATE(2i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const AR_REMOTESESSION: AR_STATE = 4i32;
+pub const AR_REMOTESESSION: AR_STATE = AR_STATE(4i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const AR_MULTIMON: AR_STATE = 8i32;
+pub const AR_MULTIMON: AR_STATE = AR_STATE(8i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const AR_NOSENSOR: AR_STATE = 16i32;
+pub const AR_NOSENSOR: AR_STATE = AR_STATE(16i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const AR_NOT_SUPPORTED: AR_STATE = 32i32;
+pub const AR_NOT_SUPPORTED: AR_STATE = AR_STATE(32i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const AR_DOCKED: AR_STATE = 64i32;
+pub const AR_DOCKED: AR_STATE = AR_STATE(64i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const AR_LAPTOP: AR_STATE = 128i32;
+pub const AR_LAPTOP: AR_STATE = AR_STATE(128i32);
+impl ::core::marker::Copy for AR_STATE {}
+impl ::core::clone::Clone for AR_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for AR_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AR_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AR_STATE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
 pub struct Adapter {
@@ -83,17 +99,33 @@ impl ::core::default::Default for Adapters {
     }
 }
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub type BACKLIGHT_OPTIMIZATION_LEVEL = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct BACKLIGHT_OPTIMIZATION_LEVEL(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const BacklightOptimizationDisable: BACKLIGHT_OPTIMIZATION_LEVEL = 0i32;
+pub const BacklightOptimizationDisable: BACKLIGHT_OPTIMIZATION_LEVEL = BACKLIGHT_OPTIMIZATION_LEVEL(0i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const BacklightOptimizationDesktop: BACKLIGHT_OPTIMIZATION_LEVEL = 1i32;
+pub const BacklightOptimizationDesktop: BACKLIGHT_OPTIMIZATION_LEVEL = BACKLIGHT_OPTIMIZATION_LEVEL(1i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const BacklightOptimizationDynamic: BACKLIGHT_OPTIMIZATION_LEVEL = 2i32;
+pub const BacklightOptimizationDynamic: BACKLIGHT_OPTIMIZATION_LEVEL = BACKLIGHT_OPTIMIZATION_LEVEL(2i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const BacklightOptimizationDimmed: BACKLIGHT_OPTIMIZATION_LEVEL = 3i32;
+pub const BacklightOptimizationDimmed: BACKLIGHT_OPTIMIZATION_LEVEL = BACKLIGHT_OPTIMIZATION_LEVEL(3i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const BacklightOptimizationEDR: BACKLIGHT_OPTIMIZATION_LEVEL = 4i32;
+pub const BacklightOptimizationEDR: BACKLIGHT_OPTIMIZATION_LEVEL = BACKLIGHT_OPTIMIZATION_LEVEL(4i32);
+impl ::core::marker::Copy for BACKLIGHT_OPTIMIZATION_LEVEL {}
+impl ::core::clone::Clone for BACKLIGHT_OPTIMIZATION_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BACKLIGHT_OPTIMIZATION_LEVEL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BACKLIGHT_OPTIMIZATION_LEVEL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BACKLIGHT_OPTIMIZATION_LEVEL").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
 pub struct BACKLIGHT_REDUCTION_GAMMA_RAMP {
@@ -250,13 +282,29 @@ pub const BMF_USERMEM: u32 = 8u32;
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
 pub const BMF_WINDOW_BLT: u32 = 64u32;
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub type BRIGHTNESS_INTERFACE_VERSION = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct BRIGHTNESS_INTERFACE_VERSION(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const BRIGHTNESS_INTERFACE_VERSION_1: BRIGHTNESS_INTERFACE_VERSION = 1i32;
+pub const BRIGHTNESS_INTERFACE_VERSION_1: BRIGHTNESS_INTERFACE_VERSION = BRIGHTNESS_INTERFACE_VERSION(1i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const BRIGHTNESS_INTERFACE_VERSION_2: BRIGHTNESS_INTERFACE_VERSION = 2i32;
+pub const BRIGHTNESS_INTERFACE_VERSION_2: BRIGHTNESS_INTERFACE_VERSION = BRIGHTNESS_INTERFACE_VERSION(2i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const BRIGHTNESS_INTERFACE_VERSION_3: BRIGHTNESS_INTERFACE_VERSION = 3i32;
+pub const BRIGHTNESS_INTERFACE_VERSION_3: BRIGHTNESS_INTERFACE_VERSION = BRIGHTNESS_INTERFACE_VERSION(3i32);
+impl ::core::marker::Copy for BRIGHTNESS_INTERFACE_VERSION {}
+impl ::core::clone::Clone for BRIGHTNESS_INTERFACE_VERSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BRIGHTNESS_INTERFACE_VERSION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BRIGHTNESS_INTERFACE_VERSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BRIGHTNESS_INTERFACE_VERSION").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
 pub struct BRIGHTNESS_LEVEL {
@@ -455,11 +503,27 @@ pub const BR_HOST_ICM: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
 pub const BR_ORIGCOLOR: u32 = 8u32;
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub type BlackScreenDiagnosticsCalloutParam = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct BlackScreenDiagnosticsCalloutParam(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const BlackScreenDiagnosticsData: BlackScreenDiagnosticsCalloutParam = 1i32;
+pub const BlackScreenDiagnosticsData: BlackScreenDiagnosticsCalloutParam = BlackScreenDiagnosticsCalloutParam(1i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const BlackScreenDisplayRecovery: BlackScreenDiagnosticsCalloutParam = 2i32;
+pub const BlackScreenDisplayRecovery: BlackScreenDiagnosticsCalloutParam = BlackScreenDiagnosticsCalloutParam(2i32);
+impl ::core::marker::Copy for BlackScreenDiagnosticsCalloutParam {}
+impl ::core::clone::Clone for BlackScreenDiagnosticsCalloutParam {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BlackScreenDiagnosticsCalloutParam {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BlackScreenDiagnosticsCalloutParam {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BlackScreenDiagnosticsCalloutParam").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
 pub const CDBEX_CROSSADAPTER: u32 = 8u32;
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
@@ -1040,11 +1104,27 @@ impl ::core::default::Default for COLORSPACE_TRANSFORM_DATA_CAP_0_1 {
     }
 }
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub type COLORSPACE_TRANSFORM_DATA_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct COLORSPACE_TRANSFORM_DATA_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const COLORSPACE_TRANSFORM_DATA_TYPE_FIXED_POINT: COLORSPACE_TRANSFORM_DATA_TYPE = 0i32;
+pub const COLORSPACE_TRANSFORM_DATA_TYPE_FIXED_POINT: COLORSPACE_TRANSFORM_DATA_TYPE = COLORSPACE_TRANSFORM_DATA_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const COLORSPACE_TRANSFORM_DATA_TYPE_FLOAT: COLORSPACE_TRANSFORM_DATA_TYPE = 1i32;
+pub const COLORSPACE_TRANSFORM_DATA_TYPE_FLOAT: COLORSPACE_TRANSFORM_DATA_TYPE = COLORSPACE_TRANSFORM_DATA_TYPE(1i32);
+impl ::core::marker::Copy for COLORSPACE_TRANSFORM_DATA_TYPE {}
+impl ::core::clone::Clone for COLORSPACE_TRANSFORM_DATA_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM_DATA_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COLORSPACE_TRANSFORM_DATA_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COLORSPACE_TRANSFORM_DATA_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
 pub struct COLORSPACE_TRANSFORM_MATRIX_CAP {
@@ -1190,13 +1270,29 @@ impl ::core::default::Default for COLORSPACE_TRANSFORM_SET_INPUT {
     }
 }
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub type COLORSPACE_TRANSFORM_STAGE_CONTROL = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct COLORSPACE_TRANSFORM_STAGE_CONTROL(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const ColorSpaceTransformStageControl_No_Change: COLORSPACE_TRANSFORM_STAGE_CONTROL = 0i32;
+pub const ColorSpaceTransformStageControl_No_Change: COLORSPACE_TRANSFORM_STAGE_CONTROL = COLORSPACE_TRANSFORM_STAGE_CONTROL(0i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const ColorSpaceTransformStageControl_Enable: COLORSPACE_TRANSFORM_STAGE_CONTROL = 1i32;
+pub const ColorSpaceTransformStageControl_Enable: COLORSPACE_TRANSFORM_STAGE_CONTROL = COLORSPACE_TRANSFORM_STAGE_CONTROL(1i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const ColorSpaceTransformStageControl_Bypass: COLORSPACE_TRANSFORM_STAGE_CONTROL = 2i32;
+pub const ColorSpaceTransformStageControl_Bypass: COLORSPACE_TRANSFORM_STAGE_CONTROL = COLORSPACE_TRANSFORM_STAGE_CONTROL(2i32);
+impl ::core::marker::Copy for COLORSPACE_TRANSFORM_STAGE_CONTROL {}
+impl ::core::clone::Clone for COLORSPACE_TRANSFORM_STAGE_CONTROL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM_STAGE_CONTROL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COLORSPACE_TRANSFORM_STAGE_CONTROL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COLORSPACE_TRANSFORM_STAGE_CONTROL").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
 pub struct COLORSPACE_TRANSFORM_TARGET_CAPS {
@@ -1226,27 +1322,59 @@ impl ::core::default::Default for COLORSPACE_TRANSFORM_TARGET_CAPS {
     }
 }
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub type COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const COLORSPACE_TRANSFORM_VERSION_DEFAULT: COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION = 0i32;
+pub const COLORSPACE_TRANSFORM_VERSION_DEFAULT: COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION = COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION(0i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const COLORSPACE_TRANSFORM_VERSION_1: COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION = 1i32;
+pub const COLORSPACE_TRANSFORM_VERSION_1: COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION = COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION(1i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const COLORSPACE_TRANSFORM_VERSION_NOT_SUPPORTED: COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION = 0i32;
+pub const COLORSPACE_TRANSFORM_VERSION_NOT_SUPPORTED: COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION = COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION(0i32);
+impl ::core::marker::Copy for COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION {}
+impl ::core::clone::Clone for COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COLORSPACE_TRANSFORM_TARGET_CAPS_VERSION").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub type COLORSPACE_TRANSFORM_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct COLORSPACE_TRANSFORM_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const COLORSPACE_TRANSFORM_TYPE_UNINITIALIZED: COLORSPACE_TRANSFORM_TYPE = 0i32;
+pub const COLORSPACE_TRANSFORM_TYPE_UNINITIALIZED: COLORSPACE_TRANSFORM_TYPE = COLORSPACE_TRANSFORM_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const COLORSPACE_TRANSFORM_TYPE_DEFAULT: COLORSPACE_TRANSFORM_TYPE = 1i32;
+pub const COLORSPACE_TRANSFORM_TYPE_DEFAULT: COLORSPACE_TRANSFORM_TYPE = COLORSPACE_TRANSFORM_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const COLORSPACE_TRANSFORM_TYPE_RGB256x3x16: COLORSPACE_TRANSFORM_TYPE = 2i32;
+pub const COLORSPACE_TRANSFORM_TYPE_RGB256x3x16: COLORSPACE_TRANSFORM_TYPE = COLORSPACE_TRANSFORM_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const COLORSPACE_TRANSFORM_TYPE_DXGI_1: COLORSPACE_TRANSFORM_TYPE = 3i32;
+pub const COLORSPACE_TRANSFORM_TYPE_DXGI_1: COLORSPACE_TRANSFORM_TYPE = COLORSPACE_TRANSFORM_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const COLORSPACE_TRANSFORM_TYPE_MATRIX_3x4: COLORSPACE_TRANSFORM_TYPE = 4i32;
+pub const COLORSPACE_TRANSFORM_TYPE_MATRIX_3x4: COLORSPACE_TRANSFORM_TYPE = COLORSPACE_TRANSFORM_TYPE(4i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const COLORSPACE_TRANSFORM_TYPE_MATRIX_V2: COLORSPACE_TRANSFORM_TYPE = 5i32;
+pub const COLORSPACE_TRANSFORM_TYPE_MATRIX_V2: COLORSPACE_TRANSFORM_TYPE = COLORSPACE_TRANSFORM_TYPE(5i32);
+impl ::core::marker::Copy for COLORSPACE_TRANSFORM_TYPE {}
+impl ::core::clone::Clone for COLORSPACE_TRANSFORM_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for COLORSPACE_TRANSFORM_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COLORSPACE_TRANSFORM_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COLORSPACE_TRANSFORM_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
 pub const CT_RECTANGLES: i32 = 0i32;
 #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
@@ -1638,35 +1766,51 @@ impl ::core::default::Default for DISPLAYCONFIG_DEVICE_INFO_HEADER {
     }
 }
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub type DISPLAYCONFIG_DEVICE_INFO_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DISPLAYCONFIG_DEVICE_INFO_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_DEVICE_INFO_GET_SOURCE_NAME: DISPLAYCONFIG_DEVICE_INFO_TYPE = 1i32;
+pub const DISPLAYCONFIG_DEVICE_INFO_GET_SOURCE_NAME: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_NAME: DISPLAYCONFIG_DEVICE_INFO_TYPE = 2i32;
+pub const DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_NAME: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_PREFERRED_MODE: DISPLAYCONFIG_DEVICE_INFO_TYPE = 3i32;
+pub const DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_PREFERRED_MODE: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_DEVICE_INFO_GET_ADAPTER_NAME: DISPLAYCONFIG_DEVICE_INFO_TYPE = 4i32;
+pub const DISPLAYCONFIG_DEVICE_INFO_GET_ADAPTER_NAME: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(4i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_DEVICE_INFO_SET_TARGET_PERSISTENCE: DISPLAYCONFIG_DEVICE_INFO_TYPE = 5i32;
+pub const DISPLAYCONFIG_DEVICE_INFO_SET_TARGET_PERSISTENCE: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(5i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_BASE_TYPE: DISPLAYCONFIG_DEVICE_INFO_TYPE = 6i32;
+pub const DISPLAYCONFIG_DEVICE_INFO_GET_TARGET_BASE_TYPE: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(6i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_DEVICE_INFO_GET_SUPPORT_VIRTUAL_RESOLUTION: DISPLAYCONFIG_DEVICE_INFO_TYPE = 7i32;
+pub const DISPLAYCONFIG_DEVICE_INFO_GET_SUPPORT_VIRTUAL_RESOLUTION: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(7i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_DEVICE_INFO_SET_SUPPORT_VIRTUAL_RESOLUTION: DISPLAYCONFIG_DEVICE_INFO_TYPE = 8i32;
+pub const DISPLAYCONFIG_DEVICE_INFO_SET_SUPPORT_VIRTUAL_RESOLUTION: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(8i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_DEVICE_INFO_GET_ADVANCED_COLOR_INFO: DISPLAYCONFIG_DEVICE_INFO_TYPE = 9i32;
+pub const DISPLAYCONFIG_DEVICE_INFO_GET_ADVANCED_COLOR_INFO: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(9i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_DEVICE_INFO_SET_ADVANCED_COLOR_STATE: DISPLAYCONFIG_DEVICE_INFO_TYPE = 10i32;
+pub const DISPLAYCONFIG_DEVICE_INFO_SET_ADVANCED_COLOR_STATE: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(10i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_DEVICE_INFO_GET_SDR_WHITE_LEVEL: DISPLAYCONFIG_DEVICE_INFO_TYPE = 11i32;
+pub const DISPLAYCONFIG_DEVICE_INFO_GET_SDR_WHITE_LEVEL: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(11i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_DEVICE_INFO_GET_MONITOR_SPECIALIZATION: DISPLAYCONFIG_DEVICE_INFO_TYPE = 12i32;
+pub const DISPLAYCONFIG_DEVICE_INFO_GET_MONITOR_SPECIALIZATION: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(12i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_DEVICE_INFO_SET_MONITOR_SPECIALIZATION: DISPLAYCONFIG_DEVICE_INFO_TYPE = 13i32;
+pub const DISPLAYCONFIG_DEVICE_INFO_SET_MONITOR_SPECIALIZATION: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(13i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_DEVICE_INFO_FORCE_UINT32: DISPLAYCONFIG_DEVICE_INFO_TYPE = -1i32;
+pub const DISPLAYCONFIG_DEVICE_INFO_FORCE_UINT32: DISPLAYCONFIG_DEVICE_INFO_TYPE = DISPLAYCONFIG_DEVICE_INFO_TYPE(-1i32);
+impl ::core::marker::Copy for DISPLAYCONFIG_DEVICE_INFO_TYPE {}
+impl ::core::clone::Clone for DISPLAYCONFIG_DEVICE_INFO_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_DEVICE_INFO_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPLAYCONFIG_DEVICE_INFO_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPLAYCONFIG_DEVICE_INFO_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -1947,15 +2091,31 @@ impl ::core::default::Default for DISPLAYCONFIG_MODE_INFO_0 {
     }
 }
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub type DISPLAYCONFIG_MODE_INFO_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DISPLAYCONFIG_MODE_INFO_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_MODE_INFO_TYPE_SOURCE: DISPLAYCONFIG_MODE_INFO_TYPE = 1i32;
+pub const DISPLAYCONFIG_MODE_INFO_TYPE_SOURCE: DISPLAYCONFIG_MODE_INFO_TYPE = DISPLAYCONFIG_MODE_INFO_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_MODE_INFO_TYPE_TARGET: DISPLAYCONFIG_MODE_INFO_TYPE = 2i32;
+pub const DISPLAYCONFIG_MODE_INFO_TYPE_TARGET: DISPLAYCONFIG_MODE_INFO_TYPE = DISPLAYCONFIG_MODE_INFO_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_MODE_INFO_TYPE_DESKTOP_IMAGE: DISPLAYCONFIG_MODE_INFO_TYPE = 3i32;
+pub const DISPLAYCONFIG_MODE_INFO_TYPE_DESKTOP_IMAGE: DISPLAYCONFIG_MODE_INFO_TYPE = DISPLAYCONFIG_MODE_INFO_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_MODE_INFO_TYPE_FORCE_UINT32: DISPLAYCONFIG_MODE_INFO_TYPE = -1i32;
+pub const DISPLAYCONFIG_MODE_INFO_TYPE_FORCE_UINT32: DISPLAYCONFIG_MODE_INFO_TYPE = DISPLAYCONFIG_MODE_INFO_TYPE(-1i32);
+impl ::core::marker::Copy for DISPLAYCONFIG_MODE_INFO_TYPE {}
+impl ::core::clone::Clone for DISPLAYCONFIG_MODE_INFO_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_MODE_INFO_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPLAYCONFIG_MODE_INFO_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPLAYCONFIG_MODE_INFO_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2209,19 +2369,35 @@ impl ::core::default::Default for DISPLAYCONFIG_PATH_TARGET_INFO_0_0 {
     }
 }
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub type DISPLAYCONFIG_PIXELFORMAT = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DISPLAYCONFIG_PIXELFORMAT(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_PIXELFORMAT_8BPP: DISPLAYCONFIG_PIXELFORMAT = 1i32;
+pub const DISPLAYCONFIG_PIXELFORMAT_8BPP: DISPLAYCONFIG_PIXELFORMAT = DISPLAYCONFIG_PIXELFORMAT(1i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_PIXELFORMAT_16BPP: DISPLAYCONFIG_PIXELFORMAT = 2i32;
+pub const DISPLAYCONFIG_PIXELFORMAT_16BPP: DISPLAYCONFIG_PIXELFORMAT = DISPLAYCONFIG_PIXELFORMAT(2i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_PIXELFORMAT_24BPP: DISPLAYCONFIG_PIXELFORMAT = 3i32;
+pub const DISPLAYCONFIG_PIXELFORMAT_24BPP: DISPLAYCONFIG_PIXELFORMAT = DISPLAYCONFIG_PIXELFORMAT(3i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_PIXELFORMAT_32BPP: DISPLAYCONFIG_PIXELFORMAT = 4i32;
+pub const DISPLAYCONFIG_PIXELFORMAT_32BPP: DISPLAYCONFIG_PIXELFORMAT = DISPLAYCONFIG_PIXELFORMAT(4i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_PIXELFORMAT_NONGDI: DISPLAYCONFIG_PIXELFORMAT = 5i32;
+pub const DISPLAYCONFIG_PIXELFORMAT_NONGDI: DISPLAYCONFIG_PIXELFORMAT = DISPLAYCONFIG_PIXELFORMAT(5i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_PIXELFORMAT_FORCE_UINT32: DISPLAYCONFIG_PIXELFORMAT = -1i32;
+pub const DISPLAYCONFIG_PIXELFORMAT_FORCE_UINT32: DISPLAYCONFIG_PIXELFORMAT = DISPLAYCONFIG_PIXELFORMAT(-1i32);
+impl ::core::marker::Copy for DISPLAYCONFIG_PIXELFORMAT {}
+impl ::core::clone::Clone for DISPLAYCONFIG_PIXELFORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_PIXELFORMAT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPLAYCONFIG_PIXELFORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPLAYCONFIG_PIXELFORMAT").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
 pub struct DISPLAYCONFIG_RATIONAL {
@@ -2254,47 +2430,95 @@ impl ::core::default::Default for DISPLAYCONFIG_RATIONAL {
     }
 }
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub type DISPLAYCONFIG_ROTATION = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DISPLAYCONFIG_ROTATION(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_ROTATION_IDENTITY: DISPLAYCONFIG_ROTATION = 1i32;
+pub const DISPLAYCONFIG_ROTATION_IDENTITY: DISPLAYCONFIG_ROTATION = DISPLAYCONFIG_ROTATION(1i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_ROTATION_ROTATE90: DISPLAYCONFIG_ROTATION = 2i32;
+pub const DISPLAYCONFIG_ROTATION_ROTATE90: DISPLAYCONFIG_ROTATION = DISPLAYCONFIG_ROTATION(2i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_ROTATION_ROTATE180: DISPLAYCONFIG_ROTATION = 3i32;
+pub const DISPLAYCONFIG_ROTATION_ROTATE180: DISPLAYCONFIG_ROTATION = DISPLAYCONFIG_ROTATION(3i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_ROTATION_ROTATE270: DISPLAYCONFIG_ROTATION = 4i32;
+pub const DISPLAYCONFIG_ROTATION_ROTATE270: DISPLAYCONFIG_ROTATION = DISPLAYCONFIG_ROTATION(4i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_ROTATION_FORCE_UINT32: DISPLAYCONFIG_ROTATION = -1i32;
+pub const DISPLAYCONFIG_ROTATION_FORCE_UINT32: DISPLAYCONFIG_ROTATION = DISPLAYCONFIG_ROTATION(-1i32);
+impl ::core::marker::Copy for DISPLAYCONFIG_ROTATION {}
+impl ::core::clone::Clone for DISPLAYCONFIG_ROTATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_ROTATION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPLAYCONFIG_ROTATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPLAYCONFIG_ROTATION").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub type DISPLAYCONFIG_SCALING = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DISPLAYCONFIG_SCALING(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_SCALING_IDENTITY: DISPLAYCONFIG_SCALING = 1i32;
+pub const DISPLAYCONFIG_SCALING_IDENTITY: DISPLAYCONFIG_SCALING = DISPLAYCONFIG_SCALING(1i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_SCALING_CENTERED: DISPLAYCONFIG_SCALING = 2i32;
+pub const DISPLAYCONFIG_SCALING_CENTERED: DISPLAYCONFIG_SCALING = DISPLAYCONFIG_SCALING(2i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_SCALING_STRETCHED: DISPLAYCONFIG_SCALING = 3i32;
+pub const DISPLAYCONFIG_SCALING_STRETCHED: DISPLAYCONFIG_SCALING = DISPLAYCONFIG_SCALING(3i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_SCALING_ASPECTRATIOCENTEREDMAX: DISPLAYCONFIG_SCALING = 4i32;
+pub const DISPLAYCONFIG_SCALING_ASPECTRATIOCENTEREDMAX: DISPLAYCONFIG_SCALING = DISPLAYCONFIG_SCALING(4i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_SCALING_CUSTOM: DISPLAYCONFIG_SCALING = 5i32;
+pub const DISPLAYCONFIG_SCALING_CUSTOM: DISPLAYCONFIG_SCALING = DISPLAYCONFIG_SCALING(5i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_SCALING_PREFERRED: DISPLAYCONFIG_SCALING = 128i32;
+pub const DISPLAYCONFIG_SCALING_PREFERRED: DISPLAYCONFIG_SCALING = DISPLAYCONFIG_SCALING(128i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_SCALING_FORCE_UINT32: DISPLAYCONFIG_SCALING = -1i32;
+pub const DISPLAYCONFIG_SCALING_FORCE_UINT32: DISPLAYCONFIG_SCALING = DISPLAYCONFIG_SCALING(-1i32);
+impl ::core::marker::Copy for DISPLAYCONFIG_SCALING {}
+impl ::core::clone::Clone for DISPLAYCONFIG_SCALING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_SCALING {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPLAYCONFIG_SCALING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPLAYCONFIG_SCALING").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub type DISPLAYCONFIG_SCANLINE_ORDERING = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DISPLAYCONFIG_SCANLINE_ORDERING(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_SCANLINE_ORDERING_UNSPECIFIED: DISPLAYCONFIG_SCANLINE_ORDERING = 0i32;
+pub const DISPLAYCONFIG_SCANLINE_ORDERING_UNSPECIFIED: DISPLAYCONFIG_SCANLINE_ORDERING = DISPLAYCONFIG_SCANLINE_ORDERING(0i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_SCANLINE_ORDERING_PROGRESSIVE: DISPLAYCONFIG_SCANLINE_ORDERING = 1i32;
+pub const DISPLAYCONFIG_SCANLINE_ORDERING_PROGRESSIVE: DISPLAYCONFIG_SCANLINE_ORDERING = DISPLAYCONFIG_SCANLINE_ORDERING(1i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_SCANLINE_ORDERING_INTERLACED: DISPLAYCONFIG_SCANLINE_ORDERING = 2i32;
+pub const DISPLAYCONFIG_SCANLINE_ORDERING_INTERLACED: DISPLAYCONFIG_SCANLINE_ORDERING = DISPLAYCONFIG_SCANLINE_ORDERING(2i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_SCANLINE_ORDERING_INTERLACED_UPPERFIELDFIRST: DISPLAYCONFIG_SCANLINE_ORDERING = 2i32;
+pub const DISPLAYCONFIG_SCANLINE_ORDERING_INTERLACED_UPPERFIELDFIRST: DISPLAYCONFIG_SCANLINE_ORDERING = DISPLAYCONFIG_SCANLINE_ORDERING(2i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_SCANLINE_ORDERING_INTERLACED_LOWERFIELDFIRST: DISPLAYCONFIG_SCANLINE_ORDERING = 3i32;
+pub const DISPLAYCONFIG_SCANLINE_ORDERING_INTERLACED_LOWERFIELDFIRST: DISPLAYCONFIG_SCANLINE_ORDERING = DISPLAYCONFIG_SCANLINE_ORDERING(3i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_SCANLINE_ORDERING_FORCE_UINT32: DISPLAYCONFIG_SCANLINE_ORDERING = -1i32;
+pub const DISPLAYCONFIG_SCANLINE_ORDERING_FORCE_UINT32: DISPLAYCONFIG_SCANLINE_ORDERING = DISPLAYCONFIG_SCANLINE_ORDERING(-1i32);
+impl ::core::marker::Copy for DISPLAYCONFIG_SCANLINE_ORDERING {}
+impl ::core::clone::Clone for DISPLAYCONFIG_SCANLINE_ORDERING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_SCANLINE_ORDERING {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPLAYCONFIG_SCANLINE_ORDERING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPLAYCONFIG_SCANLINE_ORDERING").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3053,61 +3277,93 @@ impl ::core::default::Default for DISPLAYCONFIG_TARGET_PREFERRED_MODE {
     }
 }
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub type DISPLAYCONFIG_TOPOLOGY_ID = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DISPLAYCONFIG_TOPOLOGY_ID(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_TOPOLOGY_INTERNAL: DISPLAYCONFIG_TOPOLOGY_ID = 1i32;
+pub const DISPLAYCONFIG_TOPOLOGY_INTERNAL: DISPLAYCONFIG_TOPOLOGY_ID = DISPLAYCONFIG_TOPOLOGY_ID(1i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_TOPOLOGY_CLONE: DISPLAYCONFIG_TOPOLOGY_ID = 2i32;
+pub const DISPLAYCONFIG_TOPOLOGY_CLONE: DISPLAYCONFIG_TOPOLOGY_ID = DISPLAYCONFIG_TOPOLOGY_ID(2i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_TOPOLOGY_EXTEND: DISPLAYCONFIG_TOPOLOGY_ID = 4i32;
+pub const DISPLAYCONFIG_TOPOLOGY_EXTEND: DISPLAYCONFIG_TOPOLOGY_ID = DISPLAYCONFIG_TOPOLOGY_ID(4i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_TOPOLOGY_EXTERNAL: DISPLAYCONFIG_TOPOLOGY_ID = 8i32;
+pub const DISPLAYCONFIG_TOPOLOGY_EXTERNAL: DISPLAYCONFIG_TOPOLOGY_ID = DISPLAYCONFIG_TOPOLOGY_ID(8i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_TOPOLOGY_FORCE_UINT32: DISPLAYCONFIG_TOPOLOGY_ID = -1i32;
+pub const DISPLAYCONFIG_TOPOLOGY_FORCE_UINT32: DISPLAYCONFIG_TOPOLOGY_ID = DISPLAYCONFIG_TOPOLOGY_ID(-1i32);
+impl ::core::marker::Copy for DISPLAYCONFIG_TOPOLOGY_ID {}
+impl ::core::clone::Clone for DISPLAYCONFIG_TOPOLOGY_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_TOPOLOGY_ID {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPLAYCONFIG_TOPOLOGY_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPLAYCONFIG_TOPOLOGY_ID").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub type DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_OTHER: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = -1i32;
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_OTHER: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(-1i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_HD15: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 0i32;
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_HD15: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(0i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_SVIDEO: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 1i32;
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_SVIDEO: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(1i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_COMPOSITE_VIDEO: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 2i32;
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_COMPOSITE_VIDEO: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(2i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_COMPONENT_VIDEO: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 3i32;
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_COMPONENT_VIDEO: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(3i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DVI: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 4i32;
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DVI: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(4i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_HDMI: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 5i32;
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_HDMI: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(5i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_LVDS: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 6i32;
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_LVDS: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(6i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_D_JPN: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 8i32;
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_D_JPN: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(8i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_SDI: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 9i32;
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_SDI: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(9i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DISPLAYPORT_EXTERNAL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 10i32;
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DISPLAYPORT_EXTERNAL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(10i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DISPLAYPORT_EMBEDDED: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 11i32;
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DISPLAYPORT_EMBEDDED: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(11i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_UDI_EXTERNAL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 12i32;
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_UDI_EXTERNAL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(12i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_UDI_EMBEDDED: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 13i32;
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_UDI_EMBEDDED: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(13i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_SDTVDONGLE: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 14i32;
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_SDTVDONGLE: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(14i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_MIRACAST: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 15i32;
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_MIRACAST: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(15i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_INDIRECT_WIRED: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 16i32;
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_INDIRECT_WIRED: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(16i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_INDIRECT_VIRTUAL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 17i32;
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_INDIRECT_VIRTUAL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(17i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DISPLAYPORT_USB_TUNNEL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = 18i32;
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_DISPLAYPORT_USB_TUNNEL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(18i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_INTERNAL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = -2147483648i32;
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_INTERNAL: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(-2147483648i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_FORCE_UINT32: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = -1i32;
+pub const DISPLAYCONFIG_OUTPUT_TECHNOLOGY_FORCE_UINT32: DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY = DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY(-1i32);
+impl ::core::marker::Copy for DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY {}
+impl ::core::clone::Clone for DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPLAYCONFIG_VIDEO_OUTPUT_TECHNOLOGY").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
 pub struct DISPLAYCONFIG_VIDEO_SIGNAL_INFO {
@@ -3409,13 +3665,29 @@ pub const DSI_CHECKSUM_ERROR_NOT_CORRECTED: u32 = 512u32;
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
 pub const DSI_CONTENTION_DETECTED: u32 = 128u32;
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub type DSI_CONTROL_TRANSMISSION_MODE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DSI_CONTROL_TRANSMISSION_MODE(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DCT_DEFAULT: DSI_CONTROL_TRANSMISSION_MODE = 0i32;
+pub const DCT_DEFAULT: DSI_CONTROL_TRANSMISSION_MODE = DSI_CONTROL_TRANSMISSION_MODE(0i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DCT_FORCE_LOW_POWER: DSI_CONTROL_TRANSMISSION_MODE = 1i32;
+pub const DCT_FORCE_LOW_POWER: DSI_CONTROL_TRANSMISSION_MODE = DSI_CONTROL_TRANSMISSION_MODE(1i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const DCT_FORCE_HIGH_PERFORMANCE: DSI_CONTROL_TRANSMISSION_MODE = 2i32;
+pub const DCT_FORCE_HIGH_PERFORMANCE: DSI_CONTROL_TRANSMISSION_MODE = DSI_CONTROL_TRANSMISSION_MODE(2i32);
+impl ::core::marker::Copy for DSI_CONTROL_TRANSMISSION_MODE {}
+impl ::core::clone::Clone for DSI_CONTROL_TRANSMISSION_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DSI_CONTROL_TRANSMISSION_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DSI_CONTROL_TRANSMISSION_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DSI_CONTROL_TRANSMISSION_MODE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
 pub const DSI_DSI_DATA_TYPE_NOT_RECOGNIZED: u32 = 2048u32;
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
@@ -3724,11 +3996,27 @@ impl ::core::default::Default for ENGSAFESEMAPHORE {
     }
 }
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub type ENG_DEVICE_ATTRIBUTE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ENG_DEVICE_ATTRIBUTE(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const QDA_RESERVED: ENG_DEVICE_ATTRIBUTE = 0i32;
+pub const QDA_RESERVED: ENG_DEVICE_ATTRIBUTE = ENG_DEVICE_ATTRIBUTE(0i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const QDA_ACCELERATION_LEVEL: ENG_DEVICE_ATTRIBUTE = 1i32;
+pub const QDA_ACCELERATION_LEVEL: ENG_DEVICE_ATTRIBUTE = ENG_DEVICE_ATTRIBUTE(1i32);
+impl ::core::marker::Copy for ENG_DEVICE_ATTRIBUTE {}
+impl ::core::clone::Clone for ENG_DEVICE_ATTRIBUTE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ENG_DEVICE_ATTRIBUTE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ENG_DEVICE_ATTRIBUTE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ENG_DEVICE_ATTRIBUTE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
 pub struct ENG_EVENT {
@@ -3765,15 +4053,31 @@ pub const ENG_FNT_CACHE_READ_FAULT: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
 pub const ENG_FNT_CACHE_WRITE_FAULT: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub type ENG_SYSTEM_ATTRIBUTE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ENG_SYSTEM_ATTRIBUTE(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const EngProcessorFeature: ENG_SYSTEM_ATTRIBUTE = 1i32;
+pub const EngProcessorFeature: ENG_SYSTEM_ATTRIBUTE = ENG_SYSTEM_ATTRIBUTE(1i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const EngNumberOfProcessors: ENG_SYSTEM_ATTRIBUTE = 2i32;
+pub const EngNumberOfProcessors: ENG_SYSTEM_ATTRIBUTE = ENG_SYSTEM_ATTRIBUTE(2i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const EngOptimumAvailableUserMemory: ENG_SYSTEM_ATTRIBUTE = 3i32;
+pub const EngOptimumAvailableUserMemory: ENG_SYSTEM_ATTRIBUTE = ENG_SYSTEM_ATTRIBUTE(3i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const EngOptimumAvailableSystemMemory: ENG_SYSTEM_ATTRIBUTE = 4i32;
+pub const EngOptimumAvailableSystemMemory: ENG_SYSTEM_ATTRIBUTE = ENG_SYSTEM_ATTRIBUTE(4i32);
+impl ::core::marker::Copy for ENG_SYSTEM_ATTRIBUTE {}
+impl ::core::clone::Clone for ENG_SYSTEM_ATTRIBUTE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ENG_SYSTEM_ATTRIBUTE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ENG_SYSTEM_ATTRIBUTE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ENG_SYSTEM_ATTRIBUTE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
 pub struct ENG_TIME_FIELDS {
@@ -8086,75 +8390,171 @@ pub const MC_CAPS_RESTORE_FACTORY_COLOR_DEFAULTS: u32 = 2048u32;
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
 pub const MC_CAPS_RESTORE_FACTORY_DEFAULTS: u32 = 1024u32;
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub type MC_COLOR_TEMPERATURE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MC_COLOR_TEMPERATURE(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const MC_COLOR_TEMPERATURE_UNKNOWN: MC_COLOR_TEMPERATURE = 0i32;
+pub const MC_COLOR_TEMPERATURE_UNKNOWN: MC_COLOR_TEMPERATURE = MC_COLOR_TEMPERATURE(0i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const MC_COLOR_TEMPERATURE_4000K: MC_COLOR_TEMPERATURE = 1i32;
+pub const MC_COLOR_TEMPERATURE_4000K: MC_COLOR_TEMPERATURE = MC_COLOR_TEMPERATURE(1i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const MC_COLOR_TEMPERATURE_5000K: MC_COLOR_TEMPERATURE = 2i32;
+pub const MC_COLOR_TEMPERATURE_5000K: MC_COLOR_TEMPERATURE = MC_COLOR_TEMPERATURE(2i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const MC_COLOR_TEMPERATURE_6500K: MC_COLOR_TEMPERATURE = 3i32;
+pub const MC_COLOR_TEMPERATURE_6500K: MC_COLOR_TEMPERATURE = MC_COLOR_TEMPERATURE(3i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const MC_COLOR_TEMPERATURE_7500K: MC_COLOR_TEMPERATURE = 4i32;
+pub const MC_COLOR_TEMPERATURE_7500K: MC_COLOR_TEMPERATURE = MC_COLOR_TEMPERATURE(4i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const MC_COLOR_TEMPERATURE_8200K: MC_COLOR_TEMPERATURE = 5i32;
+pub const MC_COLOR_TEMPERATURE_8200K: MC_COLOR_TEMPERATURE = MC_COLOR_TEMPERATURE(5i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const MC_COLOR_TEMPERATURE_9300K: MC_COLOR_TEMPERATURE = 6i32;
+pub const MC_COLOR_TEMPERATURE_9300K: MC_COLOR_TEMPERATURE = MC_COLOR_TEMPERATURE(6i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const MC_COLOR_TEMPERATURE_10000K: MC_COLOR_TEMPERATURE = 7i32;
+pub const MC_COLOR_TEMPERATURE_10000K: MC_COLOR_TEMPERATURE = MC_COLOR_TEMPERATURE(7i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const MC_COLOR_TEMPERATURE_11500K: MC_COLOR_TEMPERATURE = 8i32;
+pub const MC_COLOR_TEMPERATURE_11500K: MC_COLOR_TEMPERATURE = MC_COLOR_TEMPERATURE(8i32);
+impl ::core::marker::Copy for MC_COLOR_TEMPERATURE {}
+impl ::core::clone::Clone for MC_COLOR_TEMPERATURE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MC_COLOR_TEMPERATURE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MC_COLOR_TEMPERATURE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MC_COLOR_TEMPERATURE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub type MC_DISPLAY_TECHNOLOGY_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MC_DISPLAY_TECHNOLOGY_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const MC_SHADOW_MASK_CATHODE_RAY_TUBE: MC_DISPLAY_TECHNOLOGY_TYPE = 0i32;
+pub const MC_SHADOW_MASK_CATHODE_RAY_TUBE: MC_DISPLAY_TECHNOLOGY_TYPE = MC_DISPLAY_TECHNOLOGY_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const MC_APERTURE_GRILL_CATHODE_RAY_TUBE: MC_DISPLAY_TECHNOLOGY_TYPE = 1i32;
+pub const MC_APERTURE_GRILL_CATHODE_RAY_TUBE: MC_DISPLAY_TECHNOLOGY_TYPE = MC_DISPLAY_TECHNOLOGY_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const MC_THIN_FILM_TRANSISTOR: MC_DISPLAY_TECHNOLOGY_TYPE = 2i32;
+pub const MC_THIN_FILM_TRANSISTOR: MC_DISPLAY_TECHNOLOGY_TYPE = MC_DISPLAY_TECHNOLOGY_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const MC_LIQUID_CRYSTAL_ON_SILICON: MC_DISPLAY_TECHNOLOGY_TYPE = 3i32;
+pub const MC_LIQUID_CRYSTAL_ON_SILICON: MC_DISPLAY_TECHNOLOGY_TYPE = MC_DISPLAY_TECHNOLOGY_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const MC_PLASMA: MC_DISPLAY_TECHNOLOGY_TYPE = 4i32;
+pub const MC_PLASMA: MC_DISPLAY_TECHNOLOGY_TYPE = MC_DISPLAY_TECHNOLOGY_TYPE(4i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const MC_ORGANIC_LIGHT_EMITTING_DIODE: MC_DISPLAY_TECHNOLOGY_TYPE = 5i32;
+pub const MC_ORGANIC_LIGHT_EMITTING_DIODE: MC_DISPLAY_TECHNOLOGY_TYPE = MC_DISPLAY_TECHNOLOGY_TYPE(5i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const MC_ELECTROLUMINESCENT: MC_DISPLAY_TECHNOLOGY_TYPE = 6i32;
+pub const MC_ELECTROLUMINESCENT: MC_DISPLAY_TECHNOLOGY_TYPE = MC_DISPLAY_TECHNOLOGY_TYPE(6i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const MC_MICROELECTROMECHANICAL: MC_DISPLAY_TECHNOLOGY_TYPE = 7i32;
+pub const MC_MICROELECTROMECHANICAL: MC_DISPLAY_TECHNOLOGY_TYPE = MC_DISPLAY_TECHNOLOGY_TYPE(7i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const MC_FIELD_EMISSION_DEVICE: MC_DISPLAY_TECHNOLOGY_TYPE = 8i32;
+pub const MC_FIELD_EMISSION_DEVICE: MC_DISPLAY_TECHNOLOGY_TYPE = MC_DISPLAY_TECHNOLOGY_TYPE(8i32);
+impl ::core::marker::Copy for MC_DISPLAY_TECHNOLOGY_TYPE {}
+impl ::core::clone::Clone for MC_DISPLAY_TECHNOLOGY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MC_DISPLAY_TECHNOLOGY_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MC_DISPLAY_TECHNOLOGY_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MC_DISPLAY_TECHNOLOGY_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub type MC_DRIVE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MC_DRIVE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const MC_RED_DRIVE: MC_DRIVE_TYPE = 0i32;
+pub const MC_RED_DRIVE: MC_DRIVE_TYPE = MC_DRIVE_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const MC_GREEN_DRIVE: MC_DRIVE_TYPE = 1i32;
+pub const MC_GREEN_DRIVE: MC_DRIVE_TYPE = MC_DRIVE_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const MC_BLUE_DRIVE: MC_DRIVE_TYPE = 2i32;
+pub const MC_BLUE_DRIVE: MC_DRIVE_TYPE = MC_DRIVE_TYPE(2i32);
+impl ::core::marker::Copy for MC_DRIVE_TYPE {}
+impl ::core::clone::Clone for MC_DRIVE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MC_DRIVE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MC_DRIVE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MC_DRIVE_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub type MC_GAIN_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MC_GAIN_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const MC_RED_GAIN: MC_GAIN_TYPE = 0i32;
+pub const MC_RED_GAIN: MC_GAIN_TYPE = MC_GAIN_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const MC_GREEN_GAIN: MC_GAIN_TYPE = 1i32;
+pub const MC_GREEN_GAIN: MC_GAIN_TYPE = MC_GAIN_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const MC_BLUE_GAIN: MC_GAIN_TYPE = 2i32;
+pub const MC_BLUE_GAIN: MC_GAIN_TYPE = MC_GAIN_TYPE(2i32);
+impl ::core::marker::Copy for MC_GAIN_TYPE {}
+impl ::core::clone::Clone for MC_GAIN_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MC_GAIN_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MC_GAIN_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MC_GAIN_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub type MC_POSITION_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MC_POSITION_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const MC_HORIZONTAL_POSITION: MC_POSITION_TYPE = 0i32;
+pub const MC_HORIZONTAL_POSITION: MC_POSITION_TYPE = MC_POSITION_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const MC_VERTICAL_POSITION: MC_POSITION_TYPE = 1i32;
+pub const MC_VERTICAL_POSITION: MC_POSITION_TYPE = MC_POSITION_TYPE(1i32);
+impl ::core::marker::Copy for MC_POSITION_TYPE {}
+impl ::core::clone::Clone for MC_POSITION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MC_POSITION_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MC_POSITION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MC_POSITION_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
 pub const MC_RESTORE_FACTORY_DEFAULTS_ENABLES_MONITOR_SETTINGS: u32 = 4096u32;
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub type MC_SIZE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MC_SIZE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const MC_WIDTH: MC_SIZE_TYPE = 0i32;
+pub const MC_WIDTH: MC_SIZE_TYPE = MC_SIZE_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const MC_HEIGHT: MC_SIZE_TYPE = 1i32;
+pub const MC_HEIGHT: MC_SIZE_TYPE = MC_SIZE_TYPE(1i32);
+impl ::core::marker::Copy for MC_SIZE_TYPE {}
+impl ::core::clone::Clone for MC_SIZE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MC_SIZE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MC_SIZE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MC_SIZE_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
 pub const MC_SUPPORTED_COLOR_TEMPERATURE_10000K: u32 = 64u32;
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
@@ -8201,11 +8601,27 @@ impl ::core::default::Default for MC_TIMING_REPORT {
     }
 }
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub type MC_VCP_CODE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MC_VCP_CODE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const MC_MOMENTARY: MC_VCP_CODE_TYPE = 0i32;
+pub const MC_MOMENTARY: MC_VCP_CODE_TYPE = MC_VCP_CODE_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const MC_SET_PARAMETER: MC_VCP_CODE_TYPE = 1i32;
+pub const MC_SET_PARAMETER: MC_VCP_CODE_TYPE = MC_VCP_CODE_TYPE(1i32);
+impl ::core::marker::Copy for MC_VCP_CODE_TYPE {}
+impl ::core::clone::Clone for MC_VCP_CODE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MC_VCP_CODE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MC_VCP_CODE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MC_VCP_CODE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
 pub struct MIPI_DSI_CAPS {
@@ -8573,47 +8989,95 @@ pub const OPENGL_CMD: u32 = 4352u32;
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
 pub const OPENGL_GETINFO: u32 = 4353u32;
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub type ORIENTATION_PREFERENCE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ORIENTATION_PREFERENCE(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const ORIENTATION_PREFERENCE_NONE: ORIENTATION_PREFERENCE = 0i32;
+pub const ORIENTATION_PREFERENCE_NONE: ORIENTATION_PREFERENCE = ORIENTATION_PREFERENCE(0i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const ORIENTATION_PREFERENCE_LANDSCAPE: ORIENTATION_PREFERENCE = 1i32;
+pub const ORIENTATION_PREFERENCE_LANDSCAPE: ORIENTATION_PREFERENCE = ORIENTATION_PREFERENCE(1i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const ORIENTATION_PREFERENCE_PORTRAIT: ORIENTATION_PREFERENCE = 2i32;
+pub const ORIENTATION_PREFERENCE_PORTRAIT: ORIENTATION_PREFERENCE = ORIENTATION_PREFERENCE(2i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const ORIENTATION_PREFERENCE_LANDSCAPE_FLIPPED: ORIENTATION_PREFERENCE = 4i32;
+pub const ORIENTATION_PREFERENCE_LANDSCAPE_FLIPPED: ORIENTATION_PREFERENCE = ORIENTATION_PREFERENCE(4i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const ORIENTATION_PREFERENCE_PORTRAIT_FLIPPED: ORIENTATION_PREFERENCE = 8i32;
+pub const ORIENTATION_PREFERENCE_PORTRAIT_FLIPPED: ORIENTATION_PREFERENCE = ORIENTATION_PREFERENCE(8i32);
+impl ::core::marker::Copy for ORIENTATION_PREFERENCE {}
+impl ::core::clone::Clone for ORIENTATION_PREFERENCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ORIENTATION_PREFERENCE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ORIENTATION_PREFERENCE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ORIENTATION_PREFERENCE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub type OUTPUT_COLOR_ENCODING = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct OUTPUT_COLOR_ENCODING(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const OUTPUT_COLOR_ENCODING_RGB: OUTPUT_COLOR_ENCODING = 0i32;
+pub const OUTPUT_COLOR_ENCODING_RGB: OUTPUT_COLOR_ENCODING = OUTPUT_COLOR_ENCODING(0i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const OUTPUT_COLOR_ENCODING_YCBCR444: OUTPUT_COLOR_ENCODING = 1i32;
+pub const OUTPUT_COLOR_ENCODING_YCBCR444: OUTPUT_COLOR_ENCODING = OUTPUT_COLOR_ENCODING(1i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const OUTPUT_COLOR_ENCODING_YCBCR422: OUTPUT_COLOR_ENCODING = 2i32;
+pub const OUTPUT_COLOR_ENCODING_YCBCR422: OUTPUT_COLOR_ENCODING = OUTPUT_COLOR_ENCODING(2i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const OUTPUT_COLOR_ENCODING_YCBCR420: OUTPUT_COLOR_ENCODING = 3i32;
+pub const OUTPUT_COLOR_ENCODING_YCBCR420: OUTPUT_COLOR_ENCODING = OUTPUT_COLOR_ENCODING(3i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const OUTPUT_COLOR_ENCODING_INTENSITY: OUTPUT_COLOR_ENCODING = 4i32;
+pub const OUTPUT_COLOR_ENCODING_INTENSITY: OUTPUT_COLOR_ENCODING = OUTPUT_COLOR_ENCODING(4i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const OUTPUT_COLOR_ENCODING_FORCE_UINT32: OUTPUT_COLOR_ENCODING = -1i32;
+pub const OUTPUT_COLOR_ENCODING_FORCE_UINT32: OUTPUT_COLOR_ENCODING = OUTPUT_COLOR_ENCODING(-1i32);
+impl ::core::marker::Copy for OUTPUT_COLOR_ENCODING {}
+impl ::core::clone::Clone for OUTPUT_COLOR_ENCODING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for OUTPUT_COLOR_ENCODING {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OUTPUT_COLOR_ENCODING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OUTPUT_COLOR_ENCODING").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub type OUTPUT_WIRE_COLOR_SPACE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct OUTPUT_WIRE_COLOR_SPACE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const OUTPUT_WIRE_COLOR_SPACE_G22_P709: OUTPUT_WIRE_COLOR_SPACE_TYPE = 0i32;
+pub const OUTPUT_WIRE_COLOR_SPACE_G22_P709: OUTPUT_WIRE_COLOR_SPACE_TYPE = OUTPUT_WIRE_COLOR_SPACE_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const OUTPUT_WIRE_COLOR_SPACE_RESERVED: OUTPUT_WIRE_COLOR_SPACE_TYPE = 4i32;
+pub const OUTPUT_WIRE_COLOR_SPACE_RESERVED: OUTPUT_WIRE_COLOR_SPACE_TYPE = OUTPUT_WIRE_COLOR_SPACE_TYPE(4i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const OUTPUT_WIRE_COLOR_SPACE_G2084_P2020: OUTPUT_WIRE_COLOR_SPACE_TYPE = 12i32;
+pub const OUTPUT_WIRE_COLOR_SPACE_G2084_P2020: OUTPUT_WIRE_COLOR_SPACE_TYPE = OUTPUT_WIRE_COLOR_SPACE_TYPE(12i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const OUTPUT_WIRE_COLOR_SPACE_G22_P709_WCG: OUTPUT_WIRE_COLOR_SPACE_TYPE = 30i32;
+pub const OUTPUT_WIRE_COLOR_SPACE_G22_P709_WCG: OUTPUT_WIRE_COLOR_SPACE_TYPE = OUTPUT_WIRE_COLOR_SPACE_TYPE(30i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const OUTPUT_WIRE_COLOR_SPACE_G22_P2020: OUTPUT_WIRE_COLOR_SPACE_TYPE = 31i32;
+pub const OUTPUT_WIRE_COLOR_SPACE_G22_P2020: OUTPUT_WIRE_COLOR_SPACE_TYPE = OUTPUT_WIRE_COLOR_SPACE_TYPE(31i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const OUTPUT_WIRE_COLOR_SPACE_G2084_P2020_HDR10PLUS: OUTPUT_WIRE_COLOR_SPACE_TYPE = 32i32;
+pub const OUTPUT_WIRE_COLOR_SPACE_G2084_P2020_HDR10PLUS: OUTPUT_WIRE_COLOR_SPACE_TYPE = OUTPUT_WIRE_COLOR_SPACE_TYPE(32i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const OUTPUT_WIRE_COLOR_SPACE_G2084_P2020_DVLL: OUTPUT_WIRE_COLOR_SPACE_TYPE = 33i32;
+pub const OUTPUT_WIRE_COLOR_SPACE_G2084_P2020_DVLL: OUTPUT_WIRE_COLOR_SPACE_TYPE = OUTPUT_WIRE_COLOR_SPACE_TYPE(33i32);
+impl ::core::marker::Copy for OUTPUT_WIRE_COLOR_SPACE_TYPE {}
+impl ::core::clone::Clone for OUTPUT_WIRE_COLOR_SPACE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for OUTPUT_WIRE_COLOR_SPACE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OUTPUT_WIRE_COLOR_SPACE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OUTPUT_WIRE_COLOR_SPACE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
 pub struct OUTPUT_WIRE_FORMAT {
@@ -10754,17 +11218,33 @@ impl ::core::default::Default for VIDEO_BANK_SELECT {
     }
 }
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub type VIDEO_BANK_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct VIDEO_BANK_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const VideoNotBanked: VIDEO_BANK_TYPE = 0i32;
+pub const VideoNotBanked: VIDEO_BANK_TYPE = VIDEO_BANK_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const VideoBanked1RW: VIDEO_BANK_TYPE = 1i32;
+pub const VideoBanked1RW: VIDEO_BANK_TYPE = VIDEO_BANK_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const VideoBanked1R1W: VIDEO_BANK_TYPE = 2i32;
+pub const VideoBanked1R1W: VIDEO_BANK_TYPE = VIDEO_BANK_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const VideoBanked2RW: VIDEO_BANK_TYPE = 3i32;
+pub const VideoBanked2RW: VIDEO_BANK_TYPE = VIDEO_BANK_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const NumVideoBankTypes: VIDEO_BANK_TYPE = 4i32;
+pub const NumVideoBankTypes: VIDEO_BANK_TYPE = VIDEO_BANK_TYPE(4i32);
+impl ::core::marker::Copy for VIDEO_BANK_TYPE {}
+impl ::core::clone::Clone for VIDEO_BANK_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for VIDEO_BANK_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VIDEO_BANK_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VIDEO_BANK_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11825,23 +12305,39 @@ impl ::core::default::Default for VIDEO_POWER_MANAGEMENT {
     }
 }
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub type VIDEO_POWER_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct VIDEO_POWER_STATE(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const VideoPowerUnspecified: VIDEO_POWER_STATE = 0i32;
+pub const VideoPowerUnspecified: VIDEO_POWER_STATE = VIDEO_POWER_STATE(0i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const VideoPowerOn: VIDEO_POWER_STATE = 1i32;
+pub const VideoPowerOn: VIDEO_POWER_STATE = VIDEO_POWER_STATE(1i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const VideoPowerStandBy: VIDEO_POWER_STATE = 2i32;
+pub const VideoPowerStandBy: VIDEO_POWER_STATE = VIDEO_POWER_STATE(2i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const VideoPowerSuspend: VIDEO_POWER_STATE = 3i32;
+pub const VideoPowerSuspend: VIDEO_POWER_STATE = VIDEO_POWER_STATE(3i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const VideoPowerOff: VIDEO_POWER_STATE = 4i32;
+pub const VideoPowerOff: VIDEO_POWER_STATE = VIDEO_POWER_STATE(4i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const VideoPowerHibernate: VIDEO_POWER_STATE = 5i32;
+pub const VideoPowerHibernate: VIDEO_POWER_STATE = VIDEO_POWER_STATE(5i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const VideoPowerShutdown: VIDEO_POWER_STATE = 6i32;
+pub const VideoPowerShutdown: VIDEO_POWER_STATE = VIDEO_POWER_STATE(6i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const VideoPowerMaximum: VIDEO_POWER_STATE = 7i32;
+pub const VideoPowerMaximum: VIDEO_POWER_STATE = VIDEO_POWER_STATE(7i32);
+impl ::core::marker::Copy for VIDEO_POWER_STATE {}
+impl ::core::clone::Clone for VIDEO_POWER_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for VIDEO_POWER_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VIDEO_POWER_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VIDEO_POWER_STATE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
 pub struct VIDEO_PUBLIC_ACCESS_RANGES {
@@ -12160,31 +12656,47 @@ impl ::core::default::Default for VIDEO_WIN32K_CALLBACKS_PARAMS {
     }
 }
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub type VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const VideoPowerNotifyCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = 1i32;
+pub const VideoPowerNotifyCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const VideoEnumChildPdoNotifyCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = 3i32;
+pub const VideoEnumChildPdoNotifyCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const VideoFindAdapterCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = 4i32;
+pub const VideoFindAdapterCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(4i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const VideoPnpNotifyCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = 7i32;
+pub const VideoPnpNotifyCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(7i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const VideoDxgkDisplaySwitchCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = 8i32;
+pub const VideoDxgkDisplaySwitchCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(8i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const VideoDxgkFindAdapterTdrCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = 10i32;
+pub const VideoDxgkFindAdapterTdrCallout: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(10i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const VideoDxgkHardwareProtectionTeardown: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = 11i32;
+pub const VideoDxgkHardwareProtectionTeardown: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(11i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const VideoRepaintDesktop: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = 12i32;
+pub const VideoRepaintDesktop: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(12i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const VideoUpdateCursor: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = 13i32;
+pub const VideoUpdateCursor: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(13i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const VideoDisableMultiPlaneOverlay: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = 14i32;
+pub const VideoDisableMultiPlaneOverlay: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(14i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const VideoDesktopDuplicationChange: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = 15i32;
+pub const VideoDesktopDuplicationChange: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(15i32);
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
-pub const VideoBlackScreenDiagnostics: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = 16i32;
+pub const VideoBlackScreenDiagnostics: VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE = VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE(16i32);
+impl ::core::marker::Copy for VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE {}
+impl ::core::clone::Clone for VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VIDEO_WIN32K_CALLBACKS_PARAMS_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Display'*"]
 pub struct WCRUN {

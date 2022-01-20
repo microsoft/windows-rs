@@ -277,83 +277,347 @@ pub unsafe fn D2D1Vec3Length(x: f32, y: f32, z: f32) -> f32 {
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_2DAFFINETRANSFORM_PROP = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_2DAFFINETRANSFORM_PROP(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_2DAFFINETRANSFORM_PROP_INTERPOLATION_MODE: D2D1_2DAFFINETRANSFORM_PROP = 0u32;
+pub const D2D1_2DAFFINETRANSFORM_PROP_INTERPOLATION_MODE: D2D1_2DAFFINETRANSFORM_PROP = D2D1_2DAFFINETRANSFORM_PROP(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_2DAFFINETRANSFORM_PROP_BORDER_MODE: D2D1_2DAFFINETRANSFORM_PROP = 1u32;
+pub const D2D1_2DAFFINETRANSFORM_PROP_BORDER_MODE: D2D1_2DAFFINETRANSFORM_PROP = D2D1_2DAFFINETRANSFORM_PROP(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_2DAFFINETRANSFORM_PROP_TRANSFORM_MATRIX: D2D1_2DAFFINETRANSFORM_PROP = 2u32;
+pub const D2D1_2DAFFINETRANSFORM_PROP_TRANSFORM_MATRIX: D2D1_2DAFFINETRANSFORM_PROP = D2D1_2DAFFINETRANSFORM_PROP(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_2DAFFINETRANSFORM_PROP_SHARPNESS: D2D1_2DAFFINETRANSFORM_PROP = 3u32;
+pub const D2D1_2DAFFINETRANSFORM_PROP_SHARPNESS: D2D1_2DAFFINETRANSFORM_PROP = D2D1_2DAFFINETRANSFORM_PROP(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_2DAFFINETRANSFORM_PROP_FORCE_DWORD: D2D1_2DAFFINETRANSFORM_PROP = 4294967295u32;
+pub const D2D1_2DAFFINETRANSFORM_PROP_FORCE_DWORD: D2D1_2DAFFINETRANSFORM_PROP = D2D1_2DAFFINETRANSFORM_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_2DAFFINETRANSFORM_PROP {}
+impl ::core::clone::Clone for D2D1_2DAFFINETRANSFORM_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_2DAFFINETRANSFORM_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_2DAFFINETRANSFORM_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_2DAFFINETRANSFORM_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_2DAFFINETRANSFORM_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_2DAFFINETRANSFORM_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_2DAFFINETRANSFORM_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_2DAFFINETRANSFORM_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_2DAFFINETRANSFORM_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE_NEAREST_NEIGHBOR: D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE = 0u32;
+pub const D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE_NEAREST_NEIGHBOR: D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE = D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE_LINEAR: D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE = 1u32;
+pub const D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE_LINEAR: D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE = D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE_CUBIC: D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE = 2u32;
+pub const D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE_CUBIC: D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE = D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE_MULTI_SAMPLE_LINEAR: D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE = 3u32;
+pub const D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE_MULTI_SAMPLE_LINEAR: D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE = D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE_ANISOTROPIC: D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE = 4u32;
+pub const D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE_ANISOTROPIC: D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE = D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE_FORCE_DWORD: D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE = 4294967295u32;
+pub const D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE_FORCE_DWORD: D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE = D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE(4294967295u32);
+impl ::core::marker::Copy for D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE {}
+impl ::core::clone::Clone for D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_3DPERSPECTIVETRANSFORM_INTERPOLATION_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_3DPERSPECTIVETRANSFORM_PROP = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_3DPERSPECTIVETRANSFORM_PROP(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_3DPERSPECTIVETRANSFORM_PROP_INTERPOLATION_MODE: D2D1_3DPERSPECTIVETRANSFORM_PROP = 0u32;
+pub const D2D1_3DPERSPECTIVETRANSFORM_PROP_INTERPOLATION_MODE: D2D1_3DPERSPECTIVETRANSFORM_PROP = D2D1_3DPERSPECTIVETRANSFORM_PROP(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_3DPERSPECTIVETRANSFORM_PROP_BORDER_MODE: D2D1_3DPERSPECTIVETRANSFORM_PROP = 1u32;
+pub const D2D1_3DPERSPECTIVETRANSFORM_PROP_BORDER_MODE: D2D1_3DPERSPECTIVETRANSFORM_PROP = D2D1_3DPERSPECTIVETRANSFORM_PROP(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_3DPERSPECTIVETRANSFORM_PROP_DEPTH: D2D1_3DPERSPECTIVETRANSFORM_PROP = 2u32;
+pub const D2D1_3DPERSPECTIVETRANSFORM_PROP_DEPTH: D2D1_3DPERSPECTIVETRANSFORM_PROP = D2D1_3DPERSPECTIVETRANSFORM_PROP(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_3DPERSPECTIVETRANSFORM_PROP_PERSPECTIVE_ORIGIN: D2D1_3DPERSPECTIVETRANSFORM_PROP = 3u32;
+pub const D2D1_3DPERSPECTIVETRANSFORM_PROP_PERSPECTIVE_ORIGIN: D2D1_3DPERSPECTIVETRANSFORM_PROP = D2D1_3DPERSPECTIVETRANSFORM_PROP(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_3DPERSPECTIVETRANSFORM_PROP_LOCAL_OFFSET: D2D1_3DPERSPECTIVETRANSFORM_PROP = 4u32;
+pub const D2D1_3DPERSPECTIVETRANSFORM_PROP_LOCAL_OFFSET: D2D1_3DPERSPECTIVETRANSFORM_PROP = D2D1_3DPERSPECTIVETRANSFORM_PROP(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_3DPERSPECTIVETRANSFORM_PROP_GLOBAL_OFFSET: D2D1_3DPERSPECTIVETRANSFORM_PROP = 5u32;
+pub const D2D1_3DPERSPECTIVETRANSFORM_PROP_GLOBAL_OFFSET: D2D1_3DPERSPECTIVETRANSFORM_PROP = D2D1_3DPERSPECTIVETRANSFORM_PROP(5u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_3DPERSPECTIVETRANSFORM_PROP_ROTATION_ORIGIN: D2D1_3DPERSPECTIVETRANSFORM_PROP = 6u32;
+pub const D2D1_3DPERSPECTIVETRANSFORM_PROP_ROTATION_ORIGIN: D2D1_3DPERSPECTIVETRANSFORM_PROP = D2D1_3DPERSPECTIVETRANSFORM_PROP(6u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_3DPERSPECTIVETRANSFORM_PROP_ROTATION: D2D1_3DPERSPECTIVETRANSFORM_PROP = 7u32;
+pub const D2D1_3DPERSPECTIVETRANSFORM_PROP_ROTATION: D2D1_3DPERSPECTIVETRANSFORM_PROP = D2D1_3DPERSPECTIVETRANSFORM_PROP(7u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_3DPERSPECTIVETRANSFORM_PROP_FORCE_DWORD: D2D1_3DPERSPECTIVETRANSFORM_PROP = 4294967295u32;
+pub const D2D1_3DPERSPECTIVETRANSFORM_PROP_FORCE_DWORD: D2D1_3DPERSPECTIVETRANSFORM_PROP = D2D1_3DPERSPECTIVETRANSFORM_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_3DPERSPECTIVETRANSFORM_PROP {}
+impl ::core::clone::Clone for D2D1_3DPERSPECTIVETRANSFORM_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_3DPERSPECTIVETRANSFORM_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_3DPERSPECTIVETRANSFORM_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_3DPERSPECTIVETRANSFORM_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_3DPERSPECTIVETRANSFORM_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_3DPERSPECTIVETRANSFORM_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_3DPERSPECTIVETRANSFORM_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_3DPERSPECTIVETRANSFORM_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_3DPERSPECTIVETRANSFORM_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_3DTRANSFORM_INTERPOLATION_MODE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_3DTRANSFORM_INTERPOLATION_MODE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_3DTRANSFORM_INTERPOLATION_MODE_NEAREST_NEIGHBOR: D2D1_3DTRANSFORM_INTERPOLATION_MODE = 0u32;
+pub const D2D1_3DTRANSFORM_INTERPOLATION_MODE_NEAREST_NEIGHBOR: D2D1_3DTRANSFORM_INTERPOLATION_MODE = D2D1_3DTRANSFORM_INTERPOLATION_MODE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_3DTRANSFORM_INTERPOLATION_MODE_LINEAR: D2D1_3DTRANSFORM_INTERPOLATION_MODE = 1u32;
+pub const D2D1_3DTRANSFORM_INTERPOLATION_MODE_LINEAR: D2D1_3DTRANSFORM_INTERPOLATION_MODE = D2D1_3DTRANSFORM_INTERPOLATION_MODE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_3DTRANSFORM_INTERPOLATION_MODE_CUBIC: D2D1_3DTRANSFORM_INTERPOLATION_MODE = 2u32;
+pub const D2D1_3DTRANSFORM_INTERPOLATION_MODE_CUBIC: D2D1_3DTRANSFORM_INTERPOLATION_MODE = D2D1_3DTRANSFORM_INTERPOLATION_MODE(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_3DTRANSFORM_INTERPOLATION_MODE_MULTI_SAMPLE_LINEAR: D2D1_3DTRANSFORM_INTERPOLATION_MODE = 3u32;
+pub const D2D1_3DTRANSFORM_INTERPOLATION_MODE_MULTI_SAMPLE_LINEAR: D2D1_3DTRANSFORM_INTERPOLATION_MODE = D2D1_3DTRANSFORM_INTERPOLATION_MODE(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_3DTRANSFORM_INTERPOLATION_MODE_ANISOTROPIC: D2D1_3DTRANSFORM_INTERPOLATION_MODE = 4u32;
+pub const D2D1_3DTRANSFORM_INTERPOLATION_MODE_ANISOTROPIC: D2D1_3DTRANSFORM_INTERPOLATION_MODE = D2D1_3DTRANSFORM_INTERPOLATION_MODE(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_3DTRANSFORM_INTERPOLATION_MODE_FORCE_DWORD: D2D1_3DTRANSFORM_INTERPOLATION_MODE = 4294967295u32;
+pub const D2D1_3DTRANSFORM_INTERPOLATION_MODE_FORCE_DWORD: D2D1_3DTRANSFORM_INTERPOLATION_MODE = D2D1_3DTRANSFORM_INTERPOLATION_MODE(4294967295u32);
+impl ::core::marker::Copy for D2D1_3DTRANSFORM_INTERPOLATION_MODE {}
+impl ::core::clone::Clone for D2D1_3DTRANSFORM_INTERPOLATION_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_3DTRANSFORM_INTERPOLATION_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_3DTRANSFORM_INTERPOLATION_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_3DTRANSFORM_INTERPOLATION_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_3DTRANSFORM_INTERPOLATION_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_3DTRANSFORM_INTERPOLATION_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_3DTRANSFORM_INTERPOLATION_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_3DTRANSFORM_INTERPOLATION_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_3DTRANSFORM_INTERPOLATION_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_3DTRANSFORM_PROP = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_3DTRANSFORM_PROP(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_3DTRANSFORM_PROP_INTERPOLATION_MODE: D2D1_3DTRANSFORM_PROP = 0u32;
+pub const D2D1_3DTRANSFORM_PROP_INTERPOLATION_MODE: D2D1_3DTRANSFORM_PROP = D2D1_3DTRANSFORM_PROP(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_3DTRANSFORM_PROP_BORDER_MODE: D2D1_3DTRANSFORM_PROP = 1u32;
+pub const D2D1_3DTRANSFORM_PROP_BORDER_MODE: D2D1_3DTRANSFORM_PROP = D2D1_3DTRANSFORM_PROP(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_3DTRANSFORM_PROP_TRANSFORM_MATRIX: D2D1_3DTRANSFORM_PROP = 2u32;
+pub const D2D1_3DTRANSFORM_PROP_TRANSFORM_MATRIX: D2D1_3DTRANSFORM_PROP = D2D1_3DTRANSFORM_PROP(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_3DTRANSFORM_PROP_FORCE_DWORD: D2D1_3DTRANSFORM_PROP = 4294967295u32;
+pub const D2D1_3DTRANSFORM_PROP_FORCE_DWORD: D2D1_3DTRANSFORM_PROP = D2D1_3DTRANSFORM_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_3DTRANSFORM_PROP {}
+impl ::core::clone::Clone for D2D1_3DTRANSFORM_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_3DTRANSFORM_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_3DTRANSFORM_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_3DTRANSFORM_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_3DTRANSFORM_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_3DTRANSFORM_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_3DTRANSFORM_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_3DTRANSFORM_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_3DTRANSFORM_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_ANTIALIAS_MODE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_ANTIALIAS_MODE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_ANTIALIAS_MODE_PER_PRIMITIVE: D2D1_ANTIALIAS_MODE = 0u32;
+pub const D2D1_ANTIALIAS_MODE_PER_PRIMITIVE: D2D1_ANTIALIAS_MODE = D2D1_ANTIALIAS_MODE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_ANTIALIAS_MODE_ALIASED: D2D1_ANTIALIAS_MODE = 1u32;
+pub const D2D1_ANTIALIAS_MODE_ALIASED: D2D1_ANTIALIAS_MODE = D2D1_ANTIALIAS_MODE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_ANTIALIAS_MODE_FORCE_DWORD: D2D1_ANTIALIAS_MODE = 4294967295u32;
+pub const D2D1_ANTIALIAS_MODE_FORCE_DWORD: D2D1_ANTIALIAS_MODE = D2D1_ANTIALIAS_MODE(4294967295u32);
+impl ::core::marker::Copy for D2D1_ANTIALIAS_MODE {}
+impl ::core::clone::Clone for D2D1_ANTIALIAS_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_ANTIALIAS_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_ANTIALIAS_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_ANTIALIAS_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_ANTIALIAS_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_ANTIALIAS_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_ANTIALIAS_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_ANTIALIAS_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_ANTIALIAS_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_APPEND_ALIGNED_ELEMENT: u32 = 4294967295u32;
 #[repr(C)]
@@ -399,87 +663,395 @@ impl ::core::default::Default for D2D1_ARC_SEGMENT {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_ARC_SIZE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_ARC_SIZE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_ARC_SIZE_SMALL: D2D1_ARC_SIZE = 0u32;
+pub const D2D1_ARC_SIZE_SMALL: D2D1_ARC_SIZE = D2D1_ARC_SIZE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_ARC_SIZE_LARGE: D2D1_ARC_SIZE = 1u32;
+pub const D2D1_ARC_SIZE_LARGE: D2D1_ARC_SIZE = D2D1_ARC_SIZE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_ARC_SIZE_FORCE_DWORD: D2D1_ARC_SIZE = 4294967295u32;
+pub const D2D1_ARC_SIZE_FORCE_DWORD: D2D1_ARC_SIZE = D2D1_ARC_SIZE(4294967295u32);
+impl ::core::marker::Copy for D2D1_ARC_SIZE {}
+impl ::core::clone::Clone for D2D1_ARC_SIZE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_ARC_SIZE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_ARC_SIZE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_ARC_SIZE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_ARC_SIZE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_ARC_SIZE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_ARC_SIZE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_ARC_SIZE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_ARC_SIZE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_ARITHMETICCOMPOSITE_PROP = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_ARITHMETICCOMPOSITE_PROP(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_ARITHMETICCOMPOSITE_PROP_COEFFICIENTS: D2D1_ARITHMETICCOMPOSITE_PROP = 0u32;
+pub const D2D1_ARITHMETICCOMPOSITE_PROP_COEFFICIENTS: D2D1_ARITHMETICCOMPOSITE_PROP = D2D1_ARITHMETICCOMPOSITE_PROP(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_ARITHMETICCOMPOSITE_PROP_CLAMP_OUTPUT: D2D1_ARITHMETICCOMPOSITE_PROP = 1u32;
+pub const D2D1_ARITHMETICCOMPOSITE_PROP_CLAMP_OUTPUT: D2D1_ARITHMETICCOMPOSITE_PROP = D2D1_ARITHMETICCOMPOSITE_PROP(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_ARITHMETICCOMPOSITE_PROP_FORCE_DWORD: D2D1_ARITHMETICCOMPOSITE_PROP = 4294967295u32;
+pub const D2D1_ARITHMETICCOMPOSITE_PROP_FORCE_DWORD: D2D1_ARITHMETICCOMPOSITE_PROP = D2D1_ARITHMETICCOMPOSITE_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_ARITHMETICCOMPOSITE_PROP {}
+impl ::core::clone::Clone for D2D1_ARITHMETICCOMPOSITE_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_ARITHMETICCOMPOSITE_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_ARITHMETICCOMPOSITE_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_ARITHMETICCOMPOSITE_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_ARITHMETICCOMPOSITE_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_ARITHMETICCOMPOSITE_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_ARITHMETICCOMPOSITE_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_ARITHMETICCOMPOSITE_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_ARITHMETICCOMPOSITE_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_ATLAS_PROP = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_ATLAS_PROP(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_ATLAS_PROP_INPUT_RECT: D2D1_ATLAS_PROP = 0u32;
+pub const D2D1_ATLAS_PROP_INPUT_RECT: D2D1_ATLAS_PROP = D2D1_ATLAS_PROP(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_ATLAS_PROP_INPUT_PADDING_RECT: D2D1_ATLAS_PROP = 1u32;
+pub const D2D1_ATLAS_PROP_INPUT_PADDING_RECT: D2D1_ATLAS_PROP = D2D1_ATLAS_PROP(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_ATLAS_PROP_FORCE_DWORD: D2D1_ATLAS_PROP = 4294967295u32;
+pub const D2D1_ATLAS_PROP_FORCE_DWORD: D2D1_ATLAS_PROP = D2D1_ATLAS_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_ATLAS_PROP {}
+impl ::core::clone::Clone for D2D1_ATLAS_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_ATLAS_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_ATLAS_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_ATLAS_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_ATLAS_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_ATLAS_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_ATLAS_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_ATLAS_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_ATLAS_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_BITMAPSOURCE_ALPHA_MODE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_BITMAPSOURCE_ALPHA_MODE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BITMAPSOURCE_ALPHA_MODE_PREMULTIPLIED: D2D1_BITMAPSOURCE_ALPHA_MODE = 1u32;
+pub const D2D1_BITMAPSOURCE_ALPHA_MODE_PREMULTIPLIED: D2D1_BITMAPSOURCE_ALPHA_MODE = D2D1_BITMAPSOURCE_ALPHA_MODE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BITMAPSOURCE_ALPHA_MODE_STRAIGHT: D2D1_BITMAPSOURCE_ALPHA_MODE = 2u32;
+pub const D2D1_BITMAPSOURCE_ALPHA_MODE_STRAIGHT: D2D1_BITMAPSOURCE_ALPHA_MODE = D2D1_BITMAPSOURCE_ALPHA_MODE(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BITMAPSOURCE_ALPHA_MODE_FORCE_DWORD: D2D1_BITMAPSOURCE_ALPHA_MODE = 4294967295u32;
+pub const D2D1_BITMAPSOURCE_ALPHA_MODE_FORCE_DWORD: D2D1_BITMAPSOURCE_ALPHA_MODE = D2D1_BITMAPSOURCE_ALPHA_MODE(4294967295u32);
+impl ::core::marker::Copy for D2D1_BITMAPSOURCE_ALPHA_MODE {}
+impl ::core::clone::Clone for D2D1_BITMAPSOURCE_ALPHA_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_BITMAPSOURCE_ALPHA_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_BITMAPSOURCE_ALPHA_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_BITMAPSOURCE_ALPHA_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_BITMAPSOURCE_ALPHA_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_BITMAPSOURCE_ALPHA_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_BITMAPSOURCE_ALPHA_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_BITMAPSOURCE_ALPHA_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_BITMAPSOURCE_ALPHA_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_BITMAPSOURCE_INTERPOLATION_MODE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_BITMAPSOURCE_INTERPOLATION_MODE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BITMAPSOURCE_INTERPOLATION_MODE_NEAREST_NEIGHBOR: D2D1_BITMAPSOURCE_INTERPOLATION_MODE = 0u32;
+pub const D2D1_BITMAPSOURCE_INTERPOLATION_MODE_NEAREST_NEIGHBOR: D2D1_BITMAPSOURCE_INTERPOLATION_MODE = D2D1_BITMAPSOURCE_INTERPOLATION_MODE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BITMAPSOURCE_INTERPOLATION_MODE_LINEAR: D2D1_BITMAPSOURCE_INTERPOLATION_MODE = 1u32;
+pub const D2D1_BITMAPSOURCE_INTERPOLATION_MODE_LINEAR: D2D1_BITMAPSOURCE_INTERPOLATION_MODE = D2D1_BITMAPSOURCE_INTERPOLATION_MODE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BITMAPSOURCE_INTERPOLATION_MODE_CUBIC: D2D1_BITMAPSOURCE_INTERPOLATION_MODE = 2u32;
+pub const D2D1_BITMAPSOURCE_INTERPOLATION_MODE_CUBIC: D2D1_BITMAPSOURCE_INTERPOLATION_MODE = D2D1_BITMAPSOURCE_INTERPOLATION_MODE(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BITMAPSOURCE_INTERPOLATION_MODE_FANT: D2D1_BITMAPSOURCE_INTERPOLATION_MODE = 6u32;
+pub const D2D1_BITMAPSOURCE_INTERPOLATION_MODE_FANT: D2D1_BITMAPSOURCE_INTERPOLATION_MODE = D2D1_BITMAPSOURCE_INTERPOLATION_MODE(6u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BITMAPSOURCE_INTERPOLATION_MODE_MIPMAP_LINEAR: D2D1_BITMAPSOURCE_INTERPOLATION_MODE = 7u32;
+pub const D2D1_BITMAPSOURCE_INTERPOLATION_MODE_MIPMAP_LINEAR: D2D1_BITMAPSOURCE_INTERPOLATION_MODE = D2D1_BITMAPSOURCE_INTERPOLATION_MODE(7u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BITMAPSOURCE_INTERPOLATION_MODE_FORCE_DWORD: D2D1_BITMAPSOURCE_INTERPOLATION_MODE = 4294967295u32;
+pub const D2D1_BITMAPSOURCE_INTERPOLATION_MODE_FORCE_DWORD: D2D1_BITMAPSOURCE_INTERPOLATION_MODE = D2D1_BITMAPSOURCE_INTERPOLATION_MODE(4294967295u32);
+impl ::core::marker::Copy for D2D1_BITMAPSOURCE_INTERPOLATION_MODE {}
+impl ::core::clone::Clone for D2D1_BITMAPSOURCE_INTERPOLATION_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_BITMAPSOURCE_INTERPOLATION_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_BITMAPSOURCE_INTERPOLATION_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_BITMAPSOURCE_INTERPOLATION_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_BITMAPSOURCE_INTERPOLATION_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_BITMAPSOURCE_INTERPOLATION_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_BITMAPSOURCE_INTERPOLATION_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_BITMAPSOURCE_INTERPOLATION_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_BITMAPSOURCE_INTERPOLATION_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_BITMAPSOURCE_ORIENTATION = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_BITMAPSOURCE_ORIENTATION(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BITMAPSOURCE_ORIENTATION_DEFAULT: D2D1_BITMAPSOURCE_ORIENTATION = 1u32;
+pub const D2D1_BITMAPSOURCE_ORIENTATION_DEFAULT: D2D1_BITMAPSOURCE_ORIENTATION = D2D1_BITMAPSOURCE_ORIENTATION(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BITMAPSOURCE_ORIENTATION_FLIP_HORIZONTAL: D2D1_BITMAPSOURCE_ORIENTATION = 2u32;
+pub const D2D1_BITMAPSOURCE_ORIENTATION_FLIP_HORIZONTAL: D2D1_BITMAPSOURCE_ORIENTATION = D2D1_BITMAPSOURCE_ORIENTATION(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BITMAPSOURCE_ORIENTATION_ROTATE_CLOCKWISE180: D2D1_BITMAPSOURCE_ORIENTATION = 3u32;
+pub const D2D1_BITMAPSOURCE_ORIENTATION_ROTATE_CLOCKWISE180: D2D1_BITMAPSOURCE_ORIENTATION = D2D1_BITMAPSOURCE_ORIENTATION(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BITMAPSOURCE_ORIENTATION_ROTATE_CLOCKWISE180_FLIP_HORIZONTAL: D2D1_BITMAPSOURCE_ORIENTATION = 4u32;
+pub const D2D1_BITMAPSOURCE_ORIENTATION_ROTATE_CLOCKWISE180_FLIP_HORIZONTAL: D2D1_BITMAPSOURCE_ORIENTATION = D2D1_BITMAPSOURCE_ORIENTATION(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BITMAPSOURCE_ORIENTATION_ROTATE_CLOCKWISE270_FLIP_HORIZONTAL: D2D1_BITMAPSOURCE_ORIENTATION = 5u32;
+pub const D2D1_BITMAPSOURCE_ORIENTATION_ROTATE_CLOCKWISE270_FLIP_HORIZONTAL: D2D1_BITMAPSOURCE_ORIENTATION = D2D1_BITMAPSOURCE_ORIENTATION(5u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BITMAPSOURCE_ORIENTATION_ROTATE_CLOCKWISE90: D2D1_BITMAPSOURCE_ORIENTATION = 6u32;
+pub const D2D1_BITMAPSOURCE_ORIENTATION_ROTATE_CLOCKWISE90: D2D1_BITMAPSOURCE_ORIENTATION = D2D1_BITMAPSOURCE_ORIENTATION(6u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BITMAPSOURCE_ORIENTATION_ROTATE_CLOCKWISE90_FLIP_HORIZONTAL: D2D1_BITMAPSOURCE_ORIENTATION = 7u32;
+pub const D2D1_BITMAPSOURCE_ORIENTATION_ROTATE_CLOCKWISE90_FLIP_HORIZONTAL: D2D1_BITMAPSOURCE_ORIENTATION = D2D1_BITMAPSOURCE_ORIENTATION(7u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BITMAPSOURCE_ORIENTATION_ROTATE_CLOCKWISE270: D2D1_BITMAPSOURCE_ORIENTATION = 8u32;
+pub const D2D1_BITMAPSOURCE_ORIENTATION_ROTATE_CLOCKWISE270: D2D1_BITMAPSOURCE_ORIENTATION = D2D1_BITMAPSOURCE_ORIENTATION(8u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BITMAPSOURCE_ORIENTATION_FORCE_DWORD: D2D1_BITMAPSOURCE_ORIENTATION = 4294967295u32;
+pub const D2D1_BITMAPSOURCE_ORIENTATION_FORCE_DWORD: D2D1_BITMAPSOURCE_ORIENTATION = D2D1_BITMAPSOURCE_ORIENTATION(4294967295u32);
+impl ::core::marker::Copy for D2D1_BITMAPSOURCE_ORIENTATION {}
+impl ::core::clone::Clone for D2D1_BITMAPSOURCE_ORIENTATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_BITMAPSOURCE_ORIENTATION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_BITMAPSOURCE_ORIENTATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_BITMAPSOURCE_ORIENTATION").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_BITMAPSOURCE_ORIENTATION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_BITMAPSOURCE_ORIENTATION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_BITMAPSOURCE_ORIENTATION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_BITMAPSOURCE_ORIENTATION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_BITMAPSOURCE_ORIENTATION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_BITMAPSOURCE_PROP = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_BITMAPSOURCE_PROP(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BITMAPSOURCE_PROP_WIC_BITMAP_SOURCE: D2D1_BITMAPSOURCE_PROP = 0u32;
+pub const D2D1_BITMAPSOURCE_PROP_WIC_BITMAP_SOURCE: D2D1_BITMAPSOURCE_PROP = D2D1_BITMAPSOURCE_PROP(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BITMAPSOURCE_PROP_SCALE: D2D1_BITMAPSOURCE_PROP = 1u32;
+pub const D2D1_BITMAPSOURCE_PROP_SCALE: D2D1_BITMAPSOURCE_PROP = D2D1_BITMAPSOURCE_PROP(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BITMAPSOURCE_PROP_INTERPOLATION_MODE: D2D1_BITMAPSOURCE_PROP = 2u32;
+pub const D2D1_BITMAPSOURCE_PROP_INTERPOLATION_MODE: D2D1_BITMAPSOURCE_PROP = D2D1_BITMAPSOURCE_PROP(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BITMAPSOURCE_PROP_ENABLE_DPI_CORRECTION: D2D1_BITMAPSOURCE_PROP = 3u32;
+pub const D2D1_BITMAPSOURCE_PROP_ENABLE_DPI_CORRECTION: D2D1_BITMAPSOURCE_PROP = D2D1_BITMAPSOURCE_PROP(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BITMAPSOURCE_PROP_ALPHA_MODE: D2D1_BITMAPSOURCE_PROP = 4u32;
+pub const D2D1_BITMAPSOURCE_PROP_ALPHA_MODE: D2D1_BITMAPSOURCE_PROP = D2D1_BITMAPSOURCE_PROP(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BITMAPSOURCE_PROP_ORIENTATION: D2D1_BITMAPSOURCE_PROP = 5u32;
+pub const D2D1_BITMAPSOURCE_PROP_ORIENTATION: D2D1_BITMAPSOURCE_PROP = D2D1_BITMAPSOURCE_PROP(5u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BITMAPSOURCE_PROP_FORCE_DWORD: D2D1_BITMAPSOURCE_PROP = 4294967295u32;
+pub const D2D1_BITMAPSOURCE_PROP_FORCE_DWORD: D2D1_BITMAPSOURCE_PROP = D2D1_BITMAPSOURCE_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_BITMAPSOURCE_PROP {}
+impl ::core::clone::Clone for D2D1_BITMAPSOURCE_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_BITMAPSOURCE_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_BITMAPSOURCE_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_BITMAPSOURCE_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_BITMAPSOURCE_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_BITMAPSOURCE_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_BITMAPSOURCE_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_BITMAPSOURCE_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_BITMAPSOURCE_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub struct D2D1_BITMAP_BRUSH_PROPERTIES {
@@ -545,27 +1117,115 @@ impl ::core::default::Default for D2D1_BITMAP_BRUSH_PROPERTIES1 {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_BITMAP_INTERPOLATION_MODE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_BITMAP_INTERPOLATION_MODE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR: D2D1_BITMAP_INTERPOLATION_MODE = 0u32;
+pub const D2D1_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR: D2D1_BITMAP_INTERPOLATION_MODE = D2D1_BITMAP_INTERPOLATION_MODE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BITMAP_INTERPOLATION_MODE_LINEAR: D2D1_BITMAP_INTERPOLATION_MODE = 1u32;
+pub const D2D1_BITMAP_INTERPOLATION_MODE_LINEAR: D2D1_BITMAP_INTERPOLATION_MODE = D2D1_BITMAP_INTERPOLATION_MODE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BITMAP_INTERPOLATION_MODE_FORCE_DWORD: D2D1_BITMAP_INTERPOLATION_MODE = 4294967295u32;
+pub const D2D1_BITMAP_INTERPOLATION_MODE_FORCE_DWORD: D2D1_BITMAP_INTERPOLATION_MODE = D2D1_BITMAP_INTERPOLATION_MODE(4294967295u32);
+impl ::core::marker::Copy for D2D1_BITMAP_INTERPOLATION_MODE {}
+impl ::core::clone::Clone for D2D1_BITMAP_INTERPOLATION_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_BITMAP_INTERPOLATION_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_BITMAP_INTERPOLATION_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_BITMAP_INTERPOLATION_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_BITMAP_INTERPOLATION_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_BITMAP_INTERPOLATION_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_BITMAP_INTERPOLATION_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_BITMAP_INTERPOLATION_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_BITMAP_INTERPOLATION_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_BITMAP_OPTIONS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_BITMAP_OPTIONS(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BITMAP_OPTIONS_NONE: D2D1_BITMAP_OPTIONS = 0u32;
+pub const D2D1_BITMAP_OPTIONS_NONE: D2D1_BITMAP_OPTIONS = D2D1_BITMAP_OPTIONS(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BITMAP_OPTIONS_TARGET: D2D1_BITMAP_OPTIONS = 1u32;
+pub const D2D1_BITMAP_OPTIONS_TARGET: D2D1_BITMAP_OPTIONS = D2D1_BITMAP_OPTIONS(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BITMAP_OPTIONS_CANNOT_DRAW: D2D1_BITMAP_OPTIONS = 2u32;
+pub const D2D1_BITMAP_OPTIONS_CANNOT_DRAW: D2D1_BITMAP_OPTIONS = D2D1_BITMAP_OPTIONS(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BITMAP_OPTIONS_CPU_READ: D2D1_BITMAP_OPTIONS = 4u32;
+pub const D2D1_BITMAP_OPTIONS_CPU_READ: D2D1_BITMAP_OPTIONS = D2D1_BITMAP_OPTIONS(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BITMAP_OPTIONS_GDI_COMPATIBLE: D2D1_BITMAP_OPTIONS = 8u32;
+pub const D2D1_BITMAP_OPTIONS_GDI_COMPATIBLE: D2D1_BITMAP_OPTIONS = D2D1_BITMAP_OPTIONS(8u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BITMAP_OPTIONS_FORCE_DWORD: D2D1_BITMAP_OPTIONS = 4294967295u32;
+pub const D2D1_BITMAP_OPTIONS_FORCE_DWORD: D2D1_BITMAP_OPTIONS = D2D1_BITMAP_OPTIONS(4294967295u32);
+impl ::core::marker::Copy for D2D1_BITMAP_OPTIONS {}
+impl ::core::clone::Clone for D2D1_BITMAP_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_BITMAP_OPTIONS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_BITMAP_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_BITMAP_OPTIONS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_BITMAP_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_BITMAP_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_BITMAP_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_BITMAP_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_BITMAP_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -647,35 +1307,79 @@ impl ::core::default::Default for D2D1_BITMAP_PROPERTIES1 {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_BLEND = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_BLEND(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BLEND_ZERO: D2D1_BLEND = 1u32;
+pub const D2D1_BLEND_ZERO: D2D1_BLEND = D2D1_BLEND(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BLEND_ONE: D2D1_BLEND = 2u32;
+pub const D2D1_BLEND_ONE: D2D1_BLEND = D2D1_BLEND(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BLEND_SRC_COLOR: D2D1_BLEND = 3u32;
+pub const D2D1_BLEND_SRC_COLOR: D2D1_BLEND = D2D1_BLEND(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BLEND_INV_SRC_COLOR: D2D1_BLEND = 4u32;
+pub const D2D1_BLEND_INV_SRC_COLOR: D2D1_BLEND = D2D1_BLEND(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BLEND_SRC_ALPHA: D2D1_BLEND = 5u32;
+pub const D2D1_BLEND_SRC_ALPHA: D2D1_BLEND = D2D1_BLEND(5u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BLEND_INV_SRC_ALPHA: D2D1_BLEND = 6u32;
+pub const D2D1_BLEND_INV_SRC_ALPHA: D2D1_BLEND = D2D1_BLEND(6u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BLEND_DEST_ALPHA: D2D1_BLEND = 7u32;
+pub const D2D1_BLEND_DEST_ALPHA: D2D1_BLEND = D2D1_BLEND(7u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BLEND_INV_DEST_ALPHA: D2D1_BLEND = 8u32;
+pub const D2D1_BLEND_INV_DEST_ALPHA: D2D1_BLEND = D2D1_BLEND(8u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BLEND_DEST_COLOR: D2D1_BLEND = 9u32;
+pub const D2D1_BLEND_DEST_COLOR: D2D1_BLEND = D2D1_BLEND(9u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BLEND_INV_DEST_COLOR: D2D1_BLEND = 10u32;
+pub const D2D1_BLEND_INV_DEST_COLOR: D2D1_BLEND = D2D1_BLEND(10u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BLEND_SRC_ALPHA_SAT: D2D1_BLEND = 11u32;
+pub const D2D1_BLEND_SRC_ALPHA_SAT: D2D1_BLEND = D2D1_BLEND(11u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BLEND_BLEND_FACTOR: D2D1_BLEND = 14u32;
+pub const D2D1_BLEND_BLEND_FACTOR: D2D1_BLEND = D2D1_BLEND(14u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BLEND_INV_BLEND_FACTOR: D2D1_BLEND = 15u32;
+pub const D2D1_BLEND_INV_BLEND_FACTOR: D2D1_BLEND = D2D1_BLEND(15u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BLEND_FORCE_DWORD: D2D1_BLEND = 4294967295u32;
+pub const D2D1_BLEND_FORCE_DWORD: D2D1_BLEND = D2D1_BLEND(4294967295u32);
+impl ::core::marker::Copy for D2D1_BLEND {}
+impl ::core::clone::Clone for D2D1_BLEND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_BLEND {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_BLEND {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_BLEND").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_BLEND {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_BLEND {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_BLEND {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_BLEND {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_BLEND {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub struct D2D1_BLEND_DESCRIPTION {
@@ -713,51 +1417,271 @@ impl ::core::default::Default for D2D1_BLEND_DESCRIPTION {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_BLEND_OPERATION = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_BLEND_OPERATION(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BLEND_OPERATION_ADD: D2D1_BLEND_OPERATION = 1u32;
+pub const D2D1_BLEND_OPERATION_ADD: D2D1_BLEND_OPERATION = D2D1_BLEND_OPERATION(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BLEND_OPERATION_SUBTRACT: D2D1_BLEND_OPERATION = 2u32;
+pub const D2D1_BLEND_OPERATION_SUBTRACT: D2D1_BLEND_OPERATION = D2D1_BLEND_OPERATION(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BLEND_OPERATION_REV_SUBTRACT: D2D1_BLEND_OPERATION = 3u32;
+pub const D2D1_BLEND_OPERATION_REV_SUBTRACT: D2D1_BLEND_OPERATION = D2D1_BLEND_OPERATION(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BLEND_OPERATION_MIN: D2D1_BLEND_OPERATION = 4u32;
+pub const D2D1_BLEND_OPERATION_MIN: D2D1_BLEND_OPERATION = D2D1_BLEND_OPERATION(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BLEND_OPERATION_MAX: D2D1_BLEND_OPERATION = 5u32;
+pub const D2D1_BLEND_OPERATION_MAX: D2D1_BLEND_OPERATION = D2D1_BLEND_OPERATION(5u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BLEND_OPERATION_FORCE_DWORD: D2D1_BLEND_OPERATION = 4294967295u32;
+pub const D2D1_BLEND_OPERATION_FORCE_DWORD: D2D1_BLEND_OPERATION = D2D1_BLEND_OPERATION(4294967295u32);
+impl ::core::marker::Copy for D2D1_BLEND_OPERATION {}
+impl ::core::clone::Clone for D2D1_BLEND_OPERATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_BLEND_OPERATION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_BLEND_OPERATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_BLEND_OPERATION").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_BLEND_OPERATION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_BLEND_OPERATION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_BLEND_OPERATION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_BLEND_OPERATION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_BLEND_OPERATION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_BLEND_PROP = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_BLEND_PROP(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BLEND_PROP_MODE: D2D1_BLEND_PROP = 0u32;
+pub const D2D1_BLEND_PROP_MODE: D2D1_BLEND_PROP = D2D1_BLEND_PROP(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BLEND_PROP_FORCE_DWORD: D2D1_BLEND_PROP = 4294967295u32;
+pub const D2D1_BLEND_PROP_FORCE_DWORD: D2D1_BLEND_PROP = D2D1_BLEND_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_BLEND_PROP {}
+impl ::core::clone::Clone for D2D1_BLEND_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_BLEND_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_BLEND_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_BLEND_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_BLEND_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_BLEND_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_BLEND_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_BLEND_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_BLEND_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_BORDER_EDGE_MODE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_BORDER_EDGE_MODE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BORDER_EDGE_MODE_CLAMP: D2D1_BORDER_EDGE_MODE = 0u32;
+pub const D2D1_BORDER_EDGE_MODE_CLAMP: D2D1_BORDER_EDGE_MODE = D2D1_BORDER_EDGE_MODE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BORDER_EDGE_MODE_WRAP: D2D1_BORDER_EDGE_MODE = 1u32;
+pub const D2D1_BORDER_EDGE_MODE_WRAP: D2D1_BORDER_EDGE_MODE = D2D1_BORDER_EDGE_MODE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BORDER_EDGE_MODE_MIRROR: D2D1_BORDER_EDGE_MODE = 2u32;
+pub const D2D1_BORDER_EDGE_MODE_MIRROR: D2D1_BORDER_EDGE_MODE = D2D1_BORDER_EDGE_MODE(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BORDER_EDGE_MODE_FORCE_DWORD: D2D1_BORDER_EDGE_MODE = 4294967295u32;
+pub const D2D1_BORDER_EDGE_MODE_FORCE_DWORD: D2D1_BORDER_EDGE_MODE = D2D1_BORDER_EDGE_MODE(4294967295u32);
+impl ::core::marker::Copy for D2D1_BORDER_EDGE_MODE {}
+impl ::core::clone::Clone for D2D1_BORDER_EDGE_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_BORDER_EDGE_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_BORDER_EDGE_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_BORDER_EDGE_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_BORDER_EDGE_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_BORDER_EDGE_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_BORDER_EDGE_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_BORDER_EDGE_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_BORDER_EDGE_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_BORDER_PROP = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_BORDER_PROP(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BORDER_PROP_EDGE_MODE_X: D2D1_BORDER_PROP = 0u32;
+pub const D2D1_BORDER_PROP_EDGE_MODE_X: D2D1_BORDER_PROP = D2D1_BORDER_PROP(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BORDER_PROP_EDGE_MODE_Y: D2D1_BORDER_PROP = 1u32;
+pub const D2D1_BORDER_PROP_EDGE_MODE_Y: D2D1_BORDER_PROP = D2D1_BORDER_PROP(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BORDER_PROP_FORCE_DWORD: D2D1_BORDER_PROP = 4294967295u32;
+pub const D2D1_BORDER_PROP_FORCE_DWORD: D2D1_BORDER_PROP = D2D1_BORDER_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_BORDER_PROP {}
+impl ::core::clone::Clone for D2D1_BORDER_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_BORDER_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_BORDER_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_BORDER_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_BORDER_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_BORDER_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_BORDER_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_BORDER_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_BORDER_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_BRIGHTNESS_PROP = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_BRIGHTNESS_PROP(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BRIGHTNESS_PROP_WHITE_POINT: D2D1_BRIGHTNESS_PROP = 0u32;
+pub const D2D1_BRIGHTNESS_PROP_WHITE_POINT: D2D1_BRIGHTNESS_PROP = D2D1_BRIGHTNESS_PROP(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BRIGHTNESS_PROP_BLACK_POINT: D2D1_BRIGHTNESS_PROP = 1u32;
+pub const D2D1_BRIGHTNESS_PROP_BLACK_POINT: D2D1_BRIGHTNESS_PROP = D2D1_BRIGHTNESS_PROP(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BRIGHTNESS_PROP_FORCE_DWORD: D2D1_BRIGHTNESS_PROP = 4294967295u32;
+pub const D2D1_BRIGHTNESS_PROP_FORCE_DWORD: D2D1_BRIGHTNESS_PROP = D2D1_BRIGHTNESS_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_BRIGHTNESS_PROP {}
+impl ::core::clone::Clone for D2D1_BRIGHTNESS_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_BRIGHTNESS_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_BRIGHTNESS_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_BRIGHTNESS_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_BRIGHTNESS_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_BRIGHTNESS_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_BRIGHTNESS_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_BRIGHTNESS_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_BRIGHTNESS_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Foundation_Numerics'*"]
 #[cfg(feature = "Foundation_Numerics")]
@@ -798,247 +1722,1171 @@ impl ::core::default::Default for D2D1_BRUSH_PROPERTIES {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_BUFFER_PRECISION = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BUFFER_PRECISION_UNKNOWN: D2D1_BUFFER_PRECISION = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BUFFER_PRECISION_8BPC_UNORM: D2D1_BUFFER_PRECISION = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BUFFER_PRECISION_8BPC_UNORM_SRGB: D2D1_BUFFER_PRECISION = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BUFFER_PRECISION_16BPC_UNORM: D2D1_BUFFER_PRECISION = 3u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BUFFER_PRECISION_16BPC_FLOAT: D2D1_BUFFER_PRECISION = 4u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BUFFER_PRECISION_32BPC_FLOAT: D2D1_BUFFER_PRECISION = 5u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_BUFFER_PRECISION_FORCE_DWORD: D2D1_BUFFER_PRECISION = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_CAP_STYLE = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CAP_STYLE_FLAT: D2D1_CAP_STYLE = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CAP_STYLE_SQUARE: D2D1_CAP_STYLE = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CAP_STYLE_ROUND: D2D1_CAP_STYLE = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CAP_STYLE_TRIANGLE: D2D1_CAP_STYLE = 3u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CAP_STYLE_FORCE_DWORD: D2D1_CAP_STYLE = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_CHANGE_TYPE = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CHANGE_TYPE_NONE: D2D1_CHANGE_TYPE = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CHANGE_TYPE_PROPERTIES: D2D1_CHANGE_TYPE = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CHANGE_TYPE_CONTEXT: D2D1_CHANGE_TYPE = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CHANGE_TYPE_GRAPH: D2D1_CHANGE_TYPE = 3u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CHANGE_TYPE_FORCE_DWORD: D2D1_CHANGE_TYPE = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_CHANNEL_DEPTH = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CHANNEL_DEPTH_DEFAULT: D2D1_CHANNEL_DEPTH = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CHANNEL_DEPTH_1: D2D1_CHANNEL_DEPTH = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CHANNEL_DEPTH_4: D2D1_CHANNEL_DEPTH = 4u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CHANNEL_DEPTH_FORCE_DWORD: D2D1_CHANNEL_DEPTH = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_CHANNEL_SELECTOR = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CHANNEL_SELECTOR_R: D2D1_CHANNEL_SELECTOR = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CHANNEL_SELECTOR_G: D2D1_CHANNEL_SELECTOR = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CHANNEL_SELECTOR_B: D2D1_CHANNEL_SELECTOR = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CHANNEL_SELECTOR_A: D2D1_CHANNEL_SELECTOR = 3u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CHANNEL_SELECTOR_FORCE_DWORD: D2D1_CHANNEL_SELECTOR = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_CHROMAKEY_PROP = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CHROMAKEY_PROP_COLOR: D2D1_CHROMAKEY_PROP = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CHROMAKEY_PROP_TOLERANCE: D2D1_CHROMAKEY_PROP = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CHROMAKEY_PROP_INVERT_ALPHA: D2D1_CHROMAKEY_PROP = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CHROMAKEY_PROP_FEATHER: D2D1_CHROMAKEY_PROP = 3u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CHROMAKEY_PROP_FORCE_DWORD: D2D1_CHROMAKEY_PROP = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_COLORMANAGEMENT_ALPHA_MODE = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COLORMANAGEMENT_ALPHA_MODE_PREMULTIPLIED: D2D1_COLORMANAGEMENT_ALPHA_MODE = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COLORMANAGEMENT_ALPHA_MODE_STRAIGHT: D2D1_COLORMANAGEMENT_ALPHA_MODE = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COLORMANAGEMENT_ALPHA_MODE_FORCE_DWORD: D2D1_COLORMANAGEMENT_ALPHA_MODE = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_COLORMANAGEMENT_PROP = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COLORMANAGEMENT_PROP_SOURCE_COLOR_CONTEXT: D2D1_COLORMANAGEMENT_PROP = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COLORMANAGEMENT_PROP_SOURCE_RENDERING_INTENT: D2D1_COLORMANAGEMENT_PROP = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COLORMANAGEMENT_PROP_DESTINATION_COLOR_CONTEXT: D2D1_COLORMANAGEMENT_PROP = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COLORMANAGEMENT_PROP_DESTINATION_RENDERING_INTENT: D2D1_COLORMANAGEMENT_PROP = 3u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COLORMANAGEMENT_PROP_ALPHA_MODE: D2D1_COLORMANAGEMENT_PROP = 4u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COLORMANAGEMENT_PROP_QUALITY: D2D1_COLORMANAGEMENT_PROP = 5u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COLORMANAGEMENT_PROP_FORCE_DWORD: D2D1_COLORMANAGEMENT_PROP = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_COLORMANAGEMENT_QUALITY = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COLORMANAGEMENT_QUALITY_PROOF: D2D1_COLORMANAGEMENT_QUALITY = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COLORMANAGEMENT_QUALITY_NORMAL: D2D1_COLORMANAGEMENT_QUALITY = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COLORMANAGEMENT_QUALITY_BEST: D2D1_COLORMANAGEMENT_QUALITY = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COLORMANAGEMENT_QUALITY_FORCE_DWORD: D2D1_COLORMANAGEMENT_QUALITY = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_COLORMANAGEMENT_RENDERING_INTENT = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COLORMANAGEMENT_RENDERING_INTENT_PERCEPTUAL: D2D1_COLORMANAGEMENT_RENDERING_INTENT = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COLORMANAGEMENT_RENDERING_INTENT_RELATIVE_COLORIMETRIC: D2D1_COLORMANAGEMENT_RENDERING_INTENT = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COLORMANAGEMENT_RENDERING_INTENT_SATURATION: D2D1_COLORMANAGEMENT_RENDERING_INTENT = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COLORMANAGEMENT_RENDERING_INTENT_ABSOLUTE_COLORIMETRIC: D2D1_COLORMANAGEMENT_RENDERING_INTENT = 3u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COLORMANAGEMENT_RENDERING_INTENT_FORCE_DWORD: D2D1_COLORMANAGEMENT_RENDERING_INTENT = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_COLORMATRIX_PROP = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COLORMATRIX_PROP_COLOR_MATRIX: D2D1_COLORMATRIX_PROP = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COLORMATRIX_PROP_ALPHA_MODE: D2D1_COLORMATRIX_PROP = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COLORMATRIX_PROP_CLAMP_OUTPUT: D2D1_COLORMATRIX_PROP = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COLORMATRIX_PROP_FORCE_DWORD: D2D1_COLORMATRIX_PROP = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION_DEFAULT: D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION_DISABLE: D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION_FORCE_DWORD: D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_COLOR_CONTEXT_TYPE = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COLOR_CONTEXT_TYPE_ICC: D2D1_COLOR_CONTEXT_TYPE = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COLOR_CONTEXT_TYPE_SIMPLE: D2D1_COLOR_CONTEXT_TYPE = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COLOR_CONTEXT_TYPE_DXGI: D2D1_COLOR_CONTEXT_TYPE = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COLOR_CONTEXT_TYPE_FORCE_DWORD: D2D1_COLOR_CONTEXT_TYPE = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_COLOR_INTERPOLATION_MODE = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COLOR_INTERPOLATION_MODE_STRAIGHT: D2D1_COLOR_INTERPOLATION_MODE = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COLOR_INTERPOLATION_MODE_PREMULTIPLIED: D2D1_COLOR_INTERPOLATION_MODE = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COLOR_INTERPOLATION_MODE_FORCE_DWORD: D2D1_COLOR_INTERPOLATION_MODE = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_COLOR_SPACE = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COLOR_SPACE_CUSTOM: D2D1_COLOR_SPACE = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COLOR_SPACE_SRGB: D2D1_COLOR_SPACE = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COLOR_SPACE_SCRGB: D2D1_COLOR_SPACE = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COLOR_SPACE_FORCE_DWORD: D2D1_COLOR_SPACE = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_COMBINE_MODE = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COMBINE_MODE_UNION: D2D1_COMBINE_MODE = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COMBINE_MODE_INTERSECT: D2D1_COMBINE_MODE = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COMBINE_MODE_XOR: D2D1_COMBINE_MODE = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COMBINE_MODE_EXCLUDE: D2D1_COMBINE_MODE = 3u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COMBINE_MODE_FORCE_DWORD: D2D1_COMBINE_MODE = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS_NONE: D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS_GDI_COMPATIBLE: D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS_FORCE_DWORD: D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_COMPOSITE_PROP = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COMPOSITE_PROP_MODE: D2D1_COMPOSITE_PROP = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_COMPOSITE_PROP_FORCE_DWORD: D2D1_COMPOSITE_PROP = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_CONTRAST_PROP = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CONTRAST_PROP_CONTRAST: D2D1_CONTRAST_PROP = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CONTRAST_PROP_CLAMP_INPUT: D2D1_CONTRAST_PROP = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CONTRAST_PROP_FORCE_DWORD: D2D1_CONTRAST_PROP = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_CONVOLVEMATRIX_PROP = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CONVOLVEMATRIX_PROP_KERNEL_UNIT_LENGTH: D2D1_CONVOLVEMATRIX_PROP = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CONVOLVEMATRIX_PROP_SCALE_MODE: D2D1_CONVOLVEMATRIX_PROP = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CONVOLVEMATRIX_PROP_KERNEL_SIZE_X: D2D1_CONVOLVEMATRIX_PROP = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CONVOLVEMATRIX_PROP_KERNEL_SIZE_Y: D2D1_CONVOLVEMATRIX_PROP = 3u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CONVOLVEMATRIX_PROP_KERNEL_MATRIX: D2D1_CONVOLVEMATRIX_PROP = 4u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CONVOLVEMATRIX_PROP_DIVISOR: D2D1_CONVOLVEMATRIX_PROP = 5u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CONVOLVEMATRIX_PROP_BIAS: D2D1_CONVOLVEMATRIX_PROP = 6u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CONVOLVEMATRIX_PROP_KERNEL_OFFSET: D2D1_CONVOLVEMATRIX_PROP = 7u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CONVOLVEMATRIX_PROP_PRESERVE_ALPHA: D2D1_CONVOLVEMATRIX_PROP = 8u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CONVOLVEMATRIX_PROP_BORDER_MODE: D2D1_CONVOLVEMATRIX_PROP = 9u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CONVOLVEMATRIX_PROP_CLAMP_OUTPUT: D2D1_CONVOLVEMATRIX_PROP = 10u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CONVOLVEMATRIX_PROP_FORCE_DWORD: D2D1_CONVOLVEMATRIX_PROP = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_CONVOLVEMATRIX_SCALE_MODE = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CONVOLVEMATRIX_SCALE_MODE_NEAREST_NEIGHBOR: D2D1_CONVOLVEMATRIX_SCALE_MODE = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CONVOLVEMATRIX_SCALE_MODE_LINEAR: D2D1_CONVOLVEMATRIX_SCALE_MODE = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CONVOLVEMATRIX_SCALE_MODE_CUBIC: D2D1_CONVOLVEMATRIX_SCALE_MODE = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CONVOLVEMATRIX_SCALE_MODE_MULTI_SAMPLE_LINEAR: D2D1_CONVOLVEMATRIX_SCALE_MODE = 3u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CONVOLVEMATRIX_SCALE_MODE_ANISOTROPIC: D2D1_CONVOLVEMATRIX_SCALE_MODE = 4u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CONVOLVEMATRIX_SCALE_MODE_HIGH_QUALITY_CUBIC: D2D1_CONVOLVEMATRIX_SCALE_MODE = 5u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CONVOLVEMATRIX_SCALE_MODE_FORCE_DWORD: D2D1_CONVOLVEMATRIX_SCALE_MODE = 4294967295u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_BUFFER_PRECISION(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_BUFFER_PRECISION_UNKNOWN: D2D1_BUFFER_PRECISION = D2D1_BUFFER_PRECISION(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_BUFFER_PRECISION_8BPC_UNORM: D2D1_BUFFER_PRECISION = D2D1_BUFFER_PRECISION(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_BUFFER_PRECISION_8BPC_UNORM_SRGB: D2D1_BUFFER_PRECISION = D2D1_BUFFER_PRECISION(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_BUFFER_PRECISION_16BPC_UNORM: D2D1_BUFFER_PRECISION = D2D1_BUFFER_PRECISION(3u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_BUFFER_PRECISION_16BPC_FLOAT: D2D1_BUFFER_PRECISION = D2D1_BUFFER_PRECISION(4u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_BUFFER_PRECISION_32BPC_FLOAT: D2D1_BUFFER_PRECISION = D2D1_BUFFER_PRECISION(5u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_BUFFER_PRECISION_FORCE_DWORD: D2D1_BUFFER_PRECISION = D2D1_BUFFER_PRECISION(4294967295u32);
+impl ::core::marker::Copy for D2D1_BUFFER_PRECISION {}
+impl ::core::clone::Clone for D2D1_BUFFER_PRECISION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_BUFFER_PRECISION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_BUFFER_PRECISION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_BUFFER_PRECISION").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_BUFFER_PRECISION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_BUFFER_PRECISION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_BUFFER_PRECISION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_BUFFER_PRECISION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_BUFFER_PRECISION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_CAP_STYLE(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CAP_STYLE_FLAT: D2D1_CAP_STYLE = D2D1_CAP_STYLE(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CAP_STYLE_SQUARE: D2D1_CAP_STYLE = D2D1_CAP_STYLE(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CAP_STYLE_ROUND: D2D1_CAP_STYLE = D2D1_CAP_STYLE(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CAP_STYLE_TRIANGLE: D2D1_CAP_STYLE = D2D1_CAP_STYLE(3u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CAP_STYLE_FORCE_DWORD: D2D1_CAP_STYLE = D2D1_CAP_STYLE(4294967295u32);
+impl ::core::marker::Copy for D2D1_CAP_STYLE {}
+impl ::core::clone::Clone for D2D1_CAP_STYLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_CAP_STYLE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_CAP_STYLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_CAP_STYLE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_CAP_STYLE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_CAP_STYLE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_CAP_STYLE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_CAP_STYLE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_CAP_STYLE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_CHANGE_TYPE(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CHANGE_TYPE_NONE: D2D1_CHANGE_TYPE = D2D1_CHANGE_TYPE(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CHANGE_TYPE_PROPERTIES: D2D1_CHANGE_TYPE = D2D1_CHANGE_TYPE(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CHANGE_TYPE_CONTEXT: D2D1_CHANGE_TYPE = D2D1_CHANGE_TYPE(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CHANGE_TYPE_GRAPH: D2D1_CHANGE_TYPE = D2D1_CHANGE_TYPE(3u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CHANGE_TYPE_FORCE_DWORD: D2D1_CHANGE_TYPE = D2D1_CHANGE_TYPE(4294967295u32);
+impl ::core::marker::Copy for D2D1_CHANGE_TYPE {}
+impl ::core::clone::Clone for D2D1_CHANGE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_CHANGE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_CHANGE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_CHANGE_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_CHANGE_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_CHANGE_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_CHANGE_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_CHANGE_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_CHANGE_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_CHANNEL_DEPTH(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CHANNEL_DEPTH_DEFAULT: D2D1_CHANNEL_DEPTH = D2D1_CHANNEL_DEPTH(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CHANNEL_DEPTH_1: D2D1_CHANNEL_DEPTH = D2D1_CHANNEL_DEPTH(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CHANNEL_DEPTH_4: D2D1_CHANNEL_DEPTH = D2D1_CHANNEL_DEPTH(4u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CHANNEL_DEPTH_FORCE_DWORD: D2D1_CHANNEL_DEPTH = D2D1_CHANNEL_DEPTH(4294967295u32);
+impl ::core::marker::Copy for D2D1_CHANNEL_DEPTH {}
+impl ::core::clone::Clone for D2D1_CHANNEL_DEPTH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_CHANNEL_DEPTH {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_CHANNEL_DEPTH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_CHANNEL_DEPTH").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_CHANNEL_DEPTH {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_CHANNEL_DEPTH {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_CHANNEL_DEPTH {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_CHANNEL_DEPTH {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_CHANNEL_DEPTH {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_CHANNEL_SELECTOR(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CHANNEL_SELECTOR_R: D2D1_CHANNEL_SELECTOR = D2D1_CHANNEL_SELECTOR(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CHANNEL_SELECTOR_G: D2D1_CHANNEL_SELECTOR = D2D1_CHANNEL_SELECTOR(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CHANNEL_SELECTOR_B: D2D1_CHANNEL_SELECTOR = D2D1_CHANNEL_SELECTOR(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CHANNEL_SELECTOR_A: D2D1_CHANNEL_SELECTOR = D2D1_CHANNEL_SELECTOR(3u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CHANNEL_SELECTOR_FORCE_DWORD: D2D1_CHANNEL_SELECTOR = D2D1_CHANNEL_SELECTOR(4294967295u32);
+impl ::core::marker::Copy for D2D1_CHANNEL_SELECTOR {}
+impl ::core::clone::Clone for D2D1_CHANNEL_SELECTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_CHANNEL_SELECTOR {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_CHANNEL_SELECTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_CHANNEL_SELECTOR").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_CHANNEL_SELECTOR {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_CHANNEL_SELECTOR {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_CHANNEL_SELECTOR {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_CHANNEL_SELECTOR {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_CHANNEL_SELECTOR {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_CHROMAKEY_PROP(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CHROMAKEY_PROP_COLOR: D2D1_CHROMAKEY_PROP = D2D1_CHROMAKEY_PROP(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CHROMAKEY_PROP_TOLERANCE: D2D1_CHROMAKEY_PROP = D2D1_CHROMAKEY_PROP(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CHROMAKEY_PROP_INVERT_ALPHA: D2D1_CHROMAKEY_PROP = D2D1_CHROMAKEY_PROP(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CHROMAKEY_PROP_FEATHER: D2D1_CHROMAKEY_PROP = D2D1_CHROMAKEY_PROP(3u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CHROMAKEY_PROP_FORCE_DWORD: D2D1_CHROMAKEY_PROP = D2D1_CHROMAKEY_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_CHROMAKEY_PROP {}
+impl ::core::clone::Clone for D2D1_CHROMAKEY_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_CHROMAKEY_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_CHROMAKEY_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_CHROMAKEY_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_CHROMAKEY_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_CHROMAKEY_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_CHROMAKEY_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_CHROMAKEY_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_CHROMAKEY_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_COLORMANAGEMENT_ALPHA_MODE(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COLORMANAGEMENT_ALPHA_MODE_PREMULTIPLIED: D2D1_COLORMANAGEMENT_ALPHA_MODE = D2D1_COLORMANAGEMENT_ALPHA_MODE(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COLORMANAGEMENT_ALPHA_MODE_STRAIGHT: D2D1_COLORMANAGEMENT_ALPHA_MODE = D2D1_COLORMANAGEMENT_ALPHA_MODE(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COLORMANAGEMENT_ALPHA_MODE_FORCE_DWORD: D2D1_COLORMANAGEMENT_ALPHA_MODE = D2D1_COLORMANAGEMENT_ALPHA_MODE(4294967295u32);
+impl ::core::marker::Copy for D2D1_COLORMANAGEMENT_ALPHA_MODE {}
+impl ::core::clone::Clone for D2D1_COLORMANAGEMENT_ALPHA_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_COLORMANAGEMENT_ALPHA_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_COLORMANAGEMENT_ALPHA_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_COLORMANAGEMENT_ALPHA_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_COLORMANAGEMENT_ALPHA_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_COLORMANAGEMENT_ALPHA_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_COLORMANAGEMENT_ALPHA_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_COLORMANAGEMENT_ALPHA_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_COLORMANAGEMENT_ALPHA_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_COLORMANAGEMENT_PROP(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COLORMANAGEMENT_PROP_SOURCE_COLOR_CONTEXT: D2D1_COLORMANAGEMENT_PROP = D2D1_COLORMANAGEMENT_PROP(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COLORMANAGEMENT_PROP_SOURCE_RENDERING_INTENT: D2D1_COLORMANAGEMENT_PROP = D2D1_COLORMANAGEMENT_PROP(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COLORMANAGEMENT_PROP_DESTINATION_COLOR_CONTEXT: D2D1_COLORMANAGEMENT_PROP = D2D1_COLORMANAGEMENT_PROP(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COLORMANAGEMENT_PROP_DESTINATION_RENDERING_INTENT: D2D1_COLORMANAGEMENT_PROP = D2D1_COLORMANAGEMENT_PROP(3u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COLORMANAGEMENT_PROP_ALPHA_MODE: D2D1_COLORMANAGEMENT_PROP = D2D1_COLORMANAGEMENT_PROP(4u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COLORMANAGEMENT_PROP_QUALITY: D2D1_COLORMANAGEMENT_PROP = D2D1_COLORMANAGEMENT_PROP(5u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COLORMANAGEMENT_PROP_FORCE_DWORD: D2D1_COLORMANAGEMENT_PROP = D2D1_COLORMANAGEMENT_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_COLORMANAGEMENT_PROP {}
+impl ::core::clone::Clone for D2D1_COLORMANAGEMENT_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_COLORMANAGEMENT_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_COLORMANAGEMENT_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_COLORMANAGEMENT_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_COLORMANAGEMENT_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_COLORMANAGEMENT_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_COLORMANAGEMENT_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_COLORMANAGEMENT_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_COLORMANAGEMENT_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_COLORMANAGEMENT_QUALITY(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COLORMANAGEMENT_QUALITY_PROOF: D2D1_COLORMANAGEMENT_QUALITY = D2D1_COLORMANAGEMENT_QUALITY(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COLORMANAGEMENT_QUALITY_NORMAL: D2D1_COLORMANAGEMENT_QUALITY = D2D1_COLORMANAGEMENT_QUALITY(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COLORMANAGEMENT_QUALITY_BEST: D2D1_COLORMANAGEMENT_QUALITY = D2D1_COLORMANAGEMENT_QUALITY(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COLORMANAGEMENT_QUALITY_FORCE_DWORD: D2D1_COLORMANAGEMENT_QUALITY = D2D1_COLORMANAGEMENT_QUALITY(4294967295u32);
+impl ::core::marker::Copy for D2D1_COLORMANAGEMENT_QUALITY {}
+impl ::core::clone::Clone for D2D1_COLORMANAGEMENT_QUALITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_COLORMANAGEMENT_QUALITY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_COLORMANAGEMENT_QUALITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_COLORMANAGEMENT_QUALITY").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_COLORMANAGEMENT_QUALITY {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_COLORMANAGEMENT_QUALITY {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_COLORMANAGEMENT_QUALITY {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_COLORMANAGEMENT_QUALITY {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_COLORMANAGEMENT_QUALITY {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_COLORMANAGEMENT_RENDERING_INTENT(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COLORMANAGEMENT_RENDERING_INTENT_PERCEPTUAL: D2D1_COLORMANAGEMENT_RENDERING_INTENT = D2D1_COLORMANAGEMENT_RENDERING_INTENT(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COLORMANAGEMENT_RENDERING_INTENT_RELATIVE_COLORIMETRIC: D2D1_COLORMANAGEMENT_RENDERING_INTENT = D2D1_COLORMANAGEMENT_RENDERING_INTENT(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COLORMANAGEMENT_RENDERING_INTENT_SATURATION: D2D1_COLORMANAGEMENT_RENDERING_INTENT = D2D1_COLORMANAGEMENT_RENDERING_INTENT(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COLORMANAGEMENT_RENDERING_INTENT_ABSOLUTE_COLORIMETRIC: D2D1_COLORMANAGEMENT_RENDERING_INTENT = D2D1_COLORMANAGEMENT_RENDERING_INTENT(3u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COLORMANAGEMENT_RENDERING_INTENT_FORCE_DWORD: D2D1_COLORMANAGEMENT_RENDERING_INTENT = D2D1_COLORMANAGEMENT_RENDERING_INTENT(4294967295u32);
+impl ::core::marker::Copy for D2D1_COLORMANAGEMENT_RENDERING_INTENT {}
+impl ::core::clone::Clone for D2D1_COLORMANAGEMENT_RENDERING_INTENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_COLORMANAGEMENT_RENDERING_INTENT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_COLORMANAGEMENT_RENDERING_INTENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_COLORMANAGEMENT_RENDERING_INTENT").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_COLORMANAGEMENT_RENDERING_INTENT {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_COLORMANAGEMENT_RENDERING_INTENT {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_COLORMANAGEMENT_RENDERING_INTENT {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_COLORMANAGEMENT_RENDERING_INTENT {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_COLORMANAGEMENT_RENDERING_INTENT {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_COLORMATRIX_PROP(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COLORMATRIX_PROP_COLOR_MATRIX: D2D1_COLORMATRIX_PROP = D2D1_COLORMATRIX_PROP(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COLORMATRIX_PROP_ALPHA_MODE: D2D1_COLORMATRIX_PROP = D2D1_COLORMATRIX_PROP(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COLORMATRIX_PROP_CLAMP_OUTPUT: D2D1_COLORMATRIX_PROP = D2D1_COLORMATRIX_PROP(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COLORMATRIX_PROP_FORCE_DWORD: D2D1_COLORMATRIX_PROP = D2D1_COLORMATRIX_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_COLORMATRIX_PROP {}
+impl ::core::clone::Clone for D2D1_COLORMATRIX_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_COLORMATRIX_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_COLORMATRIX_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_COLORMATRIX_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_COLORMATRIX_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_COLORMATRIX_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_COLORMATRIX_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_COLORMATRIX_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_COLORMATRIX_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION_DEFAULT: D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION = D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION_DISABLE: D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION = D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION_FORCE_DWORD: D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION = D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION(4294967295u32);
+impl ::core::marker::Copy for D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION {}
+impl ::core::clone::Clone for D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_COLOR_BITMAP_GLYPH_SNAP_OPTION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_COLOR_CONTEXT_TYPE(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COLOR_CONTEXT_TYPE_ICC: D2D1_COLOR_CONTEXT_TYPE = D2D1_COLOR_CONTEXT_TYPE(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COLOR_CONTEXT_TYPE_SIMPLE: D2D1_COLOR_CONTEXT_TYPE = D2D1_COLOR_CONTEXT_TYPE(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COLOR_CONTEXT_TYPE_DXGI: D2D1_COLOR_CONTEXT_TYPE = D2D1_COLOR_CONTEXT_TYPE(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COLOR_CONTEXT_TYPE_FORCE_DWORD: D2D1_COLOR_CONTEXT_TYPE = D2D1_COLOR_CONTEXT_TYPE(4294967295u32);
+impl ::core::marker::Copy for D2D1_COLOR_CONTEXT_TYPE {}
+impl ::core::clone::Clone for D2D1_COLOR_CONTEXT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_COLOR_CONTEXT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_COLOR_CONTEXT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_COLOR_CONTEXT_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_COLOR_CONTEXT_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_COLOR_CONTEXT_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_COLOR_CONTEXT_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_COLOR_CONTEXT_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_COLOR_CONTEXT_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_COLOR_INTERPOLATION_MODE(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COLOR_INTERPOLATION_MODE_STRAIGHT: D2D1_COLOR_INTERPOLATION_MODE = D2D1_COLOR_INTERPOLATION_MODE(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COLOR_INTERPOLATION_MODE_PREMULTIPLIED: D2D1_COLOR_INTERPOLATION_MODE = D2D1_COLOR_INTERPOLATION_MODE(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COLOR_INTERPOLATION_MODE_FORCE_DWORD: D2D1_COLOR_INTERPOLATION_MODE = D2D1_COLOR_INTERPOLATION_MODE(4294967295u32);
+impl ::core::marker::Copy for D2D1_COLOR_INTERPOLATION_MODE {}
+impl ::core::clone::Clone for D2D1_COLOR_INTERPOLATION_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_COLOR_INTERPOLATION_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_COLOR_INTERPOLATION_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_COLOR_INTERPOLATION_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_COLOR_INTERPOLATION_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_COLOR_INTERPOLATION_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_COLOR_INTERPOLATION_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_COLOR_INTERPOLATION_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_COLOR_INTERPOLATION_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_COLOR_SPACE(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COLOR_SPACE_CUSTOM: D2D1_COLOR_SPACE = D2D1_COLOR_SPACE(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COLOR_SPACE_SRGB: D2D1_COLOR_SPACE = D2D1_COLOR_SPACE(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COLOR_SPACE_SCRGB: D2D1_COLOR_SPACE = D2D1_COLOR_SPACE(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COLOR_SPACE_FORCE_DWORD: D2D1_COLOR_SPACE = D2D1_COLOR_SPACE(4294967295u32);
+impl ::core::marker::Copy for D2D1_COLOR_SPACE {}
+impl ::core::clone::Clone for D2D1_COLOR_SPACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_COLOR_SPACE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_COLOR_SPACE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_COLOR_SPACE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_COLOR_SPACE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_COLOR_SPACE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_COLOR_SPACE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_COLOR_SPACE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_COLOR_SPACE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_COMBINE_MODE(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COMBINE_MODE_UNION: D2D1_COMBINE_MODE = D2D1_COMBINE_MODE(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COMBINE_MODE_INTERSECT: D2D1_COMBINE_MODE = D2D1_COMBINE_MODE(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COMBINE_MODE_XOR: D2D1_COMBINE_MODE = D2D1_COMBINE_MODE(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COMBINE_MODE_EXCLUDE: D2D1_COMBINE_MODE = D2D1_COMBINE_MODE(3u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COMBINE_MODE_FORCE_DWORD: D2D1_COMBINE_MODE = D2D1_COMBINE_MODE(4294967295u32);
+impl ::core::marker::Copy for D2D1_COMBINE_MODE {}
+impl ::core::clone::Clone for D2D1_COMBINE_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_COMBINE_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_COMBINE_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_COMBINE_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_COMBINE_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_COMBINE_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_COMBINE_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_COMBINE_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_COMBINE_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS_NONE: D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS = D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS_GDI_COMPATIBLE: D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS = D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS_FORCE_DWORD: D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS = D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS(4294967295u32);
+impl ::core::marker::Copy for D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {}
+impl ::core::clone::Clone for D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_COMPATIBLE_RENDER_TARGET_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_COMPOSITE_PROP(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COMPOSITE_PROP_MODE: D2D1_COMPOSITE_PROP = D2D1_COMPOSITE_PROP(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_COMPOSITE_PROP_FORCE_DWORD: D2D1_COMPOSITE_PROP = D2D1_COMPOSITE_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_COMPOSITE_PROP {}
+impl ::core::clone::Clone for D2D1_COMPOSITE_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_COMPOSITE_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_COMPOSITE_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_COMPOSITE_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_COMPOSITE_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_COMPOSITE_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_COMPOSITE_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_COMPOSITE_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_COMPOSITE_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_CONTRAST_PROP(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CONTRAST_PROP_CONTRAST: D2D1_CONTRAST_PROP = D2D1_CONTRAST_PROP(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CONTRAST_PROP_CLAMP_INPUT: D2D1_CONTRAST_PROP = D2D1_CONTRAST_PROP(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CONTRAST_PROP_FORCE_DWORD: D2D1_CONTRAST_PROP = D2D1_CONTRAST_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_CONTRAST_PROP {}
+impl ::core::clone::Clone for D2D1_CONTRAST_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_CONTRAST_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_CONTRAST_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_CONTRAST_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_CONTRAST_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_CONTRAST_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_CONTRAST_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_CONTRAST_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_CONTRAST_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_CONVOLVEMATRIX_PROP(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CONVOLVEMATRIX_PROP_KERNEL_UNIT_LENGTH: D2D1_CONVOLVEMATRIX_PROP = D2D1_CONVOLVEMATRIX_PROP(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CONVOLVEMATRIX_PROP_SCALE_MODE: D2D1_CONVOLVEMATRIX_PROP = D2D1_CONVOLVEMATRIX_PROP(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CONVOLVEMATRIX_PROP_KERNEL_SIZE_X: D2D1_CONVOLVEMATRIX_PROP = D2D1_CONVOLVEMATRIX_PROP(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CONVOLVEMATRIX_PROP_KERNEL_SIZE_Y: D2D1_CONVOLVEMATRIX_PROP = D2D1_CONVOLVEMATRIX_PROP(3u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CONVOLVEMATRIX_PROP_KERNEL_MATRIX: D2D1_CONVOLVEMATRIX_PROP = D2D1_CONVOLVEMATRIX_PROP(4u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CONVOLVEMATRIX_PROP_DIVISOR: D2D1_CONVOLVEMATRIX_PROP = D2D1_CONVOLVEMATRIX_PROP(5u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CONVOLVEMATRIX_PROP_BIAS: D2D1_CONVOLVEMATRIX_PROP = D2D1_CONVOLVEMATRIX_PROP(6u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CONVOLVEMATRIX_PROP_KERNEL_OFFSET: D2D1_CONVOLVEMATRIX_PROP = D2D1_CONVOLVEMATRIX_PROP(7u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CONVOLVEMATRIX_PROP_PRESERVE_ALPHA: D2D1_CONVOLVEMATRIX_PROP = D2D1_CONVOLVEMATRIX_PROP(8u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CONVOLVEMATRIX_PROP_BORDER_MODE: D2D1_CONVOLVEMATRIX_PROP = D2D1_CONVOLVEMATRIX_PROP(9u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CONVOLVEMATRIX_PROP_CLAMP_OUTPUT: D2D1_CONVOLVEMATRIX_PROP = D2D1_CONVOLVEMATRIX_PROP(10u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CONVOLVEMATRIX_PROP_FORCE_DWORD: D2D1_CONVOLVEMATRIX_PROP = D2D1_CONVOLVEMATRIX_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_CONVOLVEMATRIX_PROP {}
+impl ::core::clone::Clone for D2D1_CONVOLVEMATRIX_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_CONVOLVEMATRIX_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_CONVOLVEMATRIX_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_CONVOLVEMATRIX_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_CONVOLVEMATRIX_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_CONVOLVEMATRIX_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_CONVOLVEMATRIX_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_CONVOLVEMATRIX_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_CONVOLVEMATRIX_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_CONVOLVEMATRIX_SCALE_MODE(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CONVOLVEMATRIX_SCALE_MODE_NEAREST_NEIGHBOR: D2D1_CONVOLVEMATRIX_SCALE_MODE = D2D1_CONVOLVEMATRIX_SCALE_MODE(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CONVOLVEMATRIX_SCALE_MODE_LINEAR: D2D1_CONVOLVEMATRIX_SCALE_MODE = D2D1_CONVOLVEMATRIX_SCALE_MODE(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CONVOLVEMATRIX_SCALE_MODE_CUBIC: D2D1_CONVOLVEMATRIX_SCALE_MODE = D2D1_CONVOLVEMATRIX_SCALE_MODE(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CONVOLVEMATRIX_SCALE_MODE_MULTI_SAMPLE_LINEAR: D2D1_CONVOLVEMATRIX_SCALE_MODE = D2D1_CONVOLVEMATRIX_SCALE_MODE(3u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CONVOLVEMATRIX_SCALE_MODE_ANISOTROPIC: D2D1_CONVOLVEMATRIX_SCALE_MODE = D2D1_CONVOLVEMATRIX_SCALE_MODE(4u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CONVOLVEMATRIX_SCALE_MODE_HIGH_QUALITY_CUBIC: D2D1_CONVOLVEMATRIX_SCALE_MODE = D2D1_CONVOLVEMATRIX_SCALE_MODE(5u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_CONVOLVEMATRIX_SCALE_MODE_FORCE_DWORD: D2D1_CONVOLVEMATRIX_SCALE_MODE = D2D1_CONVOLVEMATRIX_SCALE_MODE(4294967295u32);
+impl ::core::marker::Copy for D2D1_CONVOLVEMATRIX_SCALE_MODE {}
+impl ::core::clone::Clone for D2D1_CONVOLVEMATRIX_SCALE_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_CONVOLVEMATRIX_SCALE_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_CONVOLVEMATRIX_SCALE_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_CONVOLVEMATRIX_SCALE_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_CONVOLVEMATRIX_SCALE_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_CONVOLVEMATRIX_SCALE_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_CONVOLVEMATRIX_SCALE_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_CONVOLVEMATRIX_SCALE_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_CONVOLVEMATRIX_SCALE_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub struct D2D1_CREATION_PROPERTIES {
@@ -1072,19 +2920,107 @@ impl ::core::default::Default for D2D1_CREATION_PROPERTIES {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_CROP_PROP = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_CROP_PROP(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CROP_PROP_RECT: D2D1_CROP_PROP = 0u32;
+pub const D2D1_CROP_PROP_RECT: D2D1_CROP_PROP = D2D1_CROP_PROP(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CROP_PROP_BORDER_MODE: D2D1_CROP_PROP = 1u32;
+pub const D2D1_CROP_PROP_BORDER_MODE: D2D1_CROP_PROP = D2D1_CROP_PROP(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CROP_PROP_FORCE_DWORD: D2D1_CROP_PROP = 4294967295u32;
+pub const D2D1_CROP_PROP_FORCE_DWORD: D2D1_CROP_PROP = D2D1_CROP_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_CROP_PROP {}
+impl ::core::clone::Clone for D2D1_CROP_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_CROP_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_CROP_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_CROP_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_CROP_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_CROP_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_CROP_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_CROP_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_CROP_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_CROSSFADE_PROP = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_CROSSFADE_PROP(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CROSSFADE_PROP_WEIGHT: D2D1_CROSSFADE_PROP = 0u32;
+pub const D2D1_CROSSFADE_PROP_WEIGHT: D2D1_CROSSFADE_PROP = D2D1_CROSSFADE_PROP(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_CROSSFADE_PROP_FORCE_DWORD: D2D1_CROSSFADE_PROP = 4294967295u32;
+pub const D2D1_CROSSFADE_PROP_FORCE_DWORD: D2D1_CROSSFADE_PROP = D2D1_CROSSFADE_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_CROSSFADE_PROP {}
+impl ::core::clone::Clone for D2D1_CROSSFADE_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_CROSSFADE_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_CROSSFADE_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_CROSSFADE_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_CROSSFADE_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_CROSSFADE_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_CROSSFADE_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_CROSSFADE_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_CROSSFADE_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -1128,201 +3064,817 @@ impl ::core::default::Default for D2D1_CUSTOM_VERTEX_BUFFER_PROPERTIES {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_DASH_STYLE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_DASH_STYLE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DASH_STYLE_SOLID: D2D1_DASH_STYLE = 0u32;
+pub const D2D1_DASH_STYLE_SOLID: D2D1_DASH_STYLE = D2D1_DASH_STYLE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DASH_STYLE_DASH: D2D1_DASH_STYLE = 1u32;
+pub const D2D1_DASH_STYLE_DASH: D2D1_DASH_STYLE = D2D1_DASH_STYLE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DASH_STYLE_DOT: D2D1_DASH_STYLE = 2u32;
+pub const D2D1_DASH_STYLE_DOT: D2D1_DASH_STYLE = D2D1_DASH_STYLE(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DASH_STYLE_DASH_DOT: D2D1_DASH_STYLE = 3u32;
+pub const D2D1_DASH_STYLE_DASH_DOT: D2D1_DASH_STYLE = D2D1_DASH_STYLE(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DASH_STYLE_DASH_DOT_DOT: D2D1_DASH_STYLE = 4u32;
+pub const D2D1_DASH_STYLE_DASH_DOT_DOT: D2D1_DASH_STYLE = D2D1_DASH_STYLE(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DASH_STYLE_CUSTOM: D2D1_DASH_STYLE = 5u32;
+pub const D2D1_DASH_STYLE_CUSTOM: D2D1_DASH_STYLE = D2D1_DASH_STYLE(5u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DASH_STYLE_FORCE_DWORD: D2D1_DASH_STYLE = 4294967295u32;
+pub const D2D1_DASH_STYLE_FORCE_DWORD: D2D1_DASH_STYLE = D2D1_DASH_STYLE(4294967295u32);
+impl ::core::marker::Copy for D2D1_DASH_STYLE {}
+impl ::core::clone::Clone for D2D1_DASH_STYLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_DASH_STYLE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_DASH_STYLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_DASH_STYLE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_DASH_STYLE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_DASH_STYLE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_DASH_STYLE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_DASH_STYLE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_DASH_STYLE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_DC_INITIALIZE_MODE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_DC_INITIALIZE_MODE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DC_INITIALIZE_MODE_COPY: D2D1_DC_INITIALIZE_MODE = 0u32;
+pub const D2D1_DC_INITIALIZE_MODE_COPY: D2D1_DC_INITIALIZE_MODE = D2D1_DC_INITIALIZE_MODE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DC_INITIALIZE_MODE_CLEAR: D2D1_DC_INITIALIZE_MODE = 1u32;
+pub const D2D1_DC_INITIALIZE_MODE_CLEAR: D2D1_DC_INITIALIZE_MODE = D2D1_DC_INITIALIZE_MODE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DC_INITIALIZE_MODE_FORCE_DWORD: D2D1_DC_INITIALIZE_MODE = 4294967295u32;
+pub const D2D1_DC_INITIALIZE_MODE_FORCE_DWORD: D2D1_DC_INITIALIZE_MODE = D2D1_DC_INITIALIZE_MODE(4294967295u32);
+impl ::core::marker::Copy for D2D1_DC_INITIALIZE_MODE {}
+impl ::core::clone::Clone for D2D1_DC_INITIALIZE_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_DC_INITIALIZE_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_DC_INITIALIZE_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_DC_INITIALIZE_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_DC_INITIALIZE_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_DC_INITIALIZE_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_DC_INITIALIZE_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_DC_INITIALIZE_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_DC_INITIALIZE_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_DEBUG_LEVEL = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_DEBUG_LEVEL(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DEBUG_LEVEL_NONE: D2D1_DEBUG_LEVEL = 0u32;
+pub const D2D1_DEBUG_LEVEL_NONE: D2D1_DEBUG_LEVEL = D2D1_DEBUG_LEVEL(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DEBUG_LEVEL_ERROR: D2D1_DEBUG_LEVEL = 1u32;
+pub const D2D1_DEBUG_LEVEL_ERROR: D2D1_DEBUG_LEVEL = D2D1_DEBUG_LEVEL(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DEBUG_LEVEL_WARNING: D2D1_DEBUG_LEVEL = 2u32;
+pub const D2D1_DEBUG_LEVEL_WARNING: D2D1_DEBUG_LEVEL = D2D1_DEBUG_LEVEL(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DEBUG_LEVEL_INFORMATION: D2D1_DEBUG_LEVEL = 3u32;
+pub const D2D1_DEBUG_LEVEL_INFORMATION: D2D1_DEBUG_LEVEL = D2D1_DEBUG_LEVEL(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DEBUG_LEVEL_FORCE_DWORD: D2D1_DEBUG_LEVEL = 4294967295u32;
+pub const D2D1_DEBUG_LEVEL_FORCE_DWORD: D2D1_DEBUG_LEVEL = D2D1_DEBUG_LEVEL(4294967295u32);
+impl ::core::marker::Copy for D2D1_DEBUG_LEVEL {}
+impl ::core::clone::Clone for D2D1_DEBUG_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_DEBUG_LEVEL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_DEBUG_LEVEL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_DEBUG_LEVEL").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_DEBUG_LEVEL {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_DEBUG_LEVEL {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_DEBUG_LEVEL {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_DEBUG_LEVEL {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_DEBUG_LEVEL {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_DEFAULT_FLATTENING_TOLERANCE: f32 = 0.25f32;
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_DEVICE_CONTEXT_OPTIONS = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DEVICE_CONTEXT_OPTIONS_NONE: D2D1_DEVICE_CONTEXT_OPTIONS = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DEVICE_CONTEXT_OPTIONS_ENABLE_MULTITHREADED_OPTIMIZATIONS: D2D1_DEVICE_CONTEXT_OPTIONS = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DEVICE_CONTEXT_OPTIONS_FORCE_DWORD: D2D1_DEVICE_CONTEXT_OPTIONS = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_DIRECTIONALBLUR_OPTIMIZATION = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DIRECTIONALBLUR_OPTIMIZATION_SPEED: D2D1_DIRECTIONALBLUR_OPTIMIZATION = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DIRECTIONALBLUR_OPTIMIZATION_BALANCED: D2D1_DIRECTIONALBLUR_OPTIMIZATION = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DIRECTIONALBLUR_OPTIMIZATION_QUALITY: D2D1_DIRECTIONALBLUR_OPTIMIZATION = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DIRECTIONALBLUR_OPTIMIZATION_FORCE_DWORD: D2D1_DIRECTIONALBLUR_OPTIMIZATION = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_DIRECTIONALBLUR_PROP = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DIRECTIONALBLUR_PROP_STANDARD_DEVIATION: D2D1_DIRECTIONALBLUR_PROP = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DIRECTIONALBLUR_PROP_ANGLE: D2D1_DIRECTIONALBLUR_PROP = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DIRECTIONALBLUR_PROP_OPTIMIZATION: D2D1_DIRECTIONALBLUR_PROP = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DIRECTIONALBLUR_PROP_BORDER_MODE: D2D1_DIRECTIONALBLUR_PROP = 3u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DIRECTIONALBLUR_PROP_FORCE_DWORD: D2D1_DIRECTIONALBLUR_PROP = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_DISCRETETRANSFER_PROP = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISCRETETRANSFER_PROP_RED_TABLE: D2D1_DISCRETETRANSFER_PROP = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISCRETETRANSFER_PROP_RED_DISABLE: D2D1_DISCRETETRANSFER_PROP = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISCRETETRANSFER_PROP_GREEN_TABLE: D2D1_DISCRETETRANSFER_PROP = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISCRETETRANSFER_PROP_GREEN_DISABLE: D2D1_DISCRETETRANSFER_PROP = 3u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISCRETETRANSFER_PROP_BLUE_TABLE: D2D1_DISCRETETRANSFER_PROP = 4u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISCRETETRANSFER_PROP_BLUE_DISABLE: D2D1_DISCRETETRANSFER_PROP = 5u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISCRETETRANSFER_PROP_ALPHA_TABLE: D2D1_DISCRETETRANSFER_PROP = 6u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISCRETETRANSFER_PROP_ALPHA_DISABLE: D2D1_DISCRETETRANSFER_PROP = 7u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISCRETETRANSFER_PROP_CLAMP_OUTPUT: D2D1_DISCRETETRANSFER_PROP = 8u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISCRETETRANSFER_PROP_FORCE_DWORD: D2D1_DISCRETETRANSFER_PROP = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_DISPLACEMENTMAP_PROP = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISPLACEMENTMAP_PROP_SCALE: D2D1_DISPLACEMENTMAP_PROP = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISPLACEMENTMAP_PROP_X_CHANNEL_SELECT: D2D1_DISPLACEMENTMAP_PROP = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISPLACEMENTMAP_PROP_Y_CHANNEL_SELECT: D2D1_DISPLACEMENTMAP_PROP = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISPLACEMENTMAP_PROP_FORCE_DWORD: D2D1_DISPLACEMENTMAP_PROP = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_DISTANTDIFFUSE_PROP = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISTANTDIFFUSE_PROP_AZIMUTH: D2D1_DISTANTDIFFUSE_PROP = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISTANTDIFFUSE_PROP_ELEVATION: D2D1_DISTANTDIFFUSE_PROP = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISTANTDIFFUSE_PROP_DIFFUSE_CONSTANT: D2D1_DISTANTDIFFUSE_PROP = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISTANTDIFFUSE_PROP_SURFACE_SCALE: D2D1_DISTANTDIFFUSE_PROP = 3u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISTANTDIFFUSE_PROP_COLOR: D2D1_DISTANTDIFFUSE_PROP = 4u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISTANTDIFFUSE_PROP_KERNEL_UNIT_LENGTH: D2D1_DISTANTDIFFUSE_PROP = 5u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISTANTDIFFUSE_PROP_SCALE_MODE: D2D1_DISTANTDIFFUSE_PROP = 6u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISTANTDIFFUSE_PROP_FORCE_DWORD: D2D1_DISTANTDIFFUSE_PROP = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_DISTANTDIFFUSE_SCALE_MODE = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISTANTDIFFUSE_SCALE_MODE_NEAREST_NEIGHBOR: D2D1_DISTANTDIFFUSE_SCALE_MODE = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISTANTDIFFUSE_SCALE_MODE_LINEAR: D2D1_DISTANTDIFFUSE_SCALE_MODE = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISTANTDIFFUSE_SCALE_MODE_CUBIC: D2D1_DISTANTDIFFUSE_SCALE_MODE = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISTANTDIFFUSE_SCALE_MODE_MULTI_SAMPLE_LINEAR: D2D1_DISTANTDIFFUSE_SCALE_MODE = 3u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISTANTDIFFUSE_SCALE_MODE_ANISOTROPIC: D2D1_DISTANTDIFFUSE_SCALE_MODE = 4u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISTANTDIFFUSE_SCALE_MODE_HIGH_QUALITY_CUBIC: D2D1_DISTANTDIFFUSE_SCALE_MODE = 5u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISTANTDIFFUSE_SCALE_MODE_FORCE_DWORD: D2D1_DISTANTDIFFUSE_SCALE_MODE = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_DISTANTSPECULAR_PROP = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISTANTSPECULAR_PROP_AZIMUTH: D2D1_DISTANTSPECULAR_PROP = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISTANTSPECULAR_PROP_ELEVATION: D2D1_DISTANTSPECULAR_PROP = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISTANTSPECULAR_PROP_SPECULAR_EXPONENT: D2D1_DISTANTSPECULAR_PROP = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISTANTSPECULAR_PROP_SPECULAR_CONSTANT: D2D1_DISTANTSPECULAR_PROP = 3u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISTANTSPECULAR_PROP_SURFACE_SCALE: D2D1_DISTANTSPECULAR_PROP = 4u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISTANTSPECULAR_PROP_COLOR: D2D1_DISTANTSPECULAR_PROP = 5u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISTANTSPECULAR_PROP_KERNEL_UNIT_LENGTH: D2D1_DISTANTSPECULAR_PROP = 6u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISTANTSPECULAR_PROP_SCALE_MODE: D2D1_DISTANTSPECULAR_PROP = 7u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISTANTSPECULAR_PROP_FORCE_DWORD: D2D1_DISTANTSPECULAR_PROP = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_DISTANTSPECULAR_SCALE_MODE = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISTANTSPECULAR_SCALE_MODE_NEAREST_NEIGHBOR: D2D1_DISTANTSPECULAR_SCALE_MODE = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISTANTSPECULAR_SCALE_MODE_LINEAR: D2D1_DISTANTSPECULAR_SCALE_MODE = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISTANTSPECULAR_SCALE_MODE_CUBIC: D2D1_DISTANTSPECULAR_SCALE_MODE = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISTANTSPECULAR_SCALE_MODE_MULTI_SAMPLE_LINEAR: D2D1_DISTANTSPECULAR_SCALE_MODE = 3u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISTANTSPECULAR_SCALE_MODE_ANISOTROPIC: D2D1_DISTANTSPECULAR_SCALE_MODE = 4u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISTANTSPECULAR_SCALE_MODE_HIGH_QUALITY_CUBIC: D2D1_DISTANTSPECULAR_SCALE_MODE = 5u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DISTANTSPECULAR_SCALE_MODE_FORCE_DWORD: D2D1_DISTANTSPECULAR_SCALE_MODE = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_DPICOMPENSATION_INTERPOLATION_MODE = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DPICOMPENSATION_INTERPOLATION_MODE_NEAREST_NEIGHBOR: D2D1_DPICOMPENSATION_INTERPOLATION_MODE = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DPICOMPENSATION_INTERPOLATION_MODE_LINEAR: D2D1_DPICOMPENSATION_INTERPOLATION_MODE = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DPICOMPENSATION_INTERPOLATION_MODE_CUBIC: D2D1_DPICOMPENSATION_INTERPOLATION_MODE = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DPICOMPENSATION_INTERPOLATION_MODE_MULTI_SAMPLE_LINEAR: D2D1_DPICOMPENSATION_INTERPOLATION_MODE = 3u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DPICOMPENSATION_INTERPOLATION_MODE_ANISOTROPIC: D2D1_DPICOMPENSATION_INTERPOLATION_MODE = 4u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DPICOMPENSATION_INTERPOLATION_MODE_HIGH_QUALITY_CUBIC: D2D1_DPICOMPENSATION_INTERPOLATION_MODE = 5u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DPICOMPENSATION_INTERPOLATION_MODE_FORCE_DWORD: D2D1_DPICOMPENSATION_INTERPOLATION_MODE = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_DPICOMPENSATION_PROP = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DPICOMPENSATION_PROP_INTERPOLATION_MODE: D2D1_DPICOMPENSATION_PROP = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DPICOMPENSATION_PROP_BORDER_MODE: D2D1_DPICOMPENSATION_PROP = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DPICOMPENSATION_PROP_INPUT_DPI: D2D1_DPICOMPENSATION_PROP = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DPICOMPENSATION_PROP_FORCE_DWORD: D2D1_DPICOMPENSATION_PROP = 4294967295u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_DEVICE_CONTEXT_OPTIONS(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DEVICE_CONTEXT_OPTIONS_NONE: D2D1_DEVICE_CONTEXT_OPTIONS = D2D1_DEVICE_CONTEXT_OPTIONS(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DEVICE_CONTEXT_OPTIONS_ENABLE_MULTITHREADED_OPTIMIZATIONS: D2D1_DEVICE_CONTEXT_OPTIONS = D2D1_DEVICE_CONTEXT_OPTIONS(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DEVICE_CONTEXT_OPTIONS_FORCE_DWORD: D2D1_DEVICE_CONTEXT_OPTIONS = D2D1_DEVICE_CONTEXT_OPTIONS(4294967295u32);
+impl ::core::marker::Copy for D2D1_DEVICE_CONTEXT_OPTIONS {}
+impl ::core::clone::Clone for D2D1_DEVICE_CONTEXT_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_DEVICE_CONTEXT_OPTIONS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_DEVICE_CONTEXT_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_DEVICE_CONTEXT_OPTIONS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_DEVICE_CONTEXT_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_DEVICE_CONTEXT_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_DEVICE_CONTEXT_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_DEVICE_CONTEXT_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_DEVICE_CONTEXT_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_DIRECTIONALBLUR_OPTIMIZATION(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DIRECTIONALBLUR_OPTIMIZATION_SPEED: D2D1_DIRECTIONALBLUR_OPTIMIZATION = D2D1_DIRECTIONALBLUR_OPTIMIZATION(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DIRECTIONALBLUR_OPTIMIZATION_BALANCED: D2D1_DIRECTIONALBLUR_OPTIMIZATION = D2D1_DIRECTIONALBLUR_OPTIMIZATION(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DIRECTIONALBLUR_OPTIMIZATION_QUALITY: D2D1_DIRECTIONALBLUR_OPTIMIZATION = D2D1_DIRECTIONALBLUR_OPTIMIZATION(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DIRECTIONALBLUR_OPTIMIZATION_FORCE_DWORD: D2D1_DIRECTIONALBLUR_OPTIMIZATION = D2D1_DIRECTIONALBLUR_OPTIMIZATION(4294967295u32);
+impl ::core::marker::Copy for D2D1_DIRECTIONALBLUR_OPTIMIZATION {}
+impl ::core::clone::Clone for D2D1_DIRECTIONALBLUR_OPTIMIZATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_DIRECTIONALBLUR_OPTIMIZATION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_DIRECTIONALBLUR_OPTIMIZATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_DIRECTIONALBLUR_OPTIMIZATION").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_DIRECTIONALBLUR_OPTIMIZATION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_DIRECTIONALBLUR_OPTIMIZATION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_DIRECTIONALBLUR_OPTIMIZATION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_DIRECTIONALBLUR_OPTIMIZATION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_DIRECTIONALBLUR_OPTIMIZATION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_DIRECTIONALBLUR_PROP(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DIRECTIONALBLUR_PROP_STANDARD_DEVIATION: D2D1_DIRECTIONALBLUR_PROP = D2D1_DIRECTIONALBLUR_PROP(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DIRECTIONALBLUR_PROP_ANGLE: D2D1_DIRECTIONALBLUR_PROP = D2D1_DIRECTIONALBLUR_PROP(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DIRECTIONALBLUR_PROP_OPTIMIZATION: D2D1_DIRECTIONALBLUR_PROP = D2D1_DIRECTIONALBLUR_PROP(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DIRECTIONALBLUR_PROP_BORDER_MODE: D2D1_DIRECTIONALBLUR_PROP = D2D1_DIRECTIONALBLUR_PROP(3u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DIRECTIONALBLUR_PROP_FORCE_DWORD: D2D1_DIRECTIONALBLUR_PROP = D2D1_DIRECTIONALBLUR_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_DIRECTIONALBLUR_PROP {}
+impl ::core::clone::Clone for D2D1_DIRECTIONALBLUR_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_DIRECTIONALBLUR_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_DIRECTIONALBLUR_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_DIRECTIONALBLUR_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_DIRECTIONALBLUR_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_DIRECTIONALBLUR_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_DIRECTIONALBLUR_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_DIRECTIONALBLUR_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_DIRECTIONALBLUR_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_DISCRETETRANSFER_PROP(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISCRETETRANSFER_PROP_RED_TABLE: D2D1_DISCRETETRANSFER_PROP = D2D1_DISCRETETRANSFER_PROP(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISCRETETRANSFER_PROP_RED_DISABLE: D2D1_DISCRETETRANSFER_PROP = D2D1_DISCRETETRANSFER_PROP(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISCRETETRANSFER_PROP_GREEN_TABLE: D2D1_DISCRETETRANSFER_PROP = D2D1_DISCRETETRANSFER_PROP(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISCRETETRANSFER_PROP_GREEN_DISABLE: D2D1_DISCRETETRANSFER_PROP = D2D1_DISCRETETRANSFER_PROP(3u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISCRETETRANSFER_PROP_BLUE_TABLE: D2D1_DISCRETETRANSFER_PROP = D2D1_DISCRETETRANSFER_PROP(4u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISCRETETRANSFER_PROP_BLUE_DISABLE: D2D1_DISCRETETRANSFER_PROP = D2D1_DISCRETETRANSFER_PROP(5u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISCRETETRANSFER_PROP_ALPHA_TABLE: D2D1_DISCRETETRANSFER_PROP = D2D1_DISCRETETRANSFER_PROP(6u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISCRETETRANSFER_PROP_ALPHA_DISABLE: D2D1_DISCRETETRANSFER_PROP = D2D1_DISCRETETRANSFER_PROP(7u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISCRETETRANSFER_PROP_CLAMP_OUTPUT: D2D1_DISCRETETRANSFER_PROP = D2D1_DISCRETETRANSFER_PROP(8u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISCRETETRANSFER_PROP_FORCE_DWORD: D2D1_DISCRETETRANSFER_PROP = D2D1_DISCRETETRANSFER_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_DISCRETETRANSFER_PROP {}
+impl ::core::clone::Clone for D2D1_DISCRETETRANSFER_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_DISCRETETRANSFER_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_DISCRETETRANSFER_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_DISCRETETRANSFER_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_DISCRETETRANSFER_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_DISCRETETRANSFER_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_DISCRETETRANSFER_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_DISCRETETRANSFER_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_DISCRETETRANSFER_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_DISPLACEMENTMAP_PROP(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISPLACEMENTMAP_PROP_SCALE: D2D1_DISPLACEMENTMAP_PROP = D2D1_DISPLACEMENTMAP_PROP(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISPLACEMENTMAP_PROP_X_CHANNEL_SELECT: D2D1_DISPLACEMENTMAP_PROP = D2D1_DISPLACEMENTMAP_PROP(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISPLACEMENTMAP_PROP_Y_CHANNEL_SELECT: D2D1_DISPLACEMENTMAP_PROP = D2D1_DISPLACEMENTMAP_PROP(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISPLACEMENTMAP_PROP_FORCE_DWORD: D2D1_DISPLACEMENTMAP_PROP = D2D1_DISPLACEMENTMAP_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_DISPLACEMENTMAP_PROP {}
+impl ::core::clone::Clone for D2D1_DISPLACEMENTMAP_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_DISPLACEMENTMAP_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_DISPLACEMENTMAP_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_DISPLACEMENTMAP_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_DISPLACEMENTMAP_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_DISPLACEMENTMAP_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_DISPLACEMENTMAP_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_DISPLACEMENTMAP_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_DISPLACEMENTMAP_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_DISTANTDIFFUSE_PROP(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISTANTDIFFUSE_PROP_AZIMUTH: D2D1_DISTANTDIFFUSE_PROP = D2D1_DISTANTDIFFUSE_PROP(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISTANTDIFFUSE_PROP_ELEVATION: D2D1_DISTANTDIFFUSE_PROP = D2D1_DISTANTDIFFUSE_PROP(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISTANTDIFFUSE_PROP_DIFFUSE_CONSTANT: D2D1_DISTANTDIFFUSE_PROP = D2D1_DISTANTDIFFUSE_PROP(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISTANTDIFFUSE_PROP_SURFACE_SCALE: D2D1_DISTANTDIFFUSE_PROP = D2D1_DISTANTDIFFUSE_PROP(3u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISTANTDIFFUSE_PROP_COLOR: D2D1_DISTANTDIFFUSE_PROP = D2D1_DISTANTDIFFUSE_PROP(4u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISTANTDIFFUSE_PROP_KERNEL_UNIT_LENGTH: D2D1_DISTANTDIFFUSE_PROP = D2D1_DISTANTDIFFUSE_PROP(5u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISTANTDIFFUSE_PROP_SCALE_MODE: D2D1_DISTANTDIFFUSE_PROP = D2D1_DISTANTDIFFUSE_PROP(6u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISTANTDIFFUSE_PROP_FORCE_DWORD: D2D1_DISTANTDIFFUSE_PROP = D2D1_DISTANTDIFFUSE_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_DISTANTDIFFUSE_PROP {}
+impl ::core::clone::Clone for D2D1_DISTANTDIFFUSE_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_DISTANTDIFFUSE_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_DISTANTDIFFUSE_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_DISTANTDIFFUSE_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_DISTANTDIFFUSE_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_DISTANTDIFFUSE_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_DISTANTDIFFUSE_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_DISTANTDIFFUSE_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_DISTANTDIFFUSE_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_DISTANTDIFFUSE_SCALE_MODE(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISTANTDIFFUSE_SCALE_MODE_NEAREST_NEIGHBOR: D2D1_DISTANTDIFFUSE_SCALE_MODE = D2D1_DISTANTDIFFUSE_SCALE_MODE(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISTANTDIFFUSE_SCALE_MODE_LINEAR: D2D1_DISTANTDIFFUSE_SCALE_MODE = D2D1_DISTANTDIFFUSE_SCALE_MODE(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISTANTDIFFUSE_SCALE_MODE_CUBIC: D2D1_DISTANTDIFFUSE_SCALE_MODE = D2D1_DISTANTDIFFUSE_SCALE_MODE(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISTANTDIFFUSE_SCALE_MODE_MULTI_SAMPLE_LINEAR: D2D1_DISTANTDIFFUSE_SCALE_MODE = D2D1_DISTANTDIFFUSE_SCALE_MODE(3u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISTANTDIFFUSE_SCALE_MODE_ANISOTROPIC: D2D1_DISTANTDIFFUSE_SCALE_MODE = D2D1_DISTANTDIFFUSE_SCALE_MODE(4u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISTANTDIFFUSE_SCALE_MODE_HIGH_QUALITY_CUBIC: D2D1_DISTANTDIFFUSE_SCALE_MODE = D2D1_DISTANTDIFFUSE_SCALE_MODE(5u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISTANTDIFFUSE_SCALE_MODE_FORCE_DWORD: D2D1_DISTANTDIFFUSE_SCALE_MODE = D2D1_DISTANTDIFFUSE_SCALE_MODE(4294967295u32);
+impl ::core::marker::Copy for D2D1_DISTANTDIFFUSE_SCALE_MODE {}
+impl ::core::clone::Clone for D2D1_DISTANTDIFFUSE_SCALE_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_DISTANTDIFFUSE_SCALE_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_DISTANTDIFFUSE_SCALE_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_DISTANTDIFFUSE_SCALE_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_DISTANTDIFFUSE_SCALE_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_DISTANTDIFFUSE_SCALE_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_DISTANTDIFFUSE_SCALE_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_DISTANTDIFFUSE_SCALE_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_DISTANTDIFFUSE_SCALE_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_DISTANTSPECULAR_PROP(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISTANTSPECULAR_PROP_AZIMUTH: D2D1_DISTANTSPECULAR_PROP = D2D1_DISTANTSPECULAR_PROP(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISTANTSPECULAR_PROP_ELEVATION: D2D1_DISTANTSPECULAR_PROP = D2D1_DISTANTSPECULAR_PROP(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISTANTSPECULAR_PROP_SPECULAR_EXPONENT: D2D1_DISTANTSPECULAR_PROP = D2D1_DISTANTSPECULAR_PROP(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISTANTSPECULAR_PROP_SPECULAR_CONSTANT: D2D1_DISTANTSPECULAR_PROP = D2D1_DISTANTSPECULAR_PROP(3u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISTANTSPECULAR_PROP_SURFACE_SCALE: D2D1_DISTANTSPECULAR_PROP = D2D1_DISTANTSPECULAR_PROP(4u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISTANTSPECULAR_PROP_COLOR: D2D1_DISTANTSPECULAR_PROP = D2D1_DISTANTSPECULAR_PROP(5u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISTANTSPECULAR_PROP_KERNEL_UNIT_LENGTH: D2D1_DISTANTSPECULAR_PROP = D2D1_DISTANTSPECULAR_PROP(6u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISTANTSPECULAR_PROP_SCALE_MODE: D2D1_DISTANTSPECULAR_PROP = D2D1_DISTANTSPECULAR_PROP(7u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISTANTSPECULAR_PROP_FORCE_DWORD: D2D1_DISTANTSPECULAR_PROP = D2D1_DISTANTSPECULAR_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_DISTANTSPECULAR_PROP {}
+impl ::core::clone::Clone for D2D1_DISTANTSPECULAR_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_DISTANTSPECULAR_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_DISTANTSPECULAR_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_DISTANTSPECULAR_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_DISTANTSPECULAR_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_DISTANTSPECULAR_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_DISTANTSPECULAR_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_DISTANTSPECULAR_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_DISTANTSPECULAR_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_DISTANTSPECULAR_SCALE_MODE(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISTANTSPECULAR_SCALE_MODE_NEAREST_NEIGHBOR: D2D1_DISTANTSPECULAR_SCALE_MODE = D2D1_DISTANTSPECULAR_SCALE_MODE(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISTANTSPECULAR_SCALE_MODE_LINEAR: D2D1_DISTANTSPECULAR_SCALE_MODE = D2D1_DISTANTSPECULAR_SCALE_MODE(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISTANTSPECULAR_SCALE_MODE_CUBIC: D2D1_DISTANTSPECULAR_SCALE_MODE = D2D1_DISTANTSPECULAR_SCALE_MODE(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISTANTSPECULAR_SCALE_MODE_MULTI_SAMPLE_LINEAR: D2D1_DISTANTSPECULAR_SCALE_MODE = D2D1_DISTANTSPECULAR_SCALE_MODE(3u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISTANTSPECULAR_SCALE_MODE_ANISOTROPIC: D2D1_DISTANTSPECULAR_SCALE_MODE = D2D1_DISTANTSPECULAR_SCALE_MODE(4u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISTANTSPECULAR_SCALE_MODE_HIGH_QUALITY_CUBIC: D2D1_DISTANTSPECULAR_SCALE_MODE = D2D1_DISTANTSPECULAR_SCALE_MODE(5u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DISTANTSPECULAR_SCALE_MODE_FORCE_DWORD: D2D1_DISTANTSPECULAR_SCALE_MODE = D2D1_DISTANTSPECULAR_SCALE_MODE(4294967295u32);
+impl ::core::marker::Copy for D2D1_DISTANTSPECULAR_SCALE_MODE {}
+impl ::core::clone::Clone for D2D1_DISTANTSPECULAR_SCALE_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_DISTANTSPECULAR_SCALE_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_DISTANTSPECULAR_SCALE_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_DISTANTSPECULAR_SCALE_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_DISTANTSPECULAR_SCALE_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_DISTANTSPECULAR_SCALE_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_DISTANTSPECULAR_SCALE_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_DISTANTSPECULAR_SCALE_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_DISTANTSPECULAR_SCALE_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_DPICOMPENSATION_INTERPOLATION_MODE(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DPICOMPENSATION_INTERPOLATION_MODE_NEAREST_NEIGHBOR: D2D1_DPICOMPENSATION_INTERPOLATION_MODE = D2D1_DPICOMPENSATION_INTERPOLATION_MODE(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DPICOMPENSATION_INTERPOLATION_MODE_LINEAR: D2D1_DPICOMPENSATION_INTERPOLATION_MODE = D2D1_DPICOMPENSATION_INTERPOLATION_MODE(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DPICOMPENSATION_INTERPOLATION_MODE_CUBIC: D2D1_DPICOMPENSATION_INTERPOLATION_MODE = D2D1_DPICOMPENSATION_INTERPOLATION_MODE(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DPICOMPENSATION_INTERPOLATION_MODE_MULTI_SAMPLE_LINEAR: D2D1_DPICOMPENSATION_INTERPOLATION_MODE = D2D1_DPICOMPENSATION_INTERPOLATION_MODE(3u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DPICOMPENSATION_INTERPOLATION_MODE_ANISOTROPIC: D2D1_DPICOMPENSATION_INTERPOLATION_MODE = D2D1_DPICOMPENSATION_INTERPOLATION_MODE(4u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DPICOMPENSATION_INTERPOLATION_MODE_HIGH_QUALITY_CUBIC: D2D1_DPICOMPENSATION_INTERPOLATION_MODE = D2D1_DPICOMPENSATION_INTERPOLATION_MODE(5u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DPICOMPENSATION_INTERPOLATION_MODE_FORCE_DWORD: D2D1_DPICOMPENSATION_INTERPOLATION_MODE = D2D1_DPICOMPENSATION_INTERPOLATION_MODE(4294967295u32);
+impl ::core::marker::Copy for D2D1_DPICOMPENSATION_INTERPOLATION_MODE {}
+impl ::core::clone::Clone for D2D1_DPICOMPENSATION_INTERPOLATION_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_DPICOMPENSATION_INTERPOLATION_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_DPICOMPENSATION_INTERPOLATION_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_DPICOMPENSATION_INTERPOLATION_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_DPICOMPENSATION_INTERPOLATION_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_DPICOMPENSATION_INTERPOLATION_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_DPICOMPENSATION_INTERPOLATION_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_DPICOMPENSATION_INTERPOLATION_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_DPICOMPENSATION_INTERPOLATION_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_DPICOMPENSATION_PROP(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DPICOMPENSATION_PROP_INTERPOLATION_MODE: D2D1_DPICOMPENSATION_PROP = D2D1_DPICOMPENSATION_PROP(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DPICOMPENSATION_PROP_BORDER_MODE: D2D1_DPICOMPENSATION_PROP = D2D1_DPICOMPENSATION_PROP(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DPICOMPENSATION_PROP_INPUT_DPI: D2D1_DPICOMPENSATION_PROP = D2D1_DPICOMPENSATION_PROP(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_DPICOMPENSATION_PROP_FORCE_DWORD: D2D1_DPICOMPENSATION_PROP = D2D1_DPICOMPENSATION_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_DPICOMPENSATION_PROP {}
+impl ::core::clone::Clone for D2D1_DPICOMPENSATION_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_DPICOMPENSATION_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_DPICOMPENSATION_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_DPICOMPENSATION_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_DPICOMPENSATION_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_DPICOMPENSATION_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_DPICOMPENSATION_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_DPICOMPENSATION_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_DPICOMPENSATION_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Foundation_Numerics'*"]
 #[cfg(feature = "Foundation_Numerics")]
@@ -1410,41 +3962,173 @@ impl ::core::default::Default for D2D1_DRAWING_STATE_DESCRIPTION1 {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_DRAW_TEXT_OPTIONS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_DRAW_TEXT_OPTIONS(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DRAW_TEXT_OPTIONS_NO_SNAP: D2D1_DRAW_TEXT_OPTIONS = 1u32;
+pub const D2D1_DRAW_TEXT_OPTIONS_NO_SNAP: D2D1_DRAW_TEXT_OPTIONS = D2D1_DRAW_TEXT_OPTIONS(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DRAW_TEXT_OPTIONS_CLIP: D2D1_DRAW_TEXT_OPTIONS = 2u32;
+pub const D2D1_DRAW_TEXT_OPTIONS_CLIP: D2D1_DRAW_TEXT_OPTIONS = D2D1_DRAW_TEXT_OPTIONS(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DRAW_TEXT_OPTIONS_ENABLE_COLOR_FONT: D2D1_DRAW_TEXT_OPTIONS = 4u32;
+pub const D2D1_DRAW_TEXT_OPTIONS_ENABLE_COLOR_FONT: D2D1_DRAW_TEXT_OPTIONS = D2D1_DRAW_TEXT_OPTIONS(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DRAW_TEXT_OPTIONS_DISABLE_COLOR_BITMAP_SNAPPING: D2D1_DRAW_TEXT_OPTIONS = 8u32;
+pub const D2D1_DRAW_TEXT_OPTIONS_DISABLE_COLOR_BITMAP_SNAPPING: D2D1_DRAW_TEXT_OPTIONS = D2D1_DRAW_TEXT_OPTIONS(8u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DRAW_TEXT_OPTIONS_NONE: D2D1_DRAW_TEXT_OPTIONS = 0u32;
+pub const D2D1_DRAW_TEXT_OPTIONS_NONE: D2D1_DRAW_TEXT_OPTIONS = D2D1_DRAW_TEXT_OPTIONS(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_DRAW_TEXT_OPTIONS_FORCE_DWORD: D2D1_DRAW_TEXT_OPTIONS = 4294967295u32;
+pub const D2D1_DRAW_TEXT_OPTIONS_FORCE_DWORD: D2D1_DRAW_TEXT_OPTIONS = D2D1_DRAW_TEXT_OPTIONS(4294967295u32);
+impl ::core::marker::Copy for D2D1_DRAW_TEXT_OPTIONS {}
+impl ::core::clone::Clone for D2D1_DRAW_TEXT_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_DRAW_TEXT_OPTIONS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_DRAW_TEXT_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_DRAW_TEXT_OPTIONS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_DRAW_TEXT_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_DRAW_TEXT_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_DRAW_TEXT_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_DRAW_TEXT_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_DRAW_TEXT_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_EDGEDETECTION_MODE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_EDGEDETECTION_MODE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_EDGEDETECTION_MODE_SOBEL: D2D1_EDGEDETECTION_MODE = 0u32;
+pub const D2D1_EDGEDETECTION_MODE_SOBEL: D2D1_EDGEDETECTION_MODE = D2D1_EDGEDETECTION_MODE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_EDGEDETECTION_MODE_PREWITT: D2D1_EDGEDETECTION_MODE = 1u32;
+pub const D2D1_EDGEDETECTION_MODE_PREWITT: D2D1_EDGEDETECTION_MODE = D2D1_EDGEDETECTION_MODE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_EDGEDETECTION_MODE_FORCE_DWORD: D2D1_EDGEDETECTION_MODE = 4294967295u32;
+pub const D2D1_EDGEDETECTION_MODE_FORCE_DWORD: D2D1_EDGEDETECTION_MODE = D2D1_EDGEDETECTION_MODE(4294967295u32);
+impl ::core::marker::Copy for D2D1_EDGEDETECTION_MODE {}
+impl ::core::clone::Clone for D2D1_EDGEDETECTION_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_EDGEDETECTION_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_EDGEDETECTION_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_EDGEDETECTION_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_EDGEDETECTION_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_EDGEDETECTION_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_EDGEDETECTION_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_EDGEDETECTION_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_EDGEDETECTION_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_EDGEDETECTION_PROP = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_EDGEDETECTION_PROP(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_EDGEDETECTION_PROP_STRENGTH: D2D1_EDGEDETECTION_PROP = 0u32;
+pub const D2D1_EDGEDETECTION_PROP_STRENGTH: D2D1_EDGEDETECTION_PROP = D2D1_EDGEDETECTION_PROP(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_EDGEDETECTION_PROP_BLUR_RADIUS: D2D1_EDGEDETECTION_PROP = 1u32;
+pub const D2D1_EDGEDETECTION_PROP_BLUR_RADIUS: D2D1_EDGEDETECTION_PROP = D2D1_EDGEDETECTION_PROP(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_EDGEDETECTION_PROP_MODE: D2D1_EDGEDETECTION_PROP = 2u32;
+pub const D2D1_EDGEDETECTION_PROP_MODE: D2D1_EDGEDETECTION_PROP = D2D1_EDGEDETECTION_PROP(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_EDGEDETECTION_PROP_OVERLAY_EDGES: D2D1_EDGEDETECTION_PROP = 3u32;
+pub const D2D1_EDGEDETECTION_PROP_OVERLAY_EDGES: D2D1_EDGEDETECTION_PROP = D2D1_EDGEDETECTION_PROP(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_EDGEDETECTION_PROP_ALPHA_MODE: D2D1_EDGEDETECTION_PROP = 4u32;
+pub const D2D1_EDGEDETECTION_PROP_ALPHA_MODE: D2D1_EDGEDETECTION_PROP = D2D1_EDGEDETECTION_PROP(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_EDGEDETECTION_PROP_FORCE_DWORD: D2D1_EDGEDETECTION_PROP = 4294967295u32;
+pub const D2D1_EDGEDETECTION_PROP_FORCE_DWORD: D2D1_EDGEDETECTION_PROP = D2D1_EDGEDETECTION_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_EDGEDETECTION_PROP {}
+impl ::core::clone::Clone for D2D1_EDGEDETECTION_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_EDGEDETECTION_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_EDGEDETECTION_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_EDGEDETECTION_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_EDGEDETECTION_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_EDGEDETECTION_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_EDGEDETECTION_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_EDGEDETECTION_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_EDGEDETECTION_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -1524,29 +4208,161 @@ impl ::core::default::Default for D2D1_ELLIPSE {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_EMBOSS_PROP = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_EMBOSS_PROP(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_EMBOSS_PROP_HEIGHT: D2D1_EMBOSS_PROP = 0u32;
+pub const D2D1_EMBOSS_PROP_HEIGHT: D2D1_EMBOSS_PROP = D2D1_EMBOSS_PROP(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_EMBOSS_PROP_DIRECTION: D2D1_EMBOSS_PROP = 1u32;
+pub const D2D1_EMBOSS_PROP_DIRECTION: D2D1_EMBOSS_PROP = D2D1_EMBOSS_PROP(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_EMBOSS_PROP_FORCE_DWORD: D2D1_EMBOSS_PROP = 4294967295u32;
+pub const D2D1_EMBOSS_PROP_FORCE_DWORD: D2D1_EMBOSS_PROP = D2D1_EMBOSS_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_EMBOSS_PROP {}
+impl ::core::clone::Clone for D2D1_EMBOSS_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_EMBOSS_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_EMBOSS_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_EMBOSS_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_EMBOSS_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_EMBOSS_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_EMBOSS_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_EMBOSS_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_EMBOSS_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_EXPOSURE_PROP = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_EXPOSURE_PROP(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_EXPOSURE_PROP_EXPOSURE_VALUE: D2D1_EXPOSURE_PROP = 0u32;
+pub const D2D1_EXPOSURE_PROP_EXPOSURE_VALUE: D2D1_EXPOSURE_PROP = D2D1_EXPOSURE_PROP(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_EXPOSURE_PROP_FORCE_DWORD: D2D1_EXPOSURE_PROP = 4294967295u32;
+pub const D2D1_EXPOSURE_PROP_FORCE_DWORD: D2D1_EXPOSURE_PROP = D2D1_EXPOSURE_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_EXPOSURE_PROP {}
+impl ::core::clone::Clone for D2D1_EXPOSURE_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_EXPOSURE_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_EXPOSURE_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_EXPOSURE_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_EXPOSURE_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_EXPOSURE_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_EXPOSURE_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_EXPOSURE_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_EXPOSURE_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_EXTEND_MODE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_EXTEND_MODE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_EXTEND_MODE_CLAMP: D2D1_EXTEND_MODE = 0u32;
+pub const D2D1_EXTEND_MODE_CLAMP: D2D1_EXTEND_MODE = D2D1_EXTEND_MODE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_EXTEND_MODE_WRAP: D2D1_EXTEND_MODE = 1u32;
+pub const D2D1_EXTEND_MODE_WRAP: D2D1_EXTEND_MODE = D2D1_EXTEND_MODE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_EXTEND_MODE_MIRROR: D2D1_EXTEND_MODE = 2u32;
+pub const D2D1_EXTEND_MODE_MIRROR: D2D1_EXTEND_MODE = D2D1_EXTEND_MODE(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_EXTEND_MODE_FORCE_DWORD: D2D1_EXTEND_MODE = 4294967295u32;
+pub const D2D1_EXTEND_MODE_FORCE_DWORD: D2D1_EXTEND_MODE = D2D1_EXTEND_MODE(4294967295u32);
+impl ::core::marker::Copy for D2D1_EXTEND_MODE {}
+impl ::core::clone::Clone for D2D1_EXTEND_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_EXTEND_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_EXTEND_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_EXTEND_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_EXTEND_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_EXTEND_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_EXTEND_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_EXTEND_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_EXTEND_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub struct D2D1_FACTORY_OPTIONS {
@@ -1578,21 +4394,109 @@ impl ::core::default::Default for D2D1_FACTORY_OPTIONS {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_FACTORY_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_FACTORY_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_FACTORY_TYPE_SINGLE_THREADED: D2D1_FACTORY_TYPE = 0u32;
+pub const D2D1_FACTORY_TYPE_SINGLE_THREADED: D2D1_FACTORY_TYPE = D2D1_FACTORY_TYPE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_FACTORY_TYPE_MULTI_THREADED: D2D1_FACTORY_TYPE = 1u32;
+pub const D2D1_FACTORY_TYPE_MULTI_THREADED: D2D1_FACTORY_TYPE = D2D1_FACTORY_TYPE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_FACTORY_TYPE_FORCE_DWORD: D2D1_FACTORY_TYPE = 4294967295u32;
+pub const D2D1_FACTORY_TYPE_FORCE_DWORD: D2D1_FACTORY_TYPE = D2D1_FACTORY_TYPE(4294967295u32);
+impl ::core::marker::Copy for D2D1_FACTORY_TYPE {}
+impl ::core::clone::Clone for D2D1_FACTORY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_FACTORY_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_FACTORY_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_FACTORY_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_FACTORY_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_FACTORY_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_FACTORY_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_FACTORY_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_FACTORY_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_FEATURE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_FEATURE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_FEATURE_DOUBLES: D2D1_FEATURE = 0u32;
+pub const D2D1_FEATURE_DOUBLES: D2D1_FEATURE = D2D1_FEATURE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_FEATURE_D3D10_X_HARDWARE_OPTIONS: D2D1_FEATURE = 1u32;
+pub const D2D1_FEATURE_D3D10_X_HARDWARE_OPTIONS: D2D1_FEATURE = D2D1_FEATURE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_FEATURE_FORCE_DWORD: D2D1_FEATURE = 4294967295u32;
+pub const D2D1_FEATURE_FORCE_DWORD: D2D1_FEATURE = D2D1_FEATURE(4294967295u32);
+impl ::core::marker::Copy for D2D1_FEATURE {}
+impl ::core::clone::Clone for D2D1_FEATURE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_FEATURE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_FEATURE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_FEATURE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_FEATURE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_FEATURE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_FEATURE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_FEATURE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_FEATURE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1670,141 +4574,581 @@ impl ::core::default::Default for D2D1_FEATURE_DATA_DOUBLES {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_FEATURE_LEVEL = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_FEATURE_LEVEL_DEFAULT: D2D1_FEATURE_LEVEL = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_FEATURE_LEVEL_9: D2D1_FEATURE_LEVEL = 37120u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_FEATURE_LEVEL_10: D2D1_FEATURE_LEVEL = 40960u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_FEATURE_LEVEL_FORCE_DWORD: D2D1_FEATURE_LEVEL = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_FILTER = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_FILTER_MIN_MAG_MIP_POINT: D2D1_FILTER = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_FILTER_MIN_MAG_POINT_MIP_LINEAR: D2D1_FILTER = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_FILTER_MIN_POINT_MAG_LINEAR_MIP_POINT: D2D1_FILTER = 4u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_FILTER_MIN_POINT_MAG_MIP_LINEAR: D2D1_FILTER = 5u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_FILTER_MIN_LINEAR_MAG_MIP_POINT: D2D1_FILTER = 16u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_FILTER_MIN_LINEAR_MAG_POINT_MIP_LINEAR: D2D1_FILTER = 17u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_FILTER_MIN_MAG_LINEAR_MIP_POINT: D2D1_FILTER = 20u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_FILTER_MIN_MAG_MIP_LINEAR: D2D1_FILTER = 21u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_FILTER_ANISOTROPIC: D2D1_FILTER = 85u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_FILTER_FORCE_DWORD: D2D1_FILTER = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_FLOOD_PROP = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_FLOOD_PROP_COLOR: D2D1_FLOOD_PROP = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_FLOOD_PROP_FORCE_DWORD: D2D1_FLOOD_PROP = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_GAMMA = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_GAMMA_2_2: D2D1_GAMMA = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_GAMMA_1_0: D2D1_GAMMA = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_GAMMA_FORCE_DWORD: D2D1_GAMMA = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_GAMMA1 = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_GAMMA1_G22: D2D1_GAMMA1 = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_GAMMA1_G10: D2D1_GAMMA1 = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_GAMMA1_G2084: D2D1_GAMMA1 = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_GAMMA1_FORCE_DWORD: D2D1_GAMMA1 = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_GAMMATRANSFER_PROP = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_GAMMATRANSFER_PROP_RED_AMPLITUDE: D2D1_GAMMATRANSFER_PROP = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_GAMMATRANSFER_PROP_RED_EXPONENT: D2D1_GAMMATRANSFER_PROP = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_GAMMATRANSFER_PROP_RED_OFFSET: D2D1_GAMMATRANSFER_PROP = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_GAMMATRANSFER_PROP_RED_DISABLE: D2D1_GAMMATRANSFER_PROP = 3u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_GAMMATRANSFER_PROP_GREEN_AMPLITUDE: D2D1_GAMMATRANSFER_PROP = 4u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_GAMMATRANSFER_PROP_GREEN_EXPONENT: D2D1_GAMMATRANSFER_PROP = 5u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_GAMMATRANSFER_PROP_GREEN_OFFSET: D2D1_GAMMATRANSFER_PROP = 6u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_GAMMATRANSFER_PROP_GREEN_DISABLE: D2D1_GAMMATRANSFER_PROP = 7u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_GAMMATRANSFER_PROP_BLUE_AMPLITUDE: D2D1_GAMMATRANSFER_PROP = 8u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_GAMMATRANSFER_PROP_BLUE_EXPONENT: D2D1_GAMMATRANSFER_PROP = 9u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_GAMMATRANSFER_PROP_BLUE_OFFSET: D2D1_GAMMATRANSFER_PROP = 10u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_GAMMATRANSFER_PROP_BLUE_DISABLE: D2D1_GAMMATRANSFER_PROP = 11u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_GAMMATRANSFER_PROP_ALPHA_AMPLITUDE: D2D1_GAMMATRANSFER_PROP = 12u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_GAMMATRANSFER_PROP_ALPHA_EXPONENT: D2D1_GAMMATRANSFER_PROP = 13u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_GAMMATRANSFER_PROP_ALPHA_OFFSET: D2D1_GAMMATRANSFER_PROP = 14u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_GAMMATRANSFER_PROP_ALPHA_DISABLE: D2D1_GAMMATRANSFER_PROP = 15u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_GAMMATRANSFER_PROP_CLAMP_OUTPUT: D2D1_GAMMATRANSFER_PROP = 16u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_GAMMATRANSFER_PROP_FORCE_DWORD: D2D1_GAMMATRANSFER_PROP = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_GAUSSIANBLUR_OPTIMIZATION = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_GAUSSIANBLUR_OPTIMIZATION_SPEED: D2D1_GAUSSIANBLUR_OPTIMIZATION = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_GAUSSIANBLUR_OPTIMIZATION_BALANCED: D2D1_GAUSSIANBLUR_OPTIMIZATION = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_GAUSSIANBLUR_OPTIMIZATION_QUALITY: D2D1_GAUSSIANBLUR_OPTIMIZATION = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_GAUSSIANBLUR_OPTIMIZATION_FORCE_DWORD: D2D1_GAUSSIANBLUR_OPTIMIZATION = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_GAUSSIANBLUR_PROP = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_GAUSSIANBLUR_PROP_STANDARD_DEVIATION: D2D1_GAUSSIANBLUR_PROP = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_GAUSSIANBLUR_PROP_OPTIMIZATION: D2D1_GAUSSIANBLUR_PROP = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_GAUSSIANBLUR_PROP_BORDER_MODE: D2D1_GAUSSIANBLUR_PROP = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_GAUSSIANBLUR_PROP_FORCE_DWORD: D2D1_GAUSSIANBLUR_PROP = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_GEOMETRY_RELATION = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_GEOMETRY_RELATION_UNKNOWN: D2D1_GEOMETRY_RELATION = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_GEOMETRY_RELATION_DISJOINT: D2D1_GEOMETRY_RELATION = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_GEOMETRY_RELATION_IS_CONTAINED: D2D1_GEOMETRY_RELATION = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_GEOMETRY_RELATION_CONTAINS: D2D1_GEOMETRY_RELATION = 3u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_GEOMETRY_RELATION_OVERLAP: D2D1_GEOMETRY_RELATION = 4u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_GEOMETRY_RELATION_FORCE_DWORD: D2D1_GEOMETRY_RELATION = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_GEOMETRY_SIMPLIFICATION_OPTION = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_GEOMETRY_SIMPLIFICATION_OPTION_CUBICS_AND_LINES: D2D1_GEOMETRY_SIMPLIFICATION_OPTION = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_GEOMETRY_SIMPLIFICATION_OPTION_LINES: D2D1_GEOMETRY_SIMPLIFICATION_OPTION = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_GEOMETRY_SIMPLIFICATION_OPTION_FORCE_DWORD: D2D1_GEOMETRY_SIMPLIFICATION_OPTION = 4294967295u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_FEATURE_LEVEL(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_FEATURE_LEVEL_DEFAULT: D2D1_FEATURE_LEVEL = D2D1_FEATURE_LEVEL(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_FEATURE_LEVEL_9: D2D1_FEATURE_LEVEL = D2D1_FEATURE_LEVEL(37120u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_FEATURE_LEVEL_10: D2D1_FEATURE_LEVEL = D2D1_FEATURE_LEVEL(40960u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_FEATURE_LEVEL_FORCE_DWORD: D2D1_FEATURE_LEVEL = D2D1_FEATURE_LEVEL(4294967295u32);
+impl ::core::marker::Copy for D2D1_FEATURE_LEVEL {}
+impl ::core::clone::Clone for D2D1_FEATURE_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_FEATURE_LEVEL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_FEATURE_LEVEL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_FEATURE_LEVEL").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_FEATURE_LEVEL {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_FEATURE_LEVEL {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_FEATURE_LEVEL {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_FEATURE_LEVEL {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_FEATURE_LEVEL {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_FILTER(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_FILTER_MIN_MAG_MIP_POINT: D2D1_FILTER = D2D1_FILTER(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_FILTER_MIN_MAG_POINT_MIP_LINEAR: D2D1_FILTER = D2D1_FILTER(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_FILTER_MIN_POINT_MAG_LINEAR_MIP_POINT: D2D1_FILTER = D2D1_FILTER(4u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_FILTER_MIN_POINT_MAG_MIP_LINEAR: D2D1_FILTER = D2D1_FILTER(5u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_FILTER_MIN_LINEAR_MAG_MIP_POINT: D2D1_FILTER = D2D1_FILTER(16u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_FILTER_MIN_LINEAR_MAG_POINT_MIP_LINEAR: D2D1_FILTER = D2D1_FILTER(17u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_FILTER_MIN_MAG_LINEAR_MIP_POINT: D2D1_FILTER = D2D1_FILTER(20u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_FILTER_MIN_MAG_MIP_LINEAR: D2D1_FILTER = D2D1_FILTER(21u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_FILTER_ANISOTROPIC: D2D1_FILTER = D2D1_FILTER(85u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_FILTER_FORCE_DWORD: D2D1_FILTER = D2D1_FILTER(4294967295u32);
+impl ::core::marker::Copy for D2D1_FILTER {}
+impl ::core::clone::Clone for D2D1_FILTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_FILTER {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_FILTER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_FILTER").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_FILTER {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_FILTER {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_FILTER {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_FILTER {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_FILTER {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_FLOOD_PROP(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_FLOOD_PROP_COLOR: D2D1_FLOOD_PROP = D2D1_FLOOD_PROP(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_FLOOD_PROP_FORCE_DWORD: D2D1_FLOOD_PROP = D2D1_FLOOD_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_FLOOD_PROP {}
+impl ::core::clone::Clone for D2D1_FLOOD_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_FLOOD_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_FLOOD_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_FLOOD_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_FLOOD_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_FLOOD_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_FLOOD_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_FLOOD_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_FLOOD_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_GAMMA(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_GAMMA_2_2: D2D1_GAMMA = D2D1_GAMMA(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_GAMMA_1_0: D2D1_GAMMA = D2D1_GAMMA(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_GAMMA_FORCE_DWORD: D2D1_GAMMA = D2D1_GAMMA(4294967295u32);
+impl ::core::marker::Copy for D2D1_GAMMA {}
+impl ::core::clone::Clone for D2D1_GAMMA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_GAMMA {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_GAMMA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_GAMMA").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_GAMMA {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_GAMMA {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_GAMMA {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_GAMMA {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_GAMMA {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_GAMMA1(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_GAMMA1_G22: D2D1_GAMMA1 = D2D1_GAMMA1(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_GAMMA1_G10: D2D1_GAMMA1 = D2D1_GAMMA1(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_GAMMA1_G2084: D2D1_GAMMA1 = D2D1_GAMMA1(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_GAMMA1_FORCE_DWORD: D2D1_GAMMA1 = D2D1_GAMMA1(4294967295u32);
+impl ::core::marker::Copy for D2D1_GAMMA1 {}
+impl ::core::clone::Clone for D2D1_GAMMA1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_GAMMA1 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_GAMMA1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_GAMMA1").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_GAMMA1 {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_GAMMA1 {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_GAMMA1 {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_GAMMA1 {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_GAMMA1 {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_GAMMATRANSFER_PROP(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_GAMMATRANSFER_PROP_RED_AMPLITUDE: D2D1_GAMMATRANSFER_PROP = D2D1_GAMMATRANSFER_PROP(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_GAMMATRANSFER_PROP_RED_EXPONENT: D2D1_GAMMATRANSFER_PROP = D2D1_GAMMATRANSFER_PROP(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_GAMMATRANSFER_PROP_RED_OFFSET: D2D1_GAMMATRANSFER_PROP = D2D1_GAMMATRANSFER_PROP(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_GAMMATRANSFER_PROP_RED_DISABLE: D2D1_GAMMATRANSFER_PROP = D2D1_GAMMATRANSFER_PROP(3u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_GAMMATRANSFER_PROP_GREEN_AMPLITUDE: D2D1_GAMMATRANSFER_PROP = D2D1_GAMMATRANSFER_PROP(4u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_GAMMATRANSFER_PROP_GREEN_EXPONENT: D2D1_GAMMATRANSFER_PROP = D2D1_GAMMATRANSFER_PROP(5u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_GAMMATRANSFER_PROP_GREEN_OFFSET: D2D1_GAMMATRANSFER_PROP = D2D1_GAMMATRANSFER_PROP(6u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_GAMMATRANSFER_PROP_GREEN_DISABLE: D2D1_GAMMATRANSFER_PROP = D2D1_GAMMATRANSFER_PROP(7u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_GAMMATRANSFER_PROP_BLUE_AMPLITUDE: D2D1_GAMMATRANSFER_PROP = D2D1_GAMMATRANSFER_PROP(8u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_GAMMATRANSFER_PROP_BLUE_EXPONENT: D2D1_GAMMATRANSFER_PROP = D2D1_GAMMATRANSFER_PROP(9u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_GAMMATRANSFER_PROP_BLUE_OFFSET: D2D1_GAMMATRANSFER_PROP = D2D1_GAMMATRANSFER_PROP(10u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_GAMMATRANSFER_PROP_BLUE_DISABLE: D2D1_GAMMATRANSFER_PROP = D2D1_GAMMATRANSFER_PROP(11u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_GAMMATRANSFER_PROP_ALPHA_AMPLITUDE: D2D1_GAMMATRANSFER_PROP = D2D1_GAMMATRANSFER_PROP(12u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_GAMMATRANSFER_PROP_ALPHA_EXPONENT: D2D1_GAMMATRANSFER_PROP = D2D1_GAMMATRANSFER_PROP(13u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_GAMMATRANSFER_PROP_ALPHA_OFFSET: D2D1_GAMMATRANSFER_PROP = D2D1_GAMMATRANSFER_PROP(14u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_GAMMATRANSFER_PROP_ALPHA_DISABLE: D2D1_GAMMATRANSFER_PROP = D2D1_GAMMATRANSFER_PROP(15u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_GAMMATRANSFER_PROP_CLAMP_OUTPUT: D2D1_GAMMATRANSFER_PROP = D2D1_GAMMATRANSFER_PROP(16u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_GAMMATRANSFER_PROP_FORCE_DWORD: D2D1_GAMMATRANSFER_PROP = D2D1_GAMMATRANSFER_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_GAMMATRANSFER_PROP {}
+impl ::core::clone::Clone for D2D1_GAMMATRANSFER_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_GAMMATRANSFER_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_GAMMATRANSFER_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_GAMMATRANSFER_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_GAMMATRANSFER_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_GAMMATRANSFER_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_GAMMATRANSFER_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_GAMMATRANSFER_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_GAMMATRANSFER_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_GAUSSIANBLUR_OPTIMIZATION(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_GAUSSIANBLUR_OPTIMIZATION_SPEED: D2D1_GAUSSIANBLUR_OPTIMIZATION = D2D1_GAUSSIANBLUR_OPTIMIZATION(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_GAUSSIANBLUR_OPTIMIZATION_BALANCED: D2D1_GAUSSIANBLUR_OPTIMIZATION = D2D1_GAUSSIANBLUR_OPTIMIZATION(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_GAUSSIANBLUR_OPTIMIZATION_QUALITY: D2D1_GAUSSIANBLUR_OPTIMIZATION = D2D1_GAUSSIANBLUR_OPTIMIZATION(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_GAUSSIANBLUR_OPTIMIZATION_FORCE_DWORD: D2D1_GAUSSIANBLUR_OPTIMIZATION = D2D1_GAUSSIANBLUR_OPTIMIZATION(4294967295u32);
+impl ::core::marker::Copy for D2D1_GAUSSIANBLUR_OPTIMIZATION {}
+impl ::core::clone::Clone for D2D1_GAUSSIANBLUR_OPTIMIZATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_GAUSSIANBLUR_OPTIMIZATION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_GAUSSIANBLUR_OPTIMIZATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_GAUSSIANBLUR_OPTIMIZATION").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_GAUSSIANBLUR_OPTIMIZATION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_GAUSSIANBLUR_OPTIMIZATION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_GAUSSIANBLUR_OPTIMIZATION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_GAUSSIANBLUR_OPTIMIZATION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_GAUSSIANBLUR_OPTIMIZATION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_GAUSSIANBLUR_PROP(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_GAUSSIANBLUR_PROP_STANDARD_DEVIATION: D2D1_GAUSSIANBLUR_PROP = D2D1_GAUSSIANBLUR_PROP(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_GAUSSIANBLUR_PROP_OPTIMIZATION: D2D1_GAUSSIANBLUR_PROP = D2D1_GAUSSIANBLUR_PROP(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_GAUSSIANBLUR_PROP_BORDER_MODE: D2D1_GAUSSIANBLUR_PROP = D2D1_GAUSSIANBLUR_PROP(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_GAUSSIANBLUR_PROP_FORCE_DWORD: D2D1_GAUSSIANBLUR_PROP = D2D1_GAUSSIANBLUR_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_GAUSSIANBLUR_PROP {}
+impl ::core::clone::Clone for D2D1_GAUSSIANBLUR_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_GAUSSIANBLUR_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_GAUSSIANBLUR_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_GAUSSIANBLUR_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_GAUSSIANBLUR_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_GAUSSIANBLUR_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_GAUSSIANBLUR_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_GAUSSIANBLUR_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_GAUSSIANBLUR_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_GEOMETRY_RELATION(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_GEOMETRY_RELATION_UNKNOWN: D2D1_GEOMETRY_RELATION = D2D1_GEOMETRY_RELATION(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_GEOMETRY_RELATION_DISJOINT: D2D1_GEOMETRY_RELATION = D2D1_GEOMETRY_RELATION(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_GEOMETRY_RELATION_IS_CONTAINED: D2D1_GEOMETRY_RELATION = D2D1_GEOMETRY_RELATION(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_GEOMETRY_RELATION_CONTAINS: D2D1_GEOMETRY_RELATION = D2D1_GEOMETRY_RELATION(3u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_GEOMETRY_RELATION_OVERLAP: D2D1_GEOMETRY_RELATION = D2D1_GEOMETRY_RELATION(4u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_GEOMETRY_RELATION_FORCE_DWORD: D2D1_GEOMETRY_RELATION = D2D1_GEOMETRY_RELATION(4294967295u32);
+impl ::core::marker::Copy for D2D1_GEOMETRY_RELATION {}
+impl ::core::clone::Clone for D2D1_GEOMETRY_RELATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_GEOMETRY_RELATION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_GEOMETRY_RELATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_GEOMETRY_RELATION").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_GEOMETRY_RELATION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_GEOMETRY_RELATION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_GEOMETRY_RELATION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_GEOMETRY_RELATION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_GEOMETRY_RELATION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_GEOMETRY_SIMPLIFICATION_OPTION(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_GEOMETRY_SIMPLIFICATION_OPTION_CUBICS_AND_LINES: D2D1_GEOMETRY_SIMPLIFICATION_OPTION = D2D1_GEOMETRY_SIMPLIFICATION_OPTION(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_GEOMETRY_SIMPLIFICATION_OPTION_LINES: D2D1_GEOMETRY_SIMPLIFICATION_OPTION = D2D1_GEOMETRY_SIMPLIFICATION_OPTION(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_GEOMETRY_SIMPLIFICATION_OPTION_FORCE_DWORD: D2D1_GEOMETRY_SIMPLIFICATION_OPTION = D2D1_GEOMETRY_SIMPLIFICATION_OPTION(4294967295u32);
+impl ::core::marker::Copy for D2D1_GEOMETRY_SIMPLIFICATION_OPTION {}
+impl ::core::clone::Clone for D2D1_GEOMETRY_SIMPLIFICATION_OPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_GEOMETRY_SIMPLIFICATION_OPTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_GEOMETRY_SIMPLIFICATION_OPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_GEOMETRY_SIMPLIFICATION_OPTION").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_GEOMETRY_SIMPLIFICATION_OPTION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_GEOMETRY_SIMPLIFICATION_OPTION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_GEOMETRY_SIMPLIFICATION_OPTION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_GEOMETRY_SIMPLIFICATION_OPTION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_GEOMETRY_SIMPLIFICATION_OPTION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -1931,75 +5275,427 @@ impl ::core::default::Default for D2D1_GRADIENT_STOP {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_HDRTONEMAP_DISPLAY_MODE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_HDRTONEMAP_DISPLAY_MODE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_HDRTONEMAP_DISPLAY_MODE_SDR: D2D1_HDRTONEMAP_DISPLAY_MODE = 0u32;
+pub const D2D1_HDRTONEMAP_DISPLAY_MODE_SDR: D2D1_HDRTONEMAP_DISPLAY_MODE = D2D1_HDRTONEMAP_DISPLAY_MODE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_HDRTONEMAP_DISPLAY_MODE_HDR: D2D1_HDRTONEMAP_DISPLAY_MODE = 1u32;
+pub const D2D1_HDRTONEMAP_DISPLAY_MODE_HDR: D2D1_HDRTONEMAP_DISPLAY_MODE = D2D1_HDRTONEMAP_DISPLAY_MODE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_HDRTONEMAP_DISPLAY_MODE_FORCE_DWORD: D2D1_HDRTONEMAP_DISPLAY_MODE = 4294967295u32;
+pub const D2D1_HDRTONEMAP_DISPLAY_MODE_FORCE_DWORD: D2D1_HDRTONEMAP_DISPLAY_MODE = D2D1_HDRTONEMAP_DISPLAY_MODE(4294967295u32);
+impl ::core::marker::Copy for D2D1_HDRTONEMAP_DISPLAY_MODE {}
+impl ::core::clone::Clone for D2D1_HDRTONEMAP_DISPLAY_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_HDRTONEMAP_DISPLAY_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_HDRTONEMAP_DISPLAY_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_HDRTONEMAP_DISPLAY_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_HDRTONEMAP_DISPLAY_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_HDRTONEMAP_DISPLAY_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_HDRTONEMAP_DISPLAY_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_HDRTONEMAP_DISPLAY_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_HDRTONEMAP_DISPLAY_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_HDRTONEMAP_PROP = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_HDRTONEMAP_PROP(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_HDRTONEMAP_PROP_INPUT_MAX_LUMINANCE: D2D1_HDRTONEMAP_PROP = 0u32;
+pub const D2D1_HDRTONEMAP_PROP_INPUT_MAX_LUMINANCE: D2D1_HDRTONEMAP_PROP = D2D1_HDRTONEMAP_PROP(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_HDRTONEMAP_PROP_OUTPUT_MAX_LUMINANCE: D2D1_HDRTONEMAP_PROP = 1u32;
+pub const D2D1_HDRTONEMAP_PROP_OUTPUT_MAX_LUMINANCE: D2D1_HDRTONEMAP_PROP = D2D1_HDRTONEMAP_PROP(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_HDRTONEMAP_PROP_DISPLAY_MODE: D2D1_HDRTONEMAP_PROP = 2u32;
+pub const D2D1_HDRTONEMAP_PROP_DISPLAY_MODE: D2D1_HDRTONEMAP_PROP = D2D1_HDRTONEMAP_PROP(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_HDRTONEMAP_PROP_FORCE_DWORD: D2D1_HDRTONEMAP_PROP = 4294967295u32;
+pub const D2D1_HDRTONEMAP_PROP_FORCE_DWORD: D2D1_HDRTONEMAP_PROP = D2D1_HDRTONEMAP_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_HDRTONEMAP_PROP {}
+impl ::core::clone::Clone for D2D1_HDRTONEMAP_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_HDRTONEMAP_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_HDRTONEMAP_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_HDRTONEMAP_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_HDRTONEMAP_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_HDRTONEMAP_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_HDRTONEMAP_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_HDRTONEMAP_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_HDRTONEMAP_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA_LINEAR: D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA = 0u32;
+pub const D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA_LINEAR: D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA = D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA_SRGB: D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA = 1u32;
+pub const D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA_SRGB: D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA = D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA_FORCE_DWORD: D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA = 4294967295u32;
+pub const D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA_FORCE_DWORD: D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA = D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA(4294967295u32);
+impl ::core::marker::Copy for D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA {}
+impl ::core::clone::Clone for D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_HIGHLIGHTSANDSHADOWS_INPUT_GAMMA {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_HIGHLIGHTSANDSHADOWS_PROP = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_HIGHLIGHTSANDSHADOWS_PROP(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_HIGHLIGHTSANDSHADOWS_PROP_HIGHLIGHTS: D2D1_HIGHLIGHTSANDSHADOWS_PROP = 0u32;
+pub const D2D1_HIGHLIGHTSANDSHADOWS_PROP_HIGHLIGHTS: D2D1_HIGHLIGHTSANDSHADOWS_PROP = D2D1_HIGHLIGHTSANDSHADOWS_PROP(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_HIGHLIGHTSANDSHADOWS_PROP_SHADOWS: D2D1_HIGHLIGHTSANDSHADOWS_PROP = 1u32;
+pub const D2D1_HIGHLIGHTSANDSHADOWS_PROP_SHADOWS: D2D1_HIGHLIGHTSANDSHADOWS_PROP = D2D1_HIGHLIGHTSANDSHADOWS_PROP(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_HIGHLIGHTSANDSHADOWS_PROP_CLARITY: D2D1_HIGHLIGHTSANDSHADOWS_PROP = 2u32;
+pub const D2D1_HIGHLIGHTSANDSHADOWS_PROP_CLARITY: D2D1_HIGHLIGHTSANDSHADOWS_PROP = D2D1_HIGHLIGHTSANDSHADOWS_PROP(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_HIGHLIGHTSANDSHADOWS_PROP_INPUT_GAMMA: D2D1_HIGHLIGHTSANDSHADOWS_PROP = 3u32;
+pub const D2D1_HIGHLIGHTSANDSHADOWS_PROP_INPUT_GAMMA: D2D1_HIGHLIGHTSANDSHADOWS_PROP = D2D1_HIGHLIGHTSANDSHADOWS_PROP(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_HIGHLIGHTSANDSHADOWS_PROP_MASK_BLUR_RADIUS: D2D1_HIGHLIGHTSANDSHADOWS_PROP = 4u32;
+pub const D2D1_HIGHLIGHTSANDSHADOWS_PROP_MASK_BLUR_RADIUS: D2D1_HIGHLIGHTSANDSHADOWS_PROP = D2D1_HIGHLIGHTSANDSHADOWS_PROP(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_HIGHLIGHTSANDSHADOWS_PROP_FORCE_DWORD: D2D1_HIGHLIGHTSANDSHADOWS_PROP = 4294967295u32;
+pub const D2D1_HIGHLIGHTSANDSHADOWS_PROP_FORCE_DWORD: D2D1_HIGHLIGHTSANDSHADOWS_PROP = D2D1_HIGHLIGHTSANDSHADOWS_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_HIGHLIGHTSANDSHADOWS_PROP {}
+impl ::core::clone::Clone for D2D1_HIGHLIGHTSANDSHADOWS_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_HIGHLIGHTSANDSHADOWS_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_HIGHLIGHTSANDSHADOWS_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_HIGHLIGHTSANDSHADOWS_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_HIGHLIGHTSANDSHADOWS_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_HIGHLIGHTSANDSHADOWS_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_HIGHLIGHTSANDSHADOWS_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_HIGHLIGHTSANDSHADOWS_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_HIGHLIGHTSANDSHADOWS_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_HISTOGRAM_PROP = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_HISTOGRAM_PROP(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_HISTOGRAM_PROP_NUM_BINS: D2D1_HISTOGRAM_PROP = 0u32;
+pub const D2D1_HISTOGRAM_PROP_NUM_BINS: D2D1_HISTOGRAM_PROP = D2D1_HISTOGRAM_PROP(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_HISTOGRAM_PROP_CHANNEL_SELECT: D2D1_HISTOGRAM_PROP = 1u32;
+pub const D2D1_HISTOGRAM_PROP_CHANNEL_SELECT: D2D1_HISTOGRAM_PROP = D2D1_HISTOGRAM_PROP(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_HISTOGRAM_PROP_HISTOGRAM_OUTPUT: D2D1_HISTOGRAM_PROP = 2u32;
+pub const D2D1_HISTOGRAM_PROP_HISTOGRAM_OUTPUT: D2D1_HISTOGRAM_PROP = D2D1_HISTOGRAM_PROP(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_HISTOGRAM_PROP_FORCE_DWORD: D2D1_HISTOGRAM_PROP = 4294967295u32;
+pub const D2D1_HISTOGRAM_PROP_FORCE_DWORD: D2D1_HISTOGRAM_PROP = D2D1_HISTOGRAM_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_HISTOGRAM_PROP {}
+impl ::core::clone::Clone for D2D1_HISTOGRAM_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_HISTOGRAM_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_HISTOGRAM_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_HISTOGRAM_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_HISTOGRAM_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_HISTOGRAM_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_HISTOGRAM_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_HISTOGRAM_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_HISTOGRAM_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_HUEROTATION_PROP = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_HUEROTATION_PROP(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_HUEROTATION_PROP_ANGLE: D2D1_HUEROTATION_PROP = 0u32;
+pub const D2D1_HUEROTATION_PROP_ANGLE: D2D1_HUEROTATION_PROP = D2D1_HUEROTATION_PROP(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_HUEROTATION_PROP_FORCE_DWORD: D2D1_HUEROTATION_PROP = 4294967295u32;
+pub const D2D1_HUEROTATION_PROP_FORCE_DWORD: D2D1_HUEROTATION_PROP = D2D1_HUEROTATION_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_HUEROTATION_PROP {}
+impl ::core::clone::Clone for D2D1_HUEROTATION_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_HUEROTATION_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_HUEROTATION_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_HUEROTATION_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_HUEROTATION_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_HUEROTATION_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_HUEROTATION_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_HUEROTATION_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_HUEROTATION_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_HUETORGB_INPUT_COLOR_SPACE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_HUETORGB_INPUT_COLOR_SPACE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_HUETORGB_INPUT_COLOR_SPACE_HUE_SATURATION_VALUE: D2D1_HUETORGB_INPUT_COLOR_SPACE = 0u32;
+pub const D2D1_HUETORGB_INPUT_COLOR_SPACE_HUE_SATURATION_VALUE: D2D1_HUETORGB_INPUT_COLOR_SPACE = D2D1_HUETORGB_INPUT_COLOR_SPACE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_HUETORGB_INPUT_COLOR_SPACE_HUE_SATURATION_LIGHTNESS: D2D1_HUETORGB_INPUT_COLOR_SPACE = 1u32;
+pub const D2D1_HUETORGB_INPUT_COLOR_SPACE_HUE_SATURATION_LIGHTNESS: D2D1_HUETORGB_INPUT_COLOR_SPACE = D2D1_HUETORGB_INPUT_COLOR_SPACE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_HUETORGB_INPUT_COLOR_SPACE_FORCE_DWORD: D2D1_HUETORGB_INPUT_COLOR_SPACE = 4294967295u32;
+pub const D2D1_HUETORGB_INPUT_COLOR_SPACE_FORCE_DWORD: D2D1_HUETORGB_INPUT_COLOR_SPACE = D2D1_HUETORGB_INPUT_COLOR_SPACE(4294967295u32);
+impl ::core::marker::Copy for D2D1_HUETORGB_INPUT_COLOR_SPACE {}
+impl ::core::clone::Clone for D2D1_HUETORGB_INPUT_COLOR_SPACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_HUETORGB_INPUT_COLOR_SPACE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_HUETORGB_INPUT_COLOR_SPACE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_HUETORGB_INPUT_COLOR_SPACE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_HUETORGB_INPUT_COLOR_SPACE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_HUETORGB_INPUT_COLOR_SPACE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_HUETORGB_INPUT_COLOR_SPACE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_HUETORGB_INPUT_COLOR_SPACE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_HUETORGB_INPUT_COLOR_SPACE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_HUETORGB_PROP = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_HUETORGB_PROP(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_HUETORGB_PROP_INPUT_COLOR_SPACE: D2D1_HUETORGB_PROP = 0u32;
+pub const D2D1_HUETORGB_PROP_INPUT_COLOR_SPACE: D2D1_HUETORGB_PROP = D2D1_HUETORGB_PROP(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_HUETORGB_PROP_FORCE_DWORD: D2D1_HUETORGB_PROP = 4294967295u32;
+pub const D2D1_HUETORGB_PROP_FORCE_DWORD: D2D1_HUETORGB_PROP = D2D1_HUETORGB_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_HUETORGB_PROP {}
+impl ::core::clone::Clone for D2D1_HUETORGB_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_HUETORGB_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_HUETORGB_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_HUETORGB_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_HUETORGB_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_HUETORGB_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_HUETORGB_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_HUETORGB_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_HUETORGB_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Foundation', 'Win32_Graphics_Direct2D_Common'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct2D_Common"))]
@@ -2082,23 +5778,111 @@ impl ::core::default::Default for D2D1_IMAGE_BRUSH_PROPERTIES {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS_NONE: D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS = 0u32;
+pub const D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS_NONE: D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS = D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS_LOW_QUALITY_PRIMARY_CONVERSION: D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS = 1u32;
+pub const D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS_LOW_QUALITY_PRIMARY_CONVERSION: D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS = D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS_FORCE_DWORD: D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS = 4294967295u32;
+pub const D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS_FORCE_DWORD: D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS = D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS(4294967295u32);
+impl ::core::marker::Copy for D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {}
+impl ::core::clone::Clone for D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_IMAGE_SOURCE_FROM_DXGI_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_IMAGE_SOURCE_LOADING_OPTIONS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_IMAGE_SOURCE_LOADING_OPTIONS(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_IMAGE_SOURCE_LOADING_OPTIONS_NONE: D2D1_IMAGE_SOURCE_LOADING_OPTIONS = 0u32;
+pub const D2D1_IMAGE_SOURCE_LOADING_OPTIONS_NONE: D2D1_IMAGE_SOURCE_LOADING_OPTIONS = D2D1_IMAGE_SOURCE_LOADING_OPTIONS(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_IMAGE_SOURCE_LOADING_OPTIONS_RELEASE_SOURCE: D2D1_IMAGE_SOURCE_LOADING_OPTIONS = 1u32;
+pub const D2D1_IMAGE_SOURCE_LOADING_OPTIONS_RELEASE_SOURCE: D2D1_IMAGE_SOURCE_LOADING_OPTIONS = D2D1_IMAGE_SOURCE_LOADING_OPTIONS(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_IMAGE_SOURCE_LOADING_OPTIONS_CACHE_ON_DEMAND: D2D1_IMAGE_SOURCE_LOADING_OPTIONS = 2u32;
+pub const D2D1_IMAGE_SOURCE_LOADING_OPTIONS_CACHE_ON_DEMAND: D2D1_IMAGE_SOURCE_LOADING_OPTIONS = D2D1_IMAGE_SOURCE_LOADING_OPTIONS(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_IMAGE_SOURCE_LOADING_OPTIONS_FORCE_DWORD: D2D1_IMAGE_SOURCE_LOADING_OPTIONS = 4294967295u32;
+pub const D2D1_IMAGE_SOURCE_LOADING_OPTIONS_FORCE_DWORD: D2D1_IMAGE_SOURCE_LOADING_OPTIONS = D2D1_IMAGE_SOURCE_LOADING_OPTIONS(4294967295u32);
+impl ::core::marker::Copy for D2D1_IMAGE_SOURCE_LOADING_OPTIONS {}
+impl ::core::clone::Clone for D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_IMAGE_SOURCE_LOADING_OPTIONS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_IMAGE_SOURCE_LOADING_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub struct D2D1_INK_BEZIER_SEGMENT {
@@ -2132,13 +5916,57 @@ impl ::core::default::Default for D2D1_INK_BEZIER_SEGMENT {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_INK_NIB_SHAPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_INK_NIB_SHAPE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_INK_NIB_SHAPE_ROUND: D2D1_INK_NIB_SHAPE = 0u32;
+pub const D2D1_INK_NIB_SHAPE_ROUND: D2D1_INK_NIB_SHAPE = D2D1_INK_NIB_SHAPE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_INK_NIB_SHAPE_SQUARE: D2D1_INK_NIB_SHAPE = 1u32;
+pub const D2D1_INK_NIB_SHAPE_SQUARE: D2D1_INK_NIB_SHAPE = D2D1_INK_NIB_SHAPE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_INK_NIB_SHAPE_FORCE_DWORD: D2D1_INK_NIB_SHAPE = 4294967295u32;
+pub const D2D1_INK_NIB_SHAPE_FORCE_DWORD: D2D1_INK_NIB_SHAPE = D2D1_INK_NIB_SHAPE(4294967295u32);
+impl ::core::marker::Copy for D2D1_INK_NIB_SHAPE {}
+impl ::core::clone::Clone for D2D1_INK_NIB_SHAPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_INK_NIB_SHAPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_INK_NIB_SHAPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_INK_NIB_SHAPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_INK_NIB_SHAPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_INK_NIB_SHAPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_INK_NIB_SHAPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_INK_NIB_SHAPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_INK_NIB_SHAPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub struct D2D1_INK_POINT {
@@ -2284,57 +6112,205 @@ impl ::core::default::Default for D2D1_INPUT_ELEMENT_DESC {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_INTERPOLATION_MODE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_INTERPOLATION_MODE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_INTERPOLATION_MODE_NEAREST_NEIGHBOR: D2D1_INTERPOLATION_MODE = 0u32;
+pub const D2D1_INTERPOLATION_MODE_NEAREST_NEIGHBOR: D2D1_INTERPOLATION_MODE = D2D1_INTERPOLATION_MODE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_INTERPOLATION_MODE_LINEAR: D2D1_INTERPOLATION_MODE = 1u32;
+pub const D2D1_INTERPOLATION_MODE_LINEAR: D2D1_INTERPOLATION_MODE = D2D1_INTERPOLATION_MODE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_INTERPOLATION_MODE_CUBIC: D2D1_INTERPOLATION_MODE = 2u32;
+pub const D2D1_INTERPOLATION_MODE_CUBIC: D2D1_INTERPOLATION_MODE = D2D1_INTERPOLATION_MODE(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_INTERPOLATION_MODE_MULTI_SAMPLE_LINEAR: D2D1_INTERPOLATION_MODE = 3u32;
+pub const D2D1_INTERPOLATION_MODE_MULTI_SAMPLE_LINEAR: D2D1_INTERPOLATION_MODE = D2D1_INTERPOLATION_MODE(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_INTERPOLATION_MODE_ANISOTROPIC: D2D1_INTERPOLATION_MODE = 4u32;
+pub const D2D1_INTERPOLATION_MODE_ANISOTROPIC: D2D1_INTERPOLATION_MODE = D2D1_INTERPOLATION_MODE(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_INTERPOLATION_MODE_HIGH_QUALITY_CUBIC: D2D1_INTERPOLATION_MODE = 5u32;
+pub const D2D1_INTERPOLATION_MODE_HIGH_QUALITY_CUBIC: D2D1_INTERPOLATION_MODE = D2D1_INTERPOLATION_MODE(5u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_INTERPOLATION_MODE_FORCE_DWORD: D2D1_INTERPOLATION_MODE = 4294967295u32;
+pub const D2D1_INTERPOLATION_MODE_FORCE_DWORD: D2D1_INTERPOLATION_MODE = D2D1_INTERPOLATION_MODE(4294967295u32);
+impl ::core::marker::Copy for D2D1_INTERPOLATION_MODE {}
+impl ::core::clone::Clone for D2D1_INTERPOLATION_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_INTERPOLATION_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_INTERPOLATION_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_INTERPOLATION_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_INTERPOLATION_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_INTERPOLATION_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_INTERPOLATION_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_INTERPOLATION_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_INTERPOLATION_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_INTERPOLATION_MODE_DEFINITION = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_INTERPOLATION_MODE_DEFINITION(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_INTERPOLATION_MODE_DEFINITION_NEAREST_NEIGHBOR: D2D1_INTERPOLATION_MODE_DEFINITION = 0i32;
+pub const D2D1_INTERPOLATION_MODE_DEFINITION_NEAREST_NEIGHBOR: D2D1_INTERPOLATION_MODE_DEFINITION = D2D1_INTERPOLATION_MODE_DEFINITION(0i32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_INTERPOLATION_MODE_DEFINITION_LINEAR: D2D1_INTERPOLATION_MODE_DEFINITION = 1i32;
+pub const D2D1_INTERPOLATION_MODE_DEFINITION_LINEAR: D2D1_INTERPOLATION_MODE_DEFINITION = D2D1_INTERPOLATION_MODE_DEFINITION(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_INTERPOLATION_MODE_DEFINITION_CUBIC: D2D1_INTERPOLATION_MODE_DEFINITION = 2i32;
+pub const D2D1_INTERPOLATION_MODE_DEFINITION_CUBIC: D2D1_INTERPOLATION_MODE_DEFINITION = D2D1_INTERPOLATION_MODE_DEFINITION(2i32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_INTERPOLATION_MODE_DEFINITION_MULTI_SAMPLE_LINEAR: D2D1_INTERPOLATION_MODE_DEFINITION = 3i32;
+pub const D2D1_INTERPOLATION_MODE_DEFINITION_MULTI_SAMPLE_LINEAR: D2D1_INTERPOLATION_MODE_DEFINITION = D2D1_INTERPOLATION_MODE_DEFINITION(3i32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_INTERPOLATION_MODE_DEFINITION_ANISOTROPIC: D2D1_INTERPOLATION_MODE_DEFINITION = 4i32;
+pub const D2D1_INTERPOLATION_MODE_DEFINITION_ANISOTROPIC: D2D1_INTERPOLATION_MODE_DEFINITION = D2D1_INTERPOLATION_MODE_DEFINITION(4i32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_INTERPOLATION_MODE_DEFINITION_HIGH_QUALITY_CUBIC: D2D1_INTERPOLATION_MODE_DEFINITION = 5i32;
+pub const D2D1_INTERPOLATION_MODE_DEFINITION_HIGH_QUALITY_CUBIC: D2D1_INTERPOLATION_MODE_DEFINITION = D2D1_INTERPOLATION_MODE_DEFINITION(5i32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_INTERPOLATION_MODE_DEFINITION_FANT: D2D1_INTERPOLATION_MODE_DEFINITION = 6i32;
+pub const D2D1_INTERPOLATION_MODE_DEFINITION_FANT: D2D1_INTERPOLATION_MODE_DEFINITION = D2D1_INTERPOLATION_MODE_DEFINITION(6i32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_INTERPOLATION_MODE_DEFINITION_MIPMAP_LINEAR: D2D1_INTERPOLATION_MODE_DEFINITION = 7i32;
+pub const D2D1_INTERPOLATION_MODE_DEFINITION_MIPMAP_LINEAR: D2D1_INTERPOLATION_MODE_DEFINITION = D2D1_INTERPOLATION_MODE_DEFINITION(7i32);
+impl ::core::marker::Copy for D2D1_INTERPOLATION_MODE_DEFINITION {}
+impl ::core::clone::Clone for D2D1_INTERPOLATION_MODE_DEFINITION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_INTERPOLATION_MODE_DEFINITION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_INTERPOLATION_MODE_DEFINITION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_INTERPOLATION_MODE_DEFINITION").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_LAYER_OPTIONS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_LAYER_OPTIONS(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_LAYER_OPTIONS_NONE: D2D1_LAYER_OPTIONS = 0u32;
+pub const D2D1_LAYER_OPTIONS_NONE: D2D1_LAYER_OPTIONS = D2D1_LAYER_OPTIONS(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_LAYER_OPTIONS_INITIALIZE_FOR_CLEARTYPE: D2D1_LAYER_OPTIONS = 1u32;
+pub const D2D1_LAYER_OPTIONS_INITIALIZE_FOR_CLEARTYPE: D2D1_LAYER_OPTIONS = D2D1_LAYER_OPTIONS(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_LAYER_OPTIONS_FORCE_DWORD: D2D1_LAYER_OPTIONS = 4294967295u32;
+pub const D2D1_LAYER_OPTIONS_FORCE_DWORD: D2D1_LAYER_OPTIONS = D2D1_LAYER_OPTIONS(4294967295u32);
+impl ::core::marker::Copy for D2D1_LAYER_OPTIONS {}
+impl ::core::clone::Clone for D2D1_LAYER_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_LAYER_OPTIONS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_LAYER_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_LAYER_OPTIONS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_LAYER_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_LAYER_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_LAYER_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_LAYER_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_LAYER_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_LAYER_OPTIONS1 = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_LAYER_OPTIONS1(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_LAYER_OPTIONS1_NONE: D2D1_LAYER_OPTIONS1 = 0u32;
+pub const D2D1_LAYER_OPTIONS1_NONE: D2D1_LAYER_OPTIONS1 = D2D1_LAYER_OPTIONS1(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_LAYER_OPTIONS1_INITIALIZE_FROM_BACKGROUND: D2D1_LAYER_OPTIONS1 = 1u32;
+pub const D2D1_LAYER_OPTIONS1_INITIALIZE_FROM_BACKGROUND: D2D1_LAYER_OPTIONS1 = D2D1_LAYER_OPTIONS1(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_LAYER_OPTIONS1_IGNORE_ALPHA: D2D1_LAYER_OPTIONS1 = 2u32;
+pub const D2D1_LAYER_OPTIONS1_IGNORE_ALPHA: D2D1_LAYER_OPTIONS1 = D2D1_LAYER_OPTIONS1(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_LAYER_OPTIONS1_FORCE_DWORD: D2D1_LAYER_OPTIONS1 = 4294967295u32;
+pub const D2D1_LAYER_OPTIONS1_FORCE_DWORD: D2D1_LAYER_OPTIONS1 = D2D1_LAYER_OPTIONS1(4294967295u32);
+impl ::core::marker::Copy for D2D1_LAYER_OPTIONS1 {}
+impl ::core::clone::Clone for D2D1_LAYER_OPTIONS1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_LAYER_OPTIONS1 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_LAYER_OPTIONS1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_LAYER_OPTIONS1").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_LAYER_OPTIONS1 {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_LAYER_OPTIONS1 {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_LAYER_OPTIONS1 {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_LAYER_OPTIONS1 {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_LAYER_OPTIONS1 {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Foundation_Numerics', 'Win32_Graphics_Direct2D_Common'*"]
 #[cfg(all(feature = "Foundation_Numerics", feature = "Win32_Graphics_Direct2D_Common"))]
@@ -2436,35 +6412,79 @@ impl ::core::default::Default for D2D1_LAYER_PARAMETERS1 {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_LINEARTRANSFER_PROP = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_LINEARTRANSFER_PROP(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_LINEARTRANSFER_PROP_RED_Y_INTERCEPT: D2D1_LINEARTRANSFER_PROP = 0u32;
+pub const D2D1_LINEARTRANSFER_PROP_RED_Y_INTERCEPT: D2D1_LINEARTRANSFER_PROP = D2D1_LINEARTRANSFER_PROP(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_LINEARTRANSFER_PROP_RED_SLOPE: D2D1_LINEARTRANSFER_PROP = 1u32;
+pub const D2D1_LINEARTRANSFER_PROP_RED_SLOPE: D2D1_LINEARTRANSFER_PROP = D2D1_LINEARTRANSFER_PROP(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_LINEARTRANSFER_PROP_RED_DISABLE: D2D1_LINEARTRANSFER_PROP = 2u32;
+pub const D2D1_LINEARTRANSFER_PROP_RED_DISABLE: D2D1_LINEARTRANSFER_PROP = D2D1_LINEARTRANSFER_PROP(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_LINEARTRANSFER_PROP_GREEN_Y_INTERCEPT: D2D1_LINEARTRANSFER_PROP = 3u32;
+pub const D2D1_LINEARTRANSFER_PROP_GREEN_Y_INTERCEPT: D2D1_LINEARTRANSFER_PROP = D2D1_LINEARTRANSFER_PROP(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_LINEARTRANSFER_PROP_GREEN_SLOPE: D2D1_LINEARTRANSFER_PROP = 4u32;
+pub const D2D1_LINEARTRANSFER_PROP_GREEN_SLOPE: D2D1_LINEARTRANSFER_PROP = D2D1_LINEARTRANSFER_PROP(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_LINEARTRANSFER_PROP_GREEN_DISABLE: D2D1_LINEARTRANSFER_PROP = 5u32;
+pub const D2D1_LINEARTRANSFER_PROP_GREEN_DISABLE: D2D1_LINEARTRANSFER_PROP = D2D1_LINEARTRANSFER_PROP(5u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_LINEARTRANSFER_PROP_BLUE_Y_INTERCEPT: D2D1_LINEARTRANSFER_PROP = 6u32;
+pub const D2D1_LINEARTRANSFER_PROP_BLUE_Y_INTERCEPT: D2D1_LINEARTRANSFER_PROP = D2D1_LINEARTRANSFER_PROP(6u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_LINEARTRANSFER_PROP_BLUE_SLOPE: D2D1_LINEARTRANSFER_PROP = 7u32;
+pub const D2D1_LINEARTRANSFER_PROP_BLUE_SLOPE: D2D1_LINEARTRANSFER_PROP = D2D1_LINEARTRANSFER_PROP(7u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_LINEARTRANSFER_PROP_BLUE_DISABLE: D2D1_LINEARTRANSFER_PROP = 8u32;
+pub const D2D1_LINEARTRANSFER_PROP_BLUE_DISABLE: D2D1_LINEARTRANSFER_PROP = D2D1_LINEARTRANSFER_PROP(8u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_LINEARTRANSFER_PROP_ALPHA_Y_INTERCEPT: D2D1_LINEARTRANSFER_PROP = 9u32;
+pub const D2D1_LINEARTRANSFER_PROP_ALPHA_Y_INTERCEPT: D2D1_LINEARTRANSFER_PROP = D2D1_LINEARTRANSFER_PROP(9u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_LINEARTRANSFER_PROP_ALPHA_SLOPE: D2D1_LINEARTRANSFER_PROP = 10u32;
+pub const D2D1_LINEARTRANSFER_PROP_ALPHA_SLOPE: D2D1_LINEARTRANSFER_PROP = D2D1_LINEARTRANSFER_PROP(10u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_LINEARTRANSFER_PROP_ALPHA_DISABLE: D2D1_LINEARTRANSFER_PROP = 11u32;
+pub const D2D1_LINEARTRANSFER_PROP_ALPHA_DISABLE: D2D1_LINEARTRANSFER_PROP = D2D1_LINEARTRANSFER_PROP(11u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_LINEARTRANSFER_PROP_CLAMP_OUTPUT: D2D1_LINEARTRANSFER_PROP = 12u32;
+pub const D2D1_LINEARTRANSFER_PROP_CLAMP_OUTPUT: D2D1_LINEARTRANSFER_PROP = D2D1_LINEARTRANSFER_PROP(12u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_LINEARTRANSFER_PROP_FORCE_DWORD: D2D1_LINEARTRANSFER_PROP = 4294967295u32;
+pub const D2D1_LINEARTRANSFER_PROP_FORCE_DWORD: D2D1_LINEARTRANSFER_PROP = D2D1_LINEARTRANSFER_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_LINEARTRANSFER_PROP {}
+impl ::core::clone::Clone for D2D1_LINEARTRANSFER_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_LINEARTRANSFER_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_LINEARTRANSFER_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_LINEARTRANSFER_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_LINEARTRANSFER_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_LINEARTRANSFER_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_LINEARTRANSFER_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_LINEARTRANSFER_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_LINEARTRANSFER_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -2505,25 +6525,113 @@ impl ::core::default::Default for D2D1_LINEAR_GRADIENT_BRUSH_PROPERTIES {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_LINE_JOIN = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_LINE_JOIN(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_LINE_JOIN_MITER: D2D1_LINE_JOIN = 0u32;
+pub const D2D1_LINE_JOIN_MITER: D2D1_LINE_JOIN = D2D1_LINE_JOIN(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_LINE_JOIN_BEVEL: D2D1_LINE_JOIN = 1u32;
+pub const D2D1_LINE_JOIN_BEVEL: D2D1_LINE_JOIN = D2D1_LINE_JOIN(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_LINE_JOIN_ROUND: D2D1_LINE_JOIN = 2u32;
+pub const D2D1_LINE_JOIN_ROUND: D2D1_LINE_JOIN = D2D1_LINE_JOIN(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_LINE_JOIN_MITER_OR_BEVEL: D2D1_LINE_JOIN = 3u32;
+pub const D2D1_LINE_JOIN_MITER_OR_BEVEL: D2D1_LINE_JOIN = D2D1_LINE_JOIN(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_LINE_JOIN_FORCE_DWORD: D2D1_LINE_JOIN = 4294967295u32;
+pub const D2D1_LINE_JOIN_FORCE_DWORD: D2D1_LINE_JOIN = D2D1_LINE_JOIN(4294967295u32);
+impl ::core::marker::Copy for D2D1_LINE_JOIN {}
+impl ::core::clone::Clone for D2D1_LINE_JOIN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_LINE_JOIN {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_LINE_JOIN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_LINE_JOIN").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_LINE_JOIN {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_LINE_JOIN {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_LINE_JOIN {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_LINE_JOIN {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_LINE_JOIN {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_LOOKUPTABLE3D_PROP = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_LOOKUPTABLE3D_PROP(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_LOOKUPTABLE3D_PROP_LUT: D2D1_LOOKUPTABLE3D_PROP = 0u32;
+pub const D2D1_LOOKUPTABLE3D_PROP_LUT: D2D1_LOOKUPTABLE3D_PROP = D2D1_LOOKUPTABLE3D_PROP(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_LOOKUPTABLE3D_PROP_ALPHA_MODE: D2D1_LOOKUPTABLE3D_PROP = 1u32;
+pub const D2D1_LOOKUPTABLE3D_PROP_ALPHA_MODE: D2D1_LOOKUPTABLE3D_PROP = D2D1_LOOKUPTABLE3D_PROP(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_LOOKUPTABLE3D_PROP_FORCE_DWORD: D2D1_LOOKUPTABLE3D_PROP = 4294967295u32;
+pub const D2D1_LOOKUPTABLE3D_PROP_FORCE_DWORD: D2D1_LOOKUPTABLE3D_PROP = D2D1_LOOKUPTABLE3D_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_LOOKUPTABLE3D_PROP {}
+impl ::core::clone::Clone for D2D1_LOOKUPTABLE3D_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_LOOKUPTABLE3D_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_LOOKUPTABLE3D_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_LOOKUPTABLE3D_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_LOOKUPTABLE3D_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_LOOKUPTABLE3D_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_LOOKUPTABLE3D_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_LOOKUPTABLE3D_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_LOOKUPTABLE3D_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub struct D2D1_MAPPED_RECT {
@@ -2556,161 +6664,733 @@ impl ::core::default::Default for D2D1_MAPPED_RECT {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_MAP_OPTIONS = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_MAP_OPTIONS_NONE: D2D1_MAP_OPTIONS = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_MAP_OPTIONS_READ: D2D1_MAP_OPTIONS = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_MAP_OPTIONS_WRITE: D2D1_MAP_OPTIONS = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_MAP_OPTIONS_DISCARD: D2D1_MAP_OPTIONS = 4u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_MAP_OPTIONS_FORCE_DWORD: D2D1_MAP_OPTIONS = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_MORPHOLOGY_MODE = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_MORPHOLOGY_MODE_ERODE: D2D1_MORPHOLOGY_MODE = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_MORPHOLOGY_MODE_DILATE: D2D1_MORPHOLOGY_MODE = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_MORPHOLOGY_MODE_FORCE_DWORD: D2D1_MORPHOLOGY_MODE = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_MORPHOLOGY_PROP = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_MORPHOLOGY_PROP_MODE: D2D1_MORPHOLOGY_PROP = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_MORPHOLOGY_PROP_WIDTH: D2D1_MORPHOLOGY_PROP = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_MORPHOLOGY_PROP_HEIGHT: D2D1_MORPHOLOGY_PROP = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_MORPHOLOGY_PROP_FORCE_DWORD: D2D1_MORPHOLOGY_PROP = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_OPACITYMETADATA_PROP = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_OPACITYMETADATA_PROP_INPUT_OPAQUE_RECT: D2D1_OPACITYMETADATA_PROP = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_OPACITYMETADATA_PROP_FORCE_DWORD: D2D1_OPACITYMETADATA_PROP = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_OPACITY_MASK_CONTENT = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_OPACITY_MASK_CONTENT_GRAPHICS: D2D1_OPACITY_MASK_CONTENT = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_OPACITY_MASK_CONTENT_TEXT_NATURAL: D2D1_OPACITY_MASK_CONTENT = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_OPACITY_MASK_CONTENT_TEXT_GDI_COMPATIBLE: D2D1_OPACITY_MASK_CONTENT = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_OPACITY_MASK_CONTENT_FORCE_DWORD: D2D1_OPACITY_MASK_CONTENT = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_OPACITY_PROP = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_OPACITY_PROP_OPACITY: D2D1_OPACITY_PROP = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_OPACITY_PROP_FORCE_DWORD: D2D1_OPACITY_PROP = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_ORIENTATION = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_ORIENTATION_DEFAULT: D2D1_ORIENTATION = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_ORIENTATION_FLIP_HORIZONTAL: D2D1_ORIENTATION = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_ORIENTATION_ROTATE_CLOCKWISE180: D2D1_ORIENTATION = 3u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_ORIENTATION_ROTATE_CLOCKWISE180_FLIP_HORIZONTAL: D2D1_ORIENTATION = 4u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_ORIENTATION_ROTATE_CLOCKWISE90_FLIP_HORIZONTAL: D2D1_ORIENTATION = 5u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_ORIENTATION_ROTATE_CLOCKWISE270: D2D1_ORIENTATION = 6u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_ORIENTATION_ROTATE_CLOCKWISE270_FLIP_HORIZONTAL: D2D1_ORIENTATION = 7u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_ORIENTATION_ROTATE_CLOCKWISE90: D2D1_ORIENTATION = 8u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_ORIENTATION_FORCE_DWORD: D2D1_ORIENTATION = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_PATCH_EDGE_MODE = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PATCH_EDGE_MODE_ALIASED: D2D1_PATCH_EDGE_MODE = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PATCH_EDGE_MODE_ANTIALIASED: D2D1_PATCH_EDGE_MODE = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PATCH_EDGE_MODE_ALIASED_INFLATED: D2D1_PATCH_EDGE_MODE = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PATCH_EDGE_MODE_FORCE_DWORD: D2D1_PATCH_EDGE_MODE = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_PIXEL_OPTIONS = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PIXEL_OPTIONS_NONE: D2D1_PIXEL_OPTIONS = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PIXEL_OPTIONS_TRIVIAL_SAMPLING: D2D1_PIXEL_OPTIONS = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PIXEL_OPTIONS_FORCE_DWORD: D2D1_PIXEL_OPTIONS = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_POINTDIFFUSE_PROP = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_POINTDIFFUSE_PROP_LIGHT_POSITION: D2D1_POINTDIFFUSE_PROP = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_POINTDIFFUSE_PROP_DIFFUSE_CONSTANT: D2D1_POINTDIFFUSE_PROP = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_POINTDIFFUSE_PROP_SURFACE_SCALE: D2D1_POINTDIFFUSE_PROP = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_POINTDIFFUSE_PROP_COLOR: D2D1_POINTDIFFUSE_PROP = 3u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_POINTDIFFUSE_PROP_KERNEL_UNIT_LENGTH: D2D1_POINTDIFFUSE_PROP = 4u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_POINTDIFFUSE_PROP_SCALE_MODE: D2D1_POINTDIFFUSE_PROP = 5u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_POINTDIFFUSE_PROP_FORCE_DWORD: D2D1_POINTDIFFUSE_PROP = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_POINTDIFFUSE_SCALE_MODE = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_POINTDIFFUSE_SCALE_MODE_NEAREST_NEIGHBOR: D2D1_POINTDIFFUSE_SCALE_MODE = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_POINTDIFFUSE_SCALE_MODE_LINEAR: D2D1_POINTDIFFUSE_SCALE_MODE = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_POINTDIFFUSE_SCALE_MODE_CUBIC: D2D1_POINTDIFFUSE_SCALE_MODE = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_POINTDIFFUSE_SCALE_MODE_MULTI_SAMPLE_LINEAR: D2D1_POINTDIFFUSE_SCALE_MODE = 3u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_POINTDIFFUSE_SCALE_MODE_ANISOTROPIC: D2D1_POINTDIFFUSE_SCALE_MODE = 4u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_POINTDIFFUSE_SCALE_MODE_HIGH_QUALITY_CUBIC: D2D1_POINTDIFFUSE_SCALE_MODE = 5u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_POINTDIFFUSE_SCALE_MODE_FORCE_DWORD: D2D1_POINTDIFFUSE_SCALE_MODE = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_POINTSPECULAR_PROP = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_POINTSPECULAR_PROP_LIGHT_POSITION: D2D1_POINTSPECULAR_PROP = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_POINTSPECULAR_PROP_SPECULAR_EXPONENT: D2D1_POINTSPECULAR_PROP = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_POINTSPECULAR_PROP_SPECULAR_CONSTANT: D2D1_POINTSPECULAR_PROP = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_POINTSPECULAR_PROP_SURFACE_SCALE: D2D1_POINTSPECULAR_PROP = 3u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_POINTSPECULAR_PROP_COLOR: D2D1_POINTSPECULAR_PROP = 4u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_POINTSPECULAR_PROP_KERNEL_UNIT_LENGTH: D2D1_POINTSPECULAR_PROP = 5u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_POINTSPECULAR_PROP_SCALE_MODE: D2D1_POINTSPECULAR_PROP = 6u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_POINTSPECULAR_PROP_FORCE_DWORD: D2D1_POINTSPECULAR_PROP = 4294967295u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_POINTSPECULAR_SCALE_MODE = u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_POINTSPECULAR_SCALE_MODE_NEAREST_NEIGHBOR: D2D1_POINTSPECULAR_SCALE_MODE = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_POINTSPECULAR_SCALE_MODE_LINEAR: D2D1_POINTSPECULAR_SCALE_MODE = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_POINTSPECULAR_SCALE_MODE_CUBIC: D2D1_POINTSPECULAR_SCALE_MODE = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_POINTSPECULAR_SCALE_MODE_MULTI_SAMPLE_LINEAR: D2D1_POINTSPECULAR_SCALE_MODE = 3u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_POINTSPECULAR_SCALE_MODE_ANISOTROPIC: D2D1_POINTSPECULAR_SCALE_MODE = 4u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_POINTSPECULAR_SCALE_MODE_HIGH_QUALITY_CUBIC: D2D1_POINTSPECULAR_SCALE_MODE = 5u32;
-#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_POINTSPECULAR_SCALE_MODE_FORCE_DWORD: D2D1_POINTSPECULAR_SCALE_MODE = 4294967295u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_MAP_OPTIONS(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_MAP_OPTIONS_NONE: D2D1_MAP_OPTIONS = D2D1_MAP_OPTIONS(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_MAP_OPTIONS_READ: D2D1_MAP_OPTIONS = D2D1_MAP_OPTIONS(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_MAP_OPTIONS_WRITE: D2D1_MAP_OPTIONS = D2D1_MAP_OPTIONS(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_MAP_OPTIONS_DISCARD: D2D1_MAP_OPTIONS = D2D1_MAP_OPTIONS(4u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_MAP_OPTIONS_FORCE_DWORD: D2D1_MAP_OPTIONS = D2D1_MAP_OPTIONS(4294967295u32);
+impl ::core::marker::Copy for D2D1_MAP_OPTIONS {}
+impl ::core::clone::Clone for D2D1_MAP_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_MAP_OPTIONS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_MAP_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_MAP_OPTIONS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_MAP_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_MAP_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_MAP_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_MAP_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_MAP_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_MORPHOLOGY_MODE(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_MORPHOLOGY_MODE_ERODE: D2D1_MORPHOLOGY_MODE = D2D1_MORPHOLOGY_MODE(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_MORPHOLOGY_MODE_DILATE: D2D1_MORPHOLOGY_MODE = D2D1_MORPHOLOGY_MODE(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_MORPHOLOGY_MODE_FORCE_DWORD: D2D1_MORPHOLOGY_MODE = D2D1_MORPHOLOGY_MODE(4294967295u32);
+impl ::core::marker::Copy for D2D1_MORPHOLOGY_MODE {}
+impl ::core::clone::Clone for D2D1_MORPHOLOGY_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_MORPHOLOGY_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_MORPHOLOGY_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_MORPHOLOGY_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_MORPHOLOGY_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_MORPHOLOGY_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_MORPHOLOGY_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_MORPHOLOGY_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_MORPHOLOGY_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_MORPHOLOGY_PROP(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_MORPHOLOGY_PROP_MODE: D2D1_MORPHOLOGY_PROP = D2D1_MORPHOLOGY_PROP(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_MORPHOLOGY_PROP_WIDTH: D2D1_MORPHOLOGY_PROP = D2D1_MORPHOLOGY_PROP(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_MORPHOLOGY_PROP_HEIGHT: D2D1_MORPHOLOGY_PROP = D2D1_MORPHOLOGY_PROP(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_MORPHOLOGY_PROP_FORCE_DWORD: D2D1_MORPHOLOGY_PROP = D2D1_MORPHOLOGY_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_MORPHOLOGY_PROP {}
+impl ::core::clone::Clone for D2D1_MORPHOLOGY_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_MORPHOLOGY_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_MORPHOLOGY_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_MORPHOLOGY_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_MORPHOLOGY_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_MORPHOLOGY_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_MORPHOLOGY_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_MORPHOLOGY_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_MORPHOLOGY_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_OPACITYMETADATA_PROP(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_OPACITYMETADATA_PROP_INPUT_OPAQUE_RECT: D2D1_OPACITYMETADATA_PROP = D2D1_OPACITYMETADATA_PROP(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_OPACITYMETADATA_PROP_FORCE_DWORD: D2D1_OPACITYMETADATA_PROP = D2D1_OPACITYMETADATA_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_OPACITYMETADATA_PROP {}
+impl ::core::clone::Clone for D2D1_OPACITYMETADATA_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_OPACITYMETADATA_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_OPACITYMETADATA_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_OPACITYMETADATA_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_OPACITYMETADATA_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_OPACITYMETADATA_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_OPACITYMETADATA_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_OPACITYMETADATA_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_OPACITYMETADATA_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_OPACITY_MASK_CONTENT(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_OPACITY_MASK_CONTENT_GRAPHICS: D2D1_OPACITY_MASK_CONTENT = D2D1_OPACITY_MASK_CONTENT(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_OPACITY_MASK_CONTENT_TEXT_NATURAL: D2D1_OPACITY_MASK_CONTENT = D2D1_OPACITY_MASK_CONTENT(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_OPACITY_MASK_CONTENT_TEXT_GDI_COMPATIBLE: D2D1_OPACITY_MASK_CONTENT = D2D1_OPACITY_MASK_CONTENT(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_OPACITY_MASK_CONTENT_FORCE_DWORD: D2D1_OPACITY_MASK_CONTENT = D2D1_OPACITY_MASK_CONTENT(4294967295u32);
+impl ::core::marker::Copy for D2D1_OPACITY_MASK_CONTENT {}
+impl ::core::clone::Clone for D2D1_OPACITY_MASK_CONTENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_OPACITY_MASK_CONTENT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_OPACITY_MASK_CONTENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_OPACITY_MASK_CONTENT").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_OPACITY_MASK_CONTENT {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_OPACITY_MASK_CONTENT {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_OPACITY_MASK_CONTENT {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_OPACITY_MASK_CONTENT {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_OPACITY_MASK_CONTENT {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_OPACITY_PROP(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_OPACITY_PROP_OPACITY: D2D1_OPACITY_PROP = D2D1_OPACITY_PROP(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_OPACITY_PROP_FORCE_DWORD: D2D1_OPACITY_PROP = D2D1_OPACITY_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_OPACITY_PROP {}
+impl ::core::clone::Clone for D2D1_OPACITY_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_OPACITY_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_OPACITY_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_OPACITY_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_OPACITY_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_OPACITY_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_OPACITY_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_OPACITY_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_OPACITY_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_ORIENTATION(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_ORIENTATION_DEFAULT: D2D1_ORIENTATION = D2D1_ORIENTATION(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_ORIENTATION_FLIP_HORIZONTAL: D2D1_ORIENTATION = D2D1_ORIENTATION(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_ORIENTATION_ROTATE_CLOCKWISE180: D2D1_ORIENTATION = D2D1_ORIENTATION(3u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_ORIENTATION_ROTATE_CLOCKWISE180_FLIP_HORIZONTAL: D2D1_ORIENTATION = D2D1_ORIENTATION(4u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_ORIENTATION_ROTATE_CLOCKWISE90_FLIP_HORIZONTAL: D2D1_ORIENTATION = D2D1_ORIENTATION(5u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_ORIENTATION_ROTATE_CLOCKWISE270: D2D1_ORIENTATION = D2D1_ORIENTATION(6u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_ORIENTATION_ROTATE_CLOCKWISE270_FLIP_HORIZONTAL: D2D1_ORIENTATION = D2D1_ORIENTATION(7u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_ORIENTATION_ROTATE_CLOCKWISE90: D2D1_ORIENTATION = D2D1_ORIENTATION(8u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_ORIENTATION_FORCE_DWORD: D2D1_ORIENTATION = D2D1_ORIENTATION(4294967295u32);
+impl ::core::marker::Copy for D2D1_ORIENTATION {}
+impl ::core::clone::Clone for D2D1_ORIENTATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_ORIENTATION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_ORIENTATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_ORIENTATION").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_ORIENTATION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_ORIENTATION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_ORIENTATION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_ORIENTATION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_ORIENTATION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_PATCH_EDGE_MODE(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_PATCH_EDGE_MODE_ALIASED: D2D1_PATCH_EDGE_MODE = D2D1_PATCH_EDGE_MODE(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_PATCH_EDGE_MODE_ANTIALIASED: D2D1_PATCH_EDGE_MODE = D2D1_PATCH_EDGE_MODE(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_PATCH_EDGE_MODE_ALIASED_INFLATED: D2D1_PATCH_EDGE_MODE = D2D1_PATCH_EDGE_MODE(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_PATCH_EDGE_MODE_FORCE_DWORD: D2D1_PATCH_EDGE_MODE = D2D1_PATCH_EDGE_MODE(4294967295u32);
+impl ::core::marker::Copy for D2D1_PATCH_EDGE_MODE {}
+impl ::core::clone::Clone for D2D1_PATCH_EDGE_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_PATCH_EDGE_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_PATCH_EDGE_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_PATCH_EDGE_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_PATCH_EDGE_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_PATCH_EDGE_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_PATCH_EDGE_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_PATCH_EDGE_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_PATCH_EDGE_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_PIXEL_OPTIONS(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_PIXEL_OPTIONS_NONE: D2D1_PIXEL_OPTIONS = D2D1_PIXEL_OPTIONS(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_PIXEL_OPTIONS_TRIVIAL_SAMPLING: D2D1_PIXEL_OPTIONS = D2D1_PIXEL_OPTIONS(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_PIXEL_OPTIONS_FORCE_DWORD: D2D1_PIXEL_OPTIONS = D2D1_PIXEL_OPTIONS(4294967295u32);
+impl ::core::marker::Copy for D2D1_PIXEL_OPTIONS {}
+impl ::core::clone::Clone for D2D1_PIXEL_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_PIXEL_OPTIONS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_PIXEL_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_PIXEL_OPTIONS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_PIXEL_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_PIXEL_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_PIXEL_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_PIXEL_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_PIXEL_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_POINTDIFFUSE_PROP(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_POINTDIFFUSE_PROP_LIGHT_POSITION: D2D1_POINTDIFFUSE_PROP = D2D1_POINTDIFFUSE_PROP(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_POINTDIFFUSE_PROP_DIFFUSE_CONSTANT: D2D1_POINTDIFFUSE_PROP = D2D1_POINTDIFFUSE_PROP(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_POINTDIFFUSE_PROP_SURFACE_SCALE: D2D1_POINTDIFFUSE_PROP = D2D1_POINTDIFFUSE_PROP(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_POINTDIFFUSE_PROP_COLOR: D2D1_POINTDIFFUSE_PROP = D2D1_POINTDIFFUSE_PROP(3u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_POINTDIFFUSE_PROP_KERNEL_UNIT_LENGTH: D2D1_POINTDIFFUSE_PROP = D2D1_POINTDIFFUSE_PROP(4u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_POINTDIFFUSE_PROP_SCALE_MODE: D2D1_POINTDIFFUSE_PROP = D2D1_POINTDIFFUSE_PROP(5u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_POINTDIFFUSE_PROP_FORCE_DWORD: D2D1_POINTDIFFUSE_PROP = D2D1_POINTDIFFUSE_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_POINTDIFFUSE_PROP {}
+impl ::core::clone::Clone for D2D1_POINTDIFFUSE_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_POINTDIFFUSE_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_POINTDIFFUSE_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_POINTDIFFUSE_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_POINTDIFFUSE_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_POINTDIFFUSE_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_POINTDIFFUSE_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_POINTDIFFUSE_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_POINTDIFFUSE_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_POINTDIFFUSE_SCALE_MODE(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_POINTDIFFUSE_SCALE_MODE_NEAREST_NEIGHBOR: D2D1_POINTDIFFUSE_SCALE_MODE = D2D1_POINTDIFFUSE_SCALE_MODE(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_POINTDIFFUSE_SCALE_MODE_LINEAR: D2D1_POINTDIFFUSE_SCALE_MODE = D2D1_POINTDIFFUSE_SCALE_MODE(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_POINTDIFFUSE_SCALE_MODE_CUBIC: D2D1_POINTDIFFUSE_SCALE_MODE = D2D1_POINTDIFFUSE_SCALE_MODE(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_POINTDIFFUSE_SCALE_MODE_MULTI_SAMPLE_LINEAR: D2D1_POINTDIFFUSE_SCALE_MODE = D2D1_POINTDIFFUSE_SCALE_MODE(3u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_POINTDIFFUSE_SCALE_MODE_ANISOTROPIC: D2D1_POINTDIFFUSE_SCALE_MODE = D2D1_POINTDIFFUSE_SCALE_MODE(4u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_POINTDIFFUSE_SCALE_MODE_HIGH_QUALITY_CUBIC: D2D1_POINTDIFFUSE_SCALE_MODE = D2D1_POINTDIFFUSE_SCALE_MODE(5u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_POINTDIFFUSE_SCALE_MODE_FORCE_DWORD: D2D1_POINTDIFFUSE_SCALE_MODE = D2D1_POINTDIFFUSE_SCALE_MODE(4294967295u32);
+impl ::core::marker::Copy for D2D1_POINTDIFFUSE_SCALE_MODE {}
+impl ::core::clone::Clone for D2D1_POINTDIFFUSE_SCALE_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_POINTDIFFUSE_SCALE_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_POINTDIFFUSE_SCALE_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_POINTDIFFUSE_SCALE_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_POINTDIFFUSE_SCALE_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_POINTDIFFUSE_SCALE_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_POINTDIFFUSE_SCALE_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_POINTDIFFUSE_SCALE_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_POINTDIFFUSE_SCALE_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_POINTSPECULAR_PROP(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_POINTSPECULAR_PROP_LIGHT_POSITION: D2D1_POINTSPECULAR_PROP = D2D1_POINTSPECULAR_PROP(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_POINTSPECULAR_PROP_SPECULAR_EXPONENT: D2D1_POINTSPECULAR_PROP = D2D1_POINTSPECULAR_PROP(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_POINTSPECULAR_PROP_SPECULAR_CONSTANT: D2D1_POINTSPECULAR_PROP = D2D1_POINTSPECULAR_PROP(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_POINTSPECULAR_PROP_SURFACE_SCALE: D2D1_POINTSPECULAR_PROP = D2D1_POINTSPECULAR_PROP(3u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_POINTSPECULAR_PROP_COLOR: D2D1_POINTSPECULAR_PROP = D2D1_POINTSPECULAR_PROP(4u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_POINTSPECULAR_PROP_KERNEL_UNIT_LENGTH: D2D1_POINTSPECULAR_PROP = D2D1_POINTSPECULAR_PROP(5u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_POINTSPECULAR_PROP_SCALE_MODE: D2D1_POINTSPECULAR_PROP = D2D1_POINTSPECULAR_PROP(6u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_POINTSPECULAR_PROP_FORCE_DWORD: D2D1_POINTSPECULAR_PROP = D2D1_POINTSPECULAR_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_POINTSPECULAR_PROP {}
+impl ::core::clone::Clone for D2D1_POINTSPECULAR_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_POINTSPECULAR_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_POINTSPECULAR_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_POINTSPECULAR_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_POINTSPECULAR_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_POINTSPECULAR_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_POINTSPECULAR_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_POINTSPECULAR_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_POINTSPECULAR_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_POINTSPECULAR_SCALE_MODE(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_POINTSPECULAR_SCALE_MODE_NEAREST_NEIGHBOR: D2D1_POINTSPECULAR_SCALE_MODE = D2D1_POINTSPECULAR_SCALE_MODE(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_POINTSPECULAR_SCALE_MODE_LINEAR: D2D1_POINTSPECULAR_SCALE_MODE = D2D1_POINTSPECULAR_SCALE_MODE(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_POINTSPECULAR_SCALE_MODE_CUBIC: D2D1_POINTSPECULAR_SCALE_MODE = D2D1_POINTSPECULAR_SCALE_MODE(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_POINTSPECULAR_SCALE_MODE_MULTI_SAMPLE_LINEAR: D2D1_POINTSPECULAR_SCALE_MODE = D2D1_POINTSPECULAR_SCALE_MODE(3u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_POINTSPECULAR_SCALE_MODE_ANISOTROPIC: D2D1_POINTSPECULAR_SCALE_MODE = D2D1_POINTSPECULAR_SCALE_MODE(4u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_POINTSPECULAR_SCALE_MODE_HIGH_QUALITY_CUBIC: D2D1_POINTSPECULAR_SCALE_MODE = D2D1_POINTSPECULAR_SCALE_MODE(5u32);
+#[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
+pub const D2D1_POINTSPECULAR_SCALE_MODE_FORCE_DWORD: D2D1_POINTSPECULAR_SCALE_MODE = D2D1_POINTSPECULAR_SCALE_MODE(4294967295u32);
+impl ::core::marker::Copy for D2D1_POINTSPECULAR_SCALE_MODE {}
+impl ::core::clone::Clone for D2D1_POINTSPECULAR_SCALE_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_POINTSPECULAR_SCALE_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_POINTSPECULAR_SCALE_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_POINTSPECULAR_SCALE_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_POINTSPECULAR_SCALE_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_POINTSPECULAR_SCALE_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_POINTSPECULAR_SCALE_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_POINTSPECULAR_SCALE_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_POINTSPECULAR_SCALE_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -2754,39 +7434,171 @@ impl ::core::default::Default for D2D1_POINT_DESCRIPTION {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_POSTERIZE_PROP = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_POSTERIZE_PROP(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_POSTERIZE_PROP_RED_VALUE_COUNT: D2D1_POSTERIZE_PROP = 0u32;
+pub const D2D1_POSTERIZE_PROP_RED_VALUE_COUNT: D2D1_POSTERIZE_PROP = D2D1_POSTERIZE_PROP(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_POSTERIZE_PROP_GREEN_VALUE_COUNT: D2D1_POSTERIZE_PROP = 1u32;
+pub const D2D1_POSTERIZE_PROP_GREEN_VALUE_COUNT: D2D1_POSTERIZE_PROP = D2D1_POSTERIZE_PROP(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_POSTERIZE_PROP_BLUE_VALUE_COUNT: D2D1_POSTERIZE_PROP = 2u32;
+pub const D2D1_POSTERIZE_PROP_BLUE_VALUE_COUNT: D2D1_POSTERIZE_PROP = D2D1_POSTERIZE_PROP(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_POSTERIZE_PROP_FORCE_DWORD: D2D1_POSTERIZE_PROP = 4294967295u32;
+pub const D2D1_POSTERIZE_PROP_FORCE_DWORD: D2D1_POSTERIZE_PROP = D2D1_POSTERIZE_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_POSTERIZE_PROP {}
+impl ::core::clone::Clone for D2D1_POSTERIZE_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_POSTERIZE_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_POSTERIZE_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_POSTERIZE_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_POSTERIZE_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_POSTERIZE_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_POSTERIZE_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_POSTERIZE_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_POSTERIZE_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_PRESENT_OPTIONS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_PRESENT_OPTIONS(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PRESENT_OPTIONS_NONE: D2D1_PRESENT_OPTIONS = 0u32;
+pub const D2D1_PRESENT_OPTIONS_NONE: D2D1_PRESENT_OPTIONS = D2D1_PRESENT_OPTIONS(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PRESENT_OPTIONS_RETAIN_CONTENTS: D2D1_PRESENT_OPTIONS = 1u32;
+pub const D2D1_PRESENT_OPTIONS_RETAIN_CONTENTS: D2D1_PRESENT_OPTIONS = D2D1_PRESENT_OPTIONS(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PRESENT_OPTIONS_IMMEDIATELY: D2D1_PRESENT_OPTIONS = 2u32;
+pub const D2D1_PRESENT_OPTIONS_IMMEDIATELY: D2D1_PRESENT_OPTIONS = D2D1_PRESENT_OPTIONS(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PRESENT_OPTIONS_FORCE_DWORD: D2D1_PRESENT_OPTIONS = 4294967295u32;
+pub const D2D1_PRESENT_OPTIONS_FORCE_DWORD: D2D1_PRESENT_OPTIONS = D2D1_PRESENT_OPTIONS(4294967295u32);
+impl ::core::marker::Copy for D2D1_PRESENT_OPTIONS {}
+impl ::core::clone::Clone for D2D1_PRESENT_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_PRESENT_OPTIONS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_PRESENT_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_PRESENT_OPTIONS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_PRESENT_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_PRESENT_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_PRESENT_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_PRESENT_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_PRESENT_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_PRIMITIVE_BLEND = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_PRIMITIVE_BLEND(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PRIMITIVE_BLEND_SOURCE_OVER: D2D1_PRIMITIVE_BLEND = 0u32;
+pub const D2D1_PRIMITIVE_BLEND_SOURCE_OVER: D2D1_PRIMITIVE_BLEND = D2D1_PRIMITIVE_BLEND(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PRIMITIVE_BLEND_COPY: D2D1_PRIMITIVE_BLEND = 1u32;
+pub const D2D1_PRIMITIVE_BLEND_COPY: D2D1_PRIMITIVE_BLEND = D2D1_PRIMITIVE_BLEND(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PRIMITIVE_BLEND_MIN: D2D1_PRIMITIVE_BLEND = 2u32;
+pub const D2D1_PRIMITIVE_BLEND_MIN: D2D1_PRIMITIVE_BLEND = D2D1_PRIMITIVE_BLEND(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PRIMITIVE_BLEND_ADD: D2D1_PRIMITIVE_BLEND = 3u32;
+pub const D2D1_PRIMITIVE_BLEND_ADD: D2D1_PRIMITIVE_BLEND = D2D1_PRIMITIVE_BLEND(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PRIMITIVE_BLEND_MAX: D2D1_PRIMITIVE_BLEND = 4u32;
+pub const D2D1_PRIMITIVE_BLEND_MAX: D2D1_PRIMITIVE_BLEND = D2D1_PRIMITIVE_BLEND(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PRIMITIVE_BLEND_FORCE_DWORD: D2D1_PRIMITIVE_BLEND = 4294967295u32;
+pub const D2D1_PRIMITIVE_BLEND_FORCE_DWORD: D2D1_PRIMITIVE_BLEND = D2D1_PRIMITIVE_BLEND(4294967295u32);
+impl ::core::marker::Copy for D2D1_PRIMITIVE_BLEND {}
+impl ::core::clone::Clone for D2D1_PRIMITIVE_BLEND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_PRIMITIVE_BLEND {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_PRIMITIVE_BLEND {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_PRIMITIVE_BLEND").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_PRIMITIVE_BLEND {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_PRIMITIVE_BLEND {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_PRIMITIVE_BLEND {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_PRIMITIVE_BLEND {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_PRIMITIVE_BLEND {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub struct D2D1_PRINT_CONTROL_PROPERTIES {
@@ -2820,39 +7632,127 @@ impl ::core::default::Default for D2D1_PRINT_CONTROL_PROPERTIES {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_PRINT_FONT_SUBSET_MODE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_PRINT_FONT_SUBSET_MODE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PRINT_FONT_SUBSET_MODE_DEFAULT: D2D1_PRINT_FONT_SUBSET_MODE = 0u32;
+pub const D2D1_PRINT_FONT_SUBSET_MODE_DEFAULT: D2D1_PRINT_FONT_SUBSET_MODE = D2D1_PRINT_FONT_SUBSET_MODE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PRINT_FONT_SUBSET_MODE_EACHPAGE: D2D1_PRINT_FONT_SUBSET_MODE = 1u32;
+pub const D2D1_PRINT_FONT_SUBSET_MODE_EACHPAGE: D2D1_PRINT_FONT_SUBSET_MODE = D2D1_PRINT_FONT_SUBSET_MODE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PRINT_FONT_SUBSET_MODE_NONE: D2D1_PRINT_FONT_SUBSET_MODE = 2u32;
+pub const D2D1_PRINT_FONT_SUBSET_MODE_NONE: D2D1_PRINT_FONT_SUBSET_MODE = D2D1_PRINT_FONT_SUBSET_MODE(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PRINT_FONT_SUBSET_MODE_FORCE_DWORD: D2D1_PRINT_FONT_SUBSET_MODE = 4294967295u32;
+pub const D2D1_PRINT_FONT_SUBSET_MODE_FORCE_DWORD: D2D1_PRINT_FONT_SUBSET_MODE = D2D1_PRINT_FONT_SUBSET_MODE(4294967295u32);
+impl ::core::marker::Copy for D2D1_PRINT_FONT_SUBSET_MODE {}
+impl ::core::clone::Clone for D2D1_PRINT_FONT_SUBSET_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_PRINT_FONT_SUBSET_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_PRINT_FONT_SUBSET_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_PRINT_FONT_SUBSET_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_PRINT_FONT_SUBSET_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_PRINT_FONT_SUBSET_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_PRINT_FONT_SUBSET_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_PRINT_FONT_SUBSET_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_PRINT_FONT_SUBSET_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_PROPERTY = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_PROPERTY(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PROPERTY_CLSID: D2D1_PROPERTY = 2147483648u32;
+pub const D2D1_PROPERTY_CLSID: D2D1_PROPERTY = D2D1_PROPERTY(2147483648u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PROPERTY_DISPLAYNAME: D2D1_PROPERTY = 2147483649u32;
+pub const D2D1_PROPERTY_DISPLAYNAME: D2D1_PROPERTY = D2D1_PROPERTY(2147483649u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PROPERTY_AUTHOR: D2D1_PROPERTY = 2147483650u32;
+pub const D2D1_PROPERTY_AUTHOR: D2D1_PROPERTY = D2D1_PROPERTY(2147483650u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PROPERTY_CATEGORY: D2D1_PROPERTY = 2147483651u32;
+pub const D2D1_PROPERTY_CATEGORY: D2D1_PROPERTY = D2D1_PROPERTY(2147483651u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PROPERTY_DESCRIPTION: D2D1_PROPERTY = 2147483652u32;
+pub const D2D1_PROPERTY_DESCRIPTION: D2D1_PROPERTY = D2D1_PROPERTY(2147483652u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PROPERTY_INPUTS: D2D1_PROPERTY = 2147483653u32;
+pub const D2D1_PROPERTY_INPUTS: D2D1_PROPERTY = D2D1_PROPERTY(2147483653u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PROPERTY_CACHED: D2D1_PROPERTY = 2147483654u32;
+pub const D2D1_PROPERTY_CACHED: D2D1_PROPERTY = D2D1_PROPERTY(2147483654u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PROPERTY_PRECISION: D2D1_PROPERTY = 2147483655u32;
+pub const D2D1_PROPERTY_PRECISION: D2D1_PROPERTY = D2D1_PROPERTY(2147483655u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PROPERTY_MIN_INPUTS: D2D1_PROPERTY = 2147483656u32;
+pub const D2D1_PROPERTY_MIN_INPUTS: D2D1_PROPERTY = D2D1_PROPERTY(2147483656u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PROPERTY_MAX_INPUTS: D2D1_PROPERTY = 2147483657u32;
+pub const D2D1_PROPERTY_MAX_INPUTS: D2D1_PROPERTY = D2D1_PROPERTY(2147483657u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PROPERTY_FORCE_DWORD: D2D1_PROPERTY = 4294967295u32;
+pub const D2D1_PROPERTY_FORCE_DWORD: D2D1_PROPERTY = D2D1_PROPERTY(4294967295u32);
+impl ::core::marker::Copy for D2D1_PROPERTY {}
+impl ::core::clone::Clone for D2D1_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_PROPERTY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_PROPERTY").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_PROPERTY {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_PROPERTY {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_PROPERTY {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_PROPERTY {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_PROPERTY {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2894,47 +7794,91 @@ impl ::core::default::Default for D2D1_PROPERTY_BINDING {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_PROPERTY_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_PROPERTY_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PROPERTY_TYPE_UNKNOWN: D2D1_PROPERTY_TYPE = 0u32;
+pub const D2D1_PROPERTY_TYPE_UNKNOWN: D2D1_PROPERTY_TYPE = D2D1_PROPERTY_TYPE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PROPERTY_TYPE_STRING: D2D1_PROPERTY_TYPE = 1u32;
+pub const D2D1_PROPERTY_TYPE_STRING: D2D1_PROPERTY_TYPE = D2D1_PROPERTY_TYPE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PROPERTY_TYPE_BOOL: D2D1_PROPERTY_TYPE = 2u32;
+pub const D2D1_PROPERTY_TYPE_BOOL: D2D1_PROPERTY_TYPE = D2D1_PROPERTY_TYPE(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PROPERTY_TYPE_UINT32: D2D1_PROPERTY_TYPE = 3u32;
+pub const D2D1_PROPERTY_TYPE_UINT32: D2D1_PROPERTY_TYPE = D2D1_PROPERTY_TYPE(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PROPERTY_TYPE_INT32: D2D1_PROPERTY_TYPE = 4u32;
+pub const D2D1_PROPERTY_TYPE_INT32: D2D1_PROPERTY_TYPE = D2D1_PROPERTY_TYPE(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PROPERTY_TYPE_FLOAT: D2D1_PROPERTY_TYPE = 5u32;
+pub const D2D1_PROPERTY_TYPE_FLOAT: D2D1_PROPERTY_TYPE = D2D1_PROPERTY_TYPE(5u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PROPERTY_TYPE_VECTOR2: D2D1_PROPERTY_TYPE = 6u32;
+pub const D2D1_PROPERTY_TYPE_VECTOR2: D2D1_PROPERTY_TYPE = D2D1_PROPERTY_TYPE(6u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PROPERTY_TYPE_VECTOR3: D2D1_PROPERTY_TYPE = 7u32;
+pub const D2D1_PROPERTY_TYPE_VECTOR3: D2D1_PROPERTY_TYPE = D2D1_PROPERTY_TYPE(7u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PROPERTY_TYPE_VECTOR4: D2D1_PROPERTY_TYPE = 8u32;
+pub const D2D1_PROPERTY_TYPE_VECTOR4: D2D1_PROPERTY_TYPE = D2D1_PROPERTY_TYPE(8u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PROPERTY_TYPE_BLOB: D2D1_PROPERTY_TYPE = 9u32;
+pub const D2D1_PROPERTY_TYPE_BLOB: D2D1_PROPERTY_TYPE = D2D1_PROPERTY_TYPE(9u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PROPERTY_TYPE_IUNKNOWN: D2D1_PROPERTY_TYPE = 10u32;
+pub const D2D1_PROPERTY_TYPE_IUNKNOWN: D2D1_PROPERTY_TYPE = D2D1_PROPERTY_TYPE(10u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PROPERTY_TYPE_ENUM: D2D1_PROPERTY_TYPE = 11u32;
+pub const D2D1_PROPERTY_TYPE_ENUM: D2D1_PROPERTY_TYPE = D2D1_PROPERTY_TYPE(11u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PROPERTY_TYPE_ARRAY: D2D1_PROPERTY_TYPE = 12u32;
+pub const D2D1_PROPERTY_TYPE_ARRAY: D2D1_PROPERTY_TYPE = D2D1_PROPERTY_TYPE(12u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PROPERTY_TYPE_CLSID: D2D1_PROPERTY_TYPE = 13u32;
+pub const D2D1_PROPERTY_TYPE_CLSID: D2D1_PROPERTY_TYPE = D2D1_PROPERTY_TYPE(13u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PROPERTY_TYPE_MATRIX_3X2: D2D1_PROPERTY_TYPE = 14u32;
+pub const D2D1_PROPERTY_TYPE_MATRIX_3X2: D2D1_PROPERTY_TYPE = D2D1_PROPERTY_TYPE(14u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PROPERTY_TYPE_MATRIX_4X3: D2D1_PROPERTY_TYPE = 15u32;
+pub const D2D1_PROPERTY_TYPE_MATRIX_4X3: D2D1_PROPERTY_TYPE = D2D1_PROPERTY_TYPE(15u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PROPERTY_TYPE_MATRIX_4X4: D2D1_PROPERTY_TYPE = 16u32;
+pub const D2D1_PROPERTY_TYPE_MATRIX_4X4: D2D1_PROPERTY_TYPE = D2D1_PROPERTY_TYPE(16u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PROPERTY_TYPE_MATRIX_5X4: D2D1_PROPERTY_TYPE = 17u32;
+pub const D2D1_PROPERTY_TYPE_MATRIX_5X4: D2D1_PROPERTY_TYPE = D2D1_PROPERTY_TYPE(17u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PROPERTY_TYPE_COLOR_CONTEXT: D2D1_PROPERTY_TYPE = 18u32;
+pub const D2D1_PROPERTY_TYPE_COLOR_CONTEXT: D2D1_PROPERTY_TYPE = D2D1_PROPERTY_TYPE(18u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_PROPERTY_TYPE_FORCE_DWORD: D2D1_PROPERTY_TYPE = 4294967295u32;
+pub const D2D1_PROPERTY_TYPE_FORCE_DWORD: D2D1_PROPERTY_TYPE = D2D1_PROPERTY_TYPE(4294967295u32);
+impl ::core::marker::Copy for D2D1_PROPERTY_TYPE {}
+impl ::core::clone::Clone for D2D1_PROPERTY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_PROPERTY_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_PROPERTY_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_PROPERTY_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_PROPERTY_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_PROPERTY_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_PROPERTY_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_PROPERTY_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_PROPERTY_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -3055,13 +7999,57 @@ impl ::core::default::Default for D2D1_RENDERING_CONTROLS {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_RENDERING_PRIORITY = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_RENDERING_PRIORITY(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_RENDERING_PRIORITY_NORMAL: D2D1_RENDERING_PRIORITY = 0u32;
+pub const D2D1_RENDERING_PRIORITY_NORMAL: D2D1_RENDERING_PRIORITY = D2D1_RENDERING_PRIORITY(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_RENDERING_PRIORITY_LOW: D2D1_RENDERING_PRIORITY = 1u32;
+pub const D2D1_RENDERING_PRIORITY_LOW: D2D1_RENDERING_PRIORITY = D2D1_RENDERING_PRIORITY(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_RENDERING_PRIORITY_FORCE_DWORD: D2D1_RENDERING_PRIORITY = 4294967295u32;
+pub const D2D1_RENDERING_PRIORITY_FORCE_DWORD: D2D1_RENDERING_PRIORITY = D2D1_RENDERING_PRIORITY(4294967295u32);
+impl ::core::marker::Copy for D2D1_RENDERING_PRIORITY {}
+impl ::core::clone::Clone for D2D1_RENDERING_PRIORITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_RENDERING_PRIORITY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_RENDERING_PRIORITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_RENDERING_PRIORITY").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_RENDERING_PRIORITY {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_RENDERING_PRIORITY {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_RENDERING_PRIORITY {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_RENDERING_PRIORITY {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_RENDERING_PRIORITY {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -3106,25 +8094,113 @@ impl ::core::default::Default for D2D1_RENDER_TARGET_PROPERTIES {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_RENDER_TARGET_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_RENDER_TARGET_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_RENDER_TARGET_TYPE_DEFAULT: D2D1_RENDER_TARGET_TYPE = 0u32;
+pub const D2D1_RENDER_TARGET_TYPE_DEFAULT: D2D1_RENDER_TARGET_TYPE = D2D1_RENDER_TARGET_TYPE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_RENDER_TARGET_TYPE_SOFTWARE: D2D1_RENDER_TARGET_TYPE = 1u32;
+pub const D2D1_RENDER_TARGET_TYPE_SOFTWARE: D2D1_RENDER_TARGET_TYPE = D2D1_RENDER_TARGET_TYPE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_RENDER_TARGET_TYPE_HARDWARE: D2D1_RENDER_TARGET_TYPE = 2u32;
+pub const D2D1_RENDER_TARGET_TYPE_HARDWARE: D2D1_RENDER_TARGET_TYPE = D2D1_RENDER_TARGET_TYPE(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_RENDER_TARGET_TYPE_FORCE_DWORD: D2D1_RENDER_TARGET_TYPE = 4294967295u32;
+pub const D2D1_RENDER_TARGET_TYPE_FORCE_DWORD: D2D1_RENDER_TARGET_TYPE = D2D1_RENDER_TARGET_TYPE(4294967295u32);
+impl ::core::marker::Copy for D2D1_RENDER_TARGET_TYPE {}
+impl ::core::clone::Clone for D2D1_RENDER_TARGET_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_RENDER_TARGET_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_RENDER_TARGET_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_RENDER_TARGET_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_RENDER_TARGET_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_RENDER_TARGET_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_RENDER_TARGET_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_RENDER_TARGET_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_RENDER_TARGET_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_RENDER_TARGET_USAGE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_RENDER_TARGET_USAGE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_RENDER_TARGET_USAGE_NONE: D2D1_RENDER_TARGET_USAGE = 0u32;
+pub const D2D1_RENDER_TARGET_USAGE_NONE: D2D1_RENDER_TARGET_USAGE = D2D1_RENDER_TARGET_USAGE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_RENDER_TARGET_USAGE_FORCE_BITMAP_REMOTING: D2D1_RENDER_TARGET_USAGE = 1u32;
+pub const D2D1_RENDER_TARGET_USAGE_FORCE_BITMAP_REMOTING: D2D1_RENDER_TARGET_USAGE = D2D1_RENDER_TARGET_USAGE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_RENDER_TARGET_USAGE_GDI_COMPATIBLE: D2D1_RENDER_TARGET_USAGE = 2u32;
+pub const D2D1_RENDER_TARGET_USAGE_GDI_COMPATIBLE: D2D1_RENDER_TARGET_USAGE = D2D1_RENDER_TARGET_USAGE(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_RENDER_TARGET_USAGE_FORCE_DWORD: D2D1_RENDER_TARGET_USAGE = 4294967295u32;
+pub const D2D1_RENDER_TARGET_USAGE_FORCE_DWORD: D2D1_RENDER_TARGET_USAGE = D2D1_RENDER_TARGET_USAGE(4294967295u32);
+impl ::core::marker::Copy for D2D1_RENDER_TARGET_USAGE {}
+impl ::core::clone::Clone for D2D1_RENDER_TARGET_USAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_RENDER_TARGET_USAGE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_RENDER_TARGET_USAGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_RENDER_TARGET_USAGE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_RENDER_TARGET_USAGE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_RENDER_TARGET_USAGE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_RENDER_TARGET_USAGE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_RENDER_TARGET_USAGE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_RENDER_TARGET_USAGE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub struct D2D1_RESOURCE_TEXTURE_PROPERTIES {
@@ -3161,19 +8237,107 @@ impl ::core::default::Default for D2D1_RESOURCE_TEXTURE_PROPERTIES {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE_HUE_SATURATION_VALUE: D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE = 0u32;
+pub const D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE_HUE_SATURATION_VALUE: D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE = D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE_HUE_SATURATION_LIGHTNESS: D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE = 1u32;
+pub const D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE_HUE_SATURATION_LIGHTNESS: D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE = D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE_FORCE_DWORD: D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE = 4294967295u32;
+pub const D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE_FORCE_DWORD: D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE = D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE(4294967295u32);
+impl ::core::marker::Copy for D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE {}
+impl ::core::clone::Clone for D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_RGBTOHUE_OUTPUT_COLOR_SPACE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_RGBTOHUE_PROP = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_RGBTOHUE_PROP(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_RGBTOHUE_PROP_OUTPUT_COLOR_SPACE: D2D1_RGBTOHUE_PROP = 0u32;
+pub const D2D1_RGBTOHUE_PROP_OUTPUT_COLOR_SPACE: D2D1_RGBTOHUE_PROP = D2D1_RGBTOHUE_PROP(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_RGBTOHUE_PROP_FORCE_DWORD: D2D1_RGBTOHUE_PROP = 4294967295u32;
+pub const D2D1_RGBTOHUE_PROP_FORCE_DWORD: D2D1_RGBTOHUE_PROP = D2D1_RGBTOHUE_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_RGBTOHUE_PROP {}
+impl ::core::clone::Clone for D2D1_RGBTOHUE_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_RGBTOHUE_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_RGBTOHUE_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_RGBTOHUE_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_RGBTOHUE_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_RGBTOHUE_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_RGBTOHUE_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_RGBTOHUE_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_RGBTOHUE_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -3215,79 +8379,387 @@ impl ::core::default::Default for D2D1_ROUNDED_RECT {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_SATURATION_PROP = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_SATURATION_PROP(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SATURATION_PROP_SATURATION: D2D1_SATURATION_PROP = 0u32;
+pub const D2D1_SATURATION_PROP_SATURATION: D2D1_SATURATION_PROP = D2D1_SATURATION_PROP(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SATURATION_PROP_FORCE_DWORD: D2D1_SATURATION_PROP = 4294967295u32;
+pub const D2D1_SATURATION_PROP_FORCE_DWORD: D2D1_SATURATION_PROP = D2D1_SATURATION_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_SATURATION_PROP {}
+impl ::core::clone::Clone for D2D1_SATURATION_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_SATURATION_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_SATURATION_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_SATURATION_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_SATURATION_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_SATURATION_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_SATURATION_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_SATURATION_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_SATURATION_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_SCALE_INTERPOLATION_MODE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_SCALE_INTERPOLATION_MODE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SCALE_INTERPOLATION_MODE_NEAREST_NEIGHBOR: D2D1_SCALE_INTERPOLATION_MODE = 0u32;
+pub const D2D1_SCALE_INTERPOLATION_MODE_NEAREST_NEIGHBOR: D2D1_SCALE_INTERPOLATION_MODE = D2D1_SCALE_INTERPOLATION_MODE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SCALE_INTERPOLATION_MODE_LINEAR: D2D1_SCALE_INTERPOLATION_MODE = 1u32;
+pub const D2D1_SCALE_INTERPOLATION_MODE_LINEAR: D2D1_SCALE_INTERPOLATION_MODE = D2D1_SCALE_INTERPOLATION_MODE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SCALE_INTERPOLATION_MODE_CUBIC: D2D1_SCALE_INTERPOLATION_MODE = 2u32;
+pub const D2D1_SCALE_INTERPOLATION_MODE_CUBIC: D2D1_SCALE_INTERPOLATION_MODE = D2D1_SCALE_INTERPOLATION_MODE(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SCALE_INTERPOLATION_MODE_MULTI_SAMPLE_LINEAR: D2D1_SCALE_INTERPOLATION_MODE = 3u32;
+pub const D2D1_SCALE_INTERPOLATION_MODE_MULTI_SAMPLE_LINEAR: D2D1_SCALE_INTERPOLATION_MODE = D2D1_SCALE_INTERPOLATION_MODE(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SCALE_INTERPOLATION_MODE_ANISOTROPIC: D2D1_SCALE_INTERPOLATION_MODE = 4u32;
+pub const D2D1_SCALE_INTERPOLATION_MODE_ANISOTROPIC: D2D1_SCALE_INTERPOLATION_MODE = D2D1_SCALE_INTERPOLATION_MODE(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SCALE_INTERPOLATION_MODE_HIGH_QUALITY_CUBIC: D2D1_SCALE_INTERPOLATION_MODE = 5u32;
+pub const D2D1_SCALE_INTERPOLATION_MODE_HIGH_QUALITY_CUBIC: D2D1_SCALE_INTERPOLATION_MODE = D2D1_SCALE_INTERPOLATION_MODE(5u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SCALE_INTERPOLATION_MODE_FORCE_DWORD: D2D1_SCALE_INTERPOLATION_MODE = 4294967295u32;
+pub const D2D1_SCALE_INTERPOLATION_MODE_FORCE_DWORD: D2D1_SCALE_INTERPOLATION_MODE = D2D1_SCALE_INTERPOLATION_MODE(4294967295u32);
+impl ::core::marker::Copy for D2D1_SCALE_INTERPOLATION_MODE {}
+impl ::core::clone::Clone for D2D1_SCALE_INTERPOLATION_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_SCALE_INTERPOLATION_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_SCALE_INTERPOLATION_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_SCALE_INTERPOLATION_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_SCALE_INTERPOLATION_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_SCALE_INTERPOLATION_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_SCALE_INTERPOLATION_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_SCALE_INTERPOLATION_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_SCALE_INTERPOLATION_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_SCALE_PROP = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_SCALE_PROP(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SCALE_PROP_SCALE: D2D1_SCALE_PROP = 0u32;
+pub const D2D1_SCALE_PROP_SCALE: D2D1_SCALE_PROP = D2D1_SCALE_PROP(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SCALE_PROP_CENTER_POINT: D2D1_SCALE_PROP = 1u32;
+pub const D2D1_SCALE_PROP_CENTER_POINT: D2D1_SCALE_PROP = D2D1_SCALE_PROP(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SCALE_PROP_INTERPOLATION_MODE: D2D1_SCALE_PROP = 2u32;
+pub const D2D1_SCALE_PROP_INTERPOLATION_MODE: D2D1_SCALE_PROP = D2D1_SCALE_PROP(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SCALE_PROP_BORDER_MODE: D2D1_SCALE_PROP = 3u32;
+pub const D2D1_SCALE_PROP_BORDER_MODE: D2D1_SCALE_PROP = D2D1_SCALE_PROP(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SCALE_PROP_SHARPNESS: D2D1_SCALE_PROP = 4u32;
+pub const D2D1_SCALE_PROP_SHARPNESS: D2D1_SCALE_PROP = D2D1_SCALE_PROP(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SCALE_PROP_FORCE_DWORD: D2D1_SCALE_PROP = 4294967295u32;
+pub const D2D1_SCALE_PROP_FORCE_DWORD: D2D1_SCALE_PROP = D2D1_SCALE_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_SCALE_PROP {}
+impl ::core::clone::Clone for D2D1_SCALE_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_SCALE_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_SCALE_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_SCALE_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_SCALE_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_SCALE_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_SCALE_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_SCALE_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_SCALE_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const D2D1_SCENE_REFERRED_SDR_WHITE_LEVEL: f32 = 80f32;
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_SEPIA_PROP = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_SEPIA_PROP(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SEPIA_PROP_INTENSITY: D2D1_SEPIA_PROP = 0u32;
+pub const D2D1_SEPIA_PROP_INTENSITY: D2D1_SEPIA_PROP = D2D1_SEPIA_PROP(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SEPIA_PROP_ALPHA_MODE: D2D1_SEPIA_PROP = 1u32;
+pub const D2D1_SEPIA_PROP_ALPHA_MODE: D2D1_SEPIA_PROP = D2D1_SEPIA_PROP(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SEPIA_PROP_FORCE_DWORD: D2D1_SEPIA_PROP = 4294967295u32;
+pub const D2D1_SEPIA_PROP_FORCE_DWORD: D2D1_SEPIA_PROP = D2D1_SEPIA_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_SEPIA_PROP {}
+impl ::core::clone::Clone for D2D1_SEPIA_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_SEPIA_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_SEPIA_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_SEPIA_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_SEPIA_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_SEPIA_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_SEPIA_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_SEPIA_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_SEPIA_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_SHADOW_OPTIMIZATION = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_SHADOW_OPTIMIZATION(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SHADOW_OPTIMIZATION_SPEED: D2D1_SHADOW_OPTIMIZATION = 0u32;
+pub const D2D1_SHADOW_OPTIMIZATION_SPEED: D2D1_SHADOW_OPTIMIZATION = D2D1_SHADOW_OPTIMIZATION(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SHADOW_OPTIMIZATION_BALANCED: D2D1_SHADOW_OPTIMIZATION = 1u32;
+pub const D2D1_SHADOW_OPTIMIZATION_BALANCED: D2D1_SHADOW_OPTIMIZATION = D2D1_SHADOW_OPTIMIZATION(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SHADOW_OPTIMIZATION_QUALITY: D2D1_SHADOW_OPTIMIZATION = 2u32;
+pub const D2D1_SHADOW_OPTIMIZATION_QUALITY: D2D1_SHADOW_OPTIMIZATION = D2D1_SHADOW_OPTIMIZATION(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SHADOW_OPTIMIZATION_FORCE_DWORD: D2D1_SHADOW_OPTIMIZATION = 4294967295u32;
+pub const D2D1_SHADOW_OPTIMIZATION_FORCE_DWORD: D2D1_SHADOW_OPTIMIZATION = D2D1_SHADOW_OPTIMIZATION(4294967295u32);
+impl ::core::marker::Copy for D2D1_SHADOW_OPTIMIZATION {}
+impl ::core::clone::Clone for D2D1_SHADOW_OPTIMIZATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_SHADOW_OPTIMIZATION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_SHADOW_OPTIMIZATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_SHADOW_OPTIMIZATION").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_SHADOW_OPTIMIZATION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_SHADOW_OPTIMIZATION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_SHADOW_OPTIMIZATION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_SHADOW_OPTIMIZATION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_SHADOW_OPTIMIZATION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_SHADOW_PROP = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_SHADOW_PROP(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SHADOW_PROP_BLUR_STANDARD_DEVIATION: D2D1_SHADOW_PROP = 0u32;
+pub const D2D1_SHADOW_PROP_BLUR_STANDARD_DEVIATION: D2D1_SHADOW_PROP = D2D1_SHADOW_PROP(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SHADOW_PROP_COLOR: D2D1_SHADOW_PROP = 1u32;
+pub const D2D1_SHADOW_PROP_COLOR: D2D1_SHADOW_PROP = D2D1_SHADOW_PROP(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SHADOW_PROP_OPTIMIZATION: D2D1_SHADOW_PROP = 2u32;
+pub const D2D1_SHADOW_PROP_OPTIMIZATION: D2D1_SHADOW_PROP = D2D1_SHADOW_PROP(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SHADOW_PROP_FORCE_DWORD: D2D1_SHADOW_PROP = 4294967295u32;
+pub const D2D1_SHADOW_PROP_FORCE_DWORD: D2D1_SHADOW_PROP = D2D1_SHADOW_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_SHADOW_PROP {}
+impl ::core::clone::Clone for D2D1_SHADOW_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_SHADOW_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_SHADOW_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_SHADOW_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_SHADOW_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_SHADOW_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_SHADOW_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_SHADOW_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_SHADOW_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_SHARPEN_PROP = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_SHARPEN_PROP(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SHARPEN_PROP_SHARPNESS: D2D1_SHARPEN_PROP = 0u32;
+pub const D2D1_SHARPEN_PROP_SHARPNESS: D2D1_SHARPEN_PROP = D2D1_SHARPEN_PROP(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SHARPEN_PROP_THRESHOLD: D2D1_SHARPEN_PROP = 1u32;
+pub const D2D1_SHARPEN_PROP_THRESHOLD: D2D1_SHARPEN_PROP = D2D1_SHARPEN_PROP(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SHARPEN_PROP_FORCE_DWORD: D2D1_SHARPEN_PROP = 4294967295u32;
+pub const D2D1_SHARPEN_PROP_FORCE_DWORD: D2D1_SHARPEN_PROP = D2D1_SHARPEN_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_SHARPEN_PROP {}
+impl ::core::clone::Clone for D2D1_SHARPEN_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_SHARPEN_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_SHARPEN_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_SHARPEN_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_SHARPEN_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_SHARPEN_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_SHARPEN_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_SHARPEN_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_SHARPEN_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Graphics_Direct2D_Common'*"]
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
@@ -3331,115 +8803,423 @@ impl ::core::default::Default for D2D1_SIMPLE_COLOR_PROFILE {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_SPOTDIFFUSE_PROP = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_SPOTDIFFUSE_PROP(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SPOTDIFFUSE_PROP_LIGHT_POSITION: D2D1_SPOTDIFFUSE_PROP = 0u32;
+pub const D2D1_SPOTDIFFUSE_PROP_LIGHT_POSITION: D2D1_SPOTDIFFUSE_PROP = D2D1_SPOTDIFFUSE_PROP(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SPOTDIFFUSE_PROP_POINTS_AT: D2D1_SPOTDIFFUSE_PROP = 1u32;
+pub const D2D1_SPOTDIFFUSE_PROP_POINTS_AT: D2D1_SPOTDIFFUSE_PROP = D2D1_SPOTDIFFUSE_PROP(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SPOTDIFFUSE_PROP_FOCUS: D2D1_SPOTDIFFUSE_PROP = 2u32;
+pub const D2D1_SPOTDIFFUSE_PROP_FOCUS: D2D1_SPOTDIFFUSE_PROP = D2D1_SPOTDIFFUSE_PROP(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SPOTDIFFUSE_PROP_LIMITING_CONE_ANGLE: D2D1_SPOTDIFFUSE_PROP = 3u32;
+pub const D2D1_SPOTDIFFUSE_PROP_LIMITING_CONE_ANGLE: D2D1_SPOTDIFFUSE_PROP = D2D1_SPOTDIFFUSE_PROP(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SPOTDIFFUSE_PROP_DIFFUSE_CONSTANT: D2D1_SPOTDIFFUSE_PROP = 4u32;
+pub const D2D1_SPOTDIFFUSE_PROP_DIFFUSE_CONSTANT: D2D1_SPOTDIFFUSE_PROP = D2D1_SPOTDIFFUSE_PROP(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SPOTDIFFUSE_PROP_SURFACE_SCALE: D2D1_SPOTDIFFUSE_PROP = 5u32;
+pub const D2D1_SPOTDIFFUSE_PROP_SURFACE_SCALE: D2D1_SPOTDIFFUSE_PROP = D2D1_SPOTDIFFUSE_PROP(5u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SPOTDIFFUSE_PROP_COLOR: D2D1_SPOTDIFFUSE_PROP = 6u32;
+pub const D2D1_SPOTDIFFUSE_PROP_COLOR: D2D1_SPOTDIFFUSE_PROP = D2D1_SPOTDIFFUSE_PROP(6u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SPOTDIFFUSE_PROP_KERNEL_UNIT_LENGTH: D2D1_SPOTDIFFUSE_PROP = 7u32;
+pub const D2D1_SPOTDIFFUSE_PROP_KERNEL_UNIT_LENGTH: D2D1_SPOTDIFFUSE_PROP = D2D1_SPOTDIFFUSE_PROP(7u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SPOTDIFFUSE_PROP_SCALE_MODE: D2D1_SPOTDIFFUSE_PROP = 8u32;
+pub const D2D1_SPOTDIFFUSE_PROP_SCALE_MODE: D2D1_SPOTDIFFUSE_PROP = D2D1_SPOTDIFFUSE_PROP(8u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SPOTDIFFUSE_PROP_FORCE_DWORD: D2D1_SPOTDIFFUSE_PROP = 4294967295u32;
+pub const D2D1_SPOTDIFFUSE_PROP_FORCE_DWORD: D2D1_SPOTDIFFUSE_PROP = D2D1_SPOTDIFFUSE_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_SPOTDIFFUSE_PROP {}
+impl ::core::clone::Clone for D2D1_SPOTDIFFUSE_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_SPOTDIFFUSE_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_SPOTDIFFUSE_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_SPOTDIFFUSE_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_SPOTDIFFUSE_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_SPOTDIFFUSE_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_SPOTDIFFUSE_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_SPOTDIFFUSE_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_SPOTDIFFUSE_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_SPOTDIFFUSE_SCALE_MODE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_SPOTDIFFUSE_SCALE_MODE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SPOTDIFFUSE_SCALE_MODE_NEAREST_NEIGHBOR: D2D1_SPOTDIFFUSE_SCALE_MODE = 0u32;
+pub const D2D1_SPOTDIFFUSE_SCALE_MODE_NEAREST_NEIGHBOR: D2D1_SPOTDIFFUSE_SCALE_MODE = D2D1_SPOTDIFFUSE_SCALE_MODE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SPOTDIFFUSE_SCALE_MODE_LINEAR: D2D1_SPOTDIFFUSE_SCALE_MODE = 1u32;
+pub const D2D1_SPOTDIFFUSE_SCALE_MODE_LINEAR: D2D1_SPOTDIFFUSE_SCALE_MODE = D2D1_SPOTDIFFUSE_SCALE_MODE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SPOTDIFFUSE_SCALE_MODE_CUBIC: D2D1_SPOTDIFFUSE_SCALE_MODE = 2u32;
+pub const D2D1_SPOTDIFFUSE_SCALE_MODE_CUBIC: D2D1_SPOTDIFFUSE_SCALE_MODE = D2D1_SPOTDIFFUSE_SCALE_MODE(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SPOTDIFFUSE_SCALE_MODE_MULTI_SAMPLE_LINEAR: D2D1_SPOTDIFFUSE_SCALE_MODE = 3u32;
+pub const D2D1_SPOTDIFFUSE_SCALE_MODE_MULTI_SAMPLE_LINEAR: D2D1_SPOTDIFFUSE_SCALE_MODE = D2D1_SPOTDIFFUSE_SCALE_MODE(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SPOTDIFFUSE_SCALE_MODE_ANISOTROPIC: D2D1_SPOTDIFFUSE_SCALE_MODE = 4u32;
+pub const D2D1_SPOTDIFFUSE_SCALE_MODE_ANISOTROPIC: D2D1_SPOTDIFFUSE_SCALE_MODE = D2D1_SPOTDIFFUSE_SCALE_MODE(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SPOTDIFFUSE_SCALE_MODE_HIGH_QUALITY_CUBIC: D2D1_SPOTDIFFUSE_SCALE_MODE = 5u32;
+pub const D2D1_SPOTDIFFUSE_SCALE_MODE_HIGH_QUALITY_CUBIC: D2D1_SPOTDIFFUSE_SCALE_MODE = D2D1_SPOTDIFFUSE_SCALE_MODE(5u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SPOTDIFFUSE_SCALE_MODE_FORCE_DWORD: D2D1_SPOTDIFFUSE_SCALE_MODE = 4294967295u32;
+pub const D2D1_SPOTDIFFUSE_SCALE_MODE_FORCE_DWORD: D2D1_SPOTDIFFUSE_SCALE_MODE = D2D1_SPOTDIFFUSE_SCALE_MODE(4294967295u32);
+impl ::core::marker::Copy for D2D1_SPOTDIFFUSE_SCALE_MODE {}
+impl ::core::clone::Clone for D2D1_SPOTDIFFUSE_SCALE_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_SPOTDIFFUSE_SCALE_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_SPOTDIFFUSE_SCALE_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_SPOTDIFFUSE_SCALE_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_SPOTDIFFUSE_SCALE_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_SPOTDIFFUSE_SCALE_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_SPOTDIFFUSE_SCALE_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_SPOTDIFFUSE_SCALE_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_SPOTDIFFUSE_SCALE_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_SPOTSPECULAR_PROP = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_SPOTSPECULAR_PROP(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SPOTSPECULAR_PROP_LIGHT_POSITION: D2D1_SPOTSPECULAR_PROP = 0u32;
+pub const D2D1_SPOTSPECULAR_PROP_LIGHT_POSITION: D2D1_SPOTSPECULAR_PROP = D2D1_SPOTSPECULAR_PROP(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SPOTSPECULAR_PROP_POINTS_AT: D2D1_SPOTSPECULAR_PROP = 1u32;
+pub const D2D1_SPOTSPECULAR_PROP_POINTS_AT: D2D1_SPOTSPECULAR_PROP = D2D1_SPOTSPECULAR_PROP(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SPOTSPECULAR_PROP_FOCUS: D2D1_SPOTSPECULAR_PROP = 2u32;
+pub const D2D1_SPOTSPECULAR_PROP_FOCUS: D2D1_SPOTSPECULAR_PROP = D2D1_SPOTSPECULAR_PROP(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SPOTSPECULAR_PROP_LIMITING_CONE_ANGLE: D2D1_SPOTSPECULAR_PROP = 3u32;
+pub const D2D1_SPOTSPECULAR_PROP_LIMITING_CONE_ANGLE: D2D1_SPOTSPECULAR_PROP = D2D1_SPOTSPECULAR_PROP(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SPOTSPECULAR_PROP_SPECULAR_EXPONENT: D2D1_SPOTSPECULAR_PROP = 4u32;
+pub const D2D1_SPOTSPECULAR_PROP_SPECULAR_EXPONENT: D2D1_SPOTSPECULAR_PROP = D2D1_SPOTSPECULAR_PROP(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SPOTSPECULAR_PROP_SPECULAR_CONSTANT: D2D1_SPOTSPECULAR_PROP = 5u32;
+pub const D2D1_SPOTSPECULAR_PROP_SPECULAR_CONSTANT: D2D1_SPOTSPECULAR_PROP = D2D1_SPOTSPECULAR_PROP(5u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SPOTSPECULAR_PROP_SURFACE_SCALE: D2D1_SPOTSPECULAR_PROP = 6u32;
+pub const D2D1_SPOTSPECULAR_PROP_SURFACE_SCALE: D2D1_SPOTSPECULAR_PROP = D2D1_SPOTSPECULAR_PROP(6u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SPOTSPECULAR_PROP_COLOR: D2D1_SPOTSPECULAR_PROP = 7u32;
+pub const D2D1_SPOTSPECULAR_PROP_COLOR: D2D1_SPOTSPECULAR_PROP = D2D1_SPOTSPECULAR_PROP(7u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SPOTSPECULAR_PROP_KERNEL_UNIT_LENGTH: D2D1_SPOTSPECULAR_PROP = 8u32;
+pub const D2D1_SPOTSPECULAR_PROP_KERNEL_UNIT_LENGTH: D2D1_SPOTSPECULAR_PROP = D2D1_SPOTSPECULAR_PROP(8u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SPOTSPECULAR_PROP_SCALE_MODE: D2D1_SPOTSPECULAR_PROP = 9u32;
+pub const D2D1_SPOTSPECULAR_PROP_SCALE_MODE: D2D1_SPOTSPECULAR_PROP = D2D1_SPOTSPECULAR_PROP(9u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SPOTSPECULAR_PROP_FORCE_DWORD: D2D1_SPOTSPECULAR_PROP = 4294967295u32;
+pub const D2D1_SPOTSPECULAR_PROP_FORCE_DWORD: D2D1_SPOTSPECULAR_PROP = D2D1_SPOTSPECULAR_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_SPOTSPECULAR_PROP {}
+impl ::core::clone::Clone for D2D1_SPOTSPECULAR_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_SPOTSPECULAR_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_SPOTSPECULAR_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_SPOTSPECULAR_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_SPOTSPECULAR_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_SPOTSPECULAR_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_SPOTSPECULAR_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_SPOTSPECULAR_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_SPOTSPECULAR_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_SPOTSPECULAR_SCALE_MODE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_SPOTSPECULAR_SCALE_MODE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SPOTSPECULAR_SCALE_MODE_NEAREST_NEIGHBOR: D2D1_SPOTSPECULAR_SCALE_MODE = 0u32;
+pub const D2D1_SPOTSPECULAR_SCALE_MODE_NEAREST_NEIGHBOR: D2D1_SPOTSPECULAR_SCALE_MODE = D2D1_SPOTSPECULAR_SCALE_MODE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SPOTSPECULAR_SCALE_MODE_LINEAR: D2D1_SPOTSPECULAR_SCALE_MODE = 1u32;
+pub const D2D1_SPOTSPECULAR_SCALE_MODE_LINEAR: D2D1_SPOTSPECULAR_SCALE_MODE = D2D1_SPOTSPECULAR_SCALE_MODE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SPOTSPECULAR_SCALE_MODE_CUBIC: D2D1_SPOTSPECULAR_SCALE_MODE = 2u32;
+pub const D2D1_SPOTSPECULAR_SCALE_MODE_CUBIC: D2D1_SPOTSPECULAR_SCALE_MODE = D2D1_SPOTSPECULAR_SCALE_MODE(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SPOTSPECULAR_SCALE_MODE_MULTI_SAMPLE_LINEAR: D2D1_SPOTSPECULAR_SCALE_MODE = 3u32;
+pub const D2D1_SPOTSPECULAR_SCALE_MODE_MULTI_SAMPLE_LINEAR: D2D1_SPOTSPECULAR_SCALE_MODE = D2D1_SPOTSPECULAR_SCALE_MODE(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SPOTSPECULAR_SCALE_MODE_ANISOTROPIC: D2D1_SPOTSPECULAR_SCALE_MODE = 4u32;
+pub const D2D1_SPOTSPECULAR_SCALE_MODE_ANISOTROPIC: D2D1_SPOTSPECULAR_SCALE_MODE = D2D1_SPOTSPECULAR_SCALE_MODE(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SPOTSPECULAR_SCALE_MODE_HIGH_QUALITY_CUBIC: D2D1_SPOTSPECULAR_SCALE_MODE = 5u32;
+pub const D2D1_SPOTSPECULAR_SCALE_MODE_HIGH_QUALITY_CUBIC: D2D1_SPOTSPECULAR_SCALE_MODE = D2D1_SPOTSPECULAR_SCALE_MODE(5u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SPOTSPECULAR_SCALE_MODE_FORCE_DWORD: D2D1_SPOTSPECULAR_SCALE_MODE = 4294967295u32;
+pub const D2D1_SPOTSPECULAR_SCALE_MODE_FORCE_DWORD: D2D1_SPOTSPECULAR_SCALE_MODE = D2D1_SPOTSPECULAR_SCALE_MODE(4294967295u32);
+impl ::core::marker::Copy for D2D1_SPOTSPECULAR_SCALE_MODE {}
+impl ::core::clone::Clone for D2D1_SPOTSPECULAR_SCALE_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_SPOTSPECULAR_SCALE_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_SPOTSPECULAR_SCALE_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_SPOTSPECULAR_SCALE_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_SPOTSPECULAR_SCALE_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_SPOTSPECULAR_SCALE_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_SPOTSPECULAR_SCALE_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_SPOTSPECULAR_SCALE_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_SPOTSPECULAR_SCALE_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_SPRITE_OPTIONS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_SPRITE_OPTIONS(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SPRITE_OPTIONS_NONE: D2D1_SPRITE_OPTIONS = 0u32;
+pub const D2D1_SPRITE_OPTIONS_NONE: D2D1_SPRITE_OPTIONS = D2D1_SPRITE_OPTIONS(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SPRITE_OPTIONS_CLAMP_TO_SOURCE_RECTANGLE: D2D1_SPRITE_OPTIONS = 1u32;
+pub const D2D1_SPRITE_OPTIONS_CLAMP_TO_SOURCE_RECTANGLE: D2D1_SPRITE_OPTIONS = D2D1_SPRITE_OPTIONS(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SPRITE_OPTIONS_FORCE_DWORD: D2D1_SPRITE_OPTIONS = 4294967295u32;
+pub const D2D1_SPRITE_OPTIONS_FORCE_DWORD: D2D1_SPRITE_OPTIONS = D2D1_SPRITE_OPTIONS(4294967295u32);
+impl ::core::marker::Copy for D2D1_SPRITE_OPTIONS {}
+impl ::core::clone::Clone for D2D1_SPRITE_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_SPRITE_OPTIONS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_SPRITE_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_SPRITE_OPTIONS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_SPRITE_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_SPRITE_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_SPRITE_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_SPRITE_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_SPRITE_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_STRAIGHTEN_PROP = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_STRAIGHTEN_PROP(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_STRAIGHTEN_PROP_ANGLE: D2D1_STRAIGHTEN_PROP = 0u32;
+pub const D2D1_STRAIGHTEN_PROP_ANGLE: D2D1_STRAIGHTEN_PROP = D2D1_STRAIGHTEN_PROP(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_STRAIGHTEN_PROP_MAINTAIN_SIZE: D2D1_STRAIGHTEN_PROP = 1u32;
+pub const D2D1_STRAIGHTEN_PROP_MAINTAIN_SIZE: D2D1_STRAIGHTEN_PROP = D2D1_STRAIGHTEN_PROP(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_STRAIGHTEN_PROP_SCALE_MODE: D2D1_STRAIGHTEN_PROP = 2u32;
+pub const D2D1_STRAIGHTEN_PROP_SCALE_MODE: D2D1_STRAIGHTEN_PROP = D2D1_STRAIGHTEN_PROP(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_STRAIGHTEN_PROP_FORCE_DWORD: D2D1_STRAIGHTEN_PROP = 4294967295u32;
+pub const D2D1_STRAIGHTEN_PROP_FORCE_DWORD: D2D1_STRAIGHTEN_PROP = D2D1_STRAIGHTEN_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_STRAIGHTEN_PROP {}
+impl ::core::clone::Clone for D2D1_STRAIGHTEN_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_STRAIGHTEN_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_STRAIGHTEN_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_STRAIGHTEN_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_STRAIGHTEN_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_STRAIGHTEN_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_STRAIGHTEN_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_STRAIGHTEN_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_STRAIGHTEN_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_STRAIGHTEN_SCALE_MODE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_STRAIGHTEN_SCALE_MODE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_STRAIGHTEN_SCALE_MODE_NEAREST_NEIGHBOR: D2D1_STRAIGHTEN_SCALE_MODE = 0u32;
+pub const D2D1_STRAIGHTEN_SCALE_MODE_NEAREST_NEIGHBOR: D2D1_STRAIGHTEN_SCALE_MODE = D2D1_STRAIGHTEN_SCALE_MODE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_STRAIGHTEN_SCALE_MODE_LINEAR: D2D1_STRAIGHTEN_SCALE_MODE = 1u32;
+pub const D2D1_STRAIGHTEN_SCALE_MODE_LINEAR: D2D1_STRAIGHTEN_SCALE_MODE = D2D1_STRAIGHTEN_SCALE_MODE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_STRAIGHTEN_SCALE_MODE_CUBIC: D2D1_STRAIGHTEN_SCALE_MODE = 2u32;
+pub const D2D1_STRAIGHTEN_SCALE_MODE_CUBIC: D2D1_STRAIGHTEN_SCALE_MODE = D2D1_STRAIGHTEN_SCALE_MODE(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_STRAIGHTEN_SCALE_MODE_MULTI_SAMPLE_LINEAR: D2D1_STRAIGHTEN_SCALE_MODE = 3u32;
+pub const D2D1_STRAIGHTEN_SCALE_MODE_MULTI_SAMPLE_LINEAR: D2D1_STRAIGHTEN_SCALE_MODE = D2D1_STRAIGHTEN_SCALE_MODE(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_STRAIGHTEN_SCALE_MODE_ANISOTROPIC: D2D1_STRAIGHTEN_SCALE_MODE = 4u32;
+pub const D2D1_STRAIGHTEN_SCALE_MODE_ANISOTROPIC: D2D1_STRAIGHTEN_SCALE_MODE = D2D1_STRAIGHTEN_SCALE_MODE(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_STRAIGHTEN_SCALE_MODE_FORCE_DWORD: D2D1_STRAIGHTEN_SCALE_MODE = 4294967295u32;
+pub const D2D1_STRAIGHTEN_SCALE_MODE_FORCE_DWORD: D2D1_STRAIGHTEN_SCALE_MODE = D2D1_STRAIGHTEN_SCALE_MODE(4294967295u32);
+impl ::core::marker::Copy for D2D1_STRAIGHTEN_SCALE_MODE {}
+impl ::core::clone::Clone for D2D1_STRAIGHTEN_SCALE_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_STRAIGHTEN_SCALE_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_STRAIGHTEN_SCALE_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_STRAIGHTEN_SCALE_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_STRAIGHTEN_SCALE_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_STRAIGHTEN_SCALE_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_STRAIGHTEN_SCALE_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_STRAIGHTEN_SCALE_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_STRAIGHTEN_SCALE_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub struct D2D1_STROKE_STYLE_PROPERTIES {
@@ -3514,113 +9294,421 @@ impl ::core::default::Default for D2D1_STROKE_STYLE_PROPERTIES1 {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_STROKE_TRANSFORM_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_STROKE_TRANSFORM_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_STROKE_TRANSFORM_TYPE_NORMAL: D2D1_STROKE_TRANSFORM_TYPE = 0u32;
+pub const D2D1_STROKE_TRANSFORM_TYPE_NORMAL: D2D1_STROKE_TRANSFORM_TYPE = D2D1_STROKE_TRANSFORM_TYPE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_STROKE_TRANSFORM_TYPE_FIXED: D2D1_STROKE_TRANSFORM_TYPE = 1u32;
+pub const D2D1_STROKE_TRANSFORM_TYPE_FIXED: D2D1_STROKE_TRANSFORM_TYPE = D2D1_STROKE_TRANSFORM_TYPE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_STROKE_TRANSFORM_TYPE_HAIRLINE: D2D1_STROKE_TRANSFORM_TYPE = 2u32;
+pub const D2D1_STROKE_TRANSFORM_TYPE_HAIRLINE: D2D1_STROKE_TRANSFORM_TYPE = D2D1_STROKE_TRANSFORM_TYPE(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_STROKE_TRANSFORM_TYPE_FORCE_DWORD: D2D1_STROKE_TRANSFORM_TYPE = 4294967295u32;
+pub const D2D1_STROKE_TRANSFORM_TYPE_FORCE_DWORD: D2D1_STROKE_TRANSFORM_TYPE = D2D1_STROKE_TRANSFORM_TYPE(4294967295u32);
+impl ::core::marker::Copy for D2D1_STROKE_TRANSFORM_TYPE {}
+impl ::core::clone::Clone for D2D1_STROKE_TRANSFORM_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_STROKE_TRANSFORM_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_STROKE_TRANSFORM_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_STROKE_TRANSFORM_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_STROKE_TRANSFORM_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_STROKE_TRANSFORM_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_STROKE_TRANSFORM_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_STROKE_TRANSFORM_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_STROKE_TRANSFORM_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_SUBPROPERTY = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_SUBPROPERTY(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SUBPROPERTY_DISPLAYNAME: D2D1_SUBPROPERTY = 2147483648u32;
+pub const D2D1_SUBPROPERTY_DISPLAYNAME: D2D1_SUBPROPERTY = D2D1_SUBPROPERTY(2147483648u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SUBPROPERTY_ISREADONLY: D2D1_SUBPROPERTY = 2147483649u32;
+pub const D2D1_SUBPROPERTY_ISREADONLY: D2D1_SUBPROPERTY = D2D1_SUBPROPERTY(2147483649u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SUBPROPERTY_MIN: D2D1_SUBPROPERTY = 2147483650u32;
+pub const D2D1_SUBPROPERTY_MIN: D2D1_SUBPROPERTY = D2D1_SUBPROPERTY(2147483650u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SUBPROPERTY_MAX: D2D1_SUBPROPERTY = 2147483651u32;
+pub const D2D1_SUBPROPERTY_MAX: D2D1_SUBPROPERTY = D2D1_SUBPROPERTY(2147483651u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SUBPROPERTY_DEFAULT: D2D1_SUBPROPERTY = 2147483652u32;
+pub const D2D1_SUBPROPERTY_DEFAULT: D2D1_SUBPROPERTY = D2D1_SUBPROPERTY(2147483652u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SUBPROPERTY_FIELDS: D2D1_SUBPROPERTY = 2147483653u32;
+pub const D2D1_SUBPROPERTY_FIELDS: D2D1_SUBPROPERTY = D2D1_SUBPROPERTY(2147483653u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SUBPROPERTY_INDEX: D2D1_SUBPROPERTY = 2147483654u32;
+pub const D2D1_SUBPROPERTY_INDEX: D2D1_SUBPROPERTY = D2D1_SUBPROPERTY(2147483654u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SUBPROPERTY_FORCE_DWORD: D2D1_SUBPROPERTY = 4294967295u32;
+pub const D2D1_SUBPROPERTY_FORCE_DWORD: D2D1_SUBPROPERTY = D2D1_SUBPROPERTY(4294967295u32);
+impl ::core::marker::Copy for D2D1_SUBPROPERTY {}
+impl ::core::clone::Clone for D2D1_SUBPROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_SUBPROPERTY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_SUBPROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_SUBPROPERTY").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_SUBPROPERTY {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_SUBPROPERTY {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_SUBPROPERTY {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_SUBPROPERTY {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_SUBPROPERTY {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_SVG_ASPECT_ALIGN = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_SVG_ASPECT_ALIGN(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_ASPECT_ALIGN_NONE: D2D1_SVG_ASPECT_ALIGN = 0u32;
+pub const D2D1_SVG_ASPECT_ALIGN_NONE: D2D1_SVG_ASPECT_ALIGN = D2D1_SVG_ASPECT_ALIGN(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_ASPECT_ALIGN_X_MIN_Y_MIN: D2D1_SVG_ASPECT_ALIGN = 1u32;
+pub const D2D1_SVG_ASPECT_ALIGN_X_MIN_Y_MIN: D2D1_SVG_ASPECT_ALIGN = D2D1_SVG_ASPECT_ALIGN(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_ASPECT_ALIGN_X_MID_Y_MIN: D2D1_SVG_ASPECT_ALIGN = 2u32;
+pub const D2D1_SVG_ASPECT_ALIGN_X_MID_Y_MIN: D2D1_SVG_ASPECT_ALIGN = D2D1_SVG_ASPECT_ALIGN(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_ASPECT_ALIGN_X_MAX_Y_MIN: D2D1_SVG_ASPECT_ALIGN = 3u32;
+pub const D2D1_SVG_ASPECT_ALIGN_X_MAX_Y_MIN: D2D1_SVG_ASPECT_ALIGN = D2D1_SVG_ASPECT_ALIGN(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_ASPECT_ALIGN_X_MIN_Y_MID: D2D1_SVG_ASPECT_ALIGN = 4u32;
+pub const D2D1_SVG_ASPECT_ALIGN_X_MIN_Y_MID: D2D1_SVG_ASPECT_ALIGN = D2D1_SVG_ASPECT_ALIGN(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_ASPECT_ALIGN_X_MID_Y_MID: D2D1_SVG_ASPECT_ALIGN = 5u32;
+pub const D2D1_SVG_ASPECT_ALIGN_X_MID_Y_MID: D2D1_SVG_ASPECT_ALIGN = D2D1_SVG_ASPECT_ALIGN(5u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_ASPECT_ALIGN_X_MAX_Y_MID: D2D1_SVG_ASPECT_ALIGN = 6u32;
+pub const D2D1_SVG_ASPECT_ALIGN_X_MAX_Y_MID: D2D1_SVG_ASPECT_ALIGN = D2D1_SVG_ASPECT_ALIGN(6u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_ASPECT_ALIGN_X_MIN_Y_MAX: D2D1_SVG_ASPECT_ALIGN = 7u32;
+pub const D2D1_SVG_ASPECT_ALIGN_X_MIN_Y_MAX: D2D1_SVG_ASPECT_ALIGN = D2D1_SVG_ASPECT_ALIGN(7u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_ASPECT_ALIGN_X_MID_Y_MAX: D2D1_SVG_ASPECT_ALIGN = 8u32;
+pub const D2D1_SVG_ASPECT_ALIGN_X_MID_Y_MAX: D2D1_SVG_ASPECT_ALIGN = D2D1_SVG_ASPECT_ALIGN(8u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_ASPECT_ALIGN_X_MAX_Y_MAX: D2D1_SVG_ASPECT_ALIGN = 9u32;
+pub const D2D1_SVG_ASPECT_ALIGN_X_MAX_Y_MAX: D2D1_SVG_ASPECT_ALIGN = D2D1_SVG_ASPECT_ALIGN(9u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_ASPECT_ALIGN_FORCE_DWORD: D2D1_SVG_ASPECT_ALIGN = 4294967295u32;
+pub const D2D1_SVG_ASPECT_ALIGN_FORCE_DWORD: D2D1_SVG_ASPECT_ALIGN = D2D1_SVG_ASPECT_ALIGN(4294967295u32);
+impl ::core::marker::Copy for D2D1_SVG_ASPECT_ALIGN {}
+impl ::core::clone::Clone for D2D1_SVG_ASPECT_ALIGN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_SVG_ASPECT_ALIGN {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_SVG_ASPECT_ALIGN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_SVG_ASPECT_ALIGN").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_SVG_ASPECT_ALIGN {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_SVG_ASPECT_ALIGN {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_SVG_ASPECT_ALIGN {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_SVG_ASPECT_ALIGN {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_SVG_ASPECT_ALIGN {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_SVG_ASPECT_SCALING = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_SVG_ASPECT_SCALING(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_ASPECT_SCALING_MEET: D2D1_SVG_ASPECT_SCALING = 0u32;
+pub const D2D1_SVG_ASPECT_SCALING_MEET: D2D1_SVG_ASPECT_SCALING = D2D1_SVG_ASPECT_SCALING(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_ASPECT_SCALING_SLICE: D2D1_SVG_ASPECT_SCALING = 1u32;
+pub const D2D1_SVG_ASPECT_SCALING_SLICE: D2D1_SVG_ASPECT_SCALING = D2D1_SVG_ASPECT_SCALING(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_ASPECT_SCALING_FORCE_DWORD: D2D1_SVG_ASPECT_SCALING = 4294967295u32;
+pub const D2D1_SVG_ASPECT_SCALING_FORCE_DWORD: D2D1_SVG_ASPECT_SCALING = D2D1_SVG_ASPECT_SCALING(4294967295u32);
+impl ::core::marker::Copy for D2D1_SVG_ASPECT_SCALING {}
+impl ::core::clone::Clone for D2D1_SVG_ASPECT_SCALING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_SVG_ASPECT_SCALING {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_SVG_ASPECT_SCALING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_SVG_ASPECT_SCALING").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_SVG_ASPECT_SCALING {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_SVG_ASPECT_SCALING {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_SVG_ASPECT_SCALING {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_SVG_ASPECT_SCALING {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_SVG_ASPECT_SCALING {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_SVG_ATTRIBUTE_POD_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_SVG_ATTRIBUTE_POD_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_FLOAT: D2D1_SVG_ATTRIBUTE_POD_TYPE = 0u32;
+pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_FLOAT: D2D1_SVG_ATTRIBUTE_POD_TYPE = D2D1_SVG_ATTRIBUTE_POD_TYPE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_COLOR: D2D1_SVG_ATTRIBUTE_POD_TYPE = 1u32;
+pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_COLOR: D2D1_SVG_ATTRIBUTE_POD_TYPE = D2D1_SVG_ATTRIBUTE_POD_TYPE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_FILL_MODE: D2D1_SVG_ATTRIBUTE_POD_TYPE = 2u32;
+pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_FILL_MODE: D2D1_SVG_ATTRIBUTE_POD_TYPE = D2D1_SVG_ATTRIBUTE_POD_TYPE(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_DISPLAY: D2D1_SVG_ATTRIBUTE_POD_TYPE = 3u32;
+pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_DISPLAY: D2D1_SVG_ATTRIBUTE_POD_TYPE = D2D1_SVG_ATTRIBUTE_POD_TYPE(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_OVERFLOW: D2D1_SVG_ATTRIBUTE_POD_TYPE = 4u32;
+pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_OVERFLOW: D2D1_SVG_ATTRIBUTE_POD_TYPE = D2D1_SVG_ATTRIBUTE_POD_TYPE(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_LINE_CAP: D2D1_SVG_ATTRIBUTE_POD_TYPE = 5u32;
+pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_LINE_CAP: D2D1_SVG_ATTRIBUTE_POD_TYPE = D2D1_SVG_ATTRIBUTE_POD_TYPE(5u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_LINE_JOIN: D2D1_SVG_ATTRIBUTE_POD_TYPE = 6u32;
+pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_LINE_JOIN: D2D1_SVG_ATTRIBUTE_POD_TYPE = D2D1_SVG_ATTRIBUTE_POD_TYPE(6u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_VISIBILITY: D2D1_SVG_ATTRIBUTE_POD_TYPE = 7u32;
+pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_VISIBILITY: D2D1_SVG_ATTRIBUTE_POD_TYPE = D2D1_SVG_ATTRIBUTE_POD_TYPE(7u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_MATRIX: D2D1_SVG_ATTRIBUTE_POD_TYPE = 8u32;
+pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_MATRIX: D2D1_SVG_ATTRIBUTE_POD_TYPE = D2D1_SVG_ATTRIBUTE_POD_TYPE(8u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_UNIT_TYPE: D2D1_SVG_ATTRIBUTE_POD_TYPE = 9u32;
+pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_UNIT_TYPE: D2D1_SVG_ATTRIBUTE_POD_TYPE = D2D1_SVG_ATTRIBUTE_POD_TYPE(9u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_EXTEND_MODE: D2D1_SVG_ATTRIBUTE_POD_TYPE = 10u32;
+pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_EXTEND_MODE: D2D1_SVG_ATTRIBUTE_POD_TYPE = D2D1_SVG_ATTRIBUTE_POD_TYPE(10u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_PRESERVE_ASPECT_RATIO: D2D1_SVG_ATTRIBUTE_POD_TYPE = 11u32;
+pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_PRESERVE_ASPECT_RATIO: D2D1_SVG_ATTRIBUTE_POD_TYPE = D2D1_SVG_ATTRIBUTE_POD_TYPE(11u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_VIEWBOX: D2D1_SVG_ATTRIBUTE_POD_TYPE = 12u32;
+pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_VIEWBOX: D2D1_SVG_ATTRIBUTE_POD_TYPE = D2D1_SVG_ATTRIBUTE_POD_TYPE(12u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_LENGTH: D2D1_SVG_ATTRIBUTE_POD_TYPE = 13u32;
+pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_LENGTH: D2D1_SVG_ATTRIBUTE_POD_TYPE = D2D1_SVG_ATTRIBUTE_POD_TYPE(13u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_FORCE_DWORD: D2D1_SVG_ATTRIBUTE_POD_TYPE = 4294967295u32;
+pub const D2D1_SVG_ATTRIBUTE_POD_TYPE_FORCE_DWORD: D2D1_SVG_ATTRIBUTE_POD_TYPE = D2D1_SVG_ATTRIBUTE_POD_TYPE(4294967295u32);
+impl ::core::marker::Copy for D2D1_SVG_ATTRIBUTE_POD_TYPE {}
+impl ::core::clone::Clone for D2D1_SVG_ATTRIBUTE_POD_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_SVG_ATTRIBUTE_POD_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_SVG_ATTRIBUTE_POD_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_SVG_ATTRIBUTE_POD_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_SVG_ATTRIBUTE_POD_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_SVG_ATTRIBUTE_POD_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_SVG_ATTRIBUTE_POD_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_SVG_ATTRIBUTE_POD_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_SVG_ATTRIBUTE_POD_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_SVG_ATTRIBUTE_STRING_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_SVG_ATTRIBUTE_STRING_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_ATTRIBUTE_STRING_TYPE_SVG: D2D1_SVG_ATTRIBUTE_STRING_TYPE = 0u32;
+pub const D2D1_SVG_ATTRIBUTE_STRING_TYPE_SVG: D2D1_SVG_ATTRIBUTE_STRING_TYPE = D2D1_SVG_ATTRIBUTE_STRING_TYPE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_ATTRIBUTE_STRING_TYPE_ID: D2D1_SVG_ATTRIBUTE_STRING_TYPE = 1u32;
+pub const D2D1_SVG_ATTRIBUTE_STRING_TYPE_ID: D2D1_SVG_ATTRIBUTE_STRING_TYPE = D2D1_SVG_ATTRIBUTE_STRING_TYPE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_ATTRIBUTE_STRING_TYPE_FORCE_DWORD: D2D1_SVG_ATTRIBUTE_STRING_TYPE = 4294967295u32;
+pub const D2D1_SVG_ATTRIBUTE_STRING_TYPE_FORCE_DWORD: D2D1_SVG_ATTRIBUTE_STRING_TYPE = D2D1_SVG_ATTRIBUTE_STRING_TYPE(4294967295u32);
+impl ::core::marker::Copy for D2D1_SVG_ATTRIBUTE_STRING_TYPE {}
+impl ::core::clone::Clone for D2D1_SVG_ATTRIBUTE_STRING_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_SVG_ATTRIBUTE_STRING_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_SVG_ATTRIBUTE_STRING_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_SVG_ATTRIBUTE_STRING_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_SVG_ATTRIBUTE_STRING_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_SVG_ATTRIBUTE_STRING_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_SVG_ATTRIBUTE_STRING_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_SVG_ATTRIBUTE_STRING_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_SVG_ATTRIBUTE_STRING_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_SVG_DISPLAY = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_SVG_DISPLAY(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_DISPLAY_INLINE: D2D1_SVG_DISPLAY = 0u32;
+pub const D2D1_SVG_DISPLAY_INLINE: D2D1_SVG_DISPLAY = D2D1_SVG_DISPLAY(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_DISPLAY_NONE: D2D1_SVG_DISPLAY = 1u32;
+pub const D2D1_SVG_DISPLAY_NONE: D2D1_SVG_DISPLAY = D2D1_SVG_DISPLAY(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_DISPLAY_FORCE_DWORD: D2D1_SVG_DISPLAY = 4294967295u32;
+pub const D2D1_SVG_DISPLAY_FORCE_DWORD: D2D1_SVG_DISPLAY = D2D1_SVG_DISPLAY(4294967295u32);
+impl ::core::marker::Copy for D2D1_SVG_DISPLAY {}
+impl ::core::clone::Clone for D2D1_SVG_DISPLAY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_SVG_DISPLAY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_SVG_DISPLAY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_SVG_DISPLAY").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_SVG_DISPLAY {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_SVG_DISPLAY {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_SVG_DISPLAY {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_SVG_DISPLAY {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_SVG_DISPLAY {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub struct D2D1_SVG_LENGTH {
@@ -3653,101 +9741,365 @@ impl ::core::default::Default for D2D1_SVG_LENGTH {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_SVG_LENGTH_UNITS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_SVG_LENGTH_UNITS(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_LENGTH_UNITS_NUMBER: D2D1_SVG_LENGTH_UNITS = 0u32;
+pub const D2D1_SVG_LENGTH_UNITS_NUMBER: D2D1_SVG_LENGTH_UNITS = D2D1_SVG_LENGTH_UNITS(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_LENGTH_UNITS_PERCENTAGE: D2D1_SVG_LENGTH_UNITS = 1u32;
+pub const D2D1_SVG_LENGTH_UNITS_PERCENTAGE: D2D1_SVG_LENGTH_UNITS = D2D1_SVG_LENGTH_UNITS(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_LENGTH_UNITS_FORCE_DWORD: D2D1_SVG_LENGTH_UNITS = 4294967295u32;
+pub const D2D1_SVG_LENGTH_UNITS_FORCE_DWORD: D2D1_SVG_LENGTH_UNITS = D2D1_SVG_LENGTH_UNITS(4294967295u32);
+impl ::core::marker::Copy for D2D1_SVG_LENGTH_UNITS {}
+impl ::core::clone::Clone for D2D1_SVG_LENGTH_UNITS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_SVG_LENGTH_UNITS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_SVG_LENGTH_UNITS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_SVG_LENGTH_UNITS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_SVG_LENGTH_UNITS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_SVG_LENGTH_UNITS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_SVG_LENGTH_UNITS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_SVG_LENGTH_UNITS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_SVG_LENGTH_UNITS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_SVG_LINE_CAP = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_SVG_LINE_CAP(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_LINE_CAP_BUTT: D2D1_SVG_LINE_CAP = 0u32;
+pub const D2D1_SVG_LINE_CAP_BUTT: D2D1_SVG_LINE_CAP = D2D1_SVG_LINE_CAP(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_LINE_CAP_SQUARE: D2D1_SVG_LINE_CAP = 1u32;
+pub const D2D1_SVG_LINE_CAP_SQUARE: D2D1_SVG_LINE_CAP = D2D1_SVG_LINE_CAP(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_LINE_CAP_ROUND: D2D1_SVG_LINE_CAP = 2u32;
+pub const D2D1_SVG_LINE_CAP_ROUND: D2D1_SVG_LINE_CAP = D2D1_SVG_LINE_CAP(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_LINE_CAP_FORCE_DWORD: D2D1_SVG_LINE_CAP = 4294967295u32;
+pub const D2D1_SVG_LINE_CAP_FORCE_DWORD: D2D1_SVG_LINE_CAP = D2D1_SVG_LINE_CAP(4294967295u32);
+impl ::core::marker::Copy for D2D1_SVG_LINE_CAP {}
+impl ::core::clone::Clone for D2D1_SVG_LINE_CAP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_SVG_LINE_CAP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_SVG_LINE_CAP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_SVG_LINE_CAP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_SVG_LINE_CAP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_SVG_LINE_CAP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_SVG_LINE_CAP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_SVG_LINE_CAP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_SVG_LINE_CAP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_SVG_LINE_JOIN = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_SVG_LINE_JOIN(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_LINE_JOIN_BEVEL: D2D1_SVG_LINE_JOIN = 1u32;
+pub const D2D1_SVG_LINE_JOIN_BEVEL: D2D1_SVG_LINE_JOIN = D2D1_SVG_LINE_JOIN(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_LINE_JOIN_MITER: D2D1_SVG_LINE_JOIN = 3u32;
+pub const D2D1_SVG_LINE_JOIN_MITER: D2D1_SVG_LINE_JOIN = D2D1_SVG_LINE_JOIN(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_LINE_JOIN_ROUND: D2D1_SVG_LINE_JOIN = 2u32;
+pub const D2D1_SVG_LINE_JOIN_ROUND: D2D1_SVG_LINE_JOIN = D2D1_SVG_LINE_JOIN(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_LINE_JOIN_FORCE_DWORD: D2D1_SVG_LINE_JOIN = 4294967295u32;
+pub const D2D1_SVG_LINE_JOIN_FORCE_DWORD: D2D1_SVG_LINE_JOIN = D2D1_SVG_LINE_JOIN(4294967295u32);
+impl ::core::marker::Copy for D2D1_SVG_LINE_JOIN {}
+impl ::core::clone::Clone for D2D1_SVG_LINE_JOIN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_SVG_LINE_JOIN {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_SVG_LINE_JOIN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_SVG_LINE_JOIN").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_SVG_LINE_JOIN {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_SVG_LINE_JOIN {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_SVG_LINE_JOIN {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_SVG_LINE_JOIN {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_SVG_LINE_JOIN {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_SVG_OVERFLOW = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_SVG_OVERFLOW(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_OVERFLOW_VISIBLE: D2D1_SVG_OVERFLOW = 0u32;
+pub const D2D1_SVG_OVERFLOW_VISIBLE: D2D1_SVG_OVERFLOW = D2D1_SVG_OVERFLOW(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_OVERFLOW_HIDDEN: D2D1_SVG_OVERFLOW = 1u32;
+pub const D2D1_SVG_OVERFLOW_HIDDEN: D2D1_SVG_OVERFLOW = D2D1_SVG_OVERFLOW(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_OVERFLOW_FORCE_DWORD: D2D1_SVG_OVERFLOW = 4294967295u32;
+pub const D2D1_SVG_OVERFLOW_FORCE_DWORD: D2D1_SVG_OVERFLOW = D2D1_SVG_OVERFLOW(4294967295u32);
+impl ::core::marker::Copy for D2D1_SVG_OVERFLOW {}
+impl ::core::clone::Clone for D2D1_SVG_OVERFLOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_SVG_OVERFLOW {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_SVG_OVERFLOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_SVG_OVERFLOW").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_SVG_OVERFLOW {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_SVG_OVERFLOW {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_SVG_OVERFLOW {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_SVG_OVERFLOW {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_SVG_OVERFLOW {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_SVG_PAINT_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_SVG_PAINT_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_PAINT_TYPE_NONE: D2D1_SVG_PAINT_TYPE = 0u32;
+pub const D2D1_SVG_PAINT_TYPE_NONE: D2D1_SVG_PAINT_TYPE = D2D1_SVG_PAINT_TYPE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_PAINT_TYPE_COLOR: D2D1_SVG_PAINT_TYPE = 1u32;
+pub const D2D1_SVG_PAINT_TYPE_COLOR: D2D1_SVG_PAINT_TYPE = D2D1_SVG_PAINT_TYPE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_PAINT_TYPE_CURRENT_COLOR: D2D1_SVG_PAINT_TYPE = 2u32;
+pub const D2D1_SVG_PAINT_TYPE_CURRENT_COLOR: D2D1_SVG_PAINT_TYPE = D2D1_SVG_PAINT_TYPE(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_PAINT_TYPE_URI: D2D1_SVG_PAINT_TYPE = 3u32;
+pub const D2D1_SVG_PAINT_TYPE_URI: D2D1_SVG_PAINT_TYPE = D2D1_SVG_PAINT_TYPE(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_PAINT_TYPE_URI_NONE: D2D1_SVG_PAINT_TYPE = 4u32;
+pub const D2D1_SVG_PAINT_TYPE_URI_NONE: D2D1_SVG_PAINT_TYPE = D2D1_SVG_PAINT_TYPE(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_PAINT_TYPE_URI_COLOR: D2D1_SVG_PAINT_TYPE = 5u32;
+pub const D2D1_SVG_PAINT_TYPE_URI_COLOR: D2D1_SVG_PAINT_TYPE = D2D1_SVG_PAINT_TYPE(5u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_PAINT_TYPE_URI_CURRENT_COLOR: D2D1_SVG_PAINT_TYPE = 6u32;
+pub const D2D1_SVG_PAINT_TYPE_URI_CURRENT_COLOR: D2D1_SVG_PAINT_TYPE = D2D1_SVG_PAINT_TYPE(6u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_PAINT_TYPE_FORCE_DWORD: D2D1_SVG_PAINT_TYPE = 4294967295u32;
+pub const D2D1_SVG_PAINT_TYPE_FORCE_DWORD: D2D1_SVG_PAINT_TYPE = D2D1_SVG_PAINT_TYPE(4294967295u32);
+impl ::core::marker::Copy for D2D1_SVG_PAINT_TYPE {}
+impl ::core::clone::Clone for D2D1_SVG_PAINT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_SVG_PAINT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_SVG_PAINT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_SVG_PAINT_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_SVG_PAINT_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_SVG_PAINT_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_SVG_PAINT_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_SVG_PAINT_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_SVG_PAINT_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_SVG_PATH_COMMAND = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_SVG_PATH_COMMAND(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_PATH_COMMAND_CLOSE_PATH: D2D1_SVG_PATH_COMMAND = 0u32;
+pub const D2D1_SVG_PATH_COMMAND_CLOSE_PATH: D2D1_SVG_PATH_COMMAND = D2D1_SVG_PATH_COMMAND(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_PATH_COMMAND_MOVE_ABSOLUTE: D2D1_SVG_PATH_COMMAND = 1u32;
+pub const D2D1_SVG_PATH_COMMAND_MOVE_ABSOLUTE: D2D1_SVG_PATH_COMMAND = D2D1_SVG_PATH_COMMAND(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_PATH_COMMAND_MOVE_RELATIVE: D2D1_SVG_PATH_COMMAND = 2u32;
+pub const D2D1_SVG_PATH_COMMAND_MOVE_RELATIVE: D2D1_SVG_PATH_COMMAND = D2D1_SVG_PATH_COMMAND(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_PATH_COMMAND_LINE_ABSOLUTE: D2D1_SVG_PATH_COMMAND = 3u32;
+pub const D2D1_SVG_PATH_COMMAND_LINE_ABSOLUTE: D2D1_SVG_PATH_COMMAND = D2D1_SVG_PATH_COMMAND(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_PATH_COMMAND_LINE_RELATIVE: D2D1_SVG_PATH_COMMAND = 4u32;
+pub const D2D1_SVG_PATH_COMMAND_LINE_RELATIVE: D2D1_SVG_PATH_COMMAND = D2D1_SVG_PATH_COMMAND(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_PATH_COMMAND_CUBIC_ABSOLUTE: D2D1_SVG_PATH_COMMAND = 5u32;
+pub const D2D1_SVG_PATH_COMMAND_CUBIC_ABSOLUTE: D2D1_SVG_PATH_COMMAND = D2D1_SVG_PATH_COMMAND(5u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_PATH_COMMAND_CUBIC_RELATIVE: D2D1_SVG_PATH_COMMAND = 6u32;
+pub const D2D1_SVG_PATH_COMMAND_CUBIC_RELATIVE: D2D1_SVG_PATH_COMMAND = D2D1_SVG_PATH_COMMAND(6u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_PATH_COMMAND_QUADRADIC_ABSOLUTE: D2D1_SVG_PATH_COMMAND = 7u32;
+pub const D2D1_SVG_PATH_COMMAND_QUADRADIC_ABSOLUTE: D2D1_SVG_PATH_COMMAND = D2D1_SVG_PATH_COMMAND(7u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_PATH_COMMAND_QUADRADIC_RELATIVE: D2D1_SVG_PATH_COMMAND = 8u32;
+pub const D2D1_SVG_PATH_COMMAND_QUADRADIC_RELATIVE: D2D1_SVG_PATH_COMMAND = D2D1_SVG_PATH_COMMAND(8u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_PATH_COMMAND_ARC_ABSOLUTE: D2D1_SVG_PATH_COMMAND = 9u32;
+pub const D2D1_SVG_PATH_COMMAND_ARC_ABSOLUTE: D2D1_SVG_PATH_COMMAND = D2D1_SVG_PATH_COMMAND(9u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_PATH_COMMAND_ARC_RELATIVE: D2D1_SVG_PATH_COMMAND = 10u32;
+pub const D2D1_SVG_PATH_COMMAND_ARC_RELATIVE: D2D1_SVG_PATH_COMMAND = D2D1_SVG_PATH_COMMAND(10u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_PATH_COMMAND_HORIZONTAL_ABSOLUTE: D2D1_SVG_PATH_COMMAND = 11u32;
+pub const D2D1_SVG_PATH_COMMAND_HORIZONTAL_ABSOLUTE: D2D1_SVG_PATH_COMMAND = D2D1_SVG_PATH_COMMAND(11u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_PATH_COMMAND_HORIZONTAL_RELATIVE: D2D1_SVG_PATH_COMMAND = 12u32;
+pub const D2D1_SVG_PATH_COMMAND_HORIZONTAL_RELATIVE: D2D1_SVG_PATH_COMMAND = D2D1_SVG_PATH_COMMAND(12u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_PATH_COMMAND_VERTICAL_ABSOLUTE: D2D1_SVG_PATH_COMMAND = 13u32;
+pub const D2D1_SVG_PATH_COMMAND_VERTICAL_ABSOLUTE: D2D1_SVG_PATH_COMMAND = D2D1_SVG_PATH_COMMAND(13u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_PATH_COMMAND_VERTICAL_RELATIVE: D2D1_SVG_PATH_COMMAND = 14u32;
+pub const D2D1_SVG_PATH_COMMAND_VERTICAL_RELATIVE: D2D1_SVG_PATH_COMMAND = D2D1_SVG_PATH_COMMAND(14u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_PATH_COMMAND_CUBIC_SMOOTH_ABSOLUTE: D2D1_SVG_PATH_COMMAND = 15u32;
+pub const D2D1_SVG_PATH_COMMAND_CUBIC_SMOOTH_ABSOLUTE: D2D1_SVG_PATH_COMMAND = D2D1_SVG_PATH_COMMAND(15u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_PATH_COMMAND_CUBIC_SMOOTH_RELATIVE: D2D1_SVG_PATH_COMMAND = 16u32;
+pub const D2D1_SVG_PATH_COMMAND_CUBIC_SMOOTH_RELATIVE: D2D1_SVG_PATH_COMMAND = D2D1_SVG_PATH_COMMAND(16u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_PATH_COMMAND_QUADRADIC_SMOOTH_ABSOLUTE: D2D1_SVG_PATH_COMMAND = 17u32;
+pub const D2D1_SVG_PATH_COMMAND_QUADRADIC_SMOOTH_ABSOLUTE: D2D1_SVG_PATH_COMMAND = D2D1_SVG_PATH_COMMAND(17u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_PATH_COMMAND_QUADRADIC_SMOOTH_RELATIVE: D2D1_SVG_PATH_COMMAND = 18u32;
+pub const D2D1_SVG_PATH_COMMAND_QUADRADIC_SMOOTH_RELATIVE: D2D1_SVG_PATH_COMMAND = D2D1_SVG_PATH_COMMAND(18u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_PATH_COMMAND_FORCE_DWORD: D2D1_SVG_PATH_COMMAND = 4294967295u32;
+pub const D2D1_SVG_PATH_COMMAND_FORCE_DWORD: D2D1_SVG_PATH_COMMAND = D2D1_SVG_PATH_COMMAND(4294967295u32);
+impl ::core::marker::Copy for D2D1_SVG_PATH_COMMAND {}
+impl ::core::clone::Clone for D2D1_SVG_PATH_COMMAND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_SVG_PATH_COMMAND {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_SVG_PATH_COMMAND {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_SVG_PATH_COMMAND").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_SVG_PATH_COMMAND {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_SVG_PATH_COMMAND {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_SVG_PATH_COMMAND {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_SVG_PATH_COMMAND {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_SVG_PATH_COMMAND {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct2D', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3789,13 +10141,57 @@ impl ::core::default::Default for D2D1_SVG_PRESERVE_ASPECT_RATIO {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_SVG_UNIT_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_SVG_UNIT_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_UNIT_TYPE_USER_SPACE_ON_USE: D2D1_SVG_UNIT_TYPE = 0u32;
+pub const D2D1_SVG_UNIT_TYPE_USER_SPACE_ON_USE: D2D1_SVG_UNIT_TYPE = D2D1_SVG_UNIT_TYPE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_UNIT_TYPE_OBJECT_BOUNDING_BOX: D2D1_SVG_UNIT_TYPE = 1u32;
+pub const D2D1_SVG_UNIT_TYPE_OBJECT_BOUNDING_BOX: D2D1_SVG_UNIT_TYPE = D2D1_SVG_UNIT_TYPE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_UNIT_TYPE_FORCE_DWORD: D2D1_SVG_UNIT_TYPE = 4294967295u32;
+pub const D2D1_SVG_UNIT_TYPE_FORCE_DWORD: D2D1_SVG_UNIT_TYPE = D2D1_SVG_UNIT_TYPE(4294967295u32);
+impl ::core::marker::Copy for D2D1_SVG_UNIT_TYPE {}
+impl ::core::clone::Clone for D2D1_SVG_UNIT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_SVG_UNIT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_SVG_UNIT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_SVG_UNIT_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_SVG_UNIT_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_SVG_UNIT_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_SVG_UNIT_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_SVG_UNIT_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_SVG_UNIT_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub struct D2D1_SVG_VIEWBOX {
@@ -3830,93 +10226,489 @@ impl ::core::default::Default for D2D1_SVG_VIEWBOX {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_SVG_VISIBILITY = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_SVG_VISIBILITY(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_VISIBILITY_VISIBLE: D2D1_SVG_VISIBILITY = 0u32;
+pub const D2D1_SVG_VISIBILITY_VISIBLE: D2D1_SVG_VISIBILITY = D2D1_SVG_VISIBILITY(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_VISIBILITY_HIDDEN: D2D1_SVG_VISIBILITY = 1u32;
+pub const D2D1_SVG_VISIBILITY_HIDDEN: D2D1_SVG_VISIBILITY = D2D1_SVG_VISIBILITY(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SVG_VISIBILITY_FORCE_DWORD: D2D1_SVG_VISIBILITY = 4294967295u32;
+pub const D2D1_SVG_VISIBILITY_FORCE_DWORD: D2D1_SVG_VISIBILITY = D2D1_SVG_VISIBILITY(4294967295u32);
+impl ::core::marker::Copy for D2D1_SVG_VISIBILITY {}
+impl ::core::clone::Clone for D2D1_SVG_VISIBILITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_SVG_VISIBILITY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_SVG_VISIBILITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_SVG_VISIBILITY").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_SVG_VISIBILITY {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_SVG_VISIBILITY {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_SVG_VISIBILITY {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_SVG_VISIBILITY {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_SVG_VISIBILITY {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_SWEEP_DIRECTION = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_SWEEP_DIRECTION(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SWEEP_DIRECTION_COUNTER_CLOCKWISE: D2D1_SWEEP_DIRECTION = 0u32;
+pub const D2D1_SWEEP_DIRECTION_COUNTER_CLOCKWISE: D2D1_SWEEP_DIRECTION = D2D1_SWEEP_DIRECTION(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SWEEP_DIRECTION_CLOCKWISE: D2D1_SWEEP_DIRECTION = 1u32;
+pub const D2D1_SWEEP_DIRECTION_CLOCKWISE: D2D1_SWEEP_DIRECTION = D2D1_SWEEP_DIRECTION(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_SWEEP_DIRECTION_FORCE_DWORD: D2D1_SWEEP_DIRECTION = 4294967295u32;
+pub const D2D1_SWEEP_DIRECTION_FORCE_DWORD: D2D1_SWEEP_DIRECTION = D2D1_SWEEP_DIRECTION(4294967295u32);
+impl ::core::marker::Copy for D2D1_SWEEP_DIRECTION {}
+impl ::core::clone::Clone for D2D1_SWEEP_DIRECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_SWEEP_DIRECTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_SWEEP_DIRECTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_SWEEP_DIRECTION").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_SWEEP_DIRECTION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_SWEEP_DIRECTION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_SWEEP_DIRECTION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_SWEEP_DIRECTION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_SWEEP_DIRECTION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_TABLETRANSFER_PROP = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_TABLETRANSFER_PROP(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_TABLETRANSFER_PROP_RED_TABLE: D2D1_TABLETRANSFER_PROP = 0u32;
+pub const D2D1_TABLETRANSFER_PROP_RED_TABLE: D2D1_TABLETRANSFER_PROP = D2D1_TABLETRANSFER_PROP(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_TABLETRANSFER_PROP_RED_DISABLE: D2D1_TABLETRANSFER_PROP = 1u32;
+pub const D2D1_TABLETRANSFER_PROP_RED_DISABLE: D2D1_TABLETRANSFER_PROP = D2D1_TABLETRANSFER_PROP(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_TABLETRANSFER_PROP_GREEN_TABLE: D2D1_TABLETRANSFER_PROP = 2u32;
+pub const D2D1_TABLETRANSFER_PROP_GREEN_TABLE: D2D1_TABLETRANSFER_PROP = D2D1_TABLETRANSFER_PROP(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_TABLETRANSFER_PROP_GREEN_DISABLE: D2D1_TABLETRANSFER_PROP = 3u32;
+pub const D2D1_TABLETRANSFER_PROP_GREEN_DISABLE: D2D1_TABLETRANSFER_PROP = D2D1_TABLETRANSFER_PROP(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_TABLETRANSFER_PROP_BLUE_TABLE: D2D1_TABLETRANSFER_PROP = 4u32;
+pub const D2D1_TABLETRANSFER_PROP_BLUE_TABLE: D2D1_TABLETRANSFER_PROP = D2D1_TABLETRANSFER_PROP(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_TABLETRANSFER_PROP_BLUE_DISABLE: D2D1_TABLETRANSFER_PROP = 5u32;
+pub const D2D1_TABLETRANSFER_PROP_BLUE_DISABLE: D2D1_TABLETRANSFER_PROP = D2D1_TABLETRANSFER_PROP(5u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_TABLETRANSFER_PROP_ALPHA_TABLE: D2D1_TABLETRANSFER_PROP = 6u32;
+pub const D2D1_TABLETRANSFER_PROP_ALPHA_TABLE: D2D1_TABLETRANSFER_PROP = D2D1_TABLETRANSFER_PROP(6u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_TABLETRANSFER_PROP_ALPHA_DISABLE: D2D1_TABLETRANSFER_PROP = 7u32;
+pub const D2D1_TABLETRANSFER_PROP_ALPHA_DISABLE: D2D1_TABLETRANSFER_PROP = D2D1_TABLETRANSFER_PROP(7u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_TABLETRANSFER_PROP_CLAMP_OUTPUT: D2D1_TABLETRANSFER_PROP = 8u32;
+pub const D2D1_TABLETRANSFER_PROP_CLAMP_OUTPUT: D2D1_TABLETRANSFER_PROP = D2D1_TABLETRANSFER_PROP(8u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_TABLETRANSFER_PROP_FORCE_DWORD: D2D1_TABLETRANSFER_PROP = 4294967295u32;
+pub const D2D1_TABLETRANSFER_PROP_FORCE_DWORD: D2D1_TABLETRANSFER_PROP = D2D1_TABLETRANSFER_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_TABLETRANSFER_PROP {}
+impl ::core::clone::Clone for D2D1_TABLETRANSFER_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_TABLETRANSFER_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_TABLETRANSFER_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_TABLETRANSFER_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_TABLETRANSFER_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_TABLETRANSFER_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_TABLETRANSFER_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_TABLETRANSFER_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_TABLETRANSFER_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_TEMPERATUREANDTINT_PROP = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_TEMPERATUREANDTINT_PROP(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_TEMPERATUREANDTINT_PROP_TEMPERATURE: D2D1_TEMPERATUREANDTINT_PROP = 0u32;
+pub const D2D1_TEMPERATUREANDTINT_PROP_TEMPERATURE: D2D1_TEMPERATUREANDTINT_PROP = D2D1_TEMPERATUREANDTINT_PROP(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_TEMPERATUREANDTINT_PROP_TINT: D2D1_TEMPERATUREANDTINT_PROP = 1u32;
+pub const D2D1_TEMPERATUREANDTINT_PROP_TINT: D2D1_TEMPERATUREANDTINT_PROP = D2D1_TEMPERATUREANDTINT_PROP(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_TEMPERATUREANDTINT_PROP_FORCE_DWORD: D2D1_TEMPERATUREANDTINT_PROP = 4294967295u32;
+pub const D2D1_TEMPERATUREANDTINT_PROP_FORCE_DWORD: D2D1_TEMPERATUREANDTINT_PROP = D2D1_TEMPERATUREANDTINT_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_TEMPERATUREANDTINT_PROP {}
+impl ::core::clone::Clone for D2D1_TEMPERATUREANDTINT_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_TEMPERATUREANDTINT_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_TEMPERATUREANDTINT_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_TEMPERATUREANDTINT_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_TEMPERATUREANDTINT_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_TEMPERATUREANDTINT_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_TEMPERATUREANDTINT_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_TEMPERATUREANDTINT_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_TEMPERATUREANDTINT_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_TEXT_ANTIALIAS_MODE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_TEXT_ANTIALIAS_MODE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_TEXT_ANTIALIAS_MODE_DEFAULT: D2D1_TEXT_ANTIALIAS_MODE = 0u32;
+pub const D2D1_TEXT_ANTIALIAS_MODE_DEFAULT: D2D1_TEXT_ANTIALIAS_MODE = D2D1_TEXT_ANTIALIAS_MODE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_TEXT_ANTIALIAS_MODE_CLEARTYPE: D2D1_TEXT_ANTIALIAS_MODE = 1u32;
+pub const D2D1_TEXT_ANTIALIAS_MODE_CLEARTYPE: D2D1_TEXT_ANTIALIAS_MODE = D2D1_TEXT_ANTIALIAS_MODE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_TEXT_ANTIALIAS_MODE_GRAYSCALE: D2D1_TEXT_ANTIALIAS_MODE = 2u32;
+pub const D2D1_TEXT_ANTIALIAS_MODE_GRAYSCALE: D2D1_TEXT_ANTIALIAS_MODE = D2D1_TEXT_ANTIALIAS_MODE(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_TEXT_ANTIALIAS_MODE_ALIASED: D2D1_TEXT_ANTIALIAS_MODE = 3u32;
+pub const D2D1_TEXT_ANTIALIAS_MODE_ALIASED: D2D1_TEXT_ANTIALIAS_MODE = D2D1_TEXT_ANTIALIAS_MODE(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_TEXT_ANTIALIAS_MODE_FORCE_DWORD: D2D1_TEXT_ANTIALIAS_MODE = 4294967295u32;
+pub const D2D1_TEXT_ANTIALIAS_MODE_FORCE_DWORD: D2D1_TEXT_ANTIALIAS_MODE = D2D1_TEXT_ANTIALIAS_MODE(4294967295u32);
+impl ::core::marker::Copy for D2D1_TEXT_ANTIALIAS_MODE {}
+impl ::core::clone::Clone for D2D1_TEXT_ANTIALIAS_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_TEXT_ANTIALIAS_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_TEXT_ANTIALIAS_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_TEXT_ANTIALIAS_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_TEXT_ANTIALIAS_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_TEXT_ANTIALIAS_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_TEXT_ANTIALIAS_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_TEXT_ANTIALIAS_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_TEXT_ANTIALIAS_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_THREADING_MODE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_THREADING_MODE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_THREADING_MODE_SINGLE_THREADED: D2D1_THREADING_MODE = 0u32;
+pub const D2D1_THREADING_MODE_SINGLE_THREADED: D2D1_THREADING_MODE = D2D1_THREADING_MODE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_THREADING_MODE_MULTI_THREADED: D2D1_THREADING_MODE = 1u32;
+pub const D2D1_THREADING_MODE_MULTI_THREADED: D2D1_THREADING_MODE = D2D1_THREADING_MODE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_THREADING_MODE_FORCE_DWORD: D2D1_THREADING_MODE = 4294967295u32;
+pub const D2D1_THREADING_MODE_FORCE_DWORD: D2D1_THREADING_MODE = D2D1_THREADING_MODE(4294967295u32);
+impl ::core::marker::Copy for D2D1_THREADING_MODE {}
+impl ::core::clone::Clone for D2D1_THREADING_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_THREADING_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_THREADING_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_THREADING_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_THREADING_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_THREADING_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_THREADING_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_THREADING_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_THREADING_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_TILE_PROP = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_TILE_PROP(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_TILE_PROP_RECT: D2D1_TILE_PROP = 0u32;
+pub const D2D1_TILE_PROP_RECT: D2D1_TILE_PROP = D2D1_TILE_PROP(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_TILE_PROP_FORCE_DWORD: D2D1_TILE_PROP = 4294967295u32;
+pub const D2D1_TILE_PROP_FORCE_DWORD: D2D1_TILE_PROP = D2D1_TILE_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_TILE_PROP {}
+impl ::core::clone::Clone for D2D1_TILE_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_TILE_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_TILE_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_TILE_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_TILE_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_TILE_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_TILE_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_TILE_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_TILE_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_TINT_PROP = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_TINT_PROP(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_TINT_PROP_COLOR: D2D1_TINT_PROP = 0u32;
+pub const D2D1_TINT_PROP_COLOR: D2D1_TINT_PROP = D2D1_TINT_PROP(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_TINT_PROP_CLAMP_OUTPUT: D2D1_TINT_PROP = 1u32;
+pub const D2D1_TINT_PROP_CLAMP_OUTPUT: D2D1_TINT_PROP = D2D1_TINT_PROP(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_TINT_PROP_FORCE_DWORD: D2D1_TINT_PROP = 4294967295u32;
+pub const D2D1_TINT_PROP_FORCE_DWORD: D2D1_TINT_PROP = D2D1_TINT_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_TINT_PROP {}
+impl ::core::clone::Clone for D2D1_TINT_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_TINT_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_TINT_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_TINT_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_TINT_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_TINT_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_TINT_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_TINT_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_TINT_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS_NONE: D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS = 0u32;
+pub const D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS_NONE: D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS = D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS_DISABLE_DPI_SCALE: D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS = 1u32;
+pub const D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS_DISABLE_DPI_SCALE: D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS = D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS_FORCE_DWORD: D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS = 4294967295u32;
+pub const D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS_FORCE_DWORD: D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS = D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS(4294967295u32);
+impl ::core::marker::Copy for D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {}
+impl ::core::clone::Clone for D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_TRANSFORMED_IMAGE_SOURCE_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub struct D2D1_TRANSFORMED_IMAGE_SOURCE_PROPERTIES {
@@ -3992,31 +10784,119 @@ impl ::core::default::Default for D2D1_TRIANGLE {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_TURBULENCE_PROP = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_TURBULENCE_PROP(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_TURBULENCE_PROP_OFFSET: D2D1_TURBULENCE_PROP = 0u32;
+pub const D2D1_TURBULENCE_PROP_OFFSET: D2D1_TURBULENCE_PROP = D2D1_TURBULENCE_PROP(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_TURBULENCE_PROP_SIZE: D2D1_TURBULENCE_PROP = 1u32;
+pub const D2D1_TURBULENCE_PROP_SIZE: D2D1_TURBULENCE_PROP = D2D1_TURBULENCE_PROP(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_TURBULENCE_PROP_BASE_FREQUENCY: D2D1_TURBULENCE_PROP = 2u32;
+pub const D2D1_TURBULENCE_PROP_BASE_FREQUENCY: D2D1_TURBULENCE_PROP = D2D1_TURBULENCE_PROP(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_TURBULENCE_PROP_NUM_OCTAVES: D2D1_TURBULENCE_PROP = 3u32;
+pub const D2D1_TURBULENCE_PROP_NUM_OCTAVES: D2D1_TURBULENCE_PROP = D2D1_TURBULENCE_PROP(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_TURBULENCE_PROP_SEED: D2D1_TURBULENCE_PROP = 4u32;
+pub const D2D1_TURBULENCE_PROP_SEED: D2D1_TURBULENCE_PROP = D2D1_TURBULENCE_PROP(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_TURBULENCE_PROP_NOISE: D2D1_TURBULENCE_PROP = 5u32;
+pub const D2D1_TURBULENCE_PROP_NOISE: D2D1_TURBULENCE_PROP = D2D1_TURBULENCE_PROP(5u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_TURBULENCE_PROP_STITCHABLE: D2D1_TURBULENCE_PROP = 6u32;
+pub const D2D1_TURBULENCE_PROP_STITCHABLE: D2D1_TURBULENCE_PROP = D2D1_TURBULENCE_PROP(6u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_TURBULENCE_PROP_FORCE_DWORD: D2D1_TURBULENCE_PROP = 4294967295u32;
+pub const D2D1_TURBULENCE_PROP_FORCE_DWORD: D2D1_TURBULENCE_PROP = D2D1_TURBULENCE_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_TURBULENCE_PROP {}
+impl ::core::clone::Clone for D2D1_TURBULENCE_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_TURBULENCE_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_TURBULENCE_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_TURBULENCE_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_TURBULENCE_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_TURBULENCE_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_TURBULENCE_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_TURBULENCE_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_TURBULENCE_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_UNIT_MODE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_UNIT_MODE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_UNIT_MODE_DIPS: D2D1_UNIT_MODE = 0u32;
+pub const D2D1_UNIT_MODE_DIPS: D2D1_UNIT_MODE = D2D1_UNIT_MODE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_UNIT_MODE_PIXELS: D2D1_UNIT_MODE = 1u32;
+pub const D2D1_UNIT_MODE_PIXELS: D2D1_UNIT_MODE = D2D1_UNIT_MODE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_UNIT_MODE_FORCE_DWORD: D2D1_UNIT_MODE = 4294967295u32;
+pub const D2D1_UNIT_MODE_FORCE_DWORD: D2D1_UNIT_MODE = D2D1_UNIT_MODE(4294967295u32);
+impl ::core::marker::Copy for D2D1_UNIT_MODE {}
+impl ::core::clone::Clone for D2D1_UNIT_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_UNIT_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_UNIT_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_UNIT_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_UNIT_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_UNIT_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_UNIT_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_UNIT_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_UNIT_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub struct D2D1_VERTEX_BUFFER_PROPERTIES {
@@ -4051,17 +10931,61 @@ impl ::core::default::Default for D2D1_VERTEX_BUFFER_PROPERTIES {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_VERTEX_OPTIONS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_VERTEX_OPTIONS(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_VERTEX_OPTIONS_NONE: D2D1_VERTEX_OPTIONS = 0u32;
+pub const D2D1_VERTEX_OPTIONS_NONE: D2D1_VERTEX_OPTIONS = D2D1_VERTEX_OPTIONS(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_VERTEX_OPTIONS_DO_NOT_CLEAR: D2D1_VERTEX_OPTIONS = 1u32;
+pub const D2D1_VERTEX_OPTIONS_DO_NOT_CLEAR: D2D1_VERTEX_OPTIONS = D2D1_VERTEX_OPTIONS(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_VERTEX_OPTIONS_USE_DEPTH_BUFFER: D2D1_VERTEX_OPTIONS = 2u32;
+pub const D2D1_VERTEX_OPTIONS_USE_DEPTH_BUFFER: D2D1_VERTEX_OPTIONS = D2D1_VERTEX_OPTIONS(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_VERTEX_OPTIONS_ASSUME_NO_OVERLAP: D2D1_VERTEX_OPTIONS = 4u32;
+pub const D2D1_VERTEX_OPTIONS_ASSUME_NO_OVERLAP: D2D1_VERTEX_OPTIONS = D2D1_VERTEX_OPTIONS(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_VERTEX_OPTIONS_FORCE_DWORD: D2D1_VERTEX_OPTIONS = 4294967295u32;
+pub const D2D1_VERTEX_OPTIONS_FORCE_DWORD: D2D1_VERTEX_OPTIONS = D2D1_VERTEX_OPTIONS(4294967295u32);
+impl ::core::marker::Copy for D2D1_VERTEX_OPTIONS {}
+impl ::core::clone::Clone for D2D1_VERTEX_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_VERTEX_OPTIONS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_VERTEX_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_VERTEX_OPTIONS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_VERTEX_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_VERTEX_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_VERTEX_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_VERTEX_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_VERTEX_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub struct D2D1_VERTEX_RANGE {
@@ -4094,79 +11018,387 @@ impl ::core::default::Default for D2D1_VERTEX_RANGE {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_VERTEX_USAGE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_VERTEX_USAGE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_VERTEX_USAGE_STATIC: D2D1_VERTEX_USAGE = 0u32;
+pub const D2D1_VERTEX_USAGE_STATIC: D2D1_VERTEX_USAGE = D2D1_VERTEX_USAGE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_VERTEX_USAGE_DYNAMIC: D2D1_VERTEX_USAGE = 1u32;
+pub const D2D1_VERTEX_USAGE_DYNAMIC: D2D1_VERTEX_USAGE = D2D1_VERTEX_USAGE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_VERTEX_USAGE_FORCE_DWORD: D2D1_VERTEX_USAGE = 4294967295u32;
+pub const D2D1_VERTEX_USAGE_FORCE_DWORD: D2D1_VERTEX_USAGE = D2D1_VERTEX_USAGE(4294967295u32);
+impl ::core::marker::Copy for D2D1_VERTEX_USAGE {}
+impl ::core::clone::Clone for D2D1_VERTEX_USAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_VERTEX_USAGE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_VERTEX_USAGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_VERTEX_USAGE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_VERTEX_USAGE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_VERTEX_USAGE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_VERTEX_USAGE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_VERTEX_USAGE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_VERTEX_USAGE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_VIGNETTE_PROP = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_VIGNETTE_PROP(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_VIGNETTE_PROP_COLOR: D2D1_VIGNETTE_PROP = 0u32;
+pub const D2D1_VIGNETTE_PROP_COLOR: D2D1_VIGNETTE_PROP = D2D1_VIGNETTE_PROP(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_VIGNETTE_PROP_TRANSITION_SIZE: D2D1_VIGNETTE_PROP = 1u32;
+pub const D2D1_VIGNETTE_PROP_TRANSITION_SIZE: D2D1_VIGNETTE_PROP = D2D1_VIGNETTE_PROP(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_VIGNETTE_PROP_STRENGTH: D2D1_VIGNETTE_PROP = 2u32;
+pub const D2D1_VIGNETTE_PROP_STRENGTH: D2D1_VIGNETTE_PROP = D2D1_VIGNETTE_PROP(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_VIGNETTE_PROP_FORCE_DWORD: D2D1_VIGNETTE_PROP = 4294967295u32;
+pub const D2D1_VIGNETTE_PROP_FORCE_DWORD: D2D1_VIGNETTE_PROP = D2D1_VIGNETTE_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_VIGNETTE_PROP {}
+impl ::core::clone::Clone for D2D1_VIGNETTE_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_VIGNETTE_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_VIGNETTE_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_VIGNETTE_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_VIGNETTE_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_VIGNETTE_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_VIGNETTE_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_VIGNETTE_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_VIGNETTE_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_WHITELEVELADJUSTMENT_PROP = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_WHITELEVELADJUSTMENT_PROP(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_WHITELEVELADJUSTMENT_PROP_INPUT_WHITE_LEVEL: D2D1_WHITELEVELADJUSTMENT_PROP = 0u32;
+pub const D2D1_WHITELEVELADJUSTMENT_PROP_INPUT_WHITE_LEVEL: D2D1_WHITELEVELADJUSTMENT_PROP = D2D1_WHITELEVELADJUSTMENT_PROP(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_WHITELEVELADJUSTMENT_PROP_OUTPUT_WHITE_LEVEL: D2D1_WHITELEVELADJUSTMENT_PROP = 1u32;
+pub const D2D1_WHITELEVELADJUSTMENT_PROP_OUTPUT_WHITE_LEVEL: D2D1_WHITELEVELADJUSTMENT_PROP = D2D1_WHITELEVELADJUSTMENT_PROP(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_WHITELEVELADJUSTMENT_PROP_FORCE_DWORD: D2D1_WHITELEVELADJUSTMENT_PROP = 4294967295u32;
+pub const D2D1_WHITELEVELADJUSTMENT_PROP_FORCE_DWORD: D2D1_WHITELEVELADJUSTMENT_PROP = D2D1_WHITELEVELADJUSTMENT_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_WHITELEVELADJUSTMENT_PROP {}
+impl ::core::clone::Clone for D2D1_WHITELEVELADJUSTMENT_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_WHITELEVELADJUSTMENT_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_WHITELEVELADJUSTMENT_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_WHITELEVELADJUSTMENT_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_WHITELEVELADJUSTMENT_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_WHITELEVELADJUSTMENT_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_WHITELEVELADJUSTMENT_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_WHITELEVELADJUSTMENT_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_WHITELEVELADJUSTMENT_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_WINDOW_STATE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_WINDOW_STATE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_WINDOW_STATE_NONE: D2D1_WINDOW_STATE = 0u32;
+pub const D2D1_WINDOW_STATE_NONE: D2D1_WINDOW_STATE = D2D1_WINDOW_STATE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_WINDOW_STATE_OCCLUDED: D2D1_WINDOW_STATE = 1u32;
+pub const D2D1_WINDOW_STATE_OCCLUDED: D2D1_WINDOW_STATE = D2D1_WINDOW_STATE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_WINDOW_STATE_FORCE_DWORD: D2D1_WINDOW_STATE = 4294967295u32;
+pub const D2D1_WINDOW_STATE_FORCE_DWORD: D2D1_WINDOW_STATE = D2D1_WINDOW_STATE(4294967295u32);
+impl ::core::marker::Copy for D2D1_WINDOW_STATE {}
+impl ::core::clone::Clone for D2D1_WINDOW_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_WINDOW_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_WINDOW_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_WINDOW_STATE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_WINDOW_STATE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_WINDOW_STATE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_WINDOW_STATE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_WINDOW_STATE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_WINDOW_STATE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_YCBCR_CHROMA_SUBSAMPLING = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_YCBCR_CHROMA_SUBSAMPLING(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_YCBCR_CHROMA_SUBSAMPLING_AUTO: D2D1_YCBCR_CHROMA_SUBSAMPLING = 0u32;
+pub const D2D1_YCBCR_CHROMA_SUBSAMPLING_AUTO: D2D1_YCBCR_CHROMA_SUBSAMPLING = D2D1_YCBCR_CHROMA_SUBSAMPLING(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_YCBCR_CHROMA_SUBSAMPLING_420: D2D1_YCBCR_CHROMA_SUBSAMPLING = 1u32;
+pub const D2D1_YCBCR_CHROMA_SUBSAMPLING_420: D2D1_YCBCR_CHROMA_SUBSAMPLING = D2D1_YCBCR_CHROMA_SUBSAMPLING(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_YCBCR_CHROMA_SUBSAMPLING_422: D2D1_YCBCR_CHROMA_SUBSAMPLING = 2u32;
+pub const D2D1_YCBCR_CHROMA_SUBSAMPLING_422: D2D1_YCBCR_CHROMA_SUBSAMPLING = D2D1_YCBCR_CHROMA_SUBSAMPLING(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_YCBCR_CHROMA_SUBSAMPLING_444: D2D1_YCBCR_CHROMA_SUBSAMPLING = 3u32;
+pub const D2D1_YCBCR_CHROMA_SUBSAMPLING_444: D2D1_YCBCR_CHROMA_SUBSAMPLING = D2D1_YCBCR_CHROMA_SUBSAMPLING(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_YCBCR_CHROMA_SUBSAMPLING_440: D2D1_YCBCR_CHROMA_SUBSAMPLING = 4u32;
+pub const D2D1_YCBCR_CHROMA_SUBSAMPLING_440: D2D1_YCBCR_CHROMA_SUBSAMPLING = D2D1_YCBCR_CHROMA_SUBSAMPLING(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_YCBCR_CHROMA_SUBSAMPLING_FORCE_DWORD: D2D1_YCBCR_CHROMA_SUBSAMPLING = 4294967295u32;
+pub const D2D1_YCBCR_CHROMA_SUBSAMPLING_FORCE_DWORD: D2D1_YCBCR_CHROMA_SUBSAMPLING = D2D1_YCBCR_CHROMA_SUBSAMPLING(4294967295u32);
+impl ::core::marker::Copy for D2D1_YCBCR_CHROMA_SUBSAMPLING {}
+impl ::core::clone::Clone for D2D1_YCBCR_CHROMA_SUBSAMPLING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_YCBCR_CHROMA_SUBSAMPLING {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_YCBCR_CHROMA_SUBSAMPLING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_YCBCR_CHROMA_SUBSAMPLING").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_YCBCR_CHROMA_SUBSAMPLING {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_YCBCR_CHROMA_SUBSAMPLING {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_YCBCR_CHROMA_SUBSAMPLING {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_YCBCR_CHROMA_SUBSAMPLING {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_YCBCR_CHROMA_SUBSAMPLING {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_YCBCR_INTERPOLATION_MODE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_YCBCR_INTERPOLATION_MODE(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_YCBCR_INTERPOLATION_MODE_NEAREST_NEIGHBOR: D2D1_YCBCR_INTERPOLATION_MODE = 0u32;
+pub const D2D1_YCBCR_INTERPOLATION_MODE_NEAREST_NEIGHBOR: D2D1_YCBCR_INTERPOLATION_MODE = D2D1_YCBCR_INTERPOLATION_MODE(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_YCBCR_INTERPOLATION_MODE_LINEAR: D2D1_YCBCR_INTERPOLATION_MODE = 1u32;
+pub const D2D1_YCBCR_INTERPOLATION_MODE_LINEAR: D2D1_YCBCR_INTERPOLATION_MODE = D2D1_YCBCR_INTERPOLATION_MODE(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_YCBCR_INTERPOLATION_MODE_CUBIC: D2D1_YCBCR_INTERPOLATION_MODE = 2u32;
+pub const D2D1_YCBCR_INTERPOLATION_MODE_CUBIC: D2D1_YCBCR_INTERPOLATION_MODE = D2D1_YCBCR_INTERPOLATION_MODE(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_YCBCR_INTERPOLATION_MODE_MULTI_SAMPLE_LINEAR: D2D1_YCBCR_INTERPOLATION_MODE = 3u32;
+pub const D2D1_YCBCR_INTERPOLATION_MODE_MULTI_SAMPLE_LINEAR: D2D1_YCBCR_INTERPOLATION_MODE = D2D1_YCBCR_INTERPOLATION_MODE(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_YCBCR_INTERPOLATION_MODE_ANISOTROPIC: D2D1_YCBCR_INTERPOLATION_MODE = 4u32;
+pub const D2D1_YCBCR_INTERPOLATION_MODE_ANISOTROPIC: D2D1_YCBCR_INTERPOLATION_MODE = D2D1_YCBCR_INTERPOLATION_MODE(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_YCBCR_INTERPOLATION_MODE_HIGH_QUALITY_CUBIC: D2D1_YCBCR_INTERPOLATION_MODE = 5u32;
+pub const D2D1_YCBCR_INTERPOLATION_MODE_HIGH_QUALITY_CUBIC: D2D1_YCBCR_INTERPOLATION_MODE = D2D1_YCBCR_INTERPOLATION_MODE(5u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_YCBCR_INTERPOLATION_MODE_FORCE_DWORD: D2D1_YCBCR_INTERPOLATION_MODE = 4294967295u32;
+pub const D2D1_YCBCR_INTERPOLATION_MODE_FORCE_DWORD: D2D1_YCBCR_INTERPOLATION_MODE = D2D1_YCBCR_INTERPOLATION_MODE(4294967295u32);
+impl ::core::marker::Copy for D2D1_YCBCR_INTERPOLATION_MODE {}
+impl ::core::clone::Clone for D2D1_YCBCR_INTERPOLATION_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_YCBCR_INTERPOLATION_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_YCBCR_INTERPOLATION_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_YCBCR_INTERPOLATION_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_YCBCR_INTERPOLATION_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_YCBCR_INTERPOLATION_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_YCBCR_INTERPOLATION_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_YCBCR_INTERPOLATION_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_YCBCR_INTERPOLATION_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub type D2D1_YCBCR_PROP = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct D2D1_YCBCR_PROP(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_YCBCR_PROP_CHROMA_SUBSAMPLING: D2D1_YCBCR_PROP = 0u32;
+pub const D2D1_YCBCR_PROP_CHROMA_SUBSAMPLING: D2D1_YCBCR_PROP = D2D1_YCBCR_PROP(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_YCBCR_PROP_TRANSFORM_MATRIX: D2D1_YCBCR_PROP = 1u32;
+pub const D2D1_YCBCR_PROP_TRANSFORM_MATRIX: D2D1_YCBCR_PROP = D2D1_YCBCR_PROP(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_YCBCR_PROP_INTERPOLATION_MODE: D2D1_YCBCR_PROP = 2u32;
+pub const D2D1_YCBCR_PROP_INTERPOLATION_MODE: D2D1_YCBCR_PROP = D2D1_YCBCR_PROP(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
-pub const D2D1_YCBCR_PROP_FORCE_DWORD: D2D1_YCBCR_PROP = 4294967295u32;
+pub const D2D1_YCBCR_PROP_FORCE_DWORD: D2D1_YCBCR_PROP = D2D1_YCBCR_PROP(4294967295u32);
+impl ::core::marker::Copy for D2D1_YCBCR_PROP {}
+impl ::core::clone::Clone for D2D1_YCBCR_PROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for D2D1_YCBCR_PROP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for D2D1_YCBCR_PROP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("D2D1_YCBCR_PROP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for D2D1_YCBCR_PROP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for D2D1_YCBCR_PROP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for D2D1_YCBCR_PROP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for D2D1_YCBCR_PROP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for D2D1_YCBCR_PROP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]
 pub const FACILITY_D2D: u32 = 2201u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct2D'*"]

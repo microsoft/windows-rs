@@ -365,25 +365,85 @@ impl ::core::default::Default for SCESVC_CONFIGURATION_LINE {
 #[doc = "*Required features: 'Win32_Security_ConfigurationSnapin'*"]
 pub const SCESVC_ENUMERATION_MAX: i32 = 100i32;
 #[doc = "*Required features: 'Win32_Security_ConfigurationSnapin'*"]
-pub type SCESVC_INFO_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SCESVC_INFO_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Security_ConfigurationSnapin'*"]
-pub const SceSvcConfigurationInfo: SCESVC_INFO_TYPE = 0i32;
+pub const SceSvcConfigurationInfo: SCESVC_INFO_TYPE = SCESVC_INFO_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Security_ConfigurationSnapin'*"]
-pub const SceSvcMergedPolicyInfo: SCESVC_INFO_TYPE = 1i32;
+pub const SceSvcMergedPolicyInfo: SCESVC_INFO_TYPE = SCESVC_INFO_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Security_ConfigurationSnapin'*"]
-pub const SceSvcAnalysisInfo: SCESVC_INFO_TYPE = 2i32;
+pub const SceSvcAnalysisInfo: SCESVC_INFO_TYPE = SCESVC_INFO_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Security_ConfigurationSnapin'*"]
-pub const SceSvcInternalUse: SCESVC_INFO_TYPE = 3i32;
+pub const SceSvcInternalUse: SCESVC_INFO_TYPE = SCESVC_INFO_TYPE(3i32);
+impl ::core::marker::Copy for SCESVC_INFO_TYPE {}
+impl ::core::clone::Clone for SCESVC_INFO_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SCESVC_INFO_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SCESVC_INFO_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SCESVC_INFO_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_ConfigurationSnapin'*"]
-pub type SCE_LOG_ERR_LEVEL = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SCE_LOG_ERR_LEVEL(pub u32);
 #[doc = "*Required features: 'Win32_Security_ConfigurationSnapin'*"]
-pub const SCE_LOG_LEVEL_ALWAYS: SCE_LOG_ERR_LEVEL = 0u32;
+pub const SCE_LOG_LEVEL_ALWAYS: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(0u32);
 #[doc = "*Required features: 'Win32_Security_ConfigurationSnapin'*"]
-pub const SCE_LOG_LEVEL_ERROR: SCE_LOG_ERR_LEVEL = 1u32;
+pub const SCE_LOG_LEVEL_ERROR: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(1u32);
 #[doc = "*Required features: 'Win32_Security_ConfigurationSnapin'*"]
-pub const SCE_LOG_LEVEL_DETAIL: SCE_LOG_ERR_LEVEL = 2u32;
+pub const SCE_LOG_LEVEL_DETAIL: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(2u32);
 #[doc = "*Required features: 'Win32_Security_ConfigurationSnapin'*"]
-pub const SCE_LOG_LEVEL_DEBUG: SCE_LOG_ERR_LEVEL = 3u32;
+pub const SCE_LOG_LEVEL_DEBUG: SCE_LOG_ERR_LEVEL = SCE_LOG_ERR_LEVEL(3u32);
+impl ::core::marker::Copy for SCE_LOG_ERR_LEVEL {}
+impl ::core::clone::Clone for SCE_LOG_ERR_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SCE_LOG_ERR_LEVEL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SCE_LOG_ERR_LEVEL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SCE_LOG_ERR_LEVEL").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SCE_LOG_ERR_LEVEL {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SCE_LOG_ERR_LEVEL {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SCE_LOG_ERR_LEVEL {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SCE_LOG_ERR_LEVEL {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SCE_LOG_ERR_LEVEL {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const cNodetypeSceAnalysisServices: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x678050c7_1ff8_11d1_affb_00c04fb984f9);
 pub const cNodetypeSceEventLog: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ce06698_4bf3_11d1_8c30_00c04fb984f9);
 pub const cNodetypeSceTemplateServices: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24a7f717_1f0c_11d1_affb_00c04fb984f9);

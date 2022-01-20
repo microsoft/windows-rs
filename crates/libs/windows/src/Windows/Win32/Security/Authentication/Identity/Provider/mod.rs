@@ -1,12 +1,28 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
-pub type ACCOUNT_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ACCOUNT_STATE(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
-pub const NOT_CONNECTED: ACCOUNT_STATE = 0i32;
+pub const NOT_CONNECTED: ACCOUNT_STATE = ACCOUNT_STATE(0i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
-pub const CONNECTING: ACCOUNT_STATE = 1i32;
+pub const CONNECTING: ACCOUNT_STATE = ACCOUNT_STATE(1i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
-pub const CONNECT_COMPLETED: ACCOUNT_STATE = 2i32;
+pub const CONNECT_COMPLETED: ACCOUNT_STATE = ACCOUNT_STATE(2i32);
+impl ::core::marker::Copy for ACCOUNT_STATE {}
+impl ::core::clone::Clone for ACCOUNT_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ACCOUNT_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ACCOUNT_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ACCOUNT_STATE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
 #[repr(transparent)]
 pub struct AsyncIAssociatedIdentityProvider(::windows::core::IUnknown);
@@ -903,27 +919,59 @@ pub struct IConnectedIdentityProvider_Vtbl {
     pub GetAccountState: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstate: *mut ACCOUNT_STATE) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
-pub type IDENTITY_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct IDENTITY_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
-pub const IDENTITIES_ALL: IDENTITY_TYPE = 0i32;
+pub const IDENTITIES_ALL: IDENTITY_TYPE = IDENTITY_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
-pub const IDENTITIES_ME_ONLY: IDENTITY_TYPE = 1i32;
+pub const IDENTITIES_ME_ONLY: IDENTITY_TYPE = IDENTITY_TYPE(1i32);
+impl ::core::marker::Copy for IDENTITY_TYPE {}
+impl ::core::clone::Clone for IDENTITY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for IDENTITY_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IDENTITY_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDENTITY_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
-pub type IDENTITY_URL = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct IDENTITY_URL(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
-pub const IDENTITY_URL_CREATE_ACCOUNT_WIZARD: IDENTITY_URL = 0i32;
+pub const IDENTITY_URL_CREATE_ACCOUNT_WIZARD: IDENTITY_URL = IDENTITY_URL(0i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
-pub const IDENTITY_URL_SIGN_IN_WIZARD: IDENTITY_URL = 1i32;
+pub const IDENTITY_URL_SIGN_IN_WIZARD: IDENTITY_URL = IDENTITY_URL(1i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
-pub const IDENTITY_URL_CHANGE_PASSWORD_WIZARD: IDENTITY_URL = 2i32;
+pub const IDENTITY_URL_CHANGE_PASSWORD_WIZARD: IDENTITY_URL = IDENTITY_URL(2i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
-pub const IDENTITY_URL_IFEXISTS_WIZARD: IDENTITY_URL = 3i32;
+pub const IDENTITY_URL_IFEXISTS_WIZARD: IDENTITY_URL = IDENTITY_URL(3i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
-pub const IDENTITY_URL_ACCOUNT_SETTINGS: IDENTITY_URL = 4i32;
+pub const IDENTITY_URL_ACCOUNT_SETTINGS: IDENTITY_URL = IDENTITY_URL(4i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
-pub const IDENTITY_URL_RESTORE_WIZARD: IDENTITY_URL = 5i32;
+pub const IDENTITY_URL_RESTORE_WIZARD: IDENTITY_URL = IDENTITY_URL(5i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
-pub const IDENTITY_URL_CONNECT_WIZARD: IDENTITY_URL = 6i32;
+pub const IDENTITY_URL_CONNECT_WIZARD: IDENTITY_URL = IDENTITY_URL(6i32);
+impl ::core::marker::Copy for IDENTITY_URL {}
+impl ::core::clone::Clone for IDENTITY_URL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for IDENTITY_URL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IDENTITY_URL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDENTITY_URL").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
 #[repr(transparent)]
 pub struct IIdentityAdvise(::windows::core::IUnknown);
@@ -1328,23 +1376,67 @@ pub struct IIdentityStoreEx_Vtbl {
     DeleteConnectedIdentity: usize,
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
-pub type IdentityUpdateEvent = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct IdentityUpdateEvent(pub u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
-pub const IDENTITY_ASSOCIATED: IdentityUpdateEvent = 1u32;
+pub const IDENTITY_ASSOCIATED: IdentityUpdateEvent = IdentityUpdateEvent(1u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
-pub const IDENTITY_DISASSOCIATED: IdentityUpdateEvent = 2u32;
+pub const IDENTITY_DISASSOCIATED: IdentityUpdateEvent = IdentityUpdateEvent(2u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
-pub const IDENTITY_CREATED: IdentityUpdateEvent = 4u32;
+pub const IDENTITY_CREATED: IdentityUpdateEvent = IdentityUpdateEvent(4u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
-pub const IDENTITY_IMPORTED: IdentityUpdateEvent = 8u32;
+pub const IDENTITY_IMPORTED: IdentityUpdateEvent = IdentityUpdateEvent(8u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
-pub const IDENTITY_DELETED: IdentityUpdateEvent = 16u32;
+pub const IDENTITY_DELETED: IdentityUpdateEvent = IdentityUpdateEvent(16u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
-pub const IDENTITY_PROPCHANGED: IdentityUpdateEvent = 32u32;
+pub const IDENTITY_PROPCHANGED: IdentityUpdateEvent = IdentityUpdateEvent(32u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
-pub const IDENTITY_CONNECTED: IdentityUpdateEvent = 64u32;
+pub const IDENTITY_CONNECTED: IdentityUpdateEvent = IdentityUpdateEvent(64u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity_Provider'*"]
-pub const IDENTITY_DISCONNECTED: IdentityUpdateEvent = 128u32;
+pub const IDENTITY_DISCONNECTED: IdentityUpdateEvent = IdentityUpdateEvent(128u32);
+impl ::core::marker::Copy for IdentityUpdateEvent {}
+impl ::core::clone::Clone for IdentityUpdateEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for IdentityUpdateEvent {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IdentityUpdateEvent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IdentityUpdateEvent").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for IdentityUpdateEvent {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for IdentityUpdateEvent {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for IdentityUpdateEvent {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for IdentityUpdateEvent {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for IdentityUpdateEvent {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const OID_OAssociatedIdentityProviderObject: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98c5a3dd_db68_4f1a_8d2b_9079cdfeaf61);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -959,133 +959,341 @@ pub const EFFECT_VARIABLEFREQSTEP: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const EFFECT_WINDOWEDONLY: u32 = 8u32;
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub type FEEDS_BACKGROUNDSYNC_ACTION = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FEEDS_BACKGROUNDSYNC_ACTION(pub i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FBSA_DISABLE: FEEDS_BACKGROUNDSYNC_ACTION = 0i32;
+pub const FBSA_DISABLE: FEEDS_BACKGROUNDSYNC_ACTION = FEEDS_BACKGROUNDSYNC_ACTION(0i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FBSA_ENABLE: FEEDS_BACKGROUNDSYNC_ACTION = 1i32;
+pub const FBSA_ENABLE: FEEDS_BACKGROUNDSYNC_ACTION = FEEDS_BACKGROUNDSYNC_ACTION(1i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FBSA_RUNNOW: FEEDS_BACKGROUNDSYNC_ACTION = 2i32;
+pub const FBSA_RUNNOW: FEEDS_BACKGROUNDSYNC_ACTION = FEEDS_BACKGROUNDSYNC_ACTION(2i32);
+impl ::core::marker::Copy for FEEDS_BACKGROUNDSYNC_ACTION {}
+impl ::core::clone::Clone for FEEDS_BACKGROUNDSYNC_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FEEDS_BACKGROUNDSYNC_ACTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FEEDS_BACKGROUNDSYNC_ACTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FEEDS_BACKGROUNDSYNC_ACTION").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub type FEEDS_BACKGROUNDSYNC_STATUS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FEEDS_BACKGROUNDSYNC_STATUS(pub i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FBSS_DISABLED: FEEDS_BACKGROUNDSYNC_STATUS = 0i32;
+pub const FBSS_DISABLED: FEEDS_BACKGROUNDSYNC_STATUS = FEEDS_BACKGROUNDSYNC_STATUS(0i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FBSS_ENABLED: FEEDS_BACKGROUNDSYNC_STATUS = 1i32;
+pub const FBSS_ENABLED: FEEDS_BACKGROUNDSYNC_STATUS = FEEDS_BACKGROUNDSYNC_STATUS(1i32);
+impl ::core::marker::Copy for FEEDS_BACKGROUNDSYNC_STATUS {}
+impl ::core::clone::Clone for FEEDS_BACKGROUNDSYNC_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FEEDS_BACKGROUNDSYNC_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FEEDS_BACKGROUNDSYNC_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FEEDS_BACKGROUNDSYNC_STATUS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub type FEEDS_DOWNLOAD_ERROR = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FEEDS_DOWNLOAD_ERROR(pub i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FDE_NONE: FEEDS_DOWNLOAD_ERROR = 0i32;
+pub const FDE_NONE: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(0i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FDE_DOWNLOAD_FAILED: FEEDS_DOWNLOAD_ERROR = 1i32;
+pub const FDE_DOWNLOAD_FAILED: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(1i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FDE_INVALID_FEED_FORMAT: FEEDS_DOWNLOAD_ERROR = 2i32;
+pub const FDE_INVALID_FEED_FORMAT: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(2i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FDE_NORMALIZATION_FAILED: FEEDS_DOWNLOAD_ERROR = 3i32;
+pub const FDE_NORMALIZATION_FAILED: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(3i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FDE_PERSISTENCE_FAILED: FEEDS_DOWNLOAD_ERROR = 4i32;
+pub const FDE_PERSISTENCE_FAILED: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(4i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FDE_DOWNLOAD_BLOCKED: FEEDS_DOWNLOAD_ERROR = 5i32;
+pub const FDE_DOWNLOAD_BLOCKED: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(5i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FDE_CANCELED: FEEDS_DOWNLOAD_ERROR = 6i32;
+pub const FDE_CANCELED: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(6i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FDE_UNSUPPORTED_AUTH: FEEDS_DOWNLOAD_ERROR = 7i32;
+pub const FDE_UNSUPPORTED_AUTH: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(7i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FDE_BACKGROUND_DOWNLOAD_DISABLED: FEEDS_DOWNLOAD_ERROR = 8i32;
+pub const FDE_BACKGROUND_DOWNLOAD_DISABLED: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(8i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FDE_NOT_EXIST: FEEDS_DOWNLOAD_ERROR = 9i32;
+pub const FDE_NOT_EXIST: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(9i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FDE_UNSUPPORTED_MSXML: FEEDS_DOWNLOAD_ERROR = 10i32;
+pub const FDE_UNSUPPORTED_MSXML: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(10i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FDE_UNSUPPORTED_DTD: FEEDS_DOWNLOAD_ERROR = 11i32;
+pub const FDE_UNSUPPORTED_DTD: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(11i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FDE_DOWNLOAD_SIZE_LIMIT_EXCEEDED: FEEDS_DOWNLOAD_ERROR = 12i32;
+pub const FDE_DOWNLOAD_SIZE_LIMIT_EXCEEDED: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(12i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FDE_ACCESS_DENIED: FEEDS_DOWNLOAD_ERROR = 13i32;
+pub const FDE_ACCESS_DENIED: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(13i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FDE_AUTH_FAILED: FEEDS_DOWNLOAD_ERROR = 14i32;
+pub const FDE_AUTH_FAILED: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(14i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FDE_INVALID_AUTH: FEEDS_DOWNLOAD_ERROR = 15i32;
+pub const FDE_INVALID_AUTH: FEEDS_DOWNLOAD_ERROR = FEEDS_DOWNLOAD_ERROR(15i32);
+impl ::core::marker::Copy for FEEDS_DOWNLOAD_ERROR {}
+impl ::core::clone::Clone for FEEDS_DOWNLOAD_ERROR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FEEDS_DOWNLOAD_ERROR {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FEEDS_DOWNLOAD_ERROR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FEEDS_DOWNLOAD_ERROR").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub type FEEDS_DOWNLOAD_STATUS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FEEDS_DOWNLOAD_STATUS(pub i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FDS_NONE: FEEDS_DOWNLOAD_STATUS = 0i32;
+pub const FDS_NONE: FEEDS_DOWNLOAD_STATUS = FEEDS_DOWNLOAD_STATUS(0i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FDS_PENDING: FEEDS_DOWNLOAD_STATUS = 1i32;
+pub const FDS_PENDING: FEEDS_DOWNLOAD_STATUS = FEEDS_DOWNLOAD_STATUS(1i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FDS_DOWNLOADING: FEEDS_DOWNLOAD_STATUS = 2i32;
+pub const FDS_DOWNLOADING: FEEDS_DOWNLOAD_STATUS = FEEDS_DOWNLOAD_STATUS(2i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FDS_DOWNLOADED: FEEDS_DOWNLOAD_STATUS = 3i32;
+pub const FDS_DOWNLOADED: FEEDS_DOWNLOAD_STATUS = FEEDS_DOWNLOAD_STATUS(3i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FDS_DOWNLOAD_FAILED: FEEDS_DOWNLOAD_STATUS = 4i32;
+pub const FDS_DOWNLOAD_FAILED: FEEDS_DOWNLOAD_STATUS = FEEDS_DOWNLOAD_STATUS(4i32);
+impl ::core::marker::Copy for FEEDS_DOWNLOAD_STATUS {}
+impl ::core::clone::Clone for FEEDS_DOWNLOAD_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FEEDS_DOWNLOAD_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FEEDS_DOWNLOAD_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FEEDS_DOWNLOAD_STATUS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub type FEEDS_ERROR_CODE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FEEDS_ERROR_CODE(pub i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FEC_E_ERRORBASE: FEEDS_ERROR_CODE = -1073479168i32;
+pub const FEC_E_ERRORBASE: FEEDS_ERROR_CODE = FEEDS_ERROR_CODE(-1073479168i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FEC_E_INVALIDMSXMLPROPERTY: FEEDS_ERROR_CODE = -1073479168i32;
+pub const FEC_E_INVALIDMSXMLPROPERTY: FEEDS_ERROR_CODE = FEEDS_ERROR_CODE(-1073479168i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FEC_E_DOWNLOADSIZELIMITEXCEEDED: FEEDS_ERROR_CODE = -1073479167i32;
+pub const FEC_E_DOWNLOADSIZELIMITEXCEEDED: FEEDS_ERROR_CODE = FEEDS_ERROR_CODE(-1073479167i32);
+impl ::core::marker::Copy for FEEDS_ERROR_CODE {}
+impl ::core::clone::Clone for FEEDS_ERROR_CODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FEEDS_ERROR_CODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FEEDS_ERROR_CODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FEEDS_ERROR_CODE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub type FEEDS_EVENTS_ITEM_COUNT_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FEEDS_EVENTS_ITEM_COUNT_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FEICF_READ_ITEM_COUNT_CHANGED: FEEDS_EVENTS_ITEM_COUNT_FLAGS = 1i32;
+pub const FEICF_READ_ITEM_COUNT_CHANGED: FEEDS_EVENTS_ITEM_COUNT_FLAGS = FEEDS_EVENTS_ITEM_COUNT_FLAGS(1i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FEICF_UNREAD_ITEM_COUNT_CHANGED: FEEDS_EVENTS_ITEM_COUNT_FLAGS = 2i32;
+pub const FEICF_UNREAD_ITEM_COUNT_CHANGED: FEEDS_EVENTS_ITEM_COUNT_FLAGS = FEEDS_EVENTS_ITEM_COUNT_FLAGS(2i32);
+impl ::core::marker::Copy for FEEDS_EVENTS_ITEM_COUNT_FLAGS {}
+impl ::core::clone::Clone for FEEDS_EVENTS_ITEM_COUNT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FEEDS_EVENTS_ITEM_COUNT_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FEEDS_EVENTS_ITEM_COUNT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FEEDS_EVENTS_ITEM_COUNT_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub type FEEDS_EVENTS_MASK = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FEEDS_EVENTS_MASK(pub i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FEM_FOLDEREVENTS: FEEDS_EVENTS_MASK = 1i32;
+pub const FEM_FOLDEREVENTS: FEEDS_EVENTS_MASK = FEEDS_EVENTS_MASK(1i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FEM_FEEDEVENTS: FEEDS_EVENTS_MASK = 2i32;
+pub const FEM_FEEDEVENTS: FEEDS_EVENTS_MASK = FEEDS_EVENTS_MASK(2i32);
+impl ::core::marker::Copy for FEEDS_EVENTS_MASK {}
+impl ::core::clone::Clone for FEEDS_EVENTS_MASK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FEEDS_EVENTS_MASK {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FEEDS_EVENTS_MASK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FEEDS_EVENTS_MASK").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub type FEEDS_EVENTS_SCOPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FEEDS_EVENTS_SCOPE(pub i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FES_ALL: FEEDS_EVENTS_SCOPE = 0i32;
+pub const FES_ALL: FEEDS_EVENTS_SCOPE = FEEDS_EVENTS_SCOPE(0i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FES_SELF_ONLY: FEEDS_EVENTS_SCOPE = 1i32;
+pub const FES_SELF_ONLY: FEEDS_EVENTS_SCOPE = FEEDS_EVENTS_SCOPE(1i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FES_SELF_AND_CHILDREN_ONLY: FEEDS_EVENTS_SCOPE = 2i32;
+pub const FES_SELF_AND_CHILDREN_ONLY: FEEDS_EVENTS_SCOPE = FEEDS_EVENTS_SCOPE(2i32);
+impl ::core::marker::Copy for FEEDS_EVENTS_SCOPE {}
+impl ::core::clone::Clone for FEEDS_EVENTS_SCOPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FEEDS_EVENTS_SCOPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FEEDS_EVENTS_SCOPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FEEDS_EVENTS_SCOPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub type FEEDS_SYNC_SETTING = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FEEDS_SYNC_SETTING(pub i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FSS_DEFAULT: FEEDS_SYNC_SETTING = 0i32;
+pub const FSS_DEFAULT: FEEDS_SYNC_SETTING = FEEDS_SYNC_SETTING(0i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FSS_INTERVAL: FEEDS_SYNC_SETTING = 1i32;
+pub const FSS_INTERVAL: FEEDS_SYNC_SETTING = FEEDS_SYNC_SETTING(1i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FSS_MANUAL: FEEDS_SYNC_SETTING = 2i32;
+pub const FSS_MANUAL: FEEDS_SYNC_SETTING = FEEDS_SYNC_SETTING(2i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FSS_SUGGESTED: FEEDS_SYNC_SETTING = 3i32;
+pub const FSS_SUGGESTED: FEEDS_SYNC_SETTING = FEEDS_SYNC_SETTING(3i32);
+impl ::core::marker::Copy for FEEDS_SYNC_SETTING {}
+impl ::core::clone::Clone for FEEDS_SYNC_SETTING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FEEDS_SYNC_SETTING {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FEEDS_SYNC_SETTING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FEEDS_SYNC_SETTING").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub type FEEDS_XML_FILTER_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FEEDS_XML_FILTER_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FXFF_ALL: FEEDS_XML_FILTER_FLAGS = 0i32;
+pub const FXFF_ALL: FEEDS_XML_FILTER_FLAGS = FEEDS_XML_FILTER_FLAGS(0i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FXFF_UNREAD: FEEDS_XML_FILTER_FLAGS = 1i32;
+pub const FXFF_UNREAD: FEEDS_XML_FILTER_FLAGS = FEEDS_XML_FILTER_FLAGS(1i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FXFF_READ: FEEDS_XML_FILTER_FLAGS = 2i32;
+pub const FXFF_READ: FEEDS_XML_FILTER_FLAGS = FEEDS_XML_FILTER_FLAGS(2i32);
+impl ::core::marker::Copy for FEEDS_XML_FILTER_FLAGS {}
+impl ::core::clone::Clone for FEEDS_XML_FILTER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FEEDS_XML_FILTER_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FEEDS_XML_FILTER_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FEEDS_XML_FILTER_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub type FEEDS_XML_INCLUDE_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FEEDS_XML_INCLUDE_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FXIF_NONE: FEEDS_XML_INCLUDE_FLAGS = 0i32;
+pub const FXIF_NONE: FEEDS_XML_INCLUDE_FLAGS = FEEDS_XML_INCLUDE_FLAGS(0i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FXIF_CF_EXTENSIONS: FEEDS_XML_INCLUDE_FLAGS = 1i32;
+pub const FXIF_CF_EXTENSIONS: FEEDS_XML_INCLUDE_FLAGS = FEEDS_XML_INCLUDE_FLAGS(1i32);
+impl ::core::marker::Copy for FEEDS_XML_INCLUDE_FLAGS {}
+impl ::core::clone::Clone for FEEDS_XML_INCLUDE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FEEDS_XML_INCLUDE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FEEDS_XML_INCLUDE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FEEDS_XML_INCLUDE_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub type FEEDS_XML_SORT_ORDER = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FEEDS_XML_SORT_ORDER(pub i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FXSO_NONE: FEEDS_XML_SORT_ORDER = 0i32;
+pub const FXSO_NONE: FEEDS_XML_SORT_ORDER = FEEDS_XML_SORT_ORDER(0i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FXSO_ASCENDING: FEEDS_XML_SORT_ORDER = 1i32;
+pub const FXSO_ASCENDING: FEEDS_XML_SORT_ORDER = FEEDS_XML_SORT_ORDER(1i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FXSO_DESCENDING: FEEDS_XML_SORT_ORDER = 2i32;
+pub const FXSO_DESCENDING: FEEDS_XML_SORT_ORDER = FEEDS_XML_SORT_ORDER(2i32);
+impl ::core::marker::Copy for FEEDS_XML_SORT_ORDER {}
+impl ::core::clone::Clone for FEEDS_XML_SORT_ORDER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FEEDS_XML_SORT_ORDER {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FEEDS_XML_SORT_ORDER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FEEDS_XML_SORT_ORDER").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub type FEEDS_XML_SORT_PROPERTY = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FEEDS_XML_SORT_PROPERTY(pub i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FXSP_NONE: FEEDS_XML_SORT_PROPERTY = 0i32;
+pub const FXSP_NONE: FEEDS_XML_SORT_PROPERTY = FEEDS_XML_SORT_PROPERTY(0i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FXSP_PUBDATE: FEEDS_XML_SORT_PROPERTY = 1i32;
+pub const FXSP_PUBDATE: FEEDS_XML_SORT_PROPERTY = FEEDS_XML_SORT_PROPERTY(1i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const FXSP_DOWNLOADTIME: FEEDS_XML_SORT_PROPERTY = 2i32;
+pub const FXSP_DOWNLOADTIME: FEEDS_XML_SORT_PROPERTY = FEEDS_XML_SORT_PROPERTY(2i32);
+impl ::core::marker::Copy for FEEDS_XML_SORT_PROPERTY {}
+impl ::core::clone::Clone for FEEDS_XML_SORT_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FEEDS_XML_SORT_PROPERTY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FEEDS_XML_SORT_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FEEDS_XML_SORT_PROPERTY").field(&self.0).finish()
+    }
+}
 pub const FeedFolderWatcher: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x281001ed_7765_4cb0_84af_e9b387af01ff);
 pub const FeedWatcher: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18a6737b_f433_4687_89bc_a1b4dfb9f123);
 pub const FeedsManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfaeb54c4_f66f_4806_83a0_805299f5e3ad);
@@ -19136,13 +19344,29 @@ pub const PLUGIN_TYPE_SEPARATEWINDOW: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const PLUGIN_TYPE_SETTINGSAREA: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub type PlayerState = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PlayerState(pub i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const stop_state: PlayerState = 0i32;
+pub const stop_state: PlayerState = PlayerState(0i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const pause_state: PlayerState = 1i32;
+pub const pause_state: PlayerState = PlayerState(1i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const play_state: PlayerState = 2i32;
+pub const play_state: PlayerState = PlayerState(2i32);
+impl ::core::marker::Copy for PlayerState {}
+impl ::core::clone::Clone for PlayerState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PlayerState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PlayerState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlayerState").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const SA_BUFFER_SIZE: u32 = 1024u32;
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
@@ -19199,41 +19423,89 @@ impl ::core::default::Default for TimedLevel {
     }
 }
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub type WMPAccountType = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WMPAccountType(pub i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpatBuyOnly: WMPAccountType = 1i32;
+pub const wmpatBuyOnly: WMPAccountType = WMPAccountType(1i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpatSubscription: WMPAccountType = 2i32;
+pub const wmpatSubscription: WMPAccountType = WMPAccountType(2i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpatJanus: WMPAccountType = 3i32;
+pub const wmpatJanus: WMPAccountType = WMPAccountType(3i32);
+impl ::core::marker::Copy for WMPAccountType {}
+impl ::core::clone::Clone for WMPAccountType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WMPAccountType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMPAccountType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMPAccountType").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub type WMPBurnFormat = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WMPBurnFormat(pub i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpbfAudioCD: WMPBurnFormat = 0i32;
+pub const wmpbfAudioCD: WMPBurnFormat = WMPBurnFormat(0i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpbfDataCD: WMPBurnFormat = 1i32;
+pub const wmpbfDataCD: WMPBurnFormat = WMPBurnFormat(1i32);
+impl ::core::marker::Copy for WMPBurnFormat {}
+impl ::core::clone::Clone for WMPBurnFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WMPBurnFormat {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMPBurnFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMPBurnFormat").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub type WMPBurnState = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WMPBurnState(pub i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpbsUnknown: WMPBurnState = 0i32;
+pub const wmpbsUnknown: WMPBurnState = WMPBurnState(0i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpbsBusy: WMPBurnState = 1i32;
+pub const wmpbsBusy: WMPBurnState = WMPBurnState(1i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpbsReady: WMPBurnState = 2i32;
+pub const wmpbsReady: WMPBurnState = WMPBurnState(2i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpbsWaitingForDisc: WMPBurnState = 3i32;
+pub const wmpbsWaitingForDisc: WMPBurnState = WMPBurnState(3i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpbsRefreshStatusPending: WMPBurnState = 4i32;
+pub const wmpbsRefreshStatusPending: WMPBurnState = WMPBurnState(4i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpbsPreparingToBurn: WMPBurnState = 5i32;
+pub const wmpbsPreparingToBurn: WMPBurnState = WMPBurnState(5i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpbsBurning: WMPBurnState = 6i32;
+pub const wmpbsBurning: WMPBurnState = WMPBurnState(6i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpbsStopped: WMPBurnState = 7i32;
+pub const wmpbsStopped: WMPBurnState = WMPBurnState(7i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpbsErasing: WMPBurnState = 8i32;
+pub const wmpbsErasing: WMPBurnState = WMPBurnState(8i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpbsDownloading: WMPBurnState = 9i32;
+pub const wmpbsDownloading: WMPBurnState = WMPBurnState(9i32);
+impl ::core::marker::Copy for WMPBurnState {}
+impl ::core::clone::Clone for WMPBurnState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WMPBurnState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMPBurnState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMPBurnState").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const WMPCOREEVENT_BASE: u32 = 5000u32;
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
@@ -19253,19 +19525,35 @@ pub const WMPCOREEVENT_SEEK_BASE: u32 = 5200u32;
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const WMPCOREEVENT_WARNING_BASE: u32 = 5600u32;
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub type WMPCallbackNotification = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WMPCallbackNotification(pub i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpcnLoginStateChange: WMPCallbackNotification = 1i32;
+pub const wmpcnLoginStateChange: WMPCallbackNotification = WMPCallbackNotification(1i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpcnAuthResult: WMPCallbackNotification = 2i32;
+pub const wmpcnAuthResult: WMPCallbackNotification = WMPCallbackNotification(2i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpcnLicenseUpdated: WMPCallbackNotification = 3i32;
+pub const wmpcnLicenseUpdated: WMPCallbackNotification = WMPCallbackNotification(3i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpcnNewCatalogAvailable: WMPCallbackNotification = 4i32;
+pub const wmpcnNewCatalogAvailable: WMPCallbackNotification = WMPCallbackNotification(4i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpcnNewPluginAvailable: WMPCallbackNotification = 5i32;
+pub const wmpcnNewPluginAvailable: WMPCallbackNotification = WMPCallbackNotification(5i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpcnDisableRadioSkipping: WMPCallbackNotification = 6i32;
+pub const wmpcnDisableRadioSkipping: WMPCallbackNotification = WMPCallbackNotification(6i32);
+impl ::core::marker::Copy for WMPCallbackNotification {}
+impl ::core::clone::Clone for WMPCallbackNotification {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WMPCallbackNotification {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMPCallbackNotification {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMPCallbackNotification").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Media_MediaPlayer', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -19305,31 +19593,63 @@ impl ::core::default::Default for WMPContextMenuInfo {
     }
 }
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub type WMPDeviceStatus = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WMPDeviceStatus(pub i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpdsUnknown: WMPDeviceStatus = 0i32;
+pub const wmpdsUnknown: WMPDeviceStatus = WMPDeviceStatus(0i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpdsPartnershipExists: WMPDeviceStatus = 1i32;
+pub const wmpdsPartnershipExists: WMPDeviceStatus = WMPDeviceStatus(1i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpdsPartnershipDeclined: WMPDeviceStatus = 2i32;
+pub const wmpdsPartnershipDeclined: WMPDeviceStatus = WMPDeviceStatus(2i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpdsPartnershipAnother: WMPDeviceStatus = 3i32;
+pub const wmpdsPartnershipAnother: WMPDeviceStatus = WMPDeviceStatus(3i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpdsManualDevice: WMPDeviceStatus = 4i32;
+pub const wmpdsManualDevice: WMPDeviceStatus = WMPDeviceStatus(4i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpdsNewDevice: WMPDeviceStatus = 5i32;
+pub const wmpdsNewDevice: WMPDeviceStatus = WMPDeviceStatus(5i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpdsLast: WMPDeviceStatus = 6i32;
+pub const wmpdsLast: WMPDeviceStatus = WMPDeviceStatus(6i32);
+impl ::core::marker::Copy for WMPDeviceStatus {}
+impl ::core::clone::Clone for WMPDeviceStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WMPDeviceStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMPDeviceStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMPDeviceStatus").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub type WMPFolderScanState = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WMPFolderScanState(pub i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpfssUnknown: WMPFolderScanState = 0i32;
+pub const wmpfssUnknown: WMPFolderScanState = WMPFolderScanState(0i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpfssScanning: WMPFolderScanState = 1i32;
+pub const wmpfssScanning: WMPFolderScanState = WMPFolderScanState(1i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpfssUpdating: WMPFolderScanState = 2i32;
+pub const wmpfssUpdating: WMPFolderScanState = WMPFolderScanState(2i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpfssStopped: WMPFolderScanState = 3i32;
+pub const wmpfssStopped: WMPFolderScanState = WMPFolderScanState(3i32);
+impl ::core::marker::Copy for WMPFolderScanState {}
+impl ::core::clone::Clone for WMPFolderScanState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WMPFolderScanState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMPFolderScanState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMPFolderScanState").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const WMPGC_FLAGS_ALLOW_PREROLL: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
@@ -19342,238 +19662,494 @@ pub const WMPGC_FLAGS_SUPPRESS_DIALOGS: u32 = 2u32;
 pub const WMPGC_FLAGS_USE_CUSTOM_GRAPH: u32 = 16u32;
 pub const WMPLib: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6bf52a50_394a_11d3_b153_00c04f79faa6);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub type WMPLibraryType = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WMPLibraryType(pub i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpltUnknown: WMPLibraryType = 0i32;
+pub const wmpltUnknown: WMPLibraryType = WMPLibraryType(0i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpltAll: WMPLibraryType = 1i32;
+pub const wmpltAll: WMPLibraryType = WMPLibraryType(1i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpltLocal: WMPLibraryType = 2i32;
+pub const wmpltLocal: WMPLibraryType = WMPLibraryType(2i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpltRemote: WMPLibraryType = 3i32;
+pub const wmpltRemote: WMPLibraryType = WMPLibraryType(3i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpltDisc: WMPLibraryType = 4i32;
+pub const wmpltDisc: WMPLibraryType = WMPLibraryType(4i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpltPortableDevice: WMPLibraryType = 5i32;
+pub const wmpltPortableDevice: WMPLibraryType = WMPLibraryType(5i32);
+impl ::core::marker::Copy for WMPLibraryType {}
+impl ::core::clone::Clone for WMPLibraryType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WMPLibraryType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMPLibraryType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMPLibraryType").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const WMPOCXEVENT_BASE: u32 = 6500u32;
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub type WMPOpenState = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WMPOpenState(pub i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmposUndefined: WMPOpenState = 0i32;
+pub const wmposUndefined: WMPOpenState = WMPOpenState(0i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmposPlaylistChanging: WMPOpenState = 1i32;
+pub const wmposPlaylistChanging: WMPOpenState = WMPOpenState(1i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmposPlaylistLocating: WMPOpenState = 2i32;
+pub const wmposPlaylistLocating: WMPOpenState = WMPOpenState(2i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmposPlaylistConnecting: WMPOpenState = 3i32;
+pub const wmposPlaylistConnecting: WMPOpenState = WMPOpenState(3i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmposPlaylistLoading: WMPOpenState = 4i32;
+pub const wmposPlaylistLoading: WMPOpenState = WMPOpenState(4i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmposPlaylistOpening: WMPOpenState = 5i32;
+pub const wmposPlaylistOpening: WMPOpenState = WMPOpenState(5i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmposPlaylistOpenNoMedia: WMPOpenState = 6i32;
+pub const wmposPlaylistOpenNoMedia: WMPOpenState = WMPOpenState(6i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmposPlaylistChanged: WMPOpenState = 7i32;
+pub const wmposPlaylistChanged: WMPOpenState = WMPOpenState(7i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmposMediaChanging: WMPOpenState = 8i32;
+pub const wmposMediaChanging: WMPOpenState = WMPOpenState(8i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmposMediaLocating: WMPOpenState = 9i32;
+pub const wmposMediaLocating: WMPOpenState = WMPOpenState(9i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmposMediaConnecting: WMPOpenState = 10i32;
+pub const wmposMediaConnecting: WMPOpenState = WMPOpenState(10i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmposMediaLoading: WMPOpenState = 11i32;
+pub const wmposMediaLoading: WMPOpenState = WMPOpenState(11i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmposMediaOpening: WMPOpenState = 12i32;
+pub const wmposMediaOpening: WMPOpenState = WMPOpenState(12i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmposMediaOpen: WMPOpenState = 13i32;
+pub const wmposMediaOpen: WMPOpenState = WMPOpenState(13i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmposBeginCodecAcquisition: WMPOpenState = 14i32;
+pub const wmposBeginCodecAcquisition: WMPOpenState = WMPOpenState(14i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmposEndCodecAcquisition: WMPOpenState = 15i32;
+pub const wmposEndCodecAcquisition: WMPOpenState = WMPOpenState(15i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmposBeginLicenseAcquisition: WMPOpenState = 16i32;
+pub const wmposBeginLicenseAcquisition: WMPOpenState = WMPOpenState(16i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmposEndLicenseAcquisition: WMPOpenState = 17i32;
+pub const wmposEndLicenseAcquisition: WMPOpenState = WMPOpenState(17i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmposBeginIndividualization: WMPOpenState = 18i32;
+pub const wmposBeginIndividualization: WMPOpenState = WMPOpenState(18i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmposEndIndividualization: WMPOpenState = 19i32;
+pub const wmposEndIndividualization: WMPOpenState = WMPOpenState(19i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmposMediaWaiting: WMPOpenState = 20i32;
+pub const wmposMediaWaiting: WMPOpenState = WMPOpenState(20i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmposOpeningUnknownURL: WMPOpenState = 21i32;
+pub const wmposOpeningUnknownURL: WMPOpenState = WMPOpenState(21i32);
+impl ::core::marker::Copy for WMPOpenState {}
+impl ::core::clone::Clone for WMPOpenState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WMPOpenState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMPOpenState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMPOpenState").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub type WMPPartnerNotification = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WMPPartnerNotification(pub i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpsnBackgroundProcessingBegin: WMPPartnerNotification = 1i32;
+pub const wmpsnBackgroundProcessingBegin: WMPPartnerNotification = WMPPartnerNotification(1i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpsnBackgroundProcessingEnd: WMPPartnerNotification = 2i32;
+pub const wmpsnBackgroundProcessingEnd: WMPPartnerNotification = WMPPartnerNotification(2i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpsnCatalogDownloadFailure: WMPPartnerNotification = 3i32;
+pub const wmpsnCatalogDownloadFailure: WMPPartnerNotification = WMPPartnerNotification(3i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpsnCatalogDownloadComplete: WMPPartnerNotification = 4i32;
+pub const wmpsnCatalogDownloadComplete: WMPPartnerNotification = WMPPartnerNotification(4i32);
+impl ::core::marker::Copy for WMPPartnerNotification {}
+impl ::core::clone::Clone for WMPPartnerNotification {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WMPPartnerNotification {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMPPartnerNotification {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMPPartnerNotification").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub type WMPPlayState = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WMPPlayState(pub i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmppsUndefined: WMPPlayState = 0i32;
+pub const wmppsUndefined: WMPPlayState = WMPPlayState(0i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmppsStopped: WMPPlayState = 1i32;
+pub const wmppsStopped: WMPPlayState = WMPPlayState(1i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmppsPaused: WMPPlayState = 2i32;
+pub const wmppsPaused: WMPPlayState = WMPPlayState(2i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmppsPlaying: WMPPlayState = 3i32;
+pub const wmppsPlaying: WMPPlayState = WMPPlayState(3i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmppsScanForward: WMPPlayState = 4i32;
+pub const wmppsScanForward: WMPPlayState = WMPPlayState(4i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmppsScanReverse: WMPPlayState = 5i32;
+pub const wmppsScanReverse: WMPPlayState = WMPPlayState(5i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmppsBuffering: WMPPlayState = 6i32;
+pub const wmppsBuffering: WMPPlayState = WMPPlayState(6i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmppsWaiting: WMPPlayState = 7i32;
+pub const wmppsWaiting: WMPPlayState = WMPPlayState(7i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmppsMediaEnded: WMPPlayState = 8i32;
+pub const wmppsMediaEnded: WMPPlayState = WMPPlayState(8i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmppsTransitioning: WMPPlayState = 9i32;
+pub const wmppsTransitioning: WMPPlayState = WMPPlayState(9i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmppsReady: WMPPlayState = 10i32;
+pub const wmppsReady: WMPPlayState = WMPPlayState(10i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmppsReconnecting: WMPPlayState = 11i32;
+pub const wmppsReconnecting: WMPPlayState = WMPPlayState(11i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmppsLast: WMPPlayState = 12i32;
+pub const wmppsLast: WMPPlayState = WMPPlayState(12i32);
+impl ::core::marker::Copy for WMPPlayState {}
+impl ::core::clone::Clone for WMPPlayState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WMPPlayState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMPPlayState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMPPlayState").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub type WMPPlaylistChangeEventType = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WMPPlaylistChangeEventType(pub i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmplcUnknown: WMPPlaylistChangeEventType = 0i32;
+pub const wmplcUnknown: WMPPlaylistChangeEventType = WMPPlaylistChangeEventType(0i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmplcClear: WMPPlaylistChangeEventType = 1i32;
+pub const wmplcClear: WMPPlaylistChangeEventType = WMPPlaylistChangeEventType(1i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmplcInfoChange: WMPPlaylistChangeEventType = 2i32;
+pub const wmplcInfoChange: WMPPlaylistChangeEventType = WMPPlaylistChangeEventType(2i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmplcMove: WMPPlaylistChangeEventType = 3i32;
+pub const wmplcMove: WMPPlaylistChangeEventType = WMPPlaylistChangeEventType(3i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmplcDelete: WMPPlaylistChangeEventType = 4i32;
+pub const wmplcDelete: WMPPlaylistChangeEventType = WMPPlaylistChangeEventType(4i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmplcInsert: WMPPlaylistChangeEventType = 5i32;
+pub const wmplcInsert: WMPPlaylistChangeEventType = WMPPlaylistChangeEventType(5i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmplcAppend: WMPPlaylistChangeEventType = 6i32;
+pub const wmplcAppend: WMPPlaylistChangeEventType = WMPPlaylistChangeEventType(6i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmplcPrivate: WMPPlaylistChangeEventType = 7i32;
+pub const wmplcPrivate: WMPPlaylistChangeEventType = WMPPlaylistChangeEventType(7i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmplcNameChange: WMPPlaylistChangeEventType = 8i32;
+pub const wmplcNameChange: WMPPlaylistChangeEventType = WMPPlaylistChangeEventType(8i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmplcMorph: WMPPlaylistChangeEventType = 9i32;
+pub const wmplcMorph: WMPPlaylistChangeEventType = WMPPlaylistChangeEventType(9i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmplcSort: WMPPlaylistChangeEventType = 10i32;
+pub const wmplcSort: WMPPlaylistChangeEventType = WMPPlaylistChangeEventType(10i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmplcLast: WMPPlaylistChangeEventType = 11i32;
+pub const wmplcLast: WMPPlaylistChangeEventType = WMPPlaylistChangeEventType(11i32);
+impl ::core::marker::Copy for WMPPlaylistChangeEventType {}
+impl ::core::clone::Clone for WMPPlaylistChangeEventType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WMPPlaylistChangeEventType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMPPlaylistChangeEventType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMPPlaylistChangeEventType").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub type WMPPlugin_Caps = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WMPPlugin_Caps(pub i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const WMPPlugin_Caps_CannotConvertFormats: WMPPlugin_Caps = 1i32;
+pub const WMPPlugin_Caps_CannotConvertFormats: WMPPlugin_Caps = WMPPlugin_Caps(1i32);
+impl ::core::marker::Copy for WMPPlugin_Caps {}
+impl ::core::clone::Clone for WMPPlugin_Caps {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WMPPlugin_Caps {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMPPlugin_Caps {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMPPlugin_Caps").field(&self.0).finish()
+    }
+}
 pub const WMPRemoteMediaServices: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf333473_2cf7_4be2_907f_9aad5661364f);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub type WMPRipState = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WMPRipState(pub i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmprsUnknown: WMPRipState = 0i32;
+pub const wmprsUnknown: WMPRipState = WMPRipState(0i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmprsRipping: WMPRipState = 1i32;
+pub const wmprsRipping: WMPRipState = WMPRipState(1i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmprsStopped: WMPRipState = 2i32;
+pub const wmprsStopped: WMPRipState = WMPRipState(2i32);
+impl ::core::marker::Copy for WMPRipState {}
+impl ::core::clone::Clone for WMPRipState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WMPRipState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMPRipState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMPRipState").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub type WMPServices_StreamState = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WMPServices_StreamState(pub i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const WMPServices_StreamState_Stop: WMPServices_StreamState = 0i32;
+pub const WMPServices_StreamState_Stop: WMPServices_StreamState = WMPServices_StreamState(0i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const WMPServices_StreamState_Pause: WMPServices_StreamState = 1i32;
+pub const WMPServices_StreamState_Pause: WMPServices_StreamState = WMPServices_StreamState(1i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const WMPServices_StreamState_Play: WMPServices_StreamState = 2i32;
+pub const WMPServices_StreamState_Play: WMPServices_StreamState = WMPServices_StreamState(2i32);
+impl ::core::marker::Copy for WMPServices_StreamState {}
+impl ::core::clone::Clone for WMPServices_StreamState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WMPServices_StreamState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMPServices_StreamState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMPServices_StreamState").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub type WMPStreamingType = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WMPStreamingType(pub i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpstUnknown: WMPStreamingType = 0i32;
+pub const wmpstUnknown: WMPStreamingType = WMPStreamingType(0i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpstMusic: WMPStreamingType = 1i32;
+pub const wmpstMusic: WMPStreamingType = WMPStreamingType(1i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpstVideo: WMPStreamingType = 2i32;
+pub const wmpstVideo: WMPStreamingType = WMPStreamingType(2i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpstRadio: WMPStreamingType = 3i32;
+pub const wmpstRadio: WMPStreamingType = WMPStreamingType(3i32);
+impl ::core::marker::Copy for WMPStreamingType {}
+impl ::core::clone::Clone for WMPStreamingType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WMPStreamingType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMPStreamingType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMPStreamingType").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub type WMPStringCollectionChangeEventType = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WMPStringCollectionChangeEventType(pub i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpsccetUnknown: WMPStringCollectionChangeEventType = 0i32;
+pub const wmpsccetUnknown: WMPStringCollectionChangeEventType = WMPStringCollectionChangeEventType(0i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpsccetInsert: WMPStringCollectionChangeEventType = 1i32;
+pub const wmpsccetInsert: WMPStringCollectionChangeEventType = WMPStringCollectionChangeEventType(1i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpsccetChange: WMPStringCollectionChangeEventType = 2i32;
+pub const wmpsccetChange: WMPStringCollectionChangeEventType = WMPStringCollectionChangeEventType(2i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpsccetDelete: WMPStringCollectionChangeEventType = 3i32;
+pub const wmpsccetDelete: WMPStringCollectionChangeEventType = WMPStringCollectionChangeEventType(3i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpsccetClear: WMPStringCollectionChangeEventType = 4i32;
+pub const wmpsccetClear: WMPStringCollectionChangeEventType = WMPStringCollectionChangeEventType(4i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpsccetBeginUpdates: WMPStringCollectionChangeEventType = 5i32;
+pub const wmpsccetBeginUpdates: WMPStringCollectionChangeEventType = WMPStringCollectionChangeEventType(5i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpsccetEndUpdates: WMPStringCollectionChangeEventType = 6i32;
+pub const wmpsccetEndUpdates: WMPStringCollectionChangeEventType = WMPStringCollectionChangeEventType(6i32);
+impl ::core::marker::Copy for WMPStringCollectionChangeEventType {}
+impl ::core::clone::Clone for WMPStringCollectionChangeEventType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WMPStringCollectionChangeEventType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMPStringCollectionChangeEventType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMPStringCollectionChangeEventType").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub type WMPSubscriptionDownloadState = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WMPSubscriptionDownloadState(pub i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpsdlsDownloading: WMPSubscriptionDownloadState = 0i32;
+pub const wmpsdlsDownloading: WMPSubscriptionDownloadState = WMPSubscriptionDownloadState(0i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpsdlsPaused: WMPSubscriptionDownloadState = 1i32;
+pub const wmpsdlsPaused: WMPSubscriptionDownloadState = WMPSubscriptionDownloadState(1i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpsdlsProcessing: WMPSubscriptionDownloadState = 2i32;
+pub const wmpsdlsProcessing: WMPSubscriptionDownloadState = WMPSubscriptionDownloadState(2i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpsdlsCompleted: WMPSubscriptionDownloadState = 3i32;
+pub const wmpsdlsCompleted: WMPSubscriptionDownloadState = WMPSubscriptionDownloadState(3i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpsdlsCancelled: WMPSubscriptionDownloadState = 4i32;
+pub const wmpsdlsCancelled: WMPSubscriptionDownloadState = WMPSubscriptionDownloadState(4i32);
+impl ::core::marker::Copy for WMPSubscriptionDownloadState {}
+impl ::core::clone::Clone for WMPSubscriptionDownloadState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WMPSubscriptionDownloadState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMPSubscriptionDownloadState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMPSubscriptionDownloadState").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub type WMPSubscriptionServiceEvent = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WMPSubscriptionServiceEvent(pub i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpsseCurrentBegin: WMPSubscriptionServiceEvent = 1i32;
+pub const wmpsseCurrentBegin: WMPSubscriptionServiceEvent = WMPSubscriptionServiceEvent(1i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpsseCurrentEnd: WMPSubscriptionServiceEvent = 2i32;
+pub const wmpsseCurrentEnd: WMPSubscriptionServiceEvent = WMPSubscriptionServiceEvent(2i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpsseFullBegin: WMPSubscriptionServiceEvent = 3i32;
+pub const wmpsseFullBegin: WMPSubscriptionServiceEvent = WMPSubscriptionServiceEvent(3i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpsseFullEnd: WMPSubscriptionServiceEvent = 4i32;
+pub const wmpsseFullEnd: WMPSubscriptionServiceEvent = WMPSubscriptionServiceEvent(4i32);
+impl ::core::marker::Copy for WMPSubscriptionServiceEvent {}
+impl ::core::clone::Clone for WMPSubscriptionServiceEvent {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WMPSubscriptionServiceEvent {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMPSubscriptionServiceEvent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMPSubscriptionServiceEvent").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub type WMPSyncState = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WMPSyncState(pub i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpssUnknown: WMPSyncState = 0i32;
+pub const wmpssUnknown: WMPSyncState = WMPSyncState(0i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpssSynchronizing: WMPSyncState = 1i32;
+pub const wmpssSynchronizing: WMPSyncState = WMPSyncState(1i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpssStopped: WMPSyncState = 2i32;
+pub const wmpssStopped: WMPSyncState = WMPSyncState(2i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpssEstimating: WMPSyncState = 3i32;
+pub const wmpssEstimating: WMPSyncState = WMPSyncState(3i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpssLast: WMPSyncState = 4i32;
+pub const wmpssLast: WMPSyncState = WMPSyncState(4i32);
+impl ::core::marker::Copy for WMPSyncState {}
+impl ::core::clone::Clone for WMPSyncState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WMPSyncState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMPSyncState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMPSyncState").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub type WMPTaskType = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WMPTaskType(pub i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpttBrowse: WMPTaskType = 1i32;
+pub const wmpttBrowse: WMPTaskType = WMPTaskType(1i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpttSync: WMPTaskType = 2i32;
+pub const wmpttSync: WMPTaskType = WMPTaskType(2i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpttBurn: WMPTaskType = 3i32;
+pub const wmpttBurn: WMPTaskType = WMPTaskType(3i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpttCurrent: WMPTaskType = 4i32;
+pub const wmpttCurrent: WMPTaskType = WMPTaskType(4i32);
+impl ::core::marker::Copy for WMPTaskType {}
+impl ::core::clone::Clone for WMPTaskType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WMPTaskType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMPTaskType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMPTaskType").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub type WMPTemplateSize = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WMPTemplateSize(pub i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmptsSmall: WMPTemplateSize = 0i32;
+pub const wmptsSmall: WMPTemplateSize = WMPTemplateSize(0i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmptsMedium: WMPTemplateSize = 1i32;
+pub const wmptsMedium: WMPTemplateSize = WMPTemplateSize(1i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmptsLarge: WMPTemplateSize = 2i32;
+pub const wmptsLarge: WMPTemplateSize = WMPTemplateSize(2i32);
+impl ::core::marker::Copy for WMPTemplateSize {}
+impl ::core::clone::Clone for WMPTemplateSize {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WMPTemplateSize {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMPTemplateSize {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMPTemplateSize").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub type WMPTransactionType = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WMPTransactionType(pub i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpttNoTransaction: WMPTransactionType = 0i32;
+pub const wmpttNoTransaction: WMPTransactionType = WMPTransactionType(0i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpttDownload: WMPTransactionType = 1i32;
+pub const wmpttDownload: WMPTransactionType = WMPTransactionType(1i32);
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
-pub const wmpttBuy: WMPTransactionType = 2i32;
+pub const wmpttBuy: WMPTransactionType = WMPTransactionType(2i32);
+impl ::core::marker::Copy for WMPTransactionType {}
+impl ::core::clone::Clone for WMPTransactionType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WMPTransactionType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WMPTransactionType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WMPTransactionType").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]
 pub const WMPUE_EC_USER: u32 = 33024u32;
 #[doc = "*Required features: 'Win32_Media_MediaPlayer'*"]

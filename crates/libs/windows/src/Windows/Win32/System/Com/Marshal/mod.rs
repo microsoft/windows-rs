@@ -1858,11 +1858,27 @@ pub unsafe fn SNB_UserUnmarshal64(param0: *const u32, param1: *const u8, param2:
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_System_Com_Marshal'*"]
-pub type STDMSHLFLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct STDMSHLFLAGS(pub i32);
 #[doc = "*Required features: 'Win32_System_Com_Marshal'*"]
-pub const SMEXF_SERVER: STDMSHLFLAGS = 1i32;
+pub const SMEXF_SERVER: STDMSHLFLAGS = STDMSHLFLAGS(1i32);
 #[doc = "*Required features: 'Win32_System_Com_Marshal'*"]
-pub const SMEXF_HANDLER: STDMSHLFLAGS = 2i32;
+pub const SMEXF_HANDLER: STDMSHLFLAGS = STDMSHLFLAGS(2i32);
+impl ::core::marker::Copy for STDMSHLFLAGS {}
+impl ::core::clone::Clone for STDMSHLFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for STDMSHLFLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for STDMSHLFLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("STDMSHLFLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Com_Marshal', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_System_Com_StructuredStorage'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 #[inline]

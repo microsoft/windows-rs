@@ -700,13 +700,57 @@ impl ::core::default::Default for TIMECODE_SAMPLE {
     }
 }
 #[doc = "*Required features: 'Win32_Media'*"]
-pub type TIMECODE_SAMPLE_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TIMECODE_SAMPLE_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Media'*"]
-pub const ED_DEVCAP_TIMECODE_READ: TIMECODE_SAMPLE_FLAGS = 4121u32;
+pub const ED_DEVCAP_TIMECODE_READ: TIMECODE_SAMPLE_FLAGS = TIMECODE_SAMPLE_FLAGS(4121u32);
 #[doc = "*Required features: 'Win32_Media'*"]
-pub const ED_DEVCAP_ATN_READ: TIMECODE_SAMPLE_FLAGS = 5047u32;
+pub const ED_DEVCAP_ATN_READ: TIMECODE_SAMPLE_FLAGS = TIMECODE_SAMPLE_FLAGS(5047u32);
 #[doc = "*Required features: 'Win32_Media'*"]
-pub const ED_DEVCAP_RTC_READ: TIMECODE_SAMPLE_FLAGS = 5050u32;
+pub const ED_DEVCAP_RTC_READ: TIMECODE_SAMPLE_FLAGS = TIMECODE_SAMPLE_FLAGS(5050u32);
+impl ::core::marker::Copy for TIMECODE_SAMPLE_FLAGS {}
+impl ::core::clone::Clone for TIMECODE_SAMPLE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TIMECODE_SAMPLE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TIMECODE_SAMPLE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TIMECODE_SAMPLE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for TIMECODE_SAMPLE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for TIMECODE_SAMPLE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for TIMECODE_SAMPLE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for TIMECODE_SAMPLE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for TIMECODE_SAMPLE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Media'*"]
 pub const TIMERR_BASE: u32 = 96u32;
 #[doc = "*Required features: 'Win32_Media'*"]

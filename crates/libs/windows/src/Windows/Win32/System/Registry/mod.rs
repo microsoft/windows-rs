@@ -365,143 +365,467 @@ pub const REGSTR_MAX_VALUE_LENGTH: u32 = 256u32;
 #[doc = "*Required features: 'Win32_System_Registry'*"]
 pub const REGSTR_VAL_MAX_HCID_LEN: u32 = 1024u32;
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub type REG_CREATE_KEY_DISPOSITION = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct REG_CREATE_KEY_DISPOSITION(pub u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const REG_CREATED_NEW_KEY: REG_CREATE_KEY_DISPOSITION = 1u32;
+pub const REG_CREATED_NEW_KEY: REG_CREATE_KEY_DISPOSITION = REG_CREATE_KEY_DISPOSITION(1u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const REG_OPENED_EXISTING_KEY: REG_CREATE_KEY_DISPOSITION = 2u32;
+pub const REG_OPENED_EXISTING_KEY: REG_CREATE_KEY_DISPOSITION = REG_CREATE_KEY_DISPOSITION(2u32);
+impl ::core::marker::Copy for REG_CREATE_KEY_DISPOSITION {}
+impl ::core::clone::Clone for REG_CREATE_KEY_DISPOSITION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for REG_CREATE_KEY_DISPOSITION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for REG_CREATE_KEY_DISPOSITION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("REG_CREATE_KEY_DISPOSITION").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for REG_CREATE_KEY_DISPOSITION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for REG_CREATE_KEY_DISPOSITION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for REG_CREATE_KEY_DISPOSITION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for REG_CREATE_KEY_DISPOSITION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for REG_CREATE_KEY_DISPOSITION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Registry'*"]
 pub const REG_MUI_STRING_TRUNCATE: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub type REG_NOTIFY_FILTER = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct REG_NOTIFY_FILTER(pub u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const REG_NOTIFY_CHANGE_NAME: REG_NOTIFY_FILTER = 1u32;
+pub const REG_NOTIFY_CHANGE_NAME: REG_NOTIFY_FILTER = REG_NOTIFY_FILTER(1u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const REG_NOTIFY_CHANGE_ATTRIBUTES: REG_NOTIFY_FILTER = 2u32;
+pub const REG_NOTIFY_CHANGE_ATTRIBUTES: REG_NOTIFY_FILTER = REG_NOTIFY_FILTER(2u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const REG_NOTIFY_CHANGE_LAST_SET: REG_NOTIFY_FILTER = 4u32;
+pub const REG_NOTIFY_CHANGE_LAST_SET: REG_NOTIFY_FILTER = REG_NOTIFY_FILTER(4u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const REG_NOTIFY_CHANGE_SECURITY: REG_NOTIFY_FILTER = 8u32;
+pub const REG_NOTIFY_CHANGE_SECURITY: REG_NOTIFY_FILTER = REG_NOTIFY_FILTER(8u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const REG_NOTIFY_THREAD_AGNOSTIC: REG_NOTIFY_FILTER = 268435456u32;
+pub const REG_NOTIFY_THREAD_AGNOSTIC: REG_NOTIFY_FILTER = REG_NOTIFY_FILTER(268435456u32);
+impl ::core::marker::Copy for REG_NOTIFY_FILTER {}
+impl ::core::clone::Clone for REG_NOTIFY_FILTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for REG_NOTIFY_FILTER {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for REG_NOTIFY_FILTER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("REG_NOTIFY_FILTER").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for REG_NOTIFY_FILTER {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for REG_NOTIFY_FILTER {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for REG_NOTIFY_FILTER {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for REG_NOTIFY_FILTER {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for REG_NOTIFY_FILTER {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub type REG_OPEN_CREATE_OPTIONS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct REG_OPEN_CREATE_OPTIONS(pub u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const REG_OPTION_RESERVED: REG_OPEN_CREATE_OPTIONS = 0u32;
+pub const REG_OPTION_RESERVED: REG_OPEN_CREATE_OPTIONS = REG_OPEN_CREATE_OPTIONS(0u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const REG_OPTION_NON_VOLATILE: REG_OPEN_CREATE_OPTIONS = 0u32;
+pub const REG_OPTION_NON_VOLATILE: REG_OPEN_CREATE_OPTIONS = REG_OPEN_CREATE_OPTIONS(0u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const REG_OPTION_VOLATILE: REG_OPEN_CREATE_OPTIONS = 1u32;
+pub const REG_OPTION_VOLATILE: REG_OPEN_CREATE_OPTIONS = REG_OPEN_CREATE_OPTIONS(1u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const REG_OPTION_CREATE_LINK: REG_OPEN_CREATE_OPTIONS = 2u32;
+pub const REG_OPTION_CREATE_LINK: REG_OPEN_CREATE_OPTIONS = REG_OPEN_CREATE_OPTIONS(2u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const REG_OPTION_BACKUP_RESTORE: REG_OPEN_CREATE_OPTIONS = 4u32;
+pub const REG_OPTION_BACKUP_RESTORE: REG_OPEN_CREATE_OPTIONS = REG_OPEN_CREATE_OPTIONS(4u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const REG_OPTION_OPEN_LINK: REG_OPEN_CREATE_OPTIONS = 8u32;
+pub const REG_OPTION_OPEN_LINK: REG_OPEN_CREATE_OPTIONS = REG_OPEN_CREATE_OPTIONS(8u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const REG_OPTION_DONT_VIRTUALIZE: REG_OPEN_CREATE_OPTIONS = 16u32;
+pub const REG_OPTION_DONT_VIRTUALIZE: REG_OPEN_CREATE_OPTIONS = REG_OPEN_CREATE_OPTIONS(16u32);
+impl ::core::marker::Copy for REG_OPEN_CREATE_OPTIONS {}
+impl ::core::clone::Clone for REG_OPEN_CREATE_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for REG_OPEN_CREATE_OPTIONS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for REG_OPEN_CREATE_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("REG_OPEN_CREATE_OPTIONS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for REG_OPEN_CREATE_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for REG_OPEN_CREATE_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for REG_OPEN_CREATE_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for REG_OPEN_CREATE_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for REG_OPEN_CREATE_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Registry'*"]
 pub const REG_PROCESS_APPKEY: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub type REG_RESTORE_KEY_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct REG_RESTORE_KEY_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const REG_FORCE_RESTORE: REG_RESTORE_KEY_FLAGS = 8i32;
+pub const REG_FORCE_RESTORE: REG_RESTORE_KEY_FLAGS = REG_RESTORE_KEY_FLAGS(8i32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const REG_WHOLE_HIVE_VOLATILE: REG_RESTORE_KEY_FLAGS = 1i32;
+pub const REG_WHOLE_HIVE_VOLATILE: REG_RESTORE_KEY_FLAGS = REG_RESTORE_KEY_FLAGS(1i32);
+impl ::core::marker::Copy for REG_RESTORE_KEY_FLAGS {}
+impl ::core::clone::Clone for REG_RESTORE_KEY_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for REG_RESTORE_KEY_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for REG_RESTORE_KEY_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("REG_RESTORE_KEY_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub type REG_SAM_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct REG_SAM_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const KEY_QUERY_VALUE: REG_SAM_FLAGS = 1u32;
+pub const KEY_QUERY_VALUE: REG_SAM_FLAGS = REG_SAM_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const KEY_SET_VALUE: REG_SAM_FLAGS = 2u32;
+pub const KEY_SET_VALUE: REG_SAM_FLAGS = REG_SAM_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const KEY_CREATE_SUB_KEY: REG_SAM_FLAGS = 4u32;
+pub const KEY_CREATE_SUB_KEY: REG_SAM_FLAGS = REG_SAM_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const KEY_ENUMERATE_SUB_KEYS: REG_SAM_FLAGS = 8u32;
+pub const KEY_ENUMERATE_SUB_KEYS: REG_SAM_FLAGS = REG_SAM_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const KEY_NOTIFY: REG_SAM_FLAGS = 16u32;
+pub const KEY_NOTIFY: REG_SAM_FLAGS = REG_SAM_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const KEY_CREATE_LINK: REG_SAM_FLAGS = 32u32;
+pub const KEY_CREATE_LINK: REG_SAM_FLAGS = REG_SAM_FLAGS(32u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const KEY_WOW64_32KEY: REG_SAM_FLAGS = 512u32;
+pub const KEY_WOW64_32KEY: REG_SAM_FLAGS = REG_SAM_FLAGS(512u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const KEY_WOW64_64KEY: REG_SAM_FLAGS = 256u32;
+pub const KEY_WOW64_64KEY: REG_SAM_FLAGS = REG_SAM_FLAGS(256u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const KEY_WOW64_RES: REG_SAM_FLAGS = 768u32;
+pub const KEY_WOW64_RES: REG_SAM_FLAGS = REG_SAM_FLAGS(768u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const KEY_READ: REG_SAM_FLAGS = 131097u32;
+pub const KEY_READ: REG_SAM_FLAGS = REG_SAM_FLAGS(131097u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const KEY_WRITE: REG_SAM_FLAGS = 131078u32;
+pub const KEY_WRITE: REG_SAM_FLAGS = REG_SAM_FLAGS(131078u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const KEY_EXECUTE: REG_SAM_FLAGS = 131097u32;
+pub const KEY_EXECUTE: REG_SAM_FLAGS = REG_SAM_FLAGS(131097u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const KEY_ALL_ACCESS: REG_SAM_FLAGS = 983103u32;
+pub const KEY_ALL_ACCESS: REG_SAM_FLAGS = REG_SAM_FLAGS(983103u32);
+impl ::core::marker::Copy for REG_SAM_FLAGS {}
+impl ::core::clone::Clone for REG_SAM_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for REG_SAM_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for REG_SAM_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("REG_SAM_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for REG_SAM_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for REG_SAM_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for REG_SAM_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for REG_SAM_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for REG_SAM_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub type REG_SAVE_FORMAT = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct REG_SAVE_FORMAT(pub u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const REG_STANDARD_FORMAT: REG_SAVE_FORMAT = 1u32;
+pub const REG_STANDARD_FORMAT: REG_SAVE_FORMAT = REG_SAVE_FORMAT(1u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const REG_LATEST_FORMAT: REG_SAVE_FORMAT = 2u32;
+pub const REG_LATEST_FORMAT: REG_SAVE_FORMAT = REG_SAVE_FORMAT(2u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const REG_NO_COMPRESSION: REG_SAVE_FORMAT = 4u32;
+pub const REG_NO_COMPRESSION: REG_SAVE_FORMAT = REG_SAVE_FORMAT(4u32);
+impl ::core::marker::Copy for REG_SAVE_FORMAT {}
+impl ::core::clone::Clone for REG_SAVE_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for REG_SAVE_FORMAT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for REG_SAVE_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("REG_SAVE_FORMAT").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for REG_SAVE_FORMAT {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for REG_SAVE_FORMAT {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for REG_SAVE_FORMAT {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for REG_SAVE_FORMAT {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for REG_SAVE_FORMAT {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Registry'*"]
 pub const REG_SECURE_CONNECTION: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Registry'*"]
 pub const REG_USE_CURRENT_SECURITY_CONTEXT: u32 = 2u32;
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub type REG_VALUE_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct REG_VALUE_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const REG_NONE: REG_VALUE_TYPE = 0u32;
+pub const REG_NONE: REG_VALUE_TYPE = REG_VALUE_TYPE(0u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const REG_SZ: REG_VALUE_TYPE = 1u32;
+pub const REG_SZ: REG_VALUE_TYPE = REG_VALUE_TYPE(1u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const REG_EXPAND_SZ: REG_VALUE_TYPE = 2u32;
+pub const REG_EXPAND_SZ: REG_VALUE_TYPE = REG_VALUE_TYPE(2u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const REG_BINARY: REG_VALUE_TYPE = 3u32;
+pub const REG_BINARY: REG_VALUE_TYPE = REG_VALUE_TYPE(3u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const REG_DWORD: REG_VALUE_TYPE = 4u32;
+pub const REG_DWORD: REG_VALUE_TYPE = REG_VALUE_TYPE(4u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const REG_DWORD_LITTLE_ENDIAN: REG_VALUE_TYPE = 4u32;
+pub const REG_DWORD_LITTLE_ENDIAN: REG_VALUE_TYPE = REG_VALUE_TYPE(4u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const REG_DWORD_BIG_ENDIAN: REG_VALUE_TYPE = 5u32;
+pub const REG_DWORD_BIG_ENDIAN: REG_VALUE_TYPE = REG_VALUE_TYPE(5u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const REG_LINK: REG_VALUE_TYPE = 6u32;
+pub const REG_LINK: REG_VALUE_TYPE = REG_VALUE_TYPE(6u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const REG_MULTI_SZ: REG_VALUE_TYPE = 7u32;
+pub const REG_MULTI_SZ: REG_VALUE_TYPE = REG_VALUE_TYPE(7u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const REG_RESOURCE_LIST: REG_VALUE_TYPE = 8u32;
+pub const REG_RESOURCE_LIST: REG_VALUE_TYPE = REG_VALUE_TYPE(8u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const REG_FULL_RESOURCE_DESCRIPTOR: REG_VALUE_TYPE = 9u32;
+pub const REG_FULL_RESOURCE_DESCRIPTOR: REG_VALUE_TYPE = REG_VALUE_TYPE(9u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const REG_RESOURCE_REQUIREMENTS_LIST: REG_VALUE_TYPE = 10u32;
+pub const REG_RESOURCE_REQUIREMENTS_LIST: REG_VALUE_TYPE = REG_VALUE_TYPE(10u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const REG_QWORD: REG_VALUE_TYPE = 11u32;
+pub const REG_QWORD: REG_VALUE_TYPE = REG_VALUE_TYPE(11u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const REG_QWORD_LITTLE_ENDIAN: REG_VALUE_TYPE = 11u32;
+pub const REG_QWORD_LITTLE_ENDIAN: REG_VALUE_TYPE = REG_VALUE_TYPE(11u32);
+impl ::core::marker::Copy for REG_VALUE_TYPE {}
+impl ::core::clone::Clone for REG_VALUE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for REG_VALUE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for REG_VALUE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("REG_VALUE_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for REG_VALUE_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for REG_VALUE_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for REG_VALUE_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for REG_VALUE_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for REG_VALUE_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Registry'*"]
 pub const RRF_NOEXPAND: u32 = 268435456u32;
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub type RRF_RT = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RRF_RT(pub u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const RRF_RT_ANY: RRF_RT = 65535u32;
+pub const RRF_RT_ANY: RRF_RT = RRF_RT(65535u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const RRF_RT_DWORD: RRF_RT = 24u32;
+pub const RRF_RT_DWORD: RRF_RT = RRF_RT(24u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const RRF_RT_QWORD: RRF_RT = 72u32;
+pub const RRF_RT_QWORD: RRF_RT = RRF_RT(72u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const RRF_RT_REG_BINARY: RRF_RT = 8u32;
+pub const RRF_RT_REG_BINARY: RRF_RT = RRF_RT(8u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const RRF_RT_REG_DWORD: RRF_RT = 16u32;
+pub const RRF_RT_REG_DWORD: RRF_RT = RRF_RT(16u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const RRF_RT_REG_EXPAND_SZ: RRF_RT = 4u32;
+pub const RRF_RT_REG_EXPAND_SZ: RRF_RT = RRF_RT(4u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const RRF_RT_REG_MULTI_SZ: RRF_RT = 32u32;
+pub const RRF_RT_REG_MULTI_SZ: RRF_RT = RRF_RT(32u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const RRF_RT_REG_NONE: RRF_RT = 1u32;
+pub const RRF_RT_REG_NONE: RRF_RT = RRF_RT(1u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const RRF_RT_REG_QWORD: RRF_RT = 64u32;
+pub const RRF_RT_REG_QWORD: RRF_RT = RRF_RT(64u32);
 #[doc = "*Required features: 'Win32_System_Registry'*"]
-pub const RRF_RT_REG_SZ: RRF_RT = 2u32;
+pub const RRF_RT_REG_SZ: RRF_RT = RRF_RT(2u32);
+impl ::core::marker::Copy for RRF_RT {}
+impl ::core::clone::Clone for RRF_RT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RRF_RT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RRF_RT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RRF_RT").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for RRF_RT {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for RRF_RT {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for RRF_RT {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for RRF_RT {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for RRF_RT {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Registry'*"]
 pub const RRF_SUBKEY_WOW6432KEY: u32 = 131072u32;
 #[doc = "*Required features: 'Win32_System_Registry'*"]

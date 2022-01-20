@@ -779,13 +779,29 @@ pub struct IWindowsMediaLibrarySharingServices_Vtbl {
     pub customSettingsApplied: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, customsettingsapplied: *mut i16) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Media_LibrarySharingServices'*"]
-pub type WindowsMediaLibrarySharingDeviceAuthorizationStatus = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WindowsMediaLibrarySharingDeviceAuthorizationStatus(pub i32);
 #[doc = "*Required features: 'Win32_Media_LibrarySharingServices'*"]
-pub const DEVICE_AUTHORIZATION_UNKNOWN: WindowsMediaLibrarySharingDeviceAuthorizationStatus = 0i32;
+pub const DEVICE_AUTHORIZATION_UNKNOWN: WindowsMediaLibrarySharingDeviceAuthorizationStatus = WindowsMediaLibrarySharingDeviceAuthorizationStatus(0i32);
 #[doc = "*Required features: 'Win32_Media_LibrarySharingServices'*"]
-pub const DEVICE_AUTHORIZATION_ALLOWED: WindowsMediaLibrarySharingDeviceAuthorizationStatus = 1i32;
+pub const DEVICE_AUTHORIZATION_ALLOWED: WindowsMediaLibrarySharingDeviceAuthorizationStatus = WindowsMediaLibrarySharingDeviceAuthorizationStatus(1i32);
 #[doc = "*Required features: 'Win32_Media_LibrarySharingServices'*"]
-pub const DEVICE_AUTHORIZATION_DENIED: WindowsMediaLibrarySharingDeviceAuthorizationStatus = 2i32;
+pub const DEVICE_AUTHORIZATION_DENIED: WindowsMediaLibrarySharingDeviceAuthorizationStatus = WindowsMediaLibrarySharingDeviceAuthorizationStatus(2i32);
+impl ::core::marker::Copy for WindowsMediaLibrarySharingDeviceAuthorizationStatus {}
+impl ::core::clone::Clone for WindowsMediaLibrarySharingDeviceAuthorizationStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WindowsMediaLibrarySharingDeviceAuthorizationStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WindowsMediaLibrarySharingDeviceAuthorizationStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WindowsMediaLibrarySharingDeviceAuthorizationStatus").field(&self.0).finish()
+    }
+}
 pub const WindowsMediaLibrarySharingServices: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad581b00_7b64_4e59_a38d_d2c5bf51ddb3);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

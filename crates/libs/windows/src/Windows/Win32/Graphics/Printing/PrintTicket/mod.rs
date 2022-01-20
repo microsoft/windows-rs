@@ -1,18 +1,50 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket'*"]
-pub type EDefaultDevmodeType = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct EDefaultDevmodeType(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket'*"]
-pub const kUserDefaultDevmode: EDefaultDevmodeType = 0i32;
+pub const kUserDefaultDevmode: EDefaultDevmodeType = EDefaultDevmodeType(0i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket'*"]
-pub const kPrinterDefaultDevmode: EDefaultDevmodeType = 1i32;
+pub const kPrinterDefaultDevmode: EDefaultDevmodeType = EDefaultDevmodeType(1i32);
+impl ::core::marker::Copy for EDefaultDevmodeType {}
+impl ::core::clone::Clone for EDefaultDevmodeType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for EDefaultDevmodeType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EDefaultDevmodeType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EDefaultDevmodeType").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket'*"]
-pub type EPrintTicketScope = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct EPrintTicketScope(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket'*"]
-pub const kPTPageScope: EPrintTicketScope = 0i32;
+pub const kPTPageScope: EPrintTicketScope = EPrintTicketScope(0i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket'*"]
-pub const kPTDocumentScope: EPrintTicketScope = 1i32;
+pub const kPTDocumentScope: EPrintTicketScope = EPrintTicketScope(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket'*"]
-pub const kPTJobScope: EPrintTicketScope = 2i32;
+pub const kPTJobScope: EPrintTicketScope = EPrintTicketScope(2i32);
+impl ::core::marker::Copy for EPrintTicketScope {}
+impl ::core::clone::Clone for EPrintTicketScope {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for EPrintTicketScope {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EPrintTicketScope {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EPrintTicketScope").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket'*"]
 pub const E_DELTA_PRINTTICKET_FORMAT: u32 = 2147745797u32;
 #[doc = "*Required features: 'Win32_Graphics_Printing_PrintTicket'*"]

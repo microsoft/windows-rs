@@ -6301,161 +6301,421 @@ pub struct IWICStreamProvider_Vtbl {
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub type PFNProgressNotification = ::core::option::Option<unsafe extern "system" fn(pvdata: *const ::core::ffi::c_void, uframenum: u32, operation: WICProgressOperation, dblprogress: f64) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WIC8BIMIptcDigestProperties = u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WIC8BIMIptcDigestPString: WIC8BIMIptcDigestProperties = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WIC8BIMIptcDigestIptcDigest: WIC8BIMIptcDigestProperties = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WIC8BIMIptcDigestProperties_FORCE_DWORD: WIC8BIMIptcDigestProperties = 2147483647u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WIC8BIMIptcProperties = u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WIC8BIMIptcPString: WIC8BIMIptcProperties = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WIC8BIMIptcEmbeddedIPTC: WIC8BIMIptcProperties = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WIC8BIMIptcProperties_FORCE_DWORD: WIC8BIMIptcProperties = 2147483647u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WIC8BIMResolutionInfoProperties = u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WIC8BIMResolutionInfoPString: WIC8BIMResolutionInfoProperties = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WIC8BIMResolutionInfoHResolution: WIC8BIMResolutionInfoProperties = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WIC8BIMResolutionInfoHResolutionUnit: WIC8BIMResolutionInfoProperties = 3u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WIC8BIMResolutionInfoWidthUnit: WIC8BIMResolutionInfoProperties = 4u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WIC8BIMResolutionInfoVResolution: WIC8BIMResolutionInfoProperties = 5u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WIC8BIMResolutionInfoVResolutionUnit: WIC8BIMResolutionInfoProperties = 6u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WIC8BIMResolutionInfoHeightUnit: WIC8BIMResolutionInfoProperties = 7u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WIC8BIMResolutionInfoProperties_FORCE_DWORD: WIC8BIMResolutionInfoProperties = 2147483647u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICBitmapAlphaChannelOption = i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapUseAlpha: WICBitmapAlphaChannelOption = 0i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapUsePremultipliedAlpha: WICBitmapAlphaChannelOption = 1i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapIgnoreAlpha: WICBitmapAlphaChannelOption = 2i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBITMAPALPHACHANNELOPTIONS_FORCE_DWORD: WICBitmapAlphaChannelOption = 2147483647i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICBitmapCreateCacheOption = i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapNoCache: WICBitmapCreateCacheOption = 0i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapCacheOnDemand: WICBitmapCreateCacheOption = 1i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapCacheOnLoad: WICBitmapCreateCacheOption = 2i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBITMAPCREATECACHEOPTION_FORCE_DWORD: WICBitmapCreateCacheOption = 2147483647i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICBitmapDecoderCapabilities = i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapDecoderCapabilitySameEncoder: WICBitmapDecoderCapabilities = 1i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapDecoderCapabilityCanDecodeAllImages: WICBitmapDecoderCapabilities = 2i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapDecoderCapabilityCanDecodeSomeImages: WICBitmapDecoderCapabilities = 4i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapDecoderCapabilityCanEnumerateMetadata: WICBitmapDecoderCapabilities = 8i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapDecoderCapabilityCanDecodeThumbnail: WICBitmapDecoderCapabilities = 16i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBITMAPDECODERCAPABILITIES_FORCE_DWORD: WICBitmapDecoderCapabilities = 2147483647i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICBitmapDitherType = i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapDitherTypeNone: WICBitmapDitherType = 0i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapDitherTypeSolid: WICBitmapDitherType = 0i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapDitherTypeOrdered4x4: WICBitmapDitherType = 1i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapDitherTypeOrdered8x8: WICBitmapDitherType = 2i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapDitherTypeOrdered16x16: WICBitmapDitherType = 3i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapDitherTypeSpiral4x4: WICBitmapDitherType = 4i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapDitherTypeSpiral8x8: WICBitmapDitherType = 5i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapDitherTypeDualSpiral4x4: WICBitmapDitherType = 6i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapDitherTypeDualSpiral8x8: WICBitmapDitherType = 7i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapDitherTypeErrorDiffusion: WICBitmapDitherType = 8i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBITMAPDITHERTYPE_FORCE_DWORD: WICBitmapDitherType = 2147483647i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICBitmapEncoderCacheOption = i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapEncoderCacheInMemory: WICBitmapEncoderCacheOption = 0i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapEncoderCacheTempFile: WICBitmapEncoderCacheOption = 1i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapEncoderNoCache: WICBitmapEncoderCacheOption = 2i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBITMAPENCODERCACHEOPTION_FORCE_DWORD: WICBitmapEncoderCacheOption = 2147483647i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICBitmapInterpolationMode = i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapInterpolationModeNearestNeighbor: WICBitmapInterpolationMode = 0i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapInterpolationModeLinear: WICBitmapInterpolationMode = 1i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapInterpolationModeCubic: WICBitmapInterpolationMode = 2i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapInterpolationModeFant: WICBitmapInterpolationMode = 3i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapInterpolationModeHighQualityCubic: WICBitmapInterpolationMode = 4i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBITMAPINTERPOLATIONMODE_FORCE_DWORD: WICBitmapInterpolationMode = 2147483647i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICBitmapLockFlags = i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapLockRead: WICBitmapLockFlags = 1i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapLockWrite: WICBitmapLockFlags = 2i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBITMAPLOCKFLAGS_FORCE_DWORD: WICBitmapLockFlags = 2147483647i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICBitmapPaletteType = i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapPaletteTypeCustom: WICBitmapPaletteType = 0i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapPaletteTypeMedianCut: WICBitmapPaletteType = 1i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapPaletteTypeFixedBW: WICBitmapPaletteType = 2i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapPaletteTypeFixedHalftone8: WICBitmapPaletteType = 3i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapPaletteTypeFixedHalftone27: WICBitmapPaletteType = 4i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapPaletteTypeFixedHalftone64: WICBitmapPaletteType = 5i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapPaletteTypeFixedHalftone125: WICBitmapPaletteType = 6i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapPaletteTypeFixedHalftone216: WICBitmapPaletteType = 7i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapPaletteTypeFixedWebPalette: WICBitmapPaletteType = 7i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapPaletteTypeFixedHalftone252: WICBitmapPaletteType = 8i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapPaletteTypeFixedHalftone256: WICBitmapPaletteType = 9i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapPaletteTypeFixedGray4: WICBitmapPaletteType = 10i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapPaletteTypeFixedGray16: WICBitmapPaletteType = 11i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapPaletteTypeFixedGray256: WICBitmapPaletteType = 12i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBITMAPPALETTETYPE_FORCE_DWORD: WICBitmapPaletteType = 2147483647i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WIC8BIMIptcDigestProperties(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WIC8BIMIptcDigestPString: WIC8BIMIptcDigestProperties = WIC8BIMIptcDigestProperties(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WIC8BIMIptcDigestIptcDigest: WIC8BIMIptcDigestProperties = WIC8BIMIptcDigestProperties(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WIC8BIMIptcDigestProperties_FORCE_DWORD: WIC8BIMIptcDigestProperties = WIC8BIMIptcDigestProperties(2147483647u32);
+impl ::core::marker::Copy for WIC8BIMIptcDigestProperties {}
+impl ::core::clone::Clone for WIC8BIMIptcDigestProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WIC8BIMIptcDigestProperties {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WIC8BIMIptcDigestProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WIC8BIMIptcDigestProperties").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WIC8BIMIptcDigestProperties {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WIC8BIMIptcDigestProperties {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WIC8BIMIptcDigestProperties {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WIC8BIMIptcDigestProperties {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WIC8BIMIptcDigestProperties {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WIC8BIMIptcProperties(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WIC8BIMIptcPString: WIC8BIMIptcProperties = WIC8BIMIptcProperties(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WIC8BIMIptcEmbeddedIPTC: WIC8BIMIptcProperties = WIC8BIMIptcProperties(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WIC8BIMIptcProperties_FORCE_DWORD: WIC8BIMIptcProperties = WIC8BIMIptcProperties(2147483647u32);
+impl ::core::marker::Copy for WIC8BIMIptcProperties {}
+impl ::core::clone::Clone for WIC8BIMIptcProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WIC8BIMIptcProperties {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WIC8BIMIptcProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WIC8BIMIptcProperties").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WIC8BIMIptcProperties {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WIC8BIMIptcProperties {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WIC8BIMIptcProperties {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WIC8BIMIptcProperties {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WIC8BIMIptcProperties {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WIC8BIMResolutionInfoProperties(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WIC8BIMResolutionInfoPString: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WIC8BIMResolutionInfoHResolution: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WIC8BIMResolutionInfoHResolutionUnit: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(3u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WIC8BIMResolutionInfoWidthUnit: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(4u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WIC8BIMResolutionInfoVResolution: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(5u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WIC8BIMResolutionInfoVResolutionUnit: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(6u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WIC8BIMResolutionInfoHeightUnit: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(7u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WIC8BIMResolutionInfoProperties_FORCE_DWORD: WIC8BIMResolutionInfoProperties = WIC8BIMResolutionInfoProperties(2147483647u32);
+impl ::core::marker::Copy for WIC8BIMResolutionInfoProperties {}
+impl ::core::clone::Clone for WIC8BIMResolutionInfoProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WIC8BIMResolutionInfoProperties {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WIC8BIMResolutionInfoProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WIC8BIMResolutionInfoProperties").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WIC8BIMResolutionInfoProperties {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WIC8BIMResolutionInfoProperties {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WIC8BIMResolutionInfoProperties {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WIC8BIMResolutionInfoProperties {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WIC8BIMResolutionInfoProperties {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICBitmapAlphaChannelOption(pub i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapUseAlpha: WICBitmapAlphaChannelOption = WICBitmapAlphaChannelOption(0i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapUsePremultipliedAlpha: WICBitmapAlphaChannelOption = WICBitmapAlphaChannelOption(1i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapIgnoreAlpha: WICBitmapAlphaChannelOption = WICBitmapAlphaChannelOption(2i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBITMAPALPHACHANNELOPTIONS_FORCE_DWORD: WICBitmapAlphaChannelOption = WICBitmapAlphaChannelOption(2147483647i32);
+impl ::core::marker::Copy for WICBitmapAlphaChannelOption {}
+impl ::core::clone::Clone for WICBitmapAlphaChannelOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICBitmapAlphaChannelOption {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICBitmapAlphaChannelOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICBitmapAlphaChannelOption").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICBitmapCreateCacheOption(pub i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapNoCache: WICBitmapCreateCacheOption = WICBitmapCreateCacheOption(0i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapCacheOnDemand: WICBitmapCreateCacheOption = WICBitmapCreateCacheOption(1i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapCacheOnLoad: WICBitmapCreateCacheOption = WICBitmapCreateCacheOption(2i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBITMAPCREATECACHEOPTION_FORCE_DWORD: WICBitmapCreateCacheOption = WICBitmapCreateCacheOption(2147483647i32);
+impl ::core::marker::Copy for WICBitmapCreateCacheOption {}
+impl ::core::clone::Clone for WICBitmapCreateCacheOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICBitmapCreateCacheOption {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICBitmapCreateCacheOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICBitmapCreateCacheOption").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICBitmapDecoderCapabilities(pub i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapDecoderCapabilitySameEncoder: WICBitmapDecoderCapabilities = WICBitmapDecoderCapabilities(1i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapDecoderCapabilityCanDecodeAllImages: WICBitmapDecoderCapabilities = WICBitmapDecoderCapabilities(2i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapDecoderCapabilityCanDecodeSomeImages: WICBitmapDecoderCapabilities = WICBitmapDecoderCapabilities(4i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapDecoderCapabilityCanEnumerateMetadata: WICBitmapDecoderCapabilities = WICBitmapDecoderCapabilities(8i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapDecoderCapabilityCanDecodeThumbnail: WICBitmapDecoderCapabilities = WICBitmapDecoderCapabilities(16i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBITMAPDECODERCAPABILITIES_FORCE_DWORD: WICBitmapDecoderCapabilities = WICBitmapDecoderCapabilities(2147483647i32);
+impl ::core::marker::Copy for WICBitmapDecoderCapabilities {}
+impl ::core::clone::Clone for WICBitmapDecoderCapabilities {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICBitmapDecoderCapabilities {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICBitmapDecoderCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICBitmapDecoderCapabilities").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICBitmapDitherType(pub i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapDitherTypeNone: WICBitmapDitherType = WICBitmapDitherType(0i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapDitherTypeSolid: WICBitmapDitherType = WICBitmapDitherType(0i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapDitherTypeOrdered4x4: WICBitmapDitherType = WICBitmapDitherType(1i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapDitherTypeOrdered8x8: WICBitmapDitherType = WICBitmapDitherType(2i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapDitherTypeOrdered16x16: WICBitmapDitherType = WICBitmapDitherType(3i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapDitherTypeSpiral4x4: WICBitmapDitherType = WICBitmapDitherType(4i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapDitherTypeSpiral8x8: WICBitmapDitherType = WICBitmapDitherType(5i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapDitherTypeDualSpiral4x4: WICBitmapDitherType = WICBitmapDitherType(6i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapDitherTypeDualSpiral8x8: WICBitmapDitherType = WICBitmapDitherType(7i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapDitherTypeErrorDiffusion: WICBitmapDitherType = WICBitmapDitherType(8i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBITMAPDITHERTYPE_FORCE_DWORD: WICBitmapDitherType = WICBitmapDitherType(2147483647i32);
+impl ::core::marker::Copy for WICBitmapDitherType {}
+impl ::core::clone::Clone for WICBitmapDitherType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICBitmapDitherType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICBitmapDitherType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICBitmapDitherType").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICBitmapEncoderCacheOption(pub i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapEncoderCacheInMemory: WICBitmapEncoderCacheOption = WICBitmapEncoderCacheOption(0i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapEncoderCacheTempFile: WICBitmapEncoderCacheOption = WICBitmapEncoderCacheOption(1i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapEncoderNoCache: WICBitmapEncoderCacheOption = WICBitmapEncoderCacheOption(2i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBITMAPENCODERCACHEOPTION_FORCE_DWORD: WICBitmapEncoderCacheOption = WICBitmapEncoderCacheOption(2147483647i32);
+impl ::core::marker::Copy for WICBitmapEncoderCacheOption {}
+impl ::core::clone::Clone for WICBitmapEncoderCacheOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICBitmapEncoderCacheOption {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICBitmapEncoderCacheOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICBitmapEncoderCacheOption").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICBitmapInterpolationMode(pub i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapInterpolationModeNearestNeighbor: WICBitmapInterpolationMode = WICBitmapInterpolationMode(0i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapInterpolationModeLinear: WICBitmapInterpolationMode = WICBitmapInterpolationMode(1i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapInterpolationModeCubic: WICBitmapInterpolationMode = WICBitmapInterpolationMode(2i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapInterpolationModeFant: WICBitmapInterpolationMode = WICBitmapInterpolationMode(3i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapInterpolationModeHighQualityCubic: WICBitmapInterpolationMode = WICBitmapInterpolationMode(4i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBITMAPINTERPOLATIONMODE_FORCE_DWORD: WICBitmapInterpolationMode = WICBitmapInterpolationMode(2147483647i32);
+impl ::core::marker::Copy for WICBitmapInterpolationMode {}
+impl ::core::clone::Clone for WICBitmapInterpolationMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICBitmapInterpolationMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICBitmapInterpolationMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICBitmapInterpolationMode").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICBitmapLockFlags(pub i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapLockRead: WICBitmapLockFlags = WICBitmapLockFlags(1i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapLockWrite: WICBitmapLockFlags = WICBitmapLockFlags(2i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBITMAPLOCKFLAGS_FORCE_DWORD: WICBitmapLockFlags = WICBitmapLockFlags(2147483647i32);
+impl ::core::marker::Copy for WICBitmapLockFlags {}
+impl ::core::clone::Clone for WICBitmapLockFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICBitmapLockFlags {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICBitmapLockFlags {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICBitmapLockFlags").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICBitmapPaletteType(pub i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapPaletteTypeCustom: WICBitmapPaletteType = WICBitmapPaletteType(0i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapPaletteTypeMedianCut: WICBitmapPaletteType = WICBitmapPaletteType(1i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapPaletteTypeFixedBW: WICBitmapPaletteType = WICBitmapPaletteType(2i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapPaletteTypeFixedHalftone8: WICBitmapPaletteType = WICBitmapPaletteType(3i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapPaletteTypeFixedHalftone27: WICBitmapPaletteType = WICBitmapPaletteType(4i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapPaletteTypeFixedHalftone64: WICBitmapPaletteType = WICBitmapPaletteType(5i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapPaletteTypeFixedHalftone125: WICBitmapPaletteType = WICBitmapPaletteType(6i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapPaletteTypeFixedHalftone216: WICBitmapPaletteType = WICBitmapPaletteType(7i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapPaletteTypeFixedWebPalette: WICBitmapPaletteType = WICBitmapPaletteType(7i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapPaletteTypeFixedHalftone252: WICBitmapPaletteType = WICBitmapPaletteType(8i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapPaletteTypeFixedHalftone256: WICBitmapPaletteType = WICBitmapPaletteType(9i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapPaletteTypeFixedGray4: WICBitmapPaletteType = WICBitmapPaletteType(10i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapPaletteTypeFixedGray16: WICBitmapPaletteType = WICBitmapPaletteType(11i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBitmapPaletteTypeFixedGray256: WICBitmapPaletteType = WICBitmapPaletteType(12i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICBITMAPPALETTETYPE_FORCE_DWORD: WICBitmapPaletteType = WICBitmapPaletteType(2147483647i32);
+impl ::core::marker::Copy for WICBitmapPaletteType {}
+impl ::core::clone::Clone for WICBitmapPaletteType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICBitmapPaletteType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICBitmapPaletteType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICBitmapPaletteType").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6564,73 +6824,153 @@ impl ::core::default::Default for WICBitmapPlaneDescription {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICBitmapTransformOptions = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICBitmapTransformOptions(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapTransformRotate0: WICBitmapTransformOptions = 0i32;
+pub const WICBitmapTransformRotate0: WICBitmapTransformOptions = WICBitmapTransformOptions(0i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapTransformRotate90: WICBitmapTransformOptions = 1i32;
+pub const WICBitmapTransformRotate90: WICBitmapTransformOptions = WICBitmapTransformOptions(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapTransformRotate180: WICBitmapTransformOptions = 2i32;
+pub const WICBitmapTransformRotate180: WICBitmapTransformOptions = WICBitmapTransformOptions(2i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapTransformRotate270: WICBitmapTransformOptions = 3i32;
+pub const WICBitmapTransformRotate270: WICBitmapTransformOptions = WICBitmapTransformOptions(3i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapTransformFlipHorizontal: WICBitmapTransformOptions = 8i32;
+pub const WICBitmapTransformFlipHorizontal: WICBitmapTransformOptions = WICBitmapTransformOptions(8i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBitmapTransformFlipVertical: WICBitmapTransformOptions = 16i32;
+pub const WICBitmapTransformFlipVertical: WICBitmapTransformOptions = WICBitmapTransformOptions(16i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICBITMAPTRANSFORMOPTIONS_FORCE_DWORD: WICBitmapTransformOptions = 2147483647i32;
+pub const WICBITMAPTRANSFORMOPTIONS_FORCE_DWORD: WICBitmapTransformOptions = WICBitmapTransformOptions(2147483647i32);
+impl ::core::marker::Copy for WICBitmapTransformOptions {}
+impl ::core::clone::Clone for WICBitmapTransformOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICBitmapTransformOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICBitmapTransformOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICBitmapTransformOptions").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICColorContextType = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICColorContextType(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICColorContextUninitialized: WICColorContextType = 0i32;
+pub const WICColorContextUninitialized: WICColorContextType = WICColorContextType(0i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICColorContextProfile: WICColorContextType = 1i32;
+pub const WICColorContextProfile: WICColorContextType = WICColorContextType(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICColorContextExifColorSpace: WICColorContextType = 2i32;
+pub const WICColorContextExifColorSpace: WICColorContextType = WICColorContextType(2i32);
+impl ::core::marker::Copy for WICColorContextType {}
+impl ::core::clone::Clone for WICColorContextType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICColorContextType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICColorContextType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICColorContextType").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICComponentEnumerateOptions = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICComponentEnumerateOptions(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICComponentEnumerateDefault: WICComponentEnumerateOptions = 0i32;
+pub const WICComponentEnumerateDefault: WICComponentEnumerateOptions = WICComponentEnumerateOptions(0i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICComponentEnumerateRefresh: WICComponentEnumerateOptions = 1i32;
+pub const WICComponentEnumerateRefresh: WICComponentEnumerateOptions = WICComponentEnumerateOptions(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICComponentEnumerateDisabled: WICComponentEnumerateOptions = -2147483648i32;
+pub const WICComponentEnumerateDisabled: WICComponentEnumerateOptions = WICComponentEnumerateOptions(-2147483648i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICComponentEnumerateUnsigned: WICComponentEnumerateOptions = 1073741824i32;
+pub const WICComponentEnumerateUnsigned: WICComponentEnumerateOptions = WICComponentEnumerateOptions(1073741824i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICComponentEnumerateBuiltInOnly: WICComponentEnumerateOptions = 536870912i32;
+pub const WICComponentEnumerateBuiltInOnly: WICComponentEnumerateOptions = WICComponentEnumerateOptions(536870912i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICCOMPONENTENUMERATEOPTIONS_FORCE_DWORD: WICComponentEnumerateOptions = 2147483647i32;
+pub const WICCOMPONENTENUMERATEOPTIONS_FORCE_DWORD: WICComponentEnumerateOptions = WICComponentEnumerateOptions(2147483647i32);
+impl ::core::marker::Copy for WICComponentEnumerateOptions {}
+impl ::core::clone::Clone for WICComponentEnumerateOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICComponentEnumerateOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICComponentEnumerateOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICComponentEnumerateOptions").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICComponentSigning = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICComponentSigning(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICComponentSigned: WICComponentSigning = 1i32;
+pub const WICComponentSigned: WICComponentSigning = WICComponentSigning(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICComponentUnsigned: WICComponentSigning = 2i32;
+pub const WICComponentUnsigned: WICComponentSigning = WICComponentSigning(2i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICComponentSafe: WICComponentSigning = 4i32;
+pub const WICComponentSafe: WICComponentSigning = WICComponentSigning(4i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICComponentDisabled: WICComponentSigning = -2147483648i32;
+pub const WICComponentDisabled: WICComponentSigning = WICComponentSigning(-2147483648i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICCOMPONENTSIGNING_FORCE_DWORD: WICComponentSigning = 2147483647i32;
+pub const WICCOMPONENTSIGNING_FORCE_DWORD: WICComponentSigning = WICComponentSigning(2147483647i32);
+impl ::core::marker::Copy for WICComponentSigning {}
+impl ::core::clone::Clone for WICComponentSigning {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICComponentSigning {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICComponentSigning {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICComponentSigning").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICComponentType = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICComponentType(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICDecoder: WICComponentType = 1i32;
+pub const WICDecoder: WICComponentType = WICComponentType(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICEncoder: WICComponentType = 2i32;
+pub const WICEncoder: WICComponentType = WICComponentType(2i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPixelFormatConverter: WICComponentType = 4i32;
+pub const WICPixelFormatConverter: WICComponentType = WICComponentType(4i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICMetadataReader: WICComponentType = 8i32;
+pub const WICMetadataReader: WICComponentType = WICComponentType(8i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICMetadataWriter: WICComponentType = 16i32;
+pub const WICMetadataWriter: WICComponentType = WICComponentType(16i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPixelFormat: WICComponentType = 32i32;
+pub const WICPixelFormat: WICComponentType = WICComponentType(32i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICAllComponents: WICComponentType = 63i32;
+pub const WICAllComponents: WICComponentType = WICComponentType(63i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICCOMPONENTTYPE_FORCE_DWORD: WICComponentType = 2147483647i32;
+pub const WICCOMPONENTTYPE_FORCE_DWORD: WICComponentType = WICComponentType(2147483647i32);
+impl ::core::marker::Copy for WICComponentType {}
+impl ::core::clone::Clone for WICComponentType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICComponentType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICComponentType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICComponentType").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[inline]
 pub unsafe fn WICConvertBitmapSource<'a, Param1: ::windows::core::IntoParam<'a, IWICBitmapSource>>(dstformat: *const ::windows::core::GUID, pisrc: Param1) -> ::windows::core::Result<IWICBitmapSource> {
@@ -6679,31 +7019,63 @@ pub unsafe fn WICCreateBitmapFromSectionEx<'a, Param3: ::windows::core::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICDdsAlphaMode = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICDdsAlphaMode(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICDdsAlphaModeUnknown: WICDdsAlphaMode = 0i32;
+pub const WICDdsAlphaModeUnknown: WICDdsAlphaMode = WICDdsAlphaMode(0i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICDdsAlphaModeStraight: WICDdsAlphaMode = 1i32;
+pub const WICDdsAlphaModeStraight: WICDdsAlphaMode = WICDdsAlphaMode(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICDdsAlphaModePremultiplied: WICDdsAlphaMode = 2i32;
+pub const WICDdsAlphaModePremultiplied: WICDdsAlphaMode = WICDdsAlphaMode(2i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICDdsAlphaModeOpaque: WICDdsAlphaMode = 3i32;
+pub const WICDdsAlphaModeOpaque: WICDdsAlphaMode = WICDdsAlphaMode(3i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICDdsAlphaModeCustom: WICDdsAlphaMode = 4i32;
+pub const WICDdsAlphaModeCustom: WICDdsAlphaMode = WICDdsAlphaMode(4i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICDDSALPHAMODE_FORCE_DWORD: WICDdsAlphaMode = 2147483647i32;
+pub const WICDDSALPHAMODE_FORCE_DWORD: WICDdsAlphaMode = WICDdsAlphaMode(2147483647i32);
+impl ::core::marker::Copy for WICDdsAlphaMode {}
+impl ::core::clone::Clone for WICDdsAlphaMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICDdsAlphaMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICDdsAlphaMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICDdsAlphaMode").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICDdsDimension = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICDdsDimension(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICDdsTexture1D: WICDdsDimension = 0i32;
+pub const WICDdsTexture1D: WICDdsDimension = WICDdsDimension(0i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICDdsTexture2D: WICDdsDimension = 1i32;
+pub const WICDdsTexture2D: WICDdsDimension = WICDdsDimension(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICDdsTexture3D: WICDdsDimension = 2i32;
+pub const WICDdsTexture3D: WICDdsDimension = WICDdsDimension(2i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICDdsTextureCube: WICDdsDimension = 3i32;
+pub const WICDdsTextureCube: WICDdsDimension = WICDdsDimension(3i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICDDSTEXTURE_FORCE_DWORD: WICDdsDimension = 2147483647i32;
+pub const WICDDSTEXTURE_FORCE_DWORD: WICDdsDimension = WICDdsDimension(2147483647i32);
+impl ::core::marker::Copy for WICDdsDimension {}
+impl ::core::clone::Clone for WICDdsDimension {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICDdsDimension {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICDdsDimension {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICDdsDimension").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -6791,13 +7163,29 @@ impl ::core::default::Default for WICDdsParameters {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICDecodeOptions = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICDecodeOptions(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICDecodeMetadataCacheOnDemand: WICDecodeOptions = 0i32;
+pub const WICDecodeMetadataCacheOnDemand: WICDecodeOptions = WICDecodeOptions(0i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICDecodeMetadataCacheOnLoad: WICDecodeOptions = 1i32;
+pub const WICDecodeMetadataCacheOnLoad: WICDecodeOptions = WICDecodeOptions(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICMETADATACACHEOPTION_FORCE_DWORD: WICDecodeOptions = 2147483647i32;
+pub const WICMETADATACACHEOPTION_FORCE_DWORD: WICDecodeOptions = WICDecodeOptions(2147483647i32);
+impl ::core::marker::Copy for WICDecodeOptions {}
+impl ::core::clone::Clone for WICDecodeOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICDecodeOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICDecodeOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICDecodeOptions").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 #[inline]
 pub unsafe fn WICGetMetadataContentSize<'a, Param1: ::windows::core::IntoParam<'a, IWICMetadataWriter>>(guidcontainerformat: *const ::windows::core::GUID, piwriter: Param1) -> ::windows::core::Result<u64> {
@@ -6814,95 +7202,403 @@ pub unsafe fn WICGetMetadataContentSize<'a, Param1: ::windows::core::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICGifApplicationExtensionProperties = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICGifApplicationExtensionProperties(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICGifApplicationExtensionApplication: WICGifApplicationExtensionProperties = 1u32;
+pub const WICGifApplicationExtensionApplication: WICGifApplicationExtensionProperties = WICGifApplicationExtensionProperties(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICGifApplicationExtensionData: WICGifApplicationExtensionProperties = 2u32;
+pub const WICGifApplicationExtensionData: WICGifApplicationExtensionProperties = WICGifApplicationExtensionProperties(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICGifApplicationExtensionProperties_FORCE_DWORD: WICGifApplicationExtensionProperties = 2147483647u32;
+pub const WICGifApplicationExtensionProperties_FORCE_DWORD: WICGifApplicationExtensionProperties = WICGifApplicationExtensionProperties(2147483647u32);
+impl ::core::marker::Copy for WICGifApplicationExtensionProperties {}
+impl ::core::clone::Clone for WICGifApplicationExtensionProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICGifApplicationExtensionProperties {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICGifApplicationExtensionProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICGifApplicationExtensionProperties").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WICGifApplicationExtensionProperties {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WICGifApplicationExtensionProperties {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WICGifApplicationExtensionProperties {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WICGifApplicationExtensionProperties {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WICGifApplicationExtensionProperties {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICGifCommentExtensionProperties = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICGifCommentExtensionProperties(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICGifCommentExtensionText: WICGifCommentExtensionProperties = 1u32;
+pub const WICGifCommentExtensionText: WICGifCommentExtensionProperties = WICGifCommentExtensionProperties(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICGifCommentExtensionProperties_FORCE_DWORD: WICGifCommentExtensionProperties = 2147483647u32;
+pub const WICGifCommentExtensionProperties_FORCE_DWORD: WICGifCommentExtensionProperties = WICGifCommentExtensionProperties(2147483647u32);
+impl ::core::marker::Copy for WICGifCommentExtensionProperties {}
+impl ::core::clone::Clone for WICGifCommentExtensionProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICGifCommentExtensionProperties {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICGifCommentExtensionProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICGifCommentExtensionProperties").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WICGifCommentExtensionProperties {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WICGifCommentExtensionProperties {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WICGifCommentExtensionProperties {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WICGifCommentExtensionProperties {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WICGifCommentExtensionProperties {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICGifGraphicControlExtensionProperties = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICGifGraphicControlExtensionProperties(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICGifGraphicControlExtensionDisposal: WICGifGraphicControlExtensionProperties = 1u32;
+pub const WICGifGraphicControlExtensionDisposal: WICGifGraphicControlExtensionProperties = WICGifGraphicControlExtensionProperties(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICGifGraphicControlExtensionUserInputFlag: WICGifGraphicControlExtensionProperties = 2u32;
+pub const WICGifGraphicControlExtensionUserInputFlag: WICGifGraphicControlExtensionProperties = WICGifGraphicControlExtensionProperties(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICGifGraphicControlExtensionTransparencyFlag: WICGifGraphicControlExtensionProperties = 3u32;
+pub const WICGifGraphicControlExtensionTransparencyFlag: WICGifGraphicControlExtensionProperties = WICGifGraphicControlExtensionProperties(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICGifGraphicControlExtensionDelay: WICGifGraphicControlExtensionProperties = 4u32;
+pub const WICGifGraphicControlExtensionDelay: WICGifGraphicControlExtensionProperties = WICGifGraphicControlExtensionProperties(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICGifGraphicControlExtensionTransparentColorIndex: WICGifGraphicControlExtensionProperties = 5u32;
+pub const WICGifGraphicControlExtensionTransparentColorIndex: WICGifGraphicControlExtensionProperties = WICGifGraphicControlExtensionProperties(5u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICGifGraphicControlExtensionProperties_FORCE_DWORD: WICGifGraphicControlExtensionProperties = 2147483647u32;
+pub const WICGifGraphicControlExtensionProperties_FORCE_DWORD: WICGifGraphicControlExtensionProperties = WICGifGraphicControlExtensionProperties(2147483647u32);
+impl ::core::marker::Copy for WICGifGraphicControlExtensionProperties {}
+impl ::core::clone::Clone for WICGifGraphicControlExtensionProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICGifGraphicControlExtensionProperties {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICGifGraphicControlExtensionProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICGifGraphicControlExtensionProperties").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WICGifGraphicControlExtensionProperties {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WICGifGraphicControlExtensionProperties {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WICGifGraphicControlExtensionProperties {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WICGifGraphicControlExtensionProperties {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WICGifGraphicControlExtensionProperties {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICGifImageDescriptorProperties = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICGifImageDescriptorProperties(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICGifImageDescriptorLeft: WICGifImageDescriptorProperties = 1u32;
+pub const WICGifImageDescriptorLeft: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICGifImageDescriptorTop: WICGifImageDescriptorProperties = 2u32;
+pub const WICGifImageDescriptorTop: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICGifImageDescriptorWidth: WICGifImageDescriptorProperties = 3u32;
+pub const WICGifImageDescriptorWidth: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICGifImageDescriptorHeight: WICGifImageDescriptorProperties = 4u32;
+pub const WICGifImageDescriptorHeight: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICGifImageDescriptorLocalColorTableFlag: WICGifImageDescriptorProperties = 5u32;
+pub const WICGifImageDescriptorLocalColorTableFlag: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(5u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICGifImageDescriptorInterlaceFlag: WICGifImageDescriptorProperties = 6u32;
+pub const WICGifImageDescriptorInterlaceFlag: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(6u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICGifImageDescriptorSortFlag: WICGifImageDescriptorProperties = 7u32;
+pub const WICGifImageDescriptorSortFlag: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(7u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICGifImageDescriptorLocalColorTableSize: WICGifImageDescriptorProperties = 8u32;
+pub const WICGifImageDescriptorLocalColorTableSize: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(8u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICGifImageDescriptorProperties_FORCE_DWORD: WICGifImageDescriptorProperties = 2147483647u32;
+pub const WICGifImageDescriptorProperties_FORCE_DWORD: WICGifImageDescriptorProperties = WICGifImageDescriptorProperties(2147483647u32);
+impl ::core::marker::Copy for WICGifImageDescriptorProperties {}
+impl ::core::clone::Clone for WICGifImageDescriptorProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICGifImageDescriptorProperties {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICGifImageDescriptorProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICGifImageDescriptorProperties").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WICGifImageDescriptorProperties {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WICGifImageDescriptorProperties {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WICGifImageDescriptorProperties {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WICGifImageDescriptorProperties {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WICGifImageDescriptorProperties {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICGifLogicalScreenDescriptorProperties = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICGifLogicalScreenDescriptorProperties(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICGifLogicalScreenSignature: WICGifLogicalScreenDescriptorProperties = 1u32;
+pub const WICGifLogicalScreenSignature: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICGifLogicalScreenDescriptorWidth: WICGifLogicalScreenDescriptorProperties = 2u32;
+pub const WICGifLogicalScreenDescriptorWidth: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICGifLogicalScreenDescriptorHeight: WICGifLogicalScreenDescriptorProperties = 3u32;
+pub const WICGifLogicalScreenDescriptorHeight: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICGifLogicalScreenDescriptorGlobalColorTableFlag: WICGifLogicalScreenDescriptorProperties = 4u32;
+pub const WICGifLogicalScreenDescriptorGlobalColorTableFlag: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICGifLogicalScreenDescriptorColorResolution: WICGifLogicalScreenDescriptorProperties = 5u32;
+pub const WICGifLogicalScreenDescriptorColorResolution: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(5u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICGifLogicalScreenDescriptorSortFlag: WICGifLogicalScreenDescriptorProperties = 6u32;
+pub const WICGifLogicalScreenDescriptorSortFlag: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(6u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICGifLogicalScreenDescriptorGlobalColorTableSize: WICGifLogicalScreenDescriptorProperties = 7u32;
+pub const WICGifLogicalScreenDescriptorGlobalColorTableSize: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(7u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICGifLogicalScreenDescriptorBackgroundColorIndex: WICGifLogicalScreenDescriptorProperties = 8u32;
+pub const WICGifLogicalScreenDescriptorBackgroundColorIndex: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(8u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICGifLogicalScreenDescriptorPixelAspectRatio: WICGifLogicalScreenDescriptorProperties = 9u32;
+pub const WICGifLogicalScreenDescriptorPixelAspectRatio: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(9u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICGifLogicalScreenDescriptorProperties_FORCE_DWORD: WICGifLogicalScreenDescriptorProperties = 2147483647u32;
+pub const WICGifLogicalScreenDescriptorProperties_FORCE_DWORD: WICGifLogicalScreenDescriptorProperties = WICGifLogicalScreenDescriptorProperties(2147483647u32);
+impl ::core::marker::Copy for WICGifLogicalScreenDescriptorProperties {}
+impl ::core::clone::Clone for WICGifLogicalScreenDescriptorProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICGifLogicalScreenDescriptorProperties {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICGifLogicalScreenDescriptorProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICGifLogicalScreenDescriptorProperties").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WICGifLogicalScreenDescriptorProperties {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WICGifLogicalScreenDescriptorProperties {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WICGifLogicalScreenDescriptorProperties {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WICGifLogicalScreenDescriptorProperties {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WICGifLogicalScreenDescriptorProperties {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICHeifHdrProperties = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICHeifHdrProperties(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICHeifHdrMaximumLuminanceLevel: WICHeifHdrProperties = 1u32;
+pub const WICHeifHdrMaximumLuminanceLevel: WICHeifHdrProperties = WICHeifHdrProperties(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICHeifHdrMaximumFrameAverageLuminanceLevel: WICHeifHdrProperties = 2u32;
+pub const WICHeifHdrMaximumFrameAverageLuminanceLevel: WICHeifHdrProperties = WICHeifHdrProperties(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICHeifHdrMinimumMasteringDisplayLuminanceLevel: WICHeifHdrProperties = 3u32;
+pub const WICHeifHdrMinimumMasteringDisplayLuminanceLevel: WICHeifHdrProperties = WICHeifHdrProperties(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICHeifHdrMaximumMasteringDisplayLuminanceLevel: WICHeifHdrProperties = 4u32;
+pub const WICHeifHdrMaximumMasteringDisplayLuminanceLevel: WICHeifHdrProperties = WICHeifHdrProperties(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICHeifHdrCustomVideoPrimaries: WICHeifHdrProperties = 5u32;
+pub const WICHeifHdrCustomVideoPrimaries: WICHeifHdrProperties = WICHeifHdrProperties(5u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICHeifHdrProperties_FORCE_DWORD: WICHeifHdrProperties = 2147483647u32;
+pub const WICHeifHdrProperties_FORCE_DWORD: WICHeifHdrProperties = WICHeifHdrProperties(2147483647u32);
+impl ::core::marker::Copy for WICHeifHdrProperties {}
+impl ::core::clone::Clone for WICHeifHdrProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICHeifHdrProperties {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICHeifHdrProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICHeifHdrProperties").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WICHeifHdrProperties {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WICHeifHdrProperties {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WICHeifHdrProperties {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WICHeifHdrProperties {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WICHeifHdrProperties {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICHeifProperties = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICHeifProperties(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICHeifOrientation: WICHeifProperties = 1u32;
+pub const WICHeifOrientation: WICHeifProperties = WICHeifProperties(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICHeifProperties_FORCE_DWORD: WICHeifProperties = 2147483647u32;
+pub const WICHeifProperties_FORCE_DWORD: WICHeifProperties = WICHeifProperties(2147483647u32);
+impl ::core::marker::Copy for WICHeifProperties {}
+impl ::core::clone::Clone for WICHeifProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICHeifProperties {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICHeifProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICHeifProperties").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WICHeifProperties {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WICHeifProperties {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WICHeifProperties {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WICHeifProperties {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WICHeifProperties {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Graphics_Direct2D_Common', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
@@ -6948,17 +7644,105 @@ impl ::core::default::Default for WICImageParameters {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICJpegChrominanceProperties = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICJpegChrominanceProperties(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICJpegChrominanceTable: WICJpegChrominanceProperties = 1u32;
+pub const WICJpegChrominanceTable: WICJpegChrominanceProperties = WICJpegChrominanceProperties(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICJpegChrominanceProperties_FORCE_DWORD: WICJpegChrominanceProperties = 2147483647u32;
+pub const WICJpegChrominanceProperties_FORCE_DWORD: WICJpegChrominanceProperties = WICJpegChrominanceProperties(2147483647u32);
+impl ::core::marker::Copy for WICJpegChrominanceProperties {}
+impl ::core::clone::Clone for WICJpegChrominanceProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICJpegChrominanceProperties {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICJpegChrominanceProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICJpegChrominanceProperties").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WICJpegChrominanceProperties {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WICJpegChrominanceProperties {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WICJpegChrominanceProperties {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WICJpegChrominanceProperties {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WICJpegChrominanceProperties {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICJpegCommentProperties = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICJpegCommentProperties(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICJpegCommentText: WICJpegCommentProperties = 1u32;
+pub const WICJpegCommentText: WICJpegCommentProperties = WICJpegCommentProperties(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICJpegCommentProperties_FORCE_DWORD: WICJpegCommentProperties = 2147483647u32;
+pub const WICJpegCommentProperties_FORCE_DWORD: WICJpegCommentProperties = WICJpegCommentProperties(2147483647u32);
+impl ::core::marker::Copy for WICJpegCommentProperties {}
+impl ::core::clone::Clone for WICJpegCommentProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICJpegCommentProperties {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICJpegCommentProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICJpegCommentProperties").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WICJpegCommentProperties {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WICJpegCommentProperties {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WICJpegCommentProperties {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WICJpegCommentProperties {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WICJpegCommentProperties {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub struct WICJpegFrameHeader {
@@ -6997,19 +7781,107 @@ impl ::core::default::Default for WICJpegFrameHeader {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICJpegIndexingOptions = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICJpegIndexingOptions(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICJpegIndexingOptionsGenerateOnDemand: WICJpegIndexingOptions = 0u32;
+pub const WICJpegIndexingOptionsGenerateOnDemand: WICJpegIndexingOptions = WICJpegIndexingOptions(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICJpegIndexingOptionsGenerateOnLoad: WICJpegIndexingOptions = 1u32;
+pub const WICJpegIndexingOptionsGenerateOnLoad: WICJpegIndexingOptions = WICJpegIndexingOptions(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICJpegIndexingOptions_FORCE_DWORD: WICJpegIndexingOptions = 2147483647u32;
+pub const WICJpegIndexingOptions_FORCE_DWORD: WICJpegIndexingOptions = WICJpegIndexingOptions(2147483647u32);
+impl ::core::marker::Copy for WICJpegIndexingOptions {}
+impl ::core::clone::Clone for WICJpegIndexingOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICJpegIndexingOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICJpegIndexingOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICJpegIndexingOptions").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WICJpegIndexingOptions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WICJpegIndexingOptions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WICJpegIndexingOptions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WICJpegIndexingOptions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WICJpegIndexingOptions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICJpegLuminanceProperties = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICJpegLuminanceProperties(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICJpegLuminanceTable: WICJpegLuminanceProperties = 1u32;
+pub const WICJpegLuminanceTable: WICJpegLuminanceProperties = WICJpegLuminanceProperties(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICJpegLuminanceProperties_FORCE_DWORD: WICJpegLuminanceProperties = 2147483647u32;
+pub const WICJpegLuminanceProperties_FORCE_DWORD: WICJpegLuminanceProperties = WICJpegLuminanceProperties(2147483647u32);
+impl ::core::marker::Copy for WICJpegLuminanceProperties {}
+impl ::core::clone::Clone for WICJpegLuminanceProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICJpegLuminanceProperties {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICJpegLuminanceProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICJpegLuminanceProperties").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WICJpegLuminanceProperties {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WICJpegLuminanceProperties {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WICJpegLuminanceProperties {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WICJpegLuminanceProperties {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WICJpegLuminanceProperties {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub struct WICJpegScanHeader {
@@ -7057,37 +7929,141 @@ impl ::core::default::Default for WICJpegScanHeader {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICJpegScanType = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICJpegScanType(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICJpegScanTypeInterleaved: WICJpegScanType = 0u32;
+pub const WICJpegScanTypeInterleaved: WICJpegScanType = WICJpegScanType(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICJpegScanTypePlanarComponents: WICJpegScanType = 1u32;
+pub const WICJpegScanTypePlanarComponents: WICJpegScanType = WICJpegScanType(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICJpegScanTypeProgressive: WICJpegScanType = 2u32;
+pub const WICJpegScanTypeProgressive: WICJpegScanType = WICJpegScanType(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICJpegScanType_FORCE_DWORD: WICJpegScanType = 2147483647u32;
+pub const WICJpegScanType_FORCE_DWORD: WICJpegScanType = WICJpegScanType(2147483647u32);
+impl ::core::marker::Copy for WICJpegScanType {}
+impl ::core::clone::Clone for WICJpegScanType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICJpegScanType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICJpegScanType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICJpegScanType").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WICJpegScanType {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WICJpegScanType {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WICJpegScanType {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WICJpegScanType {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WICJpegScanType {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICJpegTransferMatrix = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICJpegTransferMatrix(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICJpegTransferMatrixIdentity: WICJpegTransferMatrix = 0u32;
+pub const WICJpegTransferMatrixIdentity: WICJpegTransferMatrix = WICJpegTransferMatrix(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICJpegTransferMatrixBT601: WICJpegTransferMatrix = 1u32;
+pub const WICJpegTransferMatrixBT601: WICJpegTransferMatrix = WICJpegTransferMatrix(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICJpegTransferMatrix_FORCE_DWORD: WICJpegTransferMatrix = 2147483647u32;
+pub const WICJpegTransferMatrix_FORCE_DWORD: WICJpegTransferMatrix = WICJpegTransferMatrix(2147483647u32);
+impl ::core::marker::Copy for WICJpegTransferMatrix {}
+impl ::core::clone::Clone for WICJpegTransferMatrix {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICJpegTransferMatrix {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICJpegTransferMatrix {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICJpegTransferMatrix").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WICJpegTransferMatrix {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WICJpegTransferMatrix {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WICJpegTransferMatrix {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WICJpegTransferMatrix {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WICJpegTransferMatrix {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICJpegYCrCbSubsamplingOption = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICJpegYCrCbSubsamplingOption(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICJpegYCrCbSubsamplingDefault: WICJpegYCrCbSubsamplingOption = 0i32;
+pub const WICJpegYCrCbSubsamplingDefault: WICJpegYCrCbSubsamplingOption = WICJpegYCrCbSubsamplingOption(0i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICJpegYCrCbSubsampling420: WICJpegYCrCbSubsamplingOption = 1i32;
+pub const WICJpegYCrCbSubsampling420: WICJpegYCrCbSubsamplingOption = WICJpegYCrCbSubsamplingOption(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICJpegYCrCbSubsampling422: WICJpegYCrCbSubsamplingOption = 2i32;
+pub const WICJpegYCrCbSubsampling422: WICJpegYCrCbSubsamplingOption = WICJpegYCrCbSubsamplingOption(2i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICJpegYCrCbSubsampling444: WICJpegYCrCbSubsamplingOption = 3i32;
+pub const WICJpegYCrCbSubsampling444: WICJpegYCrCbSubsamplingOption = WICJpegYCrCbSubsamplingOption(3i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICJpegYCrCbSubsampling440: WICJpegYCrCbSubsamplingOption = 4i32;
+pub const WICJpegYCrCbSubsampling440: WICJpegYCrCbSubsamplingOption = WICJpegYCrCbSubsamplingOption(4i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICJPEGYCRCBSUBSAMPLING_FORCE_DWORD: WICJpegYCrCbSubsamplingOption = 2147483647i32;
+pub const WICJPEGYCRCBSUBSAMPLING_FORCE_DWORD: WICJpegYCrCbSubsamplingOption = WICJpegYCrCbSubsamplingOption(2147483647i32);
+impl ::core::marker::Copy for WICJpegYCrCbSubsamplingOption {}
+impl ::core::clone::Clone for WICJpegYCrCbSubsamplingOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICJpegYCrCbSubsamplingOption {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICJpegYCrCbSubsamplingOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICJpegYCrCbSubsamplingOption").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -7151,15 +8127,31 @@ pub unsafe fn WICMatchMetadataContent<'a, Param2: ::windows::core::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICMetadataCreationOptions = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICMetadataCreationOptions(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICMetadataCreationDefault: WICMetadataCreationOptions = 0i32;
+pub const WICMetadataCreationDefault: WICMetadataCreationOptions = WICMetadataCreationOptions(0i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICMetadataCreationAllowUnknown: WICMetadataCreationOptions = 0i32;
+pub const WICMetadataCreationAllowUnknown: WICMetadataCreationOptions = WICMetadataCreationOptions(0i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICMetadataCreationFailUnknown: WICMetadataCreationOptions = 65536i32;
+pub const WICMetadataCreationFailUnknown: WICMetadataCreationOptions = WICMetadataCreationOptions(65536i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICMetadataCreationMask: WICMetadataCreationOptions = -65536i32;
+pub const WICMetadataCreationMask: WICMetadataCreationOptions = WICMetadataCreationOptions(-65536i32);
+impl ::core::marker::Copy for WICMetadataCreationOptions {}
+impl ::core::clone::Clone for WICMetadataCreationOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICMetadataCreationOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICMetadataCreationOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICMetadataCreationOptions").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub struct WICMetadataHeader {
@@ -7228,203 +8220,711 @@ impl ::core::default::Default for WICMetadataPattern {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICNamedWhitePoint = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICNamedWhitePoint(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICWhitePointDefault: WICNamedWhitePoint = 1i32;
+pub const WICWhitePointDefault: WICNamedWhitePoint = WICNamedWhitePoint(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICWhitePointDaylight: WICNamedWhitePoint = 2i32;
+pub const WICWhitePointDaylight: WICNamedWhitePoint = WICNamedWhitePoint(2i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICWhitePointCloudy: WICNamedWhitePoint = 4i32;
+pub const WICWhitePointCloudy: WICNamedWhitePoint = WICNamedWhitePoint(4i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICWhitePointShade: WICNamedWhitePoint = 8i32;
+pub const WICWhitePointShade: WICNamedWhitePoint = WICNamedWhitePoint(8i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICWhitePointTungsten: WICNamedWhitePoint = 16i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICWhitePointFluorescent: WICNamedWhitePoint = 32i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICWhitePointFlash: WICNamedWhitePoint = 64i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICWhitePointUnderwater: WICNamedWhitePoint = 128i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICWhitePointCustom: WICNamedWhitePoint = 256i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICWhitePointAutoWhiteBalance: WICNamedWhitePoint = 512i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICWhitePointAsShot: WICNamedWhitePoint = 1i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICNAMEDWHITEPOINT_FORCE_DWORD: WICNamedWhitePoint = 2147483647i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICPersistOptions = i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPersistOptionDefault: WICPersistOptions = 0i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPersistOptionLittleEndian: WICPersistOptions = 0i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPersistOptionBigEndian: WICPersistOptions = 1i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPersistOptionStrictFormat: WICPersistOptions = 2i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPersistOptionNoCacheStream: WICPersistOptions = 4i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPersistOptionPreferUTF8: WICPersistOptions = 8i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPersistOptionMask: WICPersistOptions = 65535i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICPixelFormatNumericRepresentation = u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPixelFormatNumericRepresentationUnspecified: WICPixelFormatNumericRepresentation = 0u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPixelFormatNumericRepresentationIndexed: WICPixelFormatNumericRepresentation = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPixelFormatNumericRepresentationUnsignedInteger: WICPixelFormatNumericRepresentation = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPixelFormatNumericRepresentationSignedInteger: WICPixelFormatNumericRepresentation = 3u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPixelFormatNumericRepresentationFixed: WICPixelFormatNumericRepresentation = 4u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPixelFormatNumericRepresentationFloat: WICPixelFormatNumericRepresentation = 5u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPixelFormatNumericRepresentation_FORCE_DWORD: WICPixelFormatNumericRepresentation = 2147483647u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICPlanarOptions = i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPlanarOptionsDefault: WICPlanarOptions = 0i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPlanarOptionsPreserveSubsampling: WICPlanarOptions = 1i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPLANAROPTIONS_FORCE_DWORD: WICPlanarOptions = 2147483647i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICPngBkgdProperties = u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPngBkgdBackgroundColor: WICPngBkgdProperties = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPngBkgdProperties_FORCE_DWORD: WICPngBkgdProperties = 2147483647u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICPngChrmProperties = u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPngChrmWhitePointX: WICPngChrmProperties = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPngChrmWhitePointY: WICPngChrmProperties = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPngChrmRedX: WICPngChrmProperties = 3u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPngChrmRedY: WICPngChrmProperties = 4u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPngChrmGreenX: WICPngChrmProperties = 5u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPngChrmGreenY: WICPngChrmProperties = 6u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPngChrmBlueX: WICPngChrmProperties = 7u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPngChrmBlueY: WICPngChrmProperties = 8u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPngChrmProperties_FORCE_DWORD: WICPngChrmProperties = 2147483647u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICPngFilterOption = i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPngFilterUnspecified: WICPngFilterOption = 0i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPngFilterNone: WICPngFilterOption = 1i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPngFilterSub: WICPngFilterOption = 2i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPngFilterUp: WICPngFilterOption = 3i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPngFilterAverage: WICPngFilterOption = 4i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPngFilterPaeth: WICPngFilterOption = 5i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPngFilterAdaptive: WICPngFilterOption = 6i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPNGFILTEROPTION_FORCE_DWORD: WICPngFilterOption = 2147483647i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICPngGamaProperties = u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPngGamaGamma: WICPngGamaProperties = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPngGamaProperties_FORCE_DWORD: WICPngGamaProperties = 2147483647u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICPngHistProperties = u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPngHistFrequencies: WICPngHistProperties = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPngHistProperties_FORCE_DWORD: WICPngHistProperties = 2147483647u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICPngIccpProperties = u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPngIccpProfileName: WICPngIccpProperties = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPngIccpProfileData: WICPngIccpProperties = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPngIccpProperties_FORCE_DWORD: WICPngIccpProperties = 2147483647u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICPngItxtProperties = u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPngItxtKeyword: WICPngItxtProperties = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPngItxtCompressionFlag: WICPngItxtProperties = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPngItxtLanguageTag: WICPngItxtProperties = 3u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPngItxtTranslatedKeyword: WICPngItxtProperties = 4u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPngItxtText: WICPngItxtProperties = 5u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPngItxtProperties_FORCE_DWORD: WICPngItxtProperties = 2147483647u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICPngSrgbProperties = u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPngSrgbRenderingIntent: WICPngSrgbProperties = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPngSrgbProperties_FORCE_DWORD: WICPngSrgbProperties = 2147483647u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICPngTimeProperties = u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPngTimeYear: WICPngTimeProperties = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPngTimeMonth: WICPngTimeProperties = 2u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPngTimeDay: WICPngTimeProperties = 3u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPngTimeHour: WICPngTimeProperties = 4u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPngTimeMinute: WICPngTimeProperties = 5u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPngTimeSecond: WICPngTimeProperties = 6u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPngTimeProperties_FORCE_DWORD: WICPngTimeProperties = 2147483647u32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICProgressNotification = i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICProgressNotificationBegin: WICProgressNotification = 65536i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICProgressNotificationEnd: WICProgressNotification = 131072i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICProgressNotificationFrequent: WICProgressNotification = 262144i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICProgressNotificationAll: WICProgressNotification = -65536i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPROGRESSNOTIFICATION_FORCE_DWORD: WICProgressNotification = 2147483647i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICProgressOperation = i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICProgressOperationCopyPixels: WICProgressOperation = 1i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICProgressOperationWritePixels: WICProgressOperation = 2i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICProgressOperationAll: WICProgressOperation = 65535i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICPROGRESSOPERATION_FORCE_DWORD: WICProgressOperation = 2147483647i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICRawCapabilities = i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICRawCapabilityNotSupported: WICRawCapabilities = 0i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICRawCapabilityGetSupported: WICRawCapabilities = 1i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICRawCapabilityFullySupported: WICRawCapabilities = 2i32;
-#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICRAWCAPABILITIES_FORCE_DWORD: WICRawCapabilities = 2147483647i32;
+pub const WICWhitePointTungsten: WICNamedWhitePoint = WICNamedWhitePoint(16i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICWhitePointFluorescent: WICNamedWhitePoint = WICNamedWhitePoint(32i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICWhitePointFlash: WICNamedWhitePoint = WICNamedWhitePoint(64i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICWhitePointUnderwater: WICNamedWhitePoint = WICNamedWhitePoint(128i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICWhitePointCustom: WICNamedWhitePoint = WICNamedWhitePoint(256i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICWhitePointAutoWhiteBalance: WICNamedWhitePoint = WICNamedWhitePoint(512i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICWhitePointAsShot: WICNamedWhitePoint = WICNamedWhitePoint(1i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICNAMEDWHITEPOINT_FORCE_DWORD: WICNamedWhitePoint = WICNamedWhitePoint(2147483647i32);
+impl ::core::marker::Copy for WICNamedWhitePoint {}
+impl ::core::clone::Clone for WICNamedWhitePoint {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICNamedWhitePoint {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICNamedWhitePoint {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICNamedWhitePoint").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICPersistOptions(pub i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPersistOptionDefault: WICPersistOptions = WICPersistOptions(0i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPersistOptionLittleEndian: WICPersistOptions = WICPersistOptions(0i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPersistOptionBigEndian: WICPersistOptions = WICPersistOptions(1i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPersistOptionStrictFormat: WICPersistOptions = WICPersistOptions(2i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPersistOptionNoCacheStream: WICPersistOptions = WICPersistOptions(4i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPersistOptionPreferUTF8: WICPersistOptions = WICPersistOptions(8i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPersistOptionMask: WICPersistOptions = WICPersistOptions(65535i32);
+impl ::core::marker::Copy for WICPersistOptions {}
+impl ::core::clone::Clone for WICPersistOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICPersistOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICPersistOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICPersistOptions").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICPixelFormatNumericRepresentation(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPixelFormatNumericRepresentationUnspecified: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(0u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPixelFormatNumericRepresentationIndexed: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPixelFormatNumericRepresentationUnsignedInteger: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPixelFormatNumericRepresentationSignedInteger: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(3u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPixelFormatNumericRepresentationFixed: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(4u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPixelFormatNumericRepresentationFloat: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(5u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPixelFormatNumericRepresentation_FORCE_DWORD: WICPixelFormatNumericRepresentation = WICPixelFormatNumericRepresentation(2147483647u32);
+impl ::core::marker::Copy for WICPixelFormatNumericRepresentation {}
+impl ::core::clone::Clone for WICPixelFormatNumericRepresentation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICPixelFormatNumericRepresentation {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICPixelFormatNumericRepresentation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICPixelFormatNumericRepresentation").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WICPixelFormatNumericRepresentation {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WICPixelFormatNumericRepresentation {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WICPixelFormatNumericRepresentation {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WICPixelFormatNumericRepresentation {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WICPixelFormatNumericRepresentation {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICPlanarOptions(pub i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPlanarOptionsDefault: WICPlanarOptions = WICPlanarOptions(0i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPlanarOptionsPreserveSubsampling: WICPlanarOptions = WICPlanarOptions(1i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPLANAROPTIONS_FORCE_DWORD: WICPlanarOptions = WICPlanarOptions(2147483647i32);
+impl ::core::marker::Copy for WICPlanarOptions {}
+impl ::core::clone::Clone for WICPlanarOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICPlanarOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICPlanarOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICPlanarOptions").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICPngBkgdProperties(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPngBkgdBackgroundColor: WICPngBkgdProperties = WICPngBkgdProperties(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPngBkgdProperties_FORCE_DWORD: WICPngBkgdProperties = WICPngBkgdProperties(2147483647u32);
+impl ::core::marker::Copy for WICPngBkgdProperties {}
+impl ::core::clone::Clone for WICPngBkgdProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICPngBkgdProperties {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICPngBkgdProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICPngBkgdProperties").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WICPngBkgdProperties {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WICPngBkgdProperties {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WICPngBkgdProperties {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WICPngBkgdProperties {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WICPngBkgdProperties {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICPngChrmProperties(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPngChrmWhitePointX: WICPngChrmProperties = WICPngChrmProperties(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPngChrmWhitePointY: WICPngChrmProperties = WICPngChrmProperties(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPngChrmRedX: WICPngChrmProperties = WICPngChrmProperties(3u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPngChrmRedY: WICPngChrmProperties = WICPngChrmProperties(4u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPngChrmGreenX: WICPngChrmProperties = WICPngChrmProperties(5u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPngChrmGreenY: WICPngChrmProperties = WICPngChrmProperties(6u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPngChrmBlueX: WICPngChrmProperties = WICPngChrmProperties(7u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPngChrmBlueY: WICPngChrmProperties = WICPngChrmProperties(8u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPngChrmProperties_FORCE_DWORD: WICPngChrmProperties = WICPngChrmProperties(2147483647u32);
+impl ::core::marker::Copy for WICPngChrmProperties {}
+impl ::core::clone::Clone for WICPngChrmProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICPngChrmProperties {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICPngChrmProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICPngChrmProperties").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WICPngChrmProperties {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WICPngChrmProperties {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WICPngChrmProperties {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WICPngChrmProperties {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WICPngChrmProperties {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICPngFilterOption(pub i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPngFilterUnspecified: WICPngFilterOption = WICPngFilterOption(0i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPngFilterNone: WICPngFilterOption = WICPngFilterOption(1i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPngFilterSub: WICPngFilterOption = WICPngFilterOption(2i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPngFilterUp: WICPngFilterOption = WICPngFilterOption(3i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPngFilterAverage: WICPngFilterOption = WICPngFilterOption(4i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPngFilterPaeth: WICPngFilterOption = WICPngFilterOption(5i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPngFilterAdaptive: WICPngFilterOption = WICPngFilterOption(6i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPNGFILTEROPTION_FORCE_DWORD: WICPngFilterOption = WICPngFilterOption(2147483647i32);
+impl ::core::marker::Copy for WICPngFilterOption {}
+impl ::core::clone::Clone for WICPngFilterOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICPngFilterOption {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICPngFilterOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICPngFilterOption").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICPngGamaProperties(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPngGamaGamma: WICPngGamaProperties = WICPngGamaProperties(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPngGamaProperties_FORCE_DWORD: WICPngGamaProperties = WICPngGamaProperties(2147483647u32);
+impl ::core::marker::Copy for WICPngGamaProperties {}
+impl ::core::clone::Clone for WICPngGamaProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICPngGamaProperties {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICPngGamaProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICPngGamaProperties").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WICPngGamaProperties {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WICPngGamaProperties {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WICPngGamaProperties {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WICPngGamaProperties {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WICPngGamaProperties {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICPngHistProperties(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPngHistFrequencies: WICPngHistProperties = WICPngHistProperties(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPngHistProperties_FORCE_DWORD: WICPngHistProperties = WICPngHistProperties(2147483647u32);
+impl ::core::marker::Copy for WICPngHistProperties {}
+impl ::core::clone::Clone for WICPngHistProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICPngHistProperties {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICPngHistProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICPngHistProperties").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WICPngHistProperties {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WICPngHistProperties {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WICPngHistProperties {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WICPngHistProperties {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WICPngHistProperties {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICPngIccpProperties(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPngIccpProfileName: WICPngIccpProperties = WICPngIccpProperties(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPngIccpProfileData: WICPngIccpProperties = WICPngIccpProperties(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPngIccpProperties_FORCE_DWORD: WICPngIccpProperties = WICPngIccpProperties(2147483647u32);
+impl ::core::marker::Copy for WICPngIccpProperties {}
+impl ::core::clone::Clone for WICPngIccpProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICPngIccpProperties {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICPngIccpProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICPngIccpProperties").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WICPngIccpProperties {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WICPngIccpProperties {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WICPngIccpProperties {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WICPngIccpProperties {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WICPngIccpProperties {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICPngItxtProperties(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPngItxtKeyword: WICPngItxtProperties = WICPngItxtProperties(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPngItxtCompressionFlag: WICPngItxtProperties = WICPngItxtProperties(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPngItxtLanguageTag: WICPngItxtProperties = WICPngItxtProperties(3u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPngItxtTranslatedKeyword: WICPngItxtProperties = WICPngItxtProperties(4u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPngItxtText: WICPngItxtProperties = WICPngItxtProperties(5u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPngItxtProperties_FORCE_DWORD: WICPngItxtProperties = WICPngItxtProperties(2147483647u32);
+impl ::core::marker::Copy for WICPngItxtProperties {}
+impl ::core::clone::Clone for WICPngItxtProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICPngItxtProperties {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICPngItxtProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICPngItxtProperties").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WICPngItxtProperties {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WICPngItxtProperties {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WICPngItxtProperties {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WICPngItxtProperties {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WICPngItxtProperties {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICPngSrgbProperties(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPngSrgbRenderingIntent: WICPngSrgbProperties = WICPngSrgbProperties(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPngSrgbProperties_FORCE_DWORD: WICPngSrgbProperties = WICPngSrgbProperties(2147483647u32);
+impl ::core::marker::Copy for WICPngSrgbProperties {}
+impl ::core::clone::Clone for WICPngSrgbProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICPngSrgbProperties {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICPngSrgbProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICPngSrgbProperties").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WICPngSrgbProperties {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WICPngSrgbProperties {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WICPngSrgbProperties {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WICPngSrgbProperties {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WICPngSrgbProperties {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICPngTimeProperties(pub u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPngTimeYear: WICPngTimeProperties = WICPngTimeProperties(1u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPngTimeMonth: WICPngTimeProperties = WICPngTimeProperties(2u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPngTimeDay: WICPngTimeProperties = WICPngTimeProperties(3u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPngTimeHour: WICPngTimeProperties = WICPngTimeProperties(4u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPngTimeMinute: WICPngTimeProperties = WICPngTimeProperties(5u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPngTimeSecond: WICPngTimeProperties = WICPngTimeProperties(6u32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPngTimeProperties_FORCE_DWORD: WICPngTimeProperties = WICPngTimeProperties(2147483647u32);
+impl ::core::marker::Copy for WICPngTimeProperties {}
+impl ::core::clone::Clone for WICPngTimeProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICPngTimeProperties {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICPngTimeProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICPngTimeProperties").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WICPngTimeProperties {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WICPngTimeProperties {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WICPngTimeProperties {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WICPngTimeProperties {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WICPngTimeProperties {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICProgressNotification(pub i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICProgressNotificationBegin: WICProgressNotification = WICProgressNotification(65536i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICProgressNotificationEnd: WICProgressNotification = WICProgressNotification(131072i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICProgressNotificationFrequent: WICProgressNotification = WICProgressNotification(262144i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICProgressNotificationAll: WICProgressNotification = WICProgressNotification(-65536i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPROGRESSNOTIFICATION_FORCE_DWORD: WICProgressNotification = WICProgressNotification(2147483647i32);
+impl ::core::marker::Copy for WICProgressNotification {}
+impl ::core::clone::Clone for WICProgressNotification {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICProgressNotification {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICProgressNotification {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICProgressNotification").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICProgressOperation(pub i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICProgressOperationCopyPixels: WICProgressOperation = WICProgressOperation(1i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICProgressOperationWritePixels: WICProgressOperation = WICProgressOperation(2i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICProgressOperationAll: WICProgressOperation = WICProgressOperation(65535i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICPROGRESSOPERATION_FORCE_DWORD: WICProgressOperation = WICProgressOperation(2147483647i32);
+impl ::core::marker::Copy for WICProgressOperation {}
+impl ::core::clone::Clone for WICProgressOperation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICProgressOperation {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICProgressOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICProgressOperation").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICRawCapabilities(pub i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICRawCapabilityNotSupported: WICRawCapabilities = WICRawCapabilities(0i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICRawCapabilityGetSupported: WICRawCapabilities = WICRawCapabilities(1i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICRawCapabilityFullySupported: WICRawCapabilities = WICRawCapabilities(2i32);
+#[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
+pub const WICRAWCAPABILITIES_FORCE_DWORD: WICRawCapabilities = WICRawCapabilities(2147483647i32);
+impl ::core::marker::Copy for WICRawCapabilities {}
+impl ::core::clone::Clone for WICRawCapabilities {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICRawCapabilities {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICRawCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICRawCapabilities").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub struct WICRawCapabilitiesInfo {
@@ -7520,37 +9020,85 @@ pub const WICRawChangeNotification_Tint: u32 = 256u32;
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WICRawChangeNotification_ToneCurve: u32 = 2048u32;
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICRawParameterSet = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICRawParameterSet(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICAsShotParameterSet: WICRawParameterSet = 1i32;
+pub const WICAsShotParameterSet: WICRawParameterSet = WICRawParameterSet(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICUserAdjustedParameterSet: WICRawParameterSet = 2i32;
+pub const WICUserAdjustedParameterSet: WICRawParameterSet = WICRawParameterSet(2i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICAutoAdjustedParameterSet: WICRawParameterSet = 3i32;
+pub const WICAutoAdjustedParameterSet: WICRawParameterSet = WICRawParameterSet(3i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICRAWPARAMETERSET_FORCE_DWORD: WICRawParameterSet = 2147483647i32;
+pub const WICRAWPARAMETERSET_FORCE_DWORD: WICRawParameterSet = WICRawParameterSet(2147483647i32);
+impl ::core::marker::Copy for WICRawParameterSet {}
+impl ::core::clone::Clone for WICRawParameterSet {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICRawParameterSet {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICRawParameterSet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICRawParameterSet").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICRawRenderMode = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICRawRenderMode(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICRawRenderModeDraft: WICRawRenderMode = 1i32;
+pub const WICRawRenderModeDraft: WICRawRenderMode = WICRawRenderMode(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICRawRenderModeNormal: WICRawRenderMode = 2i32;
+pub const WICRawRenderModeNormal: WICRawRenderMode = WICRawRenderMode(2i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICRawRenderModeBestQuality: WICRawRenderMode = 3i32;
+pub const WICRawRenderModeBestQuality: WICRawRenderMode = WICRawRenderMode(3i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICRAWRENDERMODE_FORCE_DWORD: WICRawRenderMode = 2147483647i32;
+pub const WICRAWRENDERMODE_FORCE_DWORD: WICRawRenderMode = WICRawRenderMode(2147483647i32);
+impl ::core::marker::Copy for WICRawRenderMode {}
+impl ::core::clone::Clone for WICRawRenderMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICRawRenderMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICRawRenderMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICRawRenderMode").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICRawRotationCapabilities = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICRawRotationCapabilities(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICRawRotationCapabilityNotSupported: WICRawRotationCapabilities = 0i32;
+pub const WICRawRotationCapabilityNotSupported: WICRawRotationCapabilities = WICRawRotationCapabilities(0i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICRawRotationCapabilityGetSupported: WICRawRotationCapabilities = 1i32;
+pub const WICRawRotationCapabilityGetSupported: WICRawRotationCapabilities = WICRawRotationCapabilities(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICRawRotationCapabilityNinetyDegreesSupported: WICRawRotationCapabilities = 2i32;
+pub const WICRawRotationCapabilityNinetyDegreesSupported: WICRawRotationCapabilities = WICRawRotationCapabilities(2i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICRawRotationCapabilityFullySupported: WICRawRotationCapabilities = 3i32;
+pub const WICRawRotationCapabilityFullySupported: WICRawRotationCapabilities = WICRawRotationCapabilities(3i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICRAWROTATIONCAPABILITIES_FORCE_DWORD: WICRawRotationCapabilities = 2147483647i32;
+pub const WICRAWROTATIONCAPABILITIES_FORCE_DWORD: WICRawRotationCapabilities = WICRawRotationCapabilities(2147483647i32);
+impl ::core::marker::Copy for WICRawRotationCapabilities {}
+impl ::core::clone::Clone for WICRawRotationCapabilities {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICRawRotationCapabilities {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICRawRotationCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICRawRotationCapabilities").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub struct WICRawToneCurve {
@@ -7647,13 +9195,57 @@ impl ::core::default::Default for WICRect {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICSectionAccessLevel = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICSectionAccessLevel(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICSectionAccessLevelRead: WICSectionAccessLevel = 1u32;
+pub const WICSectionAccessLevelRead: WICSectionAccessLevel = WICSectionAccessLevel(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICSectionAccessLevelReadWrite: WICSectionAccessLevel = 3u32;
+pub const WICSectionAccessLevelReadWrite: WICSectionAccessLevel = WICSectionAccessLevel(3u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICSectionAccessLevel_FORCE_DWORD: WICSectionAccessLevel = 2147483647u32;
+pub const WICSectionAccessLevel_FORCE_DWORD: WICSectionAccessLevel = WICSectionAccessLevel(2147483647u32);
+impl ::core::marker::Copy for WICSectionAccessLevel {}
+impl ::core::clone::Clone for WICSectionAccessLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICSectionAccessLevel {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICSectionAccessLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICSectionAccessLevel").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WICSectionAccessLevel {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WICSectionAccessLevel {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WICSectionAccessLevel {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WICSectionAccessLevel {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WICSectionAccessLevel {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Imaging', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
@@ -7670,37 +9262,141 @@ pub unsafe fn WICSerializeMetadataContent<'a, Param1: ::windows::core::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICTiffCompressionOption = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICTiffCompressionOption(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICTiffCompressionDontCare: WICTiffCompressionOption = 0i32;
+pub const WICTiffCompressionDontCare: WICTiffCompressionOption = WICTiffCompressionOption(0i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICTiffCompressionNone: WICTiffCompressionOption = 1i32;
+pub const WICTiffCompressionNone: WICTiffCompressionOption = WICTiffCompressionOption(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICTiffCompressionCCITT3: WICTiffCompressionOption = 2i32;
+pub const WICTiffCompressionCCITT3: WICTiffCompressionOption = WICTiffCompressionOption(2i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICTiffCompressionCCITT4: WICTiffCompressionOption = 3i32;
+pub const WICTiffCompressionCCITT4: WICTiffCompressionOption = WICTiffCompressionOption(3i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICTiffCompressionLZW: WICTiffCompressionOption = 4i32;
+pub const WICTiffCompressionLZW: WICTiffCompressionOption = WICTiffCompressionOption(4i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICTiffCompressionRLE: WICTiffCompressionOption = 5i32;
+pub const WICTiffCompressionRLE: WICTiffCompressionOption = WICTiffCompressionOption(5i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICTiffCompressionZIP: WICTiffCompressionOption = 6i32;
+pub const WICTiffCompressionZIP: WICTiffCompressionOption = WICTiffCompressionOption(6i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICTiffCompressionLZWHDifferencing: WICTiffCompressionOption = 7i32;
+pub const WICTiffCompressionLZWHDifferencing: WICTiffCompressionOption = WICTiffCompressionOption(7i32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICTIFFCOMPRESSIONOPTION_FORCE_DWORD: WICTiffCompressionOption = 2147483647i32;
+pub const WICTIFFCOMPRESSIONOPTION_FORCE_DWORD: WICTiffCompressionOption = WICTiffCompressionOption(2147483647i32);
+impl ::core::marker::Copy for WICTiffCompressionOption {}
+impl ::core::clone::Clone for WICTiffCompressionOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICTiffCompressionOption {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICTiffCompressionOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICTiffCompressionOption").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICWebpAnimProperties = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICWebpAnimProperties(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICWebpAnimLoopCount: WICWebpAnimProperties = 1u32;
+pub const WICWebpAnimLoopCount: WICWebpAnimProperties = WICWebpAnimProperties(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICWebpAnimProperties_FORCE_DWORD: WICWebpAnimProperties = 2147483647u32;
+pub const WICWebpAnimProperties_FORCE_DWORD: WICWebpAnimProperties = WICWebpAnimProperties(2147483647u32);
+impl ::core::marker::Copy for WICWebpAnimProperties {}
+impl ::core::clone::Clone for WICWebpAnimProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICWebpAnimProperties {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICWebpAnimProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICWebpAnimProperties").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WICWebpAnimProperties {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WICWebpAnimProperties {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WICWebpAnimProperties {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WICWebpAnimProperties {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WICWebpAnimProperties {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub type WICWebpAnmfProperties = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WICWebpAnmfProperties(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICWebpAnmfFrameDuration: WICWebpAnmfProperties = 1u32;
+pub const WICWebpAnmfFrameDuration: WICWebpAnmfProperties = WICWebpAnmfProperties(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
-pub const WICWebpAnmfProperties_FORCE_DWORD: WICWebpAnmfProperties = 2147483647u32;
+pub const WICWebpAnmfProperties_FORCE_DWORD: WICWebpAnmfProperties = WICWebpAnmfProperties(2147483647u32);
+impl ::core::marker::Copy for WICWebpAnmfProperties {}
+impl ::core::clone::Clone for WICWebpAnmfProperties {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WICWebpAnmfProperties {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WICWebpAnmfProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WICWebpAnmfProperties").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WICWebpAnmfProperties {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WICWebpAnmfProperties {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WICWebpAnmfProperties {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WICWebpAnmfProperties {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WICWebpAnmfProperties {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]
 pub const WIC_JPEG_HUFFMAN_BASELINE_ONE: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Graphics_Imaging'*"]

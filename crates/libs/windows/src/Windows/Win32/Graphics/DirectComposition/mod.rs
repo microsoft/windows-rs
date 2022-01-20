@@ -4,13 +4,29 @@ pub const COMPOSITIONOBJECT_READ: i32 = 1i32;
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
 pub const COMPOSITIONOBJECT_WRITE: i32 = 2i32;
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-pub type COMPOSITION_FRAME_ID_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct COMPOSITION_FRAME_ID_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-pub const COMPOSITION_FRAME_ID_CREATED: COMPOSITION_FRAME_ID_TYPE = 0i32;
+pub const COMPOSITION_FRAME_ID_CREATED: COMPOSITION_FRAME_ID_TYPE = COMPOSITION_FRAME_ID_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-pub const COMPOSITION_FRAME_ID_CONFIRMED: COMPOSITION_FRAME_ID_TYPE = 1i32;
+pub const COMPOSITION_FRAME_ID_CONFIRMED: COMPOSITION_FRAME_ID_TYPE = COMPOSITION_FRAME_ID_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-pub const COMPOSITION_FRAME_ID_COMPLETED: COMPOSITION_FRAME_ID_TYPE = 2i32;
+pub const COMPOSITION_FRAME_ID_COMPLETED: COMPOSITION_FRAME_ID_TYPE = COMPOSITION_FRAME_ID_TYPE(2i32);
+impl ::core::marker::Copy for COMPOSITION_FRAME_ID_TYPE {}
+impl ::core::clone::Clone for COMPOSITION_FRAME_ID_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for COMPOSITION_FRAME_ID_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COMPOSITION_FRAME_ID_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COMPOSITION_FRAME_ID_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
 pub struct COMPOSITION_FRAME_STATS {
@@ -155,49 +171,129 @@ impl ::core::default::Default for COMPOSITION_TARGET_STATS {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-pub type DCOMPOSITION_BACKFACE_VISIBILITY = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DCOMPOSITION_BACKFACE_VISIBILITY(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-pub const DCOMPOSITION_BACKFACE_VISIBILITY_VISIBLE: DCOMPOSITION_BACKFACE_VISIBILITY = 0i32;
+pub const DCOMPOSITION_BACKFACE_VISIBILITY_VISIBLE: DCOMPOSITION_BACKFACE_VISIBILITY = DCOMPOSITION_BACKFACE_VISIBILITY(0i32);
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-pub const DCOMPOSITION_BACKFACE_VISIBILITY_HIDDEN: DCOMPOSITION_BACKFACE_VISIBILITY = 1i32;
+pub const DCOMPOSITION_BACKFACE_VISIBILITY_HIDDEN: DCOMPOSITION_BACKFACE_VISIBILITY = DCOMPOSITION_BACKFACE_VISIBILITY(1i32);
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-pub const DCOMPOSITION_BACKFACE_VISIBILITY_INHERIT: DCOMPOSITION_BACKFACE_VISIBILITY = -1i32;
+pub const DCOMPOSITION_BACKFACE_VISIBILITY_INHERIT: DCOMPOSITION_BACKFACE_VISIBILITY = DCOMPOSITION_BACKFACE_VISIBILITY(-1i32);
+impl ::core::marker::Copy for DCOMPOSITION_BACKFACE_VISIBILITY {}
+impl ::core::clone::Clone for DCOMPOSITION_BACKFACE_VISIBILITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DCOMPOSITION_BACKFACE_VISIBILITY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DCOMPOSITION_BACKFACE_VISIBILITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DCOMPOSITION_BACKFACE_VISIBILITY").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-pub type DCOMPOSITION_BITMAP_INTERPOLATION_MODE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DCOMPOSITION_BITMAP_INTERPOLATION_MODE(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-pub const DCOMPOSITION_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR: DCOMPOSITION_BITMAP_INTERPOLATION_MODE = 0i32;
+pub const DCOMPOSITION_BITMAP_INTERPOLATION_MODE_NEAREST_NEIGHBOR: DCOMPOSITION_BITMAP_INTERPOLATION_MODE = DCOMPOSITION_BITMAP_INTERPOLATION_MODE(0i32);
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-pub const DCOMPOSITION_BITMAP_INTERPOLATION_MODE_LINEAR: DCOMPOSITION_BITMAP_INTERPOLATION_MODE = 1i32;
+pub const DCOMPOSITION_BITMAP_INTERPOLATION_MODE_LINEAR: DCOMPOSITION_BITMAP_INTERPOLATION_MODE = DCOMPOSITION_BITMAP_INTERPOLATION_MODE(1i32);
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-pub const DCOMPOSITION_BITMAP_INTERPOLATION_MODE_INHERIT: DCOMPOSITION_BITMAP_INTERPOLATION_MODE = -1i32;
+pub const DCOMPOSITION_BITMAP_INTERPOLATION_MODE_INHERIT: DCOMPOSITION_BITMAP_INTERPOLATION_MODE = DCOMPOSITION_BITMAP_INTERPOLATION_MODE(-1i32);
+impl ::core::marker::Copy for DCOMPOSITION_BITMAP_INTERPOLATION_MODE {}
+impl ::core::clone::Clone for DCOMPOSITION_BITMAP_INTERPOLATION_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DCOMPOSITION_BITMAP_INTERPOLATION_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DCOMPOSITION_BITMAP_INTERPOLATION_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DCOMPOSITION_BITMAP_INTERPOLATION_MODE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-pub type DCOMPOSITION_BORDER_MODE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DCOMPOSITION_BORDER_MODE(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-pub const DCOMPOSITION_BORDER_MODE_SOFT: DCOMPOSITION_BORDER_MODE = 0i32;
+pub const DCOMPOSITION_BORDER_MODE_SOFT: DCOMPOSITION_BORDER_MODE = DCOMPOSITION_BORDER_MODE(0i32);
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-pub const DCOMPOSITION_BORDER_MODE_HARD: DCOMPOSITION_BORDER_MODE = 1i32;
+pub const DCOMPOSITION_BORDER_MODE_HARD: DCOMPOSITION_BORDER_MODE = DCOMPOSITION_BORDER_MODE(1i32);
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-pub const DCOMPOSITION_BORDER_MODE_INHERIT: DCOMPOSITION_BORDER_MODE = -1i32;
+pub const DCOMPOSITION_BORDER_MODE_INHERIT: DCOMPOSITION_BORDER_MODE = DCOMPOSITION_BORDER_MODE(-1i32);
+impl ::core::marker::Copy for DCOMPOSITION_BORDER_MODE {}
+impl ::core::clone::Clone for DCOMPOSITION_BORDER_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DCOMPOSITION_BORDER_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DCOMPOSITION_BORDER_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DCOMPOSITION_BORDER_MODE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-pub type DCOMPOSITION_COMPOSITE_MODE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DCOMPOSITION_COMPOSITE_MODE(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-pub const DCOMPOSITION_COMPOSITE_MODE_SOURCE_OVER: DCOMPOSITION_COMPOSITE_MODE = 0i32;
+pub const DCOMPOSITION_COMPOSITE_MODE_SOURCE_OVER: DCOMPOSITION_COMPOSITE_MODE = DCOMPOSITION_COMPOSITE_MODE(0i32);
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-pub const DCOMPOSITION_COMPOSITE_MODE_DESTINATION_INVERT: DCOMPOSITION_COMPOSITE_MODE = 1i32;
+pub const DCOMPOSITION_COMPOSITE_MODE_DESTINATION_INVERT: DCOMPOSITION_COMPOSITE_MODE = DCOMPOSITION_COMPOSITE_MODE(1i32);
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-pub const DCOMPOSITION_COMPOSITE_MODE_MIN_BLEND: DCOMPOSITION_COMPOSITE_MODE = 2i32;
+pub const DCOMPOSITION_COMPOSITE_MODE_MIN_BLEND: DCOMPOSITION_COMPOSITE_MODE = DCOMPOSITION_COMPOSITE_MODE(2i32);
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-pub const DCOMPOSITION_COMPOSITE_MODE_INHERIT: DCOMPOSITION_COMPOSITE_MODE = -1i32;
+pub const DCOMPOSITION_COMPOSITE_MODE_INHERIT: DCOMPOSITION_COMPOSITE_MODE = DCOMPOSITION_COMPOSITE_MODE(-1i32);
+impl ::core::marker::Copy for DCOMPOSITION_COMPOSITE_MODE {}
+impl ::core::clone::Clone for DCOMPOSITION_COMPOSITE_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DCOMPOSITION_COMPOSITE_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DCOMPOSITION_COMPOSITE_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DCOMPOSITION_COMPOSITE_MODE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-pub type DCOMPOSITION_DEPTH_MODE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DCOMPOSITION_DEPTH_MODE(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-pub const DCOMPOSITION_DEPTH_MODE_TREE: DCOMPOSITION_DEPTH_MODE = 0i32;
+pub const DCOMPOSITION_DEPTH_MODE_TREE: DCOMPOSITION_DEPTH_MODE = DCOMPOSITION_DEPTH_MODE(0i32);
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-pub const DCOMPOSITION_DEPTH_MODE_SPATIAL: DCOMPOSITION_DEPTH_MODE = 1i32;
+pub const DCOMPOSITION_DEPTH_MODE_SPATIAL: DCOMPOSITION_DEPTH_MODE = DCOMPOSITION_DEPTH_MODE(1i32);
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-pub const DCOMPOSITION_DEPTH_MODE_SORTED: DCOMPOSITION_DEPTH_MODE = 3i32;
+pub const DCOMPOSITION_DEPTH_MODE_SORTED: DCOMPOSITION_DEPTH_MODE = DCOMPOSITION_DEPTH_MODE(3i32);
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-pub const DCOMPOSITION_DEPTH_MODE_INHERIT: DCOMPOSITION_DEPTH_MODE = -1i32;
+pub const DCOMPOSITION_DEPTH_MODE_INHERIT: DCOMPOSITION_DEPTH_MODE = DCOMPOSITION_DEPTH_MODE(-1i32);
+impl ::core::marker::Copy for DCOMPOSITION_DEPTH_MODE {}
+impl ::core::clone::Clone for DCOMPOSITION_DEPTH_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DCOMPOSITION_DEPTH_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DCOMPOSITION_DEPTH_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DCOMPOSITION_DEPTH_MODE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
@@ -243,13 +339,29 @@ impl ::core::default::Default for DCOMPOSITION_FRAME_STATISTICS {
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
 pub const DCOMPOSITION_MAX_WAITFORCOMPOSITORCLOCK_OBJECTS: u32 = 32u32;
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-pub type DCOMPOSITION_OPACITY_MODE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DCOMPOSITION_OPACITY_MODE(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-pub const DCOMPOSITION_OPACITY_MODE_LAYER: DCOMPOSITION_OPACITY_MODE = 0i32;
+pub const DCOMPOSITION_OPACITY_MODE_LAYER: DCOMPOSITION_OPACITY_MODE = DCOMPOSITION_OPACITY_MODE(0i32);
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-pub const DCOMPOSITION_OPACITY_MODE_MULTIPLY: DCOMPOSITION_OPACITY_MODE = 1i32;
+pub const DCOMPOSITION_OPACITY_MODE_MULTIPLY: DCOMPOSITION_OPACITY_MODE = DCOMPOSITION_OPACITY_MODE(1i32);
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition'*"]
-pub const DCOMPOSITION_OPACITY_MODE_INHERIT: DCOMPOSITION_OPACITY_MODE = -1i32;
+pub const DCOMPOSITION_OPACITY_MODE_INHERIT: DCOMPOSITION_OPACITY_MODE = DCOMPOSITION_OPACITY_MODE(-1i32);
+impl ::core::marker::Copy for DCOMPOSITION_OPACITY_MODE {}
+impl ::core::clone::Clone for DCOMPOSITION_OPACITY_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DCOMPOSITION_OPACITY_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DCOMPOSITION_OPACITY_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DCOMPOSITION_OPACITY_MODE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_DirectComposition', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]

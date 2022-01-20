@@ -1,20 +1,36 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
-pub type DEVICE_SELECTION_DEVICE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DEVICE_SELECTION_DEVICE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
-pub const DST_UNKNOWN_DEVICE: DEVICE_SELECTION_DEVICE_TYPE = 0i32;
+pub const DST_UNKNOWN_DEVICE: DEVICE_SELECTION_DEVICE_TYPE = DEVICE_SELECTION_DEVICE_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
-pub const DST_WPD_DEVICE: DEVICE_SELECTION_DEVICE_TYPE = 1i32;
+pub const DST_WPD_DEVICE: DEVICE_SELECTION_DEVICE_TYPE = DEVICE_SELECTION_DEVICE_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
-pub const DST_WIA_DEVICE: DEVICE_SELECTION_DEVICE_TYPE = 2i32;
+pub const DST_WIA_DEVICE: DEVICE_SELECTION_DEVICE_TYPE = DEVICE_SELECTION_DEVICE_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
-pub const DST_STI_DEVICE: DEVICE_SELECTION_DEVICE_TYPE = 3i32;
+pub const DST_STI_DEVICE: DEVICE_SELECTION_DEVICE_TYPE = DEVICE_SELECTION_DEVICE_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
-pub const DSF_TWAIN_DEVICE: DEVICE_SELECTION_DEVICE_TYPE = 4i32;
+pub const DSF_TWAIN_DEVICE: DEVICE_SELECTION_DEVICE_TYPE = DEVICE_SELECTION_DEVICE_TYPE(4i32);
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
-pub const DST_FS_DEVICE: DEVICE_SELECTION_DEVICE_TYPE = 5i32;
+pub const DST_FS_DEVICE: DEVICE_SELECTION_DEVICE_TYPE = DEVICE_SELECTION_DEVICE_TYPE(5i32);
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
-pub const DST_DV_DEVICE: DEVICE_SELECTION_DEVICE_TYPE = 6i32;
+pub const DST_DV_DEVICE: DEVICE_SELECTION_DEVICE_TYPE = DEVICE_SELECTION_DEVICE_TYPE(6i32);
+impl ::core::marker::Copy for DEVICE_SELECTION_DEVICE_TYPE {}
+impl ::core::clone::Clone for DEVICE_SELECTION_DEVICE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DEVICE_SELECTION_DEVICE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DEVICE_SELECTION_DEVICE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DEVICE_SELECTION_DEVICE_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 pub const DSF_ALL_DEVICES: u32 = 65535u32;
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
@@ -36,31 +52,63 @@ pub const DSF_WIA_SCANNERS: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 pub const DSF_WPD_DEVICES: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
-pub type ERROR_ADVISE_MESSAGE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ERROR_ADVISE_MESSAGE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
-pub const PHOTOACQUIRE_ERROR_SKIPRETRYCANCEL: ERROR_ADVISE_MESSAGE_TYPE = 0i32;
+pub const PHOTOACQUIRE_ERROR_SKIPRETRYCANCEL: ERROR_ADVISE_MESSAGE_TYPE = ERROR_ADVISE_MESSAGE_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
-pub const PHOTOACQUIRE_ERROR_RETRYCANCEL: ERROR_ADVISE_MESSAGE_TYPE = 1i32;
+pub const PHOTOACQUIRE_ERROR_RETRYCANCEL: ERROR_ADVISE_MESSAGE_TYPE = ERROR_ADVISE_MESSAGE_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
-pub const PHOTOACQUIRE_ERROR_YESNO: ERROR_ADVISE_MESSAGE_TYPE = 2i32;
+pub const PHOTOACQUIRE_ERROR_YESNO: ERROR_ADVISE_MESSAGE_TYPE = ERROR_ADVISE_MESSAGE_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
-pub const PHOTOACQUIRE_ERROR_OK: ERROR_ADVISE_MESSAGE_TYPE = 3i32;
+pub const PHOTOACQUIRE_ERROR_OK: ERROR_ADVISE_MESSAGE_TYPE = ERROR_ADVISE_MESSAGE_TYPE(3i32);
+impl ::core::marker::Copy for ERROR_ADVISE_MESSAGE_TYPE {}
+impl ::core::clone::Clone for ERROR_ADVISE_MESSAGE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ERROR_ADVISE_MESSAGE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ERROR_ADVISE_MESSAGE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ERROR_ADVISE_MESSAGE_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
-pub type ERROR_ADVISE_RESULT = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ERROR_ADVISE_RESULT(pub i32);
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
-pub const PHOTOACQUIRE_RESULT_YES: ERROR_ADVISE_RESULT = 0i32;
+pub const PHOTOACQUIRE_RESULT_YES: ERROR_ADVISE_RESULT = ERROR_ADVISE_RESULT(0i32);
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
-pub const PHOTOACQUIRE_RESULT_NO: ERROR_ADVISE_RESULT = 1i32;
+pub const PHOTOACQUIRE_RESULT_NO: ERROR_ADVISE_RESULT = ERROR_ADVISE_RESULT(1i32);
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
-pub const PHOTOACQUIRE_RESULT_OK: ERROR_ADVISE_RESULT = 2i32;
+pub const PHOTOACQUIRE_RESULT_OK: ERROR_ADVISE_RESULT = ERROR_ADVISE_RESULT(2i32);
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
-pub const PHOTOACQUIRE_RESULT_SKIP: ERROR_ADVISE_RESULT = 3i32;
+pub const PHOTOACQUIRE_RESULT_SKIP: ERROR_ADVISE_RESULT = ERROR_ADVISE_RESULT(3i32);
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
-pub const PHOTOACQUIRE_RESULT_SKIP_ALL: ERROR_ADVISE_RESULT = 4i32;
+pub const PHOTOACQUIRE_RESULT_SKIP_ALL: ERROR_ADVISE_RESULT = ERROR_ADVISE_RESULT(4i32);
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
-pub const PHOTOACQUIRE_RESULT_RETRY: ERROR_ADVISE_RESULT = 5i32;
+pub const PHOTOACQUIRE_RESULT_RETRY: ERROR_ADVISE_RESULT = ERROR_ADVISE_RESULT(5i32);
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
-pub const PHOTOACQUIRE_RESULT_ABORT: ERROR_ADVISE_RESULT = 6i32;
+pub const PHOTOACQUIRE_RESULT_ABORT: ERROR_ADVISE_RESULT = ERROR_ADVISE_RESULT(6i32);
+impl ::core::marker::Copy for ERROR_ADVISE_RESULT {}
+impl ::core::clone::Clone for ERROR_ADVISE_RESULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ERROR_ADVISE_RESULT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ERROR_ADVISE_RESULT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ERROR_ADVISE_RESULT").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 #[repr(transparent)]
 pub struct IPhotoAcquire(::windows::core::IUnknown);
@@ -1412,19 +1460,51 @@ pub const PKEY_PhotoAcquire_SkipImport: super::super::UI::Shell::PropertiesSyste
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_PhotoAcquire_TransferResult: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x00f23377_7ac6_4b7a_8443_345e731fa57a), pid: 5u32 };
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
-pub type PROGRESS_DIALOG_CHECKBOX_ID = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PROGRESS_DIALOG_CHECKBOX_ID(pub i32);
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
-pub const PROGRESS_DIALOG_CHECKBOX_ID_DEFAULT: PROGRESS_DIALOG_CHECKBOX_ID = 0i32;
+pub const PROGRESS_DIALOG_CHECKBOX_ID_DEFAULT: PROGRESS_DIALOG_CHECKBOX_ID = PROGRESS_DIALOG_CHECKBOX_ID(0i32);
+impl ::core::marker::Copy for PROGRESS_DIALOG_CHECKBOX_ID {}
+impl ::core::clone::Clone for PROGRESS_DIALOG_CHECKBOX_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PROGRESS_DIALOG_CHECKBOX_ID {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PROGRESS_DIALOG_CHECKBOX_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PROGRESS_DIALOG_CHECKBOX_ID").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
-pub type PROGRESS_DIALOG_IMAGE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PROGRESS_DIALOG_IMAGE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
-pub const PROGRESS_DIALOG_ICON_SMALL: PROGRESS_DIALOG_IMAGE_TYPE = 0i32;
+pub const PROGRESS_DIALOG_ICON_SMALL: PROGRESS_DIALOG_IMAGE_TYPE = PROGRESS_DIALOG_IMAGE_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
-pub const PROGRESS_DIALOG_ICON_LARGE: PROGRESS_DIALOG_IMAGE_TYPE = 1i32;
+pub const PROGRESS_DIALOG_ICON_LARGE: PROGRESS_DIALOG_IMAGE_TYPE = PROGRESS_DIALOG_IMAGE_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
-pub const PROGRESS_DIALOG_ICON_THUMBNAIL: PROGRESS_DIALOG_IMAGE_TYPE = 2i32;
+pub const PROGRESS_DIALOG_ICON_THUMBNAIL: PROGRESS_DIALOG_IMAGE_TYPE = PROGRESS_DIALOG_IMAGE_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
-pub const PROGRESS_DIALOG_BITMAP_THUMBNAIL: PROGRESS_DIALOG_IMAGE_TYPE = 3i32;
+pub const PROGRESS_DIALOG_BITMAP_THUMBNAIL: PROGRESS_DIALOG_IMAGE_TYPE = PROGRESS_DIALOG_IMAGE_TYPE(3i32);
+impl ::core::marker::Copy for PROGRESS_DIALOG_IMAGE_TYPE {}
+impl ::core::clone::Clone for PROGRESS_DIALOG_IMAGE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PROGRESS_DIALOG_IMAGE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PROGRESS_DIALOG_IMAGE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PROGRESS_DIALOG_IMAGE_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
 pub const PROGRESS_INDETERMINATE: i32 = -1i32;
 pub const PhotoAcquire: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f26e02_e9f2_4a9f_9fdd_5a962fb26a98);
@@ -1434,10 +1514,26 @@ pub const PhotoAcquireDeviceSelectionDialog: ::windows::core::GUID = ::windows::
 pub const PhotoAcquireOptionsDialog: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f210a1_62f0_438b_9f7e_9618d72a1831);
 pub const PhotoProgressDialog: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00f24ca0_748f_4e8a_894f_0e0357c6799f);
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
-pub type USER_INPUT_STRING_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct USER_INPUT_STRING_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
-pub const USER_INPUT_DEFAULT: USER_INPUT_STRING_TYPE = 0i32;
+pub const USER_INPUT_DEFAULT: USER_INPUT_STRING_TYPE = USER_INPUT_STRING_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Media_PictureAcquisition'*"]
-pub const USER_INPUT_PATH_ELEMENT: USER_INPUT_STRING_TYPE = 1i32;
+pub const USER_INPUT_PATH_ELEMENT: USER_INPUT_STRING_TYPE = USER_INPUT_STRING_TYPE(1i32);
+impl ::core::marker::Copy for USER_INPUT_STRING_TYPE {}
+impl ::core::clone::Clone for USER_INPUT_STRING_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for USER_INPUT_STRING_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for USER_INPUT_STRING_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("USER_INPUT_STRING_TYPE").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

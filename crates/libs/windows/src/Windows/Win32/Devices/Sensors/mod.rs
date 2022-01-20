@@ -1,40 +1,88 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub type ACTIVITY_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ACTIVITY_STATE(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const ActivityState_Unknown: ACTIVITY_STATE = 1i32;
+pub const ActivityState_Unknown: ACTIVITY_STATE = ACTIVITY_STATE(1i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const ActivityState_Stationary: ACTIVITY_STATE = 2i32;
+pub const ActivityState_Stationary: ACTIVITY_STATE = ACTIVITY_STATE(2i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const ActivityState_Fidgeting: ACTIVITY_STATE = 4i32;
+pub const ActivityState_Fidgeting: ACTIVITY_STATE = ACTIVITY_STATE(4i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const ActivityState_Walking: ACTIVITY_STATE = 8i32;
+pub const ActivityState_Walking: ACTIVITY_STATE = ACTIVITY_STATE(8i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const ActivityState_Running: ACTIVITY_STATE = 16i32;
+pub const ActivityState_Running: ACTIVITY_STATE = ACTIVITY_STATE(16i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const ActivityState_InVehicle: ACTIVITY_STATE = 32i32;
+pub const ActivityState_InVehicle: ACTIVITY_STATE = ACTIVITY_STATE(32i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const ActivityState_Biking: ACTIVITY_STATE = 64i32;
+pub const ActivityState_Biking: ACTIVITY_STATE = ACTIVITY_STATE(64i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const ActivityState_Idle: ACTIVITY_STATE = 128i32;
+pub const ActivityState_Idle: ACTIVITY_STATE = ACTIVITY_STATE(128i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const ActivityState_Max: ACTIVITY_STATE = 256i32;
+pub const ActivityState_Max: ACTIVITY_STATE = ACTIVITY_STATE(256i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const ActivityState_Force_Dword: ACTIVITY_STATE = -1i32;
+pub const ActivityState_Force_Dword: ACTIVITY_STATE = ACTIVITY_STATE(-1i32);
+impl ::core::marker::Copy for ACTIVITY_STATE {}
+impl ::core::clone::Clone for ACTIVITY_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ACTIVITY_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ACTIVITY_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ACTIVITY_STATE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub type ACTIVITY_STATE_COUNT = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ACTIVITY_STATE_COUNT(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const ActivityStateCount: ACTIVITY_STATE_COUNT = 8i32;
+pub const ActivityStateCount: ACTIVITY_STATE_COUNT = ACTIVITY_STATE_COUNT(8i32);
+impl ::core::marker::Copy for ACTIVITY_STATE_COUNT {}
+impl ::core::clone::Clone for ACTIVITY_STATE_COUNT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ACTIVITY_STATE_COUNT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ACTIVITY_STATE_COUNT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ACTIVITY_STATE_COUNT").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub type AXIS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct AXIS(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const AXIS_X: AXIS = 0i32;
+pub const AXIS_X: AXIS = AXIS(0i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const AXIS_Y: AXIS = 1i32;
+pub const AXIS_Y: AXIS = AXIS(1i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const AXIS_Z: AXIS = 2i32;
+pub const AXIS_Z: AXIS = AXIS(2i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const AXIS_MAX: AXIS = 3i32;
+pub const AXIS_MAX: AXIS = AXIS(3i32);
+impl ::core::marker::Copy for AXIS {}
+impl ::core::clone::Clone for AXIS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for AXIS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AXIS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AXIS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Sensors', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
@@ -200,17 +248,33 @@ pub unsafe fn CollectionsListUpdateMarshalledPointer(collection: *mut SENSOR_COL
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub type ELEVATION_CHANGE_MODE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ELEVATION_CHANGE_MODE(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const ElevationChangeMode_Unknown: ELEVATION_CHANGE_MODE = 0i32;
+pub const ElevationChangeMode_Unknown: ELEVATION_CHANGE_MODE = ELEVATION_CHANGE_MODE(0i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const ElevationChangeMode_Elevator: ELEVATION_CHANGE_MODE = 1i32;
+pub const ElevationChangeMode_Elevator: ELEVATION_CHANGE_MODE = ELEVATION_CHANGE_MODE(1i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const ElevationChangeMode_Stepping: ELEVATION_CHANGE_MODE = 2i32;
+pub const ElevationChangeMode_Stepping: ELEVATION_CHANGE_MODE = ELEVATION_CHANGE_MODE(2i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const ElevationChangeMode_Max: ELEVATION_CHANGE_MODE = 3i32;
+pub const ElevationChangeMode_Max: ELEVATION_CHANGE_MODE = ELEVATION_CHANGE_MODE(3i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const ElevationChangeMode_Force_Dword: ELEVATION_CHANGE_MODE = -1i32;
+pub const ElevationChangeMode_Force_Dword: ELEVATION_CHANGE_MODE = ELEVATION_CHANGE_MODE(-1i32);
+impl ::core::marker::Copy for ELEVATION_CHANGE_MODE {}
+impl ::core::clone::Clone for ELEVATION_CHANGE_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ELEVATION_CHANGE_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ELEVATION_CHANGE_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ELEVATION_CHANGE_MODE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Sensors', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
@@ -277,21 +341,53 @@ pub unsafe fn GetPerformanceTime(timems: *mut u32) -> ::windows::core::Result<()
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub type HUMAN_PRESENCE_DETECTION_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HUMAN_PRESENCE_DETECTION_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const HumanPresenceDetectionType_VendorDefinedNonBiometric: HUMAN_PRESENCE_DETECTION_TYPE = 1i32;
+pub const HumanPresenceDetectionType_VendorDefinedNonBiometric: HUMAN_PRESENCE_DETECTION_TYPE = HUMAN_PRESENCE_DETECTION_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const HumanPresenceDetectionType_VendorDefinedBiometric: HUMAN_PRESENCE_DETECTION_TYPE = 2i32;
+pub const HumanPresenceDetectionType_VendorDefinedBiometric: HUMAN_PRESENCE_DETECTION_TYPE = HUMAN_PRESENCE_DETECTION_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const HumanPresenceDetectionType_FacialBiometric: HUMAN_PRESENCE_DETECTION_TYPE = 4i32;
+pub const HumanPresenceDetectionType_FacialBiometric: HUMAN_PRESENCE_DETECTION_TYPE = HUMAN_PRESENCE_DETECTION_TYPE(4i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const HumanPresenceDetectionType_AudioBiometric: HUMAN_PRESENCE_DETECTION_TYPE = 8i32;
+pub const HumanPresenceDetectionType_AudioBiometric: HUMAN_PRESENCE_DETECTION_TYPE = HUMAN_PRESENCE_DETECTION_TYPE(8i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const HumanPresenceDetectionType_Force_Dword: HUMAN_PRESENCE_DETECTION_TYPE = -1i32;
+pub const HumanPresenceDetectionType_Force_Dword: HUMAN_PRESENCE_DETECTION_TYPE = HUMAN_PRESENCE_DETECTION_TYPE(-1i32);
+impl ::core::marker::Copy for HUMAN_PRESENCE_DETECTION_TYPE {}
+impl ::core::clone::Clone for HUMAN_PRESENCE_DETECTION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for HUMAN_PRESENCE_DETECTION_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HUMAN_PRESENCE_DETECTION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HUMAN_PRESENCE_DETECTION_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub type HUMAN_PRESENCE_DETECTION_TYPE_COUNT = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HUMAN_PRESENCE_DETECTION_TYPE_COUNT(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const HumanPresenceDetectionTypeCount: HUMAN_PRESENCE_DETECTION_TYPE_COUNT = 4i32;
+pub const HumanPresenceDetectionTypeCount: HUMAN_PRESENCE_DETECTION_TYPE_COUNT = HUMAN_PRESENCE_DETECTION_TYPE_COUNT(4i32);
+impl ::core::marker::Copy for HUMAN_PRESENCE_DETECTION_TYPE_COUNT {}
+impl ::core::clone::Clone for HUMAN_PRESENCE_DETECTION_TYPE_COUNT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for HUMAN_PRESENCE_DETECTION_TYPE_COUNT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HUMAN_PRESENCE_DETECTION_TYPE_COUNT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HUMAN_PRESENCE_DETECTION_TYPE_COUNT").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct ILocationPermissions(::windows::core::IUnknown);
@@ -999,33 +1095,81 @@ pub unsafe fn IsSensorSubscribed<'a, Param1: ::windows::core::IntoParam<'a, ::wi
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub type LOCATION_DESIRED_ACCURACY = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct LOCATION_DESIRED_ACCURACY(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const LOCATION_DESIRED_ACCURACY_DEFAULT: LOCATION_DESIRED_ACCURACY = 0i32;
+pub const LOCATION_DESIRED_ACCURACY_DEFAULT: LOCATION_DESIRED_ACCURACY = LOCATION_DESIRED_ACCURACY(0i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const LOCATION_DESIRED_ACCURACY_HIGH: LOCATION_DESIRED_ACCURACY = 1i32;
+pub const LOCATION_DESIRED_ACCURACY_HIGH: LOCATION_DESIRED_ACCURACY = LOCATION_DESIRED_ACCURACY(1i32);
+impl ::core::marker::Copy for LOCATION_DESIRED_ACCURACY {}
+impl ::core::clone::Clone for LOCATION_DESIRED_ACCURACY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for LOCATION_DESIRED_ACCURACY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LOCATION_DESIRED_ACCURACY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LOCATION_DESIRED_ACCURACY").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub type LOCATION_POSITION_SOURCE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct LOCATION_POSITION_SOURCE(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const LOCATION_POSITION_SOURCE_CELLULAR: LOCATION_POSITION_SOURCE = 0i32;
+pub const LOCATION_POSITION_SOURCE_CELLULAR: LOCATION_POSITION_SOURCE = LOCATION_POSITION_SOURCE(0i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const LOCATION_POSITION_SOURCE_SATELLITE: LOCATION_POSITION_SOURCE = 1i32;
+pub const LOCATION_POSITION_SOURCE_SATELLITE: LOCATION_POSITION_SOURCE = LOCATION_POSITION_SOURCE(1i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const LOCATION_POSITION_SOURCE_WIFI: LOCATION_POSITION_SOURCE = 2i32;
+pub const LOCATION_POSITION_SOURCE_WIFI: LOCATION_POSITION_SOURCE = LOCATION_POSITION_SOURCE(2i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const LOCATION_POSITION_SOURCE_IPADDRESS: LOCATION_POSITION_SOURCE = 3i32;
+pub const LOCATION_POSITION_SOURCE_IPADDRESS: LOCATION_POSITION_SOURCE = LOCATION_POSITION_SOURCE(3i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const LOCATION_POSITION_SOURCE_UNKNOWN: LOCATION_POSITION_SOURCE = 4i32;
+pub const LOCATION_POSITION_SOURCE_UNKNOWN: LOCATION_POSITION_SOURCE = LOCATION_POSITION_SOURCE(4i32);
+impl ::core::marker::Copy for LOCATION_POSITION_SOURCE {}
+impl ::core::clone::Clone for LOCATION_POSITION_SOURCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for LOCATION_POSITION_SOURCE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LOCATION_POSITION_SOURCE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LOCATION_POSITION_SOURCE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub type MAGNETOMETER_ACCURACY = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MAGNETOMETER_ACCURACY(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const MagnetometerAccuracy_Unknown: MAGNETOMETER_ACCURACY = 0i32;
+pub const MagnetometerAccuracy_Unknown: MAGNETOMETER_ACCURACY = MAGNETOMETER_ACCURACY(0i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const MagnetometerAccuracy_Unreliable: MAGNETOMETER_ACCURACY = 1i32;
+pub const MagnetometerAccuracy_Unreliable: MAGNETOMETER_ACCURACY = MAGNETOMETER_ACCURACY(1i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const MagnetometerAccuracy_Approximate: MAGNETOMETER_ACCURACY = 2i32;
+pub const MagnetometerAccuracy_Approximate: MAGNETOMETER_ACCURACY = MAGNETOMETER_ACCURACY(2i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const MagnetometerAccuracy_High: MAGNETOMETER_ACCURACY = 3i32;
+pub const MagnetometerAccuracy_High: MAGNETOMETER_ACCURACY = MAGNETOMETER_ACCURACY(3i32);
+impl ::core::marker::Copy for MAGNETOMETER_ACCURACY {}
+impl ::core::clone::Clone for MAGNETOMETER_ACCURACY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MAGNETOMETER_ACCURACY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MAGNETOMETER_ACCURACY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MAGNETOMETER_ACCURACY").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
 pub struct MATRIX3X3 {
@@ -1149,39 +1293,103 @@ impl ::core::default::Default for MATRIX3X3_0_1 {
     }
 }
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub type MagnetometerAccuracy = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MagnetometerAccuracy(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const MAGNETOMETER_ACCURACY_UNKNOWN: MagnetometerAccuracy = 0i32;
+pub const MAGNETOMETER_ACCURACY_UNKNOWN: MagnetometerAccuracy = MagnetometerAccuracy(0i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const MAGNETOMETER_ACCURACY_UNRELIABLE: MagnetometerAccuracy = 1i32;
+pub const MAGNETOMETER_ACCURACY_UNRELIABLE: MagnetometerAccuracy = MagnetometerAccuracy(1i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const MAGNETOMETER_ACCURACY_APPROXIMATE: MagnetometerAccuracy = 2i32;
+pub const MAGNETOMETER_ACCURACY_APPROXIMATE: MagnetometerAccuracy = MagnetometerAccuracy(2i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const MAGNETOMETER_ACCURACY_HIGH: MagnetometerAccuracy = 3i32;
+pub const MAGNETOMETER_ACCURACY_HIGH: MagnetometerAccuracy = MagnetometerAccuracy(3i32);
+impl ::core::marker::Copy for MagnetometerAccuracy {}
+impl ::core::clone::Clone for MagnetometerAccuracy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MagnetometerAccuracy {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MagnetometerAccuracy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MagnetometerAccuracy").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub type PEDOMETER_STEP_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PEDOMETER_STEP_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const PedometerStepType_Unknown: PEDOMETER_STEP_TYPE = 1i32;
+pub const PedometerStepType_Unknown: PEDOMETER_STEP_TYPE = PEDOMETER_STEP_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const PedometerStepType_Walking: PEDOMETER_STEP_TYPE = 2i32;
+pub const PedometerStepType_Walking: PEDOMETER_STEP_TYPE = PEDOMETER_STEP_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const PedometerStepType_Running: PEDOMETER_STEP_TYPE = 4i32;
+pub const PedometerStepType_Running: PEDOMETER_STEP_TYPE = PEDOMETER_STEP_TYPE(4i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const PedometerStepType_Max: PEDOMETER_STEP_TYPE = 8i32;
+pub const PedometerStepType_Max: PEDOMETER_STEP_TYPE = PEDOMETER_STEP_TYPE(8i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const PedometerStepType_Force_Dword: PEDOMETER_STEP_TYPE = -1i32;
+pub const PedometerStepType_Force_Dword: PEDOMETER_STEP_TYPE = PEDOMETER_STEP_TYPE(-1i32);
+impl ::core::marker::Copy for PEDOMETER_STEP_TYPE {}
+impl ::core::clone::Clone for PEDOMETER_STEP_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PEDOMETER_STEP_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PEDOMETER_STEP_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PEDOMETER_STEP_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub type PEDOMETER_STEP_TYPE_COUNT = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PEDOMETER_STEP_TYPE_COUNT(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const PedometerStepTypeCount: PEDOMETER_STEP_TYPE_COUNT = 3i32;
+pub const PedometerStepTypeCount: PEDOMETER_STEP_TYPE_COUNT = PEDOMETER_STEP_TYPE_COUNT(3i32);
+impl ::core::marker::Copy for PEDOMETER_STEP_TYPE_COUNT {}
+impl ::core::clone::Clone for PEDOMETER_STEP_TYPE_COUNT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PEDOMETER_STEP_TYPE_COUNT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PEDOMETER_STEP_TYPE_COUNT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PEDOMETER_STEP_TYPE_COUNT").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub type PROXIMITY_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PROXIMITY_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const ProximityType_ObjectProximity: PROXIMITY_TYPE = 0i32;
+pub const ProximityType_ObjectProximity: PROXIMITY_TYPE = PROXIMITY_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const ProximityType_HumanProximity: PROXIMITY_TYPE = 1i32;
+pub const ProximityType_HumanProximity: PROXIMITY_TYPE = PROXIMITY_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const ProximityType_Force_Dword: PROXIMITY_TYPE = -1i32;
+pub const ProximityType_Force_Dword: PROXIMITY_TYPE = PROXIMITY_TYPE(-1i32);
+impl ::core::marker::Copy for PROXIMITY_TYPE {}
+impl ::core::clone::Clone for PROXIMITY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PROXIMITY_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PROXIMITY_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PROXIMITY_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Sensors', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
 #[inline]
@@ -1514,13 +1722,29 @@ impl ::core::default::Default for SENSOR_COLLECTION_LIST {
     }
 }
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub type SENSOR_CONNECTION_TYPES = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SENSOR_CONNECTION_TYPES(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const SensorConnectionType_Integrated: SENSOR_CONNECTION_TYPES = 0i32;
+pub const SensorConnectionType_Integrated: SENSOR_CONNECTION_TYPES = SENSOR_CONNECTION_TYPES(0i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const SensorConnectionType_Attached: SENSOR_CONNECTION_TYPES = 1i32;
+pub const SensorConnectionType_Attached: SENSOR_CONNECTION_TYPES = SENSOR_CONNECTION_TYPES(1i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const SensorConnectionType_External: SENSOR_CONNECTION_TYPES = 2i32;
+pub const SensorConnectionType_External: SENSOR_CONNECTION_TYPES = SENSOR_CONNECTION_TYPES(2i32);
+impl ::core::marker::Copy for SENSOR_CONNECTION_TYPES {}
+impl ::core::clone::Clone for SENSOR_CONNECTION_TYPES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SENSOR_CONNECTION_TYPES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SENSOR_CONNECTION_TYPES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SENSOR_CONNECTION_TYPES").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Sensors', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const SENSOR_DATA_TYPE_ABSOLUTE_PRESSURE_PASCAL: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x38564a7c_f2f2_49bb_9b2b_ba60f66a58df), pid: 5u32 };
@@ -2054,15 +2278,31 @@ pub const SENSOR_PROPERTY_TURN_ON_OFF_NMEA: super::super::UI::Shell::PropertiesS
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const SENSOR_PROPERTY_TYPE: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x7f8383ec_d3ec_495c_a8cf_b8bbe85c2920), pid: 2u32 };
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub type SENSOR_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SENSOR_STATE(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const SensorState_Initializing: SENSOR_STATE = 0i32;
+pub const SensorState_Initializing: SENSOR_STATE = SENSOR_STATE(0i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const SensorState_Idle: SENSOR_STATE = 1i32;
+pub const SensorState_Idle: SENSOR_STATE = SENSOR_STATE(1i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const SensorState_Active: SENSOR_STATE = 2i32;
+pub const SensorState_Active: SENSOR_STATE = SENSOR_STATE(2i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const SensorState_Error: SENSOR_STATE = 3i32;
+pub const SensorState_Error: SENSOR_STATE = SENSOR_STATE(3i32);
+impl ::core::marker::Copy for SENSOR_STATE {}
+impl ::core::clone::Clone for SENSOR_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SENSOR_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SENSOR_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SENSOR_STATE").field(&self.0).finish()
+    }
+}
 pub const SENSOR_TYPE_ACCELEROMETER_1D: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc04d2387_7340_4cc2_991e_3b18cb8ef2f4);
 pub const SENSOR_TYPE_ACCELEROMETER_2D: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2c517a8_f6b5_4ba6_a423_5df560b4cc07);
 pub const SENSOR_TYPE_ACCELEROMETER_3D: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2fb0f5f_e2d2_4c78_bcd0_352a9582819d);
@@ -2150,19 +2390,35 @@ impl ::core::default::Default for SENSOR_VALUE_PAIR {
     }
 }
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub type SIMPLE_DEVICE_ORIENTATION = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SIMPLE_DEVICE_ORIENTATION(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const SimpleDeviceOrientation_NotRotated: SIMPLE_DEVICE_ORIENTATION = 0i32;
+pub const SimpleDeviceOrientation_NotRotated: SIMPLE_DEVICE_ORIENTATION = SIMPLE_DEVICE_ORIENTATION(0i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const SimpleDeviceOrientation_Rotated90DegreesCounterclockwise: SIMPLE_DEVICE_ORIENTATION = 1i32;
+pub const SimpleDeviceOrientation_Rotated90DegreesCounterclockwise: SIMPLE_DEVICE_ORIENTATION = SIMPLE_DEVICE_ORIENTATION(1i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const SimpleDeviceOrientation_Rotated180DegreesCounterclockwise: SIMPLE_DEVICE_ORIENTATION = 2i32;
+pub const SimpleDeviceOrientation_Rotated180DegreesCounterclockwise: SIMPLE_DEVICE_ORIENTATION = SIMPLE_DEVICE_ORIENTATION(2i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const SimpleDeviceOrientation_Rotated270DegreesCounterclockwise: SIMPLE_DEVICE_ORIENTATION = 3i32;
+pub const SimpleDeviceOrientation_Rotated270DegreesCounterclockwise: SIMPLE_DEVICE_ORIENTATION = SIMPLE_DEVICE_ORIENTATION(3i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const SimpleDeviceOrientation_Faceup: SIMPLE_DEVICE_ORIENTATION = 4i32;
+pub const SimpleDeviceOrientation_Faceup: SIMPLE_DEVICE_ORIENTATION = SIMPLE_DEVICE_ORIENTATION(4i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const SimpleDeviceOrientation_Facedown: SIMPLE_DEVICE_ORIENTATION = 5i32;
+pub const SimpleDeviceOrientation_Facedown: SIMPLE_DEVICE_ORIENTATION = SIMPLE_DEVICE_ORIENTATION(5i32);
+impl ::core::marker::Copy for SIMPLE_DEVICE_ORIENTATION {}
+impl ::core::clone::Clone for SIMPLE_DEVICE_ORIENTATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SIMPLE_DEVICE_ORIENTATION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SIMPLE_DEVICE_ORIENTATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SIMPLE_DEVICE_ORIENTATION").field(&self.0).finish()
+    }
+}
 pub const Sensor: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe97ced00_523a_4133_bf6f_d3a2dae7f6ba);
 pub const SensorCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79c43adb_a429_469f_aa39_2f2b74b75937);
 #[doc = "*Required features: 'Win32_Devices_Sensors', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage', 'Win32_UI_Shell_PropertiesSystem'*"]
@@ -2181,33 +2437,65 @@ pub unsafe fn SensorCollectionGetAt(index: u32, psensorslist: *const SENSOR_COLL
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub type SensorConnectionType = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SensorConnectionType(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const SENSOR_CONNECTION_TYPE_PC_INTEGRATED: SensorConnectionType = 0i32;
+pub const SENSOR_CONNECTION_TYPE_PC_INTEGRATED: SensorConnectionType = SensorConnectionType(0i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const SENSOR_CONNECTION_TYPE_PC_ATTACHED: SensorConnectionType = 1i32;
+pub const SENSOR_CONNECTION_TYPE_PC_ATTACHED: SensorConnectionType = SensorConnectionType(1i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const SENSOR_CONNECTION_TYPE_PC_EXTERNAL: SensorConnectionType = 2i32;
+pub const SENSOR_CONNECTION_TYPE_PC_EXTERNAL: SensorConnectionType = SensorConnectionType(2i32);
+impl ::core::marker::Copy for SensorConnectionType {}
+impl ::core::clone::Clone for SensorConnectionType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SensorConnectionType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SensorConnectionType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SensorConnectionType").field(&self.0).finish()
+    }
+}
 pub const SensorDataReport: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ea9d6ef_694b_4218_8816_ccda8da74bba);
 pub const SensorManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77a1c827_fcd2_4689_8915_9d613cc5fa3e);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub type SensorState = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SensorState(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const SENSOR_STATE_MIN: SensorState = 0i32;
+pub const SENSOR_STATE_MIN: SensorState = SensorState(0i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const SENSOR_STATE_READY: SensorState = 0i32;
+pub const SENSOR_STATE_READY: SensorState = SensorState(0i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const SENSOR_STATE_NOT_AVAILABLE: SensorState = 1i32;
+pub const SENSOR_STATE_NOT_AVAILABLE: SensorState = SensorState(1i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const SENSOR_STATE_NO_DATA: SensorState = 2i32;
+pub const SENSOR_STATE_NO_DATA: SensorState = SensorState(2i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const SENSOR_STATE_INITIALIZING: SensorState = 3i32;
+pub const SENSOR_STATE_INITIALIZING: SensorState = SensorState(3i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const SENSOR_STATE_ACCESS_DENIED: SensorState = 4i32;
+pub const SENSOR_STATE_ACCESS_DENIED: SensorState = SensorState(4i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const SENSOR_STATE_ERROR: SensorState = 5i32;
+pub const SENSOR_STATE_ERROR: SensorState = SensorState(5i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const SENSOR_STATE_MAX: SensorState = 5i32;
+pub const SENSOR_STATE_MAX: SensorState = SensorState(5i32);
+impl ::core::marker::Copy for SensorState {}
+impl ::core::clone::Clone for SensorState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SensorState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SensorState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SensorState").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Sensors', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -2238,19 +2526,35 @@ pub unsafe fn SerializationBufferFree(buffer: *const u8) {
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub type SimpleDeviceOrientation = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SimpleDeviceOrientation(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const SIMPLE_DEVICE_ORIENTATION_NOT_ROTATED: SimpleDeviceOrientation = 0i32;
+pub const SIMPLE_DEVICE_ORIENTATION_NOT_ROTATED: SimpleDeviceOrientation = SimpleDeviceOrientation(0i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const SIMPLE_DEVICE_ORIENTATION_ROTATED_90: SimpleDeviceOrientation = 1i32;
+pub const SIMPLE_DEVICE_ORIENTATION_ROTATED_90: SimpleDeviceOrientation = SimpleDeviceOrientation(1i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const SIMPLE_DEVICE_ORIENTATION_ROTATED_180: SimpleDeviceOrientation = 2i32;
+pub const SIMPLE_DEVICE_ORIENTATION_ROTATED_180: SimpleDeviceOrientation = SimpleDeviceOrientation(2i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const SIMPLE_DEVICE_ORIENTATION_ROTATED_270: SimpleDeviceOrientation = 3i32;
+pub const SIMPLE_DEVICE_ORIENTATION_ROTATED_270: SimpleDeviceOrientation = SimpleDeviceOrientation(3i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const SIMPLE_DEVICE_ORIENTATION_ROTATED_FACE_UP: SimpleDeviceOrientation = 4i32;
+pub const SIMPLE_DEVICE_ORIENTATION_ROTATED_FACE_UP: SimpleDeviceOrientation = SimpleDeviceOrientation(4i32);
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
-pub const SIMPLE_DEVICE_ORIENTATION_ROTATED_FACE_DOWN: SimpleDeviceOrientation = 5i32;
+pub const SIMPLE_DEVICE_ORIENTATION_ROTATED_FACE_DOWN: SimpleDeviceOrientation = SimpleDeviceOrientation(5i32);
+impl ::core::marker::Copy for SimpleDeviceOrientation {}
+impl ::core::clone::Clone for SimpleDeviceOrientation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SimpleDeviceOrientation {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SimpleDeviceOrientation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SimpleDeviceOrientation").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Sensors'*"]
 pub struct VEC3D {

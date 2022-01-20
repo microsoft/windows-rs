@@ -156,19 +156,63 @@ impl ::core::default::Default for CERT_SELECT_STRUCT_A {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub type CERT_SELECT_STRUCT_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CERT_SELECT_STRUCT_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CSS_HIDE_PROPERTIES: CERT_SELECT_STRUCT_FLAGS = 1u32;
+pub const CSS_HIDE_PROPERTIES: CERT_SELECT_STRUCT_FLAGS = CERT_SELECT_STRUCT_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CSS_ENABLEHOOK: CERT_SELECT_STRUCT_FLAGS = 2u32;
+pub const CSS_ENABLEHOOK: CERT_SELECT_STRUCT_FLAGS = CERT_SELECT_STRUCT_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CSS_ALLOWMULTISELECT: CERT_SELECT_STRUCT_FLAGS = 4u32;
+pub const CSS_ALLOWMULTISELECT: CERT_SELECT_STRUCT_FLAGS = CERT_SELECT_STRUCT_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CSS_SHOW_HELP: CERT_SELECT_STRUCT_FLAGS = 16u32;
+pub const CSS_SHOW_HELP: CERT_SELECT_STRUCT_FLAGS = CERT_SELECT_STRUCT_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CSS_ENABLETEMPLATE: CERT_SELECT_STRUCT_FLAGS = 32u32;
+pub const CSS_ENABLETEMPLATE: CERT_SELECT_STRUCT_FLAGS = CERT_SELECT_STRUCT_FLAGS(32u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CSS_ENABLETEMPLATEHANDLE: CERT_SELECT_STRUCT_FLAGS = 64u32;
+pub const CSS_ENABLETEMPLATEHANDLE: CERT_SELECT_STRUCT_FLAGS = CERT_SELECT_STRUCT_FLAGS(64u32);
+impl ::core::marker::Copy for CERT_SELECT_STRUCT_FLAGS {}
+impl ::core::clone::Clone for CERT_SELECT_STRUCT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CERT_SELECT_STRUCT_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CERT_SELECT_STRUCT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CERT_SELECT_STRUCT_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CERT_SELECT_STRUCT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CERT_SELECT_STRUCT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CERT_SELECT_STRUCT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CERT_SELECT_STRUCT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CERT_SELECT_STRUCT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -448,27 +492,71 @@ impl ::core::default::Default for CERT_VIEWPROPERTIES_STRUCT_A {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub type CERT_VIEWPROPERTIES_STRUCT_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CERT_VIEWPROPERTIES_STRUCT_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CM_ENABLEHOOK: CERT_VIEWPROPERTIES_STRUCT_FLAGS = 1u32;
+pub const CM_ENABLEHOOK: CERT_VIEWPROPERTIES_STRUCT_FLAGS = CERT_VIEWPROPERTIES_STRUCT_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CM_SHOW_HELP: CERT_VIEWPROPERTIES_STRUCT_FLAGS = 2u32;
+pub const CM_SHOW_HELP: CERT_VIEWPROPERTIES_STRUCT_FLAGS = CERT_VIEWPROPERTIES_STRUCT_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CM_SHOW_HELPICON: CERT_VIEWPROPERTIES_STRUCT_FLAGS = 4u32;
+pub const CM_SHOW_HELPICON: CERT_VIEWPROPERTIES_STRUCT_FLAGS = CERT_VIEWPROPERTIES_STRUCT_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CM_ENABLETEMPLATE: CERT_VIEWPROPERTIES_STRUCT_FLAGS = 8u32;
+pub const CM_ENABLETEMPLATE: CERT_VIEWPROPERTIES_STRUCT_FLAGS = CERT_VIEWPROPERTIES_STRUCT_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CM_HIDE_ADVANCEPAGE: CERT_VIEWPROPERTIES_STRUCT_FLAGS = 16u32;
+pub const CM_HIDE_ADVANCEPAGE: CERT_VIEWPROPERTIES_STRUCT_FLAGS = CERT_VIEWPROPERTIES_STRUCT_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CM_HIDE_TRUSTPAGE: CERT_VIEWPROPERTIES_STRUCT_FLAGS = 32u32;
+pub const CM_HIDE_TRUSTPAGE: CERT_VIEWPROPERTIES_STRUCT_FLAGS = CERT_VIEWPROPERTIES_STRUCT_FLAGS(32u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CM_NO_NAMECHANGE: CERT_VIEWPROPERTIES_STRUCT_FLAGS = 64u32;
+pub const CM_NO_NAMECHANGE: CERT_VIEWPROPERTIES_STRUCT_FLAGS = CERT_VIEWPROPERTIES_STRUCT_FLAGS(64u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CM_NO_EDITTRUST: CERT_VIEWPROPERTIES_STRUCT_FLAGS = 128u32;
+pub const CM_NO_EDITTRUST: CERT_VIEWPROPERTIES_STRUCT_FLAGS = CERT_VIEWPROPERTIES_STRUCT_FLAGS(128u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CM_HIDE_DETAILPAGE: CERT_VIEWPROPERTIES_STRUCT_FLAGS = 256u32;
+pub const CM_HIDE_DETAILPAGE: CERT_VIEWPROPERTIES_STRUCT_FLAGS = CERT_VIEWPROPERTIES_STRUCT_FLAGS(256u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CM_ADD_CERT_STORES: CERT_VIEWPROPERTIES_STRUCT_FLAGS = 512u32;
+pub const CM_ADD_CERT_STORES: CERT_VIEWPROPERTIES_STRUCT_FLAGS = CERT_VIEWPROPERTIES_STRUCT_FLAGS(512u32);
+impl ::core::marker::Copy for CERT_VIEWPROPERTIES_STRUCT_FLAGS {}
+impl ::core::clone::Clone for CERT_VIEWPROPERTIES_STRUCT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CERT_VIEWPROPERTIES_STRUCT_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CERT_VIEWPROPERTIES_STRUCT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CERT_VIEWPROPERTIES_STRUCT_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CERT_VIEWPROPERTIES_STRUCT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CERT_VIEWPROPERTIES_STRUCT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CERT_VIEWPROPERTIES_STRUCT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CERT_VIEWPROPERTIES_STRUCT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CERT_VIEWPROPERTIES_STRUCT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_Controls', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -751,47 +839,91 @@ pub const CRYPTUI_SELECT_ISSUEDTO_COLUMN: u64 = 1u64;
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_SELECT_LOCATION_COLUMN: u64 = 16u64;
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub type CRYPTUI_VIEWCERTIFICATE_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRYPTUI_VIEWCERTIFICATE_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_HIDE_HIERARCHYPAGE: CRYPTUI_VIEWCERTIFICATE_FLAGS = 1u32;
+pub const CRYPTUI_HIDE_HIERARCHYPAGE: CRYPTUI_VIEWCERTIFICATE_FLAGS = CRYPTUI_VIEWCERTIFICATE_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_HIDE_DETAILPAGE: CRYPTUI_VIEWCERTIFICATE_FLAGS = 2u32;
+pub const CRYPTUI_HIDE_DETAILPAGE: CRYPTUI_VIEWCERTIFICATE_FLAGS = CRYPTUI_VIEWCERTIFICATE_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_DISABLE_EDITPROPERTIES: CRYPTUI_VIEWCERTIFICATE_FLAGS = 4u32;
+pub const CRYPTUI_DISABLE_EDITPROPERTIES: CRYPTUI_VIEWCERTIFICATE_FLAGS = CRYPTUI_VIEWCERTIFICATE_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_ENABLE_EDITPROPERTIES: CRYPTUI_VIEWCERTIFICATE_FLAGS = 8u32;
+pub const CRYPTUI_ENABLE_EDITPROPERTIES: CRYPTUI_VIEWCERTIFICATE_FLAGS = CRYPTUI_VIEWCERTIFICATE_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_DISABLE_ADDTOSTORE: CRYPTUI_VIEWCERTIFICATE_FLAGS = 16u32;
+pub const CRYPTUI_DISABLE_ADDTOSTORE: CRYPTUI_VIEWCERTIFICATE_FLAGS = CRYPTUI_VIEWCERTIFICATE_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_ENABLE_ADDTOSTORE: CRYPTUI_VIEWCERTIFICATE_FLAGS = 32u32;
+pub const CRYPTUI_ENABLE_ADDTOSTORE: CRYPTUI_VIEWCERTIFICATE_FLAGS = CRYPTUI_VIEWCERTIFICATE_FLAGS(32u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_ACCEPT_DECLINE_STYLE: CRYPTUI_VIEWCERTIFICATE_FLAGS = 64u32;
+pub const CRYPTUI_ACCEPT_DECLINE_STYLE: CRYPTUI_VIEWCERTIFICATE_FLAGS = CRYPTUI_VIEWCERTIFICATE_FLAGS(64u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_IGNORE_UNTRUSTED_ROOT: CRYPTUI_VIEWCERTIFICATE_FLAGS = 128u32;
+pub const CRYPTUI_IGNORE_UNTRUSTED_ROOT: CRYPTUI_VIEWCERTIFICATE_FLAGS = CRYPTUI_VIEWCERTIFICATE_FLAGS(128u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_DONT_OPEN_STORES: CRYPTUI_VIEWCERTIFICATE_FLAGS = 256u32;
+pub const CRYPTUI_DONT_OPEN_STORES: CRYPTUI_VIEWCERTIFICATE_FLAGS = CRYPTUI_VIEWCERTIFICATE_FLAGS(256u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_ONLY_OPEN_ROOT_STORE: CRYPTUI_VIEWCERTIFICATE_FLAGS = 512u32;
+pub const CRYPTUI_ONLY_OPEN_ROOT_STORE: CRYPTUI_VIEWCERTIFICATE_FLAGS = CRYPTUI_VIEWCERTIFICATE_FLAGS(512u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WARN_UNTRUSTED_ROOT: CRYPTUI_VIEWCERTIFICATE_FLAGS = 1024u32;
+pub const CRYPTUI_WARN_UNTRUSTED_ROOT: CRYPTUI_VIEWCERTIFICATE_FLAGS = CRYPTUI_VIEWCERTIFICATE_FLAGS(1024u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_ENABLE_REVOCATION_CHECKING: CRYPTUI_VIEWCERTIFICATE_FLAGS = 2048u32;
+pub const CRYPTUI_ENABLE_REVOCATION_CHECKING: CRYPTUI_VIEWCERTIFICATE_FLAGS = CRYPTUI_VIEWCERTIFICATE_FLAGS(2048u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WARN_REMOTE_TRUST: CRYPTUI_VIEWCERTIFICATE_FLAGS = 4096u32;
+pub const CRYPTUI_WARN_REMOTE_TRUST: CRYPTUI_VIEWCERTIFICATE_FLAGS = CRYPTUI_VIEWCERTIFICATE_FLAGS(4096u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_DISABLE_EXPORT: CRYPTUI_VIEWCERTIFICATE_FLAGS = 8192u32;
+pub const CRYPTUI_DISABLE_EXPORT: CRYPTUI_VIEWCERTIFICATE_FLAGS = CRYPTUI_VIEWCERTIFICATE_FLAGS(8192u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_ENABLE_REVOCATION_CHECK_END_CERT: CRYPTUI_VIEWCERTIFICATE_FLAGS = 16384u32;
+pub const CRYPTUI_ENABLE_REVOCATION_CHECK_END_CERT: CRYPTUI_VIEWCERTIFICATE_FLAGS = CRYPTUI_VIEWCERTIFICATE_FLAGS(16384u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_ENABLE_REVOCATION_CHECK_CHAIN: CRYPTUI_VIEWCERTIFICATE_FLAGS = 32768u32;
+pub const CRYPTUI_ENABLE_REVOCATION_CHECK_CHAIN: CRYPTUI_VIEWCERTIFICATE_FLAGS = CRYPTUI_VIEWCERTIFICATE_FLAGS(32768u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_ENABLE_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT: CRYPTUI_VIEWCERTIFICATE_FLAGS = 2048u32;
+pub const CRYPTUI_ENABLE_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT: CRYPTUI_VIEWCERTIFICATE_FLAGS = CRYPTUI_VIEWCERTIFICATE_FLAGS(2048u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_DISABLE_HTMLLINK: CRYPTUI_VIEWCERTIFICATE_FLAGS = 65536u32;
+pub const CRYPTUI_DISABLE_HTMLLINK: CRYPTUI_VIEWCERTIFICATE_FLAGS = CRYPTUI_VIEWCERTIFICATE_FLAGS(65536u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_DISABLE_ISSUERSTATEMENT: CRYPTUI_VIEWCERTIFICATE_FLAGS = 131072u32;
+pub const CRYPTUI_DISABLE_ISSUERSTATEMENT: CRYPTUI_VIEWCERTIFICATE_FLAGS = CRYPTUI_VIEWCERTIFICATE_FLAGS(131072u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_CACHE_ONLY_URL_RETRIEVAL: CRYPTUI_VIEWCERTIFICATE_FLAGS = 262144u32;
+pub const CRYPTUI_CACHE_ONLY_URL_RETRIEVAL: CRYPTUI_VIEWCERTIFICATE_FLAGS = CRYPTUI_VIEWCERTIFICATE_FLAGS(262144u32);
+impl ::core::marker::Copy for CRYPTUI_VIEWCERTIFICATE_FLAGS {}
+impl ::core::clone::Clone for CRYPTUI_VIEWCERTIFICATE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CRYPTUI_VIEWCERTIFICATE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRYPTUI_VIEWCERTIFICATE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRYPTUI_VIEWCERTIFICATE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRYPTUI_VIEWCERTIFICATE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRYPTUI_VIEWCERTIFICATE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRYPTUI_VIEWCERTIFICATE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRYPTUI_VIEWCERTIFICATE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRYPTUI_VIEWCERTIFICATE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_Security_Cryptography_Catalog', 'Win32_Security_Cryptography_Sip', 'Win32_Security_WinTrust', 'Win32_UI_Controls', 'Win32_UI_WindowsAndMessaging'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
@@ -957,23 +1089,111 @@ impl ::core::default::Default for CRYPTUI_VIEWCERTIFICATE_STRUCTW_0 {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub type CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WIZ_DIGITAL_SIGN_ADD_CHAIN: CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE = 1u32;
+pub const CRYPTUI_WIZ_DIGITAL_SIGN_ADD_CHAIN: CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE = CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WIZ_DIGITAL_SIGN_ADD_CHAIN_NO_ROOT: CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE = 2u32;
+pub const CRYPTUI_WIZ_DIGITAL_SIGN_ADD_CHAIN_NO_ROOT: CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE = CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WIZ_DIGITAL_SIGN_ADD_NONE: CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE = 0u32;
+pub const CRYPTUI_WIZ_DIGITAL_SIGN_ADD_NONE: CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE = CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE(0u32);
+impl ::core::marker::Copy for CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE {}
+impl ::core::clone::Clone for CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRYPTUI_WIZ_DIGITAL_ADDITIONAL_CERT_CHOICE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub type CRYPTUI_WIZ_DIGITAL_SIGN = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRYPTUI_WIZ_DIGITAL_SIGN(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WIZ_DIGITAL_SIGN_CERT: CRYPTUI_WIZ_DIGITAL_SIGN = 1u32;
+pub const CRYPTUI_WIZ_DIGITAL_SIGN_CERT: CRYPTUI_WIZ_DIGITAL_SIGN = CRYPTUI_WIZ_DIGITAL_SIGN(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WIZ_DIGITAL_SIGN_STORE: CRYPTUI_WIZ_DIGITAL_SIGN = 2u32;
+pub const CRYPTUI_WIZ_DIGITAL_SIGN_STORE: CRYPTUI_WIZ_DIGITAL_SIGN = CRYPTUI_WIZ_DIGITAL_SIGN(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WIZ_DIGITAL_SIGN_PVK: CRYPTUI_WIZ_DIGITAL_SIGN = 3u32;
+pub const CRYPTUI_WIZ_DIGITAL_SIGN_PVK: CRYPTUI_WIZ_DIGITAL_SIGN = CRYPTUI_WIZ_DIGITAL_SIGN(3u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WIZ_DIGITAL_SIGN_NONE: CRYPTUI_WIZ_DIGITAL_SIGN = 0u32;
+pub const CRYPTUI_WIZ_DIGITAL_SIGN_NONE: CRYPTUI_WIZ_DIGITAL_SIGN = CRYPTUI_WIZ_DIGITAL_SIGN(0u32);
+impl ::core::marker::Copy for CRYPTUI_WIZ_DIGITAL_SIGN {}
+impl ::core::clone::Clone for CRYPTUI_WIZ_DIGITAL_SIGN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CRYPTUI_WIZ_DIGITAL_SIGN {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRYPTUI_WIZ_DIGITAL_SIGN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRYPTUI_WIZ_DIGITAL_SIGN").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRYPTUI_WIZ_DIGITAL_SIGN {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRYPTUI_WIZ_DIGITAL_SIGN {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRYPTUI_WIZ_DIGITAL_SIGN {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRYPTUI_WIZ_DIGITAL_SIGN {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRYPTUI_WIZ_DIGITAL_SIGN {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1324,17 +1544,105 @@ impl ::core::default::Default for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub type CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE: CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION = 1u32;
+pub const CRYPTUI_WIZ_DIGITAL_SIGN_PVK_FILE: CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION = CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WIZ_DIGITAL_SIGN_PVK_PROV: CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION = 2u32;
+pub const CRYPTUI_WIZ_DIGITAL_SIGN_PVK_PROV: CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION = CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION(2u32);
+impl ::core::marker::Copy for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION {}
+impl ::core::clone::Clone for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRYPTUI_WIZ_DIGITAL_SIGN_PVK_OPTION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub type CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WIZ_DIGITAL_SIGN_COMMERCIAL: CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE = 1u32;
+pub const CRYPTUI_WIZ_DIGITAL_SIGN_COMMERCIAL: CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE = CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WIZ_DIGITAL_SIGN_INDIVIDUAL: CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE = 2u32;
+pub const CRYPTUI_WIZ_DIGITAL_SIGN_INDIVIDUAL: CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE = CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE(2u32);
+impl ::core::marker::Copy for CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE {}
+impl ::core::clone::Clone for CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRYPTUI_WIZ_DIGITAL_SIGN_SIG_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1378,13 +1686,57 @@ impl ::core::default::Default for CRYPTUI_WIZ_DIGITAL_SIGN_STORE_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub type CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT_BLOB: CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT = 2u32;
+pub const CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT_BLOB: CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT = CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT_FILE: CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT = 1u32;
+pub const CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT_FILE: CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT = CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT_NONE: CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT = 0u32;
+pub const CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT_NONE: CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT = CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT(0u32);
+impl ::core::marker::Copy for CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT {}
+impl ::core::clone::Clone for CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRYPTUI_WIZ_DIGITAL_SIGN_SUBJECT {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1429,19 +1781,63 @@ impl ::core::default::Default for CRYPTUI_WIZ_EXPORT_CERTCONTEXT_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub type CRYPTUI_WIZ_EXPORT_FORMAT = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRYPTUI_WIZ_EXPORT_FORMAT(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WIZ_EXPORT_FORMAT_DER: CRYPTUI_WIZ_EXPORT_FORMAT = 1u32;
+pub const CRYPTUI_WIZ_EXPORT_FORMAT_DER: CRYPTUI_WIZ_EXPORT_FORMAT = CRYPTUI_WIZ_EXPORT_FORMAT(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WIZ_EXPORT_FORMAT_PFX: CRYPTUI_WIZ_EXPORT_FORMAT = 2u32;
+pub const CRYPTUI_WIZ_EXPORT_FORMAT_PFX: CRYPTUI_WIZ_EXPORT_FORMAT = CRYPTUI_WIZ_EXPORT_FORMAT(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WIZ_EXPORT_FORMAT_PKCS7: CRYPTUI_WIZ_EXPORT_FORMAT = 3u32;
+pub const CRYPTUI_WIZ_EXPORT_FORMAT_PKCS7: CRYPTUI_WIZ_EXPORT_FORMAT = CRYPTUI_WIZ_EXPORT_FORMAT(3u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WIZ_EXPORT_FORMAT_BASE64: CRYPTUI_WIZ_EXPORT_FORMAT = 4u32;
+pub const CRYPTUI_WIZ_EXPORT_FORMAT_BASE64: CRYPTUI_WIZ_EXPORT_FORMAT = CRYPTUI_WIZ_EXPORT_FORMAT(4u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WIZ_EXPORT_FORMAT_CRL: CRYPTUI_WIZ_EXPORT_FORMAT = 6u32;
+pub const CRYPTUI_WIZ_EXPORT_FORMAT_CRL: CRYPTUI_WIZ_EXPORT_FORMAT = CRYPTUI_WIZ_EXPORT_FORMAT(6u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WIZ_EXPORT_FORMAT_CTL: CRYPTUI_WIZ_EXPORT_FORMAT = 7u32;
+pub const CRYPTUI_WIZ_EXPORT_FORMAT_CTL: CRYPTUI_WIZ_EXPORT_FORMAT = CRYPTUI_WIZ_EXPORT_FORMAT(7u32);
+impl ::core::marker::Copy for CRYPTUI_WIZ_EXPORT_FORMAT {}
+impl ::core::clone::Clone for CRYPTUI_WIZ_EXPORT_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CRYPTUI_WIZ_EXPORT_FORMAT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRYPTUI_WIZ_EXPORT_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRYPTUI_WIZ_EXPORT_FORMAT").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRYPTUI_WIZ_EXPORT_FORMAT {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRYPTUI_WIZ_EXPORT_FORMAT {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRYPTUI_WIZ_EXPORT_FORMAT {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRYPTUI_WIZ_EXPORT_FORMAT {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRYPTUI_WIZ_EXPORT_FORMAT {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYPTUI_WIZ_EXPORT_FORMAT_SERIALIZED_CERT_STORE: u32 = 5u32;
 #[repr(C)]
@@ -1517,43 +1913,131 @@ impl ::core::default::Default for CRYPTUI_WIZ_EXPORT_INFO_0 {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub type CRYPTUI_WIZ_EXPORT_SUBJECT = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRYPTUI_WIZ_EXPORT_SUBJECT(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WIZ_EXPORT_CERT_CONTEXT: CRYPTUI_WIZ_EXPORT_SUBJECT = 1u32;
+pub const CRYPTUI_WIZ_EXPORT_CERT_CONTEXT: CRYPTUI_WIZ_EXPORT_SUBJECT = CRYPTUI_WIZ_EXPORT_SUBJECT(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WIZ_EXPORT_CTL_CONTEXT: CRYPTUI_WIZ_EXPORT_SUBJECT = 2u32;
+pub const CRYPTUI_WIZ_EXPORT_CTL_CONTEXT: CRYPTUI_WIZ_EXPORT_SUBJECT = CRYPTUI_WIZ_EXPORT_SUBJECT(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WIZ_EXPORT_CRL_CONTEXT: CRYPTUI_WIZ_EXPORT_SUBJECT = 3u32;
+pub const CRYPTUI_WIZ_EXPORT_CRL_CONTEXT: CRYPTUI_WIZ_EXPORT_SUBJECT = CRYPTUI_WIZ_EXPORT_SUBJECT(3u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WIZ_EXPORT_CERT_STORE: CRYPTUI_WIZ_EXPORT_SUBJECT = 4u32;
+pub const CRYPTUI_WIZ_EXPORT_CERT_STORE: CRYPTUI_WIZ_EXPORT_SUBJECT = CRYPTUI_WIZ_EXPORT_SUBJECT(4u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WIZ_EXPORT_CERT_STORE_CERTIFICATES_ONLY: CRYPTUI_WIZ_EXPORT_SUBJECT = 5u32;
+pub const CRYPTUI_WIZ_EXPORT_CERT_STORE_CERTIFICATES_ONLY: CRYPTUI_WIZ_EXPORT_SUBJECT = CRYPTUI_WIZ_EXPORT_SUBJECT(5u32);
+impl ::core::marker::Copy for CRYPTUI_WIZ_EXPORT_SUBJECT {}
+impl ::core::clone::Clone for CRYPTUI_WIZ_EXPORT_SUBJECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CRYPTUI_WIZ_EXPORT_SUBJECT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRYPTUI_WIZ_EXPORT_SUBJECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRYPTUI_WIZ_EXPORT_SUBJECT").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRYPTUI_WIZ_EXPORT_SUBJECT {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRYPTUI_WIZ_EXPORT_SUBJECT {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRYPTUI_WIZ_EXPORT_SUBJECT {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRYPTUI_WIZ_EXPORT_SUBJECT {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRYPTUI_WIZ_EXPORT_SUBJECT {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub type CRYPTUI_WIZ_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRYPTUI_WIZ_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WIZ_NO_UI: CRYPTUI_WIZ_FLAGS = 1u32;
+pub const CRYPTUI_WIZ_NO_UI: CRYPTUI_WIZ_FLAGS = CRYPTUI_WIZ_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WIZ_IGNORE_NO_UI_FLAG_FOR_CSPS: CRYPTUI_WIZ_FLAGS = 2u32;
+pub const CRYPTUI_WIZ_IGNORE_NO_UI_FLAG_FOR_CSPS: CRYPTUI_WIZ_FLAGS = CRYPTUI_WIZ_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WIZ_NO_UI_EXCEPT_CSP: CRYPTUI_WIZ_FLAGS = 3u32;
+pub const CRYPTUI_WIZ_NO_UI_EXCEPT_CSP: CRYPTUI_WIZ_FLAGS = CRYPTUI_WIZ_FLAGS(3u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WIZ_IMPORT_ALLOW_CERT: CRYPTUI_WIZ_FLAGS = 131072u32;
+pub const CRYPTUI_WIZ_IMPORT_ALLOW_CERT: CRYPTUI_WIZ_FLAGS = CRYPTUI_WIZ_FLAGS(131072u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WIZ_IMPORT_ALLOW_CRL: CRYPTUI_WIZ_FLAGS = 262144u32;
+pub const CRYPTUI_WIZ_IMPORT_ALLOW_CRL: CRYPTUI_WIZ_FLAGS = CRYPTUI_WIZ_FLAGS(262144u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WIZ_IMPORT_ALLOW_CTL: CRYPTUI_WIZ_FLAGS = 524288u32;
+pub const CRYPTUI_WIZ_IMPORT_ALLOW_CTL: CRYPTUI_WIZ_FLAGS = CRYPTUI_WIZ_FLAGS(524288u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WIZ_IMPORT_NO_CHANGE_DEST_STORE: CRYPTUI_WIZ_FLAGS = 65536u32;
+pub const CRYPTUI_WIZ_IMPORT_NO_CHANGE_DEST_STORE: CRYPTUI_WIZ_FLAGS = CRYPTUI_WIZ_FLAGS(65536u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WIZ_IMPORT_TO_LOCALMACHINE: CRYPTUI_WIZ_FLAGS = 1048576u32;
+pub const CRYPTUI_WIZ_IMPORT_TO_LOCALMACHINE: CRYPTUI_WIZ_FLAGS = CRYPTUI_WIZ_FLAGS(1048576u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WIZ_IMPORT_TO_CURRENTUSER: CRYPTUI_WIZ_FLAGS = 2097152u32;
+pub const CRYPTUI_WIZ_IMPORT_TO_CURRENTUSER: CRYPTUI_WIZ_FLAGS = CRYPTUI_WIZ_FLAGS(2097152u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WIZ_IMPORT_REMOTE_DEST_STORE: CRYPTUI_WIZ_FLAGS = 4194304u32;
+pub const CRYPTUI_WIZ_IMPORT_REMOTE_DEST_STORE: CRYPTUI_WIZ_FLAGS = CRYPTUI_WIZ_FLAGS(4194304u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WIZ_EXPORT_PRIVATE_KEY: CRYPTUI_WIZ_FLAGS = 256u32;
+pub const CRYPTUI_WIZ_EXPORT_PRIVATE_KEY: CRYPTUI_WIZ_FLAGS = CRYPTUI_WIZ_FLAGS(256u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WIZ_EXPORT_NO_DELETE_PRIVATE_KEY: CRYPTUI_WIZ_FLAGS = 512u32;
+pub const CRYPTUI_WIZ_EXPORT_NO_DELETE_PRIVATE_KEY: CRYPTUI_WIZ_FLAGS = CRYPTUI_WIZ_FLAGS(512u32);
+impl ::core::marker::Copy for CRYPTUI_WIZ_FLAGS {}
+impl ::core::clone::Clone for CRYPTUI_WIZ_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CRYPTUI_WIZ_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRYPTUI_WIZ_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRYPTUI_WIZ_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRYPTUI_WIZ_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRYPTUI_WIZ_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRYPTUI_WIZ_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRYPTUI_WIZ_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRYPTUI_WIZ_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1627,17 +2111,61 @@ impl ::core::default::Default for CRYPTUI_WIZ_IMPORT_SRC_INFO_0 {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub type CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WIZ_IMPORT_SUBJECT_FILE: CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION = 1u32;
+pub const CRYPTUI_WIZ_IMPORT_SUBJECT_FILE: CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION = CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WIZ_IMPORT_SUBJECT_CERT_CONTEXT: CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION = 2u32;
+pub const CRYPTUI_WIZ_IMPORT_SUBJECT_CERT_CONTEXT: CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION = CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WIZ_IMPORT_SUBJECT_CTL_CONTEXT: CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION = 3u32;
+pub const CRYPTUI_WIZ_IMPORT_SUBJECT_CTL_CONTEXT: CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION = CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION(3u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WIZ_IMPORT_SUBJECT_CRL_CONTEXT: CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION = 4u32;
+pub const CRYPTUI_WIZ_IMPORT_SUBJECT_CRL_CONTEXT: CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION = CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION(4u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CRYPTUI_WIZ_IMPORT_SUBJECT_CERT_STORE: CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION = 5u32;
+pub const CRYPTUI_WIZ_IMPORT_SUBJECT_CERT_STORE: CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION = CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION(5u32);
+impl ::core::marker::Copy for CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION {}
+impl ::core::clone::Clone for CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRYPTUI_WIZ_IMPORT_SUBJECT_OPTION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
 pub const CRYTPDLG_FLAGS_MASK: u32 = 4278190080u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
@@ -1683,13 +2211,57 @@ impl ::core::default::Default for CTL_MODIFY_REQUEST {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub type CTL_MODIFY_REQUEST_OPERATION = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CTL_MODIFY_REQUEST_OPERATION(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CTL_MODIFY_REQUEST_ADD_TRUSTED: CTL_MODIFY_REQUEST_OPERATION = 3u32;
+pub const CTL_MODIFY_REQUEST_ADD_TRUSTED: CTL_MODIFY_REQUEST_OPERATION = CTL_MODIFY_REQUEST_OPERATION(3u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CTL_MODIFY_REQUEST_ADD_NOT_TRUSTED: CTL_MODIFY_REQUEST_OPERATION = 1u32;
+pub const CTL_MODIFY_REQUEST_ADD_NOT_TRUSTED: CTL_MODIFY_REQUEST_OPERATION = CTL_MODIFY_REQUEST_OPERATION(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI'*"]
-pub const CTL_MODIFY_REQUEST_REMOVE: CTL_MODIFY_REQUEST_OPERATION = 2u32;
+pub const CTL_MODIFY_REQUEST_REMOVE: CTL_MODIFY_REQUEST_OPERATION = CTL_MODIFY_REQUEST_OPERATION(2u32);
+impl ::core::marker::Copy for CTL_MODIFY_REQUEST_OPERATION {}
+impl ::core::clone::Clone for CTL_MODIFY_REQUEST_OPERATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CTL_MODIFY_REQUEST_OPERATION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CTL_MODIFY_REQUEST_OPERATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CTL_MODIFY_REQUEST_OPERATION").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CTL_MODIFY_REQUEST_OPERATION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CTL_MODIFY_REQUEST_OPERATION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CTL_MODIFY_REQUEST_OPERATION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CTL_MODIFY_REQUEST_OPERATION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CTL_MODIFY_REQUEST_OPERATION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]

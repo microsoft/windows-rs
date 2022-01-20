@@ -52,13 +52,29 @@ impl ::core::default::Default for COMEVENTSYSCHANGEINFO {
     }
 }
 #[doc = "*Required features: 'Win32_System_Com_Events'*"]
-pub type EOC_ChangeType = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct EOC_ChangeType(pub i32);
 #[doc = "*Required features: 'Win32_System_Com_Events'*"]
-pub const EOC_NewObject: EOC_ChangeType = 0i32;
+pub const EOC_NewObject: EOC_ChangeType = EOC_ChangeType(0i32);
 #[doc = "*Required features: 'Win32_System_Com_Events'*"]
-pub const EOC_ModifiedObject: EOC_ChangeType = 1i32;
+pub const EOC_ModifiedObject: EOC_ChangeType = EOC_ChangeType(1i32);
 #[doc = "*Required features: 'Win32_System_Com_Events'*"]
-pub const EOC_DeletedObject: EOC_ChangeType = 2i32;
+pub const EOC_DeletedObject: EOC_ChangeType = EOC_ChangeType(2i32);
+impl ::core::marker::Copy for EOC_ChangeType {}
+impl ::core::clone::Clone for EOC_ChangeType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for EOC_ChangeType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EOC_ChangeType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EOC_ChangeType").field(&self.0).finish()
+    }
+}
 pub const EventObjectChange: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0565000_9df4_11d1_a281_00c04fca0aa7);
 pub const EventObjectChange2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb07bacd_cd56_4e63_a8ff_cbf0355fb9f4);
 #[doc = "*Required features: 'Win32_System_Com_Events'*"]

@@ -177,393 +177,409 @@ pub const CA_UPGRADE_VERSION: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLCTL_CLUSTER_BASE: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLCTL_CODES = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLCTL_CODES(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_UNKNOWN: CLCTL_CODES = 0i32;
+pub const CLCTL_UNKNOWN: CLCTL_CODES = CLCTL_CODES(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GET_CHARACTERISTICS: CLCTL_CODES = 5i32;
+pub const CLCTL_GET_CHARACTERISTICS: CLCTL_CODES = CLCTL_CODES(5i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GET_FLAGS: CLCTL_CODES = 9i32;
+pub const CLCTL_GET_FLAGS: CLCTL_CODES = CLCTL_CODES(9i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GET_CLASS_INFO: CLCTL_CODES = 13i32;
+pub const CLCTL_GET_CLASS_INFO: CLCTL_CODES = CLCTL_CODES(13i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GET_REQUIRED_DEPENDENCIES: CLCTL_CODES = 17i32;
+pub const CLCTL_GET_REQUIRED_DEPENDENCIES: CLCTL_CODES = CLCTL_CODES(17i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GET_ARB_TIMEOUT: CLCTL_CODES = 21i32;
+pub const CLCTL_GET_ARB_TIMEOUT: CLCTL_CODES = CLCTL_CODES(21i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GET_FAILURE_INFO: CLCTL_CODES = 25i32;
+pub const CLCTL_GET_FAILURE_INFO: CLCTL_CODES = CLCTL_CODES(25i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GET_NAME: CLCTL_CODES = 41i32;
+pub const CLCTL_GET_NAME: CLCTL_CODES = CLCTL_CODES(41i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GET_RESOURCE_TYPE: CLCTL_CODES = 45i32;
+pub const CLCTL_GET_RESOURCE_TYPE: CLCTL_CODES = CLCTL_CODES(45i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GET_NODE: CLCTL_CODES = 49i32;
+pub const CLCTL_GET_NODE: CLCTL_CODES = CLCTL_CODES(49i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GET_NETWORK: CLCTL_CODES = 53i32;
+pub const CLCTL_GET_NETWORK: CLCTL_CODES = CLCTL_CODES(53i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GET_ID: CLCTL_CODES = 57i32;
+pub const CLCTL_GET_ID: CLCTL_CODES = CLCTL_CODES(57i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GET_FQDN: CLCTL_CODES = 61i32;
+pub const CLCTL_GET_FQDN: CLCTL_CODES = CLCTL_CODES(61i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GET_CLUSTER_SERVICE_ACCOUNT_NAME: CLCTL_CODES = 65i32;
+pub const CLCTL_GET_CLUSTER_SERVICE_ACCOUNT_NAME: CLCTL_CODES = CLCTL_CODES(65i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_CHECK_VOTER_EVICT: CLCTL_CODES = 69i32;
+pub const CLCTL_CHECK_VOTER_EVICT: CLCTL_CODES = CLCTL_CODES(69i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_CHECK_VOTER_DOWN: CLCTL_CODES = 73i32;
+pub const CLCTL_CHECK_VOTER_DOWN: CLCTL_CODES = CLCTL_CODES(73i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_SHUTDOWN: CLCTL_CODES = 77i32;
+pub const CLCTL_SHUTDOWN: CLCTL_CODES = CLCTL_CODES(77i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_ENUM_COMMON_PROPERTIES: CLCTL_CODES = 81i32;
+pub const CLCTL_ENUM_COMMON_PROPERTIES: CLCTL_CODES = CLCTL_CODES(81i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GET_RO_COMMON_PROPERTIES: CLCTL_CODES = 85i32;
+pub const CLCTL_GET_RO_COMMON_PROPERTIES: CLCTL_CODES = CLCTL_CODES(85i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GET_COMMON_PROPERTIES: CLCTL_CODES = 89i32;
+pub const CLCTL_GET_COMMON_PROPERTIES: CLCTL_CODES = CLCTL_CODES(89i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_SET_COMMON_PROPERTIES: CLCTL_CODES = 4194398i32;
+pub const CLCTL_SET_COMMON_PROPERTIES: CLCTL_CODES = CLCTL_CODES(4194398i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_VALIDATE_COMMON_PROPERTIES: CLCTL_CODES = 97i32;
+pub const CLCTL_VALIDATE_COMMON_PROPERTIES: CLCTL_CODES = CLCTL_CODES(97i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GET_COMMON_PROPERTY_FMTS: CLCTL_CODES = 101i32;
+pub const CLCTL_GET_COMMON_PROPERTY_FMTS: CLCTL_CODES = CLCTL_CODES(101i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GET_COMMON_RESOURCE_PROPERTY_FMTS: CLCTL_CODES = 105i32;
+pub const CLCTL_GET_COMMON_RESOURCE_PROPERTY_FMTS: CLCTL_CODES = CLCTL_CODES(105i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_ENUM_PRIVATE_PROPERTIES: CLCTL_CODES = 121i32;
+pub const CLCTL_ENUM_PRIVATE_PROPERTIES: CLCTL_CODES = CLCTL_CODES(121i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GET_RO_PRIVATE_PROPERTIES: CLCTL_CODES = 125i32;
+pub const CLCTL_GET_RO_PRIVATE_PROPERTIES: CLCTL_CODES = CLCTL_CODES(125i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GET_PRIVATE_PROPERTIES: CLCTL_CODES = 129i32;
+pub const CLCTL_GET_PRIVATE_PROPERTIES: CLCTL_CODES = CLCTL_CODES(129i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_SET_PRIVATE_PROPERTIES: CLCTL_CODES = 4194438i32;
+pub const CLCTL_SET_PRIVATE_PROPERTIES: CLCTL_CODES = CLCTL_CODES(4194438i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_VALIDATE_PRIVATE_PROPERTIES: CLCTL_CODES = 137i32;
+pub const CLCTL_VALIDATE_PRIVATE_PROPERTIES: CLCTL_CODES = CLCTL_CODES(137i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GET_PRIVATE_PROPERTY_FMTS: CLCTL_CODES = 141i32;
+pub const CLCTL_GET_PRIVATE_PROPERTY_FMTS: CLCTL_CODES = CLCTL_CODES(141i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GET_PRIVATE_RESOURCE_PROPERTY_FMTS: CLCTL_CODES = 145i32;
+pub const CLCTL_GET_PRIVATE_RESOURCE_PROPERTY_FMTS: CLCTL_CODES = CLCTL_CODES(145i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_ADD_REGISTRY_CHECKPOINT: CLCTL_CODES = 4194466i32;
+pub const CLCTL_ADD_REGISTRY_CHECKPOINT: CLCTL_CODES = CLCTL_CODES(4194466i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_DELETE_REGISTRY_CHECKPOINT: CLCTL_CODES = 4194470i32;
+pub const CLCTL_DELETE_REGISTRY_CHECKPOINT: CLCTL_CODES = CLCTL_CODES(4194470i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GET_REGISTRY_CHECKPOINTS: CLCTL_CODES = 169i32;
+pub const CLCTL_GET_REGISTRY_CHECKPOINTS: CLCTL_CODES = CLCTL_CODES(169i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_ADD_CRYPTO_CHECKPOINT: CLCTL_CODES = 4194478i32;
+pub const CLCTL_ADD_CRYPTO_CHECKPOINT: CLCTL_CODES = CLCTL_CODES(4194478i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_DELETE_CRYPTO_CHECKPOINT: CLCTL_CODES = 4194482i32;
+pub const CLCTL_DELETE_CRYPTO_CHECKPOINT: CLCTL_CODES = CLCTL_CODES(4194482i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GET_CRYPTO_CHECKPOINTS: CLCTL_CODES = 181i32;
+pub const CLCTL_GET_CRYPTO_CHECKPOINTS: CLCTL_CODES = CLCTL_CODES(181i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_RESOURCE_UPGRADE_DLL: CLCTL_CODES = 4194490i32;
+pub const CLCTL_RESOURCE_UPGRADE_DLL: CLCTL_CODES = CLCTL_CODES(4194490i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_ADD_REGISTRY_CHECKPOINT_64BIT: CLCTL_CODES = 4194494i32;
+pub const CLCTL_ADD_REGISTRY_CHECKPOINT_64BIT: CLCTL_CODES = CLCTL_CODES(4194494i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_ADD_REGISTRY_CHECKPOINT_32BIT: CLCTL_CODES = 4194498i32;
+pub const CLCTL_ADD_REGISTRY_CHECKPOINT_32BIT: CLCTL_CODES = CLCTL_CODES(4194498i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GET_LOADBAL_PROCESS_LIST: CLCTL_CODES = 201i32;
+pub const CLCTL_GET_LOADBAL_PROCESS_LIST: CLCTL_CODES = CLCTL_CODES(201i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_SET_ACCOUNT_ACCESS: CLCTL_CODES = 4194546i32;
+pub const CLCTL_SET_ACCOUNT_ACCESS: CLCTL_CODES = CLCTL_CODES(4194546i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GET_NETWORK_NAME: CLCTL_CODES = 361i32;
+pub const CLCTL_GET_NETWORK_NAME: CLCTL_CODES = CLCTL_CODES(361i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_NETNAME_GET_VIRTUAL_SERVER_TOKEN: CLCTL_CODES = 365i32;
+pub const CLCTL_NETNAME_GET_VIRTUAL_SERVER_TOKEN: CLCTL_CODES = CLCTL_CODES(365i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_NETNAME_REGISTER_DNS_RECORDS: CLCTL_CODES = 370i32;
+pub const CLCTL_NETNAME_REGISTER_DNS_RECORDS: CLCTL_CODES = CLCTL_CODES(370i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GET_DNS_NAME: CLCTL_CODES = 373i32;
+pub const CLCTL_GET_DNS_NAME: CLCTL_CODES = CLCTL_CODES(373i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_NETNAME_SET_PWD_INFO: CLCTL_CODES = 378i32;
+pub const CLCTL_NETNAME_SET_PWD_INFO: CLCTL_CODES = CLCTL_CODES(378i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_NETNAME_DELETE_CO: CLCTL_CODES = 382i32;
+pub const CLCTL_NETNAME_DELETE_CO: CLCTL_CODES = CLCTL_CODES(382i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_NETNAME_VALIDATE_VCO: CLCTL_CODES = 385i32;
+pub const CLCTL_NETNAME_VALIDATE_VCO: CLCTL_CODES = CLCTL_CODES(385i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_NETNAME_RESET_VCO: CLCTL_CODES = 389i32;
+pub const CLCTL_NETNAME_RESET_VCO: CLCTL_CODES = CLCTL_CODES(389i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_NETNAME_REPAIR_VCO: CLCTL_CODES = 397i32;
+pub const CLCTL_NETNAME_REPAIR_VCO: CLCTL_CODES = CLCTL_CODES(397i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_STORAGE_GET_DISK_INFO: CLCTL_CODES = 401i32;
+pub const CLCTL_STORAGE_GET_DISK_INFO: CLCTL_CODES = CLCTL_CODES(401i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_STORAGE_GET_AVAILABLE_DISKS: CLCTL_CODES = 405i32;
+pub const CLCTL_STORAGE_GET_AVAILABLE_DISKS: CLCTL_CODES = CLCTL_CODES(405i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_STORAGE_IS_PATH_VALID: CLCTL_CODES = 409i32;
+pub const CLCTL_STORAGE_IS_PATH_VALID: CLCTL_CODES = CLCTL_CODES(409i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_STORAGE_SYNC_CLUSDISK_DB: CLCTL_CODES = 4194718i32;
+pub const CLCTL_STORAGE_SYNC_CLUSDISK_DB: CLCTL_CODES = CLCTL_CODES(4194718i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_STORAGE_GET_DISK_NUMBER_INFO: CLCTL_CODES = 417i32;
+pub const CLCTL_STORAGE_GET_DISK_NUMBER_INFO: CLCTL_CODES = CLCTL_CODES(417i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_QUERY_DELETE: CLCTL_CODES = 441i32;
+pub const CLCTL_QUERY_DELETE: CLCTL_CODES = CLCTL_CODES(441i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_IPADDRESS_RENEW_LEASE: CLCTL_CODES = 4194750i32;
+pub const CLCTL_IPADDRESS_RENEW_LEASE: CLCTL_CODES = CLCTL_CODES(4194750i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_IPADDRESS_RELEASE_LEASE: CLCTL_CODES = 4194754i32;
+pub const CLCTL_IPADDRESS_RELEASE_LEASE: CLCTL_CODES = CLCTL_CODES(4194754i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_QUERY_MAINTENANCE_MODE: CLCTL_CODES = 481i32;
+pub const CLCTL_QUERY_MAINTENANCE_MODE: CLCTL_CODES = CLCTL_CODES(481i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_SET_MAINTENANCE_MODE: CLCTL_CODES = 4194790i32;
+pub const CLCTL_SET_MAINTENANCE_MODE: CLCTL_CODES = CLCTL_CODES(4194790i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_STORAGE_SET_DRIVELETTER: CLCTL_CODES = 4194794i32;
+pub const CLCTL_STORAGE_SET_DRIVELETTER: CLCTL_CODES = CLCTL_CODES(4194794i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_STORAGE_GET_DRIVELETTERS: CLCTL_CODES = 493i32;
+pub const CLCTL_STORAGE_GET_DRIVELETTERS: CLCTL_CODES = CLCTL_CODES(493i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_STORAGE_GET_DISK_INFO_EX: CLCTL_CODES = 497i32;
+pub const CLCTL_STORAGE_GET_DISK_INFO_EX: CLCTL_CODES = CLCTL_CODES(497i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_STORAGE_GET_AVAILABLE_DISKS_EX: CLCTL_CODES = 501i32;
+pub const CLCTL_STORAGE_GET_AVAILABLE_DISKS_EX: CLCTL_CODES = CLCTL_CODES(501i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_STORAGE_GET_DISK_INFO_EX2: CLCTL_CODES = 505i32;
+pub const CLCTL_STORAGE_GET_DISK_INFO_EX2: CLCTL_CODES = CLCTL_CODES(505i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_STORAGE_GET_CLUSPORT_DISK_COUNT: CLCTL_CODES = 509i32;
+pub const CLCTL_STORAGE_GET_CLUSPORT_DISK_COUNT: CLCTL_CODES = CLCTL_CODES(509i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_STORAGE_REMAP_DRIVELETTER: CLCTL_CODES = 513i32;
+pub const CLCTL_STORAGE_REMAP_DRIVELETTER: CLCTL_CODES = CLCTL_CODES(513i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_STORAGE_GET_DISKID: CLCTL_CODES = 517i32;
+pub const CLCTL_STORAGE_GET_DISKID: CLCTL_CODES = CLCTL_CODES(517i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_STORAGE_IS_CLUSTERABLE: CLCTL_CODES = 521i32;
+pub const CLCTL_STORAGE_IS_CLUSTERABLE: CLCTL_CODES = CLCTL_CODES(521i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_STORAGE_REMOVE_VM_OWNERSHIP: CLCTL_CODES = 4194830i32;
+pub const CLCTL_STORAGE_REMOVE_VM_OWNERSHIP: CLCTL_CODES = CLCTL_CODES(4194830i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_STORAGE_GET_MOUNTPOINTS: CLCTL_CODES = 529i32;
+pub const CLCTL_STORAGE_GET_MOUNTPOINTS: CLCTL_CODES = CLCTL_CODES(529i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_STORAGE_GET_DIRTY: CLCTL_CODES = 537i32;
+pub const CLCTL_STORAGE_GET_DIRTY: CLCTL_CODES = CLCTL_CODES(537i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_STORAGE_GET_SHARED_VOLUME_INFO: CLCTL_CODES = 549i32;
+pub const CLCTL_STORAGE_GET_SHARED_VOLUME_INFO: CLCTL_CODES = CLCTL_CODES(549i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_STORAGE_IS_CSV_FILE: CLCTL_CODES = 553i32;
+pub const CLCTL_STORAGE_IS_CSV_FILE: CLCTL_CODES = CLCTL_CODES(553i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_STORAGE_GET_RESOURCEID: CLCTL_CODES = 557i32;
+pub const CLCTL_STORAGE_GET_RESOURCEID: CLCTL_CODES = CLCTL_CODES(557i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_VALIDATE_PATH: CLCTL_CODES = 561i32;
+pub const CLCTL_VALIDATE_PATH: CLCTL_CODES = CLCTL_CODES(561i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_VALIDATE_NETNAME: CLCTL_CODES = 565i32;
+pub const CLCTL_VALIDATE_NETNAME: CLCTL_CODES = CLCTL_CODES(565i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_VALIDATE_DIRECTORY: CLCTL_CODES = 569i32;
+pub const CLCTL_VALIDATE_DIRECTORY: CLCTL_CODES = CLCTL_CODES(569i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_BATCH_BLOCK_KEY: CLCTL_CODES = 574i32;
+pub const CLCTL_BATCH_BLOCK_KEY: CLCTL_CODES = CLCTL_CODES(574i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_BATCH_UNBLOCK_KEY: CLCTL_CODES = 577i32;
+pub const CLCTL_BATCH_UNBLOCK_KEY: CLCTL_CODES = CLCTL_CODES(577i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_FILESERVER_SHARE_ADD: CLCTL_CODES = 4194886i32;
+pub const CLCTL_FILESERVER_SHARE_ADD: CLCTL_CODES = CLCTL_CODES(4194886i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_FILESERVER_SHARE_DEL: CLCTL_CODES = 4194890i32;
+pub const CLCTL_FILESERVER_SHARE_DEL: CLCTL_CODES = CLCTL_CODES(4194890i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_FILESERVER_SHARE_MODIFY: CLCTL_CODES = 4194894i32;
+pub const CLCTL_FILESERVER_SHARE_MODIFY: CLCTL_CODES = CLCTL_CODES(4194894i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_FILESERVER_SHARE_REPORT: CLCTL_CODES = 593i32;
+pub const CLCTL_FILESERVER_SHARE_REPORT: CLCTL_CODES = CLCTL_CODES(593i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_NETNAME_GET_OU_FOR_VCO: CLCTL_CODES = 4194926i32;
+pub const CLCTL_NETNAME_GET_OU_FOR_VCO: CLCTL_CODES = CLCTL_CODES(4194926i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_ENABLE_SHARED_VOLUME_DIRECTIO: CLCTL_CODES = 4194954i32;
+pub const CLCTL_ENABLE_SHARED_VOLUME_DIRECTIO: CLCTL_CODES = CLCTL_CODES(4194954i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_DISABLE_SHARED_VOLUME_DIRECTIO: CLCTL_CODES = 4194958i32;
+pub const CLCTL_DISABLE_SHARED_VOLUME_DIRECTIO: CLCTL_CODES = CLCTL_CODES(4194958i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GET_SHARED_VOLUME_ID: CLCTL_CODES = 657i32;
+pub const CLCTL_GET_SHARED_VOLUME_ID: CLCTL_CODES = CLCTL_CODES(657i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_SET_CSV_MAINTENANCE_MODE: CLCTL_CODES = 4194966i32;
+pub const CLCTL_SET_CSV_MAINTENANCE_MODE: CLCTL_CODES = CLCTL_CODES(4194966i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_SET_SHARED_VOLUME_BACKUP_MODE: CLCTL_CODES = 4194970i32;
+pub const CLCTL_SET_SHARED_VOLUME_BACKUP_MODE: CLCTL_CODES = CLCTL_CODES(4194970i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_STORAGE_GET_SHARED_VOLUME_PARTITION_NAMES: CLCTL_CODES = 669i32;
+pub const CLCTL_STORAGE_GET_SHARED_VOLUME_PARTITION_NAMES: CLCTL_CODES = CLCTL_CODES(669i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_STORAGE_GET_SHARED_VOLUME_STATES: CLCTL_CODES = 4194978i32;
+pub const CLCTL_STORAGE_GET_SHARED_VOLUME_STATES: CLCTL_CODES = CLCTL_CODES(4194978i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_STORAGE_IS_SHARED_VOLUME: CLCTL_CODES = 677i32;
+pub const CLCTL_STORAGE_IS_SHARED_VOLUME: CLCTL_CODES = CLCTL_CODES(677i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GET_CLUSDB_TIMESTAMP: CLCTL_CODES = 681i32;
+pub const CLCTL_GET_CLUSDB_TIMESTAMP: CLCTL_CODES = CLCTL_CODES(681i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_RW_MODIFY_NOOP: CLCTL_CODES = 4194990i32;
+pub const CLCTL_RW_MODIFY_NOOP: CLCTL_CODES = CLCTL_CODES(4194990i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_IS_QUORUM_BLOCKED: CLCTL_CODES = 689i32;
+pub const CLCTL_IS_QUORUM_BLOCKED: CLCTL_CODES = CLCTL_CODES(689i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_POOL_GET_DRIVE_INFO: CLCTL_CODES = 693i32;
+pub const CLCTL_POOL_GET_DRIVE_INFO: CLCTL_CODES = CLCTL_CODES(693i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GET_GUM_LOCK_OWNER: CLCTL_CODES = 697i32;
+pub const CLCTL_GET_GUM_LOCK_OWNER: CLCTL_CODES = CLCTL_CODES(697i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GET_STUCK_NODES: CLCTL_CODES = 701i32;
+pub const CLCTL_GET_STUCK_NODES: CLCTL_CODES = CLCTL_CODES(701i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_INJECT_GEM_FAULT: CLCTL_CODES = 705i32;
+pub const CLCTL_INJECT_GEM_FAULT: CLCTL_CODES = CLCTL_CODES(705i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_INTRODUCE_GEM_REPAIR_DELAY: CLCTL_CODES = 709i32;
+pub const CLCTL_INTRODUCE_GEM_REPAIR_DELAY: CLCTL_CODES = CLCTL_CODES(709i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_SEND_DUMMY_GEM_MESSAGES: CLCTL_CODES = 713i32;
+pub const CLCTL_SEND_DUMMY_GEM_MESSAGES: CLCTL_CODES = CLCTL_CODES(713i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_BLOCK_GEM_SEND_RECV: CLCTL_CODES = 717i32;
+pub const CLCTL_BLOCK_GEM_SEND_RECV: CLCTL_CODES = CLCTL_CODES(717i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GET_GEMID_VECTOR: CLCTL_CODES = 721i32;
+pub const CLCTL_GET_GEMID_VECTOR: CLCTL_CODES = CLCTL_CODES(721i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_ADD_CRYPTO_CHECKPOINT_EX: CLCTL_CODES = 4195030i32;
+pub const CLCTL_ADD_CRYPTO_CHECKPOINT_EX: CLCTL_CODES = CLCTL_CODES(4195030i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GROUP_GET_LAST_MOVE_TIME: CLCTL_CODES = 729i32;
+pub const CLCTL_GROUP_GET_LAST_MOVE_TIME: CLCTL_CODES = CLCTL_CODES(729i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_SET_STORAGE_CONFIGURATION: CLCTL_CODES = 4195042i32;
+pub const CLCTL_SET_STORAGE_CONFIGURATION: CLCTL_CODES = CLCTL_CODES(4195042i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GET_STORAGE_CONFIGURATION: CLCTL_CODES = 741i32;
+pub const CLCTL_GET_STORAGE_CONFIGURATION: CLCTL_CODES = CLCTL_CODES(741i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GET_STORAGE_CONFIG_ATTRIBUTES: CLCTL_CODES = 745i32;
+pub const CLCTL_GET_STORAGE_CONFIG_ATTRIBUTES: CLCTL_CODES = CLCTL_CODES(745i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_REMOVE_NODE: CLCTL_CODES = 4195054i32;
+pub const CLCTL_REMOVE_NODE: CLCTL_CODES = CLCTL_CODES(4195054i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_IS_FEATURE_INSTALLED: CLCTL_CODES = 753i32;
+pub const CLCTL_IS_FEATURE_INSTALLED: CLCTL_CODES = CLCTL_CODES(753i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_IS_S2D_FEATURE_SUPPORTED: CLCTL_CODES = 757i32;
+pub const CLCTL_IS_S2D_FEATURE_SUPPORTED: CLCTL_CODES = CLCTL_CODES(757i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_STORAGE_GET_PHYSICAL_DISK_INFO: CLCTL_CODES = 761i32;
+pub const CLCTL_STORAGE_GET_PHYSICAL_DISK_INFO: CLCTL_CODES = CLCTL_CODES(761i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_STORAGE_GET_CLUSBFLT_PATHS: CLCTL_CODES = 765i32;
+pub const CLCTL_STORAGE_GET_CLUSBFLT_PATHS: CLCTL_CODES = CLCTL_CODES(765i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_STORAGE_GET_CLUSBFLT_PATHINFO: CLCTL_CODES = 769i32;
+pub const CLCTL_STORAGE_GET_CLUSBFLT_PATHINFO: CLCTL_CODES = CLCTL_CODES(769i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_CLEAR_NODE_CONNECTION_INFO: CLCTL_CODES = 4195078i32;
+pub const CLCTL_CLEAR_NODE_CONNECTION_INFO: CLCTL_CODES = CLCTL_CODES(4195078i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_SET_DNS_DOMAIN: CLCTL_CODES = 4195082i32;
+pub const CLCTL_SET_DNS_DOMAIN: CLCTL_CODES = CLCTL_CODES(4195082i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CTCTL_GET_ROUTESTATUS_BASIC: CLCTL_CODES = 781i32;
+pub const CTCTL_GET_ROUTESTATUS_BASIC: CLCTL_CODES = CLCTL_CODES(781i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CTCTL_GET_ROUTESTATUS_EXTENDED: CLCTL_CODES = 785i32;
+pub const CTCTL_GET_ROUTESTATUS_EXTENDED: CLCTL_CODES = CLCTL_CODES(785i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CTCTL_GET_FAULT_DOMAIN_STATE: CLCTL_CODES = 789i32;
+pub const CTCTL_GET_FAULT_DOMAIN_STATE: CLCTL_CODES = CLCTL_CODES(789i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_NETNAME_SET_PWD_INFOEX: CLCTL_CODES = 794i32;
+pub const CLCTL_NETNAME_SET_PWD_INFOEX: CLCTL_CODES = CLCTL_CODES(794i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_STORAGE_GET_AVAILABLE_DISKS_EX2_INT: CLCTL_CODES = 8161i32;
+pub const CLCTL_STORAGE_GET_AVAILABLE_DISKS_EX2_INT: CLCTL_CODES = CLCTL_CODES(8161i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_CLOUD_WITNESS_RESOURCE_TYPE_VALIDATE_CREDENTIALS: CLCTL_CODES = 8417i32;
+pub const CLCTL_CLOUD_WITNESS_RESOURCE_TYPE_VALIDATE_CREDENTIALS: CLCTL_CODES = CLCTL_CODES(8417i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_CLOUD_WITNESS_RESOURCE_UPDATE_TOKEN: CLCTL_CODES = 4202726i32;
+pub const CLCTL_CLOUD_WITNESS_RESOURCE_UPDATE_TOKEN: CLCTL_CODES = CLCTL_CODES(4202726i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_RESOURCE_PREPARE_UPGRADE: CLCTL_CODES = 4202730i32;
+pub const CLCTL_RESOURCE_PREPARE_UPGRADE: CLCTL_CODES = CLCTL_CODES(4202730i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_RESOURCE_UPGRADE_COMPLETED: CLCTL_CODES = 4202734i32;
+pub const CLCTL_RESOURCE_UPGRADE_COMPLETED: CLCTL_CODES = CLCTL_CODES(4202734i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_CLOUD_WITNESS_RESOURCE_TYPE_VALIDATE_CREDENTIALS_WITH_KEY: CLCTL_CODES = 8433i32;
+pub const CLCTL_CLOUD_WITNESS_RESOURCE_TYPE_VALIDATE_CREDENTIALS_WITH_KEY: CLCTL_CODES = CLCTL_CODES(8433i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_CLOUD_WITNESS_RESOURCE_UPDATE_KEY: CLCTL_CODES = 4202742i32;
+pub const CLCTL_CLOUD_WITNESS_RESOURCE_UPDATE_KEY: CLCTL_CODES = CLCTL_CODES(4202742i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_REPLICATION_ADD_REPLICATION_GROUP: CLCTL_CODES = 8514i32;
+pub const CLCTL_REPLICATION_ADD_REPLICATION_GROUP: CLCTL_CODES = CLCTL_CODES(8514i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_REPLICATION_GET_LOG_INFO: CLCTL_CODES = 8517i32;
+pub const CLCTL_REPLICATION_GET_LOG_INFO: CLCTL_CODES = CLCTL_CODES(8517i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_REPLICATION_GET_ELIGIBLE_LOGDISKS: CLCTL_CODES = 8521i32;
+pub const CLCTL_REPLICATION_GET_ELIGIBLE_LOGDISKS: CLCTL_CODES = CLCTL_CODES(8521i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_REPLICATION_GET_ELIGIBLE_TARGET_DATADISKS: CLCTL_CODES = 8525i32;
+pub const CLCTL_REPLICATION_GET_ELIGIBLE_TARGET_DATADISKS: CLCTL_CODES = CLCTL_CODES(8525i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_REPLICATION_GET_ELIGIBLE_SOURCE_DATADISKS: CLCTL_CODES = 8529i32;
+pub const CLCTL_REPLICATION_GET_ELIGIBLE_SOURCE_DATADISKS: CLCTL_CODES = CLCTL_CODES(8529i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_REPLICATION_GET_REPLICATED_DISKS: CLCTL_CODES = 8533i32;
+pub const CLCTL_REPLICATION_GET_REPLICATED_DISKS: CLCTL_CODES = CLCTL_CODES(8533i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_REPLICATION_GET_REPLICA_VOLUMES: CLCTL_CODES = 8537i32;
+pub const CLCTL_REPLICATION_GET_REPLICA_VOLUMES: CLCTL_CODES = CLCTL_CODES(8537i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_REPLICATION_GET_LOG_VOLUME: CLCTL_CODES = 8541i32;
+pub const CLCTL_REPLICATION_GET_LOG_VOLUME: CLCTL_CODES = CLCTL_CODES(8541i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_REPLICATION_GET_RESOURCE_GROUP: CLCTL_CODES = 8545i32;
+pub const CLCTL_REPLICATION_GET_RESOURCE_GROUP: CLCTL_CODES = CLCTL_CODES(8545i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_REPLICATION_GET_REPLICATED_PARTITION_INFO: CLCTL_CODES = 8549i32;
+pub const CLCTL_REPLICATION_GET_REPLICATED_PARTITION_INFO: CLCTL_CODES = CLCTL_CODES(8549i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GET_STATE_CHANGE_TIME: CLCTL_CODES = 11613i32;
+pub const CLCTL_GET_STATE_CHANGE_TIME: CLCTL_CODES = CLCTL_CODES(11613i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_SET_CLUSTER_S2D_ENABLED: CLCTL_CODES = 4205922i32;
+pub const CLCTL_SET_CLUSTER_S2D_ENABLED: CLCTL_CODES = CLCTL_CODES(4205922i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_SET_CLUSTER_S2D_CACHE_METADATA_RESERVE_BYTES: CLCTL_CODES = 4205934i32;
+pub const CLCTL_SET_CLUSTER_S2D_CACHE_METADATA_RESERVE_BYTES: CLCTL_CODES = CLCTL_CODES(4205934i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GROUPSET_GET_GROUPS: CLCTL_CODES = 11633i32;
+pub const CLCTL_GROUPSET_GET_GROUPS: CLCTL_CODES = CLCTL_CODES(11633i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GROUPSET_GET_PROVIDER_GROUPS: CLCTL_CODES = 11637i32;
+pub const CLCTL_GROUPSET_GET_PROVIDER_GROUPS: CLCTL_CODES = CLCTL_CODES(11637i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GROUPSET_GET_PROVIDER_GROUPSETS: CLCTL_CODES = 11641i32;
+pub const CLCTL_GROUPSET_GET_PROVIDER_GROUPSETS: CLCTL_CODES = CLCTL_CODES(11641i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GROUP_GET_PROVIDER_GROUPS: CLCTL_CODES = 11645i32;
+pub const CLCTL_GROUP_GET_PROVIDER_GROUPS: CLCTL_CODES = CLCTL_CODES(11645i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GROUP_GET_PROVIDER_GROUPSETS: CLCTL_CODES = 11649i32;
+pub const CLCTL_GROUP_GET_PROVIDER_GROUPSETS: CLCTL_CODES = CLCTL_CODES(11649i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GROUP_SET_CCF_FROM_MASTER: CLCTL_CODES = 4205958i32;
+pub const CLCTL_GROUP_SET_CCF_FROM_MASTER: CLCTL_CODES = CLCTL_CODES(4205958i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GET_INFRASTRUCTURE_SOFS_BUFFER: CLCTL_CODES = 11657i32;
+pub const CLCTL_GET_INFRASTRUCTURE_SOFS_BUFFER: CLCTL_CODES = CLCTL_CODES(11657i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_SET_INFRASTRUCTURE_SOFS_BUFFER: CLCTL_CODES = 4205966i32;
+pub const CLCTL_SET_INFRASTRUCTURE_SOFS_BUFFER: CLCTL_CODES = CLCTL_CODES(4205966i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_NOTIFY_INFRASTRUCTURE_SOFS_CHANGED: CLCTL_CODES = 4205970i32;
+pub const CLCTL_NOTIFY_INFRASTRUCTURE_SOFS_CHANGED: CLCTL_CODES = CLCTL_CODES(4205970i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_SCALEOUT_COMMAND: CLCTL_CODES = 4205974i32;
+pub const CLCTL_SCALEOUT_COMMAND: CLCTL_CODES = CLCTL_CODES(4205974i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_SCALEOUT_CONTROL: CLCTL_CODES = 4205978i32;
+pub const CLCTL_SCALEOUT_CONTROL: CLCTL_CODES = CLCTL_CODES(4205978i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_SCALEOUT_GET_CLUSTERS: CLCTL_CODES = 4205981i32;
+pub const CLCTL_SCALEOUT_GET_CLUSTERS: CLCTL_CODES = CLCTL_CODES(4205981i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_RELOAD_AUTOLOGGER_CONFIG: CLCTL_CODES = 11730i32;
+pub const CLCTL_RELOAD_AUTOLOGGER_CONFIG: CLCTL_CODES = CLCTL_CODES(11730i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_STORAGE_RENAME_SHARED_VOLUME: CLCTL_CODES = 11734i32;
+pub const CLCTL_STORAGE_RENAME_SHARED_VOLUME: CLCTL_CODES = CLCTL_CODES(11734i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_STORAGE_RENAME_SHARED_VOLUME_GUID: CLCTL_CODES = 11738i32;
+pub const CLCTL_STORAGE_RENAME_SHARED_VOLUME_GUID: CLCTL_CODES = CLCTL_CODES(11738i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_ENUM_AFFINITY_RULE_NAMES: CLCTL_CODES = 11741i32;
+pub const CLCTL_ENUM_AFFINITY_RULE_NAMES: CLCTL_CODES = CLCTL_CODES(11741i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GET_NODES_IN_FD: CLCTL_CODES = 11745i32;
+pub const CLCTL_GET_NODES_IN_FD: CLCTL_CODES = CLCTL_CODES(11745i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_FORCE_DB_FLUSH: CLCTL_CODES = 4206054i32;
+pub const CLCTL_FORCE_DB_FLUSH: CLCTL_CODES = CLCTL_CODES(4206054i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_DELETE: CLCTL_CODES = 5242886i32;
+pub const CLCTL_DELETE: CLCTL_CODES = CLCTL_CODES(5242886i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_INSTALL_NODE: CLCTL_CODES = 5242890i32;
+pub const CLCTL_INSTALL_NODE: CLCTL_CODES = CLCTL_CODES(5242890i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_EVICT_NODE: CLCTL_CODES = 5242894i32;
+pub const CLCTL_EVICT_NODE: CLCTL_CODES = CLCTL_CODES(5242894i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_ADD_DEPENDENCY: CLCTL_CODES = 5242898i32;
+pub const CLCTL_ADD_DEPENDENCY: CLCTL_CODES = CLCTL_CODES(5242898i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_REMOVE_DEPENDENCY: CLCTL_CODES = 5242902i32;
+pub const CLCTL_REMOVE_DEPENDENCY: CLCTL_CODES = CLCTL_CODES(5242902i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_ADD_OWNER: CLCTL_CODES = 5242906i32;
+pub const CLCTL_ADD_OWNER: CLCTL_CODES = CLCTL_CODES(5242906i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_REMOVE_OWNER: CLCTL_CODES = 5242910i32;
+pub const CLCTL_REMOVE_OWNER: CLCTL_CODES = CLCTL_CODES(5242910i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_SET_NAME: CLCTL_CODES = 5242918i32;
+pub const CLCTL_SET_NAME: CLCTL_CODES = CLCTL_CODES(5242918i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_CLUSTER_NAME_CHANGED: CLCTL_CODES = 5242922i32;
+pub const CLCTL_CLUSTER_NAME_CHANGED: CLCTL_CODES = CLCTL_CODES(5242922i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_CLUSTER_VERSION_CHANGED: CLCTL_CODES = 5242926i32;
+pub const CLCTL_CLUSTER_VERSION_CHANGED: CLCTL_CODES = CLCTL_CODES(5242926i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_FIXUP_ON_UPGRADE: CLCTL_CODES = 5242930i32;
+pub const CLCTL_FIXUP_ON_UPGRADE: CLCTL_CODES = CLCTL_CODES(5242930i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_STARTING_PHASE1: CLCTL_CODES = 5242934i32;
+pub const CLCTL_STARTING_PHASE1: CLCTL_CODES = CLCTL_CODES(5242934i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_STARTING_PHASE2: CLCTL_CODES = 5242938i32;
+pub const CLCTL_STARTING_PHASE2: CLCTL_CODES = CLCTL_CODES(5242938i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_HOLD_IO: CLCTL_CODES = 5242942i32;
+pub const CLCTL_HOLD_IO: CLCTL_CODES = CLCTL_CODES(5242942i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_RESUME_IO: CLCTL_CODES = 5242946i32;
+pub const CLCTL_RESUME_IO: CLCTL_CODES = CLCTL_CODES(5242946i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_FORCE_QUORUM: CLCTL_CODES = 5242950i32;
+pub const CLCTL_FORCE_QUORUM: CLCTL_CODES = CLCTL_CODES(5242950i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_INITIALIZE: CLCTL_CODES = 5242954i32;
+pub const CLCTL_INITIALIZE: CLCTL_CODES = CLCTL_CODES(5242954i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_STATE_CHANGE_REASON: CLCTL_CODES = 5242958i32;
+pub const CLCTL_STATE_CHANGE_REASON: CLCTL_CODES = CLCTL_CODES(5242958i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_PROVIDER_STATE_CHANGE: CLCTL_CODES = 5242962i32;
+pub const CLCTL_PROVIDER_STATE_CHANGE: CLCTL_CODES = CLCTL_CODES(5242962i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_LEAVING_GROUP: CLCTL_CODES = 5242966i32;
+pub const CLCTL_LEAVING_GROUP: CLCTL_CODES = CLCTL_CODES(5242966i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_JOINING_GROUP: CLCTL_CODES = 5242970i32;
+pub const CLCTL_JOINING_GROUP: CLCTL_CODES = CLCTL_CODES(5242970i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_FSWITNESS_GET_EPOCH_INFO: CLCTL_CODES = 1048669i32;
+pub const CLCTL_FSWITNESS_GET_EPOCH_INFO: CLCTL_CODES = CLCTL_CODES(1048669i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_FSWITNESS_SET_EPOCH_INFO: CLCTL_CODES = 5242978i32;
+pub const CLCTL_FSWITNESS_SET_EPOCH_INFO: CLCTL_CODES = CLCTL_CODES(5242978i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_FSWITNESS_RELEASE_LOCK: CLCTL_CODES = 5242982i32;
+pub const CLCTL_FSWITNESS_RELEASE_LOCK: CLCTL_CODES = CLCTL_CODES(5242982i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_NETNAME_CREDS_NOTIFYCAM: CLCTL_CODES = 5242986i32;
+pub const CLCTL_NETNAME_CREDS_NOTIFYCAM: CLCTL_CODES = CLCTL_CODES(5242986i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_NOTIFY_QUORUM_STATUS: CLCTL_CODES = 5243006i32;
+pub const CLCTL_NOTIFY_QUORUM_STATUS: CLCTL_CODES = CLCTL_CODES(5243006i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_NOTIFY_MONITOR_SHUTTING_DOWN: CLCTL_CODES = 1048705i32;
+pub const CLCTL_NOTIFY_MONITOR_SHUTTING_DOWN: CLCTL_CODES = CLCTL_CODES(1048705i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_UNDELETE: CLCTL_CODES = 5243014i32;
+pub const CLCTL_UNDELETE: CLCTL_CODES = CLCTL_CODES(5243014i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_GET_OPERATION_CONTEXT: CLCTL_CODES = 1057001i32;
+pub const CLCTL_GET_OPERATION_CONTEXT: CLCTL_CODES = CLCTL_CODES(1057001i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_NOTIFY_OWNER_CHANGE: CLCTL_CODES = 5251362i32;
+pub const CLCTL_NOTIFY_OWNER_CHANGE: CLCTL_CODES = CLCTL_CODES(5251362i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_VALIDATE_CHANGE_GROUP: CLCTL_CODES = 1057061i32;
+pub const CLCTL_VALIDATE_CHANGE_GROUP: CLCTL_CODES = CLCTL_CODES(1057061i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_CHECK_DRAIN_VETO: CLCTL_CODES = 1057069i32;
+pub const CLCTL_CHECK_DRAIN_VETO: CLCTL_CODES = CLCTL_CODES(1057069i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLCTL_NOTIFY_DRAIN_COMPLETE: CLCTL_CODES = 1057073i32;
+pub const CLCTL_NOTIFY_DRAIN_COMPLETE: CLCTL_CODES = CLCTL_CODES(1057073i32);
+impl ::core::marker::Copy for CLCTL_CODES {}
+impl ::core::clone::Clone for CLCTL_CODES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLCTL_CODES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLCTL_CODES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLCTL_CODES").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLCTL_GLOBAL_SHIFT: u32 = 23u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
@@ -968,23 +984,39 @@ pub const CLRES_VERSION_V3_00: u32 = 768u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLRES_VERSION_V4_00: u32 = 1024u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUADMEX_OBJECT_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUADMEX_OBJECT_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUADMEX_OT_NONE: CLUADMEX_OBJECT_TYPE = 0i32;
+pub const CLUADMEX_OT_NONE: CLUADMEX_OBJECT_TYPE = CLUADMEX_OBJECT_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUADMEX_OT_CLUSTER: CLUADMEX_OBJECT_TYPE = 1i32;
+pub const CLUADMEX_OT_CLUSTER: CLUADMEX_OBJECT_TYPE = CLUADMEX_OBJECT_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUADMEX_OT_NODE: CLUADMEX_OBJECT_TYPE = 2i32;
+pub const CLUADMEX_OT_NODE: CLUADMEX_OBJECT_TYPE = CLUADMEX_OBJECT_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUADMEX_OT_GROUP: CLUADMEX_OBJECT_TYPE = 3i32;
+pub const CLUADMEX_OT_GROUP: CLUADMEX_OBJECT_TYPE = CLUADMEX_OBJECT_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUADMEX_OT_RESOURCE: CLUADMEX_OBJECT_TYPE = 4i32;
+pub const CLUADMEX_OT_RESOURCE: CLUADMEX_OBJECT_TYPE = CLUADMEX_OBJECT_TYPE(4i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUADMEX_OT_RESOURCETYPE: CLUADMEX_OBJECT_TYPE = 5i32;
+pub const CLUADMEX_OT_RESOURCETYPE: CLUADMEX_OBJECT_TYPE = CLUADMEX_OBJECT_TYPE(5i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUADMEX_OT_NETWORK: CLUADMEX_OBJECT_TYPE = 6i32;
+pub const CLUADMEX_OT_NETWORK: CLUADMEX_OBJECT_TYPE = CLUADMEX_OBJECT_TYPE(6i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUADMEX_OT_NETINTERFACE: CLUADMEX_OBJECT_TYPE = 7i32;
+pub const CLUADMEX_OT_NETINTERFACE: CLUADMEX_OBJECT_TYPE = CLUADMEX_OBJECT_TYPE(7i32);
+impl ::core::marker::Copy for CLUADMEX_OBJECT_TYPE {}
+impl ::core::clone::Clone for CLUADMEX_OBJECT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUADMEX_OBJECT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUADMEX_OBJECT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUADMEX_OBJECT_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSAPI_CHANGE_ACCESS: i32 = 2i32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
@@ -1074,95 +1106,127 @@ pub const CLUSCTL_ACCESS_MODE_MASK: u32 = 3u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSCTL_ACCESS_SHIFT: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSCTL_AFFINITYRULE_CODES = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSCTL_AFFINITYRULE_CODES(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_AFFINITYRULE_GET_COMMON_PROPERTIES: CLUSCTL_AFFINITYRULE_CODES = 150995033i32;
+pub const CLUSCTL_AFFINITYRULE_GET_COMMON_PROPERTIES: CLUSCTL_AFFINITYRULE_CODES = CLUSCTL_AFFINITYRULE_CODES(150995033i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_AFFINITYRULE_GET_RO_COMMON_PROPERTIES: CLUSCTL_AFFINITYRULE_CODES = 150995029i32;
+pub const CLUSCTL_AFFINITYRULE_GET_RO_COMMON_PROPERTIES: CLUSCTL_AFFINITYRULE_CODES = CLUSCTL_AFFINITYRULE_CODES(150995029i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_AFFINITYRULE_SET_COMMON_PROPERTIES: CLUSCTL_AFFINITYRULE_CODES = 155189342i32;
+pub const CLUSCTL_AFFINITYRULE_SET_COMMON_PROPERTIES: CLUSCTL_AFFINITYRULE_CODES = CLUSCTL_AFFINITYRULE_CODES(155189342i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_AFFINITYRULE_GET_ID: CLUSCTL_AFFINITYRULE_CODES = 150995001i32;
+pub const CLUSCTL_AFFINITYRULE_GET_ID: CLUSCTL_AFFINITYRULE_CODES = CLUSCTL_AFFINITYRULE_CODES(150995001i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_AFFINITYRULE_GET_GROUPNAMES: CLUSCTL_AFFINITYRULE_CODES = 151006577i32;
+pub const CLUSCTL_AFFINITYRULE_GET_GROUPNAMES: CLUSCTL_AFFINITYRULE_CODES = CLUSCTL_AFFINITYRULE_CODES(151006577i32);
+impl ::core::marker::Copy for CLUSCTL_AFFINITYRULE_CODES {}
+impl ::core::clone::Clone for CLUSCTL_AFFINITYRULE_CODES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSCTL_AFFINITYRULE_CODES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSCTL_AFFINITYRULE_CODES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSCTL_AFFINITYRULE_CODES").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSCTL_CLUSTER_CODES = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSCTL_CLUSTER_CODES(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_CLUSTER_UNKNOWN: CLUSCTL_CLUSTER_CODES = 117440512i32;
+pub const CLUSCTL_CLUSTER_UNKNOWN: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440512i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_CLUSTER_GET_FQDN: CLUSCTL_CLUSTER_CODES = 117440573i32;
+pub const CLUSCTL_CLUSTER_GET_FQDN: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440573i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_CLUSTER_SET_STORAGE_CONFIGURATION: CLUSCTL_CLUSTER_CODES = 121635554i32;
+pub const CLUSCTL_CLUSTER_SET_STORAGE_CONFIGURATION: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(121635554i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_CLUSTER_GET_STORAGE_CONFIGURATION: CLUSCTL_CLUSTER_CODES = 117441253i32;
+pub const CLUSCTL_CLUSTER_GET_STORAGE_CONFIGURATION: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117441253i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_CLUSTER_GET_STORAGE_CONFIG_ATTRIBUTES: CLUSCTL_CLUSTER_CODES = 117441257i32;
+pub const CLUSCTL_CLUSTER_GET_STORAGE_CONFIG_ATTRIBUTES: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117441257i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_CLUSTER_ENUM_COMMON_PROPERTIES: CLUSCTL_CLUSTER_CODES = 117440593i32;
+pub const CLUSCTL_CLUSTER_ENUM_COMMON_PROPERTIES: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440593i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_CLUSTER_GET_RO_COMMON_PROPERTIES: CLUSCTL_CLUSTER_CODES = 117440597i32;
+pub const CLUSCTL_CLUSTER_GET_RO_COMMON_PROPERTIES: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440597i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_CLUSTER_GET_COMMON_PROPERTIES: CLUSCTL_CLUSTER_CODES = 117440601i32;
+pub const CLUSCTL_CLUSTER_GET_COMMON_PROPERTIES: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440601i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_CLUSTER_SET_COMMON_PROPERTIES: CLUSCTL_CLUSTER_CODES = 121634910i32;
+pub const CLUSCTL_CLUSTER_SET_COMMON_PROPERTIES: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(121634910i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_CLUSTER_VALIDATE_COMMON_PROPERTIES: CLUSCTL_CLUSTER_CODES = 117440609i32;
+pub const CLUSCTL_CLUSTER_VALIDATE_COMMON_PROPERTIES: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440609i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_CLUSTER_ENUM_PRIVATE_PROPERTIES: CLUSCTL_CLUSTER_CODES = 117440633i32;
+pub const CLUSCTL_CLUSTER_ENUM_PRIVATE_PROPERTIES: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440633i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_CLUSTER_GET_RO_PRIVATE_PROPERTIES: CLUSCTL_CLUSTER_CODES = 117440637i32;
+pub const CLUSCTL_CLUSTER_GET_RO_PRIVATE_PROPERTIES: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440637i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_CLUSTER_GET_PRIVATE_PROPERTIES: CLUSCTL_CLUSTER_CODES = 117440641i32;
+pub const CLUSCTL_CLUSTER_GET_PRIVATE_PROPERTIES: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440641i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_CLUSTER_SET_PRIVATE_PROPERTIES: CLUSCTL_CLUSTER_CODES = 121634950i32;
+pub const CLUSCTL_CLUSTER_SET_PRIVATE_PROPERTIES: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(121634950i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_CLUSTER_VALIDATE_PRIVATE_PROPERTIES: CLUSCTL_CLUSTER_CODES = 117440649i32;
+pub const CLUSCTL_CLUSTER_VALIDATE_PRIVATE_PROPERTIES: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440649i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_CLUSTER_GET_COMMON_PROPERTY_FMTS: CLUSCTL_CLUSTER_CODES = 117440613i32;
+pub const CLUSCTL_CLUSTER_GET_COMMON_PROPERTY_FMTS: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440613i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_CLUSTER_GET_PRIVATE_PROPERTY_FMTS: CLUSCTL_CLUSTER_CODES = 117440653i32;
+pub const CLUSCTL_CLUSTER_GET_PRIVATE_PROPERTY_FMTS: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440653i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_CLUSTER_CHECK_VOTER_EVICT: CLUSCTL_CLUSTER_CODES = 117440581i32;
+pub const CLUSCTL_CLUSTER_CHECK_VOTER_EVICT: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440581i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_CLUSTER_CHECK_VOTER_DOWN: CLUSCTL_CLUSTER_CODES = 117440585i32;
+pub const CLUSCTL_CLUSTER_CHECK_VOTER_DOWN: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440585i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_CLUSTER_SHUTDOWN: CLUSCTL_CLUSTER_CODES = 117440589i32;
+pub const CLUSCTL_CLUSTER_SHUTDOWN: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440589i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_CLUSTER_BATCH_BLOCK_KEY: CLUSCTL_CLUSTER_CODES = 117441086i32;
+pub const CLUSCTL_CLUSTER_BATCH_BLOCK_KEY: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117441086i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_CLUSTER_BATCH_UNBLOCK_KEY: CLUSCTL_CLUSTER_CODES = 117441089i32;
+pub const CLUSCTL_CLUSTER_BATCH_UNBLOCK_KEY: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117441089i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_CLUSTER_GET_SHARED_VOLUME_ID: CLUSCTL_CLUSTER_CODES = 117441169i32;
+pub const CLUSCTL_CLUSTER_GET_SHARED_VOLUME_ID: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117441169i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_CLUSTER_GET_CLUSDB_TIMESTAMP: CLUSCTL_CLUSTER_CODES = 117441193i32;
+pub const CLUSCTL_CLUSTER_GET_CLUSDB_TIMESTAMP: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117441193i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_CLUSTER_GET_GUM_LOCK_OWNER: CLUSCTL_CLUSTER_CODES = 117441209i32;
+pub const CLUSCTL_CLUSTER_GET_GUM_LOCK_OWNER: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117441209i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_CLUSTER_REMOVE_NODE: CLUSCTL_CLUSTER_CODES = 121635566i32;
+pub const CLUSCTL_CLUSTER_REMOVE_NODE: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(121635566i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_CLUSTER_SET_ACCOUNT_ACCESS: CLUSCTL_CLUSTER_CODES = 121635058i32;
+pub const CLUSCTL_CLUSTER_SET_ACCOUNT_ACCESS: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(121635058i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_CLUSTER_CLEAR_NODE_CONNECTION_INFO: CLUSCTL_CLUSTER_CODES = 121635590i32;
+pub const CLUSCTL_CLUSTER_CLEAR_NODE_CONNECTION_INFO: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(121635590i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_CLUSTER_SET_DNS_DOMAIN: CLUSCTL_CLUSTER_CODES = 121635594i32;
+pub const CLUSCTL_CLUSTER_SET_DNS_DOMAIN: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(121635594i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_CLUSTER_SET_CLUSTER_S2D_ENABLED: CLUSCTL_CLUSTER_CODES = 121646434i32;
+pub const CLUSCTL_CLUSTER_SET_CLUSTER_S2D_ENABLED: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(121646434i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_CLUSTER_SET_CLUSTER_S2D_CACHE_METADATA_RESERVE_BYTES: CLUSCTL_CLUSTER_CODES = 121646446i32;
+pub const CLUSCTL_CLUSTER_SET_CLUSTER_S2D_CACHE_METADATA_RESERVE_BYTES: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(121646446i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_CLUSTER_STORAGE_RENAME_SHARED_VOLUME: CLUSCTL_CLUSTER_CODES = 117452246i32;
+pub const CLUSCTL_CLUSTER_STORAGE_RENAME_SHARED_VOLUME: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117452246i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_CLUSTER_STORAGE_RENAME_SHARED_VOLUME_GUID: CLUSCTL_CLUSTER_CODES = 117452250i32;
+pub const CLUSCTL_CLUSTER_STORAGE_RENAME_SHARED_VOLUME_GUID: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117452250i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_CLUSTER_RELOAD_AUTOLOGGER_CONFIG: CLUSCTL_CLUSTER_CODES = 117452242i32;
+pub const CLUSCTL_CLUSTER_RELOAD_AUTOLOGGER_CONFIG: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117452242i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_CLUSTER_ENUM_AFFINITY_RULE_NAMES: CLUSCTL_CLUSTER_CODES = 117452253i32;
+pub const CLUSCTL_CLUSTER_ENUM_AFFINITY_RULE_NAMES: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117452253i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_CLUSTER_GET_NODES_IN_FD: CLUSCTL_CLUSTER_CODES = 117452257i32;
+pub const CLUSCTL_CLUSTER_GET_NODES_IN_FD: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117452257i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_CLUSTER_FORCE_FLUSH_DB: CLUSCTL_CLUSTER_CODES = 121646566i32;
+pub const CLUSCTL_CLUSTER_FORCE_FLUSH_DB: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(121646566i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_CLUSTER_GET_CLMUSR_TOKEN: CLUSCTL_CLUSTER_CODES = 117440877i32;
+pub const CLUSCTL_CLUSTER_GET_CLMUSR_TOKEN: CLUSCTL_CLUSTER_CODES = CLUSCTL_CLUSTER_CODES(117440877i32);
+impl ::core::marker::Copy for CLUSCTL_CLUSTER_CODES {}
+impl ::core::clone::Clone for CLUSCTL_CLUSTER_CODES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSCTL_CLUSTER_CODES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSCTL_CLUSTER_CODES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSCTL_CLUSTER_CODES").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSCTL_CONTROL_CODE_MASK: u32 = 4194303u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
@@ -1170,69 +1234,101 @@ pub const CLUSCTL_FUNCTION_SHIFT: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSCTL_GET_OPERATION_CONTEXT_PARAMS_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSCTL_GROUPSET_CODES = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSCTL_GROUPSET_CODES(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_GROUPSET_GET_COMMON_PROPERTIES: CLUSCTL_GROUPSET_CODES = 134217817i32;
+pub const CLUSCTL_GROUPSET_GET_COMMON_PROPERTIES: CLUSCTL_GROUPSET_CODES = CLUSCTL_GROUPSET_CODES(134217817i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_GROUPSET_GET_RO_COMMON_PROPERTIES: CLUSCTL_GROUPSET_CODES = 134217813i32;
+pub const CLUSCTL_GROUPSET_GET_RO_COMMON_PROPERTIES: CLUSCTL_GROUPSET_CODES = CLUSCTL_GROUPSET_CODES(134217813i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_GROUPSET_SET_COMMON_PROPERTIES: CLUSCTL_GROUPSET_CODES = 138412126i32;
+pub const CLUSCTL_GROUPSET_SET_COMMON_PROPERTIES: CLUSCTL_GROUPSET_CODES = CLUSCTL_GROUPSET_CODES(138412126i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_GROUPSET_GET_GROUPS: CLUSCTL_GROUPSET_CODES = 134229361i32;
+pub const CLUSCTL_GROUPSET_GET_GROUPS: CLUSCTL_GROUPSET_CODES = CLUSCTL_GROUPSET_CODES(134229361i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_GROUPSET_GET_PROVIDER_GROUPS: CLUSCTL_GROUPSET_CODES = 134229365i32;
+pub const CLUSCTL_GROUPSET_GET_PROVIDER_GROUPS: CLUSCTL_GROUPSET_CODES = CLUSCTL_GROUPSET_CODES(134229365i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_GROUPSET_GET_PROVIDER_GROUPSETS: CLUSCTL_GROUPSET_CODES = 134229369i32;
+pub const CLUSCTL_GROUPSET_GET_PROVIDER_GROUPSETS: CLUSCTL_GROUPSET_CODES = CLUSCTL_GROUPSET_CODES(134229369i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_GROUP_GET_PROVIDER_GROUPS: CLUSCTL_GROUPSET_CODES = 134229373i32;
+pub const CLUSCTL_GROUP_GET_PROVIDER_GROUPS: CLUSCTL_GROUPSET_CODES = CLUSCTL_GROUPSET_CODES(134229373i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_GROUP_GET_PROVIDER_GROUPSETS: CLUSCTL_GROUPSET_CODES = 134229377i32;
+pub const CLUSCTL_GROUP_GET_PROVIDER_GROUPSETS: CLUSCTL_GROUPSET_CODES = CLUSCTL_GROUPSET_CODES(134229377i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_GROUPSET_GET_ID: CLUSCTL_GROUPSET_CODES = 134217785i32;
+pub const CLUSCTL_GROUPSET_GET_ID: CLUSCTL_GROUPSET_CODES = CLUSCTL_GROUPSET_CODES(134217785i32);
+impl ::core::marker::Copy for CLUSCTL_GROUPSET_CODES {}
+impl ::core::clone::Clone for CLUSCTL_GROUPSET_CODES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSCTL_GROUPSET_CODES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSCTL_GROUPSET_CODES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSCTL_GROUPSET_CODES").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSCTL_GROUP_CODES = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSCTL_GROUP_CODES(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_GROUP_UNKNOWN: CLUSCTL_GROUP_CODES = 50331648i32;
+pub const CLUSCTL_GROUP_UNKNOWN: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331648i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_GROUP_GET_CHARACTERISTICS: CLUSCTL_GROUP_CODES = 50331653i32;
+pub const CLUSCTL_GROUP_GET_CHARACTERISTICS: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331653i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_GROUP_GET_FLAGS: CLUSCTL_GROUP_CODES = 50331657i32;
+pub const CLUSCTL_GROUP_GET_FLAGS: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331657i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_GROUP_GET_NAME: CLUSCTL_GROUP_CODES = 50331689i32;
+pub const CLUSCTL_GROUP_GET_NAME: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331689i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_GROUP_GET_ID: CLUSCTL_GROUP_CODES = 50331705i32;
+pub const CLUSCTL_GROUP_GET_ID: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331705i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_GROUP_ENUM_COMMON_PROPERTIES: CLUSCTL_GROUP_CODES = 50331729i32;
+pub const CLUSCTL_GROUP_ENUM_COMMON_PROPERTIES: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331729i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_GROUP_GET_RO_COMMON_PROPERTIES: CLUSCTL_GROUP_CODES = 50331733i32;
+pub const CLUSCTL_GROUP_GET_RO_COMMON_PROPERTIES: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331733i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_GROUP_GET_COMMON_PROPERTIES: CLUSCTL_GROUP_CODES = 50331737i32;
+pub const CLUSCTL_GROUP_GET_COMMON_PROPERTIES: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331737i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_GROUP_SET_COMMON_PROPERTIES: CLUSCTL_GROUP_CODES = 54526046i32;
+pub const CLUSCTL_GROUP_SET_COMMON_PROPERTIES: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(54526046i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_GROUP_VALIDATE_COMMON_PROPERTIES: CLUSCTL_GROUP_CODES = 50331745i32;
+pub const CLUSCTL_GROUP_VALIDATE_COMMON_PROPERTIES: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331745i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_GROUP_ENUM_PRIVATE_PROPERTIES: CLUSCTL_GROUP_CODES = 50331769i32;
+pub const CLUSCTL_GROUP_ENUM_PRIVATE_PROPERTIES: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331769i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_GROUP_GET_RO_PRIVATE_PROPERTIES: CLUSCTL_GROUP_CODES = 50331773i32;
+pub const CLUSCTL_GROUP_GET_RO_PRIVATE_PROPERTIES: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331773i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_GROUP_GET_PRIVATE_PROPERTIES: CLUSCTL_GROUP_CODES = 50331777i32;
+pub const CLUSCTL_GROUP_GET_PRIVATE_PROPERTIES: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331777i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_GROUP_SET_PRIVATE_PROPERTIES: CLUSCTL_GROUP_CODES = 54526086i32;
+pub const CLUSCTL_GROUP_SET_PRIVATE_PROPERTIES: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(54526086i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_GROUP_VALIDATE_PRIVATE_PROPERTIES: CLUSCTL_GROUP_CODES = 50331785i32;
+pub const CLUSCTL_GROUP_VALIDATE_PRIVATE_PROPERTIES: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331785i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_GROUP_QUERY_DELETE: CLUSCTL_GROUP_CODES = 50332089i32;
+pub const CLUSCTL_GROUP_QUERY_DELETE: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50332089i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_GROUP_GET_COMMON_PROPERTY_FMTS: CLUSCTL_GROUP_CODES = 50331749i32;
+pub const CLUSCTL_GROUP_GET_COMMON_PROPERTY_FMTS: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331749i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_GROUP_GET_PRIVATE_PROPERTY_FMTS: CLUSCTL_GROUP_CODES = 50331789i32;
+pub const CLUSCTL_GROUP_GET_PRIVATE_PROPERTY_FMTS: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331789i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_GROUP_GET_FAILURE_INFO: CLUSCTL_GROUP_CODES = 50331673i32;
+pub const CLUSCTL_GROUP_GET_FAILURE_INFO: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50331673i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_GROUP_GET_LAST_MOVE_TIME: CLUSCTL_GROUP_CODES = 50332377i32;
+pub const CLUSCTL_GROUP_GET_LAST_MOVE_TIME: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(50332377i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_GROUP_SET_CCF_FROM_MASTER: CLUSCTL_GROUP_CODES = 54537606i32;
+pub const CLUSCTL_GROUP_SET_CCF_FROM_MASTER: CLUSCTL_GROUP_CODES = CLUSCTL_GROUP_CODES(54537606i32);
+impl ::core::marker::Copy for CLUSCTL_GROUP_CODES {}
+impl ::core::clone::Clone for CLUSCTL_GROUP_CODES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSCTL_GROUP_CODES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSCTL_GROUP_CODES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSCTL_GROUP_CODES").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1274,357 +1370,421 @@ impl ::core::default::Default for CLUSCTL_GROUP_GET_LAST_MOVE_TIME_OUTPUT {
     }
 }
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSCTL_NETINTERFACE_CODES = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSCTL_NETINTERFACE_CODES(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NETINTERFACE_UNKNOWN: CLUSCTL_NETINTERFACE_CODES = 100663296i32;
+pub const CLUSCTL_NETINTERFACE_UNKNOWN: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663296i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NETINTERFACE_GET_CHARACTERISTICS: CLUSCTL_NETINTERFACE_CODES = 100663301i32;
+pub const CLUSCTL_NETINTERFACE_GET_CHARACTERISTICS: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663301i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NETINTERFACE_GET_FLAGS: CLUSCTL_NETINTERFACE_CODES = 100663305i32;
+pub const CLUSCTL_NETINTERFACE_GET_FLAGS: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663305i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NETINTERFACE_GET_NAME: CLUSCTL_NETINTERFACE_CODES = 100663337i32;
+pub const CLUSCTL_NETINTERFACE_GET_NAME: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663337i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NETINTERFACE_GET_ID: CLUSCTL_NETINTERFACE_CODES = 100663353i32;
+pub const CLUSCTL_NETINTERFACE_GET_ID: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663353i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NETINTERFACE_GET_NODE: CLUSCTL_NETINTERFACE_CODES = 100663345i32;
+pub const CLUSCTL_NETINTERFACE_GET_NODE: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663345i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NETINTERFACE_GET_NETWORK: CLUSCTL_NETINTERFACE_CODES = 100663349i32;
+pub const CLUSCTL_NETINTERFACE_GET_NETWORK: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663349i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NETINTERFACE_ENUM_COMMON_PROPERTIES: CLUSCTL_NETINTERFACE_CODES = 100663377i32;
+pub const CLUSCTL_NETINTERFACE_ENUM_COMMON_PROPERTIES: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663377i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NETINTERFACE_GET_RO_COMMON_PROPERTIES: CLUSCTL_NETINTERFACE_CODES = 100663381i32;
+pub const CLUSCTL_NETINTERFACE_GET_RO_COMMON_PROPERTIES: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663381i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NETINTERFACE_GET_COMMON_PROPERTIES: CLUSCTL_NETINTERFACE_CODES = 100663385i32;
+pub const CLUSCTL_NETINTERFACE_GET_COMMON_PROPERTIES: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663385i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NETINTERFACE_SET_COMMON_PROPERTIES: CLUSCTL_NETINTERFACE_CODES = 104857694i32;
+pub const CLUSCTL_NETINTERFACE_SET_COMMON_PROPERTIES: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(104857694i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NETINTERFACE_VALIDATE_COMMON_PROPERTIES: CLUSCTL_NETINTERFACE_CODES = 100663393i32;
+pub const CLUSCTL_NETINTERFACE_VALIDATE_COMMON_PROPERTIES: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663393i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NETINTERFACE_ENUM_PRIVATE_PROPERTIES: CLUSCTL_NETINTERFACE_CODES = 100663417i32;
+pub const CLUSCTL_NETINTERFACE_ENUM_PRIVATE_PROPERTIES: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663417i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NETINTERFACE_GET_RO_PRIVATE_PROPERTIES: CLUSCTL_NETINTERFACE_CODES = 100663421i32;
+pub const CLUSCTL_NETINTERFACE_GET_RO_PRIVATE_PROPERTIES: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663421i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NETINTERFACE_GET_PRIVATE_PROPERTIES: CLUSCTL_NETINTERFACE_CODES = 100663425i32;
+pub const CLUSCTL_NETINTERFACE_GET_PRIVATE_PROPERTIES: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663425i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NETINTERFACE_SET_PRIVATE_PROPERTIES: CLUSCTL_NETINTERFACE_CODES = 104857734i32;
+pub const CLUSCTL_NETINTERFACE_SET_PRIVATE_PROPERTIES: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(104857734i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NETINTERFACE_VALIDATE_PRIVATE_PROPERTIES: CLUSCTL_NETINTERFACE_CODES = 100663433i32;
+pub const CLUSCTL_NETINTERFACE_VALIDATE_PRIVATE_PROPERTIES: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663433i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NETINTERFACE_GET_COMMON_PROPERTY_FMTS: CLUSCTL_NETINTERFACE_CODES = 100663397i32;
+pub const CLUSCTL_NETINTERFACE_GET_COMMON_PROPERTY_FMTS: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663397i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NETINTERFACE_GET_PRIVATE_PROPERTY_FMTS: CLUSCTL_NETINTERFACE_CODES = 100663437i32;
+pub const CLUSCTL_NETINTERFACE_GET_PRIVATE_PROPERTY_FMTS: CLUSCTL_NETINTERFACE_CODES = CLUSCTL_NETINTERFACE_CODES(100663437i32);
+impl ::core::marker::Copy for CLUSCTL_NETINTERFACE_CODES {}
+impl ::core::clone::Clone for CLUSCTL_NETINTERFACE_CODES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSCTL_NETINTERFACE_CODES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSCTL_NETINTERFACE_CODES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSCTL_NETINTERFACE_CODES").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSCTL_NETWORK_CODES = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSCTL_NETWORK_CODES(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NETWORK_UNKNOWN: CLUSCTL_NETWORK_CODES = 83886080i32;
+pub const CLUSCTL_NETWORK_UNKNOWN: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886080i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NETWORK_GET_CHARACTERISTICS: CLUSCTL_NETWORK_CODES = 83886085i32;
+pub const CLUSCTL_NETWORK_GET_CHARACTERISTICS: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886085i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NETWORK_GET_FLAGS: CLUSCTL_NETWORK_CODES = 83886089i32;
+pub const CLUSCTL_NETWORK_GET_FLAGS: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886089i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NETWORK_GET_NAME: CLUSCTL_NETWORK_CODES = 83886121i32;
+pub const CLUSCTL_NETWORK_GET_NAME: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886121i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NETWORK_GET_ID: CLUSCTL_NETWORK_CODES = 83886137i32;
+pub const CLUSCTL_NETWORK_GET_ID: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886137i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NETWORK_ENUM_COMMON_PROPERTIES: CLUSCTL_NETWORK_CODES = 83886161i32;
+pub const CLUSCTL_NETWORK_ENUM_COMMON_PROPERTIES: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886161i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NETWORK_GET_RO_COMMON_PROPERTIES: CLUSCTL_NETWORK_CODES = 83886165i32;
+pub const CLUSCTL_NETWORK_GET_RO_COMMON_PROPERTIES: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886165i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NETWORK_GET_COMMON_PROPERTIES: CLUSCTL_NETWORK_CODES = 83886169i32;
+pub const CLUSCTL_NETWORK_GET_COMMON_PROPERTIES: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886169i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NETWORK_SET_COMMON_PROPERTIES: CLUSCTL_NETWORK_CODES = 88080478i32;
+pub const CLUSCTL_NETWORK_SET_COMMON_PROPERTIES: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(88080478i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NETWORK_VALIDATE_COMMON_PROPERTIES: CLUSCTL_NETWORK_CODES = 83886177i32;
+pub const CLUSCTL_NETWORK_VALIDATE_COMMON_PROPERTIES: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886177i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NETWORK_ENUM_PRIVATE_PROPERTIES: CLUSCTL_NETWORK_CODES = 83886201i32;
+pub const CLUSCTL_NETWORK_ENUM_PRIVATE_PROPERTIES: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886201i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NETWORK_GET_RO_PRIVATE_PROPERTIES: CLUSCTL_NETWORK_CODES = 83886205i32;
+pub const CLUSCTL_NETWORK_GET_RO_PRIVATE_PROPERTIES: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886205i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NETWORK_GET_PRIVATE_PROPERTIES: CLUSCTL_NETWORK_CODES = 83886209i32;
+pub const CLUSCTL_NETWORK_GET_PRIVATE_PROPERTIES: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886209i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NETWORK_SET_PRIVATE_PROPERTIES: CLUSCTL_NETWORK_CODES = 88080518i32;
+pub const CLUSCTL_NETWORK_SET_PRIVATE_PROPERTIES: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(88080518i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NETWORK_VALIDATE_PRIVATE_PROPERTIES: CLUSCTL_NETWORK_CODES = 83886217i32;
+pub const CLUSCTL_NETWORK_VALIDATE_PRIVATE_PROPERTIES: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886217i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NETWORK_GET_COMMON_PROPERTY_FMTS: CLUSCTL_NETWORK_CODES = 83886181i32;
+pub const CLUSCTL_NETWORK_GET_COMMON_PROPERTY_FMTS: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886181i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NETWORK_GET_PRIVATE_PROPERTY_FMTS: CLUSCTL_NETWORK_CODES = 83886221i32;
+pub const CLUSCTL_NETWORK_GET_PRIVATE_PROPERTY_FMTS: CLUSCTL_NETWORK_CODES = CLUSCTL_NETWORK_CODES(83886221i32);
+impl ::core::marker::Copy for CLUSCTL_NETWORK_CODES {}
+impl ::core::clone::Clone for CLUSCTL_NETWORK_CODES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSCTL_NETWORK_CODES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSCTL_NETWORK_CODES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSCTL_NETWORK_CODES").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSCTL_NODE_CODES = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSCTL_NODE_CODES(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NODE_UNKNOWN: CLUSCTL_NODE_CODES = 67108864i32;
+pub const CLUSCTL_NODE_UNKNOWN: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108864i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NODE_GET_CHARACTERISTICS: CLUSCTL_NODE_CODES = 67108869i32;
+pub const CLUSCTL_NODE_GET_CHARACTERISTICS: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108869i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NODE_GET_FLAGS: CLUSCTL_NODE_CODES = 67108873i32;
+pub const CLUSCTL_NODE_GET_FLAGS: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108873i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NODE_GET_NAME: CLUSCTL_NODE_CODES = 67108905i32;
+pub const CLUSCTL_NODE_GET_NAME: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108905i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NODE_GET_ID: CLUSCTL_NODE_CODES = 67108921i32;
+pub const CLUSCTL_NODE_GET_ID: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108921i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NODE_ENUM_COMMON_PROPERTIES: CLUSCTL_NODE_CODES = 67108945i32;
+pub const CLUSCTL_NODE_ENUM_COMMON_PROPERTIES: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108945i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NODE_GET_RO_COMMON_PROPERTIES: CLUSCTL_NODE_CODES = 67108949i32;
+pub const CLUSCTL_NODE_GET_RO_COMMON_PROPERTIES: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108949i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NODE_GET_COMMON_PROPERTIES: CLUSCTL_NODE_CODES = 67108953i32;
+pub const CLUSCTL_NODE_GET_COMMON_PROPERTIES: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108953i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NODE_SET_COMMON_PROPERTIES: CLUSCTL_NODE_CODES = 71303262i32;
+pub const CLUSCTL_NODE_SET_COMMON_PROPERTIES: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(71303262i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NODE_VALIDATE_COMMON_PROPERTIES: CLUSCTL_NODE_CODES = 67108961i32;
+pub const CLUSCTL_NODE_VALIDATE_COMMON_PROPERTIES: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108961i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NODE_ENUM_PRIVATE_PROPERTIES: CLUSCTL_NODE_CODES = 67108985i32;
+pub const CLUSCTL_NODE_ENUM_PRIVATE_PROPERTIES: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108985i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NODE_GET_RO_PRIVATE_PROPERTIES: CLUSCTL_NODE_CODES = 67108989i32;
+pub const CLUSCTL_NODE_GET_RO_PRIVATE_PROPERTIES: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108989i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NODE_GET_PRIVATE_PROPERTIES: CLUSCTL_NODE_CODES = 67108993i32;
+pub const CLUSCTL_NODE_GET_PRIVATE_PROPERTIES: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108993i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NODE_SET_PRIVATE_PROPERTIES: CLUSCTL_NODE_CODES = 71303302i32;
+pub const CLUSCTL_NODE_SET_PRIVATE_PROPERTIES: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(71303302i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NODE_VALIDATE_PRIVATE_PROPERTIES: CLUSCTL_NODE_CODES = 67109001i32;
+pub const CLUSCTL_NODE_VALIDATE_PRIVATE_PROPERTIES: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67109001i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NODE_GET_COMMON_PROPERTY_FMTS: CLUSCTL_NODE_CODES = 67108965i32;
+pub const CLUSCTL_NODE_GET_COMMON_PROPERTY_FMTS: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108965i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NODE_GET_PRIVATE_PROPERTY_FMTS: CLUSCTL_NODE_CODES = 67109005i32;
+pub const CLUSCTL_NODE_GET_PRIVATE_PROPERTY_FMTS: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67109005i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NODE_GET_CLUSTER_SERVICE_ACCOUNT_NAME: CLUSCTL_NODE_CODES = 67108929i32;
+pub const CLUSCTL_NODE_GET_CLUSTER_SERVICE_ACCOUNT_NAME: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67108929i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NODE_GET_STUCK_NODES: CLUSCTL_NODE_CODES = 67109565i32;
+pub const CLUSCTL_NODE_GET_STUCK_NODES: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67109565i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NODE_INJECT_GEM_FAULT: CLUSCTL_NODE_CODES = 67109569i32;
+pub const CLUSCTL_NODE_INJECT_GEM_FAULT: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67109569i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NODE_INTRODUCE_GEM_REPAIR_DELAY: CLUSCTL_NODE_CODES = 67109573i32;
+pub const CLUSCTL_NODE_INTRODUCE_GEM_REPAIR_DELAY: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67109573i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NODE_SEND_DUMMY_GEM_MESSAGES: CLUSCTL_NODE_CODES = 67109577i32;
+pub const CLUSCTL_NODE_SEND_DUMMY_GEM_MESSAGES: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67109577i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NODE_BLOCK_GEM_SEND_RECV: CLUSCTL_NODE_CODES = 67109581i32;
+pub const CLUSCTL_NODE_BLOCK_GEM_SEND_RECV: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67109581i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_NODE_GET_GEMID_VECTOR: CLUSCTL_NODE_CODES = 67109585i32;
+pub const CLUSCTL_NODE_GET_GEMID_VECTOR: CLUSCTL_NODE_CODES = CLUSCTL_NODE_CODES(67109585i32);
+impl ::core::marker::Copy for CLUSCTL_NODE_CODES {}
+impl ::core::clone::Clone for CLUSCTL_NODE_CODES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSCTL_NODE_CODES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSCTL_NODE_CODES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSCTL_NODE_CODES").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSCTL_OBJECT_MASK: u32 = 255u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSCTL_OBJECT_SHIFT: u32 = 24u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSCTL_RESOURCE_CODES = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSCTL_RESOURCE_CODES(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_UNKNOWN: CLUSCTL_RESOURCE_CODES = 16777216i32;
+pub const CLUSCTL_RESOURCE_UNKNOWN: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777216i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_GET_CHARACTERISTICS: CLUSCTL_RESOURCE_CODES = 16777221i32;
+pub const CLUSCTL_RESOURCE_GET_CHARACTERISTICS: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777221i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_GET_FLAGS: CLUSCTL_RESOURCE_CODES = 16777225i32;
+pub const CLUSCTL_RESOURCE_GET_FLAGS: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777225i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_GET_CLASS_INFO: CLUSCTL_RESOURCE_CODES = 16777229i32;
+pub const CLUSCTL_RESOURCE_GET_CLASS_INFO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777229i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_GET_REQUIRED_DEPENDENCIES: CLUSCTL_RESOURCE_CODES = 16777233i32;
+pub const CLUSCTL_RESOURCE_GET_REQUIRED_DEPENDENCIES: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777233i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_GET_NAME: CLUSCTL_RESOURCE_CODES = 16777257i32;
+pub const CLUSCTL_RESOURCE_GET_NAME: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777257i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_GET_ID: CLUSCTL_RESOURCE_CODES = 16777273i32;
+pub const CLUSCTL_RESOURCE_GET_ID: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777273i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_GET_RESOURCE_TYPE: CLUSCTL_RESOURCE_CODES = 16777261i32;
+pub const CLUSCTL_RESOURCE_GET_RESOURCE_TYPE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777261i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_ENUM_COMMON_PROPERTIES: CLUSCTL_RESOURCE_CODES = 16777297i32;
+pub const CLUSCTL_RESOURCE_ENUM_COMMON_PROPERTIES: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777297i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_GET_RO_COMMON_PROPERTIES: CLUSCTL_RESOURCE_CODES = 16777301i32;
+pub const CLUSCTL_RESOURCE_GET_RO_COMMON_PROPERTIES: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777301i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_GET_COMMON_PROPERTIES: CLUSCTL_RESOURCE_CODES = 16777305i32;
+pub const CLUSCTL_RESOURCE_GET_COMMON_PROPERTIES: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777305i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_SET_COMMON_PROPERTIES: CLUSCTL_RESOURCE_CODES = 20971614i32;
+pub const CLUSCTL_RESOURCE_SET_COMMON_PROPERTIES: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20971614i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_VALIDATE_COMMON_PROPERTIES: CLUSCTL_RESOURCE_CODES = 16777313i32;
+pub const CLUSCTL_RESOURCE_VALIDATE_COMMON_PROPERTIES: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777313i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_GET_COMMON_PROPERTY_FMTS: CLUSCTL_RESOURCE_CODES = 16777317i32;
+pub const CLUSCTL_RESOURCE_GET_COMMON_PROPERTY_FMTS: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777317i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_ENUM_PRIVATE_PROPERTIES: CLUSCTL_RESOURCE_CODES = 16777337i32;
+pub const CLUSCTL_RESOURCE_ENUM_PRIVATE_PROPERTIES: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777337i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_GET_RO_PRIVATE_PROPERTIES: CLUSCTL_RESOURCE_CODES = 16777341i32;
+pub const CLUSCTL_RESOURCE_GET_RO_PRIVATE_PROPERTIES: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777341i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_GET_PRIVATE_PROPERTIES: CLUSCTL_RESOURCE_CODES = 16777345i32;
+pub const CLUSCTL_RESOURCE_GET_PRIVATE_PROPERTIES: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777345i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_SET_PRIVATE_PROPERTIES: CLUSCTL_RESOURCE_CODES = 20971654i32;
+pub const CLUSCTL_RESOURCE_SET_PRIVATE_PROPERTIES: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20971654i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_VALIDATE_PRIVATE_PROPERTIES: CLUSCTL_RESOURCE_CODES = 16777353i32;
+pub const CLUSCTL_RESOURCE_VALIDATE_PRIVATE_PROPERTIES: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777353i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_GET_PRIVATE_PROPERTY_FMTS: CLUSCTL_RESOURCE_CODES = 16777357i32;
+pub const CLUSCTL_RESOURCE_GET_PRIVATE_PROPERTY_FMTS: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777357i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_ADD_REGISTRY_CHECKPOINT: CLUSCTL_RESOURCE_CODES = 20971682i32;
+pub const CLUSCTL_RESOURCE_ADD_REGISTRY_CHECKPOINT: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20971682i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_DELETE_REGISTRY_CHECKPOINT: CLUSCTL_RESOURCE_CODES = 20971686i32;
+pub const CLUSCTL_RESOURCE_DELETE_REGISTRY_CHECKPOINT: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20971686i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_GET_REGISTRY_CHECKPOINTS: CLUSCTL_RESOURCE_CODES = 16777385i32;
+pub const CLUSCTL_RESOURCE_GET_REGISTRY_CHECKPOINTS: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777385i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_ADD_CRYPTO_CHECKPOINT: CLUSCTL_RESOURCE_CODES = 20971694i32;
+pub const CLUSCTL_RESOURCE_ADD_CRYPTO_CHECKPOINT: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20971694i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_DELETE_CRYPTO_CHECKPOINT: CLUSCTL_RESOURCE_CODES = 20971698i32;
+pub const CLUSCTL_RESOURCE_DELETE_CRYPTO_CHECKPOINT: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20971698i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_ADD_CRYPTO_CHECKPOINT_EX: CLUSCTL_RESOURCE_CODES = 20972246i32;
+pub const CLUSCTL_RESOURCE_ADD_CRYPTO_CHECKPOINT_EX: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20972246i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_GET_CRYPTO_CHECKPOINTS: CLUSCTL_RESOURCE_CODES = 16777397i32;
+pub const CLUSCTL_RESOURCE_GET_CRYPTO_CHECKPOINTS: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777397i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_GET_LOADBAL_PROCESS_LIST: CLUSCTL_RESOURCE_CODES = 16777417i32;
+pub const CLUSCTL_RESOURCE_GET_LOADBAL_PROCESS_LIST: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777417i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_GET_NETWORK_NAME: CLUSCTL_RESOURCE_CODES = 16777577i32;
+pub const CLUSCTL_RESOURCE_GET_NETWORK_NAME: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777577i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_NETNAME_GET_VIRTUAL_SERVER_TOKEN: CLUSCTL_RESOURCE_CODES = 16777581i32;
+pub const CLUSCTL_RESOURCE_NETNAME_GET_VIRTUAL_SERVER_TOKEN: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777581i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_NETNAME_SET_PWD_INFO: CLUSCTL_RESOURCE_CODES = 16777594i32;
+pub const CLUSCTL_RESOURCE_NETNAME_SET_PWD_INFO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777594i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_NETNAME_SET_PWD_INFOEX: CLUSCTL_RESOURCE_CODES = 16778010i32;
+pub const CLUSCTL_RESOURCE_NETNAME_SET_PWD_INFOEX: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16778010i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_NETNAME_DELETE_CO: CLUSCTL_RESOURCE_CODES = 16777598i32;
+pub const CLUSCTL_RESOURCE_NETNAME_DELETE_CO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777598i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_NETNAME_VALIDATE_VCO: CLUSCTL_RESOURCE_CODES = 16777601i32;
+pub const CLUSCTL_RESOURCE_NETNAME_VALIDATE_VCO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777601i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_NETNAME_RESET_VCO: CLUSCTL_RESOURCE_CODES = 16777605i32;
+pub const CLUSCTL_RESOURCE_NETNAME_RESET_VCO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777605i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_NETNAME_REPAIR_VCO: CLUSCTL_RESOURCE_CODES = 16777613i32;
+pub const CLUSCTL_RESOURCE_NETNAME_REPAIR_VCO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777613i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_NETNAME_REGISTER_DNS_RECORDS: CLUSCTL_RESOURCE_CODES = 16777586i32;
+pub const CLUSCTL_RESOURCE_NETNAME_REGISTER_DNS_RECORDS: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777586i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_GET_DNS_NAME: CLUSCTL_RESOURCE_CODES = 16777589i32;
+pub const CLUSCTL_RESOURCE_GET_DNS_NAME: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777589i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_STORAGE_GET_DISK_INFO: CLUSCTL_RESOURCE_CODES = 16777617i32;
+pub const CLUSCTL_RESOURCE_STORAGE_GET_DISK_INFO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777617i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_STORAGE_GET_DISK_NUMBER_INFO: CLUSCTL_RESOURCE_CODES = 16777633i32;
+pub const CLUSCTL_RESOURCE_STORAGE_GET_DISK_NUMBER_INFO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777633i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_STORAGE_IS_PATH_VALID: CLUSCTL_RESOURCE_CODES = 16777625i32;
+pub const CLUSCTL_RESOURCE_STORAGE_IS_PATH_VALID: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777625i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_QUERY_DELETE: CLUSCTL_RESOURCE_CODES = 16777657i32;
+pub const CLUSCTL_RESOURCE_QUERY_DELETE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777657i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_UPGRADE_DLL: CLUSCTL_RESOURCE_CODES = 20971706i32;
+pub const CLUSCTL_RESOURCE_UPGRADE_DLL: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20971706i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_IPADDRESS_RENEW_LEASE: CLUSCTL_RESOURCE_CODES = 20971966i32;
+pub const CLUSCTL_RESOURCE_IPADDRESS_RENEW_LEASE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20971966i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_IPADDRESS_RELEASE_LEASE: CLUSCTL_RESOURCE_CODES = 20971970i32;
+pub const CLUSCTL_RESOURCE_IPADDRESS_RELEASE_LEASE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20971970i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_ADD_REGISTRY_CHECKPOINT_64BIT: CLUSCTL_RESOURCE_CODES = 20971710i32;
+pub const CLUSCTL_RESOURCE_ADD_REGISTRY_CHECKPOINT_64BIT: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20971710i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_ADD_REGISTRY_CHECKPOINT_32BIT: CLUSCTL_RESOURCE_CODES = 20971714i32;
+pub const CLUSCTL_RESOURCE_ADD_REGISTRY_CHECKPOINT_32BIT: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20971714i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_QUERY_MAINTENANCE_MODE: CLUSCTL_RESOURCE_CODES = 16777697i32;
+pub const CLUSCTL_RESOURCE_QUERY_MAINTENANCE_MODE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777697i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_SET_MAINTENANCE_MODE: CLUSCTL_RESOURCE_CODES = 20972006i32;
+pub const CLUSCTL_RESOURCE_SET_MAINTENANCE_MODE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20972006i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_STORAGE_SET_DRIVELETTER: CLUSCTL_RESOURCE_CODES = 20972010i32;
+pub const CLUSCTL_RESOURCE_STORAGE_SET_DRIVELETTER: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20972010i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_STORAGE_GET_DISK_INFO_EX: CLUSCTL_RESOURCE_CODES = 16777713i32;
+pub const CLUSCTL_RESOURCE_STORAGE_GET_DISK_INFO_EX: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777713i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_STORAGE_GET_DISK_INFO_EX2: CLUSCTL_RESOURCE_CODES = 16777721i32;
+pub const CLUSCTL_RESOURCE_STORAGE_GET_DISK_INFO_EX2: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777721i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_STORAGE_GET_MOUNTPOINTS: CLUSCTL_RESOURCE_CODES = 16777745i32;
+pub const CLUSCTL_RESOURCE_STORAGE_GET_MOUNTPOINTS: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777745i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_STORAGE_GET_DIRTY: CLUSCTL_RESOURCE_CODES = 16777753i32;
+pub const CLUSCTL_RESOURCE_STORAGE_GET_DIRTY: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777753i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_STORAGE_GET_SHARED_VOLUME_INFO: CLUSCTL_RESOURCE_CODES = 16777765i32;
+pub const CLUSCTL_RESOURCE_STORAGE_GET_SHARED_VOLUME_INFO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777765i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_SET_CSV_MAINTENANCE_MODE: CLUSCTL_RESOURCE_CODES = 20972182i32;
+pub const CLUSCTL_RESOURCE_SET_CSV_MAINTENANCE_MODE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20972182i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_ENABLE_SHARED_VOLUME_DIRECTIO: CLUSCTL_RESOURCE_CODES = 20972170i32;
+pub const CLUSCTL_RESOURCE_ENABLE_SHARED_VOLUME_DIRECTIO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20972170i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_DISABLE_SHARED_VOLUME_DIRECTIO: CLUSCTL_RESOURCE_CODES = 20972174i32;
+pub const CLUSCTL_RESOURCE_DISABLE_SHARED_VOLUME_DIRECTIO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20972174i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_SET_SHARED_VOLUME_BACKUP_MODE: CLUSCTL_RESOURCE_CODES = 20972186i32;
+pub const CLUSCTL_RESOURCE_SET_SHARED_VOLUME_BACKUP_MODE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20972186i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_STORAGE_GET_SHARED_VOLUME_PARTITION_NAMES: CLUSCTL_RESOURCE_CODES = 16777885i32;
+pub const CLUSCTL_RESOURCE_STORAGE_GET_SHARED_VOLUME_PARTITION_NAMES: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777885i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_GET_FAILURE_INFO: CLUSCTL_RESOURCE_CODES = 16777241i32;
+pub const CLUSCTL_RESOURCE_GET_FAILURE_INFO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777241i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_STORAGE_GET_DISKID: CLUSCTL_RESOURCE_CODES = 16777733i32;
+pub const CLUSCTL_RESOURCE_STORAGE_GET_DISKID: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777733i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_STORAGE_GET_SHARED_VOLUME_STATES: CLUSCTL_RESOURCE_CODES = 20972194i32;
+pub const CLUSCTL_RESOURCE_STORAGE_GET_SHARED_VOLUME_STATES: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20972194i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_STORAGE_IS_SHARED_VOLUME: CLUSCTL_RESOURCE_CODES = 16777893i32;
+pub const CLUSCTL_RESOURCE_STORAGE_IS_SHARED_VOLUME: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777893i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_IS_QUORUM_BLOCKED: CLUSCTL_RESOURCE_CODES = 16777905i32;
+pub const CLUSCTL_RESOURCE_IS_QUORUM_BLOCKED: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777905i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_POOL_GET_DRIVE_INFO: CLUSCTL_RESOURCE_CODES = 16777909i32;
+pub const CLUSCTL_RESOURCE_POOL_GET_DRIVE_INFO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777909i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_RLUA_GET_VIRTUAL_SERVER_TOKEN: CLUSCTL_RESOURCE_CODES = 16777581i32;
+pub const CLUSCTL_RESOURCE_RLUA_GET_VIRTUAL_SERVER_TOKEN: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777581i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_RLUA_SET_PWD_INFO: CLUSCTL_RESOURCE_CODES = 16777594i32;
+pub const CLUSCTL_RESOURCE_RLUA_SET_PWD_INFO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16777594i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_RLUA_SET_PWD_INFOEX: CLUSCTL_RESOURCE_CODES = 16778010i32;
+pub const CLUSCTL_RESOURCE_RLUA_SET_PWD_INFOEX: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16778010i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_DELETE: CLUSCTL_RESOURCE_CODES = 22020102i32;
+pub const CLUSCTL_RESOURCE_DELETE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020102i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_UNDELETE: CLUSCTL_RESOURCE_CODES = 22020230i32;
+pub const CLUSCTL_RESOURCE_UNDELETE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020230i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_INSTALL_NODE: CLUSCTL_RESOURCE_CODES = 22020106i32;
+pub const CLUSCTL_RESOURCE_INSTALL_NODE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020106i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_EVICT_NODE: CLUSCTL_RESOURCE_CODES = 22020110i32;
+pub const CLUSCTL_RESOURCE_EVICT_NODE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020110i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_ADD_DEPENDENCY: CLUSCTL_RESOURCE_CODES = 22020114i32;
+pub const CLUSCTL_RESOURCE_ADD_DEPENDENCY: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020114i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_REMOVE_DEPENDENCY: CLUSCTL_RESOURCE_CODES = 22020118i32;
+pub const CLUSCTL_RESOURCE_REMOVE_DEPENDENCY: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020118i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_ADD_OWNER: CLUSCTL_RESOURCE_CODES = 22020122i32;
+pub const CLUSCTL_RESOURCE_ADD_OWNER: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020122i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_REMOVE_OWNER: CLUSCTL_RESOURCE_CODES = 22020126i32;
+pub const CLUSCTL_RESOURCE_REMOVE_OWNER: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020126i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_SET_NAME: CLUSCTL_RESOURCE_CODES = 22020134i32;
+pub const CLUSCTL_RESOURCE_SET_NAME: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020134i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_CLUSTER_NAME_CHANGED: CLUSCTL_RESOURCE_CODES = 22020138i32;
+pub const CLUSCTL_RESOURCE_CLUSTER_NAME_CHANGED: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020138i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_CLUSTER_VERSION_CHANGED: CLUSCTL_RESOURCE_CODES = 22020142i32;
+pub const CLUSCTL_RESOURCE_CLUSTER_VERSION_CHANGED: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020142i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_FORCE_QUORUM: CLUSCTL_RESOURCE_CODES = 22020166i32;
+pub const CLUSCTL_RESOURCE_FORCE_QUORUM: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020166i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_INITIALIZE: CLUSCTL_RESOURCE_CODES = 22020170i32;
+pub const CLUSCTL_RESOURCE_INITIALIZE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020170i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_STATE_CHANGE_REASON: CLUSCTL_RESOURCE_CODES = 22020174i32;
+pub const CLUSCTL_RESOURCE_STATE_CHANGE_REASON: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020174i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_PROVIDER_STATE_CHANGE: CLUSCTL_RESOURCE_CODES = 22020178i32;
+pub const CLUSCTL_RESOURCE_PROVIDER_STATE_CHANGE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020178i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_LEAVING_GROUP: CLUSCTL_RESOURCE_CODES = 22020182i32;
+pub const CLUSCTL_RESOURCE_LEAVING_GROUP: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020182i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_JOINING_GROUP: CLUSCTL_RESOURCE_CODES = 22020186i32;
+pub const CLUSCTL_RESOURCE_JOINING_GROUP: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020186i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_FSWITNESS_GET_EPOCH_INFO: CLUSCTL_RESOURCE_CODES = 17825885i32;
+pub const CLUSCTL_RESOURCE_FSWITNESS_GET_EPOCH_INFO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(17825885i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_FSWITNESS_SET_EPOCH_INFO: CLUSCTL_RESOURCE_CODES = 22020194i32;
+pub const CLUSCTL_RESOURCE_FSWITNESS_SET_EPOCH_INFO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020194i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_FSWITNESS_RELEASE_LOCK: CLUSCTL_RESOURCE_CODES = 22020198i32;
+pub const CLUSCTL_RESOURCE_FSWITNESS_RELEASE_LOCK: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020198i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_NETNAME_CREDS_NOTIFYCAM: CLUSCTL_RESOURCE_CODES = 22020202i32;
+pub const CLUSCTL_RESOURCE_NETNAME_CREDS_NOTIFYCAM: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020202i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_GET_OPERATION_CONTEXT: CLUSCTL_RESOURCE_CODES = 17834217i32;
+pub const CLUSCTL_RESOURCE_GET_OPERATION_CONTEXT: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(17834217i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_RW_MODIFY_NOOP: CLUSCTL_RESOURCE_CODES = 20972206i32;
+pub const CLUSCTL_RESOURCE_RW_MODIFY_NOOP: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20972206i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_NOTIFY_QUORUM_STATUS: CLUSCTL_RESOURCE_CODES = 22020222i32;
+pub const CLUSCTL_RESOURCE_NOTIFY_QUORUM_STATUS: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22020222i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_NOTIFY_OWNER_CHANGE: CLUSCTL_RESOURCE_CODES = 22028578i32;
+pub const CLUSCTL_RESOURCE_NOTIFY_OWNER_CHANGE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(22028578i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_VALIDATE_CHANGE_GROUP: CLUSCTL_RESOURCE_CODES = 17834277i32;
+pub const CLUSCTL_RESOURCE_VALIDATE_CHANGE_GROUP: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(17834277i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_STORAGE_RENAME_SHARED_VOLUME: CLUSCTL_RESOURCE_CODES = 16788950i32;
+pub const CLUSCTL_RESOURCE_STORAGE_RENAME_SHARED_VOLUME: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16788950i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_STORAGE_RENAME_SHARED_VOLUME_GUID: CLUSCTL_RESOURCE_CODES = 16788954i32;
+pub const CLUSCTL_RESOURCE_STORAGE_RENAME_SHARED_VOLUME_GUID: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16788954i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_CLOUD_WITNESS_RESOURCE_UPDATE_TOKEN: CLUSCTL_RESOURCE_CODES = 20979942i32;
+pub const CLUSCTL_CLOUD_WITNESS_RESOURCE_UPDATE_TOKEN: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20979942i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_CLOUD_WITNESS_RESOURCE_UPDATE_KEY: CLUSCTL_RESOURCE_CODES = 20979958i32;
+pub const CLUSCTL_CLOUD_WITNESS_RESOURCE_UPDATE_KEY: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20979958i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_PREPARE_UPGRADE: CLUSCTL_RESOURCE_CODES = 20979946i32;
+pub const CLUSCTL_RESOURCE_PREPARE_UPGRADE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20979946i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_UPGRADE_COMPLETED: CLUSCTL_RESOURCE_CODES = 20979950i32;
+pub const CLUSCTL_RESOURCE_UPGRADE_COMPLETED: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20979950i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_GET_STATE_CHANGE_TIME: CLUSCTL_RESOURCE_CODES = 16788829i32;
+pub const CLUSCTL_RESOURCE_GET_STATE_CHANGE_TIME: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16788829i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_GET_INFRASTRUCTURE_SOFS_BUFFER: CLUSCTL_RESOURCE_CODES = 16788873i32;
+pub const CLUSCTL_RESOURCE_GET_INFRASTRUCTURE_SOFS_BUFFER: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16788873i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_SET_INFRASTRUCTURE_SOFS_BUFFER: CLUSCTL_RESOURCE_CODES = 20983182i32;
+pub const CLUSCTL_RESOURCE_SET_INFRASTRUCTURE_SOFS_BUFFER: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20983182i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_SCALEOUT_COMMAND: CLUSCTL_RESOURCE_CODES = 20983190i32;
+pub const CLUSCTL_RESOURCE_SCALEOUT_COMMAND: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20983190i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_SCALEOUT_CONTROL: CLUSCTL_RESOURCE_CODES = 20983194i32;
+pub const CLUSCTL_RESOURCE_SCALEOUT_CONTROL: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20983194i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_SCALEOUT_GET_CLUSTERS: CLUSCTL_RESOURCE_CODES = 20983197i32;
+pub const CLUSCTL_RESOURCE_SCALEOUT_GET_CLUSTERS: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(20983197i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_CHECK_DRAIN_VETO: CLUSCTL_RESOURCE_CODES = 17834285i32;
+pub const CLUSCTL_RESOURCE_CHECK_DRAIN_VETO: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(17834285i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_NOTIFY_DRAIN_COMPLETE: CLUSCTL_RESOURCE_CODES = 17834289i32;
+pub const CLUSCTL_RESOURCE_NOTIFY_DRAIN_COMPLETE: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(17834289i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_GET_NODES_IN_FD: CLUSCTL_RESOURCE_CODES = 16788961i32;
+pub const CLUSCTL_RESOURCE_GET_NODES_IN_FD: CLUSCTL_RESOURCE_CODES = CLUSCTL_RESOURCE_CODES(16788961i32);
+impl ::core::marker::Copy for CLUSCTL_RESOURCE_CODES {}
+impl ::core::clone::Clone for CLUSCTL_RESOURCE_CODES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSCTL_RESOURCE_CODES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSCTL_RESOURCE_CODES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSCTL_RESOURCE_CODES").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub struct CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT {
@@ -1660,137 +1820,153 @@ impl ::core::default::Default for CLUSCTL_RESOURCE_STATE_CHANGE_REASON_STRUCT {
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSCTL_RESOURCE_STATE_CHANGE_REASON_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSCTL_RESOURCE_TYPE_CODES = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSCTL_RESOURCE_TYPE_CODES(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_UNKNOWN: CLUSCTL_RESOURCE_TYPE_CODES = 33554432i32;
+pub const CLUSCTL_RESOURCE_TYPE_UNKNOWN: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554432i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_GET_CHARACTERISTICS: CLUSCTL_RESOURCE_TYPE_CODES = 33554437i32;
+pub const CLUSCTL_RESOURCE_TYPE_GET_CHARACTERISTICS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554437i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_GET_FLAGS: CLUSCTL_RESOURCE_TYPE_CODES = 33554441i32;
+pub const CLUSCTL_RESOURCE_TYPE_GET_FLAGS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554441i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_GET_CLASS_INFO: CLUSCTL_RESOURCE_TYPE_CODES = 33554445i32;
+pub const CLUSCTL_RESOURCE_TYPE_GET_CLASS_INFO: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554445i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_GET_REQUIRED_DEPENDENCIES: CLUSCTL_RESOURCE_TYPE_CODES = 33554449i32;
+pub const CLUSCTL_RESOURCE_TYPE_GET_REQUIRED_DEPENDENCIES: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554449i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_GET_ARB_TIMEOUT: CLUSCTL_RESOURCE_TYPE_CODES = 33554453i32;
+pub const CLUSCTL_RESOURCE_TYPE_GET_ARB_TIMEOUT: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554453i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_ENUM_COMMON_PROPERTIES: CLUSCTL_RESOURCE_TYPE_CODES = 33554513i32;
+pub const CLUSCTL_RESOURCE_TYPE_ENUM_COMMON_PROPERTIES: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554513i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_GET_RO_COMMON_PROPERTIES: CLUSCTL_RESOURCE_TYPE_CODES = 33554517i32;
+pub const CLUSCTL_RESOURCE_TYPE_GET_RO_COMMON_PROPERTIES: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554517i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_GET_COMMON_PROPERTIES: CLUSCTL_RESOURCE_TYPE_CODES = 33554521i32;
+pub const CLUSCTL_RESOURCE_TYPE_GET_COMMON_PROPERTIES: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554521i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_VALIDATE_COMMON_PROPERTIES: CLUSCTL_RESOURCE_TYPE_CODES = 33554529i32;
+pub const CLUSCTL_RESOURCE_TYPE_VALIDATE_COMMON_PROPERTIES: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554529i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_SET_COMMON_PROPERTIES: CLUSCTL_RESOURCE_TYPE_CODES = 37748830i32;
+pub const CLUSCTL_RESOURCE_TYPE_SET_COMMON_PROPERTIES: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(37748830i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_GET_COMMON_PROPERTY_FMTS: CLUSCTL_RESOURCE_TYPE_CODES = 33554533i32;
+pub const CLUSCTL_RESOURCE_TYPE_GET_COMMON_PROPERTY_FMTS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554533i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_GET_COMMON_RESOURCE_PROPERTY_FMTS: CLUSCTL_RESOURCE_TYPE_CODES = 33554537i32;
+pub const CLUSCTL_RESOURCE_TYPE_GET_COMMON_RESOURCE_PROPERTY_FMTS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554537i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_ENUM_PRIVATE_PROPERTIES: CLUSCTL_RESOURCE_TYPE_CODES = 33554553i32;
+pub const CLUSCTL_RESOURCE_TYPE_ENUM_PRIVATE_PROPERTIES: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554553i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_GET_RO_PRIVATE_PROPERTIES: CLUSCTL_RESOURCE_TYPE_CODES = 33554557i32;
+pub const CLUSCTL_RESOURCE_TYPE_GET_RO_PRIVATE_PROPERTIES: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554557i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_GET_PRIVATE_PROPERTIES: CLUSCTL_RESOURCE_TYPE_CODES = 33554561i32;
+pub const CLUSCTL_RESOURCE_TYPE_GET_PRIVATE_PROPERTIES: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554561i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_SET_PRIVATE_PROPERTIES: CLUSCTL_RESOURCE_TYPE_CODES = 37748870i32;
+pub const CLUSCTL_RESOURCE_TYPE_SET_PRIVATE_PROPERTIES: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(37748870i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_VALIDATE_PRIVATE_PROPERTIES: CLUSCTL_RESOURCE_TYPE_CODES = 33554569i32;
+pub const CLUSCTL_RESOURCE_TYPE_VALIDATE_PRIVATE_PROPERTIES: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554569i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_GET_PRIVATE_PROPERTY_FMTS: CLUSCTL_RESOURCE_TYPE_CODES = 33554573i32;
+pub const CLUSCTL_RESOURCE_TYPE_GET_PRIVATE_PROPERTY_FMTS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554573i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_GET_PRIVATE_RESOURCE_PROPERTY_FMTS: CLUSCTL_RESOURCE_TYPE_CODES = 33554577i32;
+pub const CLUSCTL_RESOURCE_TYPE_GET_PRIVATE_RESOURCE_PROPERTY_FMTS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554577i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_GET_REGISTRY_CHECKPOINTS: CLUSCTL_RESOURCE_TYPE_CODES = 33554601i32;
+pub const CLUSCTL_RESOURCE_TYPE_GET_REGISTRY_CHECKPOINTS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554601i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_GET_CRYPTO_CHECKPOINTS: CLUSCTL_RESOURCE_TYPE_CODES = 33554613i32;
+pub const CLUSCTL_RESOURCE_TYPE_GET_CRYPTO_CHECKPOINTS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554613i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS: CLUSCTL_RESOURCE_TYPE_CODES = 33554837i32;
+pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554837i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_STORAGE_SYNC_CLUSDISK_DB: CLUSCTL_RESOURCE_TYPE_CODES = 37749150i32;
+pub const CLUSCTL_RESOURCE_TYPE_STORAGE_SYNC_CLUSDISK_DB: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(37749150i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_NETNAME_VALIDATE_NETNAME: CLUSCTL_RESOURCE_TYPE_CODES = 33554997i32;
+pub const CLUSCTL_RESOURCE_TYPE_NETNAME_VALIDATE_NETNAME: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554997i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_NETNAME_GET_OU_FOR_VCO: CLUSCTL_RESOURCE_TYPE_CODES = 37749358i32;
+pub const CLUSCTL_RESOURCE_TYPE_NETNAME_GET_OU_FOR_VCO: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(37749358i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_GEN_APP_VALIDATE_PATH: CLUSCTL_RESOURCE_TYPE_CODES = 33554993i32;
+pub const CLUSCTL_RESOURCE_TYPE_GEN_APP_VALIDATE_PATH: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554993i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_GEN_APP_VALIDATE_DIRECTORY: CLUSCTL_RESOURCE_TYPE_CODES = 33555001i32;
+pub const CLUSCTL_RESOURCE_TYPE_GEN_APP_VALIDATE_DIRECTORY: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33555001i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_GEN_SCRIPT_VALIDATE_PATH: CLUSCTL_RESOURCE_TYPE_CODES = 33554993i32;
+pub const CLUSCTL_RESOURCE_TYPE_GEN_SCRIPT_VALIDATE_PATH: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554993i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_QUERY_DELETE: CLUSCTL_RESOURCE_TYPE_CODES = 33554873i32;
+pub const CLUSCTL_RESOURCE_TYPE_QUERY_DELETE: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554873i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_DRIVELETTERS: CLUSCTL_RESOURCE_TYPE_CODES = 33554925i32;
+pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_DRIVELETTERS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554925i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX: CLUSCTL_RESOURCE_TYPE_CODES = 33554933i32;
+pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554933i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_STORAGE_REMAP_DRIVELETTER: CLUSCTL_RESOURCE_TYPE_CODES = 33554945i32;
+pub const CLUSCTL_RESOURCE_TYPE_STORAGE_REMAP_DRIVELETTER: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554945i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_DISKID: CLUSCTL_RESOURCE_TYPE_CODES = 33554949i32;
+pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_DISKID: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554949i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_RESOURCEID: CLUSCTL_RESOURCE_TYPE_CODES = 33554989i32;
+pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_RESOURCEID: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554989i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_STORAGE_IS_CLUSTERABLE: CLUSCTL_RESOURCE_TYPE_CODES = 33554953i32;
+pub const CLUSCTL_RESOURCE_TYPE_STORAGE_IS_CLUSTERABLE: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554953i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_STORAGE_REMOVE_VM_OWNERSHIP: CLUSCTL_RESOURCE_TYPE_CODES = 37749262i32;
+pub const CLUSCTL_RESOURCE_TYPE_STORAGE_REMOVE_VM_OWNERSHIP: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(37749262i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_STORAGE_IS_CSV_FILE: CLUSCTL_RESOURCE_TYPE_CODES = 16777769i32;
+pub const CLUSCTL_RESOURCE_TYPE_STORAGE_IS_CSV_FILE: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(16777769i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_WITNESS_VALIDATE_PATH: CLUSCTL_RESOURCE_TYPE_CODES = 33554993i32;
+pub const CLUSCTL_RESOURCE_TYPE_WITNESS_VALIDATE_PATH: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33554993i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_INSTALL_NODE: CLUSCTL_RESOURCE_TYPE_CODES = 38797322i32;
+pub const CLUSCTL_RESOURCE_TYPE_INSTALL_NODE: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(38797322i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_EVICT_NODE: CLUSCTL_RESOURCE_TYPE_CODES = 38797326i32;
+pub const CLUSCTL_RESOURCE_TYPE_EVICT_NODE: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(38797326i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_CLUSTER_VERSION_CHANGED: CLUSCTL_RESOURCE_TYPE_CODES = 38797358i32;
+pub const CLUSCTL_RESOURCE_TYPE_CLUSTER_VERSION_CHANGED: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(38797358i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_FIXUP_ON_UPGRADE: CLUSCTL_RESOURCE_TYPE_CODES = 38797362i32;
+pub const CLUSCTL_RESOURCE_TYPE_FIXUP_ON_UPGRADE: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(38797362i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_STARTING_PHASE1: CLUSCTL_RESOURCE_TYPE_CODES = 38797366i32;
+pub const CLUSCTL_RESOURCE_TYPE_STARTING_PHASE1: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(38797366i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_STARTING_PHASE2: CLUSCTL_RESOURCE_TYPE_CODES = 38797370i32;
+pub const CLUSCTL_RESOURCE_TYPE_STARTING_PHASE2: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(38797370i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_HOLD_IO: CLUSCTL_RESOURCE_TYPE_CODES = 38797374i32;
+pub const CLUSCTL_RESOURCE_TYPE_HOLD_IO: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(38797374i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_RESUME_IO: CLUSCTL_RESOURCE_TYPE_CODES = 38797378i32;
+pub const CLUSCTL_RESOURCE_TYPE_RESUME_IO: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(38797378i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INT: CLUSCTL_RESOURCE_TYPE_CODES = 33562593i32;
+pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_INT: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33562593i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_REPLICATION_GET_ELIGIBLE_LOGDISKS: CLUSCTL_RESOURCE_TYPE_CODES = 33562953i32;
+pub const CLUSCTL_RESOURCE_TYPE_REPLICATION_GET_ELIGIBLE_LOGDISKS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33562953i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_REPLICATION_GET_ELIGIBLE_TARGET_DATADISKS: CLUSCTL_RESOURCE_TYPE_CODES = 33562957i32;
+pub const CLUSCTL_RESOURCE_TYPE_REPLICATION_GET_ELIGIBLE_TARGET_DATADISKS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33562957i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_REPLICATION_GET_ELIGIBLE_SOURCE_DATADISKS: CLUSCTL_RESOURCE_TYPE_CODES = 33562961i32;
+pub const CLUSCTL_RESOURCE_TYPE_REPLICATION_GET_ELIGIBLE_SOURCE_DATADISKS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33562961i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_REPLICATION_GET_REPLICATED_DISKS: CLUSCTL_RESOURCE_TYPE_CODES = 33562965i32;
+pub const CLUSCTL_RESOURCE_TYPE_REPLICATION_GET_REPLICATED_DISKS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33562965i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_REPLICATION_GET_REPLICA_VOLUMES: CLUSCTL_RESOURCE_TYPE_CODES = 33562969i32;
+pub const CLUSCTL_RESOURCE_TYPE_REPLICATION_GET_REPLICA_VOLUMES: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33562969i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_REPLICATION_GET_LOG_VOLUME: CLUSCTL_RESOURCE_TYPE_CODES = 33562973i32;
+pub const CLUSCTL_RESOURCE_TYPE_REPLICATION_GET_LOG_VOLUME: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33562973i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_REPLICATION_GET_RESOURCE_GROUP: CLUSCTL_RESOURCE_TYPE_CODES = 33562977i32;
+pub const CLUSCTL_RESOURCE_TYPE_REPLICATION_GET_RESOURCE_GROUP: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33562977i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_REPLICATION_GET_REPLICATED_PARTITION_INFO: CLUSCTL_RESOURCE_TYPE_CODES = 33562981i32;
+pub const CLUSCTL_RESOURCE_TYPE_REPLICATION_GET_REPLICATED_PARTITION_INFO: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33562981i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_REPLICATION_GET_LOG_INFO: CLUSCTL_RESOURCE_TYPE_CODES = 33562949i32;
+pub const CLUSCTL_RESOURCE_TYPE_REPLICATION_GET_LOG_INFO: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33562949i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_REPLICATION_ADD_REPLICATION_GROUP: CLUSCTL_RESOURCE_TYPE_CODES = 33562946i32;
+pub const CLUSCTL_RESOURCE_TYPE_REPLICATION_ADD_REPLICATION_GROUP: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33562946i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_CLOUD_WITNESS_RESOURCE_TYPE_VALIDATE_CREDENTIALS: CLUSCTL_RESOURCE_TYPE_CODES = 33562849i32;
+pub const CLUSCTL_CLOUD_WITNESS_RESOURCE_TYPE_VALIDATE_CREDENTIALS: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33562849i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_CLOUD_WITNESS_RESOURCE_TYPE_VALIDATE_CREDENTIALS_WITH_KEY: CLUSCTL_RESOURCE_TYPE_CODES = 33562865i32;
+pub const CLUSCTL_CLOUD_WITNESS_RESOURCE_TYPE_VALIDATE_CREDENTIALS_WITH_KEY: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(33562865i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_PREPARE_UPGRADE: CLUSCTL_RESOURCE_TYPE_CODES = 37757162i32;
+pub const CLUSCTL_RESOURCE_TYPE_PREPARE_UPGRADE: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(37757162i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_UPGRADE_COMPLETED: CLUSCTL_RESOURCE_TYPE_CODES = 37757166i32;
+pub const CLUSCTL_RESOURCE_TYPE_UPGRADE_COMPLETED: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(37757166i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_NOTIFY_MONITOR_SHUTTING_DOWN: CLUSCTL_RESOURCE_TYPE_CODES = 34603137i32;
+pub const CLUSCTL_RESOURCE_TYPE_NOTIFY_MONITOR_SHUTTING_DOWN: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(34603137i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_CHECK_DRAIN_VETO: CLUSCTL_RESOURCE_TYPE_CODES = 34611501i32;
+pub const CLUSCTL_RESOURCE_TYPE_CHECK_DRAIN_VETO: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(34611501i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSCTL_RESOURCE_TYPE_NOTIFY_DRAIN_COMPLETE: CLUSCTL_RESOURCE_TYPE_CODES = 34611505i32;
+pub const CLUSCTL_RESOURCE_TYPE_NOTIFY_DRAIN_COMPLETE: CLUSCTL_RESOURCE_TYPE_CODES = CLUSCTL_RESOURCE_TYPE_CODES(34611505i32);
+impl ::core::marker::Copy for CLUSCTL_RESOURCE_TYPE_CODES {}
+impl ::core::clone::Clone for CLUSCTL_RESOURCE_TYPE_CODES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSCTL_RESOURCE_TYPE_CODES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSCTL_RESOURCE_TYPE_CODES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSCTL_RESOURCE_TYPE_CODES").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSCTL_RESOURCE_TYPE_STORAGE_GET_AVAILABLE_DISKS_EX2_FLAG_ADD_VOLUME_INFO: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
@@ -1837,67 +2013,83 @@ pub const CLUSGROUPSET_STATUS_GROUPS_PENDING: u64 = 1u64;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSGROUPSET_STATUS_OS_HEARTBEAT: u64 = 4u64;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSGROUP_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSGROUP_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusGroupTypeCoreCluster: CLUSGROUP_TYPE = 1i32;
+pub const ClusGroupTypeCoreCluster: CLUSGROUP_TYPE = CLUSGROUP_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusGroupTypeAvailableStorage: CLUSGROUP_TYPE = 2i32;
+pub const ClusGroupTypeAvailableStorage: CLUSGROUP_TYPE = CLUSGROUP_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusGroupTypeTemporary: CLUSGROUP_TYPE = 3i32;
+pub const ClusGroupTypeTemporary: CLUSGROUP_TYPE = CLUSGROUP_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusGroupTypeSharedVolume: CLUSGROUP_TYPE = 4i32;
+pub const ClusGroupTypeSharedVolume: CLUSGROUP_TYPE = CLUSGROUP_TYPE(4i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusGroupTypeStoragePool: CLUSGROUP_TYPE = 5i32;
+pub const ClusGroupTypeStoragePool: CLUSGROUP_TYPE = CLUSGROUP_TYPE(5i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusGroupTypeFileServer: CLUSGROUP_TYPE = 100i32;
+pub const ClusGroupTypeFileServer: CLUSGROUP_TYPE = CLUSGROUP_TYPE(100i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusGroupTypePrintServer: CLUSGROUP_TYPE = 101i32;
+pub const ClusGroupTypePrintServer: CLUSGROUP_TYPE = CLUSGROUP_TYPE(101i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusGroupTypeDhcpServer: CLUSGROUP_TYPE = 102i32;
+pub const ClusGroupTypeDhcpServer: CLUSGROUP_TYPE = CLUSGROUP_TYPE(102i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusGroupTypeDtc: CLUSGROUP_TYPE = 103i32;
+pub const ClusGroupTypeDtc: CLUSGROUP_TYPE = CLUSGROUP_TYPE(103i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusGroupTypeMsmq: CLUSGROUP_TYPE = 104i32;
+pub const ClusGroupTypeMsmq: CLUSGROUP_TYPE = CLUSGROUP_TYPE(104i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusGroupTypeWins: CLUSGROUP_TYPE = 105i32;
+pub const ClusGroupTypeWins: CLUSGROUP_TYPE = CLUSGROUP_TYPE(105i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusGroupTypeStandAloneDfs: CLUSGROUP_TYPE = 106i32;
+pub const ClusGroupTypeStandAloneDfs: CLUSGROUP_TYPE = CLUSGROUP_TYPE(106i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusGroupTypeGenericApplication: CLUSGROUP_TYPE = 107i32;
+pub const ClusGroupTypeGenericApplication: CLUSGROUP_TYPE = CLUSGROUP_TYPE(107i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusGroupTypeGenericService: CLUSGROUP_TYPE = 108i32;
+pub const ClusGroupTypeGenericService: CLUSGROUP_TYPE = CLUSGROUP_TYPE(108i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusGroupTypeGenericScript: CLUSGROUP_TYPE = 109i32;
+pub const ClusGroupTypeGenericScript: CLUSGROUP_TYPE = CLUSGROUP_TYPE(109i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusGroupTypeIScsiNameService: CLUSGROUP_TYPE = 110i32;
+pub const ClusGroupTypeIScsiNameService: CLUSGROUP_TYPE = CLUSGROUP_TYPE(110i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusGroupTypeVirtualMachine: CLUSGROUP_TYPE = 111i32;
+pub const ClusGroupTypeVirtualMachine: CLUSGROUP_TYPE = CLUSGROUP_TYPE(111i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusGroupTypeTsSessionBroker: CLUSGROUP_TYPE = 112i32;
+pub const ClusGroupTypeTsSessionBroker: CLUSGROUP_TYPE = CLUSGROUP_TYPE(112i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusGroupTypeIScsiTarget: CLUSGROUP_TYPE = 113i32;
+pub const ClusGroupTypeIScsiTarget: CLUSGROUP_TYPE = CLUSGROUP_TYPE(113i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusGroupTypeScaleoutFileServer: CLUSGROUP_TYPE = 114i32;
+pub const ClusGroupTypeScaleoutFileServer: CLUSGROUP_TYPE = CLUSGROUP_TYPE(114i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusGroupTypeVMReplicaBroker: CLUSGROUP_TYPE = 115i32;
+pub const ClusGroupTypeVMReplicaBroker: CLUSGROUP_TYPE = CLUSGROUP_TYPE(115i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusGroupTypeTaskScheduler: CLUSGROUP_TYPE = 116i32;
+pub const ClusGroupTypeTaskScheduler: CLUSGROUP_TYPE = CLUSGROUP_TYPE(116i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusGroupTypeClusterUpdateAgent: CLUSGROUP_TYPE = 117i32;
+pub const ClusGroupTypeClusterUpdateAgent: CLUSGROUP_TYPE = CLUSGROUP_TYPE(117i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusGroupTypeScaleoutCluster: CLUSGROUP_TYPE = 118i32;
+pub const ClusGroupTypeScaleoutCluster: CLUSGROUP_TYPE = CLUSGROUP_TYPE(118i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusGroupTypeStorageReplica: CLUSGROUP_TYPE = 119i32;
+pub const ClusGroupTypeStorageReplica: CLUSGROUP_TYPE = CLUSGROUP_TYPE(119i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusGroupTypeVMReplicaCoordinator: CLUSGROUP_TYPE = 120i32;
+pub const ClusGroupTypeVMReplicaCoordinator: CLUSGROUP_TYPE = CLUSGROUP_TYPE(120i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusGroupTypeCrossClusterOrchestrator: CLUSGROUP_TYPE = 121i32;
+pub const ClusGroupTypeCrossClusterOrchestrator: CLUSGROUP_TYPE = CLUSGROUP_TYPE(121i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusGroupTypeInfrastructureFileServer: CLUSGROUP_TYPE = 122i32;
+pub const ClusGroupTypeInfrastructureFileServer: CLUSGROUP_TYPE = CLUSGROUP_TYPE(122i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusGroupTypeCoreSddc: CLUSGROUP_TYPE = 123i32;
+pub const ClusGroupTypeCoreSddc: CLUSGROUP_TYPE = CLUSGROUP_TYPE(123i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusGroupTypeUnknown: CLUSGROUP_TYPE = 9999i32;
+pub const ClusGroupTypeUnknown: CLUSGROUP_TYPE = CLUSGROUP_TYPE(9999i32);
+impl ::core::marker::Copy for CLUSGROUP_TYPE {}
+impl ::core::clone::Clone for CLUSGROUP_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSGROUP_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSGROUP_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSGROUP_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSGRP_STATUS_APPLICATION_READY: u64 = 1024u64;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
@@ -2095,13 +2287,29 @@ impl ::core::default::Default for CLUSPROP_FTSET_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSPROP_IPADDR_ENABLENETBIOS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSPROP_IPADDR_ENABLENETBIOS(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_IPADDR_ENABLENETBIOS_DISABLED: CLUSPROP_IPADDR_ENABLENETBIOS = 0i32;
+pub const CLUSPROP_IPADDR_ENABLENETBIOS_DISABLED: CLUSPROP_IPADDR_ENABLENETBIOS = CLUSPROP_IPADDR_ENABLENETBIOS(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_IPADDR_ENABLENETBIOS_ENABLED: CLUSPROP_IPADDR_ENABLENETBIOS = 1i32;
+pub const CLUSPROP_IPADDR_ENABLENETBIOS_ENABLED: CLUSPROP_IPADDR_ENABLENETBIOS = CLUSPROP_IPADDR_ENABLENETBIOS(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_IPADDR_ENABLENETBIOS_TRACK_NIC: CLUSPROP_IPADDR_ENABLENETBIOS = 2i32;
+pub const CLUSPROP_IPADDR_ENABLENETBIOS_TRACK_NIC: CLUSPROP_IPADDR_ENABLENETBIOS = CLUSPROP_IPADDR_ENABLENETBIOS(2i32);
+impl ::core::marker::Copy for CLUSPROP_IPADDR_ENABLENETBIOS {}
+impl ::core::clone::Clone for CLUSPROP_IPADDR_ENABLENETBIOS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSPROP_IPADDR_ENABLENETBIOS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSPROP_IPADDR_ENABLENETBIOS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSPROP_IPADDR_ENABLENETBIOS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub struct CLUSPROP_LARGE_INTEGER {
@@ -2259,23 +2467,39 @@ impl ::core::default::Default for CLUSPROP_PARTITION_INFO_EX2 {
     }
 }
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSPROP_PIFLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSPROP_PIFLAGS(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_PIFLAG_STICKY: CLUSPROP_PIFLAGS = 1i32;
+pub const CLUSPROP_PIFLAG_STICKY: CLUSPROP_PIFLAGS = CLUSPROP_PIFLAGS(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_PIFLAG_REMOVABLE: CLUSPROP_PIFLAGS = 2i32;
+pub const CLUSPROP_PIFLAG_REMOVABLE: CLUSPROP_PIFLAGS = CLUSPROP_PIFLAGS(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_PIFLAG_USABLE: CLUSPROP_PIFLAGS = 4i32;
+pub const CLUSPROP_PIFLAG_USABLE: CLUSPROP_PIFLAGS = CLUSPROP_PIFLAGS(4i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_PIFLAG_DEFAULT_QUORUM: CLUSPROP_PIFLAGS = 8i32;
+pub const CLUSPROP_PIFLAG_DEFAULT_QUORUM: CLUSPROP_PIFLAGS = CLUSPROP_PIFLAGS(8i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_PIFLAG_USABLE_FOR_CSV: CLUSPROP_PIFLAGS = 16i32;
+pub const CLUSPROP_PIFLAG_USABLE_FOR_CSV: CLUSPROP_PIFLAGS = CLUSPROP_PIFLAGS(16i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_PIFLAG_ENCRYPTION_ENABLED: CLUSPROP_PIFLAGS = 32i32;
+pub const CLUSPROP_PIFLAG_ENCRYPTION_ENABLED: CLUSPROP_PIFLAGS = CLUSPROP_PIFLAGS(32i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_PIFLAG_RAW: CLUSPROP_PIFLAGS = 64i32;
+pub const CLUSPROP_PIFLAG_RAW: CLUSPROP_PIFLAGS = CLUSPROP_PIFLAGS(64i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_PIFLAG_UNKNOWN: CLUSPROP_PIFLAGS = -2147483648i32;
+pub const CLUSPROP_PIFLAG_UNKNOWN: CLUSPROP_PIFLAGS = CLUSPROP_PIFLAGS(-2147483648i32);
+impl ::core::marker::Copy for CLUSPROP_PIFLAGS {}
+impl ::core::clone::Clone for CLUSPROP_PIFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSPROP_PIFLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSPROP_PIFLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSPROP_PIFLAGS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub union CLUSPROP_REQUIRED_DEPENDENCY {
@@ -2655,15 +2879,31 @@ pub const CLUSRES_STATUS_OS_HEARTBEAT: u64 = 128u64;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSRES_STATUS_UNMONITORED: u64 = 64u64;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTERSET_OBJECT_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTERSET_OBJECT_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTERSET_OBJECT_TYPE_NONE: CLUSTERSET_OBJECT_TYPE = 0i32;
+pub const CLUSTERSET_OBJECT_TYPE_NONE: CLUSTERSET_OBJECT_TYPE = CLUSTERSET_OBJECT_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTERSET_OBJECT_TYPE_MEMBER: CLUSTERSET_OBJECT_TYPE = 1i32;
+pub const CLUSTERSET_OBJECT_TYPE_MEMBER: CLUSTERSET_OBJECT_TYPE = CLUSTERSET_OBJECT_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTERSET_OBJECT_TYPE_WORKLOAD: CLUSTERSET_OBJECT_TYPE = 2i32;
+pub const CLUSTERSET_OBJECT_TYPE_WORKLOAD: CLUSTERSET_OBJECT_TYPE = CLUSTERSET_OBJECT_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTERSET_OBJECT_TYPE_DATABASE: CLUSTERSET_OBJECT_TYPE = 3i32;
+pub const CLUSTERSET_OBJECT_TYPE_DATABASE: CLUSTERSET_OBJECT_TYPE = CLUSTERSET_OBJECT_TYPE(3i32);
+impl ::core::marker::Copy for CLUSTERSET_OBJECT_TYPE {}
+impl ::core::clone::Clone for CLUSTERSET_OBJECT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTERSET_OBJECT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTERSET_OBJECT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTERSET_OBJECT_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub struct CLUSTERVERSIONINFO {
@@ -2835,319 +3075,575 @@ impl ::core::default::Default for CLUSTER_BATCH_COMMAND {
     }
 }
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_CHANGE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_CHANGE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_NODE_STATE: CLUSTER_CHANGE = 1i32;
+pub const CLUSTER_CHANGE_NODE_STATE: CLUSTER_CHANGE = CLUSTER_CHANGE(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_NODE_DELETED: CLUSTER_CHANGE = 2i32;
+pub const CLUSTER_CHANGE_NODE_DELETED: CLUSTER_CHANGE = CLUSTER_CHANGE(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_NODE_ADDED: CLUSTER_CHANGE = 4i32;
+pub const CLUSTER_CHANGE_NODE_ADDED: CLUSTER_CHANGE = CLUSTER_CHANGE(4i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_NODE_PROPERTY: CLUSTER_CHANGE = 8i32;
+pub const CLUSTER_CHANGE_NODE_PROPERTY: CLUSTER_CHANGE = CLUSTER_CHANGE(8i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_REGISTRY_NAME: CLUSTER_CHANGE = 16i32;
+pub const CLUSTER_CHANGE_REGISTRY_NAME: CLUSTER_CHANGE = CLUSTER_CHANGE(16i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_REGISTRY_ATTRIBUTES: CLUSTER_CHANGE = 32i32;
+pub const CLUSTER_CHANGE_REGISTRY_ATTRIBUTES: CLUSTER_CHANGE = CLUSTER_CHANGE(32i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_REGISTRY_VALUE: CLUSTER_CHANGE = 64i32;
+pub const CLUSTER_CHANGE_REGISTRY_VALUE: CLUSTER_CHANGE = CLUSTER_CHANGE(64i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_REGISTRY_SUBTREE: CLUSTER_CHANGE = 128i32;
+pub const CLUSTER_CHANGE_REGISTRY_SUBTREE: CLUSTER_CHANGE = CLUSTER_CHANGE(128i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_RESOURCE_STATE: CLUSTER_CHANGE = 256i32;
+pub const CLUSTER_CHANGE_RESOURCE_STATE: CLUSTER_CHANGE = CLUSTER_CHANGE(256i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_RESOURCE_DELETED: CLUSTER_CHANGE = 512i32;
+pub const CLUSTER_CHANGE_RESOURCE_DELETED: CLUSTER_CHANGE = CLUSTER_CHANGE(512i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_RESOURCE_ADDED: CLUSTER_CHANGE = 1024i32;
+pub const CLUSTER_CHANGE_RESOURCE_ADDED: CLUSTER_CHANGE = CLUSTER_CHANGE(1024i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_RESOURCE_PROPERTY: CLUSTER_CHANGE = 2048i32;
+pub const CLUSTER_CHANGE_RESOURCE_PROPERTY: CLUSTER_CHANGE = CLUSTER_CHANGE(2048i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_GROUP_STATE: CLUSTER_CHANGE = 4096i32;
+pub const CLUSTER_CHANGE_GROUP_STATE: CLUSTER_CHANGE = CLUSTER_CHANGE(4096i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_GROUP_DELETED: CLUSTER_CHANGE = 8192i32;
+pub const CLUSTER_CHANGE_GROUP_DELETED: CLUSTER_CHANGE = CLUSTER_CHANGE(8192i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_GROUP_ADDED: CLUSTER_CHANGE = 16384i32;
+pub const CLUSTER_CHANGE_GROUP_ADDED: CLUSTER_CHANGE = CLUSTER_CHANGE(16384i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_GROUP_PROPERTY: CLUSTER_CHANGE = 32768i32;
+pub const CLUSTER_CHANGE_GROUP_PROPERTY: CLUSTER_CHANGE = CLUSTER_CHANGE(32768i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_RESOURCE_TYPE_DELETED: CLUSTER_CHANGE = 65536i32;
+pub const CLUSTER_CHANGE_RESOURCE_TYPE_DELETED: CLUSTER_CHANGE = CLUSTER_CHANGE(65536i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_RESOURCE_TYPE_ADDED: CLUSTER_CHANGE = 131072i32;
+pub const CLUSTER_CHANGE_RESOURCE_TYPE_ADDED: CLUSTER_CHANGE = CLUSTER_CHANGE(131072i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_RESOURCE_TYPE_PROPERTY: CLUSTER_CHANGE = 262144i32;
+pub const CLUSTER_CHANGE_RESOURCE_TYPE_PROPERTY: CLUSTER_CHANGE = CLUSTER_CHANGE(262144i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_CLUSTER_RECONNECT: CLUSTER_CHANGE = 524288i32;
+pub const CLUSTER_CHANGE_CLUSTER_RECONNECT: CLUSTER_CHANGE = CLUSTER_CHANGE(524288i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_NETWORK_STATE: CLUSTER_CHANGE = 1048576i32;
+pub const CLUSTER_CHANGE_NETWORK_STATE: CLUSTER_CHANGE = CLUSTER_CHANGE(1048576i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_NETWORK_DELETED: CLUSTER_CHANGE = 2097152i32;
+pub const CLUSTER_CHANGE_NETWORK_DELETED: CLUSTER_CHANGE = CLUSTER_CHANGE(2097152i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_NETWORK_ADDED: CLUSTER_CHANGE = 4194304i32;
+pub const CLUSTER_CHANGE_NETWORK_ADDED: CLUSTER_CHANGE = CLUSTER_CHANGE(4194304i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_NETWORK_PROPERTY: CLUSTER_CHANGE = 8388608i32;
+pub const CLUSTER_CHANGE_NETWORK_PROPERTY: CLUSTER_CHANGE = CLUSTER_CHANGE(8388608i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_NETINTERFACE_STATE: CLUSTER_CHANGE = 16777216i32;
+pub const CLUSTER_CHANGE_NETINTERFACE_STATE: CLUSTER_CHANGE = CLUSTER_CHANGE(16777216i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_NETINTERFACE_DELETED: CLUSTER_CHANGE = 33554432i32;
+pub const CLUSTER_CHANGE_NETINTERFACE_DELETED: CLUSTER_CHANGE = CLUSTER_CHANGE(33554432i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_NETINTERFACE_ADDED: CLUSTER_CHANGE = 67108864i32;
+pub const CLUSTER_CHANGE_NETINTERFACE_ADDED: CLUSTER_CHANGE = CLUSTER_CHANGE(67108864i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_NETINTERFACE_PROPERTY: CLUSTER_CHANGE = 134217728i32;
+pub const CLUSTER_CHANGE_NETINTERFACE_PROPERTY: CLUSTER_CHANGE = CLUSTER_CHANGE(134217728i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_QUORUM_STATE: CLUSTER_CHANGE = 268435456i32;
+pub const CLUSTER_CHANGE_QUORUM_STATE: CLUSTER_CHANGE = CLUSTER_CHANGE(268435456i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_CLUSTER_STATE: CLUSTER_CHANGE = 536870912i32;
+pub const CLUSTER_CHANGE_CLUSTER_STATE: CLUSTER_CHANGE = CLUSTER_CHANGE(536870912i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_CLUSTER_PROPERTY: CLUSTER_CHANGE = 1073741824i32;
+pub const CLUSTER_CHANGE_CLUSTER_PROPERTY: CLUSTER_CHANGE = CLUSTER_CHANGE(1073741824i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_HANDLE_CLOSE: CLUSTER_CHANGE = -2147483648i32;
+pub const CLUSTER_CHANGE_HANDLE_CLOSE: CLUSTER_CHANGE = CLUSTER_CHANGE(-2147483648i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_ALL: CLUSTER_CHANGE = -1i32;
+pub const CLUSTER_CHANGE_ALL: CLUSTER_CHANGE = CLUSTER_CHANGE(-1i32);
+impl ::core::marker::Copy for CLUSTER_CHANGE {}
+impl ::core::clone::Clone for CLUSTER_CHANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_CHANGE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_CHANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_CHANGE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_CHANGE_CLUSTER_V2 = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_CHANGE_CLUSTER_V2(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_CLUSTER_RECONNECT_V2: CLUSTER_CHANGE_CLUSTER_V2 = 1i32;
+pub const CLUSTER_CHANGE_CLUSTER_RECONNECT_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_CLUSTER_STATE_V2: CLUSTER_CHANGE_CLUSTER_V2 = 2i32;
+pub const CLUSTER_CHANGE_CLUSTER_STATE_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_CLUSTER_GROUP_ADDED_V2: CLUSTER_CHANGE_CLUSTER_V2 = 4i32;
+pub const CLUSTER_CHANGE_CLUSTER_GROUP_ADDED_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(4i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_CLUSTER_HANDLE_CLOSE_V2: CLUSTER_CHANGE_CLUSTER_V2 = 8i32;
+pub const CLUSTER_CHANGE_CLUSTER_HANDLE_CLOSE_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(8i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_CLUSTER_NETWORK_ADDED_V2: CLUSTER_CHANGE_CLUSTER_V2 = 16i32;
+pub const CLUSTER_CHANGE_CLUSTER_NETWORK_ADDED_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(16i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_CLUSTER_NODE_ADDED_V2: CLUSTER_CHANGE_CLUSTER_V2 = 32i32;
+pub const CLUSTER_CHANGE_CLUSTER_NODE_ADDED_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(32i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_CLUSTER_RESOURCE_TYPE_ADDED_V2: CLUSTER_CHANGE_CLUSTER_V2 = 64i32;
+pub const CLUSTER_CHANGE_CLUSTER_RESOURCE_TYPE_ADDED_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(64i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_CLUSTER_COMMON_PROPERTY_V2: CLUSTER_CHANGE_CLUSTER_V2 = 128i32;
+pub const CLUSTER_CHANGE_CLUSTER_COMMON_PROPERTY_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(128i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_CLUSTER_PRIVATE_PROPERTY_V2: CLUSTER_CHANGE_CLUSTER_V2 = 256i32;
+pub const CLUSTER_CHANGE_CLUSTER_PRIVATE_PROPERTY_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(256i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_CLUSTER_LOST_NOTIFICATIONS_V2: CLUSTER_CHANGE_CLUSTER_V2 = 512i32;
+pub const CLUSTER_CHANGE_CLUSTER_LOST_NOTIFICATIONS_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(512i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_CLUSTER_RENAME_V2: CLUSTER_CHANGE_CLUSTER_V2 = 1024i32;
+pub const CLUSTER_CHANGE_CLUSTER_RENAME_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(1024i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_CLUSTER_MEMBERSHIP_V2: CLUSTER_CHANGE_CLUSTER_V2 = 2048i32;
+pub const CLUSTER_CHANGE_CLUSTER_MEMBERSHIP_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(2048i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_CLUSTER_UPGRADED_V2: CLUSTER_CHANGE_CLUSTER_V2 = 4096i32;
+pub const CLUSTER_CHANGE_CLUSTER_UPGRADED_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(4096i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_CLUSTER_ALL_V2: CLUSTER_CHANGE_CLUSTER_V2 = 8191i32;
+pub const CLUSTER_CHANGE_CLUSTER_ALL_V2: CLUSTER_CHANGE_CLUSTER_V2 = CLUSTER_CHANGE_CLUSTER_V2(8191i32);
+impl ::core::marker::Copy for CLUSTER_CHANGE_CLUSTER_V2 {}
+impl ::core::clone::Clone for CLUSTER_CHANGE_CLUSTER_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_CHANGE_CLUSTER_V2 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_CHANGE_CLUSTER_V2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_CHANGE_CLUSTER_V2").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_CHANGE_GROUPSET_V2 = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_CHANGE_GROUPSET_V2(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_GROUPSET_DELETED_v2: CLUSTER_CHANGE_GROUPSET_V2 = 1i32;
+pub const CLUSTER_CHANGE_GROUPSET_DELETED_v2: CLUSTER_CHANGE_GROUPSET_V2 = CLUSTER_CHANGE_GROUPSET_V2(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_GROUPSET_COMMON_PROPERTY_V2: CLUSTER_CHANGE_GROUPSET_V2 = 2i32;
+pub const CLUSTER_CHANGE_GROUPSET_COMMON_PROPERTY_V2: CLUSTER_CHANGE_GROUPSET_V2 = CLUSTER_CHANGE_GROUPSET_V2(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_GROUPSET_PRIVATE_PROPERTY_V2: CLUSTER_CHANGE_GROUPSET_V2 = 4i32;
+pub const CLUSTER_CHANGE_GROUPSET_PRIVATE_PROPERTY_V2: CLUSTER_CHANGE_GROUPSET_V2 = CLUSTER_CHANGE_GROUPSET_V2(4i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_GROUPSET_STATE_V2: CLUSTER_CHANGE_GROUPSET_V2 = 8i32;
+pub const CLUSTER_CHANGE_GROUPSET_STATE_V2: CLUSTER_CHANGE_GROUPSET_V2 = CLUSTER_CHANGE_GROUPSET_V2(8i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_GROUPSET_GROUP_ADDED: CLUSTER_CHANGE_GROUPSET_V2 = 16i32;
+pub const CLUSTER_CHANGE_GROUPSET_GROUP_ADDED: CLUSTER_CHANGE_GROUPSET_V2 = CLUSTER_CHANGE_GROUPSET_V2(16i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_GROUPSET_GROUP_REMOVED: CLUSTER_CHANGE_GROUPSET_V2 = 32i32;
+pub const CLUSTER_CHANGE_GROUPSET_GROUP_REMOVED: CLUSTER_CHANGE_GROUPSET_V2 = CLUSTER_CHANGE_GROUPSET_V2(32i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_GROUPSET_DEPENDENCIES_V2: CLUSTER_CHANGE_GROUPSET_V2 = 64i32;
+pub const CLUSTER_CHANGE_GROUPSET_DEPENDENCIES_V2: CLUSTER_CHANGE_GROUPSET_V2 = CLUSTER_CHANGE_GROUPSET_V2(64i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_GROUPSET_DEPENDENTS_V2: CLUSTER_CHANGE_GROUPSET_V2 = 128i32;
+pub const CLUSTER_CHANGE_GROUPSET_DEPENDENTS_V2: CLUSTER_CHANGE_GROUPSET_V2 = CLUSTER_CHANGE_GROUPSET_V2(128i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_GROUPSET_HANDLE_CLOSE_v2: CLUSTER_CHANGE_GROUPSET_V2 = 256i32;
+pub const CLUSTER_CHANGE_GROUPSET_HANDLE_CLOSE_v2: CLUSTER_CHANGE_GROUPSET_V2 = CLUSTER_CHANGE_GROUPSET_V2(256i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_GROUPSET_ALL_V2: CLUSTER_CHANGE_GROUPSET_V2 = 511i32;
+pub const CLUSTER_CHANGE_GROUPSET_ALL_V2: CLUSTER_CHANGE_GROUPSET_V2 = CLUSTER_CHANGE_GROUPSET_V2(511i32);
+impl ::core::marker::Copy for CLUSTER_CHANGE_GROUPSET_V2 {}
+impl ::core::clone::Clone for CLUSTER_CHANGE_GROUPSET_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_CHANGE_GROUPSET_V2 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_CHANGE_GROUPSET_V2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_CHANGE_GROUPSET_V2").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_CHANGE_GROUP_V2 = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_CHANGE_GROUP_V2(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_GROUP_DELETED_V2: CLUSTER_CHANGE_GROUP_V2 = 1i32;
+pub const CLUSTER_CHANGE_GROUP_DELETED_V2: CLUSTER_CHANGE_GROUP_V2 = CLUSTER_CHANGE_GROUP_V2(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_GROUP_COMMON_PROPERTY_V2: CLUSTER_CHANGE_GROUP_V2 = 2i32;
+pub const CLUSTER_CHANGE_GROUP_COMMON_PROPERTY_V2: CLUSTER_CHANGE_GROUP_V2 = CLUSTER_CHANGE_GROUP_V2(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_GROUP_PRIVATE_PROPERTY_V2: CLUSTER_CHANGE_GROUP_V2 = 4i32;
+pub const CLUSTER_CHANGE_GROUP_PRIVATE_PROPERTY_V2: CLUSTER_CHANGE_GROUP_V2 = CLUSTER_CHANGE_GROUP_V2(4i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_GROUP_STATE_V2: CLUSTER_CHANGE_GROUP_V2 = 8i32;
+pub const CLUSTER_CHANGE_GROUP_STATE_V2: CLUSTER_CHANGE_GROUP_V2 = CLUSTER_CHANGE_GROUP_V2(8i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_GROUP_OWNER_NODE_V2: CLUSTER_CHANGE_GROUP_V2 = 16i32;
+pub const CLUSTER_CHANGE_GROUP_OWNER_NODE_V2: CLUSTER_CHANGE_GROUP_V2 = CLUSTER_CHANGE_GROUP_V2(16i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_GROUP_PREFERRED_OWNERS_V2: CLUSTER_CHANGE_GROUP_V2 = 32i32;
+pub const CLUSTER_CHANGE_GROUP_PREFERRED_OWNERS_V2: CLUSTER_CHANGE_GROUP_V2 = CLUSTER_CHANGE_GROUP_V2(32i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_GROUP_RESOURCE_ADDED_V2: CLUSTER_CHANGE_GROUP_V2 = 64i32;
+pub const CLUSTER_CHANGE_GROUP_RESOURCE_ADDED_V2: CLUSTER_CHANGE_GROUP_V2 = CLUSTER_CHANGE_GROUP_V2(64i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_GROUP_RESOURCE_GAINED_V2: CLUSTER_CHANGE_GROUP_V2 = 128i32;
+pub const CLUSTER_CHANGE_GROUP_RESOURCE_GAINED_V2: CLUSTER_CHANGE_GROUP_V2 = CLUSTER_CHANGE_GROUP_V2(128i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_GROUP_RESOURCE_LOST_V2: CLUSTER_CHANGE_GROUP_V2 = 256i32;
+pub const CLUSTER_CHANGE_GROUP_RESOURCE_LOST_V2: CLUSTER_CHANGE_GROUP_V2 = CLUSTER_CHANGE_GROUP_V2(256i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_GROUP_HANDLE_CLOSE_V2: CLUSTER_CHANGE_GROUP_V2 = 512i32;
+pub const CLUSTER_CHANGE_GROUP_HANDLE_CLOSE_V2: CLUSTER_CHANGE_GROUP_V2 = CLUSTER_CHANGE_GROUP_V2(512i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_GROUP_ALL_V2: CLUSTER_CHANGE_GROUP_V2 = 1023i32;
+pub const CLUSTER_CHANGE_GROUP_ALL_V2: CLUSTER_CHANGE_GROUP_V2 = CLUSTER_CHANGE_GROUP_V2(1023i32);
+impl ::core::marker::Copy for CLUSTER_CHANGE_GROUP_V2 {}
+impl ::core::clone::Clone for CLUSTER_CHANGE_GROUP_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_CHANGE_GROUP_V2 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_CHANGE_GROUP_V2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_CHANGE_GROUP_V2").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_CHANGE_NETINTERFACE_V2 = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_CHANGE_NETINTERFACE_V2(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_NETINTERFACE_DELETED_V2: CLUSTER_CHANGE_NETINTERFACE_V2 = 1i32;
+pub const CLUSTER_CHANGE_NETINTERFACE_DELETED_V2: CLUSTER_CHANGE_NETINTERFACE_V2 = CLUSTER_CHANGE_NETINTERFACE_V2(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_NETINTERFACE_COMMON_PROPERTY_V2: CLUSTER_CHANGE_NETINTERFACE_V2 = 2i32;
+pub const CLUSTER_CHANGE_NETINTERFACE_COMMON_PROPERTY_V2: CLUSTER_CHANGE_NETINTERFACE_V2 = CLUSTER_CHANGE_NETINTERFACE_V2(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_NETINTERFACE_PRIVATE_PROPERTY_V2: CLUSTER_CHANGE_NETINTERFACE_V2 = 4i32;
+pub const CLUSTER_CHANGE_NETINTERFACE_PRIVATE_PROPERTY_V2: CLUSTER_CHANGE_NETINTERFACE_V2 = CLUSTER_CHANGE_NETINTERFACE_V2(4i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_NETINTERFACE_STATE_V2: CLUSTER_CHANGE_NETINTERFACE_V2 = 8i32;
+pub const CLUSTER_CHANGE_NETINTERFACE_STATE_V2: CLUSTER_CHANGE_NETINTERFACE_V2 = CLUSTER_CHANGE_NETINTERFACE_V2(8i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_NETINTERFACE_HANDLE_CLOSE_V2: CLUSTER_CHANGE_NETINTERFACE_V2 = 16i32;
+pub const CLUSTER_CHANGE_NETINTERFACE_HANDLE_CLOSE_V2: CLUSTER_CHANGE_NETINTERFACE_V2 = CLUSTER_CHANGE_NETINTERFACE_V2(16i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_NETINTERFACE_ALL_V2: CLUSTER_CHANGE_NETINTERFACE_V2 = 31i32;
+pub const CLUSTER_CHANGE_NETINTERFACE_ALL_V2: CLUSTER_CHANGE_NETINTERFACE_V2 = CLUSTER_CHANGE_NETINTERFACE_V2(31i32);
+impl ::core::marker::Copy for CLUSTER_CHANGE_NETINTERFACE_V2 {}
+impl ::core::clone::Clone for CLUSTER_CHANGE_NETINTERFACE_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_CHANGE_NETINTERFACE_V2 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_CHANGE_NETINTERFACE_V2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_CHANGE_NETINTERFACE_V2").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_CHANGE_NETWORK_V2 = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_CHANGE_NETWORK_V2(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_NETWORK_DELETED_V2: CLUSTER_CHANGE_NETWORK_V2 = 1i32;
+pub const CLUSTER_CHANGE_NETWORK_DELETED_V2: CLUSTER_CHANGE_NETWORK_V2 = CLUSTER_CHANGE_NETWORK_V2(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_NETWORK_COMMON_PROPERTY_V2: CLUSTER_CHANGE_NETWORK_V2 = 2i32;
+pub const CLUSTER_CHANGE_NETWORK_COMMON_PROPERTY_V2: CLUSTER_CHANGE_NETWORK_V2 = CLUSTER_CHANGE_NETWORK_V2(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_NETWORK_PRIVATE_PROPERTY_V2: CLUSTER_CHANGE_NETWORK_V2 = 4i32;
+pub const CLUSTER_CHANGE_NETWORK_PRIVATE_PROPERTY_V2: CLUSTER_CHANGE_NETWORK_V2 = CLUSTER_CHANGE_NETWORK_V2(4i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_NETWORK_STATE_V2: CLUSTER_CHANGE_NETWORK_V2 = 8i32;
+pub const CLUSTER_CHANGE_NETWORK_STATE_V2: CLUSTER_CHANGE_NETWORK_V2 = CLUSTER_CHANGE_NETWORK_V2(8i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_CHANGE_NETWORK_HANDLE_CLOSE_V2: CLUSTER_CHANGE_NETWORK_V2 = CLUSTER_CHANGE_NETWORK_V2(16i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_CHANGE_NETWORK_ALL_V2: CLUSTER_CHANGE_NETWORK_V2 = CLUSTER_CHANGE_NETWORK_V2(31i32);
+impl ::core::marker::Copy for CLUSTER_CHANGE_NETWORK_V2 {}
+impl ::core::clone::Clone for CLUSTER_CHANGE_NETWORK_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_CHANGE_NETWORK_V2 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_CHANGE_NETWORK_V2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_CHANGE_NETWORK_V2").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_NETWORK_HANDLE_CLOSE_V2: CLUSTER_CHANGE_NETWORK_V2 = 16i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_NETWORK_ALL_V2: CLUSTER_CHANGE_NETWORK_V2 = 31i32;
+pub const CLUSTER_CHANGE_UPGRADE_NODE_PREPARE: CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 = CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 = i32;
+pub const CLUSTER_CHANGE_UPGRADE_NODE_COMMIT: CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 = CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_UPGRADE_NODE_PREPARE: CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 = 1i32;
+pub const CLUSTER_CHANGE_UPGRADE_NODE_POSTCOMMIT: CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 = CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2(4i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_CHANGE_UPGRADE_ALL: CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 = CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2(7i32);
+impl ::core::marker::Copy for CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 {}
+impl ::core::clone::Clone for CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_UPGRADE_NODE_COMMIT: CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 = 2i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_CHANGE_NODE_V2(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_UPGRADE_NODE_POSTCOMMIT: CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 = 4i32;
+pub const CLUSTER_CHANGE_NODE_NETINTERFACE_ADDED_V2: CLUSTER_CHANGE_NODE_V2 = CLUSTER_CHANGE_NODE_V2(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_UPGRADE_ALL: CLUSTER_CHANGE_NODE_UPGRADE_PHASE_V2 = 7i32;
+pub const CLUSTER_CHANGE_NODE_DELETED_V2: CLUSTER_CHANGE_NODE_V2 = CLUSTER_CHANGE_NODE_V2(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_CHANGE_NODE_V2 = i32;
+pub const CLUSTER_CHANGE_NODE_COMMON_PROPERTY_V2: CLUSTER_CHANGE_NODE_V2 = CLUSTER_CHANGE_NODE_V2(4i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_NODE_NETINTERFACE_ADDED_V2: CLUSTER_CHANGE_NODE_V2 = 1i32;
+pub const CLUSTER_CHANGE_NODE_PRIVATE_PROPERTY_V2: CLUSTER_CHANGE_NODE_V2 = CLUSTER_CHANGE_NODE_V2(8i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_NODE_DELETED_V2: CLUSTER_CHANGE_NODE_V2 = 2i32;
+pub const CLUSTER_CHANGE_NODE_STATE_V2: CLUSTER_CHANGE_NODE_V2 = CLUSTER_CHANGE_NODE_V2(16i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_NODE_COMMON_PROPERTY_V2: CLUSTER_CHANGE_NODE_V2 = 4i32;
+pub const CLUSTER_CHANGE_NODE_GROUP_GAINED_V2: CLUSTER_CHANGE_NODE_V2 = CLUSTER_CHANGE_NODE_V2(32i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_CHANGE_NODE_GROUP_LOST_V2: CLUSTER_CHANGE_NODE_V2 = CLUSTER_CHANGE_NODE_V2(64i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_CHANGE_NODE_HANDLE_CLOSE_V2: CLUSTER_CHANGE_NODE_V2 = CLUSTER_CHANGE_NODE_V2(128i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_CHANGE_NODE_ALL_V2: CLUSTER_CHANGE_NODE_V2 = CLUSTER_CHANGE_NODE_V2(255i32);
+impl ::core::marker::Copy for CLUSTER_CHANGE_NODE_V2 {}
+impl ::core::clone::Clone for CLUSTER_CHANGE_NODE_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_CHANGE_NODE_V2 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_CHANGE_NODE_V2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_CHANGE_NODE_V2").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_NODE_PRIVATE_PROPERTY_V2: CLUSTER_CHANGE_NODE_V2 = 8i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_CHANGE_QUORUM_V2(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_NODE_STATE_V2: CLUSTER_CHANGE_NODE_V2 = 16i32;
+pub const CLUSTER_CHANGE_QUORUM_STATE_V2: CLUSTER_CHANGE_QUORUM_V2 = CLUSTER_CHANGE_QUORUM_V2(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_NODE_GROUP_GAINED_V2: CLUSTER_CHANGE_NODE_V2 = 32i32;
+pub const CLUSTER_CHANGE_QUORUM_ALL_V2: CLUSTER_CHANGE_QUORUM_V2 = CLUSTER_CHANGE_QUORUM_V2(1i32);
+impl ::core::marker::Copy for CLUSTER_CHANGE_QUORUM_V2 {}
+impl ::core::clone::Clone for CLUSTER_CHANGE_QUORUM_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_CHANGE_QUORUM_V2 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_CHANGE_QUORUM_V2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_CHANGE_QUORUM_V2").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_NODE_GROUP_LOST_V2: CLUSTER_CHANGE_NODE_V2 = 64i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_CHANGE_REGISTRY_V2(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_NODE_HANDLE_CLOSE_V2: CLUSTER_CHANGE_NODE_V2 = 128i32;
+pub const CLUSTER_CHANGE_REGISTRY_ATTRIBUTES_V2: CLUSTER_CHANGE_REGISTRY_V2 = CLUSTER_CHANGE_REGISTRY_V2(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_NODE_ALL_V2: CLUSTER_CHANGE_NODE_V2 = 255i32;
+pub const CLUSTER_CHANGE_REGISTRY_NAME_V2: CLUSTER_CHANGE_REGISTRY_V2 = CLUSTER_CHANGE_REGISTRY_V2(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_CHANGE_QUORUM_V2 = i32;
+pub const CLUSTER_CHANGE_REGISTRY_SUBTREE_V2: CLUSTER_CHANGE_REGISTRY_V2 = CLUSTER_CHANGE_REGISTRY_V2(4i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_QUORUM_STATE_V2: CLUSTER_CHANGE_QUORUM_V2 = 1i32;
+pub const CLUSTER_CHANGE_REGISTRY_VALUE_V2: CLUSTER_CHANGE_REGISTRY_V2 = CLUSTER_CHANGE_REGISTRY_V2(8i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_QUORUM_ALL_V2: CLUSTER_CHANGE_QUORUM_V2 = 1i32;
+pub const CLUSTER_CHANGE_REGISTRY_HANDLE_CLOSE_V2: CLUSTER_CHANGE_REGISTRY_V2 = CLUSTER_CHANGE_REGISTRY_V2(16i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_CHANGE_REGISTRY_V2 = i32;
+pub const CLUSTER_CHANGE_REGISTRY_ALL_V2: CLUSTER_CHANGE_REGISTRY_V2 = CLUSTER_CHANGE_REGISTRY_V2(31i32);
+impl ::core::marker::Copy for CLUSTER_CHANGE_REGISTRY_V2 {}
+impl ::core::clone::Clone for CLUSTER_CHANGE_REGISTRY_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_CHANGE_REGISTRY_V2 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_CHANGE_REGISTRY_V2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_CHANGE_REGISTRY_V2").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_CHANGE_RESOURCE_TYPE_V2(pub i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_CHANGE_RESOURCE_TYPE_DELETED_V2: CLUSTER_CHANGE_RESOURCE_TYPE_V2 = CLUSTER_CHANGE_RESOURCE_TYPE_V2(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_REGISTRY_ATTRIBUTES_V2: CLUSTER_CHANGE_REGISTRY_V2 = 1i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_REGISTRY_NAME_V2: CLUSTER_CHANGE_REGISTRY_V2 = 2i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_REGISTRY_SUBTREE_V2: CLUSTER_CHANGE_REGISTRY_V2 = 4i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_REGISTRY_VALUE_V2: CLUSTER_CHANGE_REGISTRY_V2 = 8i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_REGISTRY_HANDLE_CLOSE_V2: CLUSTER_CHANGE_REGISTRY_V2 = 16i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_REGISTRY_ALL_V2: CLUSTER_CHANGE_REGISTRY_V2 = 31i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_CHANGE_RESOURCE_TYPE_V2 = i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_RESOURCE_TYPE_DELETED_V2: CLUSTER_CHANGE_RESOURCE_TYPE_V2 = 1i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_RESOURCE_TYPE_COMMON_PROPERTY_V2: CLUSTER_CHANGE_RESOURCE_TYPE_V2 = 2i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_RESOURCE_TYPE_PRIVATE_PROPERTY_V2: CLUSTER_CHANGE_RESOURCE_TYPE_V2 = 4i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_RESOURCE_TYPE_POSSIBLE_OWNERS_V2: CLUSTER_CHANGE_RESOURCE_TYPE_V2 = 8i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_RESOURCE_TYPE_DLL_UPGRADED_V2: CLUSTER_CHANGE_RESOURCE_TYPE_V2 = 16i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_RESOURCE_TYPE_SPECIFIC_V2: CLUSTER_CHANGE_RESOURCE_TYPE_V2 = 32i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_RESOURCE_TYPE_ALL_V2: CLUSTER_CHANGE_RESOURCE_TYPE_V2 = 63i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_CHANGE_RESOURCE_V2 = i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_RESOURCE_COMMON_PROPERTY_V2: CLUSTER_CHANGE_RESOURCE_V2 = 1i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_RESOURCE_PRIVATE_PROPERTY_V2: CLUSTER_CHANGE_RESOURCE_V2 = 2i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_RESOURCE_STATE_V2: CLUSTER_CHANGE_RESOURCE_V2 = 4i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_RESOURCE_OWNER_GROUP_V2: CLUSTER_CHANGE_RESOURCE_V2 = 8i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_RESOURCE_DEPENDENCIES_V2: CLUSTER_CHANGE_RESOURCE_V2 = 16i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_RESOURCE_DEPENDENTS_V2: CLUSTER_CHANGE_RESOURCE_V2 = 32i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_RESOURCE_POSSIBLE_OWNERS_V2: CLUSTER_CHANGE_RESOURCE_V2 = 64i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_RESOURCE_DELETED_V2: CLUSTER_CHANGE_RESOURCE_V2 = 128i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_RESOURCE_DLL_UPGRADED_V2: CLUSTER_CHANGE_RESOURCE_V2 = 256i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_RESOURCE_HANDLE_CLOSE_V2: CLUSTER_CHANGE_RESOURCE_V2 = 512i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_RESOURCE_TERMINAL_STATE_V2: CLUSTER_CHANGE_RESOURCE_V2 = 1024i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_RESOURCE_ALL_V2: CLUSTER_CHANGE_RESOURCE_V2 = 2047i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_CHANGE_SHARED_VOLUME_V2 = i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_SHARED_VOLUME_STATE_V2: CLUSTER_CHANGE_SHARED_VOLUME_V2 = 1i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_SHARED_VOLUME_ADDED_V2: CLUSTER_CHANGE_SHARED_VOLUME_V2 = 2i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_SHARED_VOLUME_REMOVED_V2: CLUSTER_CHANGE_SHARED_VOLUME_V2 = 4i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_SHARED_VOLUME_ALL_V2: CLUSTER_CHANGE_SHARED_VOLUME_V2 = 7i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_CHANGE_SPACEPORT_V2 = i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CHANGE_SPACEPORT_CUSTOM_PNP_V2: CLUSTER_CHANGE_SPACEPORT_V2 = 1i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_CLOUD_TYPE = i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CLOUD_TYPE_NONE: CLUSTER_CLOUD_TYPE = 0i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CLOUD_TYPE_AZURE: CLUSTER_CLOUD_TYPE = 1i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CLOUD_TYPE_MIXED: CLUSTER_CLOUD_TYPE = 128i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_CLOUD_TYPE_UNKNOWN: CLUSTER_CLOUD_TYPE = -1i32;
+pub const CLUSTER_CHANGE_RESOURCE_TYPE_COMMON_PROPERTY_V2: CLUSTER_CHANGE_RESOURCE_TYPE_V2 = CLUSTER_CHANGE_RESOURCE_TYPE_V2(2i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_CHANGE_RESOURCE_TYPE_PRIVATE_PROPERTY_V2: CLUSTER_CHANGE_RESOURCE_TYPE_V2 = CLUSTER_CHANGE_RESOURCE_TYPE_V2(4i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_CHANGE_RESOURCE_TYPE_POSSIBLE_OWNERS_V2: CLUSTER_CHANGE_RESOURCE_TYPE_V2 = CLUSTER_CHANGE_RESOURCE_TYPE_V2(8i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_CHANGE_RESOURCE_TYPE_DLL_UPGRADED_V2: CLUSTER_CHANGE_RESOURCE_TYPE_V2 = CLUSTER_CHANGE_RESOURCE_TYPE_V2(16i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_RESOURCE_TYPE_SPECIFIC_V2: CLUSTER_CHANGE_RESOURCE_TYPE_V2 = CLUSTER_CHANGE_RESOURCE_TYPE_V2(32i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_CHANGE_RESOURCE_TYPE_ALL_V2: CLUSTER_CHANGE_RESOURCE_TYPE_V2 = CLUSTER_CHANGE_RESOURCE_TYPE_V2(63i32);
+impl ::core::marker::Copy for CLUSTER_CHANGE_RESOURCE_TYPE_V2 {}
+impl ::core::clone::Clone for CLUSTER_CHANGE_RESOURCE_TYPE_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_CHANGE_RESOURCE_TYPE_V2 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_CHANGE_RESOURCE_TYPE_V2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_CHANGE_RESOURCE_TYPE_V2").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_CHANGE_RESOURCE_V2(pub i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_CHANGE_RESOURCE_COMMON_PROPERTY_V2: CLUSTER_CHANGE_RESOURCE_V2 = CLUSTER_CHANGE_RESOURCE_V2(1i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_CHANGE_RESOURCE_PRIVATE_PROPERTY_V2: CLUSTER_CHANGE_RESOURCE_V2 = CLUSTER_CHANGE_RESOURCE_V2(2i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_CHANGE_RESOURCE_STATE_V2: CLUSTER_CHANGE_RESOURCE_V2 = CLUSTER_CHANGE_RESOURCE_V2(4i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_CHANGE_RESOURCE_OWNER_GROUP_V2: CLUSTER_CHANGE_RESOURCE_V2 = CLUSTER_CHANGE_RESOURCE_V2(8i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_CHANGE_RESOURCE_DEPENDENCIES_V2: CLUSTER_CHANGE_RESOURCE_V2 = CLUSTER_CHANGE_RESOURCE_V2(16i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_CHANGE_RESOURCE_DEPENDENTS_V2: CLUSTER_CHANGE_RESOURCE_V2 = CLUSTER_CHANGE_RESOURCE_V2(32i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_CHANGE_RESOURCE_POSSIBLE_OWNERS_V2: CLUSTER_CHANGE_RESOURCE_V2 = CLUSTER_CHANGE_RESOURCE_V2(64i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_CHANGE_RESOURCE_DELETED_V2: CLUSTER_CHANGE_RESOURCE_V2 = CLUSTER_CHANGE_RESOURCE_V2(128i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_CHANGE_RESOURCE_DLL_UPGRADED_V2: CLUSTER_CHANGE_RESOURCE_V2 = CLUSTER_CHANGE_RESOURCE_V2(256i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_CHANGE_RESOURCE_HANDLE_CLOSE_V2: CLUSTER_CHANGE_RESOURCE_V2 = CLUSTER_CHANGE_RESOURCE_V2(512i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_CHANGE_RESOURCE_TERMINAL_STATE_V2: CLUSTER_CHANGE_RESOURCE_V2 = CLUSTER_CHANGE_RESOURCE_V2(1024i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_CHANGE_RESOURCE_ALL_V2: CLUSTER_CHANGE_RESOURCE_V2 = CLUSTER_CHANGE_RESOURCE_V2(2047i32);
+impl ::core::marker::Copy for CLUSTER_CHANGE_RESOURCE_V2 {}
+impl ::core::clone::Clone for CLUSTER_CHANGE_RESOURCE_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_CHANGE_RESOURCE_V2 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_CHANGE_RESOURCE_V2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_CHANGE_RESOURCE_V2").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_CHANGE_SHARED_VOLUME_V2(pub i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_CHANGE_SHARED_VOLUME_STATE_V2: CLUSTER_CHANGE_SHARED_VOLUME_V2 = CLUSTER_CHANGE_SHARED_VOLUME_V2(1i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_CHANGE_SHARED_VOLUME_ADDED_V2: CLUSTER_CHANGE_SHARED_VOLUME_V2 = CLUSTER_CHANGE_SHARED_VOLUME_V2(2i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_CHANGE_SHARED_VOLUME_REMOVED_V2: CLUSTER_CHANGE_SHARED_VOLUME_V2 = CLUSTER_CHANGE_SHARED_VOLUME_V2(4i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_CHANGE_SHARED_VOLUME_ALL_V2: CLUSTER_CHANGE_SHARED_VOLUME_V2 = CLUSTER_CHANGE_SHARED_VOLUME_V2(7i32);
+impl ::core::marker::Copy for CLUSTER_CHANGE_SHARED_VOLUME_V2 {}
+impl ::core::clone::Clone for CLUSTER_CHANGE_SHARED_VOLUME_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_CHANGE_SHARED_VOLUME_V2 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_CHANGE_SHARED_VOLUME_V2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_CHANGE_SHARED_VOLUME_V2").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_CHANGE_SPACEPORT_V2(pub i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_CHANGE_SPACEPORT_CUSTOM_PNP_V2: CLUSTER_CHANGE_SPACEPORT_V2 = CLUSTER_CHANGE_SPACEPORT_V2(1i32);
+impl ::core::marker::Copy for CLUSTER_CHANGE_SPACEPORT_V2 {}
+impl ::core::clone::Clone for CLUSTER_CHANGE_SPACEPORT_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_CHANGE_SPACEPORT_V2 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_CHANGE_SPACEPORT_V2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_CHANGE_SPACEPORT_V2").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_CLOUD_TYPE(pub i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_CLOUD_TYPE_NONE: CLUSTER_CLOUD_TYPE = CLUSTER_CLOUD_TYPE(0i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_CLOUD_TYPE_AZURE: CLUSTER_CLOUD_TYPE = CLUSTER_CLOUD_TYPE(1i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_CLOUD_TYPE_MIXED: CLUSTER_CLOUD_TYPE = CLUSTER_CLOUD_TYPE(128i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_CLOUD_TYPE_UNKNOWN: CLUSTER_CLOUD_TYPE = CLUSTER_CLOUD_TYPE(-1i32);
+impl ::core::marker::Copy for CLUSTER_CLOUD_TYPE {}
+impl ::core::clone::Clone for CLUSTER_CLOUD_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_CLOUD_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_CLOUD_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_CLOUD_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSTER_CONFIGURED: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_CONTROL_OBJECT = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_CONTROL_OBJECT(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_OBJECT_INVALID: CLUSTER_CONTROL_OBJECT = 0i32;
+pub const CLUS_OBJECT_INVALID: CLUSTER_CONTROL_OBJECT = CLUSTER_CONTROL_OBJECT(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_OBJECT_RESOURCE: CLUSTER_CONTROL_OBJECT = 1i32;
+pub const CLUS_OBJECT_RESOURCE: CLUSTER_CONTROL_OBJECT = CLUSTER_CONTROL_OBJECT(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_OBJECT_RESOURCE_TYPE: CLUSTER_CONTROL_OBJECT = 2i32;
+pub const CLUS_OBJECT_RESOURCE_TYPE: CLUSTER_CONTROL_OBJECT = CLUSTER_CONTROL_OBJECT(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_OBJECT_GROUP: CLUSTER_CONTROL_OBJECT = 3i32;
+pub const CLUS_OBJECT_GROUP: CLUSTER_CONTROL_OBJECT = CLUSTER_CONTROL_OBJECT(3i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_OBJECT_NODE: CLUSTER_CONTROL_OBJECT = 4i32;
+pub const CLUS_OBJECT_NODE: CLUSTER_CONTROL_OBJECT = CLUSTER_CONTROL_OBJECT(4i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_OBJECT_NETWORK: CLUSTER_CONTROL_OBJECT = 5i32;
+pub const CLUS_OBJECT_NETWORK: CLUSTER_CONTROL_OBJECT = CLUSTER_CONTROL_OBJECT(5i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_OBJECT_NETINTERFACE: CLUSTER_CONTROL_OBJECT = 6i32;
+pub const CLUS_OBJECT_NETINTERFACE: CLUSTER_CONTROL_OBJECT = CLUSTER_CONTROL_OBJECT(6i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_OBJECT_CLUSTER: CLUSTER_CONTROL_OBJECT = 7i32;
+pub const CLUS_OBJECT_CLUSTER: CLUSTER_CONTROL_OBJECT = CLUSTER_CONTROL_OBJECT(7i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_OBJECT_GROUPSET: CLUSTER_CONTROL_OBJECT = 8i32;
+pub const CLUS_OBJECT_GROUPSET: CLUSTER_CONTROL_OBJECT = CLUSTER_CONTROL_OBJECT(8i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_OBJECT_AFFINITYRULE: CLUSTER_CONTROL_OBJECT = 9i32;
+pub const CLUS_OBJECT_AFFINITYRULE: CLUSTER_CONTROL_OBJECT = CLUSTER_CONTROL_OBJECT(9i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_OBJECT_USER: CLUSTER_CONTROL_OBJECT = 128i32;
+pub const CLUS_OBJECT_USER: CLUSTER_CONTROL_OBJECT = CLUSTER_CONTROL_OBJECT(128i32);
+impl ::core::marker::Copy for CLUSTER_CONTROL_OBJECT {}
+impl ::core::clone::Clone for CLUSTER_CONTROL_OBJECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_CONTROL_OBJECT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_CONTROL_OBJECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_CONTROL_OBJECT").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub struct CLUSTER_CREATE_GROUP_INFO {
@@ -3184,41 +3680,73 @@ pub const CLUSTER_CREATE_GROUP_INFO_VERSION: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSTER_CREATE_GROUP_INFO_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_CSV_VOLUME_FAULT_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_CSV_VOLUME_FAULT_STATE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const VolumeStateNoFaults: CLUSTER_CSV_VOLUME_FAULT_STATE = 0i32;
+pub const VolumeStateNoFaults: CLUSTER_CSV_VOLUME_FAULT_STATE = CLUSTER_CSV_VOLUME_FAULT_STATE(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const VolumeStateNoDirectIO: CLUSTER_CSV_VOLUME_FAULT_STATE = 1i32;
+pub const VolumeStateNoDirectIO: CLUSTER_CSV_VOLUME_FAULT_STATE = CLUSTER_CSV_VOLUME_FAULT_STATE(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const VolumeStateNoAccess: CLUSTER_CSV_VOLUME_FAULT_STATE = 2i32;
+pub const VolumeStateNoAccess: CLUSTER_CSV_VOLUME_FAULT_STATE = CLUSTER_CSV_VOLUME_FAULT_STATE(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const VolumeStateInMaintenance: CLUSTER_CSV_VOLUME_FAULT_STATE = 4i32;
+pub const VolumeStateInMaintenance: CLUSTER_CSV_VOLUME_FAULT_STATE = CLUSTER_CSV_VOLUME_FAULT_STATE(4i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const VolumeStateDismounted: CLUSTER_CSV_VOLUME_FAULT_STATE = 8i32;
+pub const VolumeStateDismounted: CLUSTER_CSV_VOLUME_FAULT_STATE = CLUSTER_CSV_VOLUME_FAULT_STATE(8i32);
+impl ::core::marker::Copy for CLUSTER_CSV_VOLUME_FAULT_STATE {}
+impl ::core::clone::Clone for CLUSTER_CSV_VOLUME_FAULT_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_CSV_VOLUME_FAULT_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_CSV_VOLUME_FAULT_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_CSV_VOLUME_FAULT_STATE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSTER_DELETE_ACCESS_CONTROL_ENTRY: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_ENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_ENUM(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_ENUM_NODE: CLUSTER_ENUM = 1i32;
+pub const CLUSTER_ENUM_NODE: CLUSTER_ENUM = CLUSTER_ENUM(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_ENUM_RESTYPE: CLUSTER_ENUM = 2i32;
+pub const CLUSTER_ENUM_RESTYPE: CLUSTER_ENUM = CLUSTER_ENUM(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_ENUM_RESOURCE: CLUSTER_ENUM = 4i32;
+pub const CLUSTER_ENUM_RESOURCE: CLUSTER_ENUM = CLUSTER_ENUM(4i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_ENUM_GROUP: CLUSTER_ENUM = 8i32;
+pub const CLUSTER_ENUM_GROUP: CLUSTER_ENUM = CLUSTER_ENUM(8i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_ENUM_NETWORK: CLUSTER_ENUM = 16i32;
+pub const CLUSTER_ENUM_NETWORK: CLUSTER_ENUM = CLUSTER_ENUM(16i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_ENUM_NETINTERFACE: CLUSTER_ENUM = 32i32;
+pub const CLUSTER_ENUM_NETINTERFACE: CLUSTER_ENUM = CLUSTER_ENUM(32i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_ENUM_SHARED_VOLUME_GROUP: CLUSTER_ENUM = 536870912i32;
+pub const CLUSTER_ENUM_SHARED_VOLUME_GROUP: CLUSTER_ENUM = CLUSTER_ENUM(536870912i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_ENUM_SHARED_VOLUME_RESOURCE: CLUSTER_ENUM = 1073741824i32;
+pub const CLUSTER_ENUM_SHARED_VOLUME_RESOURCE: CLUSTER_ENUM = CLUSTER_ENUM(1073741824i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_ENUM_INTERNAL_NETWORK: CLUSTER_ENUM = -2147483648i32;
+pub const CLUSTER_ENUM_INTERNAL_NETWORK: CLUSTER_ENUM = CLUSTER_ENUM(-2147483648i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_ENUM_ALL: CLUSTER_ENUM = 63i32;
+pub const CLUSTER_ENUM_ALL: CLUSTER_ENUM = CLUSTER_ENUM(63i32);
+impl ::core::marker::Copy for CLUSTER_ENUM {}
+impl ::core::clone::Clone for CLUSTER_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_ENUM").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3267,21 +3795,53 @@ pub const CLUSTER_ENUM_ITEM_VERSION: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSTER_ENUM_ITEM_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_GROUP_AUTOFAILBACK_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_GROUP_AUTOFAILBACK_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterGroupPreventFailback: CLUSTER_GROUP_AUTOFAILBACK_TYPE = 0i32;
+pub const ClusterGroupPreventFailback: CLUSTER_GROUP_AUTOFAILBACK_TYPE = CLUSTER_GROUP_AUTOFAILBACK_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterGroupAllowFailback: CLUSTER_GROUP_AUTOFAILBACK_TYPE = 1i32;
+pub const ClusterGroupAllowFailback: CLUSTER_GROUP_AUTOFAILBACK_TYPE = CLUSTER_GROUP_AUTOFAILBACK_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterGroupFailbackTypeCount: CLUSTER_GROUP_AUTOFAILBACK_TYPE = 2i32;
+pub const ClusterGroupFailbackTypeCount: CLUSTER_GROUP_AUTOFAILBACK_TYPE = CLUSTER_GROUP_AUTOFAILBACK_TYPE(2i32);
+impl ::core::marker::Copy for CLUSTER_GROUP_AUTOFAILBACK_TYPE {}
+impl ::core::clone::Clone for CLUSTER_GROUP_AUTOFAILBACK_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_GROUP_AUTOFAILBACK_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_GROUP_AUTOFAILBACK_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_GROUP_AUTOFAILBACK_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_GROUP_ENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_GROUP_ENUM(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_GROUP_ENUM_CONTAINS: CLUSTER_GROUP_ENUM = 1i32;
+pub const CLUSTER_GROUP_ENUM_CONTAINS: CLUSTER_GROUP_ENUM = CLUSTER_GROUP_ENUM(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_GROUP_ENUM_NODES: CLUSTER_GROUP_ENUM = 2i32;
+pub const CLUSTER_GROUP_ENUM_NODES: CLUSTER_GROUP_ENUM = CLUSTER_GROUP_ENUM(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_GROUP_ENUM_ALL: CLUSTER_GROUP_ENUM = 3i32;
+pub const CLUSTER_GROUP_ENUM_ALL: CLUSTER_GROUP_ENUM = CLUSTER_GROUP_ENUM(3i32);
+impl ::core::marker::Copy for CLUSTER_GROUP_ENUM {}
+impl ::core::clone::Clone for CLUSTER_GROUP_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_GROUP_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_GROUP_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_GROUP_ENUM").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3351,29 +3911,61 @@ pub const CLUSTER_GROUP_ENUM_ITEM_VERSION: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSTER_GROUP_ENUM_ITEM_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_GROUP_PRIORITY = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_GROUP_PRIORITY(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const PriorityDisabled: CLUSTER_GROUP_PRIORITY = 0i32;
+pub const PriorityDisabled: CLUSTER_GROUP_PRIORITY = CLUSTER_GROUP_PRIORITY(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const PriorityLow: CLUSTER_GROUP_PRIORITY = 1000i32;
+pub const PriorityLow: CLUSTER_GROUP_PRIORITY = CLUSTER_GROUP_PRIORITY(1000i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const PriorityMedium: CLUSTER_GROUP_PRIORITY = 2000i32;
+pub const PriorityMedium: CLUSTER_GROUP_PRIORITY = CLUSTER_GROUP_PRIORITY(2000i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const PriorityHigh: CLUSTER_GROUP_PRIORITY = 3000i32;
+pub const PriorityHigh: CLUSTER_GROUP_PRIORITY = CLUSTER_GROUP_PRIORITY(3000i32);
+impl ::core::marker::Copy for CLUSTER_GROUP_PRIORITY {}
+impl ::core::clone::Clone for CLUSTER_GROUP_PRIORITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_GROUP_PRIORITY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_GROUP_PRIORITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_GROUP_PRIORITY").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_GROUP_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_GROUP_STATE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterGroupStateUnknown: CLUSTER_GROUP_STATE = -1i32;
+pub const ClusterGroupStateUnknown: CLUSTER_GROUP_STATE = CLUSTER_GROUP_STATE(-1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterGroupOnline: CLUSTER_GROUP_STATE = 0i32;
+pub const ClusterGroupOnline: CLUSTER_GROUP_STATE = CLUSTER_GROUP_STATE(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterGroupOffline: CLUSTER_GROUP_STATE = 1i32;
+pub const ClusterGroupOffline: CLUSTER_GROUP_STATE = CLUSTER_GROUP_STATE(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterGroupFailed: CLUSTER_GROUP_STATE = 2i32;
+pub const ClusterGroupFailed: CLUSTER_GROUP_STATE = CLUSTER_GROUP_STATE(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterGroupPartialOnline: CLUSTER_GROUP_STATE = 3i32;
+pub const ClusterGroupPartialOnline: CLUSTER_GROUP_STATE = CLUSTER_GROUP_STATE(3i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterGroupPending: CLUSTER_GROUP_STATE = 4i32;
+pub const ClusterGroupPending: CLUSTER_GROUP_STATE = CLUSTER_GROUP_STATE(4i32);
+impl ::core::marker::Copy for CLUSTER_GROUP_STATE {}
+impl ::core::clone::Clone for CLUSTER_GROUP_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_GROUP_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_GROUP_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_GROUP_STATE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3555,299 +4147,615 @@ impl ::core::default::Default for CLUSTER_MEMBERSHIP_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_MGMT_POINT_RESTYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_MGMT_POINT_RESTYPE(pub i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_MGMT_POINT_RESTYPE_AUTO: CLUSTER_MGMT_POINT_RESTYPE = CLUSTER_MGMT_POINT_RESTYPE(0i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_MGMT_POINT_RESTYPE_SNN: CLUSTER_MGMT_POINT_RESTYPE = CLUSTER_MGMT_POINT_RESTYPE(1i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_MGMT_POINT_RESTYPE_DNN: CLUSTER_MGMT_POINT_RESTYPE = CLUSTER_MGMT_POINT_RESTYPE(2i32);
+impl ::core::marker::Copy for CLUSTER_MGMT_POINT_RESTYPE {}
+impl ::core::clone::Clone for CLUSTER_MGMT_POINT_RESTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_MGMT_POINT_RESTYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_MGMT_POINT_RESTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_MGMT_POINT_RESTYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_MGMT_POINT_TYPE(pub i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_MGMT_POINT_TYPE_NONE: CLUSTER_MGMT_POINT_TYPE = CLUSTER_MGMT_POINT_TYPE(0i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_MGMT_POINT_TYPE_CNO: CLUSTER_MGMT_POINT_TYPE = CLUSTER_MGMT_POINT_TYPE(1i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_MGMT_POINT_TYPE_DNS_ONLY: CLUSTER_MGMT_POINT_TYPE = CLUSTER_MGMT_POINT_TYPE(2i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_MGMT_POINT_TYPE_CNO_ONLY: CLUSTER_MGMT_POINT_TYPE = CLUSTER_MGMT_POINT_TYPE(3i32);
+impl ::core::marker::Copy for CLUSTER_MGMT_POINT_TYPE {}
+impl ::core::clone::Clone for CLUSTER_MGMT_POINT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_MGMT_POINT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_MGMT_POINT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_MGMT_POINT_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_NETINTERFACE_STATE(pub i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const ClusterNetInterfaceStateUnknown: CLUSTER_NETINTERFACE_STATE = CLUSTER_NETINTERFACE_STATE(-1i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const ClusterNetInterfaceUnavailable: CLUSTER_NETINTERFACE_STATE = CLUSTER_NETINTERFACE_STATE(0i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const ClusterNetInterfaceFailed: CLUSTER_NETINTERFACE_STATE = CLUSTER_NETINTERFACE_STATE(1i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const ClusterNetInterfaceUnreachable: CLUSTER_NETINTERFACE_STATE = CLUSTER_NETINTERFACE_STATE(2i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const ClusterNetInterfaceUp: CLUSTER_NETINTERFACE_STATE = CLUSTER_NETINTERFACE_STATE(3i32);
+impl ::core::marker::Copy for CLUSTER_NETINTERFACE_STATE {}
+impl ::core::clone::Clone for CLUSTER_NETINTERFACE_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_NETINTERFACE_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_NETINTERFACE_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_NETINTERFACE_STATE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_NETWORK_ENUM(pub i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_NETWORK_ENUM_NETINTERFACES: CLUSTER_NETWORK_ENUM = CLUSTER_NETWORK_ENUM(1i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_NETWORK_ENUM_ALL: CLUSTER_NETWORK_ENUM = CLUSTER_NETWORK_ENUM(1i32);
+impl ::core::marker::Copy for CLUSTER_NETWORK_ENUM {}
+impl ::core::clone::Clone for CLUSTER_NETWORK_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_NETWORK_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_NETWORK_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_NETWORK_ENUM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_NETWORK_ROLE(pub i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const ClusterNetworkRoleNone: CLUSTER_NETWORK_ROLE = CLUSTER_NETWORK_ROLE(0i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const ClusterNetworkRoleInternalUse: CLUSTER_NETWORK_ROLE = CLUSTER_NETWORK_ROLE(1i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const ClusterNetworkRoleClientAccess: CLUSTER_NETWORK_ROLE = CLUSTER_NETWORK_ROLE(2i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const ClusterNetworkRoleInternalAndClient: CLUSTER_NETWORK_ROLE = CLUSTER_NETWORK_ROLE(3i32);
+impl ::core::marker::Copy for CLUSTER_NETWORK_ROLE {}
+impl ::core::clone::Clone for CLUSTER_NETWORK_ROLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_NETWORK_ROLE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_NETWORK_ROLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_NETWORK_ROLE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_NETWORK_STATE(pub i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const ClusterNetworkStateUnknown: CLUSTER_NETWORK_STATE = CLUSTER_NETWORK_STATE(-1i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const ClusterNetworkUnavailable: CLUSTER_NETWORK_STATE = CLUSTER_NETWORK_STATE(0i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const ClusterNetworkDown: CLUSTER_NETWORK_STATE = CLUSTER_NETWORK_STATE(1i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const ClusterNetworkPartitioned: CLUSTER_NETWORK_STATE = CLUSTER_NETWORK_STATE(2i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const ClusterNetworkUp: CLUSTER_NETWORK_STATE = CLUSTER_NETWORK_STATE(3i32);
+impl ::core::marker::Copy for CLUSTER_NETWORK_STATE {}
+impl ::core::clone::Clone for CLUSTER_NETWORK_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_NETWORK_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_NETWORK_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_NETWORK_STATE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_NODE_DRAIN_STATUS(pub i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const NodeDrainStatusNotInitiated: CLUSTER_NODE_DRAIN_STATUS = CLUSTER_NODE_DRAIN_STATUS(0i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const NodeDrainStatusInProgress: CLUSTER_NODE_DRAIN_STATUS = CLUSTER_NODE_DRAIN_STATUS(1i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const NodeDrainStatusCompleted: CLUSTER_NODE_DRAIN_STATUS = CLUSTER_NODE_DRAIN_STATUS(2i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const NodeDrainStatusFailed: CLUSTER_NODE_DRAIN_STATUS = CLUSTER_NODE_DRAIN_STATUS(3i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const ClusterNodeDrainStatusCount: CLUSTER_NODE_DRAIN_STATUS = CLUSTER_NODE_DRAIN_STATUS(4i32);
+impl ::core::marker::Copy for CLUSTER_NODE_DRAIN_STATUS {}
+impl ::core::clone::Clone for CLUSTER_NODE_DRAIN_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_NODE_DRAIN_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_NODE_DRAIN_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_NODE_DRAIN_STATUS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_NODE_ENUM(pub i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_NODE_ENUM_NETINTERFACES: CLUSTER_NODE_ENUM = CLUSTER_NODE_ENUM(1i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_NODE_ENUM_GROUPS: CLUSTER_NODE_ENUM = CLUSTER_NODE_ENUM(2i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_NODE_ENUM_PREFERRED_GROUPS: CLUSTER_NODE_ENUM = CLUSTER_NODE_ENUM(4i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_NODE_ENUM_ALL: CLUSTER_NODE_ENUM = CLUSTER_NODE_ENUM(3i32);
+impl ::core::marker::Copy for CLUSTER_NODE_ENUM {}
+impl ::core::clone::Clone for CLUSTER_NODE_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_NODE_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_NODE_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_NODE_ENUM").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_NODE_RESUME_FAILBACK_TYPE(pub i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const DoNotFailbackGroups: CLUSTER_NODE_RESUME_FAILBACK_TYPE = CLUSTER_NODE_RESUME_FAILBACK_TYPE(0i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const FailbackGroupsImmediately: CLUSTER_NODE_RESUME_FAILBACK_TYPE = CLUSTER_NODE_RESUME_FAILBACK_TYPE(1i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const FailbackGroupsPerPolicy: CLUSTER_NODE_RESUME_FAILBACK_TYPE = CLUSTER_NODE_RESUME_FAILBACK_TYPE(2i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const ClusterNodeResumeFailbackTypeCount: CLUSTER_NODE_RESUME_FAILBACK_TYPE = CLUSTER_NODE_RESUME_FAILBACK_TYPE(3i32);
+impl ::core::marker::Copy for CLUSTER_NODE_RESUME_FAILBACK_TYPE {}
+impl ::core::clone::Clone for CLUSTER_NODE_RESUME_FAILBACK_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_NODE_RESUME_FAILBACK_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_NODE_RESUME_FAILBACK_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_NODE_RESUME_FAILBACK_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_NODE_STATE(pub i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const ClusterNodeStateUnknown: CLUSTER_NODE_STATE = CLUSTER_NODE_STATE(-1i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const ClusterNodeUp: CLUSTER_NODE_STATE = CLUSTER_NODE_STATE(0i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const ClusterNodeDown: CLUSTER_NODE_STATE = CLUSTER_NODE_STATE(1i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const ClusterNodePaused: CLUSTER_NODE_STATE = CLUSTER_NODE_STATE(2i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const ClusterNodeJoining: CLUSTER_NODE_STATE = CLUSTER_NODE_STATE(3i32);
+impl ::core::marker::Copy for CLUSTER_NODE_STATE {}
+impl ::core::clone::Clone for CLUSTER_NODE_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_NODE_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_NODE_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_NODE_STATE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_NODE_STATUS(pub i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const NodeStatusNormal: CLUSTER_NODE_STATUS = CLUSTER_NODE_STATUS(0i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const NodeStatusIsolated: CLUSTER_NODE_STATUS = CLUSTER_NODE_STATUS(1i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const NodeStatusQuarantined: CLUSTER_NODE_STATUS = CLUSTER_NODE_STATUS(2i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const NodeStatusDrainInProgress: CLUSTER_NODE_STATUS = CLUSTER_NODE_STATUS(4i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const NodeStatusDrainCompleted: CLUSTER_NODE_STATUS = CLUSTER_NODE_STATUS(8i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const NodeStatusDrainFailed: CLUSTER_NODE_STATUS = CLUSTER_NODE_STATUS(16i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const NodeStatusAvoidPlacement: CLUSTER_NODE_STATUS = CLUSTER_NODE_STATUS(32i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const NodeStatusMax: CLUSTER_NODE_STATUS = CLUSTER_NODE_STATUS(51i32);
+impl ::core::marker::Copy for CLUSTER_NODE_STATUS {}
+impl ::core::clone::Clone for CLUSTER_NODE_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_NODE_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_NODE_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_NODE_STATUS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_MGMT_POINT_RESTYPE_AUTO: CLUSTER_MGMT_POINT_RESTYPE = 0i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_NOTIFICATIONS_VERSION(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_MGMT_POINT_RESTYPE_SNN: CLUSTER_MGMT_POINT_RESTYPE = 1i32;
+pub const CLUSTER_NOTIFICATIONS_V1: CLUSTER_NOTIFICATIONS_VERSION = CLUSTER_NOTIFICATIONS_VERSION(1i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_NOTIFICATIONS_V2: CLUSTER_NOTIFICATIONS_VERSION = CLUSTER_NOTIFICATIONS_VERSION(2i32);
+impl ::core::marker::Copy for CLUSTER_NOTIFICATIONS_VERSION {}
+impl ::core::clone::Clone for CLUSTER_NOTIFICATIONS_VERSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_NOTIFICATIONS_VERSION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_NOTIFICATIONS_VERSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_NOTIFICATIONS_VERSION").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_OBJECT_TYPE(pub i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_OBJECT_TYPE_NONE: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(0i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_OBJECT_TYPE_CLUSTER: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(1i32);
+#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
+pub const CLUSTER_OBJECT_TYPE_GROUP: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_MGMT_POINT_RESTYPE_DNN: CLUSTER_MGMT_POINT_RESTYPE = 2i32;
+pub const CLUSTER_OBJECT_TYPE_RESOURCE: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_MGMT_POINT_TYPE = i32;
+pub const CLUSTER_OBJECT_TYPE_RESOURCE_TYPE: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(4i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_MGMT_POINT_TYPE_NONE: CLUSTER_MGMT_POINT_TYPE = 0i32;
+pub const CLUSTER_OBJECT_TYPE_NETWORK_INTERFACE: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(5i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_MGMT_POINT_TYPE_CNO: CLUSTER_MGMT_POINT_TYPE = 1i32;
+pub const CLUSTER_OBJECT_TYPE_NETWORK: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(6i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_MGMT_POINT_TYPE_DNS_ONLY: CLUSTER_MGMT_POINT_TYPE = 2i32;
+pub const CLUSTER_OBJECT_TYPE_NODE: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(7i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_MGMT_POINT_TYPE_CNO_ONLY: CLUSTER_MGMT_POINT_TYPE = 3i32;
+pub const CLUSTER_OBJECT_TYPE_REGISTRY: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(8i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_NETINTERFACE_STATE = i32;
+pub const CLUSTER_OBJECT_TYPE_QUORUM: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(9i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterNetInterfaceStateUnknown: CLUSTER_NETINTERFACE_STATE = -1i32;
+pub const CLUSTER_OBJECT_TYPE_SHARED_VOLUME: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(10i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterNetInterfaceUnavailable: CLUSTER_NETINTERFACE_STATE = 0i32;
+pub const CLUSTER_OBJECT_TYPE_GROUPSET: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(13i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterNetInterfaceFailed: CLUSTER_NETINTERFACE_STATE = 1i32;
+pub const CLUSTER_OBJECT_TYPE_AFFINITYRULE: CLUSTER_OBJECT_TYPE = CLUSTER_OBJECT_TYPE(16i32);
+impl ::core::marker::Copy for CLUSTER_OBJECT_TYPE {}
+impl ::core::clone::Clone for CLUSTER_OBJECT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_OBJECT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_OBJECT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_OBJECT_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterNetInterfaceUnreachable: CLUSTER_NETINTERFACE_STATE = 2i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_PROPERTY_FORMAT(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterNetInterfaceUp: CLUSTER_NETINTERFACE_STATE = 3i32;
+pub const CLUSPROP_FORMAT_UNKNOWN: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_NETWORK_ENUM = i32;
+pub const CLUSPROP_FORMAT_BINARY: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_NETWORK_ENUM_NETINTERFACES: CLUSTER_NETWORK_ENUM = 1i32;
+pub const CLUSPROP_FORMAT_DWORD: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_NETWORK_ENUM_ALL: CLUSTER_NETWORK_ENUM = 1i32;
+pub const CLUSPROP_FORMAT_SZ: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(3i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_NETWORK_ROLE = i32;
+pub const CLUSPROP_FORMAT_EXPAND_SZ: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(4i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterNetworkRoleNone: CLUSTER_NETWORK_ROLE = 0i32;
+pub const CLUSPROP_FORMAT_MULTI_SZ: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(5i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterNetworkRoleInternalUse: CLUSTER_NETWORK_ROLE = 1i32;
+pub const CLUSPROP_FORMAT_ULARGE_INTEGER: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(6i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterNetworkRoleClientAccess: CLUSTER_NETWORK_ROLE = 2i32;
+pub const CLUSPROP_FORMAT_LONG: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(7i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterNetworkRoleInternalAndClient: CLUSTER_NETWORK_ROLE = 3i32;
+pub const CLUSPROP_FORMAT_EXPANDED_SZ: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(8i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_NETWORK_STATE = i32;
+pub const CLUSPROP_FORMAT_SECURITY_DESCRIPTOR: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(9i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterNetworkStateUnknown: CLUSTER_NETWORK_STATE = -1i32;
+pub const CLUSPROP_FORMAT_LARGE_INTEGER: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(10i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterNetworkUnavailable: CLUSTER_NETWORK_STATE = 0i32;
+pub const CLUSPROP_FORMAT_WORD: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(11i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterNetworkDown: CLUSTER_NETWORK_STATE = 1i32;
+pub const CLUSPROP_FORMAT_FILETIME: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(12i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterNetworkPartitioned: CLUSTER_NETWORK_STATE = 2i32;
+pub const CLUSPROP_FORMAT_VALUE_LIST: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(13i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterNetworkUp: CLUSTER_NETWORK_STATE = 3i32;
+pub const CLUSPROP_FORMAT_PROPERTY_LIST: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(14i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_NODE_DRAIN_STATUS = i32;
+pub const CLUSPROP_FORMAT_USER: CLUSTER_PROPERTY_FORMAT = CLUSTER_PROPERTY_FORMAT(32768i32);
+impl ::core::marker::Copy for CLUSTER_PROPERTY_FORMAT {}
+impl ::core::clone::Clone for CLUSTER_PROPERTY_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_PROPERTY_FORMAT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_PROPERTY_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_PROPERTY_FORMAT").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const NodeDrainStatusNotInitiated: CLUSTER_NODE_DRAIN_STATUS = 0i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_PROPERTY_SYNTAX(pub u32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const NodeDrainStatusInProgress: CLUSTER_NODE_DRAIN_STATUS = 1i32;
+pub const CLUSPROP_SYNTAX_ENDMARK: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(0u32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const NodeDrainStatusCompleted: CLUSTER_NODE_DRAIN_STATUS = 2i32;
+pub const CLUSPROP_SYNTAX_NAME: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(262147u32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const NodeDrainStatusFailed: CLUSTER_NODE_DRAIN_STATUS = 3i32;
+pub const CLUSPROP_SYNTAX_RESCLASS: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(131074u32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterNodeDrainStatusCount: CLUSTER_NODE_DRAIN_STATUS = 4i32;
+pub const CLUSPROP_SYNTAX_LIST_VALUE_SZ: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(65539u32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_NODE_ENUM = i32;
+pub const CLUSPROP_SYNTAX_LIST_VALUE_EXPAND_SZ: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(65540u32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_NODE_ENUM_NETINTERFACES: CLUSTER_NODE_ENUM = 1i32;
+pub const CLUSPROP_SYNTAX_LIST_VALUE_DWORD: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(65538u32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_NODE_ENUM_GROUPS: CLUSTER_NODE_ENUM = 2i32;
+pub const CLUSPROP_SYNTAX_LIST_VALUE_BINARY: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(65537u32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_NODE_ENUM_PREFERRED_GROUPS: CLUSTER_NODE_ENUM = 4i32;
+pub const CLUSPROP_SYNTAX_LIST_VALUE_MULTI_SZ: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(65541u32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_NODE_ENUM_ALL: CLUSTER_NODE_ENUM = 3i32;
+pub const CLUSPROP_SYNTAX_LIST_VALUE_LONG: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(65543u32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_NODE_RESUME_FAILBACK_TYPE = i32;
+pub const CLUSPROP_SYNTAX_LIST_VALUE_EXPANDED_SZ: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(65544u32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const DoNotFailbackGroups: CLUSTER_NODE_RESUME_FAILBACK_TYPE = 0i32;
+pub const CLUSPROP_SYNTAX_LIST_VALUE_SECURITY_DESCRIPTOR: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(65545u32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const FailbackGroupsImmediately: CLUSTER_NODE_RESUME_FAILBACK_TYPE = 1i32;
+pub const CLUSPROP_SYNTAX_LIST_VALUE_LARGE_INTEGER: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(65546u32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const FailbackGroupsPerPolicy: CLUSTER_NODE_RESUME_FAILBACK_TYPE = 2i32;
+pub const CLUSPROP_SYNTAX_LIST_VALUE_ULARGE_INTEGER: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(65542u32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterNodeResumeFailbackTypeCount: CLUSTER_NODE_RESUME_FAILBACK_TYPE = 3i32;
+pub const CLUSPROP_SYNTAX_LIST_VALUE_WORD: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(65547u32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_NODE_STATE = i32;
+pub const CLUSPROP_SYNTAX_LIST_VALUE_PROPERTY_LIST: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(65550u32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterNodeStateUnknown: CLUSTER_NODE_STATE = -1i32;
+pub const CLUSPROP_SYNTAX_LIST_VALUE_FILETIME: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(65548u32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterNodeUp: CLUSTER_NODE_STATE = 0i32;
+pub const CLUSPROP_SYNTAX_DISK_SIGNATURE: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(327682u32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterNodeDown: CLUSTER_NODE_STATE = 1i32;
+pub const CLUSPROP_SYNTAX_SCSI_ADDRESS: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(393218u32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterNodePaused: CLUSTER_NODE_STATE = 2i32;
+pub const CLUSPROP_SYNTAX_DISK_NUMBER: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(458754u32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterNodeJoining: CLUSTER_NODE_STATE = 3i32;
+pub const CLUSPROP_SYNTAX_PARTITION_INFO: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(524289u32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_NODE_STATUS = i32;
+pub const CLUSPROP_SYNTAX_FTSET_INFO: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(589825u32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const NodeStatusNormal: CLUSTER_NODE_STATUS = 0i32;
+pub const CLUSPROP_SYNTAX_DISK_SERIALNUMBER: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(655363u32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const NodeStatusIsolated: CLUSTER_NODE_STATUS = 1i32;
+pub const CLUSPROP_SYNTAX_DISK_GUID: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(720899u32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const NodeStatusQuarantined: CLUSTER_NODE_STATUS = 2i32;
+pub const CLUSPROP_SYNTAX_DISK_SIZE: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(786438u32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const NodeStatusDrainInProgress: CLUSTER_NODE_STATUS = 4i32;
+pub const CLUSPROP_SYNTAX_PARTITION_INFO_EX: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(851969u32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const NodeStatusDrainCompleted: CLUSTER_NODE_STATUS = 8i32;
+pub const CLUSPROP_SYNTAX_PARTITION_INFO_EX2: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(917505u32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const NodeStatusDrainFailed: CLUSTER_NODE_STATUS = 16i32;
+pub const CLUSPROP_SYNTAX_STORAGE_DEVICE_ID_DESCRIPTOR: CLUSTER_PROPERTY_SYNTAX = CLUSTER_PROPERTY_SYNTAX(983041u32);
+impl ::core::marker::Copy for CLUSTER_PROPERTY_SYNTAX {}
+impl ::core::clone::Clone for CLUSTER_PROPERTY_SYNTAX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_PROPERTY_SYNTAX {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_PROPERTY_SYNTAX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_PROPERTY_SYNTAX").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CLUSTER_PROPERTY_SYNTAX {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CLUSTER_PROPERTY_SYNTAX {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CLUSTER_PROPERTY_SYNTAX {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CLUSTER_PROPERTY_SYNTAX {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CLUSTER_PROPERTY_SYNTAX {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const NodeStatusAvoidPlacement: CLUSTER_NODE_STATUS = 32i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_PROPERTY_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const NodeStatusMax: CLUSTER_NODE_STATUS = 51i32;
+pub const CLUSPROP_TYPE_UNKNOWN: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(-1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_NOTIFICATIONS_VERSION = i32;
+pub const CLUSPROP_TYPE_ENDMARK: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_NOTIFICATIONS_V1: CLUSTER_NOTIFICATIONS_VERSION = 1i32;
+pub const CLUSPROP_TYPE_LIST_VALUE: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_NOTIFICATIONS_V2: CLUSTER_NOTIFICATIONS_VERSION = 2i32;
+pub const CLUSPROP_TYPE_RESCLASS: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_OBJECT_TYPE = i32;
+pub const CLUSPROP_TYPE_RESERVED1: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_OBJECT_TYPE_NONE: CLUSTER_OBJECT_TYPE = 0i32;
+pub const CLUSPROP_TYPE_NAME: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(4i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_OBJECT_TYPE_CLUSTER: CLUSTER_OBJECT_TYPE = 1i32;
+pub const CLUSPROP_TYPE_SIGNATURE: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(5i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_OBJECT_TYPE_GROUP: CLUSTER_OBJECT_TYPE = 2i32;
+pub const CLUSPROP_TYPE_SCSI_ADDRESS: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(6i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_OBJECT_TYPE_RESOURCE: CLUSTER_OBJECT_TYPE = 3i32;
+pub const CLUSPROP_TYPE_DISK_NUMBER: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(7i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_OBJECT_TYPE_RESOURCE_TYPE: CLUSTER_OBJECT_TYPE = 4i32;
+pub const CLUSPROP_TYPE_PARTITION_INFO: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(8i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_OBJECT_TYPE_NETWORK_INTERFACE: CLUSTER_OBJECT_TYPE = 5i32;
+pub const CLUSPROP_TYPE_FTSET_INFO: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(9i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_OBJECT_TYPE_NETWORK: CLUSTER_OBJECT_TYPE = 6i32;
+pub const CLUSPROP_TYPE_DISK_SERIALNUMBER: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(10i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_OBJECT_TYPE_NODE: CLUSTER_OBJECT_TYPE = 7i32;
+pub const CLUSPROP_TYPE_DISK_GUID: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(11i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_OBJECT_TYPE_REGISTRY: CLUSTER_OBJECT_TYPE = 8i32;
+pub const CLUSPROP_TYPE_DISK_SIZE: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(12i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_OBJECT_TYPE_QUORUM: CLUSTER_OBJECT_TYPE = 9i32;
+pub const CLUSPROP_TYPE_PARTITION_INFO_EX: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(13i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_OBJECT_TYPE_SHARED_VOLUME: CLUSTER_OBJECT_TYPE = 10i32;
+pub const CLUSPROP_TYPE_PARTITION_INFO_EX2: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(14i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_OBJECT_TYPE_GROUPSET: CLUSTER_OBJECT_TYPE = 13i32;
+pub const CLUSPROP_TYPE_STORAGE_DEVICE_ID_DESCRIPTOR: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(15i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_OBJECT_TYPE_AFFINITYRULE: CLUSTER_OBJECT_TYPE = 16i32;
+pub const CLUSPROP_TYPE_USER: CLUSTER_PROPERTY_TYPE = CLUSTER_PROPERTY_TYPE(32768i32);
+impl ::core::marker::Copy for CLUSTER_PROPERTY_TYPE {}
+impl ::core::clone::Clone for CLUSTER_PROPERTY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_PROPERTY_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_PROPERTY_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_PROPERTY_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_PROPERTY_FORMAT = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_QUORUM_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_FORMAT_UNKNOWN: CLUSTER_PROPERTY_FORMAT = 0i32;
+pub const OperationalQuorum: CLUSTER_QUORUM_TYPE = CLUSTER_QUORUM_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_FORMAT_BINARY: CLUSTER_PROPERTY_FORMAT = 1i32;
+pub const ModifyQuorum: CLUSTER_QUORUM_TYPE = CLUSTER_QUORUM_TYPE(1i32);
+impl ::core::marker::Copy for CLUSTER_QUORUM_TYPE {}
+impl ::core::clone::Clone for CLUSTER_QUORUM_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_QUORUM_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_QUORUM_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_QUORUM_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_FORMAT_DWORD: CLUSTER_PROPERTY_FORMAT = 2i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_QUORUM_VALUE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_FORMAT_SZ: CLUSTER_PROPERTY_FORMAT = 3i32;
+pub const CLUSTER_QUORUM_MAINTAINED: CLUSTER_QUORUM_VALUE = CLUSTER_QUORUM_VALUE(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_FORMAT_EXPAND_SZ: CLUSTER_PROPERTY_FORMAT = 4i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_FORMAT_MULTI_SZ: CLUSTER_PROPERTY_FORMAT = 5i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_FORMAT_ULARGE_INTEGER: CLUSTER_PROPERTY_FORMAT = 6i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_FORMAT_LONG: CLUSTER_PROPERTY_FORMAT = 7i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_FORMAT_EXPANDED_SZ: CLUSTER_PROPERTY_FORMAT = 8i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_FORMAT_SECURITY_DESCRIPTOR: CLUSTER_PROPERTY_FORMAT = 9i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_FORMAT_LARGE_INTEGER: CLUSTER_PROPERTY_FORMAT = 10i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_FORMAT_WORD: CLUSTER_PROPERTY_FORMAT = 11i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_FORMAT_FILETIME: CLUSTER_PROPERTY_FORMAT = 12i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_FORMAT_VALUE_LIST: CLUSTER_PROPERTY_FORMAT = 13i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_FORMAT_PROPERTY_LIST: CLUSTER_PROPERTY_FORMAT = 14i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_FORMAT_USER: CLUSTER_PROPERTY_FORMAT = 32768i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_PROPERTY_SYNTAX = u32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_SYNTAX_ENDMARK: CLUSTER_PROPERTY_SYNTAX = 0u32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_SYNTAX_NAME: CLUSTER_PROPERTY_SYNTAX = 262147u32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_SYNTAX_RESCLASS: CLUSTER_PROPERTY_SYNTAX = 131074u32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_SYNTAX_LIST_VALUE_SZ: CLUSTER_PROPERTY_SYNTAX = 65539u32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_SYNTAX_LIST_VALUE_EXPAND_SZ: CLUSTER_PROPERTY_SYNTAX = 65540u32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_SYNTAX_LIST_VALUE_DWORD: CLUSTER_PROPERTY_SYNTAX = 65538u32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_SYNTAX_LIST_VALUE_BINARY: CLUSTER_PROPERTY_SYNTAX = 65537u32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_SYNTAX_LIST_VALUE_MULTI_SZ: CLUSTER_PROPERTY_SYNTAX = 65541u32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_SYNTAX_LIST_VALUE_LONG: CLUSTER_PROPERTY_SYNTAX = 65543u32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_SYNTAX_LIST_VALUE_EXPANDED_SZ: CLUSTER_PROPERTY_SYNTAX = 65544u32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_SYNTAX_LIST_VALUE_SECURITY_DESCRIPTOR: CLUSTER_PROPERTY_SYNTAX = 65545u32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_SYNTAX_LIST_VALUE_LARGE_INTEGER: CLUSTER_PROPERTY_SYNTAX = 65546u32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_SYNTAX_LIST_VALUE_ULARGE_INTEGER: CLUSTER_PROPERTY_SYNTAX = 65542u32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_SYNTAX_LIST_VALUE_WORD: CLUSTER_PROPERTY_SYNTAX = 65547u32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_SYNTAX_LIST_VALUE_PROPERTY_LIST: CLUSTER_PROPERTY_SYNTAX = 65550u32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_SYNTAX_LIST_VALUE_FILETIME: CLUSTER_PROPERTY_SYNTAX = 65548u32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_SYNTAX_DISK_SIGNATURE: CLUSTER_PROPERTY_SYNTAX = 327682u32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_SYNTAX_SCSI_ADDRESS: CLUSTER_PROPERTY_SYNTAX = 393218u32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_SYNTAX_DISK_NUMBER: CLUSTER_PROPERTY_SYNTAX = 458754u32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_SYNTAX_PARTITION_INFO: CLUSTER_PROPERTY_SYNTAX = 524289u32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_SYNTAX_FTSET_INFO: CLUSTER_PROPERTY_SYNTAX = 589825u32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_SYNTAX_DISK_SERIALNUMBER: CLUSTER_PROPERTY_SYNTAX = 655363u32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_SYNTAX_DISK_GUID: CLUSTER_PROPERTY_SYNTAX = 720899u32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_SYNTAX_DISK_SIZE: CLUSTER_PROPERTY_SYNTAX = 786438u32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_SYNTAX_PARTITION_INFO_EX: CLUSTER_PROPERTY_SYNTAX = 851969u32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_SYNTAX_PARTITION_INFO_EX2: CLUSTER_PROPERTY_SYNTAX = 917505u32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_SYNTAX_STORAGE_DEVICE_ID_DESCRIPTOR: CLUSTER_PROPERTY_SYNTAX = 983041u32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_PROPERTY_TYPE = i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_TYPE_UNKNOWN: CLUSTER_PROPERTY_TYPE = -1i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_TYPE_ENDMARK: CLUSTER_PROPERTY_TYPE = 0i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_TYPE_LIST_VALUE: CLUSTER_PROPERTY_TYPE = 1i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_TYPE_RESCLASS: CLUSTER_PROPERTY_TYPE = 2i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_TYPE_RESERVED1: CLUSTER_PROPERTY_TYPE = 3i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_TYPE_NAME: CLUSTER_PROPERTY_TYPE = 4i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_TYPE_SIGNATURE: CLUSTER_PROPERTY_TYPE = 5i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_TYPE_SCSI_ADDRESS: CLUSTER_PROPERTY_TYPE = 6i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_TYPE_DISK_NUMBER: CLUSTER_PROPERTY_TYPE = 7i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_TYPE_PARTITION_INFO: CLUSTER_PROPERTY_TYPE = 8i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_TYPE_FTSET_INFO: CLUSTER_PROPERTY_TYPE = 9i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_TYPE_DISK_SERIALNUMBER: CLUSTER_PROPERTY_TYPE = 10i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_TYPE_DISK_GUID: CLUSTER_PROPERTY_TYPE = 11i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_TYPE_DISK_SIZE: CLUSTER_PROPERTY_TYPE = 12i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_TYPE_PARTITION_INFO_EX: CLUSTER_PROPERTY_TYPE = 13i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_TYPE_PARTITION_INFO_EX2: CLUSTER_PROPERTY_TYPE = 14i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_TYPE_STORAGE_DEVICE_ID_DESCRIPTOR: CLUSTER_PROPERTY_TYPE = 15i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSPROP_TYPE_USER: CLUSTER_PROPERTY_TYPE = 32768i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_QUORUM_TYPE = i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const OperationalQuorum: CLUSTER_QUORUM_TYPE = 0i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ModifyQuorum: CLUSTER_QUORUM_TYPE = 1i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_QUORUM_VALUE = i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_QUORUM_MAINTAINED: CLUSTER_QUORUM_VALUE = 0i32;
-#[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_QUORUM_LOST: CLUSTER_QUORUM_VALUE = 1i32;
+pub const CLUSTER_QUORUM_LOST: CLUSTER_QUORUM_VALUE = CLUSTER_QUORUM_VALUE(1i32);
+impl ::core::marker::Copy for CLUSTER_QUORUM_VALUE {}
+impl ::core::clone::Clone for CLUSTER_QUORUM_VALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_QUORUM_VALUE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_QUORUM_VALUE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_QUORUM_VALUE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3892,91 +4800,187 @@ impl ::core::default::Default for CLUSTER_READ_BATCH_COMMAND {
     }
 }
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_REG_COMMAND = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_REG_COMMAND(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSREG_COMMAND_NONE: CLUSTER_REG_COMMAND = 0i32;
+pub const CLUSREG_COMMAND_NONE: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSREG_SET_VALUE: CLUSTER_REG_COMMAND = 1i32;
+pub const CLUSREG_SET_VALUE: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSREG_CREATE_KEY: CLUSTER_REG_COMMAND = 2i32;
+pub const CLUSREG_CREATE_KEY: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSREG_DELETE_KEY: CLUSTER_REG_COMMAND = 3i32;
+pub const CLUSREG_DELETE_KEY: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(3i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSREG_DELETE_VALUE: CLUSTER_REG_COMMAND = 4i32;
+pub const CLUSREG_DELETE_VALUE: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(4i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSREG_SET_KEY_SECURITY: CLUSTER_REG_COMMAND = 5i32;
+pub const CLUSREG_SET_KEY_SECURITY: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(5i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSREG_VALUE_DELETED: CLUSTER_REG_COMMAND = 6i32;
+pub const CLUSREG_VALUE_DELETED: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(6i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSREG_READ_KEY: CLUSTER_REG_COMMAND = 7i32;
+pub const CLUSREG_READ_KEY: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(7i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSREG_READ_VALUE: CLUSTER_REG_COMMAND = 8i32;
+pub const CLUSREG_READ_VALUE: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(8i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSREG_READ_ERROR: CLUSTER_REG_COMMAND = 9i32;
+pub const CLUSREG_READ_ERROR: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(9i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSREG_CONTROL_COMMAND: CLUSTER_REG_COMMAND = 10i32;
+pub const CLUSREG_CONTROL_COMMAND: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(10i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSREG_CONDITION_EXISTS: CLUSTER_REG_COMMAND = 11i32;
+pub const CLUSREG_CONDITION_EXISTS: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(11i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSREG_CONDITION_NOT_EXISTS: CLUSTER_REG_COMMAND = 12i32;
+pub const CLUSREG_CONDITION_NOT_EXISTS: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(12i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSREG_CONDITION_IS_EQUAL: CLUSTER_REG_COMMAND = 13i32;
+pub const CLUSREG_CONDITION_IS_EQUAL: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(13i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSREG_CONDITION_IS_NOT_EQUAL: CLUSTER_REG_COMMAND = 14i32;
+pub const CLUSREG_CONDITION_IS_NOT_EQUAL: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(14i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSREG_CONDITION_IS_GREATER_THAN: CLUSTER_REG_COMMAND = 15i32;
+pub const CLUSREG_CONDITION_IS_GREATER_THAN: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(15i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSREG_CONDITION_IS_LESS_THAN: CLUSTER_REG_COMMAND = 16i32;
+pub const CLUSREG_CONDITION_IS_LESS_THAN: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(16i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSREG_CONDITION_KEY_EXISTS: CLUSTER_REG_COMMAND = 17i32;
+pub const CLUSREG_CONDITION_KEY_EXISTS: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(17i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSREG_CONDITION_KEY_NOT_EXISTS: CLUSTER_REG_COMMAND = 18i32;
+pub const CLUSREG_CONDITION_KEY_NOT_EXISTS: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(18i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSREG_LAST_COMMAND: CLUSTER_REG_COMMAND = 19i32;
+pub const CLUSREG_LAST_COMMAND: CLUSTER_REG_COMMAND = CLUSTER_REG_COMMAND(19i32);
+impl ::core::marker::Copy for CLUSTER_REG_COMMAND {}
+impl ::core::clone::Clone for CLUSTER_REG_COMMAND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_REG_COMMAND {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_REG_COMMAND {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_REG_COMMAND").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_RESOURCE_APPLICATION_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_RESOURCE_APPLICATION_STATE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterResourceApplicationStateUnknown: CLUSTER_RESOURCE_APPLICATION_STATE = 1i32;
+pub const ClusterResourceApplicationStateUnknown: CLUSTER_RESOURCE_APPLICATION_STATE = CLUSTER_RESOURCE_APPLICATION_STATE(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterResourceApplicationOSHeartBeat: CLUSTER_RESOURCE_APPLICATION_STATE = 2i32;
+pub const ClusterResourceApplicationOSHeartBeat: CLUSTER_RESOURCE_APPLICATION_STATE = CLUSTER_RESOURCE_APPLICATION_STATE(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterResourceApplicationReady: CLUSTER_RESOURCE_APPLICATION_STATE = 3i32;
+pub const ClusterResourceApplicationReady: CLUSTER_RESOURCE_APPLICATION_STATE = CLUSTER_RESOURCE_APPLICATION_STATE(3i32);
+impl ::core::marker::Copy for CLUSTER_RESOURCE_APPLICATION_STATE {}
+impl ::core::clone::Clone for CLUSTER_RESOURCE_APPLICATION_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_RESOURCE_APPLICATION_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_RESOURCE_APPLICATION_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_RESOURCE_APPLICATION_STATE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_RESOURCE_CLASS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_RESOURCE_CLASS(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_RESCLASS_UNKNOWN: CLUSTER_RESOURCE_CLASS = 0i32;
+pub const CLUS_RESCLASS_UNKNOWN: CLUSTER_RESOURCE_CLASS = CLUSTER_RESOURCE_CLASS(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_RESCLASS_STORAGE: CLUSTER_RESOURCE_CLASS = 1i32;
+pub const CLUS_RESCLASS_STORAGE: CLUSTER_RESOURCE_CLASS = CLUSTER_RESOURCE_CLASS(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_RESCLASS_NETWORK: CLUSTER_RESOURCE_CLASS = 2i32;
+pub const CLUS_RESCLASS_NETWORK: CLUSTER_RESOURCE_CLASS = CLUSTER_RESOURCE_CLASS(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_RESCLASS_USER: CLUSTER_RESOURCE_CLASS = 32768i32;
+pub const CLUS_RESCLASS_USER: CLUSTER_RESOURCE_CLASS = CLUSTER_RESOURCE_CLASS(32768i32);
+impl ::core::marker::Copy for CLUSTER_RESOURCE_CLASS {}
+impl ::core::clone::Clone for CLUSTER_RESOURCE_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_RESOURCE_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_RESOURCE_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_RESOURCE_CLASS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_RESOURCE_CREATE_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_RESOURCE_CREATE_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_RESOURCE_DEFAULT_MONITOR: CLUSTER_RESOURCE_CREATE_FLAGS = 0i32;
+pub const CLUSTER_RESOURCE_DEFAULT_MONITOR: CLUSTER_RESOURCE_CREATE_FLAGS = CLUSTER_RESOURCE_CREATE_FLAGS(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_RESOURCE_SEPARATE_MONITOR: CLUSTER_RESOURCE_CREATE_FLAGS = 1i32;
+pub const CLUSTER_RESOURCE_SEPARATE_MONITOR: CLUSTER_RESOURCE_CREATE_FLAGS = CLUSTER_RESOURCE_CREATE_FLAGS(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_RESOURCE_VALID_FLAGS: CLUSTER_RESOURCE_CREATE_FLAGS = 1i32;
+pub const CLUSTER_RESOURCE_VALID_FLAGS: CLUSTER_RESOURCE_CREATE_FLAGS = CLUSTER_RESOURCE_CREATE_FLAGS(1i32);
+impl ::core::marker::Copy for CLUSTER_RESOURCE_CREATE_FLAGS {}
+impl ::core::clone::Clone for CLUSTER_RESOURCE_CREATE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_RESOURCE_CREATE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_RESOURCE_CREATE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_RESOURCE_CREATE_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterResourceEmbeddedFailureActionNone: CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION = 0i32;
+pub const ClusterResourceEmbeddedFailureActionNone: CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION = CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterResourceEmbeddedFailureActionLogOnly: CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION = 1i32;
+pub const ClusterResourceEmbeddedFailureActionLogOnly: CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION = CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterResourceEmbeddedFailureActionRecover: CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION = 2i32;
+pub const ClusterResourceEmbeddedFailureActionRecover: CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION = CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION(2i32);
+impl ::core::marker::Copy for CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION {}
+impl ::core::clone::Clone for CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_RESOURCE_EMBEDDED_FAILURE_ACTION").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_RESOURCE_ENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_RESOURCE_ENUM(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_RESOURCE_ENUM_DEPENDS: CLUSTER_RESOURCE_ENUM = 1i32;
+pub const CLUSTER_RESOURCE_ENUM_DEPENDS: CLUSTER_RESOURCE_ENUM = CLUSTER_RESOURCE_ENUM(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_RESOURCE_ENUM_PROVIDES: CLUSTER_RESOURCE_ENUM = 2i32;
+pub const CLUSTER_RESOURCE_ENUM_PROVIDES: CLUSTER_RESOURCE_ENUM = CLUSTER_RESOURCE_ENUM(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_RESOURCE_ENUM_NODES: CLUSTER_RESOURCE_ENUM = 4i32;
+pub const CLUSTER_RESOURCE_ENUM_NODES: CLUSTER_RESOURCE_ENUM = CLUSTER_RESOURCE_ENUM(4i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_RESOURCE_ENUM_ALL: CLUSTER_RESOURCE_ENUM = 7i32;
+pub const CLUSTER_RESOURCE_ENUM_ALL: CLUSTER_RESOURCE_ENUM = CLUSTER_RESOURCE_ENUM(7i32);
+impl ::core::marker::Copy for CLUSTER_RESOURCE_ENUM {}
+impl ::core::clone::Clone for CLUSTER_RESOURCE_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_RESOURCE_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_RESOURCE_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_RESOURCE_ENUM").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4046,209 +5050,353 @@ pub const CLUSTER_RESOURCE_ENUM_ITEM_VERSION: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSTER_RESOURCE_ENUM_ITEM_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_RESOURCE_RESTART_ACTION = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_RESOURCE_RESTART_ACTION(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterResourceDontRestart: CLUSTER_RESOURCE_RESTART_ACTION = 0i32;
+pub const ClusterResourceDontRestart: CLUSTER_RESOURCE_RESTART_ACTION = CLUSTER_RESOURCE_RESTART_ACTION(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterResourceRestartNoNotify: CLUSTER_RESOURCE_RESTART_ACTION = 1i32;
+pub const ClusterResourceRestartNoNotify: CLUSTER_RESOURCE_RESTART_ACTION = CLUSTER_RESOURCE_RESTART_ACTION(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterResourceRestartNotify: CLUSTER_RESOURCE_RESTART_ACTION = 2i32;
+pub const ClusterResourceRestartNotify: CLUSTER_RESOURCE_RESTART_ACTION = CLUSTER_RESOURCE_RESTART_ACTION(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterResourceRestartActionCount: CLUSTER_RESOURCE_RESTART_ACTION = 3i32;
+pub const ClusterResourceRestartActionCount: CLUSTER_RESOURCE_RESTART_ACTION = CLUSTER_RESOURCE_RESTART_ACTION(3i32);
+impl ::core::marker::Copy for CLUSTER_RESOURCE_RESTART_ACTION {}
+impl ::core::clone::Clone for CLUSTER_RESOURCE_RESTART_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_RESOURCE_RESTART_ACTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_RESOURCE_RESTART_ACTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_RESOURCE_RESTART_ACTION").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_RESOURCE_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_RESOURCE_STATE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterResourceStateUnknown: CLUSTER_RESOURCE_STATE = -1i32;
+pub const ClusterResourceStateUnknown: CLUSTER_RESOURCE_STATE = CLUSTER_RESOURCE_STATE(-1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterResourceInherited: CLUSTER_RESOURCE_STATE = 0i32;
+pub const ClusterResourceInherited: CLUSTER_RESOURCE_STATE = CLUSTER_RESOURCE_STATE(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterResourceInitializing: CLUSTER_RESOURCE_STATE = 1i32;
+pub const ClusterResourceInitializing: CLUSTER_RESOURCE_STATE = CLUSTER_RESOURCE_STATE(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterResourceOnline: CLUSTER_RESOURCE_STATE = 2i32;
+pub const ClusterResourceOnline: CLUSTER_RESOURCE_STATE = CLUSTER_RESOURCE_STATE(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterResourceOffline: CLUSTER_RESOURCE_STATE = 3i32;
+pub const ClusterResourceOffline: CLUSTER_RESOURCE_STATE = CLUSTER_RESOURCE_STATE(3i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterResourceFailed: CLUSTER_RESOURCE_STATE = 4i32;
+pub const ClusterResourceFailed: CLUSTER_RESOURCE_STATE = CLUSTER_RESOURCE_STATE(4i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterResourcePending: CLUSTER_RESOURCE_STATE = 128i32;
+pub const ClusterResourcePending: CLUSTER_RESOURCE_STATE = CLUSTER_RESOURCE_STATE(128i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterResourceOnlinePending: CLUSTER_RESOURCE_STATE = 129i32;
+pub const ClusterResourceOnlinePending: CLUSTER_RESOURCE_STATE = CLUSTER_RESOURCE_STATE(129i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterResourceOfflinePending: CLUSTER_RESOURCE_STATE = 130i32;
+pub const ClusterResourceOfflinePending: CLUSTER_RESOURCE_STATE = CLUSTER_RESOURCE_STATE(130i32);
+impl ::core::marker::Copy for CLUSTER_RESOURCE_STATE {}
+impl ::core::clone::Clone for CLUSTER_RESOURCE_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_RESOURCE_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_RESOURCE_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_RESOURCE_STATE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_RESOURCE_STATE_CHANGE_REASON = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_RESOURCE_STATE_CHANGE_REASON(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const eResourceStateChangeReasonUnknown: CLUSTER_RESOURCE_STATE_CHANGE_REASON = 0i32;
+pub const eResourceStateChangeReasonUnknown: CLUSTER_RESOURCE_STATE_CHANGE_REASON = CLUSTER_RESOURCE_STATE_CHANGE_REASON(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const eResourceStateChangeReasonMove: CLUSTER_RESOURCE_STATE_CHANGE_REASON = 1i32;
+pub const eResourceStateChangeReasonMove: CLUSTER_RESOURCE_STATE_CHANGE_REASON = CLUSTER_RESOURCE_STATE_CHANGE_REASON(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const eResourceStateChangeReasonFailover: CLUSTER_RESOURCE_STATE_CHANGE_REASON = 2i32;
+pub const eResourceStateChangeReasonFailover: CLUSTER_RESOURCE_STATE_CHANGE_REASON = CLUSTER_RESOURCE_STATE_CHANGE_REASON(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const eResourceStateChangeReasonFailedMove: CLUSTER_RESOURCE_STATE_CHANGE_REASON = 3i32;
+pub const eResourceStateChangeReasonFailedMove: CLUSTER_RESOURCE_STATE_CHANGE_REASON = CLUSTER_RESOURCE_STATE_CHANGE_REASON(3i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const eResourceStateChangeReasonShutdown: CLUSTER_RESOURCE_STATE_CHANGE_REASON = 4i32;
+pub const eResourceStateChangeReasonShutdown: CLUSTER_RESOURCE_STATE_CHANGE_REASON = CLUSTER_RESOURCE_STATE_CHANGE_REASON(4i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const eResourceStateChangeReasonRundown: CLUSTER_RESOURCE_STATE_CHANGE_REASON = 5i32;
+pub const eResourceStateChangeReasonRundown: CLUSTER_RESOURCE_STATE_CHANGE_REASON = CLUSTER_RESOURCE_STATE_CHANGE_REASON(5i32);
+impl ::core::marker::Copy for CLUSTER_RESOURCE_STATE_CHANGE_REASON {}
+impl ::core::clone::Clone for CLUSTER_RESOURCE_STATE_CHANGE_REASON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_RESOURCE_STATE_CHANGE_REASON {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_RESOURCE_STATE_CHANGE_REASON {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_RESOURCE_STATE_CHANGE_REASON").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_RESOURCE_TYPE_ENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_RESOURCE_TYPE_ENUM(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_RESOURCE_TYPE_ENUM_NODES: CLUSTER_RESOURCE_TYPE_ENUM = 1i32;
+pub const CLUSTER_RESOURCE_TYPE_ENUM_NODES: CLUSTER_RESOURCE_TYPE_ENUM = CLUSTER_RESOURCE_TYPE_ENUM(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_RESOURCE_TYPE_ENUM_RESOURCES: CLUSTER_RESOURCE_TYPE_ENUM = 2i32;
+pub const CLUSTER_RESOURCE_TYPE_ENUM_RESOURCES: CLUSTER_RESOURCE_TYPE_ENUM = CLUSTER_RESOURCE_TYPE_ENUM(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUSTER_RESOURCE_TYPE_ENUM_ALL: CLUSTER_RESOURCE_TYPE_ENUM = 3i32;
+pub const CLUSTER_RESOURCE_TYPE_ENUM_ALL: CLUSTER_RESOURCE_TYPE_ENUM = CLUSTER_RESOURCE_TYPE_ENUM(3i32);
+impl ::core::marker::Copy for CLUSTER_RESOURCE_TYPE_ENUM {}
+impl ::core::clone::Clone for CLUSTER_RESOURCE_TYPE_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_RESOURCE_TYPE_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_RESOURCE_TYPE_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_RESOURCE_TYPE_ENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_ROLE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_ROLE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterRoleDHCP: CLUSTER_ROLE = 0i32;
+pub const ClusterRoleDHCP: CLUSTER_ROLE = CLUSTER_ROLE(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterRoleDTC: CLUSTER_ROLE = 1i32;
+pub const ClusterRoleDTC: CLUSTER_ROLE = CLUSTER_ROLE(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterRoleFileServer: CLUSTER_ROLE = 2i32;
+pub const ClusterRoleFileServer: CLUSTER_ROLE = CLUSTER_ROLE(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterRoleGenericApplication: CLUSTER_ROLE = 3i32;
+pub const ClusterRoleGenericApplication: CLUSTER_ROLE = CLUSTER_ROLE(3i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterRoleGenericScript: CLUSTER_ROLE = 4i32;
+pub const ClusterRoleGenericScript: CLUSTER_ROLE = CLUSTER_ROLE(4i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterRoleGenericService: CLUSTER_ROLE = 5i32;
+pub const ClusterRoleGenericService: CLUSTER_ROLE = CLUSTER_ROLE(5i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterRoleISCSINameServer: CLUSTER_ROLE = 6i32;
+pub const ClusterRoleISCSINameServer: CLUSTER_ROLE = CLUSTER_ROLE(6i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterRoleMSMQ: CLUSTER_ROLE = 7i32;
+pub const ClusterRoleMSMQ: CLUSTER_ROLE = CLUSTER_ROLE(7i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterRoleNFS: CLUSTER_ROLE = 8i32;
+pub const ClusterRoleNFS: CLUSTER_ROLE = CLUSTER_ROLE(8i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterRolePrintServer: CLUSTER_ROLE = 9i32;
+pub const ClusterRolePrintServer: CLUSTER_ROLE = CLUSTER_ROLE(9i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterRoleStandAloneNamespaceServer: CLUSTER_ROLE = 10i32;
+pub const ClusterRoleStandAloneNamespaceServer: CLUSTER_ROLE = CLUSTER_ROLE(10i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterRoleVolumeShadowCopyServiceTask: CLUSTER_ROLE = 11i32;
+pub const ClusterRoleVolumeShadowCopyServiceTask: CLUSTER_ROLE = CLUSTER_ROLE(11i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterRoleWINS: CLUSTER_ROLE = 12i32;
+pub const ClusterRoleWINS: CLUSTER_ROLE = CLUSTER_ROLE(12i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterRoleTaskScheduler: CLUSTER_ROLE = 13i32;
+pub const ClusterRoleTaskScheduler: CLUSTER_ROLE = CLUSTER_ROLE(13i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterRoleNetworkFileSystem: CLUSTER_ROLE = 14i32;
+pub const ClusterRoleNetworkFileSystem: CLUSTER_ROLE = CLUSTER_ROLE(14i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterRoleDFSReplicatedFolder: CLUSTER_ROLE = 15i32;
+pub const ClusterRoleDFSReplicatedFolder: CLUSTER_ROLE = CLUSTER_ROLE(15i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterRoleDistributedFileSystem: CLUSTER_ROLE = 16i32;
+pub const ClusterRoleDistributedFileSystem: CLUSTER_ROLE = CLUSTER_ROLE(16i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterRoleDistributedNetworkName: CLUSTER_ROLE = 17i32;
+pub const ClusterRoleDistributedNetworkName: CLUSTER_ROLE = CLUSTER_ROLE(17i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterRoleFileShare: CLUSTER_ROLE = 18i32;
+pub const ClusterRoleFileShare: CLUSTER_ROLE = CLUSTER_ROLE(18i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterRoleFileShareWitness: CLUSTER_ROLE = 19i32;
+pub const ClusterRoleFileShareWitness: CLUSTER_ROLE = CLUSTER_ROLE(19i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterRoleHardDisk: CLUSTER_ROLE = 20i32;
+pub const ClusterRoleHardDisk: CLUSTER_ROLE = CLUSTER_ROLE(20i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterRoleIPAddress: CLUSTER_ROLE = 21i32;
+pub const ClusterRoleIPAddress: CLUSTER_ROLE = CLUSTER_ROLE(21i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterRoleIPV6Address: CLUSTER_ROLE = 22i32;
+pub const ClusterRoleIPV6Address: CLUSTER_ROLE = CLUSTER_ROLE(22i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterRoleIPV6TunnelAddress: CLUSTER_ROLE = 23i32;
+pub const ClusterRoleIPV6TunnelAddress: CLUSTER_ROLE = CLUSTER_ROLE(23i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterRoleISCSITargetServer: CLUSTER_ROLE = 24i32;
+pub const ClusterRoleISCSITargetServer: CLUSTER_ROLE = CLUSTER_ROLE(24i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterRoleNetworkName: CLUSTER_ROLE = 25i32;
+pub const ClusterRoleNetworkName: CLUSTER_ROLE = CLUSTER_ROLE(25i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterRolePhysicalDisk: CLUSTER_ROLE = 26i32;
+pub const ClusterRolePhysicalDisk: CLUSTER_ROLE = CLUSTER_ROLE(26i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterRoleSODAFileServer: CLUSTER_ROLE = 27i32;
+pub const ClusterRoleSODAFileServer: CLUSTER_ROLE = CLUSTER_ROLE(27i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterRoleStoragePool: CLUSTER_ROLE = 28i32;
+pub const ClusterRoleStoragePool: CLUSTER_ROLE = CLUSTER_ROLE(28i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterRoleVirtualMachine: CLUSTER_ROLE = 29i32;
+pub const ClusterRoleVirtualMachine: CLUSTER_ROLE = CLUSTER_ROLE(29i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterRoleVirtualMachineConfiguration: CLUSTER_ROLE = 30i32;
+pub const ClusterRoleVirtualMachineConfiguration: CLUSTER_ROLE = CLUSTER_ROLE(30i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterRoleVirtualMachineReplicaBroker: CLUSTER_ROLE = 31i32;
+pub const ClusterRoleVirtualMachineReplicaBroker: CLUSTER_ROLE = CLUSTER_ROLE(31i32);
+impl ::core::marker::Copy for CLUSTER_ROLE {}
+impl ::core::clone::Clone for CLUSTER_ROLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_ROLE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_ROLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_ROLE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_ROLE_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_ROLE_STATE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterRoleUnknown: CLUSTER_ROLE_STATE = -1i32;
+pub const ClusterRoleUnknown: CLUSTER_ROLE_STATE = CLUSTER_ROLE_STATE(-1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterRoleClustered: CLUSTER_ROLE_STATE = 0i32;
+pub const ClusterRoleClustered: CLUSTER_ROLE_STATE = CLUSTER_ROLE_STATE(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterRoleUnclustered: CLUSTER_ROLE_STATE = 1i32;
+pub const ClusterRoleUnclustered: CLUSTER_ROLE_STATE = CLUSTER_ROLE_STATE(1i32);
+impl ::core::marker::Copy for CLUSTER_ROLE_STATE {}
+impl ::core::clone::Clone for CLUSTER_ROLE_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_ROLE_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_ROLE_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_ROLE_STATE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSTER_RUNNING: u32 = 16u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_SETUP_PHASE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_SETUP_PHASE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSetupPhaseInitialize: CLUSTER_SETUP_PHASE = 1i32;
+pub const ClusterSetupPhaseInitialize: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSetupPhaseValidateNodeState: CLUSTER_SETUP_PHASE = 100i32;
+pub const ClusterSetupPhaseValidateNodeState: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(100i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSetupPhaseValidateNetft: CLUSTER_SETUP_PHASE = 102i32;
+pub const ClusterSetupPhaseValidateNetft: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(102i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSetupPhaseValidateClusDisk: CLUSTER_SETUP_PHASE = 103i32;
+pub const ClusterSetupPhaseValidateClusDisk: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(103i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSetupPhaseConfigureClusSvc: CLUSTER_SETUP_PHASE = 104i32;
+pub const ClusterSetupPhaseConfigureClusSvc: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(104i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSetupPhaseStartingClusSvc: CLUSTER_SETUP_PHASE = 105i32;
+pub const ClusterSetupPhaseStartingClusSvc: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(105i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSetupPhaseQueryClusterNameAccount: CLUSTER_SETUP_PHASE = 106i32;
+pub const ClusterSetupPhaseQueryClusterNameAccount: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(106i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSetupPhaseValidateClusterNameAccount: CLUSTER_SETUP_PHASE = 107i32;
+pub const ClusterSetupPhaseValidateClusterNameAccount: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(107i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSetupPhaseCreateClusterAccount: CLUSTER_SETUP_PHASE = 108i32;
+pub const ClusterSetupPhaseCreateClusterAccount: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(108i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSetupPhaseConfigureClusterAccount: CLUSTER_SETUP_PHASE = 109i32;
+pub const ClusterSetupPhaseConfigureClusterAccount: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(109i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSetupPhaseFormingCluster: CLUSTER_SETUP_PHASE = 200i32;
+pub const ClusterSetupPhaseFormingCluster: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(200i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSetupPhaseAddClusterProperties: CLUSTER_SETUP_PHASE = 201i32;
+pub const ClusterSetupPhaseAddClusterProperties: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(201i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSetupPhaseCreateResourceTypes: CLUSTER_SETUP_PHASE = 202i32;
+pub const ClusterSetupPhaseCreateResourceTypes: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(202i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSetupPhaseCreateGroups: CLUSTER_SETUP_PHASE = 203i32;
+pub const ClusterSetupPhaseCreateGroups: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(203i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSetupPhaseCreateIPAddressResources: CLUSTER_SETUP_PHASE = 204i32;
+pub const ClusterSetupPhaseCreateIPAddressResources: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(204i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSetupPhaseCreateNetworkName: CLUSTER_SETUP_PHASE = 205i32;
+pub const ClusterSetupPhaseCreateNetworkName: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(205i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSetupPhaseClusterGroupOnline: CLUSTER_SETUP_PHASE = 206i32;
+pub const ClusterSetupPhaseClusterGroupOnline: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(206i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSetupPhaseGettingCurrentMembership: CLUSTER_SETUP_PHASE = 300i32;
+pub const ClusterSetupPhaseGettingCurrentMembership: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(300i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSetupPhaseAddNodeToCluster: CLUSTER_SETUP_PHASE = 301i32;
+pub const ClusterSetupPhaseAddNodeToCluster: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(301i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSetupPhaseNodeUp: CLUSTER_SETUP_PHASE = 302i32;
+pub const ClusterSetupPhaseNodeUp: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(302i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSetupPhaseMoveGroup: CLUSTER_SETUP_PHASE = 400i32;
+pub const ClusterSetupPhaseMoveGroup: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(400i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSetupPhaseDeleteGroup: CLUSTER_SETUP_PHASE = 401i32;
+pub const ClusterSetupPhaseDeleteGroup: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(401i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSetupPhaseCleanupCOs: CLUSTER_SETUP_PHASE = 402i32;
+pub const ClusterSetupPhaseCleanupCOs: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(402i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSetupPhaseOfflineGroup: CLUSTER_SETUP_PHASE = 403i32;
+pub const ClusterSetupPhaseOfflineGroup: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(403i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSetupPhaseEvictNode: CLUSTER_SETUP_PHASE = 404i32;
+pub const ClusterSetupPhaseEvictNode: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(404i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSetupPhaseCleanupNode: CLUSTER_SETUP_PHASE = 405i32;
+pub const ClusterSetupPhaseCleanupNode: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(405i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSetupPhaseCoreGroupCleanup: CLUSTER_SETUP_PHASE = 406i32;
+pub const ClusterSetupPhaseCoreGroupCleanup: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(406i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSetupPhaseFailureCleanup: CLUSTER_SETUP_PHASE = 999i32;
+pub const ClusterSetupPhaseFailureCleanup: CLUSTER_SETUP_PHASE = CLUSTER_SETUP_PHASE(999i32);
+impl ::core::marker::Copy for CLUSTER_SETUP_PHASE {}
+impl ::core::clone::Clone for CLUSTER_SETUP_PHASE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_SETUP_PHASE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_SETUP_PHASE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_SETUP_PHASE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_SETUP_PHASE_SEVERITY = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_SETUP_PHASE_SEVERITY(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSetupPhaseInformational: CLUSTER_SETUP_PHASE_SEVERITY = 1i32;
+pub const ClusterSetupPhaseInformational: CLUSTER_SETUP_PHASE_SEVERITY = CLUSTER_SETUP_PHASE_SEVERITY(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSetupPhaseWarning: CLUSTER_SETUP_PHASE_SEVERITY = 2i32;
+pub const ClusterSetupPhaseWarning: CLUSTER_SETUP_PHASE_SEVERITY = CLUSTER_SETUP_PHASE_SEVERITY(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSetupPhaseFatal: CLUSTER_SETUP_PHASE_SEVERITY = 3i32;
+pub const ClusterSetupPhaseFatal: CLUSTER_SETUP_PHASE_SEVERITY = CLUSTER_SETUP_PHASE_SEVERITY(3i32);
+impl ::core::marker::Copy for CLUSTER_SETUP_PHASE_SEVERITY {}
+impl ::core::clone::Clone for CLUSTER_SETUP_PHASE_SEVERITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_SETUP_PHASE_SEVERITY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_SETUP_PHASE_SEVERITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_SETUP_PHASE_SEVERITY").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_SETUP_PHASE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_SETUP_PHASE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSetupPhaseStart: CLUSTER_SETUP_PHASE_TYPE = 1i32;
+pub const ClusterSetupPhaseStart: CLUSTER_SETUP_PHASE_TYPE = CLUSTER_SETUP_PHASE_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSetupPhaseContinue: CLUSTER_SETUP_PHASE_TYPE = 2i32;
+pub const ClusterSetupPhaseContinue: CLUSTER_SETUP_PHASE_TYPE = CLUSTER_SETUP_PHASE_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSetupPhaseEnd: CLUSTER_SETUP_PHASE_TYPE = 3i32;
+pub const ClusterSetupPhaseEnd: CLUSTER_SETUP_PHASE_TYPE = CLUSTER_SETUP_PHASE_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSetupPhaseReport: CLUSTER_SETUP_PHASE_TYPE = 4i32;
+pub const ClusterSetupPhaseReport: CLUSTER_SETUP_PHASE_TYPE = CLUSTER_SETUP_PHASE_TYPE(4i32);
+impl ::core::marker::Copy for CLUSTER_SETUP_PHASE_TYPE {}
+impl ::core::clone::Clone for CLUSTER_SETUP_PHASE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_SETUP_PHASE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_SETUP_PHASE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_SETUP_PHASE_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUSTER_SET_ACCESS_TYPE_ALLOWED: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
@@ -4294,11 +5442,27 @@ impl ::core::default::Default for CLUSTER_SET_PASSWORD_STATUS {
     }
 }
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_SHARED_VOLUME_BACKUP_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_SHARED_VOLUME_BACKUP_STATE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const VolumeBackupNone: CLUSTER_SHARED_VOLUME_BACKUP_STATE = 0i32;
+pub const VolumeBackupNone: CLUSTER_SHARED_VOLUME_BACKUP_STATE = CLUSTER_SHARED_VOLUME_BACKUP_STATE(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const VolumeBackupInProgress: CLUSTER_SHARED_VOLUME_BACKUP_STATE = 1i32;
+pub const VolumeBackupInProgress: CLUSTER_SHARED_VOLUME_BACKUP_STATE = CLUSTER_SHARED_VOLUME_BACKUP_STATE(1i32);
+impl ::core::marker::Copy for CLUSTER_SHARED_VOLUME_BACKUP_STATE {}
+impl ::core::clone::Clone for CLUSTER_SHARED_VOLUME_BACKUP_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_SHARED_VOLUME_BACKUP_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_SHARED_VOLUME_BACKUP_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_SHARED_VOLUME_BACKUP_STATE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub struct CLUSTER_SHARED_VOLUME_RENAME_GUID_INPUT {
@@ -4413,17 +5577,33 @@ impl ::core::default::Default for CLUSTER_SHARED_VOLUME_RENAME_INPUT_NAME {
     }
 }
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSharedVolumeRenameInputTypeNone: CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE = 0i32;
+pub const ClusterSharedVolumeRenameInputTypeNone: CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE = CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSharedVolumeRenameInputTypeVolumeOffset: CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE = 1i32;
+pub const ClusterSharedVolumeRenameInputTypeVolumeOffset: CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE = CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSharedVolumeRenameInputTypeVolumeId: CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE = 2i32;
+pub const ClusterSharedVolumeRenameInputTypeVolumeId: CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE = CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSharedVolumeRenameInputTypeVolumeName: CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE = 3i32;
+pub const ClusterSharedVolumeRenameInputTypeVolumeName: CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE = CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSharedVolumeRenameInputTypeVolumeGuid: CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE = 4i32;
+pub const ClusterSharedVolumeRenameInputTypeVolumeGuid: CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE = CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE(4i32);
+impl ::core::marker::Copy for CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE {}
+impl ::core::clone::Clone for CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_SHARED_VOLUME_RENAME_INPUT_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub struct CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME {
@@ -4479,27 +5659,59 @@ impl ::core::default::Default for CLUSTER_SHARED_VOLUME_RENAME_INPUT_VOLUME_0 {
     }
 }
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSharedVolumeSnapshotStateUnknown: CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE = 0i32;
+pub const ClusterSharedVolumeSnapshotStateUnknown: CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE = CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSharedVolumePrepareForHWSnapshot: CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE = 1i32;
+pub const ClusterSharedVolumePrepareForHWSnapshot: CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE = CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSharedVolumeHWSnapshotCompleted: CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE = 2i32;
+pub const ClusterSharedVolumeHWSnapshotCompleted: CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE = CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterSharedVolumePrepareForFreeze: CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE = 3i32;
+pub const ClusterSharedVolumePrepareForFreeze: CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE = CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE(3i32);
+impl ::core::marker::Copy for CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE {}
+impl ::core::clone::Clone for CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_SHARED_VOLUME_SNAPSHOT_STATE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_SHARED_VOLUME_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_SHARED_VOLUME_STATE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const SharedVolumeStateUnavailable: CLUSTER_SHARED_VOLUME_STATE = 0i32;
+pub const SharedVolumeStateUnavailable: CLUSTER_SHARED_VOLUME_STATE = CLUSTER_SHARED_VOLUME_STATE(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const SharedVolumeStatePaused: CLUSTER_SHARED_VOLUME_STATE = 1i32;
+pub const SharedVolumeStatePaused: CLUSTER_SHARED_VOLUME_STATE = CLUSTER_SHARED_VOLUME_STATE(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const SharedVolumeStateActive: CLUSTER_SHARED_VOLUME_STATE = 2i32;
+pub const SharedVolumeStateActive: CLUSTER_SHARED_VOLUME_STATE = CLUSTER_SHARED_VOLUME_STATE(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const SharedVolumeStateActiveRedirected: CLUSTER_SHARED_VOLUME_STATE = 3i32;
+pub const SharedVolumeStateActiveRedirected: CLUSTER_SHARED_VOLUME_STATE = CLUSTER_SHARED_VOLUME_STATE(3i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const SharedVolumeStateActiveVolumeRedirected: CLUSTER_SHARED_VOLUME_STATE = 4i32;
+pub const SharedVolumeStateActiveVolumeRedirected: CLUSTER_SHARED_VOLUME_STATE = CLUSTER_SHARED_VOLUME_STATE(4i32);
+impl ::core::marker::Copy for CLUSTER_SHARED_VOLUME_STATE {}
+impl ::core::clone::Clone for CLUSTER_SHARED_VOLUME_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_SHARED_VOLUME_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_SHARED_VOLUME_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_SHARED_VOLUME_STATE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub struct CLUSTER_SHARED_VOLUME_STATE_INFO {
@@ -4568,31 +5780,63 @@ impl ::core::default::Default for CLUSTER_SHARED_VOLUME_STATE_INFO_EX {
     }
 }
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_STORAGENODE_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_STORAGENODE_STATE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterStorageNodeStateUnknown: CLUSTER_STORAGENODE_STATE = 0i32;
+pub const ClusterStorageNodeStateUnknown: CLUSTER_STORAGENODE_STATE = CLUSTER_STORAGENODE_STATE(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterStorageNodeUp: CLUSTER_STORAGENODE_STATE = 1i32;
+pub const ClusterStorageNodeUp: CLUSTER_STORAGENODE_STATE = CLUSTER_STORAGENODE_STATE(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterStorageNodeDown: CLUSTER_STORAGENODE_STATE = 2i32;
+pub const ClusterStorageNodeDown: CLUSTER_STORAGENODE_STATE = CLUSTER_STORAGENODE_STATE(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterStorageNodePaused: CLUSTER_STORAGENODE_STATE = 3i32;
+pub const ClusterStorageNodePaused: CLUSTER_STORAGENODE_STATE = CLUSTER_STORAGENODE_STATE(3i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterStorageNodeStarting: CLUSTER_STORAGENODE_STATE = 4i32;
+pub const ClusterStorageNodeStarting: CLUSTER_STORAGENODE_STATE = CLUSTER_STORAGENODE_STATE(4i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterStorageNodeStopping: CLUSTER_STORAGENODE_STATE = 5i32;
+pub const ClusterStorageNodeStopping: CLUSTER_STORAGENODE_STATE = CLUSTER_STORAGENODE_STATE(5i32);
+impl ::core::marker::Copy for CLUSTER_STORAGENODE_STATE {}
+impl ::core::clone::Clone for CLUSTER_STORAGENODE_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_STORAGENODE_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_STORAGENODE_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_STORAGENODE_STATE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUSTER_UPGRADE_PHASE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUSTER_UPGRADE_PHASE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterUpgradePhaseInitialize: CLUSTER_UPGRADE_PHASE = 1i32;
+pub const ClusterUpgradePhaseInitialize: CLUSTER_UPGRADE_PHASE = CLUSTER_UPGRADE_PHASE(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterUpgradePhaseValidatingUpgrade: CLUSTER_UPGRADE_PHASE = 2i32;
+pub const ClusterUpgradePhaseValidatingUpgrade: CLUSTER_UPGRADE_PHASE = CLUSTER_UPGRADE_PHASE(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterUpgradePhaseUpgradingComponents: CLUSTER_UPGRADE_PHASE = 3i32;
+pub const ClusterUpgradePhaseUpgradingComponents: CLUSTER_UPGRADE_PHASE = CLUSTER_UPGRADE_PHASE(3i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterUpgradePhaseInstallingNewComponents: CLUSTER_UPGRADE_PHASE = 4i32;
+pub const ClusterUpgradePhaseInstallingNewComponents: CLUSTER_UPGRADE_PHASE = CLUSTER_UPGRADE_PHASE(4i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterUpgradePhaseUpgradeComplete: CLUSTER_UPGRADE_PHASE = 5i32;
+pub const ClusterUpgradePhaseUpgradeComplete: CLUSTER_UPGRADE_PHASE = CLUSTER_UPGRADE_PHASE(5i32);
+impl ::core::marker::Copy for CLUSTER_UPGRADE_PHASE {}
+impl ::core::clone::Clone for CLUSTER_UPGRADE_PHASE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUSTER_UPGRADE_PHASE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUSTER_UPGRADE_PHASE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUSTER_UPGRADE_PHASE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub struct CLUSTER_VALIDATE_CSV_FILENAME {
@@ -4724,65 +5968,97 @@ pub const CLUS_ACCESS_READ: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUS_ACCESS_WRITE: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUS_AFFINITY_RULE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUS_AFFINITY_RULE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_AFFINITY_RULE_NONE: CLUS_AFFINITY_RULE_TYPE = 0i32;
+pub const CLUS_AFFINITY_RULE_NONE: CLUS_AFFINITY_RULE_TYPE = CLUS_AFFINITY_RULE_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_AFFINITY_RULE_SAME_FAULT_DOMAIN: CLUS_AFFINITY_RULE_TYPE = 1i32;
+pub const CLUS_AFFINITY_RULE_SAME_FAULT_DOMAIN: CLUS_AFFINITY_RULE_TYPE = CLUS_AFFINITY_RULE_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_AFFINITY_RULE_SAME_NODE: CLUS_AFFINITY_RULE_TYPE = 2i32;
+pub const CLUS_AFFINITY_RULE_SAME_NODE: CLUS_AFFINITY_RULE_TYPE = CLUS_AFFINITY_RULE_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_AFFINITY_RULE_DIFFERENT_FAULT_DOMAIN: CLUS_AFFINITY_RULE_TYPE = 3i32;
+pub const CLUS_AFFINITY_RULE_DIFFERENT_FAULT_DOMAIN: CLUS_AFFINITY_RULE_TYPE = CLUS_AFFINITY_RULE_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_AFFINITY_RULE_DIFFERENT_NODE: CLUS_AFFINITY_RULE_TYPE = 4i32;
+pub const CLUS_AFFINITY_RULE_DIFFERENT_NODE: CLUS_AFFINITY_RULE_TYPE = CLUS_AFFINITY_RULE_TYPE(4i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_AFFINITY_RULE_MIN: CLUS_AFFINITY_RULE_TYPE = 0i32;
+pub const CLUS_AFFINITY_RULE_MIN: CLUS_AFFINITY_RULE_TYPE = CLUS_AFFINITY_RULE_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_AFFINITY_RULE_MAX: CLUS_AFFINITY_RULE_TYPE = 4i32;
+pub const CLUS_AFFINITY_RULE_MAX: CLUS_AFFINITY_RULE_TYPE = CLUS_AFFINITY_RULE_TYPE(4i32);
+impl ::core::marker::Copy for CLUS_AFFINITY_RULE_TYPE {}
+impl ::core::clone::Clone for CLUS_AFFINITY_RULE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUS_AFFINITY_RULE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUS_AFFINITY_RULE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUS_AFFINITY_RULE_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUS_CHARACTERISTICS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUS_CHARACTERISTICS(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_CHAR_UNKNOWN: CLUS_CHARACTERISTICS = 0i32;
+pub const CLUS_CHAR_UNKNOWN: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_CHAR_QUORUM: CLUS_CHARACTERISTICS = 1i32;
+pub const CLUS_CHAR_QUORUM: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_CHAR_DELETE_REQUIRES_ALL_NODES: CLUS_CHARACTERISTICS = 2i32;
+pub const CLUS_CHAR_DELETE_REQUIRES_ALL_NODES: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_CHAR_LOCAL_QUORUM: CLUS_CHARACTERISTICS = 4i32;
+pub const CLUS_CHAR_LOCAL_QUORUM: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(4i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_CHAR_LOCAL_QUORUM_DEBUG: CLUS_CHARACTERISTICS = 8i32;
+pub const CLUS_CHAR_LOCAL_QUORUM_DEBUG: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(8i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_CHAR_REQUIRES_STATE_CHANGE_REASON: CLUS_CHARACTERISTICS = 16i32;
+pub const CLUS_CHAR_REQUIRES_STATE_CHANGE_REASON: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(16i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_CHAR_BROADCAST_DELETE: CLUS_CHARACTERISTICS = 32i32;
+pub const CLUS_CHAR_BROADCAST_DELETE: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(32i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_CHAR_SINGLE_CLUSTER_INSTANCE: CLUS_CHARACTERISTICS = 64i32;
+pub const CLUS_CHAR_SINGLE_CLUSTER_INSTANCE: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(64i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_CHAR_SINGLE_GROUP_INSTANCE: CLUS_CHARACTERISTICS = 128i32;
+pub const CLUS_CHAR_SINGLE_GROUP_INSTANCE: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(128i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_CHAR_COEXIST_IN_SHARED_VOLUME_GROUP: CLUS_CHARACTERISTICS = 256i32;
+pub const CLUS_CHAR_COEXIST_IN_SHARED_VOLUME_GROUP: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(256i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_CHAR_PLACEMENT_DATA: CLUS_CHARACTERISTICS = 512i32;
+pub const CLUS_CHAR_PLACEMENT_DATA: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(512i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_CHAR_MONITOR_DETACH: CLUS_CHARACTERISTICS = 1024i32;
+pub const CLUS_CHAR_MONITOR_DETACH: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(1024i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_CHAR_MONITOR_REATTACH: CLUS_CHARACTERISTICS = 2048i32;
+pub const CLUS_CHAR_MONITOR_REATTACH: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(2048i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_CHAR_OPERATION_CONTEXT: CLUS_CHARACTERISTICS = 4096i32;
+pub const CLUS_CHAR_OPERATION_CONTEXT: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(4096i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_CHAR_CLONES: CLUS_CHARACTERISTICS = 8192i32;
+pub const CLUS_CHAR_CLONES: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(8192i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_CHAR_NOT_PREEMPTABLE: CLUS_CHARACTERISTICS = 16384i32;
+pub const CLUS_CHAR_NOT_PREEMPTABLE: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(16384i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_CHAR_NOTIFY_NEW_OWNER: CLUS_CHARACTERISTICS = 32768i32;
+pub const CLUS_CHAR_NOTIFY_NEW_OWNER: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(32768i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_CHAR_SUPPORTS_UNMONITORED_STATE: CLUS_CHARACTERISTICS = 65536i32;
+pub const CLUS_CHAR_SUPPORTS_UNMONITORED_STATE: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(65536i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_CHAR_INFRASTRUCTURE: CLUS_CHARACTERISTICS = 131072i32;
+pub const CLUS_CHAR_INFRASTRUCTURE: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(131072i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_CHAR_VETO_DRAIN: CLUS_CHARACTERISTICS = 262144i32;
+pub const CLUS_CHAR_VETO_DRAIN: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(262144i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_CHAR_DRAIN_LOCAL_OFFLINE: CLUS_CHARACTERISTICS = 524288i32;
+pub const CLUS_CHAR_DRAIN_LOCAL_OFFLINE: CLUS_CHARACTERISTICS = CLUS_CHARACTERISTICS(524288i32);
+impl ::core::marker::Copy for CLUS_CHARACTERISTICS {}
+impl ::core::clone::Clone for CLUS_CHARACTERISTICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUS_CHARACTERISTICS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUS_CHARACTERISTICS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUS_CHARACTERISTICS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub struct CLUS_CHKDSK_INFO {
@@ -5086,9 +6362,25 @@ impl ::core::default::Default for CLUS_DNN_SODAFS_CLONE_STATUS {
     }
 }
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUS_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUS_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_FLAG_CORE: CLUS_FLAGS = 1i32;
+pub const CLUS_FLAG_CORE: CLUS_FLAGS = CLUS_FLAGS(1i32);
+impl ::core::marker::Copy for CLUS_FLAGS {}
+impl ::core::clone::Clone for CLUS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUS_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUS_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUS_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub struct CLUS_FORCE_QUORUM_INFO {
@@ -5156,13 +6448,29 @@ impl ::core::default::Default for CLUS_FTSET_INFO {
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUS_GLOBAL: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUS_GROUP_START_SETTING = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUS_GROUP_START_SETTING(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_GROUP_START_ALWAYS: CLUS_GROUP_START_SETTING = 0i32;
+pub const CLUS_GROUP_START_ALWAYS: CLUS_GROUP_START_SETTING = CLUS_GROUP_START_SETTING(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_GROUP_DO_NOT_START: CLUS_GROUP_START_SETTING = 1i32;
+pub const CLUS_GROUP_DO_NOT_START: CLUS_GROUP_START_SETTING = CLUS_GROUP_START_SETTING(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_GROUP_START_ALLOWED: CLUS_GROUP_START_SETTING = 2i32;
+pub const CLUS_GROUP_START_ALLOWED: CLUS_GROUP_START_SETTING = CLUS_GROUP_START_SETTING(2i32);
+impl ::core::marker::Copy for CLUS_GROUP_START_SETTING {}
+impl ::core::clone::Clone for CLUS_GROUP_START_SETTING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUS_GROUP_START_SETTING {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUS_GROUP_START_SETTING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUS_GROUP_START_SETTING").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const CLUS_GRP_MOVE_ALLOWED: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
@@ -5712,21 +7020,69 @@ impl ::core::default::Default for CLUS_RESOURCE_CLASS_INFO_0_0_0 {
     }
 }
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUS_RESSUBCLASS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUS_RESSUBCLASS(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_RESSUBCLASS_SHARED: CLUS_RESSUBCLASS = -2147483648i32;
+pub const CLUS_RESSUBCLASS_SHARED: CLUS_RESSUBCLASS = CLUS_RESSUBCLASS(-2147483648i32);
+impl ::core::marker::Copy for CLUS_RESSUBCLASS {}
+impl ::core::clone::Clone for CLUS_RESSUBCLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUS_RESSUBCLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUS_RESSUBCLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUS_RESSUBCLASS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUS_RESSUBCLASS_NETWORK = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUS_RESSUBCLASS_NETWORK(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_RESSUBCLASS_NETWORK_INTERNET_PROTOCOL: CLUS_RESSUBCLASS_NETWORK = -2147483648i32;
+pub const CLUS_RESSUBCLASS_NETWORK_INTERNET_PROTOCOL: CLUS_RESSUBCLASS_NETWORK = CLUS_RESSUBCLASS_NETWORK(-2147483648i32);
+impl ::core::marker::Copy for CLUS_RESSUBCLASS_NETWORK {}
+impl ::core::clone::Clone for CLUS_RESSUBCLASS_NETWORK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUS_RESSUBCLASS_NETWORK {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUS_RESSUBCLASS_NETWORK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUS_RESSUBCLASS_NETWORK").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type CLUS_RESSUBCLASS_STORAGE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLUS_RESSUBCLASS_STORAGE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_RESSUBCLASS_STORAGE_SHARED_BUS: CLUS_RESSUBCLASS_STORAGE = -2147483648i32;
+pub const CLUS_RESSUBCLASS_STORAGE_SHARED_BUS: CLUS_RESSUBCLASS_STORAGE = CLUS_RESSUBCLASS_STORAGE(-2147483648i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_RESSUBCLASS_STORAGE_DISK: CLUS_RESSUBCLASS_STORAGE = 1073741824i32;
+pub const CLUS_RESSUBCLASS_STORAGE_DISK: CLUS_RESSUBCLASS_STORAGE = CLUS_RESSUBCLASS_STORAGE(1073741824i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const CLUS_RESSUBCLASS_STORAGE_REPLICATION: CLUS_RESSUBCLASS_STORAGE = 268435456i32;
+pub const CLUS_RESSUBCLASS_STORAGE_REPLICATION: CLUS_RESSUBCLASS_STORAGE = CLUS_RESSUBCLASS_STORAGE(268435456i32);
+impl ::core::marker::Copy for CLUS_RESSUBCLASS_STORAGE {}
+impl ::core::clone::Clone for CLUS_RESSUBCLASS_STORAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLUS_RESSUBCLASS_STORAGE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLUS_RESSUBCLASS_STORAGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLUS_RESSUBCLASS_STORAGE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub struct CLUS_SCSI_ADDRESS {
@@ -8334,13 +9690,29 @@ pub unsafe fn EvictClusterNodeEx(hnode: *const _HNODE, dwtimeout: u32, phrcleanu
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type FAILURE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FAILURE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const FAILURE_TYPE_GENERAL: FAILURE_TYPE = 0i32;
+pub const FAILURE_TYPE_GENERAL: FAILURE_TYPE = FAILURE_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const FAILURE_TYPE_EMBEDDED: FAILURE_TYPE = 1i32;
+pub const FAILURE_TYPE_EMBEDDED: FAILURE_TYPE = FAILURE_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const FAILURE_TYPE_NETWORK_LOSS: FAILURE_TYPE = 2i32;
+pub const FAILURE_TYPE_NETWORK_LOSS: FAILURE_TYPE = FAILURE_TYPE(2i32);
+impl ::core::marker::Copy for FAILURE_TYPE {}
+impl ::core::clone::Clone for FAILURE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FAILURE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FAILURE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FAILURE_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const FE_UPGRADE_VERSION: u32 = 4u32;
 #[repr(C)]
@@ -8375,15 +9747,31 @@ impl ::core::default::Default for FILESHARE_CHANGE {
     }
 }
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type FILESHARE_CHANGE_ENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FILESHARE_CHANGE_ENUM(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const FILESHARE_CHANGE_NONE: FILESHARE_CHANGE_ENUM = 0i32;
+pub const FILESHARE_CHANGE_NONE: FILESHARE_CHANGE_ENUM = FILESHARE_CHANGE_ENUM(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const FILESHARE_CHANGE_ADD: FILESHARE_CHANGE_ENUM = 1i32;
+pub const FILESHARE_CHANGE_ADD: FILESHARE_CHANGE_ENUM = FILESHARE_CHANGE_ENUM(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const FILESHARE_CHANGE_DEL: FILESHARE_CHANGE_ENUM = 2i32;
+pub const FILESHARE_CHANGE_DEL: FILESHARE_CHANGE_ENUM = FILESHARE_CHANGE_ENUM(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const FILESHARE_CHANGE_MODIFY: FILESHARE_CHANGE_ENUM = 3i32;
+pub const FILESHARE_CHANGE_MODIFY: FILESHARE_CHANGE_ENUM = FILESHARE_CHANGE_ENUM(3i32);
+impl ::core::marker::Copy for FILESHARE_CHANGE_ENUM {}
+impl ::core::clone::Clone for FILESHARE_CHANGE_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FILESHARE_CHANGE_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FILESHARE_CHANGE_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FILESHARE_CHANGE_ENUM").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub struct FILESHARE_CHANGE_LIST {
@@ -8579,15 +9967,31 @@ impl ::core::default::Default for GROUP_FAILURE_INFO_BUFFER {
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const GROUP_FAILURE_INFO_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type GRP_PLACEMENT_OPTIONS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct GRP_PLACEMENT_OPTIONS(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const GRP_PLACEMENT_OPTIONS_MIN_VALUE: GRP_PLACEMENT_OPTIONS = 0i32;
+pub const GRP_PLACEMENT_OPTIONS_MIN_VALUE: GRP_PLACEMENT_OPTIONS = GRP_PLACEMENT_OPTIONS(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const GRP_PLACEMENT_OPTIONS_DEFAULT: GRP_PLACEMENT_OPTIONS = 0i32;
+pub const GRP_PLACEMENT_OPTIONS_DEFAULT: GRP_PLACEMENT_OPTIONS = GRP_PLACEMENT_OPTIONS(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const GRP_PLACEMENT_OPTIONS_DISABLE_AUTOBALANCING: GRP_PLACEMENT_OPTIONS = 1i32;
+pub const GRP_PLACEMENT_OPTIONS_DISABLE_AUTOBALANCING: GRP_PLACEMENT_OPTIONS = GRP_PLACEMENT_OPTIONS(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const GRP_PLACEMENT_OPTIONS_ALL: GRP_PLACEMENT_OPTIONS = 1i32;
+pub const GRP_PLACEMENT_OPTIONS_ALL: GRP_PLACEMENT_OPTIONS = GRP_PLACEMENT_OPTIONS(1i32);
+impl ::core::marker::Copy for GRP_PLACEMENT_OPTIONS {}
+impl ::core::clone::Clone for GRP_PLACEMENT_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for GRP_PLACEMENT_OPTIONS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GRP_PLACEMENT_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GRP_PLACEMENT_OPTIONS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const GUID_PRESENT: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
@@ -16974,15 +18378,31 @@ pub unsafe fn IsFileOnClusterSharedVolume<'a, Param0: ::windows::core::IntoParam
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const LOCKED_MODE_FLAGS_DONT_REMOVE_FROM_MOVE_QUEUE: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type LOG_LEVEL = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct LOG_LEVEL(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const LOG_INFORMATION: LOG_LEVEL = 0i32;
+pub const LOG_INFORMATION: LOG_LEVEL = LOG_LEVEL(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const LOG_WARNING: LOG_LEVEL = 1i32;
+pub const LOG_WARNING: LOG_LEVEL = LOG_LEVEL(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const LOG_ERROR: LOG_LEVEL = 2i32;
+pub const LOG_ERROR: LOG_LEVEL = LOG_LEVEL(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const LOG_SEVERE: LOG_LEVEL = 3i32;
+pub const LOG_SEVERE: LOG_LEVEL = LOG_LEVEL(3i32);
+impl ::core::marker::Copy for LOG_LEVEL {}
+impl ::core::clone::Clone for LOG_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for LOG_LEVEL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LOG_LEVEL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LOG_LEVEL").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub type LPGROUP_CALLBACK_EX = ::core::option::Option<unsafe extern "system" fn(param0: *mut _HCLUSTER, param1: *mut _HGROUP, param2: *mut _HGROUP, param3: *mut ::core::ffi::c_void) -> u32>;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
@@ -16992,13 +18412,29 @@ pub type LPRESOURCE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub type LPRESOURCE_CALLBACK_EX = ::core::option::Option<unsafe extern "system" fn(param0: *mut _HCLUSTER, param1: *mut _HRESOURCE, param2: *mut _HRESOURCE, param3: *mut ::core::ffi::c_void) -> u32>;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type MAINTENANCE_MODE_TYPE_ENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MAINTENANCE_MODE_TYPE_ENUM(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const MaintenanceModeTypeDisableIsAliveCheck: MAINTENANCE_MODE_TYPE_ENUM = 1i32;
+pub const MaintenanceModeTypeDisableIsAliveCheck: MAINTENANCE_MODE_TYPE_ENUM = MAINTENANCE_MODE_TYPE_ENUM(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const MaintenanceModeTypeOfflineResource: MAINTENANCE_MODE_TYPE_ENUM = 2i32;
+pub const MaintenanceModeTypeOfflineResource: MAINTENANCE_MODE_TYPE_ENUM = MAINTENANCE_MODE_TYPE_ENUM(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const MaintenanceModeTypeUnclusterResource: MAINTENANCE_MODE_TYPE_ENUM = 3i32;
+pub const MaintenanceModeTypeUnclusterResource: MAINTENANCE_MODE_TYPE_ENUM = MAINTENANCE_MODE_TYPE_ENUM(3i32);
+impl ::core::marker::Copy for MAINTENANCE_MODE_TYPE_ENUM {}
+impl ::core::clone::Clone for MAINTENANCE_MODE_TYPE_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MAINTENANCE_MODE_TYPE_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MAINTENANCE_MODE_TYPE_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MAINTENANCE_MODE_TYPE_ENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const MAINTENANCE_MODE_V2_SIG: u32 = 2881155087u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
@@ -17091,15 +18527,31 @@ pub const NINETEEN_H2_UPGRADE_VERSION: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const NNLEN: u32 = 80u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type NODE_CLUSTER_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NODE_CLUSTER_STATE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterStateNotInstalled: NODE_CLUSTER_STATE = 0i32;
+pub const ClusterStateNotInstalled: NODE_CLUSTER_STATE = NODE_CLUSTER_STATE(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterStateNotConfigured: NODE_CLUSTER_STATE = 1i32;
+pub const ClusterStateNotConfigured: NODE_CLUSTER_STATE = NODE_CLUSTER_STATE(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterStateNotRunning: NODE_CLUSTER_STATE = 3i32;
+pub const ClusterStateNotRunning: NODE_CLUSTER_STATE = NODE_CLUSTER_STATE(3i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ClusterStateRunning: NODE_CLUSTER_STATE = 19i32;
+pub const ClusterStateRunning: NODE_CLUSTER_STATE = NODE_CLUSTER_STATE(19i32);
+impl ::core::marker::Copy for NODE_CLUSTER_STATE {}
+impl ::core::clone::Clone for NODE_CLUSTER_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NODE_CLUSTER_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NODE_CLUSTER_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NODE_CLUSTER_STATE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub struct NOTIFY_FILTER_AND_TYPE {
@@ -18130,33 +19582,49 @@ pub type PFREE_CLUSTER_CRYPT = ::core::option::Option<unsafe extern "system" fn(
 #[cfg(feature = "Win32_Foundation")]
 pub type PIS_ALIVE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(resource: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type PLACEMENT_OPTIONS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PLACEMENT_OPTIONS(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const PLACEMENT_OPTIONS_MIN_VALUE: PLACEMENT_OPTIONS = 0i32;
+pub const PLACEMENT_OPTIONS_MIN_VALUE: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const PLACEMENT_OPTIONS_DEFAULT_PLACEMENT_OPTIONS: PLACEMENT_OPTIONS = 0i32;
+pub const PLACEMENT_OPTIONS_DEFAULT_PLACEMENT_OPTIONS: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const PLACEMENT_OPTIONS_DISABLE_CSV_VM_DEPENDENCY: PLACEMENT_OPTIONS = 1i32;
+pub const PLACEMENT_OPTIONS_DISABLE_CSV_VM_DEPENDENCY: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const PLACEMENT_OPTIONS_CONSIDER_OFFLINE_VMS: PLACEMENT_OPTIONS = 2i32;
+pub const PLACEMENT_OPTIONS_CONSIDER_OFFLINE_VMS: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const PLACEMENT_OPTIONS_DONT_USE_MEMORY: PLACEMENT_OPTIONS = 4i32;
+pub const PLACEMENT_OPTIONS_DONT_USE_MEMORY: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(4i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const PLACEMENT_OPTIONS_DONT_USE_CPU: PLACEMENT_OPTIONS = 8i32;
+pub const PLACEMENT_OPTIONS_DONT_USE_CPU: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(8i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const PLACEMENT_OPTIONS_DONT_USE_LOCAL_TEMP_DISK: PLACEMENT_OPTIONS = 16i32;
+pub const PLACEMENT_OPTIONS_DONT_USE_LOCAL_TEMP_DISK: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(16i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const PLACEMENT_OPTIONS_DONT_RESUME_VMS_WITH_EXISTING_TEMP_DISK: PLACEMENT_OPTIONS = 32i32;
+pub const PLACEMENT_OPTIONS_DONT_RESUME_VMS_WITH_EXISTING_TEMP_DISK: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(32i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const PLACEMENT_OPTIONS_SAVE_VMS_WITH_LOCAL_DISK_ON_DRAIN_OVERWRITE: PLACEMENT_OPTIONS = 64i32;
+pub const PLACEMENT_OPTIONS_SAVE_VMS_WITH_LOCAL_DISK_ON_DRAIN_OVERWRITE: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(64i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const PLACEMENT_OPTIONS_DONT_RESUME_AVAILABILTY_SET_VMS_WITH_EXISTING_TEMP_DISK: PLACEMENT_OPTIONS = 128i32;
+pub const PLACEMENT_OPTIONS_DONT_RESUME_AVAILABILTY_SET_VMS_WITH_EXISTING_TEMP_DISK: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(128i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const PLACEMENT_OPTIONS_SAVE_AVAILABILTY_SET_VMS_WITH_LOCAL_DISK_ON_DRAIN_OVERWRITE: PLACEMENT_OPTIONS = 256i32;
+pub const PLACEMENT_OPTIONS_SAVE_AVAILABILTY_SET_VMS_WITH_LOCAL_DISK_ON_DRAIN_OVERWRITE: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(256i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const PLACEMENT_OPTIONS_AVAILABILITY_SET_DOMAIN_AFFINITY: PLACEMENT_OPTIONS = 512i32;
+pub const PLACEMENT_OPTIONS_AVAILABILITY_SET_DOMAIN_AFFINITY: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(512i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const PLACEMENT_OPTIONS_ALL: PLACEMENT_OPTIONS = 1023i32;
+pub const PLACEMENT_OPTIONS_ALL: PLACEMENT_OPTIONS = PLACEMENT_OPTIONS(1023i32);
+impl ::core::marker::Copy for PLACEMENT_OPTIONS {}
+impl ::core::clone::Clone for PLACEMENT_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PLACEMENT_OPTIONS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PLACEMENT_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PLACEMENT_OPTIONS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLOG_EVENT_ROUTINE = ::core::option::Option<unsafe extern "system" fn(resourcehandle: isize, loglevel: LOG_LEVEL, formatstring: super::super::Foundation::PWSTR)>;
@@ -18616,29 +20084,61 @@ pub unsafe fn QueryAppInstanceVersion(appinstanceid: *const ::windows::core::GUI
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type RESDLL_CONTEXT_OPERATION_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RESDLL_CONTEXT_OPERATION_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ResdllContextOperationTypeFailback: RESDLL_CONTEXT_OPERATION_TYPE = 0i32;
+pub const ResdllContextOperationTypeFailback: RESDLL_CONTEXT_OPERATION_TYPE = RESDLL_CONTEXT_OPERATION_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ResdllContextOperationTypeDrain: RESDLL_CONTEXT_OPERATION_TYPE = 1i32;
+pub const ResdllContextOperationTypeDrain: RESDLL_CONTEXT_OPERATION_TYPE = RESDLL_CONTEXT_OPERATION_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ResdllContextOperationTypeDrainFailure: RESDLL_CONTEXT_OPERATION_TYPE = 2i32;
+pub const ResdllContextOperationTypeDrainFailure: RESDLL_CONTEXT_OPERATION_TYPE = RESDLL_CONTEXT_OPERATION_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ResdllContextOperationTypeEmbeddedFailure: RESDLL_CONTEXT_OPERATION_TYPE = 3i32;
+pub const ResdllContextOperationTypeEmbeddedFailure: RESDLL_CONTEXT_OPERATION_TYPE = RESDLL_CONTEXT_OPERATION_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ResdllContextOperationTypePreemption: RESDLL_CONTEXT_OPERATION_TYPE = 4i32;
+pub const ResdllContextOperationTypePreemption: RESDLL_CONTEXT_OPERATION_TYPE = RESDLL_CONTEXT_OPERATION_TYPE(4i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ResdllContextOperationTypeNetworkDisconnect: RESDLL_CONTEXT_OPERATION_TYPE = 5i32;
+pub const ResdllContextOperationTypeNetworkDisconnect: RESDLL_CONTEXT_OPERATION_TYPE = RESDLL_CONTEXT_OPERATION_TYPE(5i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ResdllContextOperationTypeNetworkDisconnectMoveRetry: RESDLL_CONTEXT_OPERATION_TYPE = 6i32;
+pub const ResdllContextOperationTypeNetworkDisconnectMoveRetry: RESDLL_CONTEXT_OPERATION_TYPE = RESDLL_CONTEXT_OPERATION_TYPE(6i32);
+impl ::core::marker::Copy for RESDLL_CONTEXT_OPERATION_TYPE {}
+impl ::core::clone::Clone for RESDLL_CONTEXT_OPERATION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RESDLL_CONTEXT_OPERATION_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RESDLL_CONTEXT_OPERATION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RESDLL_CONTEXT_OPERATION_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type RESOURCE_EXIT_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RESOURCE_EXIT_STATE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ResourceExitStateContinue: RESOURCE_EXIT_STATE = 0i32;
+pub const ResourceExitStateContinue: RESOURCE_EXIT_STATE = RESOURCE_EXIT_STATE(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ResourceExitStateTerminate: RESOURCE_EXIT_STATE = 1i32;
+pub const ResourceExitStateTerminate: RESOURCE_EXIT_STATE = RESOURCE_EXIT_STATE(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const ResourceExitStateMax: RESOURCE_EXIT_STATE = 2i32;
+pub const ResourceExitStateMax: RESOURCE_EXIT_STATE = RESOURCE_EXIT_STATE(2i32);
+impl ::core::marker::Copy for RESOURCE_EXIT_STATE {}
+impl ::core::clone::Clone for RESOURCE_EXIT_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RESOURCE_EXIT_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RESOURCE_EXIT_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RESOURCE_EXIT_STATE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub struct RESOURCE_FAILURE_INFO {
@@ -18704,39 +20204,55 @@ impl ::core::default::Default for RESOURCE_FAILURE_INFO_BUFFER {
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const RESOURCE_FAILURE_INFO_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type RESOURCE_MONITOR_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RESOURCE_MONITOR_STATE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const RmonInitializing: RESOURCE_MONITOR_STATE = 0i32;
+pub const RmonInitializing: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const RmonIdle: RESOURCE_MONITOR_STATE = 1i32;
+pub const RmonIdle: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const RmonStartingResource: RESOURCE_MONITOR_STATE = 2i32;
+pub const RmonStartingResource: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const RmonInitializingResource: RESOURCE_MONITOR_STATE = 3i32;
+pub const RmonInitializingResource: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(3i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const RmonOnlineResource: RESOURCE_MONITOR_STATE = 4i32;
+pub const RmonOnlineResource: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(4i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const RmonOfflineResource: RESOURCE_MONITOR_STATE = 5i32;
+pub const RmonOfflineResource: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(5i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const RmonShutdownResource: RESOURCE_MONITOR_STATE = 6i32;
+pub const RmonShutdownResource: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(6i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const RmonDeletingResource: RESOURCE_MONITOR_STATE = 7i32;
+pub const RmonDeletingResource: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(7i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const RmonIsAlivePoll: RESOURCE_MONITOR_STATE = 8i32;
+pub const RmonIsAlivePoll: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(8i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const RmonLooksAlivePoll: RESOURCE_MONITOR_STATE = 9i32;
+pub const RmonLooksAlivePoll: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(9i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const RmonArbitrateResource: RESOURCE_MONITOR_STATE = 10i32;
+pub const RmonArbitrateResource: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(10i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const RmonReleaseResource: RESOURCE_MONITOR_STATE = 11i32;
+pub const RmonReleaseResource: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(11i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const RmonResourceControl: RESOURCE_MONITOR_STATE = 12i32;
+pub const RmonResourceControl: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(12i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const RmonResourceTypeControl: RESOURCE_MONITOR_STATE = 13i32;
+pub const RmonResourceTypeControl: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(13i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const RmonTerminateResource: RESOURCE_MONITOR_STATE = 14i32;
+pub const RmonTerminateResource: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(14i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const RmonDeadlocked: RESOURCE_MONITOR_STATE = 15i32;
+pub const RmonDeadlocked: RESOURCE_MONITOR_STATE = RESOURCE_MONITOR_STATE(15i32);
+impl ::core::marker::Copy for RESOURCE_MONITOR_STATE {}
+impl ::core::clone::Clone for RESOURCE_MONITOR_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RESOURCE_MONITOR_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RESOURCE_MONITOR_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RESOURCE_MONITOR_STATE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_Clustering', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -20819,49 +22335,81 @@ pub const SET_APPINSTANCE_CSV_FLAGS_VALID_ONLY_IF_CSV_COORDINATOR: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type SET_APP_INSTANCE_CSV_FLAGS = ::core::option::Option<unsafe extern "system" fn(processhandle: super::super::Foundation::HANDLE, mask: u32, flags: u32) -> u32>;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type SR_DISK_REPLICATION_ELIGIBLE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SR_DISK_REPLICATION_ELIGIBLE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const SrDiskReplicationEligibleNone: SR_DISK_REPLICATION_ELIGIBLE = 0i32;
+pub const SrDiskReplicationEligibleNone: SR_DISK_REPLICATION_ELIGIBLE = SR_DISK_REPLICATION_ELIGIBLE(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const SrDiskReplicationEligibleYes: SR_DISK_REPLICATION_ELIGIBLE = 1i32;
+pub const SrDiskReplicationEligibleYes: SR_DISK_REPLICATION_ELIGIBLE = SR_DISK_REPLICATION_ELIGIBLE(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const SrDiskReplicationEligibleOffline: SR_DISK_REPLICATION_ELIGIBLE = 2i32;
+pub const SrDiskReplicationEligibleOffline: SR_DISK_REPLICATION_ELIGIBLE = SR_DISK_REPLICATION_ELIGIBLE(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const SrDiskReplicationEligibleNotGpt: SR_DISK_REPLICATION_ELIGIBLE = 3i32;
+pub const SrDiskReplicationEligibleNotGpt: SR_DISK_REPLICATION_ELIGIBLE = SR_DISK_REPLICATION_ELIGIBLE(3i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const SrDiskReplicationEligiblePartitionLayoutMismatch: SR_DISK_REPLICATION_ELIGIBLE = 4i32;
+pub const SrDiskReplicationEligiblePartitionLayoutMismatch: SR_DISK_REPLICATION_ELIGIBLE = SR_DISK_REPLICATION_ELIGIBLE(4i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const SrDiskReplicationEligibleInsufficientFreeSpace: SR_DISK_REPLICATION_ELIGIBLE = 5i32;
+pub const SrDiskReplicationEligibleInsufficientFreeSpace: SR_DISK_REPLICATION_ELIGIBLE = SR_DISK_REPLICATION_ELIGIBLE(5i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const SrDiskReplicationEligibleNotInSameSite: SR_DISK_REPLICATION_ELIGIBLE = 6i32;
+pub const SrDiskReplicationEligibleNotInSameSite: SR_DISK_REPLICATION_ELIGIBLE = SR_DISK_REPLICATION_ELIGIBLE(6i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const SrDiskReplicationEligibleInSameSite: SR_DISK_REPLICATION_ELIGIBLE = 7i32;
+pub const SrDiskReplicationEligibleInSameSite: SR_DISK_REPLICATION_ELIGIBLE = SR_DISK_REPLICATION_ELIGIBLE(7i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const SrDiskReplicationEligibleFileSystemNotSupported: SR_DISK_REPLICATION_ELIGIBLE = 8i32;
+pub const SrDiskReplicationEligibleFileSystemNotSupported: SR_DISK_REPLICATION_ELIGIBLE = SR_DISK_REPLICATION_ELIGIBLE(8i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const SrDiskReplicationEligibleAlreadyInReplication: SR_DISK_REPLICATION_ELIGIBLE = 9i32;
+pub const SrDiskReplicationEligibleAlreadyInReplication: SR_DISK_REPLICATION_ELIGIBLE = SR_DISK_REPLICATION_ELIGIBLE(9i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const SrDiskReplicationEligibleSameAsSpecifiedDisk: SR_DISK_REPLICATION_ELIGIBLE = 10i32;
+pub const SrDiskReplicationEligibleSameAsSpecifiedDisk: SR_DISK_REPLICATION_ELIGIBLE = SR_DISK_REPLICATION_ELIGIBLE(10i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const SrDiskReplicationEligibleOther: SR_DISK_REPLICATION_ELIGIBLE = 9999i32;
+pub const SrDiskReplicationEligibleOther: SR_DISK_REPLICATION_ELIGIBLE = SR_DISK_REPLICATION_ELIGIBLE(9999i32);
+impl ::core::marker::Copy for SR_DISK_REPLICATION_ELIGIBLE {}
+impl ::core::clone::Clone for SR_DISK_REPLICATION_ELIGIBLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SR_DISK_REPLICATION_ELIGIBLE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SR_DISK_REPLICATION_ELIGIBLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SR_DISK_REPLICATION_ELIGIBLE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type SR_REPLICATED_DISK_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SR_REPLICATED_DISK_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const SrReplicatedDiskTypeNone: SR_REPLICATED_DISK_TYPE = 0i32;
+pub const SrReplicatedDiskTypeNone: SR_REPLICATED_DISK_TYPE = SR_REPLICATED_DISK_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const SrReplicatedDiskTypeSource: SR_REPLICATED_DISK_TYPE = 1i32;
+pub const SrReplicatedDiskTypeSource: SR_REPLICATED_DISK_TYPE = SR_REPLICATED_DISK_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const SrReplicatedDiskTypeLogSource: SR_REPLICATED_DISK_TYPE = 2i32;
+pub const SrReplicatedDiskTypeLogSource: SR_REPLICATED_DISK_TYPE = SR_REPLICATED_DISK_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const SrReplicatedDiskTypeDestination: SR_REPLICATED_DISK_TYPE = 3i32;
+pub const SrReplicatedDiskTypeDestination: SR_REPLICATED_DISK_TYPE = SR_REPLICATED_DISK_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const SrReplicatedDiskTypeLogDestination: SR_REPLICATED_DISK_TYPE = 4i32;
+pub const SrReplicatedDiskTypeLogDestination: SR_REPLICATED_DISK_TYPE = SR_REPLICATED_DISK_TYPE(4i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const SrReplicatedDiskTypeNotInParthership: SR_REPLICATED_DISK_TYPE = 5i32;
+pub const SrReplicatedDiskTypeNotInParthership: SR_REPLICATED_DISK_TYPE = SR_REPLICATED_DISK_TYPE(5i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const SrReplicatedDiskTypeLogNotInParthership: SR_REPLICATED_DISK_TYPE = 6i32;
+pub const SrReplicatedDiskTypeLogNotInParthership: SR_REPLICATED_DISK_TYPE = SR_REPLICATED_DISK_TYPE(6i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const SrReplicatedDiskTypeOther: SR_REPLICATED_DISK_TYPE = 7i32;
+pub const SrReplicatedDiskTypeOther: SR_REPLICATED_DISK_TYPE = SR_REPLICATED_DISK_TYPE(7i32);
+impl ::core::marker::Copy for SR_REPLICATED_DISK_TYPE {}
+impl ::core::clone::Clone for SR_REPLICATED_DISK_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SR_REPLICATED_DISK_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SR_REPLICATED_DISK_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SR_REPLICATED_DISK_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const SR_REPLICATED_PARTITION_DISALLOW_MULTINODE_IO: u32 = 1u32;
 #[repr(C)]
@@ -21443,17 +22991,33 @@ pub unsafe fn SetGroupDependencyExpression<'a, Param1: ::windows::core::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub type VM_RESDLL_CONTEXT = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct VM_RESDLL_CONTEXT(pub i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const VmResdllContextTurnOff: VM_RESDLL_CONTEXT = 0i32;
+pub const VmResdllContextTurnOff: VM_RESDLL_CONTEXT = VM_RESDLL_CONTEXT(0i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const VmResdllContextSave: VM_RESDLL_CONTEXT = 1i32;
+pub const VmResdllContextSave: VM_RESDLL_CONTEXT = VM_RESDLL_CONTEXT(1i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const VmResdllContextShutdown: VM_RESDLL_CONTEXT = 2i32;
+pub const VmResdllContextShutdown: VM_RESDLL_CONTEXT = VM_RESDLL_CONTEXT(2i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const VmResdllContextShutdownForce: VM_RESDLL_CONTEXT = 3i32;
+pub const VmResdllContextShutdownForce: VM_RESDLL_CONTEXT = VM_RESDLL_CONTEXT(3i32);
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
-pub const VmResdllContextLiveMigration: VM_RESDLL_CONTEXT = 4i32;
+pub const VmResdllContextLiveMigration: VM_RESDLL_CONTEXT = VM_RESDLL_CONTEXT(4i32);
+impl ::core::marker::Copy for VM_RESDLL_CONTEXT {}
+impl ::core::clone::Clone for VM_RESDLL_CONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for VM_RESDLL_CONTEXT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VM_RESDLL_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VM_RESDLL_CONTEXT").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]
 pub const VolumeRedirectedIOReasonMax: u64 = 9223372036854775808u64;
 #[doc = "*Required features: 'Win32_Networking_Clustering'*"]

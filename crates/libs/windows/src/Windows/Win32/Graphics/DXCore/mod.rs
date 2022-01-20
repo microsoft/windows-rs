@@ -67,51 +67,183 @@ impl ::core::default::Default for DXCoreAdapterMemoryBudgetNodeSegmentGroup {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_DXCore'*"]
-pub type DXCoreAdapterPreference = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DXCoreAdapterPreference(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_DXCore'*"]
-pub const Hardware: DXCoreAdapterPreference = 0u32;
+pub const Hardware: DXCoreAdapterPreference = DXCoreAdapterPreference(0u32);
 #[doc = "*Required features: 'Win32_Graphics_DXCore'*"]
-pub const MinimumPower: DXCoreAdapterPreference = 1u32;
+pub const MinimumPower: DXCoreAdapterPreference = DXCoreAdapterPreference(1u32);
 #[doc = "*Required features: 'Win32_Graphics_DXCore'*"]
-pub const HighPerformance: DXCoreAdapterPreference = 2u32;
+pub const HighPerformance: DXCoreAdapterPreference = DXCoreAdapterPreference(2u32);
+impl ::core::marker::Copy for DXCoreAdapterPreference {}
+impl ::core::clone::Clone for DXCoreAdapterPreference {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DXCoreAdapterPreference {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DXCoreAdapterPreference {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DXCoreAdapterPreference").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for DXCoreAdapterPreference {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DXCoreAdapterPreference {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DXCoreAdapterPreference {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DXCoreAdapterPreference {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DXCoreAdapterPreference {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_DXCore'*"]
-pub type DXCoreAdapterProperty = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DXCoreAdapterProperty(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_DXCore'*"]
-pub const InstanceLuid: DXCoreAdapterProperty = 0u32;
+pub const InstanceLuid: DXCoreAdapterProperty = DXCoreAdapterProperty(0u32);
 #[doc = "*Required features: 'Win32_Graphics_DXCore'*"]
-pub const DriverVersion: DXCoreAdapterProperty = 1u32;
+pub const DriverVersion: DXCoreAdapterProperty = DXCoreAdapterProperty(1u32);
 #[doc = "*Required features: 'Win32_Graphics_DXCore'*"]
-pub const DriverDescription: DXCoreAdapterProperty = 2u32;
+pub const DriverDescription: DXCoreAdapterProperty = DXCoreAdapterProperty(2u32);
 #[doc = "*Required features: 'Win32_Graphics_DXCore'*"]
-pub const HardwareID: DXCoreAdapterProperty = 3u32;
+pub const HardwareID: DXCoreAdapterProperty = DXCoreAdapterProperty(3u32);
 #[doc = "*Required features: 'Win32_Graphics_DXCore'*"]
-pub const KmdModelVersion: DXCoreAdapterProperty = 4u32;
+pub const KmdModelVersion: DXCoreAdapterProperty = DXCoreAdapterProperty(4u32);
 #[doc = "*Required features: 'Win32_Graphics_DXCore'*"]
-pub const ComputePreemptionGranularity: DXCoreAdapterProperty = 5u32;
+pub const ComputePreemptionGranularity: DXCoreAdapterProperty = DXCoreAdapterProperty(5u32);
 #[doc = "*Required features: 'Win32_Graphics_DXCore'*"]
-pub const GraphicsPreemptionGranularity: DXCoreAdapterProperty = 6u32;
+pub const GraphicsPreemptionGranularity: DXCoreAdapterProperty = DXCoreAdapterProperty(6u32);
 #[doc = "*Required features: 'Win32_Graphics_DXCore'*"]
-pub const DedicatedAdapterMemory: DXCoreAdapterProperty = 7u32;
+pub const DedicatedAdapterMemory: DXCoreAdapterProperty = DXCoreAdapterProperty(7u32);
 #[doc = "*Required features: 'Win32_Graphics_DXCore'*"]
-pub const DedicatedSystemMemory: DXCoreAdapterProperty = 8u32;
+pub const DedicatedSystemMemory: DXCoreAdapterProperty = DXCoreAdapterProperty(8u32);
 #[doc = "*Required features: 'Win32_Graphics_DXCore'*"]
-pub const SharedSystemMemory: DXCoreAdapterProperty = 9u32;
+pub const SharedSystemMemory: DXCoreAdapterProperty = DXCoreAdapterProperty(9u32);
 #[doc = "*Required features: 'Win32_Graphics_DXCore'*"]
-pub const AcgCompatible: DXCoreAdapterProperty = 10u32;
+pub const AcgCompatible: DXCoreAdapterProperty = DXCoreAdapterProperty(10u32);
 #[doc = "*Required features: 'Win32_Graphics_DXCore'*"]
-pub const IsHardware: DXCoreAdapterProperty = 11u32;
+pub const IsHardware: DXCoreAdapterProperty = DXCoreAdapterProperty(11u32);
 #[doc = "*Required features: 'Win32_Graphics_DXCore'*"]
-pub const IsIntegrated: DXCoreAdapterProperty = 12u32;
+pub const IsIntegrated: DXCoreAdapterProperty = DXCoreAdapterProperty(12u32);
 #[doc = "*Required features: 'Win32_Graphics_DXCore'*"]
-pub const IsDetachable: DXCoreAdapterProperty = 13u32;
+pub const IsDetachable: DXCoreAdapterProperty = DXCoreAdapterProperty(13u32);
 #[doc = "*Required features: 'Win32_Graphics_DXCore'*"]
-pub const HardwareIDParts: DXCoreAdapterProperty = 14u32;
+pub const HardwareIDParts: DXCoreAdapterProperty = DXCoreAdapterProperty(14u32);
+impl ::core::marker::Copy for DXCoreAdapterProperty {}
+impl ::core::clone::Clone for DXCoreAdapterProperty {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DXCoreAdapterProperty {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DXCoreAdapterProperty {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DXCoreAdapterProperty").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for DXCoreAdapterProperty {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DXCoreAdapterProperty {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DXCoreAdapterProperty {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DXCoreAdapterProperty {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DXCoreAdapterProperty {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_DXCore'*"]
-pub type DXCoreAdapterState = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DXCoreAdapterState(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_DXCore'*"]
-pub const IsDriverUpdateInProgress: DXCoreAdapterState = 0u32;
+pub const IsDriverUpdateInProgress: DXCoreAdapterState = DXCoreAdapterState(0u32);
 #[doc = "*Required features: 'Win32_Graphics_DXCore'*"]
-pub const AdapterMemoryBudget: DXCoreAdapterState = 1u32;
+pub const AdapterMemoryBudget: DXCoreAdapterState = DXCoreAdapterState(1u32);
+impl ::core::marker::Copy for DXCoreAdapterState {}
+impl ::core::clone::Clone for DXCoreAdapterState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DXCoreAdapterState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DXCoreAdapterState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DXCoreAdapterState").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for DXCoreAdapterState {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DXCoreAdapterState {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DXCoreAdapterState {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DXCoreAdapterState {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DXCoreAdapterState {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_DXCore'*"]
 #[inline]
 pub unsafe fn DXCoreCreateAdapterFactory<T: ::windows::core::Interface>() -> ::windows::core::Result<T> {
@@ -195,21 +327,109 @@ impl ::core::default::Default for DXCoreHardwareIDParts {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_DXCore'*"]
-pub type DXCoreNotificationType = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DXCoreNotificationType(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_DXCore'*"]
-pub const AdapterListStale: DXCoreNotificationType = 0u32;
+pub const AdapterListStale: DXCoreNotificationType = DXCoreNotificationType(0u32);
 #[doc = "*Required features: 'Win32_Graphics_DXCore'*"]
-pub const AdapterNoLongerValid: DXCoreNotificationType = 1u32;
+pub const AdapterNoLongerValid: DXCoreNotificationType = DXCoreNotificationType(1u32);
 #[doc = "*Required features: 'Win32_Graphics_DXCore'*"]
-pub const AdapterBudgetChange: DXCoreNotificationType = 2u32;
+pub const AdapterBudgetChange: DXCoreNotificationType = DXCoreNotificationType(2u32);
 #[doc = "*Required features: 'Win32_Graphics_DXCore'*"]
-pub const AdapterHardwareContentProtectionTeardown: DXCoreNotificationType = 3u32;
+pub const AdapterHardwareContentProtectionTeardown: DXCoreNotificationType = DXCoreNotificationType(3u32);
+impl ::core::marker::Copy for DXCoreNotificationType {}
+impl ::core::clone::Clone for DXCoreNotificationType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DXCoreNotificationType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DXCoreNotificationType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DXCoreNotificationType").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for DXCoreNotificationType {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DXCoreNotificationType {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DXCoreNotificationType {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DXCoreNotificationType {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DXCoreNotificationType {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_DXCore'*"]
-pub type DXCoreSegmentGroup = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DXCoreSegmentGroup(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_DXCore'*"]
-pub const Local: DXCoreSegmentGroup = 0u32;
+pub const Local: DXCoreSegmentGroup = DXCoreSegmentGroup(0u32);
 #[doc = "*Required features: 'Win32_Graphics_DXCore'*"]
-pub const NonLocal: DXCoreSegmentGroup = 1u32;
+pub const NonLocal: DXCoreSegmentGroup = DXCoreSegmentGroup(1u32);
+impl ::core::marker::Copy for DXCoreSegmentGroup {}
+impl ::core::clone::Clone for DXCoreSegmentGroup {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DXCoreSegmentGroup {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DXCoreSegmentGroup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DXCoreSegmentGroup").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for DXCoreSegmentGroup {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DXCoreSegmentGroup {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DXCoreSegmentGroup {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DXCoreSegmentGroup {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DXCoreSegmentGroup {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_DXCore'*"]
 #[repr(transparent)]
 pub struct IDXCoreAdapter(::windows::core::IUnknown);

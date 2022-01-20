@@ -3,27 +3,43 @@
 pub mod HardwareCounterProfiling;
 pub const AppearPropPage: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe49741e9_93a8_4ab1_8e96_bf4482282e9c);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub type AutoPathFormat = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct AutoPathFormat(pub i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaNone: AutoPathFormat = 0i32;
+pub const plaNone: AutoPathFormat = AutoPathFormat(0i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaPattern: AutoPathFormat = 1i32;
+pub const plaPattern: AutoPathFormat = AutoPathFormat(1i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaComputer: AutoPathFormat = 2i32;
+pub const plaComputer: AutoPathFormat = AutoPathFormat(2i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaMonthDayHour: AutoPathFormat = 256i32;
+pub const plaMonthDayHour: AutoPathFormat = AutoPathFormat(256i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaSerialNumber: AutoPathFormat = 512i32;
+pub const plaSerialNumber: AutoPathFormat = AutoPathFormat(512i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaYearDayOfYear: AutoPathFormat = 1024i32;
+pub const plaYearDayOfYear: AutoPathFormat = AutoPathFormat(1024i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaYearMonth: AutoPathFormat = 2048i32;
+pub const plaYearMonth: AutoPathFormat = AutoPathFormat(2048i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaYearMonthDay: AutoPathFormat = 4096i32;
+pub const plaYearMonthDay: AutoPathFormat = AutoPathFormat(4096i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaYearMonthDayHour: AutoPathFormat = 8192i32;
+pub const plaYearMonthDayHour: AutoPathFormat = AutoPathFormat(8192i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaMonthDayHourMinute: AutoPathFormat = 16384i32;
+pub const plaMonthDayHourMinute: AutoPathFormat = AutoPathFormat(16384i32);
+impl ::core::marker::Copy for AutoPathFormat {}
+impl ::core::clone::Clone for AutoPathFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for AutoPathFormat {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AutoPathFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutoPathFormat").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -42,29 +58,61 @@ pub unsafe fn BackupPerfRegistryToFileW<'a, Param0: ::windows::core::IntoParam<'
 pub const BootTraceSession: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03837538_098b_11d8_9414_505054503030);
 pub const BootTraceSessionCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03837539_098b_11d8_9414_505054503030);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub type ClockType = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ClockType(pub i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaTimeStamp: ClockType = 0i32;
+pub const plaTimeStamp: ClockType = ClockType(0i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaPerformance: ClockType = 1i32;
+pub const plaPerformance: ClockType = ClockType(1i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaSystem: ClockType = 2i32;
+pub const plaSystem: ClockType = ClockType(2i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaCycle: ClockType = 3i32;
+pub const plaCycle: ClockType = ClockType(3i32);
+impl ::core::marker::Copy for ClockType {}
+impl ::core::clone::Clone for ClockType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ClockType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ClockType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ClockType").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub type CommitMode = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CommitMode(pub i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaCreateNew: CommitMode = 1i32;
+pub const plaCreateNew: CommitMode = CommitMode(1i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaModify: CommitMode = 2i32;
+pub const plaModify: CommitMode = CommitMode(2i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaCreateOrModify: CommitMode = 3i32;
+pub const plaCreateOrModify: CommitMode = CommitMode(3i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaUpdateRunningInstance: CommitMode = 16i32;
+pub const plaUpdateRunningInstance: CommitMode = CommitMode(16i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaFlushTrace: CommitMode = 32i32;
+pub const plaFlushTrace: CommitMode = CommitMode(32i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaValidateOnly: CommitMode = 4096i32;
+pub const plaValidateOnly: CommitMode = CommitMode(4096i32);
+impl ::core::marker::Copy for CommitMode {}
+impl ::core::clone::Clone for CommitMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CommitMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CommitMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CommitMode").field(&self.0).finish()
+    }
+}
 pub const CounterItem: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4d2d8e0_d1dd_11ce_940f_008029004348);
 pub const CounterItem2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43196c62_c31f_4ce3_a02e_79efe0f6a525);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
@@ -619,85 +667,197 @@ pub struct DISystemMonitorInternal_Vtbl {
 pub const DataCollectorSet: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03837521_098b_11d8_9414_505054503030);
 pub const DataCollectorSetCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03837525_098b_11d8_9414_505054503030);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub type DataCollectorSetStatus = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DataCollectorSetStatus(pub i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaStopped: DataCollectorSetStatus = 0i32;
+pub const plaStopped: DataCollectorSetStatus = DataCollectorSetStatus(0i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaRunning: DataCollectorSetStatus = 1i32;
+pub const plaRunning: DataCollectorSetStatus = DataCollectorSetStatus(1i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaCompiling: DataCollectorSetStatus = 2i32;
+pub const plaCompiling: DataCollectorSetStatus = DataCollectorSetStatus(2i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaPending: DataCollectorSetStatus = 3i32;
+pub const plaPending: DataCollectorSetStatus = DataCollectorSetStatus(3i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaUndefined: DataCollectorSetStatus = 4i32;
+pub const plaUndefined: DataCollectorSetStatus = DataCollectorSetStatus(4i32);
+impl ::core::marker::Copy for DataCollectorSetStatus {}
+impl ::core::clone::Clone for DataCollectorSetStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DataCollectorSetStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DataCollectorSetStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DataCollectorSetStatus").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub type DataCollectorType = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DataCollectorType(pub i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaPerformanceCounter: DataCollectorType = 0i32;
+pub const plaPerformanceCounter: DataCollectorType = DataCollectorType(0i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaTrace: DataCollectorType = 1i32;
+pub const plaTrace: DataCollectorType = DataCollectorType(1i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaConfiguration: DataCollectorType = 2i32;
+pub const plaConfiguration: DataCollectorType = DataCollectorType(2i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaAlert: DataCollectorType = 3i32;
+pub const plaAlert: DataCollectorType = DataCollectorType(3i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaApiTrace: DataCollectorType = 4i32;
+pub const plaApiTrace: DataCollectorType = DataCollectorType(4i32);
+impl ::core::marker::Copy for DataCollectorType {}
+impl ::core::clone::Clone for DataCollectorType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DataCollectorType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DataCollectorType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DataCollectorType").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub type DataManagerSteps = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DataManagerSteps(pub i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaCreateReport: DataManagerSteps = 1i32;
+pub const plaCreateReport: DataManagerSteps = DataManagerSteps(1i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaRunRules: DataManagerSteps = 2i32;
+pub const plaRunRules: DataManagerSteps = DataManagerSteps(2i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaCreateHtml: DataManagerSteps = 4i32;
+pub const plaCreateHtml: DataManagerSteps = DataManagerSteps(4i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaFolderActions: DataManagerSteps = 8i32;
+pub const plaFolderActions: DataManagerSteps = DataManagerSteps(8i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaResourceFreeing: DataManagerSteps = 16i32;
+pub const plaResourceFreeing: DataManagerSteps = DataManagerSteps(16i32);
+impl ::core::marker::Copy for DataManagerSteps {}
+impl ::core::clone::Clone for DataManagerSteps {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DataManagerSteps {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DataManagerSteps {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DataManagerSteps").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub type DataSourceTypeConstants = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DataSourceTypeConstants(pub i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const sysmonNullDataSource: DataSourceTypeConstants = -1i32;
+pub const sysmonNullDataSource: DataSourceTypeConstants = DataSourceTypeConstants(-1i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const sysmonCurrentActivity: DataSourceTypeConstants = 1i32;
+pub const sysmonCurrentActivity: DataSourceTypeConstants = DataSourceTypeConstants(1i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const sysmonLogFiles: DataSourceTypeConstants = 2i32;
+pub const sysmonLogFiles: DataSourceTypeConstants = DataSourceTypeConstants(2i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const sysmonSqlLog: DataSourceTypeConstants = 3i32;
+pub const sysmonSqlLog: DataSourceTypeConstants = DataSourceTypeConstants(3i32);
+impl ::core::marker::Copy for DataSourceTypeConstants {}
+impl ::core::clone::Clone for DataSourceTypeConstants {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DataSourceTypeConstants {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DataSourceTypeConstants {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DataSourceTypeConstants").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub type DisplayTypeConstants = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DisplayTypeConstants(pub i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const sysmonLineGraph: DisplayTypeConstants = 1i32;
+pub const sysmonLineGraph: DisplayTypeConstants = DisplayTypeConstants(1i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const sysmonHistogram: DisplayTypeConstants = 2i32;
+pub const sysmonHistogram: DisplayTypeConstants = DisplayTypeConstants(2i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const sysmonReport: DisplayTypeConstants = 3i32;
+pub const sysmonReport: DisplayTypeConstants = DisplayTypeConstants(3i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const sysmonChartArea: DisplayTypeConstants = 4i32;
+pub const sysmonChartArea: DisplayTypeConstants = DisplayTypeConstants(4i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const sysmonChartStackedArea: DisplayTypeConstants = 5i32;
+pub const sysmonChartStackedArea: DisplayTypeConstants = DisplayTypeConstants(5i32);
+impl ::core::marker::Copy for DisplayTypeConstants {}
+impl ::core::clone::Clone for DisplayTypeConstants {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DisplayTypeConstants {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DisplayTypeConstants {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayTypeConstants").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub type FileFormat = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FileFormat(pub i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaCommaSeparated: FileFormat = 0i32;
+pub const plaCommaSeparated: FileFormat = FileFormat(0i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaTabSeparated: FileFormat = 1i32;
+pub const plaTabSeparated: FileFormat = FileFormat(1i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaSql: FileFormat = 2i32;
+pub const plaSql: FileFormat = FileFormat(2i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaBinary: FileFormat = 3i32;
+pub const plaBinary: FileFormat = FileFormat(3i32);
+impl ::core::marker::Copy for FileFormat {}
+impl ::core::clone::Clone for FileFormat {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FileFormat {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FileFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FileFormat").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub type FolderActionSteps = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FolderActionSteps(pub i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaCreateCab: FolderActionSteps = 1i32;
+pub const plaCreateCab: FolderActionSteps = FolderActionSteps(1i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaDeleteData: FolderActionSteps = 2i32;
+pub const plaDeleteData: FolderActionSteps = FolderActionSteps(2i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaSendCab: FolderActionSteps = 4i32;
+pub const plaSendCab: FolderActionSteps = FolderActionSteps(4i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaDeleteCab: FolderActionSteps = 8i32;
+pub const plaDeleteCab: FolderActionSteps = FolderActionSteps(8i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaDeleteReport: FolderActionSteps = 16i32;
+pub const plaDeleteReport: FolderActionSteps = FolderActionSteps(16i32);
+impl ::core::marker::Copy for FolderActionSteps {}
+impl ::core::clone::Clone for FolderActionSteps {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FolderActionSteps {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FolderActionSteps {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FolderActionSteps").field(&self.0).finish()
+    }
+}
 pub const GeneralPropPage: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3e5d3d2_1a03_11cf_942d_008029004347);
 pub const GraphPropPage: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3e5d3d3_1a03_11cf_942d_008029004347);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
@@ -8319,11 +8479,55 @@ pub const PDH_DATA_SOURCE_IS_REAL_TIME: i32 = -1073738801i32;
 #[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PDH_DIALOG_CANCELLED: i32 = -2147481639i32;
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub type PDH_DLL_VERSION = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PDH_DLL_VERSION(pub u32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const PDH_CVERSION_WIN50: PDH_DLL_VERSION = 1280u32;
+pub const PDH_CVERSION_WIN50: PDH_DLL_VERSION = PDH_DLL_VERSION(1280u32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const PDH_VERSION: PDH_DLL_VERSION = 1283u32;
+pub const PDH_VERSION: PDH_DLL_VERSION = PDH_DLL_VERSION(1283u32);
+impl ::core::marker::Copy for PDH_DLL_VERSION {}
+impl ::core::clone::Clone for PDH_DLL_VERSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PDH_DLL_VERSION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PDH_DLL_VERSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PDH_DLL_VERSION").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for PDH_DLL_VERSION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for PDH_DLL_VERSION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for PDH_DLL_VERSION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for PDH_DLL_VERSION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for PDH_DLL_VERSION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PDH_END_OF_LOG_FILE: i32 = -2147481638i32;
 #[doc = "*Required features: 'Win32_System_Performance'*"]
@@ -8333,13 +8537,57 @@ pub const PDH_FILE_ALREADY_EXISTS: i32 = -1073738798i32;
 #[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PDH_FILE_NOT_FOUND: i32 = -1073738799i32;
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub type PDH_FMT = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PDH_FMT(pub u32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const PDH_FMT_DOUBLE: PDH_FMT = 512u32;
+pub const PDH_FMT_DOUBLE: PDH_FMT = PDH_FMT(512u32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const PDH_FMT_LARGE: PDH_FMT = 1024u32;
+pub const PDH_FMT_LARGE: PDH_FMT = PDH_FMT(1024u32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const PDH_FMT_LONG: PDH_FMT = 256u32;
+pub const PDH_FMT_LONG: PDH_FMT = PDH_FMT(256u32);
+impl ::core::marker::Copy for PDH_FMT {}
+impl ::core::clone::Clone for PDH_FMT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PDH_FMT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PDH_FMT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PDH_FMT").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for PDH_FMT {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for PDH_FMT {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for PDH_FMT {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for PDH_FMT {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for PDH_FMT {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8500,13 +8748,57 @@ pub const PDH_INVALID_SQLDB: i32 = -1073738786i32;
 #[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PDH_INVALID_SQL_LOG_FORMAT: i32 = -1073738763i32;
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub type PDH_LOG = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PDH_LOG(pub u32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const PDH_LOG_READ_ACCESS: PDH_LOG = 65536u32;
+pub const PDH_LOG_READ_ACCESS: PDH_LOG = PDH_LOG(65536u32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const PDH_LOG_WRITE_ACCESS: PDH_LOG = 131072u32;
+pub const PDH_LOG_WRITE_ACCESS: PDH_LOG = PDH_LOG(131072u32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const PDH_LOG_UPDATE_ACCESS: PDH_LOG = 262144u32;
+pub const PDH_LOG_UPDATE_ACCESS: PDH_LOG = PDH_LOG(262144u32);
+impl ::core::marker::Copy for PDH_LOG {}
+impl ::core::clone::Clone for PDH_LOG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PDH_LOG {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PDH_LOG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PDH_LOG").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for PDH_LOG {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for PDH_LOG {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for PDH_LOG {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for PDH_LOG {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for PDH_LOG {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PDH_LOGSVC_NOT_OPENED: i32 = -1073738791i32;
 #[doc = "*Required features: 'Win32_System_Performance'*"]
@@ -8872,19 +9164,63 @@ impl ::core::default::Default for PDH_LOG_SERVICE_QUERY_INFO_W_0_1 {
     }
 }
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub type PDH_LOG_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PDH_LOG_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const PDH_LOG_TYPE_UNDEFINED: PDH_LOG_TYPE = 0u32;
+pub const PDH_LOG_TYPE_UNDEFINED: PDH_LOG_TYPE = PDH_LOG_TYPE(0u32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const PDH_LOG_TYPE_CSV: PDH_LOG_TYPE = 1u32;
+pub const PDH_LOG_TYPE_CSV: PDH_LOG_TYPE = PDH_LOG_TYPE(1u32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const PDH_LOG_TYPE_SQL: PDH_LOG_TYPE = 7u32;
+pub const PDH_LOG_TYPE_SQL: PDH_LOG_TYPE = PDH_LOG_TYPE(7u32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const PDH_LOG_TYPE_TSV: PDH_LOG_TYPE = 2u32;
+pub const PDH_LOG_TYPE_TSV: PDH_LOG_TYPE = PDH_LOG_TYPE(2u32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const PDH_LOG_TYPE_BINARY: PDH_LOG_TYPE = 8u32;
+pub const PDH_LOG_TYPE_BINARY: PDH_LOG_TYPE = PDH_LOG_TYPE(8u32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const PDH_LOG_TYPE_PERFMON: PDH_LOG_TYPE = 6u32;
+pub const PDH_LOG_TYPE_PERFMON: PDH_LOG_TYPE = PDH_LOG_TYPE(6u32);
+impl ::core::marker::Copy for PDH_LOG_TYPE {}
+impl ::core::clone::Clone for PDH_LOG_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PDH_LOG_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PDH_LOG_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PDH_LOG_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for PDH_LOG_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for PDH_LOG_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for PDH_LOG_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for PDH_LOG_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for PDH_LOG_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PDH_LOG_TYPE_NOT_FOUND: i32 = -1073738805i32;
 #[doc = "*Required features: 'Win32_System_Performance'*"]
@@ -8928,13 +9264,57 @@ pub const PDH_OS_EARLIER_VERSION: i32 = -1073738758i32;
 #[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PDH_OS_LATER_VERSION: i32 = -1073738759i32;
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub type PDH_PATH_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PDH_PATH_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const PDH_PATH_WBEM_RESULT: PDH_PATH_FLAGS = 1u32;
+pub const PDH_PATH_WBEM_RESULT: PDH_PATH_FLAGS = PDH_PATH_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const PDH_PATH_WBEM_INPUT: PDH_PATH_FLAGS = 2u32;
+pub const PDH_PATH_WBEM_INPUT: PDH_PATH_FLAGS = PDH_PATH_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const PDH_PATH_WBEM_NONE: PDH_PATH_FLAGS = 0u32;
+pub const PDH_PATH_WBEM_NONE: PDH_PATH_FLAGS = PDH_PATH_FLAGS(0u32);
+impl ::core::marker::Copy for PDH_PATH_FLAGS {}
+impl ::core::clone::Clone for PDH_PATH_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PDH_PATH_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PDH_PATH_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PDH_PATH_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for PDH_PATH_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for PDH_PATH_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for PDH_PATH_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for PDH_PATH_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for PDH_PATH_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PDH_PLA_COLLECTION_ALREADY_RUNNING: i32 = -1073738775i32;
 #[doc = "*Required features: 'Win32_System_Performance'*"]
@@ -9119,11 +9499,55 @@ pub const PDH_REFRESHCOUNTERS: u32 = 4u32;
 #[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PDH_RETRY: i32 = -2147481644i32;
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub type PDH_SELECT_DATA_SOURCE_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PDH_SELECT_DATA_SOURCE_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const PDH_FLAGS_FILE_BROWSER_ONLY: PDH_SELECT_DATA_SOURCE_FLAGS = 1u32;
+pub const PDH_FLAGS_FILE_BROWSER_ONLY: PDH_SELECT_DATA_SOURCE_FLAGS = PDH_SELECT_DATA_SOURCE_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const PDH_FLAGS_NONE: PDH_SELECT_DATA_SOURCE_FLAGS = 0u32;
+pub const PDH_FLAGS_NONE: PDH_SELECT_DATA_SOURCE_FLAGS = PDH_SELECT_DATA_SOURCE_FLAGS(0u32);
+impl ::core::marker::Copy for PDH_SELECT_DATA_SOURCE_FLAGS {}
+impl ::core::clone::Clone for PDH_SELECT_DATA_SOURCE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PDH_SELECT_DATA_SOURCE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PDH_SELECT_DATA_SOURCE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PDH_SELECT_DATA_SOURCE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for PDH_SELECT_DATA_SOURCE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for PDH_SELECT_DATA_SOURCE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for PDH_SELECT_DATA_SOURCE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for PDH_SELECT_DATA_SOURCE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for PDH_SELECT_DATA_SOURCE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PDH_SQL_ALLOCCON_FAILED: i32 = -1073738783i32;
 #[doc = "*Required features: 'Win32_System_Performance'*"]
@@ -9360,15 +9784,59 @@ pub const PERF_COUNTERSET_SINGLE_AGGREGATE: u32 = 4u32;
 #[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PERF_COUNTERSET_SINGLE_INSTANCE: u32 = 0u32;
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub type PERF_COUNTER_AGGREGATE_FUNC = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PERF_COUNTER_AGGREGATE_FUNC(pub u32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const PERF_AGGREGATE_UNDEFINED: PERF_COUNTER_AGGREGATE_FUNC = 0u32;
+pub const PERF_AGGREGATE_UNDEFINED: PERF_COUNTER_AGGREGATE_FUNC = PERF_COUNTER_AGGREGATE_FUNC(0u32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const PERF_AGGREGATE_TOTAL: PERF_COUNTER_AGGREGATE_FUNC = 1u32;
+pub const PERF_AGGREGATE_TOTAL: PERF_COUNTER_AGGREGATE_FUNC = PERF_COUNTER_AGGREGATE_FUNC(1u32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const PERF_AGGREGATE_AVG: PERF_COUNTER_AGGREGATE_FUNC = 2u32;
+pub const PERF_AGGREGATE_AVG: PERF_COUNTER_AGGREGATE_FUNC = PERF_COUNTER_AGGREGATE_FUNC(2u32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const PERF_AGGREGATE_MIN: PERF_COUNTER_AGGREGATE_FUNC = 3u32;
+pub const PERF_AGGREGATE_MIN: PERF_COUNTER_AGGREGATE_FUNC = PERF_COUNTER_AGGREGATE_FUNC(3u32);
+impl ::core::marker::Copy for PERF_COUNTER_AGGREGATE_FUNC {}
+impl ::core::clone::Clone for PERF_COUNTER_AGGREGATE_FUNC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PERF_COUNTER_AGGREGATE_FUNC {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PERF_COUNTER_AGGREGATE_FUNC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PERF_COUNTER_AGGREGATE_FUNC").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for PERF_COUNTER_AGGREGATE_FUNC {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for PERF_COUNTER_AGGREGATE_FUNC {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for PERF_COUNTER_AGGREGATE_FUNC {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for PERF_COUNTER_AGGREGATE_FUNC {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for PERF_COUNTER_AGGREGATE_FUNC {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PERF_COUNTER_BASE: u32 = 196608u32;
 #[repr(C)]
@@ -9879,15 +10347,59 @@ pub const PERF_DELTA_BASE: u32 = 8388608u32;
 #[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PERF_DELTA_COUNTER: u32 = 4194304u32;
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub type PERF_DETAIL = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PERF_DETAIL(pub u32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const PERF_DETAIL_NOVICE: PERF_DETAIL = 100u32;
+pub const PERF_DETAIL_NOVICE: PERF_DETAIL = PERF_DETAIL(100u32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const PERF_DETAIL_ADVANCED: PERF_DETAIL = 200u32;
+pub const PERF_DETAIL_ADVANCED: PERF_DETAIL = PERF_DETAIL(200u32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const PERF_DETAIL_EXPERT: PERF_DETAIL = 300u32;
+pub const PERF_DETAIL_EXPERT: PERF_DETAIL = PERF_DETAIL(300u32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const PERF_DETAIL_WIZARD: PERF_DETAIL = 400u32;
+pub const PERF_DETAIL_WIZARD: PERF_DETAIL = PERF_DETAIL(400u32);
+impl ::core::marker::Copy for PERF_DETAIL {}
+impl ::core::clone::Clone for PERF_DETAIL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PERF_DETAIL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PERF_DETAIL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PERF_DETAIL").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for PERF_DETAIL {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for PERF_DETAIL {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for PERF_DETAIL {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for PERF_DETAIL {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for PERF_DETAIL {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const PERF_DISPLAY_NOSHOW: u32 = 1073741824u32;
 #[doc = "*Required features: 'Win32_System_Performance'*"]
@@ -11844,17 +12356,33 @@ pub unsafe fn PerfCloseQueryHandle<'a, Param0: ::windows::core::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub type PerfCounterDataType = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PerfCounterDataType(pub i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const PERF_ERROR_RETURN: PerfCounterDataType = 0i32;
+pub const PERF_ERROR_RETURN: PerfCounterDataType = PerfCounterDataType(0i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const PERF_SINGLE_COUNTER: PerfCounterDataType = 1i32;
+pub const PERF_SINGLE_COUNTER: PerfCounterDataType = PerfCounterDataType(1i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const PERF_MULTIPLE_COUNTERS: PerfCounterDataType = 2i32;
+pub const PERF_MULTIPLE_COUNTERS: PerfCounterDataType = PerfCounterDataType(2i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const PERF_MULTIPLE_INSTANCES: PerfCounterDataType = 4i32;
+pub const PERF_MULTIPLE_INSTANCES: PerfCounterDataType = PerfCounterDataType(4i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const PERF_COUNTERSET: PerfCounterDataType = 6i32;
+pub const PERF_COUNTERSET: PerfCounterDataType = PerfCounterDataType(6i32);
+impl ::core::marker::Copy for PerfCounterDataType {}
+impl ::core::clone::Clone for PerfCounterDataType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PerfCounterDataType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PerfCounterDataType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerfCounterDataType").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -12131,27 +12659,43 @@ pub unsafe fn PerfQueryInstance<'a, Param0: ::windows::core::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub type PerfRegInfoType = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PerfRegInfoType(pub i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const PERF_REG_COUNTERSET_STRUCT: PerfRegInfoType = 1i32;
+pub const PERF_REG_COUNTERSET_STRUCT: PerfRegInfoType = PerfRegInfoType(1i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const PERF_REG_COUNTER_STRUCT: PerfRegInfoType = 2i32;
+pub const PERF_REG_COUNTER_STRUCT: PerfRegInfoType = PerfRegInfoType(2i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const PERF_REG_COUNTERSET_NAME_STRING: PerfRegInfoType = 3i32;
+pub const PERF_REG_COUNTERSET_NAME_STRING: PerfRegInfoType = PerfRegInfoType(3i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const PERF_REG_COUNTERSET_HELP_STRING: PerfRegInfoType = 4i32;
+pub const PERF_REG_COUNTERSET_HELP_STRING: PerfRegInfoType = PerfRegInfoType(4i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const PERF_REG_COUNTER_NAME_STRINGS: PerfRegInfoType = 5i32;
+pub const PERF_REG_COUNTER_NAME_STRINGS: PerfRegInfoType = PerfRegInfoType(5i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const PERF_REG_COUNTER_HELP_STRINGS: PerfRegInfoType = 6i32;
+pub const PERF_REG_COUNTER_HELP_STRINGS: PerfRegInfoType = PerfRegInfoType(6i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const PERF_REG_PROVIDER_NAME: PerfRegInfoType = 7i32;
+pub const PERF_REG_PROVIDER_NAME: PerfRegInfoType = PerfRegInfoType(7i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const PERF_REG_PROVIDER_GUID: PerfRegInfoType = 8i32;
+pub const PERF_REG_PROVIDER_GUID: PerfRegInfoType = PerfRegInfoType(8i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const PERF_REG_COUNTERSET_ENGLISH_NAME: PerfRegInfoType = 9i32;
+pub const PERF_REG_COUNTERSET_ENGLISH_NAME: PerfRegInfoType = PerfRegInfoType(9i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const PERF_REG_COUNTER_ENGLISH_NAMES: PerfRegInfoType = 10i32;
+pub const PERF_REG_COUNTER_ENGLISH_NAMES: PerfRegInfoType = PerfRegInfoType(10i32);
+impl ::core::marker::Copy for PerfRegInfoType {}
+impl ::core::clone::Clone for PerfRegInfoType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PerfRegInfoType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PerfRegInfoType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerfRegInfoType").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -12285,29 +12829,105 @@ pub unsafe fn QueryPerformanceFrequency(lpfrequency: *mut i64) -> super::super::
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub type REAL_TIME_DATA_SOURCE_ID_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct REAL_TIME_DATA_SOURCE_ID_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const DATA_SOURCE_REGISTRY: REAL_TIME_DATA_SOURCE_ID_FLAGS = 1u32;
+pub const DATA_SOURCE_REGISTRY: REAL_TIME_DATA_SOURCE_ID_FLAGS = REAL_TIME_DATA_SOURCE_ID_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const DATA_SOURCE_WBEM: REAL_TIME_DATA_SOURCE_ID_FLAGS = 4u32;
+pub const DATA_SOURCE_WBEM: REAL_TIME_DATA_SOURCE_ID_FLAGS = REAL_TIME_DATA_SOURCE_ID_FLAGS(4u32);
+impl ::core::marker::Copy for REAL_TIME_DATA_SOURCE_ID_FLAGS {}
+impl ::core::clone::Clone for REAL_TIME_DATA_SOURCE_ID_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for REAL_TIME_DATA_SOURCE_ID_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for REAL_TIME_DATA_SOURCE_ID_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("REAL_TIME_DATA_SOURCE_ID_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for REAL_TIME_DATA_SOURCE_ID_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for REAL_TIME_DATA_SOURCE_ID_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for REAL_TIME_DATA_SOURCE_ID_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for REAL_TIME_DATA_SOURCE_ID_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for REAL_TIME_DATA_SOURCE_ID_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub type ReportValueTypeConstants = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ReportValueTypeConstants(pub i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const sysmonDefaultValue: ReportValueTypeConstants = 0i32;
+pub const sysmonDefaultValue: ReportValueTypeConstants = ReportValueTypeConstants(0i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const sysmonCurrentValue: ReportValueTypeConstants = 1i32;
+pub const sysmonCurrentValue: ReportValueTypeConstants = ReportValueTypeConstants(1i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const sysmonAverage: ReportValueTypeConstants = 2i32;
+pub const sysmonAverage: ReportValueTypeConstants = ReportValueTypeConstants(2i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const sysmonMinimum: ReportValueTypeConstants = 3i32;
+pub const sysmonMinimum: ReportValueTypeConstants = ReportValueTypeConstants(3i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const sysmonMaximum: ReportValueTypeConstants = 4i32;
+pub const sysmonMaximum: ReportValueTypeConstants = ReportValueTypeConstants(4i32);
+impl ::core::marker::Copy for ReportValueTypeConstants {}
+impl ::core::clone::Clone for ReportValueTypeConstants {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ReportValueTypeConstants {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ReportValueTypeConstants {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ReportValueTypeConstants").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub type ResourcePolicy = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ResourcePolicy(pub i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaDeleteLargest: ResourcePolicy = 0i32;
+pub const plaDeleteLargest: ResourcePolicy = ResourcePolicy(0i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaDeleteOldest: ResourcePolicy = 1i32;
+pub const plaDeleteOldest: ResourcePolicy = ResourcePolicy(1i32);
+impl ::core::marker::Copy for ResourcePolicy {}
+impl ::core::clone::Clone for ResourcePolicy {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ResourcePolicy {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ResourcePolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ResourcePolicy").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Performance', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -12358,53 +12978,117 @@ pub unsafe fn SetServiceAsTrustedW<'a, Param0: ::windows::core::IntoParam<'a, su
 }
 pub const SourcePropPage: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cf32aa1_7571_11d0_93c4_00aa00a3ddea);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub type StreamMode = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct StreamMode(pub i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaFile: StreamMode = 1i32;
+pub const plaFile: StreamMode = StreamMode(1i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaRealTime: StreamMode = 2i32;
+pub const plaRealTime: StreamMode = StreamMode(2i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaBoth: StreamMode = 3i32;
+pub const plaBoth: StreamMode = StreamMode(3i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaBuffering: StreamMode = 4i32;
+pub const plaBuffering: StreamMode = StreamMode(4i32);
+impl ::core::marker::Copy for StreamMode {}
+impl ::core::clone::Clone for StreamMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for StreamMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for StreamMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StreamMode").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub type SysmonBatchReason = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SysmonBatchReason(pub i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const sysmonBatchNone: SysmonBatchReason = 0i32;
+pub const sysmonBatchNone: SysmonBatchReason = SysmonBatchReason(0i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const sysmonBatchAddFiles: SysmonBatchReason = 1i32;
+pub const sysmonBatchAddFiles: SysmonBatchReason = SysmonBatchReason(1i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const sysmonBatchAddCounters: SysmonBatchReason = 2i32;
+pub const sysmonBatchAddCounters: SysmonBatchReason = SysmonBatchReason(2i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const sysmonBatchAddFilesAutoCounters: SysmonBatchReason = 3i32;
+pub const sysmonBatchAddFilesAutoCounters: SysmonBatchReason = SysmonBatchReason(3i32);
+impl ::core::marker::Copy for SysmonBatchReason {}
+impl ::core::clone::Clone for SysmonBatchReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SysmonBatchReason {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SysmonBatchReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SysmonBatchReason").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub type SysmonDataType = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SysmonDataType(pub i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const sysmonDataAvg: SysmonDataType = 1i32;
+pub const sysmonDataAvg: SysmonDataType = SysmonDataType(1i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const sysmonDataMin: SysmonDataType = 2i32;
+pub const sysmonDataMin: SysmonDataType = SysmonDataType(2i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const sysmonDataMax: SysmonDataType = 3i32;
+pub const sysmonDataMax: SysmonDataType = SysmonDataType(3i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const sysmonDataTime: SysmonDataType = 4i32;
+pub const sysmonDataTime: SysmonDataType = SysmonDataType(4i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const sysmonDataCount: SysmonDataType = 5i32;
+pub const sysmonDataCount: SysmonDataType = SysmonDataType(5i32);
+impl ::core::marker::Copy for SysmonDataType {}
+impl ::core::clone::Clone for SysmonDataType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SysmonDataType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SysmonDataType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SysmonDataType").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub type SysmonFileType = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SysmonFileType(pub i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const sysmonFileHtml: SysmonFileType = 1i32;
+pub const sysmonFileHtml: SysmonFileType = SysmonFileType(1i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const sysmonFileReport: SysmonFileType = 2i32;
+pub const sysmonFileReport: SysmonFileType = SysmonFileType(2i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const sysmonFileCsv: SysmonFileType = 3i32;
+pub const sysmonFileCsv: SysmonFileType = SysmonFileType(3i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const sysmonFileTsv: SysmonFileType = 4i32;
+pub const sysmonFileTsv: SysmonFileType = SysmonFileType(4i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const sysmonFileBlg: SysmonFileType = 5i32;
+pub const sysmonFileBlg: SysmonFileType = SysmonFileType(5i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const sysmonFileRetiredBlg: SysmonFileType = 6i32;
+pub const sysmonFileRetiredBlg: SysmonFileType = SysmonFileType(6i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const sysmonFileGif: SysmonFileType = 7i32;
+pub const sysmonFileGif: SysmonFileType = SysmonFileType(7i32);
+impl ::core::marker::Copy for SysmonFileType {}
+impl ::core::clone::Clone for SysmonFileType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SysmonFileType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SysmonFileType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SysmonFileType").field(&self.0).finish()
+    }
+}
 pub const SystemDataCollectorSet: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03837546_098b_11d8_9414_505054503030);
 pub const SystemDataCollectorSetCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03837547_098b_11d8_9414_505054503030);
 pub const SystemMonitor: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4d2d8e0_d1dd_11ce_940f_008029004347);
@@ -12474,15 +13158,31 @@ pub unsafe fn UpdatePerfNameFilesW<'a, Param0: ::windows::core::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub type ValueMapType = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ValueMapType(pub i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaIndex: ValueMapType = 1i32;
+pub const plaIndex: ValueMapType = ValueMapType(1i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaFlag: ValueMapType = 2i32;
+pub const plaFlag: ValueMapType = ValueMapType(2i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaFlagArray: ValueMapType = 3i32;
+pub const plaFlagArray: ValueMapType = ValueMapType(3i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaValidation: ValueMapType = 4i32;
+pub const plaValidation: ValueMapType = ValueMapType(4i32);
+impl ::core::marker::Copy for ValueMapType {}
+impl ::core::clone::Clone for ValueMapType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ValueMapType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ValueMapType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ValueMapType").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const WINPERF_LOG_DEBUG: u32 = 2u32;
 #[doc = "*Required features: 'Win32_System_Performance'*"]
@@ -12492,25 +13192,41 @@ pub const WINPERF_LOG_USER: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Performance'*"]
 pub const WINPERF_LOG_VERBOSE: u32 = 3u32;
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub type WeekDays = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WeekDays(pub i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaRunOnce: WeekDays = 0i32;
+pub const plaRunOnce: WeekDays = WeekDays(0i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaSunday: WeekDays = 1i32;
+pub const plaSunday: WeekDays = WeekDays(1i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaMonday: WeekDays = 2i32;
+pub const plaMonday: WeekDays = WeekDays(2i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaTuesday: WeekDays = 4i32;
+pub const plaTuesday: WeekDays = WeekDays(4i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaWednesday: WeekDays = 8i32;
+pub const plaWednesday: WeekDays = WeekDays(8i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaThursday: WeekDays = 16i32;
+pub const plaThursday: WeekDays = WeekDays(16i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaFriday: WeekDays = 32i32;
+pub const plaFriday: WeekDays = WeekDays(32i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaSaturday: WeekDays = 64i32;
+pub const plaSaturday: WeekDays = WeekDays(64i32);
 #[doc = "*Required features: 'Win32_System_Performance'*"]
-pub const plaEveryday: WeekDays = 127i32;
+pub const plaEveryday: WeekDays = WeekDays(127i32);
+impl ::core::marker::Copy for WeekDays {}
+impl ::core::clone::Clone for WeekDays {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WeekDays {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WeekDays {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WeekDays").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Performance'*"]
 #[repr(transparent)]
 pub struct _ICounterItemUnion(::windows::core::IUnknown);

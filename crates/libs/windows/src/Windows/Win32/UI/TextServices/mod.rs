@@ -1,10 +1,54 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub type ANCHOR_CHANGE_HISTORY_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ANCHOR_CHANGE_HISTORY_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TS_CH_PRECEDING_DEL: ANCHOR_CHANGE_HISTORY_FLAGS = 1u32;
+pub const TS_CH_PRECEDING_DEL: ANCHOR_CHANGE_HISTORY_FLAGS = ANCHOR_CHANGE_HISTORY_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TS_CH_FOLLOWING_DEL: ANCHOR_CHANGE_HISTORY_FLAGS = 2u32;
+pub const TS_CH_FOLLOWING_DEL: ANCHOR_CHANGE_HISTORY_FLAGS = ANCHOR_CHANGE_HISTORY_FLAGS(2u32);
+impl ::core::marker::Copy for ANCHOR_CHANGE_HISTORY_FLAGS {}
+impl ::core::clone::Clone for ANCHOR_CHANGE_HISTORY_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ANCHOR_CHANGE_HISTORY_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ANCHOR_CHANGE_HISTORY_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ANCHOR_CHANGE_HISTORY_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for ANCHOR_CHANGE_HISTORY_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for ANCHOR_CHANGE_HISTORY_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for ANCHOR_CHANGE_HISTORY_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for ANCHOR_CHANGE_HISTORY_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for ANCHOR_CHANGE_HISTORY_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const AccClientDocMgr: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc48cc30_4f3e_4fa1_803b_ad0e196a83b1);
 pub const AccDictionary: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6572ee16_5fe5_4331_bb6d_76a49c56e423);
 pub const AccServerDocMgr: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6089a37e_eb8a_482d_bd6f_f9f46904d16d);
@@ -41,11 +85,55 @@ pub unsafe fn DoMsCtfMonitor<'a, Param1: ::windows::core::IntoParam<'a, super::s
 }
 pub const DocWrap: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf426f7e_7a5e_44d6_830c_a390ea9462a3);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub type GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct GET_TEXT_AND_PROPERTY_UPDATES_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_GTP_NONE: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = 0u32;
+pub const TF_GTP_NONE: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = GET_TEXT_AND_PROPERTY_UPDATES_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_GTP_INCL_TEXT: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = 1u32;
+pub const TF_GTP_INCL_TEXT: GET_TEXT_AND_PROPERTY_UPDATES_FLAGS = GET_TEXT_AND_PROPERTY_UPDATES_FLAGS(1u32);
+impl ::core::marker::Copy for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {}
+impl ::core::clone::Clone for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GET_TEXT_AND_PROPERTY_UPDATES_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for GET_TEXT_AND_PROPERTY_UPDATES_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const GUID_APP_FUNCTIONPROVIDER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4caef01e_12af_4b0e_9db1_a6ec5b881208);
 pub const GUID_COMPARTMENT_CONVERSIONMODEBIAS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5497f516_ee91_436e_b946_aa2c05f1ac5b);
 pub const GUID_COMPARTMENT_EMPTYCONTEXT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7487dbf_804e_41c5_894d_ad96fd4eea13);
@@ -2063,13 +2151,57 @@ pub const ILMCM_CHECKLAYOUTANDTIPENABLED: u32 = 1u32;
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const ILMCM_LANGUAGEBAROFF: u32 = 2u32;
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub type INSERT_TEXT_AT_SELECTION_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct INSERT_TEXT_AT_SELECTION_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_IAS_NOQUERY: INSERT_TEXT_AT_SELECTION_FLAGS = 1u32;
+pub const TF_IAS_NOQUERY: INSERT_TEXT_AT_SELECTION_FLAGS = INSERT_TEXT_AT_SELECTION_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_IAS_QUERYONLY: INSERT_TEXT_AT_SELECTION_FLAGS = 2u32;
+pub const TF_IAS_QUERYONLY: INSERT_TEXT_AT_SELECTION_FLAGS = INSERT_TEXT_AT_SELECTION_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_IAS_NO_DEFAULT_COMPOSITION: INSERT_TEXT_AT_SELECTION_FLAGS = 2147483648u32;
+pub const TF_IAS_NO_DEFAULT_COMPOSITION: INSERT_TEXT_AT_SELECTION_FLAGS = INSERT_TEXT_AT_SELECTION_FLAGS(2147483648u32);
+impl ::core::marker::Copy for INSERT_TEXT_AT_SELECTION_FLAGS {}
+impl ::core::clone::Clone for INSERT_TEXT_AT_SELECTION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for INSERT_TEXT_AT_SELECTION_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for INSERT_TEXT_AT_SELECTION_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INSERT_TEXT_AT_SELECTION_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for INSERT_TEXT_AT_SELECTION_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for INSERT_TEXT_AT_SELECTION_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for INSERT_TEXT_AT_SELECTION_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for INSERT_TEXT_AT_SELECTION_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for INSERT_TEXT_AT_SELECTION_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
 #[repr(transparent)]
 pub struct ISpeechCommandProvider(::windows::core::IUnknown);
@@ -13745,181 +13877,373 @@ pub unsafe fn InitLocalMsCtfMonitor(dwflags: u32) -> ::windows::core::Result<()>
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub type InputScope = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct InputScope(pub i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_DEFAULT: InputScope = 0i32;
+pub const IS_DEFAULT: InputScope = InputScope(0i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_URL: InputScope = 1i32;
+pub const IS_URL: InputScope = InputScope(1i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_FILE_FULLFILEPATH: InputScope = 2i32;
+pub const IS_FILE_FULLFILEPATH: InputScope = InputScope(2i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_FILE_FILENAME: InputScope = 3i32;
+pub const IS_FILE_FILENAME: InputScope = InputScope(3i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_EMAIL_USERNAME: InputScope = 4i32;
+pub const IS_EMAIL_USERNAME: InputScope = InputScope(4i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_EMAIL_SMTPEMAILADDRESS: InputScope = 5i32;
+pub const IS_EMAIL_SMTPEMAILADDRESS: InputScope = InputScope(5i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_LOGINNAME: InputScope = 6i32;
+pub const IS_LOGINNAME: InputScope = InputScope(6i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_PERSONALNAME_FULLNAME: InputScope = 7i32;
+pub const IS_PERSONALNAME_FULLNAME: InputScope = InputScope(7i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_PERSONALNAME_PREFIX: InputScope = 8i32;
+pub const IS_PERSONALNAME_PREFIX: InputScope = InputScope(8i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_PERSONALNAME_GIVENNAME: InputScope = 9i32;
+pub const IS_PERSONALNAME_GIVENNAME: InputScope = InputScope(9i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_PERSONALNAME_MIDDLENAME: InputScope = 10i32;
+pub const IS_PERSONALNAME_MIDDLENAME: InputScope = InputScope(10i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_PERSONALNAME_SURNAME: InputScope = 11i32;
+pub const IS_PERSONALNAME_SURNAME: InputScope = InputScope(11i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_PERSONALNAME_SUFFIX: InputScope = 12i32;
+pub const IS_PERSONALNAME_SUFFIX: InputScope = InputScope(12i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_ADDRESS_FULLPOSTALADDRESS: InputScope = 13i32;
+pub const IS_ADDRESS_FULLPOSTALADDRESS: InputScope = InputScope(13i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_ADDRESS_POSTALCODE: InputScope = 14i32;
+pub const IS_ADDRESS_POSTALCODE: InputScope = InputScope(14i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_ADDRESS_STREET: InputScope = 15i32;
+pub const IS_ADDRESS_STREET: InputScope = InputScope(15i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_ADDRESS_STATEORPROVINCE: InputScope = 16i32;
+pub const IS_ADDRESS_STATEORPROVINCE: InputScope = InputScope(16i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_ADDRESS_CITY: InputScope = 17i32;
+pub const IS_ADDRESS_CITY: InputScope = InputScope(17i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_ADDRESS_COUNTRYNAME: InputScope = 18i32;
+pub const IS_ADDRESS_COUNTRYNAME: InputScope = InputScope(18i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_ADDRESS_COUNTRYSHORTNAME: InputScope = 19i32;
+pub const IS_ADDRESS_COUNTRYSHORTNAME: InputScope = InputScope(19i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_CURRENCY_AMOUNTANDSYMBOL: InputScope = 20i32;
+pub const IS_CURRENCY_AMOUNTANDSYMBOL: InputScope = InputScope(20i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_CURRENCY_AMOUNT: InputScope = 21i32;
+pub const IS_CURRENCY_AMOUNT: InputScope = InputScope(21i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_DATE_FULLDATE: InputScope = 22i32;
+pub const IS_DATE_FULLDATE: InputScope = InputScope(22i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_DATE_MONTH: InputScope = 23i32;
+pub const IS_DATE_MONTH: InputScope = InputScope(23i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_DATE_DAY: InputScope = 24i32;
+pub const IS_DATE_DAY: InputScope = InputScope(24i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_DATE_YEAR: InputScope = 25i32;
+pub const IS_DATE_YEAR: InputScope = InputScope(25i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_DATE_MONTHNAME: InputScope = 26i32;
+pub const IS_DATE_MONTHNAME: InputScope = InputScope(26i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_DATE_DAYNAME: InputScope = 27i32;
+pub const IS_DATE_DAYNAME: InputScope = InputScope(27i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_DIGITS: InputScope = 28i32;
+pub const IS_DIGITS: InputScope = InputScope(28i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_NUMBER: InputScope = 29i32;
+pub const IS_NUMBER: InputScope = InputScope(29i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_ONECHAR: InputScope = 30i32;
+pub const IS_ONECHAR: InputScope = InputScope(30i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_PASSWORD: InputScope = 31i32;
+pub const IS_PASSWORD: InputScope = InputScope(31i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_TELEPHONE_FULLTELEPHONENUMBER: InputScope = 32i32;
+pub const IS_TELEPHONE_FULLTELEPHONENUMBER: InputScope = InputScope(32i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_TELEPHONE_COUNTRYCODE: InputScope = 33i32;
+pub const IS_TELEPHONE_COUNTRYCODE: InputScope = InputScope(33i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_TELEPHONE_AREACODE: InputScope = 34i32;
+pub const IS_TELEPHONE_AREACODE: InputScope = InputScope(34i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_TELEPHONE_LOCALNUMBER: InputScope = 35i32;
+pub const IS_TELEPHONE_LOCALNUMBER: InputScope = InputScope(35i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_TIME_FULLTIME: InputScope = 36i32;
+pub const IS_TIME_FULLTIME: InputScope = InputScope(36i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_TIME_HOUR: InputScope = 37i32;
+pub const IS_TIME_HOUR: InputScope = InputScope(37i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_TIME_MINORSEC: InputScope = 38i32;
+pub const IS_TIME_MINORSEC: InputScope = InputScope(38i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_NUMBER_FULLWIDTH: InputScope = 39i32;
+pub const IS_NUMBER_FULLWIDTH: InputScope = InputScope(39i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_ALPHANUMERIC_HALFWIDTH: InputScope = 40i32;
+pub const IS_ALPHANUMERIC_HALFWIDTH: InputScope = InputScope(40i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_ALPHANUMERIC_FULLWIDTH: InputScope = 41i32;
+pub const IS_ALPHANUMERIC_FULLWIDTH: InputScope = InputScope(41i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_CURRENCY_CHINESE: InputScope = 42i32;
+pub const IS_CURRENCY_CHINESE: InputScope = InputScope(42i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_BOPOMOFO: InputScope = 43i32;
+pub const IS_BOPOMOFO: InputScope = InputScope(43i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_HIRAGANA: InputScope = 44i32;
+pub const IS_HIRAGANA: InputScope = InputScope(44i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_KATAKANA_HALFWIDTH: InputScope = 45i32;
+pub const IS_KATAKANA_HALFWIDTH: InputScope = InputScope(45i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_KATAKANA_FULLWIDTH: InputScope = 46i32;
+pub const IS_KATAKANA_FULLWIDTH: InputScope = InputScope(46i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_HANJA: InputScope = 47i32;
+pub const IS_HANJA: InputScope = InputScope(47i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_HANGUL_HALFWIDTH: InputScope = 48i32;
+pub const IS_HANGUL_HALFWIDTH: InputScope = InputScope(48i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_HANGUL_FULLWIDTH: InputScope = 49i32;
+pub const IS_HANGUL_FULLWIDTH: InputScope = InputScope(49i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_SEARCH: InputScope = 50i32;
+pub const IS_SEARCH: InputScope = InputScope(50i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_FORMULA: InputScope = 51i32;
+pub const IS_FORMULA: InputScope = InputScope(51i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_SEARCH_INCREMENTAL: InputScope = 52i32;
+pub const IS_SEARCH_INCREMENTAL: InputScope = InputScope(52i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_CHINESE_HALFWIDTH: InputScope = 53i32;
+pub const IS_CHINESE_HALFWIDTH: InputScope = InputScope(53i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_CHINESE_FULLWIDTH: InputScope = 54i32;
-#[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_NATIVE_SCRIPT: InputScope = 55i32;
-#[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_YOMI: InputScope = 56i32;
-#[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_TEXT: InputScope = 57i32;
-#[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_CHAT: InputScope = 58i32;
-#[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_NAME_OR_PHONENUMBER: InputScope = 59i32;
-#[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_EMAILNAME_OR_ADDRESS: InputScope = 60i32;
-#[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_PRIVATE: InputScope = 61i32;
-#[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_MAPS: InputScope = 62i32;
-#[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_NUMERIC_PASSWORD: InputScope = 63i32;
-#[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_NUMERIC_PIN: InputScope = 64i32;
-#[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_ALPHANUMERIC_PIN: InputScope = 65i32;
-#[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_ALPHANUMERIC_PIN_SET: InputScope = 66i32;
-#[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_FORMULA_NUMBER: InputScope = 67i32;
-#[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_CHAT_WITHOUT_EMOJI: InputScope = 68i32;
-#[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_PHRASELIST: InputScope = -1i32;
-#[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_REGULAREXPRESSION: InputScope = -2i32;
-#[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_SRGS: InputScope = -3i32;
-#[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_XML: InputScope = -4i32;
-#[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const IS_ENUMSTRING: InputScope = -5i32;
-#[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub type LANG_BAR_ITEM_ICON_MODE_FLAGS = u32;
-#[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_DTLBI_NONE: LANG_BAR_ITEM_ICON_MODE_FLAGS = 0u32;
-#[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_DTLBI_USEPROFILEICON: LANG_BAR_ITEM_ICON_MODE_FLAGS = 1u32;
+pub const IS_CHINESE_FULLWIDTH: InputScope = InputScope(54i32);
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
+pub const IS_NATIVE_SCRIPT: InputScope = InputScope(55i32);
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
+pub const IS_YOMI: InputScope = InputScope(56i32);
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
+pub const IS_TEXT: InputScope = InputScope(57i32);
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
+pub const IS_CHAT: InputScope = InputScope(58i32);
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
+pub const IS_NAME_OR_PHONENUMBER: InputScope = InputScope(59i32);
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
+pub const IS_EMAILNAME_OR_ADDRESS: InputScope = InputScope(60i32);
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
+pub const IS_PRIVATE: InputScope = InputScope(61i32);
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
+pub const IS_MAPS: InputScope = InputScope(62i32);
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
+pub const IS_NUMERIC_PASSWORD: InputScope = InputScope(63i32);
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
+pub const IS_NUMERIC_PIN: InputScope = InputScope(64i32);
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
+pub const IS_ALPHANUMERIC_PIN: InputScope = InputScope(65i32);
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
+pub const IS_ALPHANUMERIC_PIN_SET: InputScope = InputScope(66i32);
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
+pub const IS_FORMULA_NUMBER: InputScope = InputScope(67i32);
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
+pub const IS_CHAT_WITHOUT_EMOJI: InputScope = InputScope(68i32);
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
+pub const IS_PHRASELIST: InputScope = InputScope(-1i32);
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
+pub const IS_REGULAREXPRESSION: InputScope = InputScope(-2i32);
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
+pub const IS_SRGS: InputScope = InputScope(-3i32);
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
+pub const IS_XML: InputScope = InputScope(-4i32);
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
+pub const IS_ENUMSTRING: InputScope = InputScope(-5i32);
+impl ::core::marker::Copy for InputScope {}
+impl ::core::clone::Clone for InputScope {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for InputScope {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for InputScope {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InputScope").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct LANG_BAR_ITEM_ICON_MODE_FLAGS(pub u32);
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
+pub const TF_DTLBI_NONE: LANG_BAR_ITEM_ICON_MODE_FLAGS = LANG_BAR_ITEM_ICON_MODE_FLAGS(0u32);
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
+pub const TF_DTLBI_USEPROFILEICON: LANG_BAR_ITEM_ICON_MODE_FLAGS = LANG_BAR_ITEM_ICON_MODE_FLAGS(1u32);
+impl ::core::marker::Copy for LANG_BAR_ITEM_ICON_MODE_FLAGS {}
+impl ::core::clone::Clone for LANG_BAR_ITEM_ICON_MODE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for LANG_BAR_ITEM_ICON_MODE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LANG_BAR_ITEM_ICON_MODE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LANG_BAR_ITEM_ICON_MODE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for LANG_BAR_ITEM_ICON_MODE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for LANG_BAR_ITEM_ICON_MODE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for LANG_BAR_ITEM_ICON_MODE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for LANG_BAR_ITEM_ICON_MODE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for LANG_BAR_ITEM_ICON_MODE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const LIBID_MSAATEXTLib: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x150e2d7a_dac1_4582_947d_2a8fd78b82cd);
 pub const MSAAControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08cd963f_7a3e_4f5c_9bd8_d692bb043c5b);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub type TEXT_STORE_CHANGE_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TEXT_STORE_CHANGE_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TS_TC_NONE: TEXT_STORE_CHANGE_FLAGS = 0u32;
+pub const TS_TC_NONE: TEXT_STORE_CHANGE_FLAGS = TEXT_STORE_CHANGE_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TS_TC_CORRECTION: TEXT_STORE_CHANGE_FLAGS = 1u32;
+pub const TS_TC_CORRECTION: TEXT_STORE_CHANGE_FLAGS = TEXT_STORE_CHANGE_FLAGS(1u32);
+impl ::core::marker::Copy for TEXT_STORE_CHANGE_FLAGS {}
+impl ::core::clone::Clone for TEXT_STORE_CHANGE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TEXT_STORE_CHANGE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TEXT_STORE_CHANGE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TEXT_STORE_CHANGE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for TEXT_STORE_CHANGE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for TEXT_STORE_CHANGE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for TEXT_STORE_CHANGE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for TEXT_STORE_CHANGE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for TEXT_STORE_CHANGE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub type TEXT_STORE_LOCK_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TEXT_STORE_LOCK_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TS_LF_READ: TEXT_STORE_LOCK_FLAGS = 2u32;
+pub const TS_LF_READ: TEXT_STORE_LOCK_FLAGS = TEXT_STORE_LOCK_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TS_LF_READWRITE: TEXT_STORE_LOCK_FLAGS = 6u32;
+pub const TS_LF_READWRITE: TEXT_STORE_LOCK_FLAGS = TEXT_STORE_LOCK_FLAGS(6u32);
+impl ::core::marker::Copy for TEXT_STORE_LOCK_FLAGS {}
+impl ::core::clone::Clone for TEXT_STORE_LOCK_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TEXT_STORE_LOCK_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TEXT_STORE_LOCK_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TEXT_STORE_LOCK_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for TEXT_STORE_LOCK_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for TEXT_STORE_LOCK_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for TEXT_STORE_LOCK_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for TEXT_STORE_LOCK_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for TEXT_STORE_LOCK_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub type TEXT_STORE_TEXT_CHANGE_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TEXT_STORE_TEXT_CHANGE_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TS_ST_NONE: TEXT_STORE_TEXT_CHANGE_FLAGS = 0u32;
+pub const TS_ST_NONE: TEXT_STORE_TEXT_CHANGE_FLAGS = TEXT_STORE_TEXT_CHANGE_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TS_ST_CORRECTION: TEXT_STORE_TEXT_CHANGE_FLAGS = 1u32;
+pub const TS_ST_CORRECTION: TEXT_STORE_TEXT_CHANGE_FLAGS = TEXT_STORE_TEXT_CHANGE_FLAGS(1u32);
+impl ::core::marker::Copy for TEXT_STORE_TEXT_CHANGE_FLAGS {}
+impl ::core::clone::Clone for TEXT_STORE_TEXT_CHANGE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TEXT_STORE_TEXT_CHANGE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TEXT_STORE_TEXT_CHANGE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TEXT_STORE_TEXT_CHANGE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for TEXT_STORE_TEXT_CHANGE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for TEXT_STORE_TEXT_CHANGE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for TEXT_STORE_TEXT_CHANGE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for TEXT_STORE_TEXT_CHANGE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for TEXT_STORE_TEXT_CHANGE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_CHAR_EMBEDDED: u32 = 65532u32;
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
@@ -13939,17 +14263,61 @@ pub const TF_COMMANDING_ENABLED: u32 = 4u32;
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_COMMANDING_ON: u32 = 8u32;
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub type TF_CONTEXT_EDIT_CONTEXT_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TF_CONTEXT_EDIT_CONTEXT_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_ES_ASYNCDONTCARE: TF_CONTEXT_EDIT_CONTEXT_FLAGS = 0u32;
+pub const TF_ES_ASYNCDONTCARE: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_ES_SYNC: TF_CONTEXT_EDIT_CONTEXT_FLAGS = 1u32;
+pub const TF_ES_SYNC: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_ES_READ: TF_CONTEXT_EDIT_CONTEXT_FLAGS = 2u32;
+pub const TF_ES_READ: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_ES_READWRITE: TF_CONTEXT_EDIT_CONTEXT_FLAGS = 6u32;
+pub const TF_ES_READWRITE: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(6u32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_ES_ASYNC: TF_CONTEXT_EDIT_CONTEXT_FLAGS = 8u32;
+pub const TF_ES_ASYNC: TF_CONTEXT_EDIT_CONTEXT_FLAGS = TF_CONTEXT_EDIT_CONTEXT_FLAGS(8u32);
+impl ::core::marker::Copy for TF_CONTEXT_EDIT_CONTEXT_FLAGS {}
+impl ::core::clone::Clone for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TF_CONTEXT_EDIT_CONTEXT_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for TF_CONTEXT_EDIT_CONTEXT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_CONVERSIONMODE_ALPHANUMERIC: u32 = 0u32;
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
@@ -13973,21 +14341,37 @@ pub const TF_CONVERSIONMODE_SOFTKEYBOARD: u32 = 128u32;
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_CONVERSIONMODE_SYMBOL: u32 = 1024u32;
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub type TF_DA_ATTR_INFO = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TF_DA_ATTR_INFO(pub i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_ATTR_INPUT: TF_DA_ATTR_INFO = 0i32;
+pub const TF_ATTR_INPUT: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(0i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_ATTR_TARGET_CONVERTED: TF_DA_ATTR_INFO = 1i32;
+pub const TF_ATTR_TARGET_CONVERTED: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(1i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_ATTR_CONVERTED: TF_DA_ATTR_INFO = 2i32;
+pub const TF_ATTR_CONVERTED: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(2i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_ATTR_TARGET_NOTCONVERTED: TF_DA_ATTR_INFO = 3i32;
+pub const TF_ATTR_TARGET_NOTCONVERTED: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(3i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_ATTR_INPUT_ERROR: TF_DA_ATTR_INFO = 4i32;
+pub const TF_ATTR_INPUT_ERROR: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(4i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_ATTR_FIXEDCONVERTED: TF_DA_ATTR_INFO = 5i32;
+pub const TF_ATTR_FIXEDCONVERTED: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(5i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_ATTR_OTHER: TF_DA_ATTR_INFO = -1i32;
+pub const TF_ATTR_OTHER: TF_DA_ATTR_INFO = TF_DA_ATTR_INFO(-1i32);
+impl ::core::marker::Copy for TF_DA_ATTR_INFO {}
+impl ::core::clone::Clone for TF_DA_ATTR_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TF_DA_ATTR_INFO {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TF_DA_ATTR_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TF_DA_ATTR_INFO").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub struct TF_DA_COLOR {
@@ -14041,25 +14425,57 @@ impl ::core::default::Default for TF_DA_COLOR_0 {
     }
 }
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub type TF_DA_COLORTYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TF_DA_COLORTYPE(pub i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_CT_NONE: TF_DA_COLORTYPE = 0i32;
+pub const TF_CT_NONE: TF_DA_COLORTYPE = TF_DA_COLORTYPE(0i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_CT_SYSCOLOR: TF_DA_COLORTYPE = 1i32;
+pub const TF_CT_SYSCOLOR: TF_DA_COLORTYPE = TF_DA_COLORTYPE(1i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_CT_COLORREF: TF_DA_COLORTYPE = 2i32;
+pub const TF_CT_COLORREF: TF_DA_COLORTYPE = TF_DA_COLORTYPE(2i32);
+impl ::core::marker::Copy for TF_DA_COLORTYPE {}
+impl ::core::clone::Clone for TF_DA_COLORTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TF_DA_COLORTYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TF_DA_COLORTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TF_DA_COLORTYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub type TF_DA_LINESTYLE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TF_DA_LINESTYLE(pub i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_LS_NONE: TF_DA_LINESTYLE = 0i32;
+pub const TF_LS_NONE: TF_DA_LINESTYLE = TF_DA_LINESTYLE(0i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_LS_SOLID: TF_DA_LINESTYLE = 1i32;
+pub const TF_LS_SOLID: TF_DA_LINESTYLE = TF_DA_LINESTYLE(1i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_LS_DOT: TF_DA_LINESTYLE = 2i32;
+pub const TF_LS_DOT: TF_DA_LINESTYLE = TF_DA_LINESTYLE(2i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_LS_DASH: TF_DA_LINESTYLE = 3i32;
+pub const TF_LS_DASH: TF_DA_LINESTYLE = TF_DA_LINESTYLE(3i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_LS_SQUIGGLE: TF_DA_LINESTYLE = 4i32;
+pub const TF_LS_SQUIGGLE: TF_DA_LINESTYLE = TF_DA_LINESTYLE(4i32);
+impl ::core::marker::Copy for TF_DA_LINESTYLE {}
+impl ::core::clone::Clone for TF_DA_LINESTYLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TF_DA_LINESTYLE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TF_DA_LINESTYLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TF_DA_LINESTYLE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TF_DICTATION_ENABLED: u32 = 2u32;
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
@@ -14867,13 +15283,29 @@ pub const TKBL_OPT_TRADITIONAL_CHINESE_PHONETIC: u32 = 1028u32;
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TKBL_UNDEFINED: u32 = 0u32;
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub type TKBLayoutType = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TKBLayoutType(pub i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TKBLT_UNDEFINED: TKBLayoutType = 0i32;
+pub const TKBLT_UNDEFINED: TKBLayoutType = TKBLayoutType(0i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TKBLT_CLASSIC: TKBLayoutType = 1i32;
+pub const TKBLT_CLASSIC: TKBLayoutType = TKBLayoutType(1i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TKBLT_OPTIMIZED: TKBLayoutType = 2i32;
+pub const TKBLT_OPTIMIZED: TKBLayoutType = TKBLayoutType(2i32);
+impl ::core::marker::Copy for TKBLayoutType {}
+impl ::core::clone::Clone for TKBLayoutType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TKBLayoutType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TKBLayoutType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TKBLayoutType").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TKB_ALTERNATES_AUTOCORRECTION_APPLIED: u32 = 4u32;
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
@@ -15324,117 +15756,357 @@ impl ::core::default::Default for TS_TEXTCHANGE {
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub const TS_VCOOKIE_NUL: u32 = 4294967295u32;
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub type TfActiveSelEnd = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TfActiveSelEnd(pub i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_AE_NONE: TfActiveSelEnd = 0i32;
+pub const TF_AE_NONE: TfActiveSelEnd = TfActiveSelEnd(0i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_AE_START: TfActiveSelEnd = 1i32;
+pub const TF_AE_START: TfActiveSelEnd = TfActiveSelEnd(1i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_AE_END: TfActiveSelEnd = 2i32;
+pub const TF_AE_END: TfActiveSelEnd = TfActiveSelEnd(2i32);
+impl ::core::marker::Copy for TfActiveSelEnd {}
+impl ::core::clone::Clone for TfActiveSelEnd {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TfActiveSelEnd {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TfActiveSelEnd {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TfActiveSelEnd").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub type TfAnchor = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TfAnchor(pub i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_ANCHOR_START: TfAnchor = 0i32;
+pub const TF_ANCHOR_START: TfAnchor = TfAnchor(0i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_ANCHOR_END: TfAnchor = 1i32;
+pub const TF_ANCHOR_END: TfAnchor = TfAnchor(1i32);
+impl ::core::marker::Copy for TfAnchor {}
+impl ::core::clone::Clone for TfAnchor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TfAnchor {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TfAnchor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TfAnchor").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub type TfCandidateResult = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TfCandidateResult(pub i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const CAND_FINALIZED: TfCandidateResult = 0i32;
+pub const CAND_FINALIZED: TfCandidateResult = TfCandidateResult(0i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const CAND_SELECTED: TfCandidateResult = 1i32;
+pub const CAND_SELECTED: TfCandidateResult = TfCandidateResult(1i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const CAND_CANCELED: TfCandidateResult = 2i32;
+pub const CAND_CANCELED: TfCandidateResult = TfCandidateResult(2i32);
+impl ::core::marker::Copy for TfCandidateResult {}
+impl ::core::clone::Clone for TfCandidateResult {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TfCandidateResult {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TfCandidateResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TfCandidateResult").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub type TfGravity = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TfGravity(pub i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_GRAVITY_BACKWARD: TfGravity = 0i32;
+pub const TF_GRAVITY_BACKWARD: TfGravity = TfGravity(0i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_GRAVITY_FORWARD: TfGravity = 1i32;
+pub const TF_GRAVITY_FORWARD: TfGravity = TfGravity(1i32);
+impl ::core::marker::Copy for TfGravity {}
+impl ::core::clone::Clone for TfGravity {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TfGravity {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TfGravity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TfGravity").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub type TfIntegratableCandidateListSelectionStyle = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TfIntegratableCandidateListSelectionStyle(pub i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const STYLE_ACTIVE_SELECTION: TfIntegratableCandidateListSelectionStyle = 0i32;
+pub const STYLE_ACTIVE_SELECTION: TfIntegratableCandidateListSelectionStyle = TfIntegratableCandidateListSelectionStyle(0i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const STYLE_IMPLIED_SELECTION: TfIntegratableCandidateListSelectionStyle = 1i32;
+pub const STYLE_IMPLIED_SELECTION: TfIntegratableCandidateListSelectionStyle = TfIntegratableCandidateListSelectionStyle(1i32);
+impl ::core::marker::Copy for TfIntegratableCandidateListSelectionStyle {}
+impl ::core::clone::Clone for TfIntegratableCandidateListSelectionStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TfIntegratableCandidateListSelectionStyle {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TfIntegratableCandidateListSelectionStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TfIntegratableCandidateListSelectionStyle").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub type TfLBBalloonStyle = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TfLBBalloonStyle(pub i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_LB_BALLOON_RECO: TfLBBalloonStyle = 0i32;
+pub const TF_LB_BALLOON_RECO: TfLBBalloonStyle = TfLBBalloonStyle(0i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_LB_BALLOON_SHOW: TfLBBalloonStyle = 1i32;
+pub const TF_LB_BALLOON_SHOW: TfLBBalloonStyle = TfLBBalloonStyle(1i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_LB_BALLOON_MISS: TfLBBalloonStyle = 2i32;
+pub const TF_LB_BALLOON_MISS: TfLBBalloonStyle = TfLBBalloonStyle(2i32);
+impl ::core::marker::Copy for TfLBBalloonStyle {}
+impl ::core::clone::Clone for TfLBBalloonStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TfLBBalloonStyle {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TfLBBalloonStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TfLBBalloonStyle").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub type TfLBIClick = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TfLBIClick(pub i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_LBI_CLK_RIGHT: TfLBIClick = 1i32;
+pub const TF_LBI_CLK_RIGHT: TfLBIClick = TfLBIClick(1i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_LBI_CLK_LEFT: TfLBIClick = 2i32;
+pub const TF_LBI_CLK_LEFT: TfLBIClick = TfLBIClick(2i32);
+impl ::core::marker::Copy for TfLBIClick {}
+impl ::core::clone::Clone for TfLBIClick {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TfLBIClick {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TfLBIClick {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TfLBIClick").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub type TfLayoutCode = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TfLayoutCode(pub i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_LC_CREATE: TfLayoutCode = 0i32;
+pub const TF_LC_CREATE: TfLayoutCode = TfLayoutCode(0i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_LC_CHANGE: TfLayoutCode = 1i32;
+pub const TF_LC_CHANGE: TfLayoutCode = TfLayoutCode(1i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_LC_DESTROY: TfLayoutCode = 2i32;
+pub const TF_LC_DESTROY: TfLayoutCode = TfLayoutCode(2i32);
+impl ::core::marker::Copy for TfLayoutCode {}
+impl ::core::clone::Clone for TfLayoutCode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TfLayoutCode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TfLayoutCode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TfLayoutCode").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub type TfSapiObject = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TfSapiObject(pub i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const GETIF_RESMGR: TfSapiObject = 0i32;
+pub const GETIF_RESMGR: TfSapiObject = TfSapiObject(0i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const GETIF_RECOCONTEXT: TfSapiObject = 1i32;
+pub const GETIF_RECOCONTEXT: TfSapiObject = TfSapiObject(1i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const GETIF_RECOGNIZER: TfSapiObject = 2i32;
+pub const GETIF_RECOGNIZER: TfSapiObject = TfSapiObject(2i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const GETIF_VOICE: TfSapiObject = 3i32;
+pub const GETIF_VOICE: TfSapiObject = TfSapiObject(3i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const GETIF_DICTGRAM: TfSapiObject = 4i32;
+pub const GETIF_DICTGRAM: TfSapiObject = TfSapiObject(4i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const GETIF_RECOGNIZERNOINIT: TfSapiObject = 5i32;
+pub const GETIF_RECOGNIZERNOINIT: TfSapiObject = TfSapiObject(5i32);
+impl ::core::marker::Copy for TfSapiObject {}
+impl ::core::clone::Clone for TfSapiObject {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TfSapiObject {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TfSapiObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TfSapiObject").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub type TfShiftDir = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TfShiftDir(pub i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_SD_BACKWARD: TfShiftDir = 0i32;
+pub const TF_SD_BACKWARD: TfShiftDir = TfShiftDir(0i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TF_SD_FORWARD: TfShiftDir = 1i32;
+pub const TF_SD_FORWARD: TfShiftDir = TfShiftDir(1i32);
+impl ::core::marker::Copy for TfShiftDir {}
+impl ::core::clone::Clone for TfShiftDir {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TfShiftDir {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TfShiftDir {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TfShiftDir").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub type TsActiveSelEnd = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TsActiveSelEnd(pub i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TS_AE_NONE: TsActiveSelEnd = 0i32;
+pub const TS_AE_NONE: TsActiveSelEnd = TsActiveSelEnd(0i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TS_AE_START: TsActiveSelEnd = 1i32;
+pub const TS_AE_START: TsActiveSelEnd = TsActiveSelEnd(1i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TS_AE_END: TsActiveSelEnd = 2i32;
+pub const TS_AE_END: TsActiveSelEnd = TsActiveSelEnd(2i32);
+impl ::core::marker::Copy for TsActiveSelEnd {}
+impl ::core::clone::Clone for TsActiveSelEnd {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TsActiveSelEnd {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TsActiveSelEnd {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TsActiveSelEnd").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub type TsGravity = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TsGravity(pub i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TS_GR_BACKWARD: TsGravity = 0i32;
+pub const TS_GR_BACKWARD: TsGravity = TsGravity(0i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TS_GR_FORWARD: TsGravity = 1i32;
+pub const TS_GR_FORWARD: TsGravity = TsGravity(1i32);
+impl ::core::marker::Copy for TsGravity {}
+impl ::core::clone::Clone for TsGravity {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TsGravity {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TsGravity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TsGravity").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub type TsLayoutCode = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TsLayoutCode(pub i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TS_LC_CREATE: TsLayoutCode = 0i32;
+pub const TS_LC_CREATE: TsLayoutCode = TsLayoutCode(0i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TS_LC_CHANGE: TsLayoutCode = 1i32;
+pub const TS_LC_CHANGE: TsLayoutCode = TsLayoutCode(1i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TS_LC_DESTROY: TsLayoutCode = 2i32;
+pub const TS_LC_DESTROY: TsLayoutCode = TsLayoutCode(2i32);
+impl ::core::marker::Copy for TsLayoutCode {}
+impl ::core::clone::Clone for TsLayoutCode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TsLayoutCode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TsLayoutCode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TsLayoutCode").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub type TsRunType = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TsRunType(pub i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TS_RT_PLAIN: TsRunType = 0i32;
+pub const TS_RT_PLAIN: TsRunType = TsRunType(0i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TS_RT_HIDDEN: TsRunType = 1i32;
+pub const TS_RT_HIDDEN: TsRunType = TsRunType(1i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TS_RT_OPAQUE: TsRunType = 2i32;
+pub const TS_RT_OPAQUE: TsRunType = TsRunType(2i32);
+impl ::core::marker::Copy for TsRunType {}
+impl ::core::clone::Clone for TsRunType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TsRunType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TsRunType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TsRunType").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub type TsShiftDir = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TsShiftDir(pub i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TS_SD_BACKWARD: TsShiftDir = 0i32;
+pub const TS_SD_BACKWARD: TsShiftDir = TsShiftDir(0i32);
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
-pub const TS_SD_FORWARD: TsShiftDir = 1i32;
+pub const TS_SD_FORWARD: TsShiftDir = TsShiftDir(1i32);
+impl ::core::marker::Copy for TsShiftDir {}
+impl ::core::clone::Clone for TsShiftDir {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TsShiftDir {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TsShiftDir {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TsShiftDir").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_UI_TextServices'*"]
 #[inline]
 pub unsafe fn UninitLocalMsCtfMonitor() -> ::windows::core::Result<()> {

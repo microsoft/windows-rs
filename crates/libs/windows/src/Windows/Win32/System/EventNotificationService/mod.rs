@@ -696,11 +696,55 @@ pub const SENSGUID_PUBLISHER: ::windows::core::GUID = ::windows::core::GUID::fro
 pub const SENSGUID_SUBSCRIBER_LCE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3938ab0_5b9d_11d1_8dd2_00aa004abd5e);
 pub const SENSGUID_SUBSCRIBER_WININET: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3938ab5_5b9d_11d1_8dd2_00aa004abd5e);
 #[doc = "*Required features: 'Win32_System_EventNotificationService'*"]
-pub type SENS_CONNECTION_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SENS_CONNECTION_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_System_EventNotificationService'*"]
-pub const CONNECTION_LAN: SENS_CONNECTION_TYPE = 0u32;
+pub const CONNECTION_LAN: SENS_CONNECTION_TYPE = SENS_CONNECTION_TYPE(0u32);
 #[doc = "*Required features: 'Win32_System_EventNotificationService'*"]
-pub const CONNECTION_WAN: SENS_CONNECTION_TYPE = 1u32;
+pub const CONNECTION_WAN: SENS_CONNECTION_TYPE = SENS_CONNECTION_TYPE(1u32);
+impl ::core::marker::Copy for SENS_CONNECTION_TYPE {}
+impl ::core::clone::Clone for SENS_CONNECTION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SENS_CONNECTION_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SENS_CONNECTION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SENS_CONNECTION_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SENS_CONNECTION_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SENS_CONNECTION_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SENS_CONNECTION_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SENS_CONNECTION_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SENS_CONNECTION_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_EventNotificationService'*"]
 pub struct SENS_QOCINFO {

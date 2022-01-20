@@ -273,31 +273,119 @@ pub const CRYPTCAT_MAX_MEMBERTAG: u32 = 64u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography_Catalog'*"]
 pub const CRYPTCAT_MEMBER_SORTED: u32 = 1073741824u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography_Catalog'*"]
-pub type CRYPTCAT_OPEN_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRYPTCAT_OPEN_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_Catalog'*"]
-pub const CRYPTCAT_OPEN_ALWAYS: CRYPTCAT_OPEN_FLAGS = 2u32;
+pub const CRYPTCAT_OPEN_ALWAYS: CRYPTCAT_OPEN_FLAGS = CRYPTCAT_OPEN_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_Catalog'*"]
-pub const CRYPTCAT_OPEN_CREATENEW: CRYPTCAT_OPEN_FLAGS = 1u32;
+pub const CRYPTCAT_OPEN_CREATENEW: CRYPTCAT_OPEN_FLAGS = CRYPTCAT_OPEN_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_Catalog'*"]
-pub const CRYPTCAT_OPEN_EXISTING: CRYPTCAT_OPEN_FLAGS = 4u32;
+pub const CRYPTCAT_OPEN_EXISTING: CRYPTCAT_OPEN_FLAGS = CRYPTCAT_OPEN_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_Catalog'*"]
-pub const CRYPTCAT_OPEN_EXCLUDE_PAGE_HASHES: CRYPTCAT_OPEN_FLAGS = 65536u32;
+pub const CRYPTCAT_OPEN_EXCLUDE_PAGE_HASHES: CRYPTCAT_OPEN_FLAGS = CRYPTCAT_OPEN_FLAGS(65536u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_Catalog'*"]
-pub const CRYPTCAT_OPEN_INCLUDE_PAGE_HASHES: CRYPTCAT_OPEN_FLAGS = 131072u32;
+pub const CRYPTCAT_OPEN_INCLUDE_PAGE_HASHES: CRYPTCAT_OPEN_FLAGS = CRYPTCAT_OPEN_FLAGS(131072u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_Catalog'*"]
-pub const CRYPTCAT_OPEN_VERIFYSIGHASH: CRYPTCAT_OPEN_FLAGS = 268435456u32;
+pub const CRYPTCAT_OPEN_VERIFYSIGHASH: CRYPTCAT_OPEN_FLAGS = CRYPTCAT_OPEN_FLAGS(268435456u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_Catalog'*"]
-pub const CRYPTCAT_OPEN_NO_CONTENT_HCRYPTMSG: CRYPTCAT_OPEN_FLAGS = 536870912u32;
+pub const CRYPTCAT_OPEN_NO_CONTENT_HCRYPTMSG: CRYPTCAT_OPEN_FLAGS = CRYPTCAT_OPEN_FLAGS(536870912u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_Catalog'*"]
-pub const CRYPTCAT_OPEN_SORTED: CRYPTCAT_OPEN_FLAGS = 1073741824u32;
+pub const CRYPTCAT_OPEN_SORTED: CRYPTCAT_OPEN_FLAGS = CRYPTCAT_OPEN_FLAGS(1073741824u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_Catalog'*"]
-pub const CRYPTCAT_OPEN_FLAGS_MASK: CRYPTCAT_OPEN_FLAGS = 4294901760u32;
+pub const CRYPTCAT_OPEN_FLAGS_MASK: CRYPTCAT_OPEN_FLAGS = CRYPTCAT_OPEN_FLAGS(4294901760u32);
+impl ::core::marker::Copy for CRYPTCAT_OPEN_FLAGS {}
+impl ::core::clone::Clone for CRYPTCAT_OPEN_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CRYPTCAT_OPEN_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRYPTCAT_OPEN_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRYPTCAT_OPEN_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRYPTCAT_OPEN_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRYPTCAT_OPEN_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRYPTCAT_OPEN_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRYPTCAT_OPEN_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRYPTCAT_OPEN_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography_Catalog'*"]
-pub type CRYPTCAT_VERSION = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRYPTCAT_VERSION(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_Catalog'*"]
-pub const CRYPTCAT_VERSION_1: CRYPTCAT_VERSION = 256u32;
+pub const CRYPTCAT_VERSION_1: CRYPTCAT_VERSION = CRYPTCAT_VERSION(256u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography_Catalog'*"]
-pub const CRYPTCAT_VERSION_2: CRYPTCAT_VERSION = 512u32;
+pub const CRYPTCAT_VERSION_2: CRYPTCAT_VERSION = CRYPTCAT_VERSION(512u32);
+impl ::core::marker::Copy for CRYPTCAT_VERSION {}
+impl ::core::clone::Clone for CRYPTCAT_VERSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CRYPTCAT_VERSION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRYPTCAT_VERSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRYPTCAT_VERSION").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRYPTCAT_VERSION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRYPTCAT_VERSION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRYPTCAT_VERSION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRYPTCAT_VERSION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRYPTCAT_VERSION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography_Catalog', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]

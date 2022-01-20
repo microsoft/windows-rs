@@ -127,11 +127,27 @@ impl ::core::default::Default for AAL_PARAMETERS_IE_0 {
     }
 }
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub type AAL_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct AAL_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const AALTYPE_5: AAL_TYPE = 5i32;
+pub const AALTYPE_5: AAL_TYPE = AAL_TYPE(5i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const AALTYPE_USER: AAL_TYPE = 16i32;
+pub const AALTYPE_USER: AAL_TYPE = AAL_TYPE(16i32);
+impl ::core::marker::Copy for AAL_TYPE {}
+impl ::core::clone::Clone for AAL_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for AAL_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AAL_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AAL_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1089,21 +1105,37 @@ pub const CLIP_NOT: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub const CLIP_SUS: u32 = 32u32;
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub type CONTROL_CHANNEL_TRIGGER_STATUS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CONTROL_CHANNEL_TRIGGER_STATUS(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const CONTROL_CHANNEL_TRIGGER_STATUS_INVALID: CONTROL_CHANNEL_TRIGGER_STATUS = 0i32;
+pub const CONTROL_CHANNEL_TRIGGER_STATUS_INVALID: CONTROL_CHANNEL_TRIGGER_STATUS = CONTROL_CHANNEL_TRIGGER_STATUS(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const CONTROL_CHANNEL_TRIGGER_STATUS_SOFTWARE_SLOT_ALLOCATED: CONTROL_CHANNEL_TRIGGER_STATUS = 1i32;
+pub const CONTROL_CHANNEL_TRIGGER_STATUS_SOFTWARE_SLOT_ALLOCATED: CONTROL_CHANNEL_TRIGGER_STATUS = CONTROL_CHANNEL_TRIGGER_STATUS(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const CONTROL_CHANNEL_TRIGGER_STATUS_HARDWARE_SLOT_ALLOCATED: CONTROL_CHANNEL_TRIGGER_STATUS = 2i32;
+pub const CONTROL_CHANNEL_TRIGGER_STATUS_HARDWARE_SLOT_ALLOCATED: CONTROL_CHANNEL_TRIGGER_STATUS = CONTROL_CHANNEL_TRIGGER_STATUS(2i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const CONTROL_CHANNEL_TRIGGER_STATUS_POLICY_ERROR: CONTROL_CHANNEL_TRIGGER_STATUS = 3i32;
+pub const CONTROL_CHANNEL_TRIGGER_STATUS_POLICY_ERROR: CONTROL_CHANNEL_TRIGGER_STATUS = CONTROL_CHANNEL_TRIGGER_STATUS(3i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const CONTROL_CHANNEL_TRIGGER_STATUS_SYSTEM_ERROR: CONTROL_CHANNEL_TRIGGER_STATUS = 4i32;
+pub const CONTROL_CHANNEL_TRIGGER_STATUS_SYSTEM_ERROR: CONTROL_CHANNEL_TRIGGER_STATUS = CONTROL_CHANNEL_TRIGGER_STATUS(4i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const CONTROL_CHANNEL_TRIGGER_STATUS_TRANSPORT_DISCONNECTED: CONTROL_CHANNEL_TRIGGER_STATUS = 5i32;
+pub const CONTROL_CHANNEL_TRIGGER_STATUS_TRANSPORT_DISCONNECTED: CONTROL_CHANNEL_TRIGGER_STATUS = CONTROL_CHANNEL_TRIGGER_STATUS(5i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const CONTROL_CHANNEL_TRIGGER_STATUS_SERVICE_UNAVAILABLE: CONTROL_CHANNEL_TRIGGER_STATUS = 6i32;
+pub const CONTROL_CHANNEL_TRIGGER_STATUS_SERVICE_UNAVAILABLE: CONTROL_CHANNEL_TRIGGER_STATUS = CONTROL_CHANNEL_TRIGGER_STATUS(6i32);
+impl ::core::marker::Copy for CONTROL_CHANNEL_TRIGGER_STATUS {}
+impl ::core::clone::Clone for CONTROL_CHANNEL_TRIGGER_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CONTROL_CHANNEL_TRIGGER_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CONTROL_CHANNEL_TRIGGER_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CONTROL_CHANNEL_TRIGGER_STATUS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2383,77 +2415,93 @@ pub const IPPORT_WHOIS: u32 = 43u32;
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub const IPPORT_WHOSERVER: u32 = 513u32;
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub type IPPROTO = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct IPPROTO(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IPPROTO_HOPOPTS: IPPROTO = 0i32;
+pub const IPPROTO_HOPOPTS: IPPROTO = IPPROTO(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IPPROTO_ICMP: IPPROTO = 1i32;
+pub const IPPROTO_ICMP: IPPROTO = IPPROTO(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IPPROTO_IGMP: IPPROTO = 2i32;
+pub const IPPROTO_IGMP: IPPROTO = IPPROTO(2i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IPPROTO_GGP: IPPROTO = 3i32;
+pub const IPPROTO_GGP: IPPROTO = IPPROTO(3i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IPPROTO_IPV4: IPPROTO = 4i32;
+pub const IPPROTO_IPV4: IPPROTO = IPPROTO(4i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IPPROTO_ST: IPPROTO = 5i32;
+pub const IPPROTO_ST: IPPROTO = IPPROTO(5i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IPPROTO_TCP: IPPROTO = 6i32;
+pub const IPPROTO_TCP: IPPROTO = IPPROTO(6i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IPPROTO_CBT: IPPROTO = 7i32;
+pub const IPPROTO_CBT: IPPROTO = IPPROTO(7i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IPPROTO_EGP: IPPROTO = 8i32;
+pub const IPPROTO_EGP: IPPROTO = IPPROTO(8i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IPPROTO_IGP: IPPROTO = 9i32;
+pub const IPPROTO_IGP: IPPROTO = IPPROTO(9i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IPPROTO_PUP: IPPROTO = 12i32;
+pub const IPPROTO_PUP: IPPROTO = IPPROTO(12i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IPPROTO_UDP: IPPROTO = 17i32;
+pub const IPPROTO_UDP: IPPROTO = IPPROTO(17i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IPPROTO_IDP: IPPROTO = 22i32;
+pub const IPPROTO_IDP: IPPROTO = IPPROTO(22i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IPPROTO_RDP: IPPROTO = 27i32;
+pub const IPPROTO_RDP: IPPROTO = IPPROTO(27i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IPPROTO_IPV6: IPPROTO = 41i32;
+pub const IPPROTO_IPV6: IPPROTO = IPPROTO(41i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IPPROTO_ROUTING: IPPROTO = 43i32;
+pub const IPPROTO_ROUTING: IPPROTO = IPPROTO(43i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IPPROTO_FRAGMENT: IPPROTO = 44i32;
+pub const IPPROTO_FRAGMENT: IPPROTO = IPPROTO(44i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IPPROTO_ESP: IPPROTO = 50i32;
+pub const IPPROTO_ESP: IPPROTO = IPPROTO(50i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IPPROTO_AH: IPPROTO = 51i32;
+pub const IPPROTO_AH: IPPROTO = IPPROTO(51i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IPPROTO_ICMPV6: IPPROTO = 58i32;
+pub const IPPROTO_ICMPV6: IPPROTO = IPPROTO(58i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IPPROTO_NONE: IPPROTO = 59i32;
+pub const IPPROTO_NONE: IPPROTO = IPPROTO(59i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IPPROTO_DSTOPTS: IPPROTO = 60i32;
+pub const IPPROTO_DSTOPTS: IPPROTO = IPPROTO(60i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IPPROTO_ND: IPPROTO = 77i32;
+pub const IPPROTO_ND: IPPROTO = IPPROTO(77i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IPPROTO_ICLFXBM: IPPROTO = 78i32;
+pub const IPPROTO_ICLFXBM: IPPROTO = IPPROTO(78i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IPPROTO_PIM: IPPROTO = 103i32;
+pub const IPPROTO_PIM: IPPROTO = IPPROTO(103i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IPPROTO_PGM: IPPROTO = 113i32;
+pub const IPPROTO_PGM: IPPROTO = IPPROTO(113i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IPPROTO_L2TP: IPPROTO = 115i32;
+pub const IPPROTO_L2TP: IPPROTO = IPPROTO(115i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IPPROTO_SCTP: IPPROTO = 132i32;
+pub const IPPROTO_SCTP: IPPROTO = IPPROTO(132i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IPPROTO_RAW: IPPROTO = 255i32;
+pub const IPPROTO_RAW: IPPROTO = IPPROTO(255i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IPPROTO_MAX: IPPROTO = 256i32;
+pub const IPPROTO_MAX: IPPROTO = IPPROTO(256i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IPPROTO_RESERVED_RAW: IPPROTO = 257i32;
+pub const IPPROTO_RESERVED_RAW: IPPROTO = IPPROTO(257i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IPPROTO_RESERVED_IPSEC: IPPROTO = 258i32;
+pub const IPPROTO_RESERVED_IPSEC: IPPROTO = IPPROTO(258i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IPPROTO_RESERVED_IPSECOFFLOAD: IPPROTO = 259i32;
+pub const IPPROTO_RESERVED_IPSECOFFLOAD: IPPROTO = IPPROTO(259i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IPPROTO_RESERVED_WNV: IPPROTO = 260i32;
+pub const IPPROTO_RESERVED_WNV: IPPROTO = IPPROTO(260i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IPPROTO_RESERVED_MAX: IPPROTO = 261i32;
+pub const IPPROTO_RESERVED_MAX: IPPROTO = IPPROTO(261i32);
+impl ::core::marker::Copy for IPPROTO {}
+impl ::core::clone::Clone for IPPROTO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for IPPROTO {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IPPROTO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPPROTO").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub const IPPROTO_IP: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
@@ -3517,11 +3565,27 @@ pub const MSG_TRUNC: u32 = 256u32;
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub const MSG_WAITALL: u32 = 8u32;
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub type MULTICAST_MODE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MULTICAST_MODE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const MCAST_INCLUDE: MULTICAST_MODE_TYPE = 0i32;
+pub const MCAST_INCLUDE: MULTICAST_MODE_TYPE = MULTICAST_MODE_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const MCAST_EXCLUDE: MULTICAST_MODE_TYPE = 1i32;
+pub const MCAST_EXCLUDE: MULTICAST_MODE_TYPE = MULTICAST_MODE_TYPE(1i32);
+impl ::core::marker::Copy for MULTICAST_MODE_TYPE {}
+impl ::core::clone::Clone for MULTICAST_MODE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MULTICAST_MODE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MULTICAST_MODE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MULTICAST_MODE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub struct NAPI_DOMAIN_DESCRIPTION_BLOB {
@@ -3590,19 +3654,51 @@ impl ::core::default::Default for NAPI_PROVIDER_INSTALLATION_BLOB {
     }
 }
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub type NAPI_PROVIDER_LEVEL = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NAPI_PROVIDER_LEVEL(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const ProviderLevel_None: NAPI_PROVIDER_LEVEL = 0i32;
+pub const ProviderLevel_None: NAPI_PROVIDER_LEVEL = NAPI_PROVIDER_LEVEL(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const ProviderLevel_Secondary: NAPI_PROVIDER_LEVEL = 1i32;
+pub const ProviderLevel_Secondary: NAPI_PROVIDER_LEVEL = NAPI_PROVIDER_LEVEL(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const ProviderLevel_Primary: NAPI_PROVIDER_LEVEL = 2i32;
+pub const ProviderLevel_Primary: NAPI_PROVIDER_LEVEL = NAPI_PROVIDER_LEVEL(2i32);
+impl ::core::marker::Copy for NAPI_PROVIDER_LEVEL {}
+impl ::core::clone::Clone for NAPI_PROVIDER_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NAPI_PROVIDER_LEVEL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NAPI_PROVIDER_LEVEL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NAPI_PROVIDER_LEVEL").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub type NAPI_PROVIDER_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NAPI_PROVIDER_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const ProviderType_Application: NAPI_PROVIDER_TYPE = 1i32;
+pub const ProviderType_Application: NAPI_PROVIDER_TYPE = NAPI_PROVIDER_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const ProviderType_Service: NAPI_PROVIDER_TYPE = 2i32;
+pub const ProviderType_Service: NAPI_PROVIDER_TYPE = NAPI_PROVIDER_TYPE(2i32);
+impl ::core::marker::Copy for NAPI_PROVIDER_TYPE {}
+impl ::core::clone::Clone for NAPI_PROVIDER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NAPI_PROVIDER_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NAPI_PROVIDER_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NAPI_PROVIDER_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub const NETBIOS_GROUP_NAME: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
@@ -4032,59 +4128,139 @@ impl ::core::default::Default for NLA_BLOB_1 {
     }
 }
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub type NLA_BLOB_DATA_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NLA_BLOB_DATA_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NLA_RAW_DATA: NLA_BLOB_DATA_TYPE = 0i32;
+pub const NLA_RAW_DATA: NLA_BLOB_DATA_TYPE = NLA_BLOB_DATA_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NLA_INTERFACE: NLA_BLOB_DATA_TYPE = 1i32;
+pub const NLA_INTERFACE: NLA_BLOB_DATA_TYPE = NLA_BLOB_DATA_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NLA_802_1X_LOCATION: NLA_BLOB_DATA_TYPE = 2i32;
+pub const NLA_802_1X_LOCATION: NLA_BLOB_DATA_TYPE = NLA_BLOB_DATA_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NLA_CONNECTIVITY: NLA_BLOB_DATA_TYPE = 3i32;
+pub const NLA_CONNECTIVITY: NLA_BLOB_DATA_TYPE = NLA_BLOB_DATA_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NLA_ICS: NLA_BLOB_DATA_TYPE = 4i32;
+pub const NLA_ICS: NLA_BLOB_DATA_TYPE = NLA_BLOB_DATA_TYPE(4i32);
+impl ::core::marker::Copy for NLA_BLOB_DATA_TYPE {}
+impl ::core::clone::Clone for NLA_BLOB_DATA_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NLA_BLOB_DATA_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NLA_BLOB_DATA_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NLA_BLOB_DATA_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub type NLA_CONNECTIVITY_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NLA_CONNECTIVITY_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NLA_NETWORK_AD_HOC: NLA_CONNECTIVITY_TYPE = 0i32;
+pub const NLA_NETWORK_AD_HOC: NLA_CONNECTIVITY_TYPE = NLA_CONNECTIVITY_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NLA_NETWORK_MANAGED: NLA_CONNECTIVITY_TYPE = 1i32;
+pub const NLA_NETWORK_MANAGED: NLA_CONNECTIVITY_TYPE = NLA_CONNECTIVITY_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NLA_NETWORK_UNMANAGED: NLA_CONNECTIVITY_TYPE = 2i32;
+pub const NLA_NETWORK_UNMANAGED: NLA_CONNECTIVITY_TYPE = NLA_CONNECTIVITY_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NLA_NETWORK_UNKNOWN: NLA_CONNECTIVITY_TYPE = 3i32;
+pub const NLA_NETWORK_UNKNOWN: NLA_CONNECTIVITY_TYPE = NLA_CONNECTIVITY_TYPE(3i32);
+impl ::core::marker::Copy for NLA_CONNECTIVITY_TYPE {}
+impl ::core::clone::Clone for NLA_CONNECTIVITY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NLA_CONNECTIVITY_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NLA_CONNECTIVITY_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NLA_CONNECTIVITY_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub const NLA_FRIENDLY_NAME: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub type NLA_INTERNET = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NLA_INTERNET(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NLA_INTERNET_UNKNOWN: NLA_INTERNET = 0i32;
+pub const NLA_INTERNET_UNKNOWN: NLA_INTERNET = NLA_INTERNET(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NLA_INTERNET_NO: NLA_INTERNET = 1i32;
+pub const NLA_INTERNET_NO: NLA_INTERNET = NLA_INTERNET(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NLA_INTERNET_YES: NLA_INTERNET = 2i32;
+pub const NLA_INTERNET_YES: NLA_INTERNET = NLA_INTERNET(2i32);
+impl ::core::marker::Copy for NLA_INTERNET {}
+impl ::core::clone::Clone for NLA_INTERNET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NLA_INTERNET {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NLA_INTERNET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NLA_INTERNET").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub type NL_ADDRESS_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NL_ADDRESS_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NlatUnspecified: NL_ADDRESS_TYPE = 0i32;
+pub const NlatUnspecified: NL_ADDRESS_TYPE = NL_ADDRESS_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NlatUnicast: NL_ADDRESS_TYPE = 1i32;
+pub const NlatUnicast: NL_ADDRESS_TYPE = NL_ADDRESS_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NlatAnycast: NL_ADDRESS_TYPE = 2i32;
+pub const NlatAnycast: NL_ADDRESS_TYPE = NL_ADDRESS_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NlatMulticast: NL_ADDRESS_TYPE = 3i32;
+pub const NlatMulticast: NL_ADDRESS_TYPE = NL_ADDRESS_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NlatBroadcast: NL_ADDRESS_TYPE = 4i32;
+pub const NlatBroadcast: NL_ADDRESS_TYPE = NL_ADDRESS_TYPE(4i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NlatInvalid: NL_ADDRESS_TYPE = 5i32;
+pub const NlatInvalid: NL_ADDRESS_TYPE = NL_ADDRESS_TYPE(5i32);
+impl ::core::marker::Copy for NL_ADDRESS_TYPE {}
+impl ::core::clone::Clone for NL_ADDRESS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NL_ADDRESS_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NL_ADDRESS_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NL_ADDRESS_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub type NL_BANDWIDTH_FLAG = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NL_BANDWIDTH_FLAG(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NlbwDisabled: NL_BANDWIDTH_FLAG = 0i32;
+pub const NlbwDisabled: NL_BANDWIDTH_FLAG = NL_BANDWIDTH_FLAG(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NlbwEnabled: NL_BANDWIDTH_FLAG = 1i32;
+pub const NlbwEnabled: NL_BANDWIDTH_FLAG = NL_BANDWIDTH_FLAG(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NlbwUnchanged: NL_BANDWIDTH_FLAG = -1i32;
+pub const NlbwUnchanged: NL_BANDWIDTH_FLAG = NL_BANDWIDTH_FLAG(-1i32);
+impl ::core::marker::Copy for NL_BANDWIDTH_FLAG {}
+impl ::core::clone::Clone for NL_BANDWIDTH_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NL_BANDWIDTH_FLAG {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NL_BANDWIDTH_FLAG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NL_BANDWIDTH_FLAG").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4126,39 +4302,71 @@ impl ::core::default::Default for NL_BANDWIDTH_INFORMATION {
     }
 }
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub type NL_DAD_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NL_DAD_STATE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NldsInvalid: NL_DAD_STATE = 0i32;
+pub const NldsInvalid: NL_DAD_STATE = NL_DAD_STATE(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NldsTentative: NL_DAD_STATE = 1i32;
+pub const NldsTentative: NL_DAD_STATE = NL_DAD_STATE(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NldsDuplicate: NL_DAD_STATE = 2i32;
+pub const NldsDuplicate: NL_DAD_STATE = NL_DAD_STATE(2i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NldsDeprecated: NL_DAD_STATE = 3i32;
+pub const NldsDeprecated: NL_DAD_STATE = NL_DAD_STATE(3i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NldsPreferred: NL_DAD_STATE = 4i32;
+pub const NldsPreferred: NL_DAD_STATE = NL_DAD_STATE(4i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IpDadStateInvalid: NL_DAD_STATE = 0i32;
+pub const IpDadStateInvalid: NL_DAD_STATE = NL_DAD_STATE(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IpDadStateTentative: NL_DAD_STATE = 1i32;
+pub const IpDadStateTentative: NL_DAD_STATE = NL_DAD_STATE(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IpDadStateDuplicate: NL_DAD_STATE = 2i32;
+pub const IpDadStateDuplicate: NL_DAD_STATE = NL_DAD_STATE(2i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IpDadStateDeprecated: NL_DAD_STATE = 3i32;
+pub const IpDadStateDeprecated: NL_DAD_STATE = NL_DAD_STATE(3i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IpDadStatePreferred: NL_DAD_STATE = 4i32;
+pub const IpDadStatePreferred: NL_DAD_STATE = NL_DAD_STATE(4i32);
+impl ::core::marker::Copy for NL_DAD_STATE {}
+impl ::core::clone::Clone for NL_DAD_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NL_DAD_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NL_DAD_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NL_DAD_STATE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub type NL_INTERFACE_NETWORK_CATEGORY_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NL_INTERFACE_NETWORK_CATEGORY_STATE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NlincCategoryUnknown: NL_INTERFACE_NETWORK_CATEGORY_STATE = 0i32;
+pub const NlincCategoryUnknown: NL_INTERFACE_NETWORK_CATEGORY_STATE = NL_INTERFACE_NETWORK_CATEGORY_STATE(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NlincPublic: NL_INTERFACE_NETWORK_CATEGORY_STATE = 1i32;
+pub const NlincPublic: NL_INTERFACE_NETWORK_CATEGORY_STATE = NL_INTERFACE_NETWORK_CATEGORY_STATE(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NlincPrivate: NL_INTERFACE_NETWORK_CATEGORY_STATE = 2i32;
+pub const NlincPrivate: NL_INTERFACE_NETWORK_CATEGORY_STATE = NL_INTERFACE_NETWORK_CATEGORY_STATE(2i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NlincDomainAuthenticated: NL_INTERFACE_NETWORK_CATEGORY_STATE = 3i32;
+pub const NlincDomainAuthenticated: NL_INTERFACE_NETWORK_CATEGORY_STATE = NL_INTERFACE_NETWORK_CATEGORY_STATE(3i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NlincCategoryStateMax: NL_INTERFACE_NETWORK_CATEGORY_STATE = 4i32;
+pub const NlincCategoryStateMax: NL_INTERFACE_NETWORK_CATEGORY_STATE = NL_INTERFACE_NETWORK_CATEGORY_STATE(4i32);
+impl ::core::marker::Copy for NL_INTERFACE_NETWORK_CATEGORY_STATE {}
+impl ::core::clone::Clone for NL_INTERFACE_NETWORK_CATEGORY_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NL_INTERFACE_NETWORK_CATEGORY_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NL_INTERFACE_NETWORK_CATEGORY_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NL_INTERFACE_NETWORK_CATEGORY_STATE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub struct NL_INTERFACE_OFFLOAD_ROD {
@@ -4190,55 +4398,119 @@ impl ::core::default::Default for NL_INTERFACE_OFFLOAD_ROD {
     }
 }
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub type NL_LINK_LOCAL_ADDRESS_BEHAVIOR = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NL_LINK_LOCAL_ADDRESS_BEHAVIOR(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const LinkLocalAlwaysOff: NL_LINK_LOCAL_ADDRESS_BEHAVIOR = 0i32;
+pub const LinkLocalAlwaysOff: NL_LINK_LOCAL_ADDRESS_BEHAVIOR = NL_LINK_LOCAL_ADDRESS_BEHAVIOR(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const LinkLocalDelayed: NL_LINK_LOCAL_ADDRESS_BEHAVIOR = 1i32;
+pub const LinkLocalDelayed: NL_LINK_LOCAL_ADDRESS_BEHAVIOR = NL_LINK_LOCAL_ADDRESS_BEHAVIOR(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const LinkLocalAlwaysOn: NL_LINK_LOCAL_ADDRESS_BEHAVIOR = 2i32;
+pub const LinkLocalAlwaysOn: NL_LINK_LOCAL_ADDRESS_BEHAVIOR = NL_LINK_LOCAL_ADDRESS_BEHAVIOR(2i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const LinkLocalUnchanged: NL_LINK_LOCAL_ADDRESS_BEHAVIOR = -1i32;
+pub const LinkLocalUnchanged: NL_LINK_LOCAL_ADDRESS_BEHAVIOR = NL_LINK_LOCAL_ADDRESS_BEHAVIOR(-1i32);
+impl ::core::marker::Copy for NL_LINK_LOCAL_ADDRESS_BEHAVIOR {}
+impl ::core::clone::Clone for NL_LINK_LOCAL_ADDRESS_BEHAVIOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NL_LINK_LOCAL_ADDRESS_BEHAVIOR {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NL_LINK_LOCAL_ADDRESS_BEHAVIOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NL_LINK_LOCAL_ADDRESS_BEHAVIOR").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub type NL_NEIGHBOR_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NL_NEIGHBOR_STATE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NlnsUnreachable: NL_NEIGHBOR_STATE = 0i32;
+pub const NlnsUnreachable: NL_NEIGHBOR_STATE = NL_NEIGHBOR_STATE(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NlnsIncomplete: NL_NEIGHBOR_STATE = 1i32;
+pub const NlnsIncomplete: NL_NEIGHBOR_STATE = NL_NEIGHBOR_STATE(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NlnsProbe: NL_NEIGHBOR_STATE = 2i32;
+pub const NlnsProbe: NL_NEIGHBOR_STATE = NL_NEIGHBOR_STATE(2i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NlnsDelay: NL_NEIGHBOR_STATE = 3i32;
+pub const NlnsDelay: NL_NEIGHBOR_STATE = NL_NEIGHBOR_STATE(3i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NlnsStale: NL_NEIGHBOR_STATE = 4i32;
+pub const NlnsStale: NL_NEIGHBOR_STATE = NL_NEIGHBOR_STATE(4i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NlnsReachable: NL_NEIGHBOR_STATE = 5i32;
+pub const NlnsReachable: NL_NEIGHBOR_STATE = NL_NEIGHBOR_STATE(5i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NlnsPermanent: NL_NEIGHBOR_STATE = 6i32;
+pub const NlnsPermanent: NL_NEIGHBOR_STATE = NL_NEIGHBOR_STATE(6i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NlnsMaximum: NL_NEIGHBOR_STATE = 7i32;
+pub const NlnsMaximum: NL_NEIGHBOR_STATE = NL_NEIGHBOR_STATE(7i32);
+impl ::core::marker::Copy for NL_NEIGHBOR_STATE {}
+impl ::core::clone::Clone for NL_NEIGHBOR_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NL_NEIGHBOR_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NL_NEIGHBOR_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NL_NEIGHBOR_STATE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub type NL_NETWORK_CATEGORY = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NL_NETWORK_CATEGORY(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NetworkCategoryPublic: NL_NETWORK_CATEGORY = 0i32;
+pub const NetworkCategoryPublic: NL_NETWORK_CATEGORY = NL_NETWORK_CATEGORY(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NetworkCategoryPrivate: NL_NETWORK_CATEGORY = 1i32;
+pub const NetworkCategoryPrivate: NL_NETWORK_CATEGORY = NL_NETWORK_CATEGORY(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NetworkCategoryDomainAuthenticated: NL_NETWORK_CATEGORY = 2i32;
+pub const NetworkCategoryDomainAuthenticated: NL_NETWORK_CATEGORY = NL_NETWORK_CATEGORY(2i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NetworkCategoryUnchanged: NL_NETWORK_CATEGORY = -1i32;
+pub const NetworkCategoryUnchanged: NL_NETWORK_CATEGORY = NL_NETWORK_CATEGORY(-1i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NetworkCategoryUnknown: NL_NETWORK_CATEGORY = -1i32;
+pub const NetworkCategoryUnknown: NL_NETWORK_CATEGORY = NL_NETWORK_CATEGORY(-1i32);
+impl ::core::marker::Copy for NL_NETWORK_CATEGORY {}
+impl ::core::clone::Clone for NL_NETWORK_CATEGORY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NL_NETWORK_CATEGORY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NL_NETWORK_CATEGORY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NL_NETWORK_CATEGORY").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub type NL_NETWORK_CONNECTIVITY_COST_HINT = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NL_NETWORK_CONNECTIVITY_COST_HINT(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NetworkConnectivityCostHintUnknown: NL_NETWORK_CONNECTIVITY_COST_HINT = 0i32;
+pub const NetworkConnectivityCostHintUnknown: NL_NETWORK_CONNECTIVITY_COST_HINT = NL_NETWORK_CONNECTIVITY_COST_HINT(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NetworkConnectivityCostHintUnrestricted: NL_NETWORK_CONNECTIVITY_COST_HINT = 1i32;
+pub const NetworkConnectivityCostHintUnrestricted: NL_NETWORK_CONNECTIVITY_COST_HINT = NL_NETWORK_CONNECTIVITY_COST_HINT(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NetworkConnectivityCostHintFixed: NL_NETWORK_CONNECTIVITY_COST_HINT = 2i32;
+pub const NetworkConnectivityCostHintFixed: NL_NETWORK_CONNECTIVITY_COST_HINT = NL_NETWORK_CONNECTIVITY_COST_HINT(2i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NetworkConnectivityCostHintVariable: NL_NETWORK_CONNECTIVITY_COST_HINT = 3i32;
+pub const NetworkConnectivityCostHintVariable: NL_NETWORK_CONNECTIVITY_COST_HINT = NL_NETWORK_CONNECTIVITY_COST_HINT(3i32);
+impl ::core::marker::Copy for NL_NETWORK_CONNECTIVITY_COST_HINT {}
+impl ::core::clone::Clone for NL_NETWORK_CONNECTIVITY_COST_HINT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NL_NETWORK_CONNECTIVITY_COST_HINT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NL_NETWORK_CONNECTIVITY_COST_HINT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NL_NETWORK_CONNECTIVITY_COST_HINT").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4282,19 +4554,35 @@ impl ::core::default::Default for NL_NETWORK_CONNECTIVITY_HINT {
     }
 }
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub type NL_NETWORK_CONNECTIVITY_LEVEL_HINT = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NL_NETWORK_CONNECTIVITY_LEVEL_HINT(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NetworkConnectivityLevelHintUnknown: NL_NETWORK_CONNECTIVITY_LEVEL_HINT = 0i32;
+pub const NetworkConnectivityLevelHintUnknown: NL_NETWORK_CONNECTIVITY_LEVEL_HINT = NL_NETWORK_CONNECTIVITY_LEVEL_HINT(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NetworkConnectivityLevelHintNone: NL_NETWORK_CONNECTIVITY_LEVEL_HINT = 1i32;
+pub const NetworkConnectivityLevelHintNone: NL_NETWORK_CONNECTIVITY_LEVEL_HINT = NL_NETWORK_CONNECTIVITY_LEVEL_HINT(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NetworkConnectivityLevelHintLocalAccess: NL_NETWORK_CONNECTIVITY_LEVEL_HINT = 2i32;
+pub const NetworkConnectivityLevelHintLocalAccess: NL_NETWORK_CONNECTIVITY_LEVEL_HINT = NL_NETWORK_CONNECTIVITY_LEVEL_HINT(2i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NetworkConnectivityLevelHintInternetAccess: NL_NETWORK_CONNECTIVITY_LEVEL_HINT = 3i32;
+pub const NetworkConnectivityLevelHintInternetAccess: NL_NETWORK_CONNECTIVITY_LEVEL_HINT = NL_NETWORK_CONNECTIVITY_LEVEL_HINT(3i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NetworkConnectivityLevelHintConstrainedInternetAccess: NL_NETWORK_CONNECTIVITY_LEVEL_HINT = 4i32;
+pub const NetworkConnectivityLevelHintConstrainedInternetAccess: NL_NETWORK_CONNECTIVITY_LEVEL_HINT = NL_NETWORK_CONNECTIVITY_LEVEL_HINT(4i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NetworkConnectivityLevelHintHidden: NL_NETWORK_CONNECTIVITY_LEVEL_HINT = 5i32;
+pub const NetworkConnectivityLevelHintHidden: NL_NETWORK_CONNECTIVITY_LEVEL_HINT = NL_NETWORK_CONNECTIVITY_LEVEL_HINT(5i32);
+impl ::core::marker::Copy for NL_NETWORK_CONNECTIVITY_LEVEL_HINT {}
+impl ::core::clone::Clone for NL_NETWORK_CONNECTIVITY_LEVEL_HINT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NL_NETWORK_CONNECTIVITY_LEVEL_HINT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NL_NETWORK_CONNECTIVITY_LEVEL_HINT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NL_NETWORK_CONNECTIVITY_LEVEL_HINT").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4336,197 +4624,277 @@ impl ::core::default::Default for NL_PATH_BANDWIDTH_ROD {
     }
 }
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub type NL_PREFIX_ORIGIN = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NL_PREFIX_ORIGIN(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IpPrefixOriginOther: NL_PREFIX_ORIGIN = 0i32;
+pub const IpPrefixOriginOther: NL_PREFIX_ORIGIN = NL_PREFIX_ORIGIN(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IpPrefixOriginManual: NL_PREFIX_ORIGIN = 1i32;
+pub const IpPrefixOriginManual: NL_PREFIX_ORIGIN = NL_PREFIX_ORIGIN(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IpPrefixOriginWellKnown: NL_PREFIX_ORIGIN = 2i32;
+pub const IpPrefixOriginWellKnown: NL_PREFIX_ORIGIN = NL_PREFIX_ORIGIN(2i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IpPrefixOriginDhcp: NL_PREFIX_ORIGIN = 3i32;
+pub const IpPrefixOriginDhcp: NL_PREFIX_ORIGIN = NL_PREFIX_ORIGIN(3i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IpPrefixOriginRouterAdvertisement: NL_PREFIX_ORIGIN = 4i32;
+pub const IpPrefixOriginRouterAdvertisement: NL_PREFIX_ORIGIN = NL_PREFIX_ORIGIN(4i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IpPrefixOriginUnchanged: NL_PREFIX_ORIGIN = 16i32;
+pub const IpPrefixOriginUnchanged: NL_PREFIX_ORIGIN = NL_PREFIX_ORIGIN(16i32);
+impl ::core::marker::Copy for NL_PREFIX_ORIGIN {}
+impl ::core::clone::Clone for NL_PREFIX_ORIGIN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NL_PREFIX_ORIGIN {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NL_PREFIX_ORIGIN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NL_PREFIX_ORIGIN").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub type NL_ROUTER_DISCOVERY_BEHAVIOR = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NL_ROUTER_DISCOVERY_BEHAVIOR(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const RouterDiscoveryDisabled: NL_ROUTER_DISCOVERY_BEHAVIOR = 0i32;
+pub const RouterDiscoveryDisabled: NL_ROUTER_DISCOVERY_BEHAVIOR = NL_ROUTER_DISCOVERY_BEHAVIOR(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const RouterDiscoveryEnabled: NL_ROUTER_DISCOVERY_BEHAVIOR = 1i32;
+pub const RouterDiscoveryEnabled: NL_ROUTER_DISCOVERY_BEHAVIOR = NL_ROUTER_DISCOVERY_BEHAVIOR(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const RouterDiscoveryDhcp: NL_ROUTER_DISCOVERY_BEHAVIOR = 2i32;
+pub const RouterDiscoveryDhcp: NL_ROUTER_DISCOVERY_BEHAVIOR = NL_ROUTER_DISCOVERY_BEHAVIOR(2i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const RouterDiscoveryUnchanged: NL_ROUTER_DISCOVERY_BEHAVIOR = -1i32;
+pub const RouterDiscoveryUnchanged: NL_ROUTER_DISCOVERY_BEHAVIOR = NL_ROUTER_DISCOVERY_BEHAVIOR(-1i32);
+impl ::core::marker::Copy for NL_ROUTER_DISCOVERY_BEHAVIOR {}
+impl ::core::clone::Clone for NL_ROUTER_DISCOVERY_BEHAVIOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NL_ROUTER_DISCOVERY_BEHAVIOR {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NL_ROUTER_DISCOVERY_BEHAVIOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NL_ROUTER_DISCOVERY_BEHAVIOR").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub type NL_ROUTE_ORIGIN = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NL_ROUTE_ORIGIN(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NlroManual: NL_ROUTE_ORIGIN = 0i32;
+pub const NlroManual: NL_ROUTE_ORIGIN = NL_ROUTE_ORIGIN(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NlroWellKnown: NL_ROUTE_ORIGIN = 1i32;
+pub const NlroWellKnown: NL_ROUTE_ORIGIN = NL_ROUTE_ORIGIN(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NlroDHCP: NL_ROUTE_ORIGIN = 2i32;
+pub const NlroDHCP: NL_ROUTE_ORIGIN = NL_ROUTE_ORIGIN(2i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NlroRouterAdvertisement: NL_ROUTE_ORIGIN = 3i32;
+pub const NlroRouterAdvertisement: NL_ROUTE_ORIGIN = NL_ROUTE_ORIGIN(3i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const Nlro6to4: NL_ROUTE_ORIGIN = 4i32;
+pub const Nlro6to4: NL_ROUTE_ORIGIN = NL_ROUTE_ORIGIN(4i32);
+impl ::core::marker::Copy for NL_ROUTE_ORIGIN {}
+impl ::core::clone::Clone for NL_ROUTE_ORIGIN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NL_ROUTE_ORIGIN {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NL_ROUTE_ORIGIN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NL_ROUTE_ORIGIN").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub type NL_ROUTE_PROTOCOL = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NL_ROUTE_PROTOCOL(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const RouteProtocolOther: NL_ROUTE_PROTOCOL = 1i32;
+pub const RouteProtocolOther: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const RouteProtocolLocal: NL_ROUTE_PROTOCOL = 2i32;
+pub const RouteProtocolLocal: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(2i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const RouteProtocolNetMgmt: NL_ROUTE_PROTOCOL = 3i32;
+pub const RouteProtocolNetMgmt: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(3i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const RouteProtocolIcmp: NL_ROUTE_PROTOCOL = 4i32;
+pub const RouteProtocolIcmp: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(4i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const RouteProtocolEgp: NL_ROUTE_PROTOCOL = 5i32;
+pub const RouteProtocolEgp: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(5i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const RouteProtocolGgp: NL_ROUTE_PROTOCOL = 6i32;
+pub const RouteProtocolGgp: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(6i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const RouteProtocolHello: NL_ROUTE_PROTOCOL = 7i32;
+pub const RouteProtocolHello: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(7i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const RouteProtocolRip: NL_ROUTE_PROTOCOL = 8i32;
+pub const RouteProtocolRip: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(8i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const RouteProtocolIsIs: NL_ROUTE_PROTOCOL = 9i32;
+pub const RouteProtocolIsIs: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(9i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const RouteProtocolEsIs: NL_ROUTE_PROTOCOL = 10i32;
+pub const RouteProtocolEsIs: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(10i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const RouteProtocolCisco: NL_ROUTE_PROTOCOL = 11i32;
+pub const RouteProtocolCisco: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(11i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const RouteProtocolBbn: NL_ROUTE_PROTOCOL = 12i32;
+pub const RouteProtocolBbn: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(12i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const RouteProtocolOspf: NL_ROUTE_PROTOCOL = 13i32;
+pub const RouteProtocolOspf: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(13i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const RouteProtocolBgp: NL_ROUTE_PROTOCOL = 14i32;
+pub const RouteProtocolBgp: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(14i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const RouteProtocolIdpr: NL_ROUTE_PROTOCOL = 15i32;
+pub const RouteProtocolIdpr: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(15i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const RouteProtocolEigrp: NL_ROUTE_PROTOCOL = 16i32;
+pub const RouteProtocolEigrp: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(16i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const RouteProtocolDvmrp: NL_ROUTE_PROTOCOL = 17i32;
+pub const RouteProtocolDvmrp: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(17i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const RouteProtocolRpl: NL_ROUTE_PROTOCOL = 18i32;
+pub const RouteProtocolRpl: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(18i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const RouteProtocolDhcp: NL_ROUTE_PROTOCOL = 19i32;
+pub const RouteProtocolDhcp: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(19i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const MIB_IPPROTO_OTHER: NL_ROUTE_PROTOCOL = 1i32;
+pub const MIB_IPPROTO_OTHER: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const PROTO_IP_OTHER: NL_ROUTE_PROTOCOL = 1i32;
+pub const PROTO_IP_OTHER: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const MIB_IPPROTO_LOCAL: NL_ROUTE_PROTOCOL = 2i32;
+pub const MIB_IPPROTO_LOCAL: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(2i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const PROTO_IP_LOCAL: NL_ROUTE_PROTOCOL = 2i32;
+pub const PROTO_IP_LOCAL: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(2i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const MIB_IPPROTO_NETMGMT: NL_ROUTE_PROTOCOL = 3i32;
+pub const MIB_IPPROTO_NETMGMT: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(3i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const PROTO_IP_NETMGMT: NL_ROUTE_PROTOCOL = 3i32;
+pub const PROTO_IP_NETMGMT: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(3i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const MIB_IPPROTO_ICMP: NL_ROUTE_PROTOCOL = 4i32;
+pub const MIB_IPPROTO_ICMP: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(4i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const PROTO_IP_ICMP: NL_ROUTE_PROTOCOL = 4i32;
+pub const PROTO_IP_ICMP: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(4i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const MIB_IPPROTO_EGP: NL_ROUTE_PROTOCOL = 5i32;
+pub const MIB_IPPROTO_EGP: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(5i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const PROTO_IP_EGP: NL_ROUTE_PROTOCOL = 5i32;
+pub const PROTO_IP_EGP: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(5i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const MIB_IPPROTO_GGP: NL_ROUTE_PROTOCOL = 6i32;
+pub const MIB_IPPROTO_GGP: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(6i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const PROTO_IP_GGP: NL_ROUTE_PROTOCOL = 6i32;
+pub const PROTO_IP_GGP: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(6i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const MIB_IPPROTO_HELLO: NL_ROUTE_PROTOCOL = 7i32;
+pub const MIB_IPPROTO_HELLO: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(7i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const PROTO_IP_HELLO: NL_ROUTE_PROTOCOL = 7i32;
+pub const PROTO_IP_HELLO: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(7i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const MIB_IPPROTO_RIP: NL_ROUTE_PROTOCOL = 8i32;
+pub const MIB_IPPROTO_RIP: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(8i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const PROTO_IP_RIP: NL_ROUTE_PROTOCOL = 8i32;
+pub const PROTO_IP_RIP: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(8i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const MIB_IPPROTO_IS_IS: NL_ROUTE_PROTOCOL = 9i32;
+pub const MIB_IPPROTO_IS_IS: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(9i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const PROTO_IP_IS_IS: NL_ROUTE_PROTOCOL = 9i32;
+pub const PROTO_IP_IS_IS: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(9i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const MIB_IPPROTO_ES_IS: NL_ROUTE_PROTOCOL = 10i32;
+pub const MIB_IPPROTO_ES_IS: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(10i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const PROTO_IP_ES_IS: NL_ROUTE_PROTOCOL = 10i32;
+pub const PROTO_IP_ES_IS: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(10i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const MIB_IPPROTO_CISCO: NL_ROUTE_PROTOCOL = 11i32;
+pub const MIB_IPPROTO_CISCO: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(11i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const PROTO_IP_CISCO: NL_ROUTE_PROTOCOL = 11i32;
+pub const PROTO_IP_CISCO: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(11i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const MIB_IPPROTO_BBN: NL_ROUTE_PROTOCOL = 12i32;
+pub const MIB_IPPROTO_BBN: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(12i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const PROTO_IP_BBN: NL_ROUTE_PROTOCOL = 12i32;
+pub const PROTO_IP_BBN: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(12i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const MIB_IPPROTO_OSPF: NL_ROUTE_PROTOCOL = 13i32;
+pub const MIB_IPPROTO_OSPF: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(13i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const PROTO_IP_OSPF: NL_ROUTE_PROTOCOL = 13i32;
+pub const PROTO_IP_OSPF: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(13i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const MIB_IPPROTO_BGP: NL_ROUTE_PROTOCOL = 14i32;
+pub const MIB_IPPROTO_BGP: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(14i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const PROTO_IP_BGP: NL_ROUTE_PROTOCOL = 14i32;
+pub const PROTO_IP_BGP: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(14i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const MIB_IPPROTO_IDPR: NL_ROUTE_PROTOCOL = 15i32;
+pub const MIB_IPPROTO_IDPR: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(15i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const PROTO_IP_IDPR: NL_ROUTE_PROTOCOL = 15i32;
+pub const PROTO_IP_IDPR: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(15i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const MIB_IPPROTO_EIGRP: NL_ROUTE_PROTOCOL = 16i32;
+pub const MIB_IPPROTO_EIGRP: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(16i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const PROTO_IP_EIGRP: NL_ROUTE_PROTOCOL = 16i32;
+pub const PROTO_IP_EIGRP: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(16i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const MIB_IPPROTO_DVMRP: NL_ROUTE_PROTOCOL = 17i32;
+pub const MIB_IPPROTO_DVMRP: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(17i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const PROTO_IP_DVMRP: NL_ROUTE_PROTOCOL = 17i32;
+pub const PROTO_IP_DVMRP: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(17i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const MIB_IPPROTO_RPL: NL_ROUTE_PROTOCOL = 18i32;
+pub const MIB_IPPROTO_RPL: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(18i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const PROTO_IP_RPL: NL_ROUTE_PROTOCOL = 18i32;
+pub const PROTO_IP_RPL: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(18i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const MIB_IPPROTO_DHCP: NL_ROUTE_PROTOCOL = 19i32;
+pub const MIB_IPPROTO_DHCP: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(19i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const PROTO_IP_DHCP: NL_ROUTE_PROTOCOL = 19i32;
+pub const PROTO_IP_DHCP: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(19i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const MIB_IPPROTO_NT_AUTOSTATIC: NL_ROUTE_PROTOCOL = 10002i32;
+pub const MIB_IPPROTO_NT_AUTOSTATIC: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(10002i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const PROTO_IP_NT_AUTOSTATIC: NL_ROUTE_PROTOCOL = 10002i32;
+pub const PROTO_IP_NT_AUTOSTATIC: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(10002i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const MIB_IPPROTO_NT_STATIC: NL_ROUTE_PROTOCOL = 10006i32;
+pub const MIB_IPPROTO_NT_STATIC: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(10006i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const PROTO_IP_NT_STATIC: NL_ROUTE_PROTOCOL = 10006i32;
+pub const PROTO_IP_NT_STATIC: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(10006i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const MIB_IPPROTO_NT_STATIC_NON_DOD: NL_ROUTE_PROTOCOL = 10007i32;
+pub const MIB_IPPROTO_NT_STATIC_NON_DOD: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(10007i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const PROTO_IP_NT_STATIC_NON_DOD: NL_ROUTE_PROTOCOL = 10007i32;
+pub const PROTO_IP_NT_STATIC_NON_DOD: NL_ROUTE_PROTOCOL = NL_ROUTE_PROTOCOL(10007i32);
+impl ::core::marker::Copy for NL_ROUTE_PROTOCOL {}
+impl ::core::clone::Clone for NL_ROUTE_PROTOCOL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NL_ROUTE_PROTOCOL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NL_ROUTE_PROTOCOL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NL_ROUTE_PROTOCOL").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub type NL_SUFFIX_ORIGIN = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NL_SUFFIX_ORIGIN(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NlsoOther: NL_SUFFIX_ORIGIN = 0i32;
+pub const NlsoOther: NL_SUFFIX_ORIGIN = NL_SUFFIX_ORIGIN(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NlsoManual: NL_SUFFIX_ORIGIN = 1i32;
+pub const NlsoManual: NL_SUFFIX_ORIGIN = NL_SUFFIX_ORIGIN(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NlsoWellKnown: NL_SUFFIX_ORIGIN = 2i32;
+pub const NlsoWellKnown: NL_SUFFIX_ORIGIN = NL_SUFFIX_ORIGIN(2i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NlsoDhcp: NL_SUFFIX_ORIGIN = 3i32;
+pub const NlsoDhcp: NL_SUFFIX_ORIGIN = NL_SUFFIX_ORIGIN(3i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NlsoLinkLayerAddress: NL_SUFFIX_ORIGIN = 4i32;
+pub const NlsoLinkLayerAddress: NL_SUFFIX_ORIGIN = NL_SUFFIX_ORIGIN(4i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NlsoRandom: NL_SUFFIX_ORIGIN = 5i32;
+pub const NlsoRandom: NL_SUFFIX_ORIGIN = NL_SUFFIX_ORIGIN(5i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IpSuffixOriginOther: NL_SUFFIX_ORIGIN = 0i32;
+pub const IpSuffixOriginOther: NL_SUFFIX_ORIGIN = NL_SUFFIX_ORIGIN(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IpSuffixOriginManual: NL_SUFFIX_ORIGIN = 1i32;
+pub const IpSuffixOriginManual: NL_SUFFIX_ORIGIN = NL_SUFFIX_ORIGIN(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IpSuffixOriginWellKnown: NL_SUFFIX_ORIGIN = 2i32;
+pub const IpSuffixOriginWellKnown: NL_SUFFIX_ORIGIN = NL_SUFFIX_ORIGIN(2i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IpSuffixOriginDhcp: NL_SUFFIX_ORIGIN = 3i32;
+pub const IpSuffixOriginDhcp: NL_SUFFIX_ORIGIN = NL_SUFFIX_ORIGIN(3i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IpSuffixOriginLinkLayerAddress: NL_SUFFIX_ORIGIN = 4i32;
+pub const IpSuffixOriginLinkLayerAddress: NL_SUFFIX_ORIGIN = NL_SUFFIX_ORIGIN(4i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IpSuffixOriginRandom: NL_SUFFIX_ORIGIN = 5i32;
+pub const IpSuffixOriginRandom: NL_SUFFIX_ORIGIN = NL_SUFFIX_ORIGIN(5i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IpSuffixOriginUnchanged: NL_SUFFIX_ORIGIN = 16i32;
+pub const IpSuffixOriginUnchanged: NL_SUFFIX_ORIGIN = NL_SUFFIX_ORIGIN(16i32);
+impl ::core::marker::Copy for NL_SUFFIX_ORIGIN {}
+impl ::core::clone::Clone for NL_SUFFIX_ORIGIN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NL_SUFFIX_ORIGIN {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NL_SUFFIX_ORIGIN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NL_SUFFIX_ORIGIN").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub const NSPROTO_IPX: u32 = 1000u32;
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
@@ -4934,17 +5302,33 @@ pub const PI_NUMBER_NOT_AVAILABLE: u32 = 128u32;
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub const PI_RESTRICTED: u32 = 64u32;
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub type PMTUD_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PMTUD_STATE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IP_PMTUDISC_NOT_SET: PMTUD_STATE = 0i32;
+pub const IP_PMTUDISC_NOT_SET: PMTUD_STATE = PMTUD_STATE(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IP_PMTUDISC_DO: PMTUD_STATE = 1i32;
+pub const IP_PMTUDISC_DO: PMTUD_STATE = PMTUD_STATE(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IP_PMTUDISC_DONT: PMTUD_STATE = 2i32;
+pub const IP_PMTUDISC_DONT: PMTUD_STATE = PMTUD_STATE(2i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IP_PMTUDISC_PROBE: PMTUD_STATE = 3i32;
+pub const IP_PMTUDISC_PROBE: PMTUD_STATE = PMTUD_STATE(3i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IP_PMTUDISC_MAX: PMTUD_STATE = 4i32;
+pub const IP_PMTUDISC_MAX: PMTUD_STATE = PMTUD_STATE(4i32);
+impl ::core::marker::Copy for PMTUD_STATE {}
+impl ::core::clone::Clone for PMTUD_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PMTUD_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PMTUD_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PMTUD_STATE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub const POLLERR: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
@@ -5160,31 +5544,47 @@ impl ::core::default::Default for Q2931_IE {
     }
 }
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub type Q2931_IE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct Q2931_IE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IE_AALParameters: Q2931_IE_TYPE = 0i32;
+pub const IE_AALParameters: Q2931_IE_TYPE = Q2931_IE_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IE_TrafficDescriptor: Q2931_IE_TYPE = 1i32;
+pub const IE_TrafficDescriptor: Q2931_IE_TYPE = Q2931_IE_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IE_BroadbandBearerCapability: Q2931_IE_TYPE = 2i32;
+pub const IE_BroadbandBearerCapability: Q2931_IE_TYPE = Q2931_IE_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IE_BHLI: Q2931_IE_TYPE = 3i32;
+pub const IE_BHLI: Q2931_IE_TYPE = Q2931_IE_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IE_BLLI: Q2931_IE_TYPE = 4i32;
+pub const IE_BLLI: Q2931_IE_TYPE = Q2931_IE_TYPE(4i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IE_CalledPartyNumber: Q2931_IE_TYPE = 5i32;
+pub const IE_CalledPartyNumber: Q2931_IE_TYPE = Q2931_IE_TYPE(5i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IE_CalledPartySubaddress: Q2931_IE_TYPE = 6i32;
+pub const IE_CalledPartySubaddress: Q2931_IE_TYPE = Q2931_IE_TYPE(6i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IE_CallingPartyNumber: Q2931_IE_TYPE = 7i32;
+pub const IE_CallingPartyNumber: Q2931_IE_TYPE = Q2931_IE_TYPE(7i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IE_CallingPartySubaddress: Q2931_IE_TYPE = 8i32;
+pub const IE_CallingPartySubaddress: Q2931_IE_TYPE = Q2931_IE_TYPE(8i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IE_Cause: Q2931_IE_TYPE = 9i32;
+pub const IE_Cause: Q2931_IE_TYPE = Q2931_IE_TYPE(9i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IE_QOSClass: Q2931_IE_TYPE = 10i32;
+pub const IE_QOSClass: Q2931_IE_TYPE = Q2931_IE_TYPE(10i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const IE_TransitNetworkSelection: Q2931_IE_TYPE = 11i32;
+pub const IE_TransitNetworkSelection: Q2931_IE_TYPE = Q2931_IE_TYPE(11i32);
+impl ::core::marker::Copy for Q2931_IE_TYPE {}
+impl ::core::clone::Clone for Q2931_IE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for Q2931_IE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for Q2931_IE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Q2931_IE_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub const QOS_CLASS0: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
@@ -5227,15 +5627,31 @@ impl ::core::default::Default for RCVALL_IF {
     }
 }
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub type RCVALL_VALUE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RCVALL_VALUE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const RCVALL_OFF: RCVALL_VALUE = 0i32;
+pub const RCVALL_OFF: RCVALL_VALUE = RCVALL_VALUE(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const RCVALL_ON: RCVALL_VALUE = 1i32;
+pub const RCVALL_ON: RCVALL_VALUE = RCVALL_VALUE(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const RCVALL_SOCKETLEVELONLY: RCVALL_VALUE = 2i32;
+pub const RCVALL_SOCKETLEVELONLY: RCVALL_VALUE = RCVALL_VALUE(2i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const RCVALL_IPLEVEL: RCVALL_VALUE = 3i32;
+pub const RCVALL_IPLEVEL: RCVALL_VALUE = RCVALL_VALUE(3i32);
+impl ::core::marker::Copy for RCVALL_VALUE {}
+impl ::core::clone::Clone for RCVALL_VALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RCVALL_VALUE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RCVALL_VALUE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RCVALL_VALUE").field(&self.0).finish()
+    }
+}
 pub const REAL_TIME_NOTIFICATION_CAPABILITY: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b59819a_5cae_492d_a901_2a3c2c50164f);
 pub const REAL_TIME_NOTIFICATION_CAPABILITY_EX: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6843da03_154a_4616_a508_44371295f96b);
 #[repr(C)]
@@ -5340,21 +5756,65 @@ impl ::core::default::Default for REAL_TIME_NOTIFICATION_SETTING_OUTPUT {
     }
 }
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub type RESOURCE_DISPLAY_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RESOURCE_DISPLAY_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const RESOURCEDISPLAYTYPE_DOMAIN: RESOURCE_DISPLAY_TYPE = 1u32;
+pub const RESOURCEDISPLAYTYPE_DOMAIN: RESOURCE_DISPLAY_TYPE = RESOURCE_DISPLAY_TYPE(1u32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const RESOURCEDISPLAYTYPE_FILE: RESOURCE_DISPLAY_TYPE = 4u32;
+pub const RESOURCEDISPLAYTYPE_FILE: RESOURCE_DISPLAY_TYPE = RESOURCE_DISPLAY_TYPE(4u32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const RESOURCEDISPLAYTYPE_GENERIC: RESOURCE_DISPLAY_TYPE = 0u32;
+pub const RESOURCEDISPLAYTYPE_GENERIC: RESOURCE_DISPLAY_TYPE = RESOURCE_DISPLAY_TYPE(0u32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const RESOURCEDISPLAYTYPE_GROUP: RESOURCE_DISPLAY_TYPE = 5u32;
+pub const RESOURCEDISPLAYTYPE_GROUP: RESOURCE_DISPLAY_TYPE = RESOURCE_DISPLAY_TYPE(5u32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const RESOURCEDISPLAYTYPE_SERVER: RESOURCE_DISPLAY_TYPE = 2u32;
+pub const RESOURCEDISPLAYTYPE_SERVER: RESOURCE_DISPLAY_TYPE = RESOURCE_DISPLAY_TYPE(2u32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const RESOURCEDISPLAYTYPE_SHARE: RESOURCE_DISPLAY_TYPE = 3u32;
+pub const RESOURCEDISPLAYTYPE_SHARE: RESOURCE_DISPLAY_TYPE = RESOURCE_DISPLAY_TYPE(3u32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const RESOURCEDISPLAYTYPE_TREE: RESOURCE_DISPLAY_TYPE = 10u32;
+pub const RESOURCEDISPLAYTYPE_TREE: RESOURCE_DISPLAY_TYPE = RESOURCE_DISPLAY_TYPE(10u32);
+impl ::core::marker::Copy for RESOURCE_DISPLAY_TYPE {}
+impl ::core::clone::Clone for RESOURCE_DISPLAY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RESOURCE_DISPLAY_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RESOURCE_DISPLAY_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RESOURCE_DISPLAY_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for RESOURCE_DISPLAY_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for RESOURCE_DISPLAY_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for RESOURCE_DISPLAY_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for RESOURCE_DISPLAY_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for RESOURCE_DISPLAY_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub const RESULT_IS_ADDED: u32 = 16u32;
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
@@ -5696,11 +6156,27 @@ impl ::core::default::Default for RIO_NOTIFICATION_COMPLETION_0_1 {
     }
 }
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub type RIO_NOTIFICATION_COMPLETION_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RIO_NOTIFICATION_COMPLETION_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const RIO_EVENT_COMPLETION: RIO_NOTIFICATION_COMPLETION_TYPE = 1i32;
+pub const RIO_EVENT_COMPLETION: RIO_NOTIFICATION_COMPLETION_TYPE = RIO_NOTIFICATION_COMPLETION_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const RIO_IOCP_COMPLETION: RIO_NOTIFICATION_COMPLETION_TYPE = 2i32;
+pub const RIO_IOCP_COMPLETION: RIO_NOTIFICATION_COMPLETION_TYPE = RIO_NOTIFICATION_COMPLETION_TYPE(2i32);
+impl ::core::marker::Copy for RIO_NOTIFICATION_COMPLETION_TYPE {}
+impl ::core::clone::Clone for RIO_NOTIFICATION_COMPLETION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RIO_NOTIFICATION_COMPLETION_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RIO_NOTIFICATION_COMPLETION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RIO_NOTIFICATION_COMPLETION_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 pub struct RIO_RQ_t(pub u8);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
@@ -6356,23 +6832,39 @@ impl ::core::default::Default for SCOPE_ID_0_0 {
     }
 }
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub type SCOPE_LEVEL = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SCOPE_LEVEL(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const ScopeLevelInterface: SCOPE_LEVEL = 1i32;
+pub const ScopeLevelInterface: SCOPE_LEVEL = SCOPE_LEVEL(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const ScopeLevelLink: SCOPE_LEVEL = 2i32;
+pub const ScopeLevelLink: SCOPE_LEVEL = SCOPE_LEVEL(2i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const ScopeLevelSubnet: SCOPE_LEVEL = 3i32;
+pub const ScopeLevelSubnet: SCOPE_LEVEL = SCOPE_LEVEL(3i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const ScopeLevelAdmin: SCOPE_LEVEL = 4i32;
+pub const ScopeLevelAdmin: SCOPE_LEVEL = SCOPE_LEVEL(4i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const ScopeLevelSite: SCOPE_LEVEL = 5i32;
+pub const ScopeLevelSite: SCOPE_LEVEL = SCOPE_LEVEL(5i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const ScopeLevelOrganization: SCOPE_LEVEL = 8i32;
+pub const ScopeLevelOrganization: SCOPE_LEVEL = SCOPE_LEVEL(8i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const ScopeLevelGlobal: SCOPE_LEVEL = 14i32;
+pub const ScopeLevelGlobal: SCOPE_LEVEL = SCOPE_LEVEL(14i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const ScopeLevelCount: SCOPE_LEVEL = 16i32;
+pub const ScopeLevelCount: SCOPE_LEVEL = SCOPE_LEVEL(16i32);
+impl ::core::marker::Copy for SCOPE_LEVEL {}
+impl ::core::clone::Clone for SCOPE_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SCOPE_LEVEL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SCOPE_LEVEL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SCOPE_LEVEL").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub const SD_BOTH: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
@@ -6390,11 +6882,55 @@ pub const SENDER_DEFAULT_WINDOW_ADV_PERCENTAGE: u32 = 15u32;
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub const SENDER_MAX_LATE_JOINER_PERCENTAGE: u32 = 75u32;
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub type SEND_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SEND_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const MSG_DONTROUTE: SEND_FLAGS = 4u32;
+pub const MSG_DONTROUTE: SEND_FLAGS = SEND_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const MSG_OOB: SEND_FLAGS = 1u32;
+pub const MSG_OOB: SEND_FLAGS = SEND_FLAGS(1u32);
+impl ::core::marker::Copy for SEND_FLAGS {}
+impl ::core::clone::Clone for SEND_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SEND_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SEND_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SEND_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SEND_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SEND_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SEND_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SEND_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SEND_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub struct SERVICE_ADDRESS {
@@ -6844,17 +7380,61 @@ impl ::core::default::Default for SERVICE_TYPE_VALUE_ABSW {
     }
 }
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub type SET_SERVICE_OPERATION = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SET_SERVICE_OPERATION(pub u32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const SERVICE_REGISTER: SET_SERVICE_OPERATION = 1u32;
+pub const SERVICE_REGISTER: SET_SERVICE_OPERATION = SET_SERVICE_OPERATION(1u32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const SERVICE_DEREGISTER: SET_SERVICE_OPERATION = 2u32;
+pub const SERVICE_DEREGISTER: SET_SERVICE_OPERATION = SET_SERVICE_OPERATION(2u32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const SERVICE_FLUSH: SET_SERVICE_OPERATION = 3u32;
+pub const SERVICE_FLUSH: SET_SERVICE_OPERATION = SET_SERVICE_OPERATION(3u32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const SERVICE_ADD_TYPE: SET_SERVICE_OPERATION = 4u32;
+pub const SERVICE_ADD_TYPE: SET_SERVICE_OPERATION = SET_SERVICE_OPERATION(4u32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const SERVICE_DELETE_TYPE: SET_SERVICE_OPERATION = 5u32;
+pub const SERVICE_DELETE_TYPE: SET_SERVICE_OPERATION = SET_SERVICE_OPERATION(5u32);
+impl ::core::marker::Copy for SET_SERVICE_OPERATION {}
+impl ::core::clone::Clone for SET_SERVICE_OPERATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SET_SERVICE_OPERATION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SET_SERVICE_OPERATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SET_SERVICE_OPERATION").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SET_SERVICE_OPERATION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SET_SERVICE_OPERATION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SET_SERVICE_OPERATION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SET_SERVICE_OPERATION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SET_SERVICE_OPERATION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub const SET_SERVICE_PARTIAL_SUCCESS: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
@@ -7427,15 +8007,31 @@ impl ::core::default::Default for SOCKET_PEER_TARGET_NAME {
     }
 }
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub type SOCKET_PRIORITY_HINT = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SOCKET_PRIORITY_HINT(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const SocketPriorityHintVeryLow: SOCKET_PRIORITY_HINT = 0i32;
+pub const SocketPriorityHintVeryLow: SOCKET_PRIORITY_HINT = SOCKET_PRIORITY_HINT(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const SocketPriorityHintLow: SOCKET_PRIORITY_HINT = 1i32;
+pub const SocketPriorityHintLow: SOCKET_PRIORITY_HINT = SOCKET_PRIORITY_HINT(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const SocketPriorityHintNormal: SOCKET_PRIORITY_HINT = 2i32;
+pub const SocketPriorityHintNormal: SOCKET_PRIORITY_HINT = SOCKET_PRIORITY_HINT(2i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const SocketMaximumPriorityHintType: SOCKET_PRIORITY_HINT = 3i32;
+pub const SocketMaximumPriorityHintType: SOCKET_PRIORITY_HINT = SOCKET_PRIORITY_HINT(3i32);
+impl ::core::marker::Copy for SOCKET_PRIORITY_HINT {}
+impl ::core::clone::Clone for SOCKET_PRIORITY_HINT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SOCKET_PRIORITY_HINT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SOCKET_PRIORITY_HINT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SOCKET_PRIORITY_HINT").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_System_Kernel'*"]
 #[cfg(feature = "Win32_System_Kernel")]
@@ -7483,15 +8079,31 @@ pub const SOCKET_QUERY_IPSEC2_FIELD_MASK_MM_SA_ID: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub const SOCKET_QUERY_IPSEC2_FIELD_MASK_QM_SA_ID: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub type SOCKET_SECURITY_PROTOCOL = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SOCKET_SECURITY_PROTOCOL(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const SOCKET_SECURITY_PROTOCOL_DEFAULT: SOCKET_SECURITY_PROTOCOL = 0i32;
+pub const SOCKET_SECURITY_PROTOCOL_DEFAULT: SOCKET_SECURITY_PROTOCOL = SOCKET_SECURITY_PROTOCOL(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const SOCKET_SECURITY_PROTOCOL_IPSEC: SOCKET_SECURITY_PROTOCOL = 1i32;
+pub const SOCKET_SECURITY_PROTOCOL_IPSEC: SOCKET_SECURITY_PROTOCOL = SOCKET_SECURITY_PROTOCOL(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const SOCKET_SECURITY_PROTOCOL_IPSEC2: SOCKET_SECURITY_PROTOCOL = 2i32;
+pub const SOCKET_SECURITY_PROTOCOL_IPSEC2: SOCKET_SECURITY_PROTOCOL = SOCKET_SECURITY_PROTOCOL(2i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const SOCKET_SECURITY_PROTOCOL_INVALID: SOCKET_SECURITY_PROTOCOL = 3i32;
+pub const SOCKET_SECURITY_PROTOCOL_INVALID: SOCKET_SECURITY_PROTOCOL = SOCKET_SECURITY_PROTOCOL(3i32);
+impl ::core::marker::Copy for SOCKET_SECURITY_PROTOCOL {}
+impl ::core::clone::Clone for SOCKET_SECURITY_PROTOCOL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SOCKET_SECURITY_PROTOCOL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SOCKET_SECURITY_PROTOCOL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SOCKET_SECURITY_PROTOCOL").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub struct SOCKET_SECURITY_QUERY_INFO {
@@ -7740,9 +8352,25 @@ pub const SOCKET_SETTINGS_IPSEC_PEER_NAME_IS_RAW_FORMAT: u32 = 8u32;
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub const SOCKET_SETTINGS_IPSEC_SKIP_FILTER_INSTANTIATION: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub type SOCKET_USAGE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SOCKET_USAGE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const SYSTEM_CRITICAL_SOCKET: SOCKET_USAGE_TYPE = 1i32;
+pub const SYSTEM_CRITICAL_SOCKET: SOCKET_USAGE_TYPE = SOCKET_USAGE_TYPE(1i32);
+impl ::core::marker::Copy for SOCKET_USAGE_TYPE {}
+impl ::core::clone::Clone for SOCKET_USAGE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SOCKET_USAGE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SOCKET_USAGE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SOCKET_USAGE_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub const SOCK_DGRAM: u16 = 2u16;
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
@@ -8004,31 +8632,47 @@ pub unsafe fn SetSocketMediaStreamingMode<'a, Param0: ::windows::core::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub type TCPSTATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TCPSTATE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const TCPSTATE_CLOSED: TCPSTATE = 0i32;
+pub const TCPSTATE_CLOSED: TCPSTATE = TCPSTATE(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const TCPSTATE_LISTEN: TCPSTATE = 1i32;
+pub const TCPSTATE_LISTEN: TCPSTATE = TCPSTATE(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const TCPSTATE_SYN_SENT: TCPSTATE = 2i32;
+pub const TCPSTATE_SYN_SENT: TCPSTATE = TCPSTATE(2i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const TCPSTATE_SYN_RCVD: TCPSTATE = 3i32;
+pub const TCPSTATE_SYN_RCVD: TCPSTATE = TCPSTATE(3i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const TCPSTATE_ESTABLISHED: TCPSTATE = 4i32;
+pub const TCPSTATE_ESTABLISHED: TCPSTATE = TCPSTATE(4i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const TCPSTATE_FIN_WAIT_1: TCPSTATE = 5i32;
+pub const TCPSTATE_FIN_WAIT_1: TCPSTATE = TCPSTATE(5i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const TCPSTATE_FIN_WAIT_2: TCPSTATE = 6i32;
+pub const TCPSTATE_FIN_WAIT_2: TCPSTATE = TCPSTATE(6i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const TCPSTATE_CLOSE_WAIT: TCPSTATE = 7i32;
+pub const TCPSTATE_CLOSE_WAIT: TCPSTATE = TCPSTATE(7i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const TCPSTATE_CLOSING: TCPSTATE = 8i32;
+pub const TCPSTATE_CLOSING: TCPSTATE = TCPSTATE(8i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const TCPSTATE_LAST_ACK: TCPSTATE = 9i32;
+pub const TCPSTATE_LAST_ACK: TCPSTATE = TCPSTATE(9i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const TCPSTATE_TIME_WAIT: TCPSTATE = 10i32;
+pub const TCPSTATE_TIME_WAIT: TCPSTATE = TCPSTATE(10i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const TCPSTATE_MAX: TCPSTATE = 11i32;
+pub const TCPSTATE_MAX: TCPSTATE = TCPSTATE(11i32);
+impl ::core::marker::Copy for TCPSTATE {}
+impl ::core::clone::Clone for TCPSTATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TCPSTATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TCPSTATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TCPSTATE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub struct TCP_ACK_FREQUENCY_PARAMETERS {
@@ -8076,21 +8720,37 @@ pub const TCP_FASTOPEN: u32 = 15u32;
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub const TCP_ICMP_ERROR_INFO: u32 = 19u32;
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub type TCP_ICW_LEVEL = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TCP_ICW_LEVEL(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const TCP_ICW_LEVEL_DEFAULT: TCP_ICW_LEVEL = 0i32;
+pub const TCP_ICW_LEVEL_DEFAULT: TCP_ICW_LEVEL = TCP_ICW_LEVEL(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const TCP_ICW_LEVEL_HIGH: TCP_ICW_LEVEL = 1i32;
+pub const TCP_ICW_LEVEL_HIGH: TCP_ICW_LEVEL = TCP_ICW_LEVEL(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const TCP_ICW_LEVEL_VERY_HIGH: TCP_ICW_LEVEL = 2i32;
+pub const TCP_ICW_LEVEL_VERY_HIGH: TCP_ICW_LEVEL = TCP_ICW_LEVEL(2i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const TCP_ICW_LEVEL_AGGRESSIVE: TCP_ICW_LEVEL = 3i32;
+pub const TCP_ICW_LEVEL_AGGRESSIVE: TCP_ICW_LEVEL = TCP_ICW_LEVEL(3i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const TCP_ICW_LEVEL_EXPERIMENTAL: TCP_ICW_LEVEL = 4i32;
+pub const TCP_ICW_LEVEL_EXPERIMENTAL: TCP_ICW_LEVEL = TCP_ICW_LEVEL(4i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const TCP_ICW_LEVEL_COMPAT: TCP_ICW_LEVEL = 254i32;
+pub const TCP_ICW_LEVEL_COMPAT: TCP_ICW_LEVEL = TCP_ICW_LEVEL(254i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const TCP_ICW_LEVEL_MAX: TCP_ICW_LEVEL = 255i32;
+pub const TCP_ICW_LEVEL_MAX: TCP_ICW_LEVEL = TCP_ICW_LEVEL(255i32);
+impl ::core::marker::Copy for TCP_ICW_LEVEL {}
+impl ::core::clone::Clone for TCP_ICW_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TCP_ICW_LEVEL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TCP_ICW_LEVEL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TCP_ICW_LEVEL").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub struct TCP_ICW_PARAMETERS {
@@ -9557,17 +10217,33 @@ impl ::core::default::Default for WSACOMPLETION_0_3 {
     }
 }
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub type WSACOMPLETIONTYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WSACOMPLETIONTYPE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NSP_NOTIFY_IMMEDIATELY: WSACOMPLETIONTYPE = 0i32;
+pub const NSP_NOTIFY_IMMEDIATELY: WSACOMPLETIONTYPE = WSACOMPLETIONTYPE(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NSP_NOTIFY_HWND: WSACOMPLETIONTYPE = 1i32;
+pub const NSP_NOTIFY_HWND: WSACOMPLETIONTYPE = WSACOMPLETIONTYPE(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NSP_NOTIFY_EVENT: WSACOMPLETIONTYPE = 2i32;
+pub const NSP_NOTIFY_EVENT: WSACOMPLETIONTYPE = WSACOMPLETIONTYPE(2i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NSP_NOTIFY_PORT: WSACOMPLETIONTYPE = 3i32;
+pub const NSP_NOTIFY_PORT: WSACOMPLETIONTYPE = WSACOMPLETIONTYPE(3i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const NSP_NOTIFY_APC: WSACOMPLETIONTYPE = 4i32;
+pub const NSP_NOTIFY_APC: WSACOMPLETIONTYPE = WSACOMPLETIONTYPE(4i32);
+impl ::core::marker::Copy for WSACOMPLETIONTYPE {}
+impl ::core::clone::Clone for WSACOMPLETIONTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WSACOMPLETIONTYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WSACOMPLETIONTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WSACOMPLETIONTYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -9852,19 +10528,51 @@ pub unsafe fn WSADuplicateSocketW<'a, Param0: ::windows::core::IntoParam<'a, SOC
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub type WSAECOMPARATOR = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WSAECOMPARATOR(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const COMP_EQUAL: WSAECOMPARATOR = 0i32;
+pub const COMP_EQUAL: WSAECOMPARATOR = WSAECOMPARATOR(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const COMP_NOTLESS: WSAECOMPARATOR = 1i32;
+pub const COMP_NOTLESS: WSAECOMPARATOR = WSAECOMPARATOR(1i32);
+impl ::core::marker::Copy for WSAECOMPARATOR {}
+impl ::core::clone::Clone for WSAECOMPARATOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WSAECOMPARATOR {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WSAECOMPARATOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WSAECOMPARATOR").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub type WSAESETSERVICEOP = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WSAESETSERVICEOP(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const RNRSERVICE_REGISTER: WSAESETSERVICEOP = 0i32;
+pub const RNRSERVICE_REGISTER: WSAESETSERVICEOP = WSAESETSERVICEOP(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const RNRSERVICE_DEREGISTER: WSAESETSERVICEOP = 1i32;
+pub const RNRSERVICE_DEREGISTER: WSAESETSERVICEOP = WSAESETSERVICEOP(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const RNRSERVICE_DELETE: WSAESETSERVICEOP = 2i32;
+pub const RNRSERVICE_DELETE: WSAESETSERVICEOP = WSAESETSERVICEOP(2i32);
+impl ::core::marker::Copy for WSAESETSERVICEOP {}
+impl ::core::clone::Clone for WSAESETSERVICEOP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WSAESETSERVICEOP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WSAESETSERVICEOP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WSAESETSERVICEOP").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -11806,13 +12514,29 @@ pub unsafe fn WSAWaitForMultipleEvents<'a, Param2: ::windows::core::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub type WSA_COMPATIBILITY_BEHAVIOR_ID = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WSA_COMPATIBILITY_BEHAVIOR_ID(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WsaBehaviorAll: WSA_COMPATIBILITY_BEHAVIOR_ID = 0i32;
+pub const WsaBehaviorAll: WSA_COMPATIBILITY_BEHAVIOR_ID = WSA_COMPATIBILITY_BEHAVIOR_ID(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WsaBehaviorReceiveBuffering: WSA_COMPATIBILITY_BEHAVIOR_ID = 1i32;
+pub const WsaBehaviorReceiveBuffering: WSA_COMPATIBILITY_BEHAVIOR_ID = WSA_COMPATIBILITY_BEHAVIOR_ID(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WsaBehaviorAutoTuning: WSA_COMPATIBILITY_BEHAVIOR_ID = 2i32;
+pub const WsaBehaviorAutoTuning: WSA_COMPATIBILITY_BEHAVIOR_ID = WSA_COMPATIBILITY_BEHAVIOR_ID(2i32);
+impl ::core::marker::Copy for WSA_COMPATIBILITY_BEHAVIOR_ID {}
+impl ::core::clone::Clone for WSA_COMPATIBILITY_BEHAVIOR_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WSA_COMPATIBILITY_BEHAVIOR_ID {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WSA_COMPATIBILITY_BEHAVIOR_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WSA_COMPATIBILITY_BEHAVIOR_ID").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub struct WSA_COMPATIBILITY_MODE {
@@ -11845,203 +12569,219 @@ impl ::core::default::Default for WSA_COMPATIBILITY_MODE {
     }
 }
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub type WSA_ERROR = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WSA_ERROR(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSA_IO_PENDING: WSA_ERROR = 997i32;
+pub const WSA_IO_PENDING: WSA_ERROR = WSA_ERROR(997i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSA_IO_INCOMPLETE: WSA_ERROR = 996i32;
+pub const WSA_IO_INCOMPLETE: WSA_ERROR = WSA_ERROR(996i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSA_INVALID_HANDLE: WSA_ERROR = 6i32;
+pub const WSA_INVALID_HANDLE: WSA_ERROR = WSA_ERROR(6i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSA_INVALID_PARAMETER: WSA_ERROR = 87i32;
+pub const WSA_INVALID_PARAMETER: WSA_ERROR = WSA_ERROR(87i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSA_NOT_ENOUGH_MEMORY: WSA_ERROR = 8i32;
+pub const WSA_NOT_ENOUGH_MEMORY: WSA_ERROR = WSA_ERROR(8i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSA_OPERATION_ABORTED: WSA_ERROR = 995i32;
+pub const WSA_OPERATION_ABORTED: WSA_ERROR = WSA_ERROR(995i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSABASEERR: WSA_ERROR = 10000i32;
+pub const WSABASEERR: WSA_ERROR = WSA_ERROR(10000i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAEINTR: WSA_ERROR = 10004i32;
+pub const WSAEINTR: WSA_ERROR = WSA_ERROR(10004i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAEBADF: WSA_ERROR = 10009i32;
+pub const WSAEBADF: WSA_ERROR = WSA_ERROR(10009i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAEACCES: WSA_ERROR = 10013i32;
+pub const WSAEACCES: WSA_ERROR = WSA_ERROR(10013i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAEFAULT: WSA_ERROR = 10014i32;
+pub const WSAEFAULT: WSA_ERROR = WSA_ERROR(10014i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAEINVAL: WSA_ERROR = 10022i32;
+pub const WSAEINVAL: WSA_ERROR = WSA_ERROR(10022i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAEMFILE: WSA_ERROR = 10024i32;
+pub const WSAEMFILE: WSA_ERROR = WSA_ERROR(10024i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAEWOULDBLOCK: WSA_ERROR = 10035i32;
+pub const WSAEWOULDBLOCK: WSA_ERROR = WSA_ERROR(10035i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAEINPROGRESS: WSA_ERROR = 10036i32;
+pub const WSAEINPROGRESS: WSA_ERROR = WSA_ERROR(10036i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAEALREADY: WSA_ERROR = 10037i32;
+pub const WSAEALREADY: WSA_ERROR = WSA_ERROR(10037i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAENOTSOCK: WSA_ERROR = 10038i32;
+pub const WSAENOTSOCK: WSA_ERROR = WSA_ERROR(10038i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAEDESTADDRREQ: WSA_ERROR = 10039i32;
+pub const WSAEDESTADDRREQ: WSA_ERROR = WSA_ERROR(10039i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAEMSGSIZE: WSA_ERROR = 10040i32;
+pub const WSAEMSGSIZE: WSA_ERROR = WSA_ERROR(10040i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAEPROTOTYPE: WSA_ERROR = 10041i32;
+pub const WSAEPROTOTYPE: WSA_ERROR = WSA_ERROR(10041i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAENOPROTOOPT: WSA_ERROR = 10042i32;
+pub const WSAENOPROTOOPT: WSA_ERROR = WSA_ERROR(10042i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAEPROTONOSUPPORT: WSA_ERROR = 10043i32;
+pub const WSAEPROTONOSUPPORT: WSA_ERROR = WSA_ERROR(10043i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAESOCKTNOSUPPORT: WSA_ERROR = 10044i32;
+pub const WSAESOCKTNOSUPPORT: WSA_ERROR = WSA_ERROR(10044i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAEOPNOTSUPP: WSA_ERROR = 10045i32;
+pub const WSAEOPNOTSUPP: WSA_ERROR = WSA_ERROR(10045i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAEPFNOSUPPORT: WSA_ERROR = 10046i32;
+pub const WSAEPFNOSUPPORT: WSA_ERROR = WSA_ERROR(10046i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAEAFNOSUPPORT: WSA_ERROR = 10047i32;
+pub const WSAEAFNOSUPPORT: WSA_ERROR = WSA_ERROR(10047i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAEADDRINUSE: WSA_ERROR = 10048i32;
+pub const WSAEADDRINUSE: WSA_ERROR = WSA_ERROR(10048i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAEADDRNOTAVAIL: WSA_ERROR = 10049i32;
+pub const WSAEADDRNOTAVAIL: WSA_ERROR = WSA_ERROR(10049i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAENETDOWN: WSA_ERROR = 10050i32;
+pub const WSAENETDOWN: WSA_ERROR = WSA_ERROR(10050i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAENETUNREACH: WSA_ERROR = 10051i32;
+pub const WSAENETUNREACH: WSA_ERROR = WSA_ERROR(10051i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAENETRESET: WSA_ERROR = 10052i32;
+pub const WSAENETRESET: WSA_ERROR = WSA_ERROR(10052i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAECONNABORTED: WSA_ERROR = 10053i32;
+pub const WSAECONNABORTED: WSA_ERROR = WSA_ERROR(10053i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAECONNRESET: WSA_ERROR = 10054i32;
+pub const WSAECONNRESET: WSA_ERROR = WSA_ERROR(10054i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAENOBUFS: WSA_ERROR = 10055i32;
+pub const WSAENOBUFS: WSA_ERROR = WSA_ERROR(10055i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAEISCONN: WSA_ERROR = 10056i32;
+pub const WSAEISCONN: WSA_ERROR = WSA_ERROR(10056i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAENOTCONN: WSA_ERROR = 10057i32;
+pub const WSAENOTCONN: WSA_ERROR = WSA_ERROR(10057i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAESHUTDOWN: WSA_ERROR = 10058i32;
+pub const WSAESHUTDOWN: WSA_ERROR = WSA_ERROR(10058i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAETOOMANYREFS: WSA_ERROR = 10059i32;
+pub const WSAETOOMANYREFS: WSA_ERROR = WSA_ERROR(10059i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAETIMEDOUT: WSA_ERROR = 10060i32;
+pub const WSAETIMEDOUT: WSA_ERROR = WSA_ERROR(10060i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAECONNREFUSED: WSA_ERROR = 10061i32;
+pub const WSAECONNREFUSED: WSA_ERROR = WSA_ERROR(10061i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAELOOP: WSA_ERROR = 10062i32;
+pub const WSAELOOP: WSA_ERROR = WSA_ERROR(10062i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAENAMETOOLONG: WSA_ERROR = 10063i32;
+pub const WSAENAMETOOLONG: WSA_ERROR = WSA_ERROR(10063i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAEHOSTDOWN: WSA_ERROR = 10064i32;
+pub const WSAEHOSTDOWN: WSA_ERROR = WSA_ERROR(10064i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAEHOSTUNREACH: WSA_ERROR = 10065i32;
+pub const WSAEHOSTUNREACH: WSA_ERROR = WSA_ERROR(10065i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAENOTEMPTY: WSA_ERROR = 10066i32;
+pub const WSAENOTEMPTY: WSA_ERROR = WSA_ERROR(10066i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAEPROCLIM: WSA_ERROR = 10067i32;
+pub const WSAEPROCLIM: WSA_ERROR = WSA_ERROR(10067i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAEUSERS: WSA_ERROR = 10068i32;
+pub const WSAEUSERS: WSA_ERROR = WSA_ERROR(10068i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAEDQUOT: WSA_ERROR = 10069i32;
+pub const WSAEDQUOT: WSA_ERROR = WSA_ERROR(10069i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAESTALE: WSA_ERROR = 10070i32;
+pub const WSAESTALE: WSA_ERROR = WSA_ERROR(10070i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAEREMOTE: WSA_ERROR = 10071i32;
+pub const WSAEREMOTE: WSA_ERROR = WSA_ERROR(10071i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSASYSNOTREADY: WSA_ERROR = 10091i32;
+pub const WSASYSNOTREADY: WSA_ERROR = WSA_ERROR(10091i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAVERNOTSUPPORTED: WSA_ERROR = 10092i32;
+pub const WSAVERNOTSUPPORTED: WSA_ERROR = WSA_ERROR(10092i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSANOTINITIALISED: WSA_ERROR = 10093i32;
+pub const WSANOTINITIALISED: WSA_ERROR = WSA_ERROR(10093i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAEDISCON: WSA_ERROR = 10101i32;
+pub const WSAEDISCON: WSA_ERROR = WSA_ERROR(10101i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAENOMORE: WSA_ERROR = 10102i32;
+pub const WSAENOMORE: WSA_ERROR = WSA_ERROR(10102i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAECANCELLED: WSA_ERROR = 10103i32;
+pub const WSAECANCELLED: WSA_ERROR = WSA_ERROR(10103i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAEINVALIDPROCTABLE: WSA_ERROR = 10104i32;
+pub const WSAEINVALIDPROCTABLE: WSA_ERROR = WSA_ERROR(10104i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAEINVALIDPROVIDER: WSA_ERROR = 10105i32;
+pub const WSAEINVALIDPROVIDER: WSA_ERROR = WSA_ERROR(10105i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAEPROVIDERFAILEDINIT: WSA_ERROR = 10106i32;
+pub const WSAEPROVIDERFAILEDINIT: WSA_ERROR = WSA_ERROR(10106i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSASYSCALLFAILURE: WSA_ERROR = 10107i32;
+pub const WSASYSCALLFAILURE: WSA_ERROR = WSA_ERROR(10107i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSASERVICE_NOT_FOUND: WSA_ERROR = 10108i32;
+pub const WSASERVICE_NOT_FOUND: WSA_ERROR = WSA_ERROR(10108i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSATYPE_NOT_FOUND: WSA_ERROR = 10109i32;
+pub const WSATYPE_NOT_FOUND: WSA_ERROR = WSA_ERROR(10109i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSA_E_NO_MORE: WSA_ERROR = 10110i32;
+pub const WSA_E_NO_MORE: WSA_ERROR = WSA_ERROR(10110i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSA_E_CANCELLED: WSA_ERROR = 10111i32;
+pub const WSA_E_CANCELLED: WSA_ERROR = WSA_ERROR(10111i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAEREFUSED: WSA_ERROR = 10112i32;
+pub const WSAEREFUSED: WSA_ERROR = WSA_ERROR(10112i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSAHOST_NOT_FOUND: WSA_ERROR = 11001i32;
+pub const WSAHOST_NOT_FOUND: WSA_ERROR = WSA_ERROR(11001i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSATRY_AGAIN: WSA_ERROR = 11002i32;
+pub const WSATRY_AGAIN: WSA_ERROR = WSA_ERROR(11002i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSANO_RECOVERY: WSA_ERROR = 11003i32;
+pub const WSANO_RECOVERY: WSA_ERROR = WSA_ERROR(11003i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSANO_DATA: WSA_ERROR = 11004i32;
+pub const WSANO_DATA: WSA_ERROR = WSA_ERROR(11004i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSA_QOS_RECEIVERS: WSA_ERROR = 11005i32;
+pub const WSA_QOS_RECEIVERS: WSA_ERROR = WSA_ERROR(11005i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSA_QOS_SENDERS: WSA_ERROR = 11006i32;
+pub const WSA_QOS_SENDERS: WSA_ERROR = WSA_ERROR(11006i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSA_QOS_NO_SENDERS: WSA_ERROR = 11007i32;
+pub const WSA_QOS_NO_SENDERS: WSA_ERROR = WSA_ERROR(11007i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSA_QOS_NO_RECEIVERS: WSA_ERROR = 11008i32;
+pub const WSA_QOS_NO_RECEIVERS: WSA_ERROR = WSA_ERROR(11008i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSA_QOS_REQUEST_CONFIRMED: WSA_ERROR = 11009i32;
+pub const WSA_QOS_REQUEST_CONFIRMED: WSA_ERROR = WSA_ERROR(11009i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSA_QOS_ADMISSION_FAILURE: WSA_ERROR = 11010i32;
+pub const WSA_QOS_ADMISSION_FAILURE: WSA_ERROR = WSA_ERROR(11010i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSA_QOS_POLICY_FAILURE: WSA_ERROR = 11011i32;
+pub const WSA_QOS_POLICY_FAILURE: WSA_ERROR = WSA_ERROR(11011i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSA_QOS_BAD_STYLE: WSA_ERROR = 11012i32;
+pub const WSA_QOS_BAD_STYLE: WSA_ERROR = WSA_ERROR(11012i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSA_QOS_BAD_OBJECT: WSA_ERROR = 11013i32;
+pub const WSA_QOS_BAD_OBJECT: WSA_ERROR = WSA_ERROR(11013i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSA_QOS_TRAFFIC_CTRL_ERROR: WSA_ERROR = 11014i32;
+pub const WSA_QOS_TRAFFIC_CTRL_ERROR: WSA_ERROR = WSA_ERROR(11014i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSA_QOS_GENERIC_ERROR: WSA_ERROR = 11015i32;
+pub const WSA_QOS_GENERIC_ERROR: WSA_ERROR = WSA_ERROR(11015i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSA_QOS_ESERVICETYPE: WSA_ERROR = 11016i32;
+pub const WSA_QOS_ESERVICETYPE: WSA_ERROR = WSA_ERROR(11016i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSA_QOS_EFLOWSPEC: WSA_ERROR = 11017i32;
+pub const WSA_QOS_EFLOWSPEC: WSA_ERROR = WSA_ERROR(11017i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSA_QOS_EPROVSPECBUF: WSA_ERROR = 11018i32;
+pub const WSA_QOS_EPROVSPECBUF: WSA_ERROR = WSA_ERROR(11018i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSA_QOS_EFILTERSTYLE: WSA_ERROR = 11019i32;
+pub const WSA_QOS_EFILTERSTYLE: WSA_ERROR = WSA_ERROR(11019i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSA_QOS_EFILTERTYPE: WSA_ERROR = 11020i32;
+pub const WSA_QOS_EFILTERTYPE: WSA_ERROR = WSA_ERROR(11020i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSA_QOS_EFILTERCOUNT: WSA_ERROR = 11021i32;
+pub const WSA_QOS_EFILTERCOUNT: WSA_ERROR = WSA_ERROR(11021i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSA_QOS_EOBJLENGTH: WSA_ERROR = 11022i32;
+pub const WSA_QOS_EOBJLENGTH: WSA_ERROR = WSA_ERROR(11022i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSA_QOS_EFLOWCOUNT: WSA_ERROR = 11023i32;
+pub const WSA_QOS_EFLOWCOUNT: WSA_ERROR = WSA_ERROR(11023i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSA_QOS_EUNKOWNPSOBJ: WSA_ERROR = 11024i32;
+pub const WSA_QOS_EUNKOWNPSOBJ: WSA_ERROR = WSA_ERROR(11024i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSA_QOS_EPOLICYOBJ: WSA_ERROR = 11025i32;
+pub const WSA_QOS_EPOLICYOBJ: WSA_ERROR = WSA_ERROR(11025i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSA_QOS_EFLOWDESC: WSA_ERROR = 11026i32;
+pub const WSA_QOS_EFLOWDESC: WSA_ERROR = WSA_ERROR(11026i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSA_QOS_EPSFLOWSPEC: WSA_ERROR = 11027i32;
+pub const WSA_QOS_EPSFLOWSPEC: WSA_ERROR = WSA_ERROR(11027i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSA_QOS_EPSFILTERSPEC: WSA_ERROR = 11028i32;
+pub const WSA_QOS_EPSFILTERSPEC: WSA_ERROR = WSA_ERROR(11028i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSA_QOS_ESDMODEOBJ: WSA_ERROR = 11029i32;
+pub const WSA_QOS_ESDMODEOBJ: WSA_ERROR = WSA_ERROR(11029i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSA_QOS_ESHAPERATEOBJ: WSA_ERROR = 11030i32;
+pub const WSA_QOS_ESHAPERATEOBJ: WSA_ERROR = WSA_ERROR(11030i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSA_QOS_RESERVED_PETYPE: WSA_ERROR = 11031i32;
+pub const WSA_QOS_RESERVED_PETYPE: WSA_ERROR = WSA_ERROR(11031i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSA_SECURE_HOST_NOT_FOUND: WSA_ERROR = 11032i32;
+pub const WSA_SECURE_HOST_NOT_FOUND: WSA_ERROR = WSA_ERROR(11032i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const WSA_IPSEC_NAME_POLICY_ERROR: WSA_ERROR = 11033i32;
+pub const WSA_IPSEC_NAME_POLICY_ERROR: WSA_ERROR = WSA_ERROR(11033i32);
+impl ::core::marker::Copy for WSA_ERROR {}
+impl ::core::clone::Clone for WSA_ERROR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WSA_ERROR {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WSA_ERROR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WSA_ERROR").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub const WSA_FLAG_ACCESS_SYSTEM_SECURITY: u32 = 64u32;
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
@@ -12567,11 +13307,27 @@ impl ::core::default::Default for WSC_PROVIDER_AUDIT_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub type WSC_PROVIDER_INFO_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WSC_PROVIDER_INFO_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const ProviderInfoLspCategories: WSC_PROVIDER_INFO_TYPE = 0i32;
+pub const ProviderInfoLspCategories: WSC_PROVIDER_INFO_TYPE = WSC_PROVIDER_INFO_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const ProviderInfoAudit: WSC_PROVIDER_INFO_TYPE = 1i32;
+pub const ProviderInfoAudit: WSC_PROVIDER_INFO_TYPE = WSC_PROVIDER_INFO_TYPE(1i32);
+impl ::core::marker::Copy for WSC_PROVIDER_INFO_TYPE {}
+impl ::core::clone::Clone for WSC_PROVIDER_INFO_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WSC_PROVIDER_INFO_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WSC_PROVIDER_INFO_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WSC_PROVIDER_INFO_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub const WSK_SO_BASE: u32 = 16384u32;
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
@@ -13569,11 +14325,27 @@ pub unsafe fn connect<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>>(s: Par
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub type eWINDOW_ADVANCE_METHOD = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct eWINDOW_ADVANCE_METHOD(pub i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const E_WINDOW_ADVANCE_BY_TIME: eWINDOW_ADVANCE_METHOD = 1i32;
+pub const E_WINDOW_ADVANCE_BY_TIME: eWINDOW_ADVANCE_METHOD = eWINDOW_ADVANCE_METHOD(1i32);
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
-pub const E_WINDOW_USE_AS_DATA_CACHE: eWINDOW_ADVANCE_METHOD = 2i32;
+pub const E_WINDOW_USE_AS_DATA_CACHE: eWINDOW_ADVANCE_METHOD = eWINDOW_ADVANCE_METHOD(2i32);
+impl ::core::marker::Copy for eWINDOW_ADVANCE_METHOD {}
+impl ::core::clone::Clone for eWINDOW_ADVANCE_METHOD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for eWINDOW_ADVANCE_METHOD {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for eWINDOW_ADVANCE_METHOD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("eWINDOW_ADVANCE_METHOD").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub struct fd_set {

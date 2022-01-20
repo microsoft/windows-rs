@@ -904,23 +904,39 @@ impl ::core::default::Default for BIDI_RESPONSE_DATA {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub type BIDI_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct BIDI_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const BIDI_NULL: BIDI_TYPE = 0i32;
+pub const BIDI_NULL: BIDI_TYPE = BIDI_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const BIDI_INT: BIDI_TYPE = 1i32;
+pub const BIDI_INT: BIDI_TYPE = BIDI_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const BIDI_FLOAT: BIDI_TYPE = 2i32;
+pub const BIDI_FLOAT: BIDI_TYPE = BIDI_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const BIDI_BOOL: BIDI_TYPE = 3i32;
+pub const BIDI_BOOL: BIDI_TYPE = BIDI_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const BIDI_STRING: BIDI_TYPE = 4i32;
+pub const BIDI_STRING: BIDI_TYPE = BIDI_TYPE(4i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const BIDI_TEXT: BIDI_TYPE = 5i32;
+pub const BIDI_TEXT: BIDI_TYPE = BIDI_TYPE(5i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const BIDI_ENUM: BIDI_TYPE = 6i32;
+pub const BIDI_ENUM: BIDI_TYPE = BIDI_TYPE(6i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const BIDI_BLOB: BIDI_TYPE = 7i32;
+pub const BIDI_BLOB: BIDI_TYPE = BIDI_TYPE(7i32);
+impl ::core::marker::Copy for BIDI_TYPE {}
+impl ::core::clone::Clone for BIDI_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BIDI_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BIDI_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BIDI_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub struct BINARY_CONTAINER {
@@ -4514,43 +4530,75 @@ pub unsafe fn DocumentPropertiesW<'a, Param0: ::windows::core::IntoParam<'a, sup
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub type EATTRIBUTE_DATATYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct EATTRIBUTE_DATATYPE(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kADT_UNKNOWN: EATTRIBUTE_DATATYPE = 0i32;
+pub const kADT_UNKNOWN: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(0i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kADT_BOOL: EATTRIBUTE_DATATYPE = 1i32;
+pub const kADT_BOOL: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kADT_INT: EATTRIBUTE_DATATYPE = 2i32;
+pub const kADT_INT: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(2i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kADT_LONG: EATTRIBUTE_DATATYPE = 3i32;
+pub const kADT_LONG: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(3i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kADT_DWORD: EATTRIBUTE_DATATYPE = 4i32;
+pub const kADT_DWORD: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(4i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kADT_ASCII: EATTRIBUTE_DATATYPE = 5i32;
+pub const kADT_ASCII: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(5i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kADT_UNICODE: EATTRIBUTE_DATATYPE = 6i32;
+pub const kADT_UNICODE: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(6i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kADT_BINARY: EATTRIBUTE_DATATYPE = 7i32;
+pub const kADT_BINARY: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(7i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kADT_SIZE: EATTRIBUTE_DATATYPE = 8i32;
+pub const kADT_SIZE: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(8i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kADT_RECT: EATTRIBUTE_DATATYPE = 9i32;
+pub const kADT_RECT: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(9i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kADT_CUSTOMSIZEPARAMS: EATTRIBUTE_DATATYPE = 10i32;
+pub const kADT_CUSTOMSIZEPARAMS: EATTRIBUTE_DATATYPE = EATTRIBUTE_DATATYPE(10i32);
+impl ::core::marker::Copy for EATTRIBUTE_DATATYPE {}
+impl ::core::clone::Clone for EATTRIBUTE_DATATYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for EATTRIBUTE_DATATYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EATTRIBUTE_DATATYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EATTRIBUTE_DATATYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub type EBranchOfficeJobEventType = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct EBranchOfficeJobEventType(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kInvalidJobState: EBranchOfficeJobEventType = 0i32;
+pub const kInvalidJobState: EBranchOfficeJobEventType = EBranchOfficeJobEventType(0i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kLogJobPrinted: EBranchOfficeJobEventType = 1i32;
+pub const kLogJobPrinted: EBranchOfficeJobEventType = EBranchOfficeJobEventType(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kLogJobRendered: EBranchOfficeJobEventType = 2i32;
+pub const kLogJobRendered: EBranchOfficeJobEventType = EBranchOfficeJobEventType(2i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kLogJobError: EBranchOfficeJobEventType = 3i32;
+pub const kLogJobError: EBranchOfficeJobEventType = EBranchOfficeJobEventType(3i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kLogJobPipelineError: EBranchOfficeJobEventType = 4i32;
+pub const kLogJobPipelineError: EBranchOfficeJobEventType = EBranchOfficeJobEventType(4i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kLogOfflineFileFull: EBranchOfficeJobEventType = 5i32;
+pub const kLogOfflineFileFull: EBranchOfficeJobEventType = EBranchOfficeJobEventType(5i32);
+impl ::core::marker::Copy for EBranchOfficeJobEventType {}
+impl ::core::clone::Clone for EBranchOfficeJobEventType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for EBranchOfficeJobEventType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EBranchOfficeJobEventType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EBranchOfficeJobEventType").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub const ECBF_CHECKNAME_AT_FRONT: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
@@ -4593,55 +4641,103 @@ pub const EPF_PUSH_TYPE_DLGPROC: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub const EPF_USE_HDLGTEMPLATE: u32 = 128u32;
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub type EPrintPropertyType = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct EPrintPropertyType(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kPropertyTypeString: EPrintPropertyType = 1i32;
+pub const kPropertyTypeString: EPrintPropertyType = EPrintPropertyType(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kPropertyTypeInt32: EPrintPropertyType = 2i32;
+pub const kPropertyTypeInt32: EPrintPropertyType = EPrintPropertyType(2i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kPropertyTypeInt64: EPrintPropertyType = 3i32;
+pub const kPropertyTypeInt64: EPrintPropertyType = EPrintPropertyType(3i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kPropertyTypeByte: EPrintPropertyType = 4i32;
+pub const kPropertyTypeByte: EPrintPropertyType = EPrintPropertyType(4i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kPropertyTypeTime: EPrintPropertyType = 5i32;
+pub const kPropertyTypeTime: EPrintPropertyType = EPrintPropertyType(5i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kPropertyTypeDevMode: EPrintPropertyType = 6i32;
+pub const kPropertyTypeDevMode: EPrintPropertyType = EPrintPropertyType(6i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kPropertyTypeSD: EPrintPropertyType = 7i32;
+pub const kPropertyTypeSD: EPrintPropertyType = EPrintPropertyType(7i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kPropertyTypeNotificationReply: EPrintPropertyType = 8i32;
+pub const kPropertyTypeNotificationReply: EPrintPropertyType = EPrintPropertyType(8i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kPropertyTypeNotificationOptions: EPrintPropertyType = 9i32;
+pub const kPropertyTypeNotificationOptions: EPrintPropertyType = EPrintPropertyType(9i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kPropertyTypeBuffer: EPrintPropertyType = 10i32;
+pub const kPropertyTypeBuffer: EPrintPropertyType = EPrintPropertyType(10i32);
+impl ::core::marker::Copy for EPrintPropertyType {}
+impl ::core::clone::Clone for EPrintPropertyType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for EPrintPropertyType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EPrintPropertyType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EPrintPropertyType").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub type EPrintXPSJobOperation = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct EPrintXPSJobOperation(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kJobProduction: EPrintXPSJobOperation = 1i32;
+pub const kJobProduction: EPrintXPSJobOperation = EPrintXPSJobOperation(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kJobConsumption: EPrintXPSJobOperation = 2i32;
+pub const kJobConsumption: EPrintXPSJobOperation = EPrintXPSJobOperation(2i32);
+impl ::core::marker::Copy for EPrintXPSJobOperation {}
+impl ::core::clone::Clone for EPrintXPSJobOperation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for EPrintXPSJobOperation {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EPrintXPSJobOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EPrintXPSJobOperation").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub type EPrintXPSJobProgress = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct EPrintXPSJobProgress(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kAddingDocumentSequence: EPrintXPSJobProgress = 0i32;
+pub const kAddingDocumentSequence: EPrintXPSJobProgress = EPrintXPSJobProgress(0i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kDocumentSequenceAdded: EPrintXPSJobProgress = 1i32;
+pub const kDocumentSequenceAdded: EPrintXPSJobProgress = EPrintXPSJobProgress(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kAddingFixedDocument: EPrintXPSJobProgress = 2i32;
+pub const kAddingFixedDocument: EPrintXPSJobProgress = EPrintXPSJobProgress(2i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kFixedDocumentAdded: EPrintXPSJobProgress = 3i32;
+pub const kFixedDocumentAdded: EPrintXPSJobProgress = EPrintXPSJobProgress(3i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kAddingFixedPage: EPrintXPSJobProgress = 4i32;
+pub const kAddingFixedPage: EPrintXPSJobProgress = EPrintXPSJobProgress(4i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kFixedPageAdded: EPrintXPSJobProgress = 5i32;
+pub const kFixedPageAdded: EPrintXPSJobProgress = EPrintXPSJobProgress(5i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kResourceAdded: EPrintXPSJobProgress = 6i32;
+pub const kResourceAdded: EPrintXPSJobProgress = EPrintXPSJobProgress(6i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kFontAdded: EPrintXPSJobProgress = 7i32;
+pub const kFontAdded: EPrintXPSJobProgress = EPrintXPSJobProgress(7i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kImageAdded: EPrintXPSJobProgress = 8i32;
+pub const kImageAdded: EPrintXPSJobProgress = EPrintXPSJobProgress(8i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kXpsDocumentCommitted: EPrintXPSJobProgress = 9i32;
+pub const kXpsDocumentCommitted: EPrintXPSJobProgress = EPrintXPSJobProgress(9i32);
+impl ::core::marker::Copy for EPrintXPSJobProgress {}
+impl ::core::clone::Clone for EPrintXPSJobProgress {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for EPrintXPSJobProgress {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EPrintXPSJobProgress {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EPrintXPSJobProgress").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub const ERROR_BIDI_DEVICE_CONFIG_UNCHANGED: u32 = 13014u32;
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
@@ -4996,39 +5092,103 @@ impl ::core::default::Default for EXTTEXTMETRIC {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub type EXpsCompressionOptions = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct EXpsCompressionOptions(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const Compression_NotCompressed: EXpsCompressionOptions = 0i32;
+pub const Compression_NotCompressed: EXpsCompressionOptions = EXpsCompressionOptions(0i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const Compression_Normal: EXpsCompressionOptions = 1i32;
+pub const Compression_Normal: EXpsCompressionOptions = EXpsCompressionOptions(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const Compression_Small: EXpsCompressionOptions = 2i32;
+pub const Compression_Small: EXpsCompressionOptions = EXpsCompressionOptions(2i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const Compression_Fast: EXpsCompressionOptions = 3i32;
+pub const Compression_Fast: EXpsCompressionOptions = EXpsCompressionOptions(3i32);
+impl ::core::marker::Copy for EXpsCompressionOptions {}
+impl ::core::clone::Clone for EXpsCompressionOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for EXpsCompressionOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EXpsCompressionOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EXpsCompressionOptions").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub type EXpsFontOptions = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct EXpsFontOptions(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const Font_Normal: EXpsFontOptions = 0i32;
+pub const Font_Normal: EXpsFontOptions = EXpsFontOptions(0i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const Font_Obfusticate: EXpsFontOptions = 1i32;
+pub const Font_Obfusticate: EXpsFontOptions = EXpsFontOptions(1i32);
+impl ::core::marker::Copy for EXpsFontOptions {}
+impl ::core::clone::Clone for EXpsFontOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for EXpsFontOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EXpsFontOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EXpsFontOptions").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub type EXpsFontRestriction = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct EXpsFontRestriction(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const Xps_Restricted_Font_Installable: EXpsFontRestriction = 0i32;
+pub const Xps_Restricted_Font_Installable: EXpsFontRestriction = EXpsFontRestriction(0i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const Xps_Restricted_Font_NoEmbedding: EXpsFontRestriction = 2i32;
+pub const Xps_Restricted_Font_NoEmbedding: EXpsFontRestriction = EXpsFontRestriction(2i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const Xps_Restricted_Font_PreviewPrint: EXpsFontRestriction = 4i32;
+pub const Xps_Restricted_Font_PreviewPrint: EXpsFontRestriction = EXpsFontRestriction(4i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const Xps_Restricted_Font_Editable: EXpsFontRestriction = 8i32;
+pub const Xps_Restricted_Font_Editable: EXpsFontRestriction = EXpsFontRestriction(8i32);
+impl ::core::marker::Copy for EXpsFontRestriction {}
+impl ::core::clone::Clone for EXpsFontRestriction {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for EXpsFontRestriction {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EXpsFontRestriction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EXpsFontRestriction").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub type EXpsJobConsumption = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct EXpsJobConsumption(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const XpsJob_DocumentSequenceAdded: EXpsJobConsumption = 0i32;
+pub const XpsJob_DocumentSequenceAdded: EXpsJobConsumption = EXpsJobConsumption(0i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const XpsJob_FixedDocumentAdded: EXpsJobConsumption = 1i32;
+pub const XpsJob_FixedDocumentAdded: EXpsJobConsumption = EXpsJobConsumption(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const XpsJob_FixedPageAdded: EXpsJobConsumption = 2i32;
+pub const XpsJob_FixedPageAdded: EXpsJobConsumption = EXpsJobConsumption(2i32);
+impl ::core::marker::Copy for EXpsJobConsumption {}
+impl ::core::clone::Clone for EXpsJobConsumption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for EXpsJobConsumption {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EXpsJobConsumption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EXpsJobConsumption").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub const E_VERSION_NOT_SUPPORTED: u32 = 2147745793u32;
 #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
@@ -19404,23 +19564,55 @@ impl ::core::default::Default for MxdcGetFileNameData {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub type MxdcImageTypeEnums = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MxdcImageTypeEnums(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const MXDC_IMAGETYPE_JPEGHIGH_COMPRESSION: MxdcImageTypeEnums = 1i32;
+pub const MXDC_IMAGETYPE_JPEGHIGH_COMPRESSION: MxdcImageTypeEnums = MxdcImageTypeEnums(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const MXDC_IMAGETYPE_JPEGMEDIUM_COMPRESSION: MxdcImageTypeEnums = 2i32;
+pub const MXDC_IMAGETYPE_JPEGMEDIUM_COMPRESSION: MxdcImageTypeEnums = MxdcImageTypeEnums(2i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const MXDC_IMAGETYPE_JPEGLOW_COMPRESSION: MxdcImageTypeEnums = 3i32;
+pub const MXDC_IMAGETYPE_JPEGLOW_COMPRESSION: MxdcImageTypeEnums = MxdcImageTypeEnums(3i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const MXDC_IMAGETYPE_PNG: MxdcImageTypeEnums = 4i32;
+pub const MXDC_IMAGETYPE_PNG: MxdcImageTypeEnums = MxdcImageTypeEnums(4i32);
+impl ::core::marker::Copy for MxdcImageTypeEnums {}
+impl ::core::clone::Clone for MxdcImageTypeEnums {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MxdcImageTypeEnums {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MxdcImageTypeEnums {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MxdcImageTypeEnums").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub type MxdcLandscapeRotationEnums = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MxdcLandscapeRotationEnums(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const MXDC_LANDSCAPE_ROTATE_COUNTERCLOCKWISE_90_DEGREES: MxdcLandscapeRotationEnums = 90i32;
+pub const MXDC_LANDSCAPE_ROTATE_COUNTERCLOCKWISE_90_DEGREES: MxdcLandscapeRotationEnums = MxdcLandscapeRotationEnums(90i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const MXDC_LANDSCAPE_ROTATE_NONE: MxdcLandscapeRotationEnums = 0i32;
+pub const MXDC_LANDSCAPE_ROTATE_NONE: MxdcLandscapeRotationEnums = MxdcLandscapeRotationEnums(0i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const MXDC_LANDSCAPE_ROTATE_COUNTERCLOCKWISE_270_DEGREES: MxdcLandscapeRotationEnums = -90i32;
+pub const MXDC_LANDSCAPE_ROTATE_COUNTERCLOCKWISE_270_DEGREES: MxdcLandscapeRotationEnums = MxdcLandscapeRotationEnums(-90i32);
+impl ::core::marker::Copy for MxdcLandscapeRotationEnums {}
+impl ::core::clone::Clone for MxdcLandscapeRotationEnums {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MxdcLandscapeRotationEnums {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MxdcLandscapeRotationEnums {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MxdcLandscapeRotationEnums").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub struct MxdcPrintTicketEscape {
@@ -19500,27 +19692,43 @@ impl ::core::default::Default for MxdcS0PageData {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub type MxdcS0PageEnums = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MxdcS0PageEnums(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const MXDC_RESOURCE_TTF: MxdcS0PageEnums = 0i32;
+pub const MXDC_RESOURCE_TTF: MxdcS0PageEnums = MxdcS0PageEnums(0i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const MXDC_RESOURCE_JPEG: MxdcS0PageEnums = 1i32;
+pub const MXDC_RESOURCE_JPEG: MxdcS0PageEnums = MxdcS0PageEnums(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const MXDC_RESOURCE_PNG: MxdcS0PageEnums = 2i32;
+pub const MXDC_RESOURCE_PNG: MxdcS0PageEnums = MxdcS0PageEnums(2i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const MXDC_RESOURCE_TIFF: MxdcS0PageEnums = 3i32;
+pub const MXDC_RESOURCE_TIFF: MxdcS0PageEnums = MxdcS0PageEnums(3i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const MXDC_RESOURCE_WDP: MxdcS0PageEnums = 4i32;
+pub const MXDC_RESOURCE_WDP: MxdcS0PageEnums = MxdcS0PageEnums(4i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const MXDC_RESOURCE_DICTIONARY: MxdcS0PageEnums = 5i32;
+pub const MXDC_RESOURCE_DICTIONARY: MxdcS0PageEnums = MxdcS0PageEnums(5i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const MXDC_RESOURCE_ICC_PROFILE: MxdcS0PageEnums = 6i32;
+pub const MXDC_RESOURCE_ICC_PROFILE: MxdcS0PageEnums = MxdcS0PageEnums(6i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const MXDC_RESOURCE_JPEG_THUMBNAIL: MxdcS0PageEnums = 7i32;
+pub const MXDC_RESOURCE_JPEG_THUMBNAIL: MxdcS0PageEnums = MxdcS0PageEnums(7i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const MXDC_RESOURCE_PNG_THUMBNAIL: MxdcS0PageEnums = 8i32;
+pub const MXDC_RESOURCE_PNG_THUMBNAIL: MxdcS0PageEnums = MxdcS0PageEnums(8i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const MXDC_RESOURCE_MAX: MxdcS0PageEnums = 9i32;
+pub const MXDC_RESOURCE_MAX: MxdcS0PageEnums = MxdcS0PageEnums(9i32);
+impl ::core::marker::Copy for MxdcS0PageEnums {}
+impl ::core::clone::Clone for MxdcS0PageEnums {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MxdcS0PageEnums {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MxdcS0PageEnums {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MxdcS0PageEnums").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub struct MxdcS0PagePassthroughEscape {
@@ -19605,13 +19813,29 @@ impl ::core::default::Default for MxdcXpsS0PageResource {
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub const NORMAL_PRINT: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub type NOTIFICATION_CALLBACK_COMMANDS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NOTIFICATION_CALLBACK_COMMANDS(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const NOTIFICATION_COMMAND_NOTIFY: NOTIFICATION_CALLBACK_COMMANDS = 0i32;
+pub const NOTIFICATION_COMMAND_NOTIFY: NOTIFICATION_CALLBACK_COMMANDS = NOTIFICATION_CALLBACK_COMMANDS(0i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const NOTIFICATION_COMMAND_CONTEXT_ACQUIRE: NOTIFICATION_CALLBACK_COMMANDS = 1i32;
+pub const NOTIFICATION_COMMAND_CONTEXT_ACQUIRE: NOTIFICATION_CALLBACK_COMMANDS = NOTIFICATION_CALLBACK_COMMANDS(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const NOTIFICATION_COMMAND_CONTEXT_RELEASE: NOTIFICATION_CALLBACK_COMMANDS = 2i32;
+pub const NOTIFICATION_COMMAND_CONTEXT_RELEASE: NOTIFICATION_CALLBACK_COMMANDS = NOTIFICATION_CALLBACK_COMMANDS(2i32);
+impl ::core::marker::Copy for NOTIFICATION_CALLBACK_COMMANDS {}
+impl ::core::clone::Clone for NOTIFICATION_CALLBACK_COMMANDS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NOTIFICATION_CALLBACK_COMMANDS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NOTIFICATION_CALLBACK_COMMANDS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NOTIFICATION_CALLBACK_COMMANDS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -19654,15 +19878,31 @@ impl ::core::default::Default for NOTIFICATION_CONFIG_1 {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub type NOTIFICATION_CONFIG_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NOTIFICATION_CONFIG_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const NOTIFICATION_CONFIG_CREATE_EVENT: NOTIFICATION_CONFIG_FLAGS = 1i32;
+pub const NOTIFICATION_CONFIG_CREATE_EVENT: NOTIFICATION_CONFIG_FLAGS = NOTIFICATION_CONFIG_FLAGS(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const NOTIFICATION_CONFIG_REGISTER_CALLBACK: NOTIFICATION_CONFIG_FLAGS = 2i32;
+pub const NOTIFICATION_CONFIG_REGISTER_CALLBACK: NOTIFICATION_CONFIG_FLAGS = NOTIFICATION_CONFIG_FLAGS(2i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const NOTIFICATION_CONFIG_EVENT_TRIGGER: NOTIFICATION_CONFIG_FLAGS = 4i32;
+pub const NOTIFICATION_CONFIG_EVENT_TRIGGER: NOTIFICATION_CONFIG_FLAGS = NOTIFICATION_CONFIG_FLAGS(4i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const NOTIFICATION_CONFIG_ASYNC_CHANNEL: NOTIFICATION_CONFIG_FLAGS = 8i32;
+pub const NOTIFICATION_CONFIG_ASYNC_CHANNEL: NOTIFICATION_CONFIG_FLAGS = NOTIFICATION_CONFIG_FLAGS(8i32);
+impl ::core::marker::Copy for NOTIFICATION_CONFIG_FLAGS {}
+impl ::core::clone::Clone for NOTIFICATION_CONFIG_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NOTIFICATION_CONFIG_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NOTIFICATION_CONFIG_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NOTIFICATION_CONFIG_FLAGS").field(&self.0).finish()
+    }
+}
 pub const NOTIFICATION_RELEASE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba9a5027_a70e_4ae7_9b7d_eb3e06ad4157);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub const NO_BORDER_PRINT: u32 = 1u32;
@@ -20947,51 +21187,95 @@ pub const PPCAPS_RIGHT_THEN_DOWN: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub const PPCAPS_SQUARE_SCALING: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub type PRINTER_ACCESS_RIGHTS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PRINTER_ACCESS_RIGHTS(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PRINTER_ALL_ACCESS: PRINTER_ACCESS_RIGHTS = 983052u32;
+pub const PRINTER_ALL_ACCESS: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(983052u32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PRINTER_READ: PRINTER_ACCESS_RIGHTS = 131080u32;
+pub const PRINTER_READ: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(131080u32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PRINTER_WRITE: PRINTER_ACCESS_RIGHTS = 131080u32;
+pub const PRINTER_WRITE: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(131080u32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PRINTER_EXECUTE: PRINTER_ACCESS_RIGHTS = 131080u32;
+pub const PRINTER_EXECUTE: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(131080u32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const SERVER_ALL_ACCESS: PRINTER_ACCESS_RIGHTS = 983043u32;
+pub const SERVER_ALL_ACCESS: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(983043u32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const SERVER_READ: PRINTER_ACCESS_RIGHTS = 131074u32;
+pub const SERVER_READ: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(131074u32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const SERVER_WRITE: PRINTER_ACCESS_RIGHTS = 131075u32;
+pub const SERVER_WRITE: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(131075u32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const SERVER_EXECUTE: PRINTER_ACCESS_RIGHTS = 131074u32;
+pub const SERVER_EXECUTE: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(131074u32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PRINTER_DELETE: PRINTER_ACCESS_RIGHTS = 65536u32;
+pub const PRINTER_DELETE: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(65536u32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PRINTER_READ_CONTROL: PRINTER_ACCESS_RIGHTS = 131072u32;
+pub const PRINTER_READ_CONTROL: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(131072u32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PRINTER_WRITE_DAC: PRINTER_ACCESS_RIGHTS = 262144u32;
+pub const PRINTER_WRITE_DAC: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(262144u32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PRINTER_WRITE_OWNER: PRINTER_ACCESS_RIGHTS = 524288u32;
+pub const PRINTER_WRITE_OWNER: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(524288u32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PRINTER_SYNCHRONIZE: PRINTER_ACCESS_RIGHTS = 1048576u32;
+pub const PRINTER_SYNCHRONIZE: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(1048576u32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PRINTER_STANDARD_RIGHTS_REQUIRED: PRINTER_ACCESS_RIGHTS = 983040u32;
+pub const PRINTER_STANDARD_RIGHTS_REQUIRED: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(983040u32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PRINTER_STANDARD_RIGHTS_READ: PRINTER_ACCESS_RIGHTS = 131072u32;
+pub const PRINTER_STANDARD_RIGHTS_READ: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(131072u32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PRINTER_STANDARD_RIGHTS_WRITE: PRINTER_ACCESS_RIGHTS = 131072u32;
+pub const PRINTER_STANDARD_RIGHTS_WRITE: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(131072u32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PRINTER_STANDARD_RIGHTS_EXECUTE: PRINTER_ACCESS_RIGHTS = 131072u32;
+pub const PRINTER_STANDARD_RIGHTS_EXECUTE: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(131072u32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const SERVER_ACCESS_ADMINISTER: PRINTER_ACCESS_RIGHTS = 1u32;
+pub const SERVER_ACCESS_ADMINISTER: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(1u32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const SERVER_ACCESS_ENUMERATE: PRINTER_ACCESS_RIGHTS = 2u32;
+pub const SERVER_ACCESS_ENUMERATE: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(2u32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PRINTER_ACCESS_ADMINISTER: PRINTER_ACCESS_RIGHTS = 4u32;
+pub const PRINTER_ACCESS_ADMINISTER: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(4u32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PRINTER_ACCESS_USE: PRINTER_ACCESS_RIGHTS = 8u32;
+pub const PRINTER_ACCESS_USE: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(8u32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PRINTER_ACCESS_MANAGE_LIMITED: PRINTER_ACCESS_RIGHTS = 64u32;
+pub const PRINTER_ACCESS_MANAGE_LIMITED: PRINTER_ACCESS_RIGHTS = PRINTER_ACCESS_RIGHTS(64u32);
+impl ::core::marker::Copy for PRINTER_ACCESS_RIGHTS {}
+impl ::core::clone::Clone for PRINTER_ACCESS_RIGHTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PRINTER_ACCESS_RIGHTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PRINTER_ACCESS_RIGHTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PRINTER_ACCESS_RIGHTS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for PRINTER_ACCESS_RIGHTS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for PRINTER_ACCESS_RIGHTS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for PRINTER_ACCESS_RIGHTS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for PRINTER_ACCESS_RIGHTS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for PRINTER_ACCESS_RIGHTS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub const PRINTER_ATTRIBUTE_DEFAULT: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
@@ -22550,15 +22834,31 @@ impl ::core::default::Default for PRINTER_OPTIONSW {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub type PRINTER_OPTION_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PRINTER_OPTION_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PRINTER_OPTION_NO_CACHE: PRINTER_OPTION_FLAGS = 1i32;
+pub const PRINTER_OPTION_NO_CACHE: PRINTER_OPTION_FLAGS = PRINTER_OPTION_FLAGS(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PRINTER_OPTION_CACHE: PRINTER_OPTION_FLAGS = 2i32;
+pub const PRINTER_OPTION_CACHE: PRINTER_OPTION_FLAGS = PRINTER_OPTION_FLAGS(2i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PRINTER_OPTION_CLIENT_CHANGE: PRINTER_OPTION_FLAGS = 4i32;
+pub const PRINTER_OPTION_CLIENT_CHANGE: PRINTER_OPTION_FLAGS = PRINTER_OPTION_FLAGS(4i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PRINTER_OPTION_NO_CLIENT_DATA: PRINTER_OPTION_FLAGS = 8i32;
+pub const PRINTER_OPTION_NO_CLIENT_DATA: PRINTER_OPTION_FLAGS = PRINTER_OPTION_FLAGS(8i32);
+impl ::core::marker::Copy for PRINTER_OPTION_FLAGS {}
+impl ::core::clone::Clone for PRINTER_OPTION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PRINTER_OPTION_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PRINTER_OPTION_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PRINTER_OPTION_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub const PRINTER_STATUS_BUSY: u32 = 512u32;
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
@@ -23214,17 +23514,33 @@ impl ::core::default::Default for PRINTPROVIDOR {
 }
 pub const PRINT_APP_BIDI_NOTIFY_CHANNEL: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2abad223_b994_4aca_82fc_4571b1b585ac);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub type PRINT_EXECUTION_CONTEXT = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PRINT_EXECUTION_CONTEXT(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PRINT_EXECUTION_CONTEXT_APPLICATION: PRINT_EXECUTION_CONTEXT = 0i32;
+pub const PRINT_EXECUTION_CONTEXT_APPLICATION: PRINT_EXECUTION_CONTEXT = PRINT_EXECUTION_CONTEXT(0i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PRINT_EXECUTION_CONTEXT_SPOOLER_SERVICE: PRINT_EXECUTION_CONTEXT = 1i32;
+pub const PRINT_EXECUTION_CONTEXT_SPOOLER_SERVICE: PRINT_EXECUTION_CONTEXT = PRINT_EXECUTION_CONTEXT(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PRINT_EXECUTION_CONTEXT_SPOOLER_ISOLATION_HOST: PRINT_EXECUTION_CONTEXT = 2i32;
+pub const PRINT_EXECUTION_CONTEXT_SPOOLER_ISOLATION_HOST: PRINT_EXECUTION_CONTEXT = PRINT_EXECUTION_CONTEXT(2i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PRINT_EXECUTION_CONTEXT_FILTER_PIPELINE: PRINT_EXECUTION_CONTEXT = 3i32;
+pub const PRINT_EXECUTION_CONTEXT_FILTER_PIPELINE: PRINT_EXECUTION_CONTEXT = PRINT_EXECUTION_CONTEXT(3i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PRINT_EXECUTION_CONTEXT_WOW64: PRINT_EXECUTION_CONTEXT = 4i32;
+pub const PRINT_EXECUTION_CONTEXT_WOW64: PRINT_EXECUTION_CONTEXT = PRINT_EXECUTION_CONTEXT(4i32);
+impl ::core::marker::Copy for PRINT_EXECUTION_CONTEXT {}
+impl ::core::clone::Clone for PRINT_EXECUTION_CONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PRINT_EXECUTION_CONTEXT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PRINT_EXECUTION_CONTEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PRINT_EXECUTION_CONTEXT").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub struct PRINT_EXECUTION_DATA {
@@ -23770,11 +24086,27 @@ pub const PUSHBUTTON_TYPE_HTCLRADJ: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub const PUSHBUTTON_TYPE_HTSETUP: u32 = 3u32;
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub type PageCountType = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PageCountType(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const FinalPageCount: PageCountType = 0i32;
+pub const FinalPageCount: PageCountType = PageCountType(0i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const IntermediatePageCount: PageCountType = 1i32;
+pub const IntermediatePageCount: PageCountType = PageCountType(1i32);
+impl ::core::marker::Copy for PageCountType {}
+impl ::core::clone::Clone for PageCountType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PageCountType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PageCountType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PageCountType").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -23806,97 +24138,161 @@ pub unsafe fn PlayGdiScriptOnPrinterIC<'a, Param0: ::windows::core::IntoParam<'a
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub type PrintAsyncNotifyConversationStyle = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PrintAsyncNotifyConversationStyle(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kBiDirectional: PrintAsyncNotifyConversationStyle = 0i32;
+pub const kBiDirectional: PrintAsyncNotifyConversationStyle = PrintAsyncNotifyConversationStyle(0i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kUniDirectional: PrintAsyncNotifyConversationStyle = 1i32;
+pub const kUniDirectional: PrintAsyncNotifyConversationStyle = PrintAsyncNotifyConversationStyle(1i32);
+impl ::core::marker::Copy for PrintAsyncNotifyConversationStyle {}
+impl ::core::clone::Clone for PrintAsyncNotifyConversationStyle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PrintAsyncNotifyConversationStyle {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PrintAsyncNotifyConversationStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintAsyncNotifyConversationStyle").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub type PrintAsyncNotifyError = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PrintAsyncNotifyError(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const CHANNEL_CLOSED_BY_SERVER: PrintAsyncNotifyError = 1i32;
+pub const CHANNEL_CLOSED_BY_SERVER: PrintAsyncNotifyError = PrintAsyncNotifyError(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const CHANNEL_CLOSED_BY_ANOTHER_LISTENER: PrintAsyncNotifyError = 2i32;
+pub const CHANNEL_CLOSED_BY_ANOTHER_LISTENER: PrintAsyncNotifyError = PrintAsyncNotifyError(2i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const CHANNEL_CLOSED_BY_SAME_LISTENER: PrintAsyncNotifyError = 3i32;
+pub const CHANNEL_CLOSED_BY_SAME_LISTENER: PrintAsyncNotifyError = PrintAsyncNotifyError(3i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const CHANNEL_RELEASED_BY_LISTENER: PrintAsyncNotifyError = 4i32;
+pub const CHANNEL_RELEASED_BY_LISTENER: PrintAsyncNotifyError = PrintAsyncNotifyError(4i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const UNIRECTIONAL_NOTIFICATION_LOST: PrintAsyncNotifyError = 5i32;
+pub const UNIRECTIONAL_NOTIFICATION_LOST: PrintAsyncNotifyError = PrintAsyncNotifyError(5i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const ASYNC_NOTIFICATION_FAILURE: PrintAsyncNotifyError = 6i32;
+pub const ASYNC_NOTIFICATION_FAILURE: PrintAsyncNotifyError = PrintAsyncNotifyError(6i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const NO_LISTENERS: PrintAsyncNotifyError = 7i32;
+pub const NO_LISTENERS: PrintAsyncNotifyError = PrintAsyncNotifyError(7i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const CHANNEL_ALREADY_CLOSED: PrintAsyncNotifyError = 8i32;
+pub const CHANNEL_ALREADY_CLOSED: PrintAsyncNotifyError = PrintAsyncNotifyError(8i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const CHANNEL_ALREADY_OPENED: PrintAsyncNotifyError = 9i32;
+pub const CHANNEL_ALREADY_OPENED: PrintAsyncNotifyError = PrintAsyncNotifyError(9i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const CHANNEL_WAITING_FOR_CLIENT_NOTIFICATION: PrintAsyncNotifyError = 10i32;
+pub const CHANNEL_WAITING_FOR_CLIENT_NOTIFICATION: PrintAsyncNotifyError = PrintAsyncNotifyError(10i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const CHANNEL_NOT_OPENED: PrintAsyncNotifyError = 11i32;
+pub const CHANNEL_NOT_OPENED: PrintAsyncNotifyError = PrintAsyncNotifyError(11i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const ASYNC_CALL_ALREADY_PARKED: PrintAsyncNotifyError = 12i32;
+pub const ASYNC_CALL_ALREADY_PARKED: PrintAsyncNotifyError = PrintAsyncNotifyError(12i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const NOT_REGISTERED: PrintAsyncNotifyError = 13i32;
+pub const NOT_REGISTERED: PrintAsyncNotifyError = PrintAsyncNotifyError(13i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const ALREADY_UNREGISTERED: PrintAsyncNotifyError = 14i32;
+pub const ALREADY_UNREGISTERED: PrintAsyncNotifyError = PrintAsyncNotifyError(14i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const ALREADY_REGISTERED: PrintAsyncNotifyError = 15i32;
+pub const ALREADY_REGISTERED: PrintAsyncNotifyError = PrintAsyncNotifyError(15i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const CHANNEL_ACQUIRED: PrintAsyncNotifyError = 16i32;
+pub const CHANNEL_ACQUIRED: PrintAsyncNotifyError = PrintAsyncNotifyError(16i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const ASYNC_CALL_IN_PROGRESS: PrintAsyncNotifyError = 17i32;
+pub const ASYNC_CALL_IN_PROGRESS: PrintAsyncNotifyError = PrintAsyncNotifyError(17i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const MAX_NOTIFICATION_SIZE_EXCEEDED: PrintAsyncNotifyError = 18i32;
+pub const MAX_NOTIFICATION_SIZE_EXCEEDED: PrintAsyncNotifyError = PrintAsyncNotifyError(18i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const INTERNAL_NOTIFICATION_QUEUE_IS_FULL: PrintAsyncNotifyError = 19i32;
+pub const INTERNAL_NOTIFICATION_QUEUE_IS_FULL: PrintAsyncNotifyError = PrintAsyncNotifyError(19i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const INVALID_NOTIFICATION_TYPE: PrintAsyncNotifyError = 20i32;
+pub const INVALID_NOTIFICATION_TYPE: PrintAsyncNotifyError = PrintAsyncNotifyError(20i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const MAX_REGISTRATION_COUNT_EXCEEDED: PrintAsyncNotifyError = 21i32;
+pub const MAX_REGISTRATION_COUNT_EXCEEDED: PrintAsyncNotifyError = PrintAsyncNotifyError(21i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const MAX_CHANNEL_COUNT_EXCEEDED: PrintAsyncNotifyError = 22i32;
+pub const MAX_CHANNEL_COUNT_EXCEEDED: PrintAsyncNotifyError = PrintAsyncNotifyError(22i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const LOCAL_ONLY_REGISTRATION: PrintAsyncNotifyError = 23i32;
+pub const LOCAL_ONLY_REGISTRATION: PrintAsyncNotifyError = PrintAsyncNotifyError(23i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const REMOTE_ONLY_REGISTRATION: PrintAsyncNotifyError = 24i32;
+pub const REMOTE_ONLY_REGISTRATION: PrintAsyncNotifyError = PrintAsyncNotifyError(24i32);
+impl ::core::marker::Copy for PrintAsyncNotifyError {}
+impl ::core::clone::Clone for PrintAsyncNotifyError {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PrintAsyncNotifyError {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PrintAsyncNotifyError {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintAsyncNotifyError").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub type PrintAsyncNotifyUserFilter = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PrintAsyncNotifyUserFilter(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kPerUser: PrintAsyncNotifyUserFilter = 0i32;
+pub const kPerUser: PrintAsyncNotifyUserFilter = PrintAsyncNotifyUserFilter(0i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kAllUsers: PrintAsyncNotifyUserFilter = 1i32;
+pub const kAllUsers: PrintAsyncNotifyUserFilter = PrintAsyncNotifyUserFilter(1i32);
+impl ::core::marker::Copy for PrintAsyncNotifyUserFilter {}
+impl ::core::clone::Clone for PrintAsyncNotifyUserFilter {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PrintAsyncNotifyUserFilter {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PrintAsyncNotifyUserFilter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintAsyncNotifyUserFilter").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub type PrintJobStatus = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PrintJobStatus(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PrintJobStatus_Paused: PrintJobStatus = 1i32;
+pub const PrintJobStatus_Paused: PrintJobStatus = PrintJobStatus(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PrintJobStatus_Error: PrintJobStatus = 2i32;
+pub const PrintJobStatus_Error: PrintJobStatus = PrintJobStatus(2i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PrintJobStatus_Deleting: PrintJobStatus = 4i32;
+pub const PrintJobStatus_Deleting: PrintJobStatus = PrintJobStatus(4i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PrintJobStatus_Spooling: PrintJobStatus = 8i32;
+pub const PrintJobStatus_Spooling: PrintJobStatus = PrintJobStatus(8i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PrintJobStatus_Printing: PrintJobStatus = 16i32;
+pub const PrintJobStatus_Printing: PrintJobStatus = PrintJobStatus(16i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PrintJobStatus_Offline: PrintJobStatus = 32i32;
+pub const PrintJobStatus_Offline: PrintJobStatus = PrintJobStatus(32i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PrintJobStatus_PaperOut: PrintJobStatus = 64i32;
+pub const PrintJobStatus_PaperOut: PrintJobStatus = PrintJobStatus(64i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PrintJobStatus_Printed: PrintJobStatus = 128i32;
+pub const PrintJobStatus_Printed: PrintJobStatus = PrintJobStatus(128i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PrintJobStatus_Deleted: PrintJobStatus = 256i32;
+pub const PrintJobStatus_Deleted: PrintJobStatus = PrintJobStatus(256i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PrintJobStatus_BlockedDeviceQueue: PrintJobStatus = 512i32;
+pub const PrintJobStatus_BlockedDeviceQueue: PrintJobStatus = PrintJobStatus(512i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PrintJobStatus_UserIntervention: PrintJobStatus = 1024i32;
+pub const PrintJobStatus_UserIntervention: PrintJobStatus = PrintJobStatus(1024i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PrintJobStatus_Restarted: PrintJobStatus = 2048i32;
+pub const PrintJobStatus_Restarted: PrintJobStatus = PrintJobStatus(2048i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PrintJobStatus_Complete: PrintJobStatus = 4096i32;
+pub const PrintJobStatus_Complete: PrintJobStatus = PrintJobStatus(4096i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PrintJobStatus_Retained: PrintJobStatus = 8192i32;
+pub const PrintJobStatus_Retained: PrintJobStatus = PrintJobStatus(8192i32);
+impl ::core::marker::Copy for PrintJobStatus {}
+impl ::core::clone::Clone for PrintJobStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PrintJobStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PrintJobStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintJobStatus").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -24079,29 +24475,77 @@ impl ::core::default::Default for PrintPropertyValue_0_0 {
 }
 pub const PrintSchemaAsyncOperation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43b2f83d_10f2_48ab_831b_55fdbdbd34a4);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub type PrintSchemaConstrainedSetting = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PrintSchemaConstrainedSetting(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PrintSchemaConstrainedSetting_None: PrintSchemaConstrainedSetting = 0i32;
+pub const PrintSchemaConstrainedSetting_None: PrintSchemaConstrainedSetting = PrintSchemaConstrainedSetting(0i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PrintSchemaConstrainedSetting_PrintTicket: PrintSchemaConstrainedSetting = 1i32;
+pub const PrintSchemaConstrainedSetting_PrintTicket: PrintSchemaConstrainedSetting = PrintSchemaConstrainedSetting(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PrintSchemaConstrainedSetting_Admin: PrintSchemaConstrainedSetting = 2i32;
+pub const PrintSchemaConstrainedSetting_Admin: PrintSchemaConstrainedSetting = PrintSchemaConstrainedSetting(2i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PrintSchemaConstrainedSetting_Device: PrintSchemaConstrainedSetting = 3i32;
+pub const PrintSchemaConstrainedSetting_Device: PrintSchemaConstrainedSetting = PrintSchemaConstrainedSetting(3i32);
+impl ::core::marker::Copy for PrintSchemaConstrainedSetting {}
+impl ::core::clone::Clone for PrintSchemaConstrainedSetting {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PrintSchemaConstrainedSetting {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PrintSchemaConstrainedSetting {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintSchemaConstrainedSetting").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub type PrintSchemaParameterDataType = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PrintSchemaParameterDataType(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PrintSchemaParameterDataType_Integer: PrintSchemaParameterDataType = 0i32;
+pub const PrintSchemaParameterDataType_Integer: PrintSchemaParameterDataType = PrintSchemaParameterDataType(0i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PrintSchemaParameterDataType_NumericString: PrintSchemaParameterDataType = 1i32;
+pub const PrintSchemaParameterDataType_NumericString: PrintSchemaParameterDataType = PrintSchemaParameterDataType(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PrintSchemaParameterDataType_String: PrintSchemaParameterDataType = 2i32;
+pub const PrintSchemaParameterDataType_String: PrintSchemaParameterDataType = PrintSchemaParameterDataType(2i32);
+impl ::core::marker::Copy for PrintSchemaParameterDataType {}
+impl ::core::clone::Clone for PrintSchemaParameterDataType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PrintSchemaParameterDataType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PrintSchemaParameterDataType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintSchemaParameterDataType").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub type PrintSchemaSelectionType = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PrintSchemaSelectionType(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PrintSchemaSelectionType_PickOne: PrintSchemaSelectionType = 0i32;
+pub const PrintSchemaSelectionType_PickOne: PrintSchemaSelectionType = PrintSchemaSelectionType(0i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PrintSchemaSelectionType_PickMany: PrintSchemaSelectionType = 1i32;
+pub const PrintSchemaSelectionType_PickMany: PrintSchemaSelectionType = PrintSchemaSelectionType(1i32);
+impl ::core::marker::Copy for PrintSchemaSelectionType {}
+impl ::core::clone::Clone for PrintSchemaSelectionType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PrintSchemaSelectionType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PrintSchemaSelectionType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintSchemaSelectionType").field(&self.0).finish()
+    }
+}
 pub const PrinterExtensionManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x331b60da_9e90_4dd0_9c84_eac4e659b61f);
 #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -24484,11 +24928,27 @@ impl ::core::default::Default for SETRESULT_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub type SHIMOPTS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SHIMOPTS(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PTSHIM_DEFAULT: SHIMOPTS = 0i32;
+pub const PTSHIM_DEFAULT: SHIMOPTS = SHIMOPTS(0i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PTSHIM_NOSNAPSHOT: SHIMOPTS = 1i32;
+pub const PTSHIM_NOSNAPSHOT: SHIMOPTS = SHIMOPTS(1i32);
+impl ::core::marker::Copy for SHIMOPTS {}
+impl ::core::clone::Clone for SHIMOPTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SHIMOPTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SHIMOPTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SHIMOPTS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -25303,9 +25763,25 @@ pub const UFO_GETINFO_MEMORY: u32 = 5u32;
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub const UFO_GETINFO_STDVARIABLE: u32 = 6u32;
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub type UI_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct UI_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const kMessageBox: UI_TYPE = 0i32;
+pub const kMessageBox: UI_TYPE = UI_TYPE(0i32);
+impl ::core::marker::Copy for UI_TYPE {}
+impl ::core::clone::Clone for UI_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for UI_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UI_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UI_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub struct UNIDRVINFO {
@@ -25720,25 +26196,73 @@ pub unsafe fn WritePrinter<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub type XPSRAS_BACKGROUND_COLOR = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XPSRAS_BACKGROUND_COLOR(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const XPSRAS_BACKGROUND_COLOR_TRANSPARENT: XPSRAS_BACKGROUND_COLOR = 0i32;
+pub const XPSRAS_BACKGROUND_COLOR_TRANSPARENT: XPSRAS_BACKGROUND_COLOR = XPSRAS_BACKGROUND_COLOR(0i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const XPSRAS_BACKGROUND_COLOR_OPAQUE: XPSRAS_BACKGROUND_COLOR = 1i32;
+pub const XPSRAS_BACKGROUND_COLOR_OPAQUE: XPSRAS_BACKGROUND_COLOR = XPSRAS_BACKGROUND_COLOR(1i32);
+impl ::core::marker::Copy for XPSRAS_BACKGROUND_COLOR {}
+impl ::core::clone::Clone for XPSRAS_BACKGROUND_COLOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XPSRAS_BACKGROUND_COLOR {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XPSRAS_BACKGROUND_COLOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XPSRAS_BACKGROUND_COLOR").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub type XPSRAS_PIXEL_FORMAT = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XPSRAS_PIXEL_FORMAT(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const XPSRAS_PIXEL_FORMAT_32BPP_PBGRA_UINT_SRGB: XPSRAS_PIXEL_FORMAT = 1i32;
+pub const XPSRAS_PIXEL_FORMAT_32BPP_PBGRA_UINT_SRGB: XPSRAS_PIXEL_FORMAT = XPSRAS_PIXEL_FORMAT(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const XPSRAS_PIXEL_FORMAT_64BPP_PRGBA_HALF_SCRGB: XPSRAS_PIXEL_FORMAT = 2i32;
+pub const XPSRAS_PIXEL_FORMAT_64BPP_PRGBA_HALF_SCRGB: XPSRAS_PIXEL_FORMAT = XPSRAS_PIXEL_FORMAT(2i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const XPSRAS_PIXEL_FORMAT_128BPP_PRGBA_FLOAT_SCRGB: XPSRAS_PIXEL_FORMAT = 3i32;
+pub const XPSRAS_PIXEL_FORMAT_128BPP_PRGBA_FLOAT_SCRGB: XPSRAS_PIXEL_FORMAT = XPSRAS_PIXEL_FORMAT(3i32);
+impl ::core::marker::Copy for XPSRAS_PIXEL_FORMAT {}
+impl ::core::clone::Clone for XPSRAS_PIXEL_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XPSRAS_PIXEL_FORMAT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XPSRAS_PIXEL_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XPSRAS_PIXEL_FORMAT").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub type XPSRAS_RENDERING_MODE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XPSRAS_RENDERING_MODE(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const XPSRAS_RENDERING_MODE_ANTIALIASED: XPSRAS_RENDERING_MODE = 0i32;
+pub const XPSRAS_RENDERING_MODE_ANTIALIASED: XPSRAS_RENDERING_MODE = XPSRAS_RENDERING_MODE(0i32);
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const XPSRAS_RENDERING_MODE_ALIASED: XPSRAS_RENDERING_MODE = 1i32;
+pub const XPSRAS_RENDERING_MODE_ALIASED: XPSRAS_RENDERING_MODE = XPSRAS_RENDERING_MODE(1i32);
+impl ::core::marker::Copy for XPSRAS_RENDERING_MODE {}
+impl ::core::clone::Clone for XPSRAS_RENDERING_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XPSRAS_RENDERING_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XPSRAS_RENDERING_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XPSRAS_RENDERING_MODE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]

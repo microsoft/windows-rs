@@ -134,15 +134,59 @@ impl ::core::default::Default for SAFER_CODE_PROPERTIES_V2 {
     }
 }
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]
-pub type SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]
-pub const SAFER_TOKEN_NULL_IF_EQUAL: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = 1u32;
+pub const SAFER_TOKEN_NULL_IF_EQUAL: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]
-pub const SAFER_TOKEN_COMPARE_ONLY: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = 2u32;
+pub const SAFER_TOKEN_COMPARE_ONLY: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]
-pub const SAFER_TOKEN_MAKE_INERT: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = 4u32;
+pub const SAFER_TOKEN_MAKE_INERT: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]
-pub const SAFER_TOKEN_WANT_FLAGS: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = 8u32;
+pub const SAFER_TOKEN_WANT_FLAGS: SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS = SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS(8u32);
+impl ::core::marker::Copy for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {}
+impl ::core::clone::Clone for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SAFER_COMPUTE_TOKEN_FROM_LEVEL_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]
 pub const SAFER_CRITERIA_APPX_PACKAGE: u32 = 32u32;
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]
@@ -285,17 +329,33 @@ impl ::core::default::Default for SAFER_IDENTIFICATION_HEADER {
     }
 }
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]
-pub type SAFER_IDENTIFICATION_TYPES = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SAFER_IDENTIFICATION_TYPES(pub i32);
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]
-pub const SaferIdentityDefault: SAFER_IDENTIFICATION_TYPES = 0i32;
+pub const SaferIdentityDefault: SAFER_IDENTIFICATION_TYPES = SAFER_IDENTIFICATION_TYPES(0i32);
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]
-pub const SaferIdentityTypeImageName: SAFER_IDENTIFICATION_TYPES = 1i32;
+pub const SaferIdentityTypeImageName: SAFER_IDENTIFICATION_TYPES = SAFER_IDENTIFICATION_TYPES(1i32);
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]
-pub const SaferIdentityTypeImageHash: SAFER_IDENTIFICATION_TYPES = 2i32;
+pub const SaferIdentityTypeImageHash: SAFER_IDENTIFICATION_TYPES = SAFER_IDENTIFICATION_TYPES(2i32);
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]
-pub const SaferIdentityTypeUrlZone: SAFER_IDENTIFICATION_TYPES = 3i32;
+pub const SaferIdentityTypeUrlZone: SAFER_IDENTIFICATION_TYPES = SAFER_IDENTIFICATION_TYPES(3i32);
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]
-pub const SaferIdentityTypeCertificate: SAFER_IDENTIFICATION_TYPES = 4i32;
+pub const SaferIdentityTypeCertificate: SAFER_IDENTIFICATION_TYPES = SAFER_IDENTIFICATION_TYPES(4i32);
+impl ::core::marker::Copy for SAFER_IDENTIFICATION_TYPES {}
+impl ::core::clone::Clone for SAFER_IDENTIFICATION_TYPES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SAFER_IDENTIFICATION_TYPES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SAFER_IDENTIFICATION_TYPES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SAFER_IDENTIFICATION_TYPES").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]
 pub const SAFER_LEVELID_CONSTRAINED: u32 = 65536u32;
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]
@@ -315,39 +375,55 @@ pub const SAFER_MAX_FRIENDLYNAME_SIZE: u32 = 256u32;
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]
 pub const SAFER_MAX_HASH_SIZE: u32 = 64u32;
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]
-pub type SAFER_OBJECT_INFO_CLASS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SAFER_OBJECT_INFO_CLASS(pub i32);
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]
-pub const SaferObjectLevelId: SAFER_OBJECT_INFO_CLASS = 1i32;
+pub const SaferObjectLevelId: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(1i32);
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]
-pub const SaferObjectScopeId: SAFER_OBJECT_INFO_CLASS = 2i32;
+pub const SaferObjectScopeId: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(2i32);
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]
-pub const SaferObjectFriendlyName: SAFER_OBJECT_INFO_CLASS = 3i32;
+pub const SaferObjectFriendlyName: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(3i32);
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]
-pub const SaferObjectDescription: SAFER_OBJECT_INFO_CLASS = 4i32;
+pub const SaferObjectDescription: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(4i32);
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]
-pub const SaferObjectBuiltin: SAFER_OBJECT_INFO_CLASS = 5i32;
+pub const SaferObjectBuiltin: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(5i32);
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]
-pub const SaferObjectDisallowed: SAFER_OBJECT_INFO_CLASS = 6i32;
+pub const SaferObjectDisallowed: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(6i32);
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]
-pub const SaferObjectDisableMaxPrivilege: SAFER_OBJECT_INFO_CLASS = 7i32;
+pub const SaferObjectDisableMaxPrivilege: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(7i32);
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]
-pub const SaferObjectInvertDeletedPrivileges: SAFER_OBJECT_INFO_CLASS = 8i32;
+pub const SaferObjectInvertDeletedPrivileges: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(8i32);
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]
-pub const SaferObjectDeletedPrivileges: SAFER_OBJECT_INFO_CLASS = 9i32;
+pub const SaferObjectDeletedPrivileges: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(9i32);
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]
-pub const SaferObjectDefaultOwner: SAFER_OBJECT_INFO_CLASS = 10i32;
+pub const SaferObjectDefaultOwner: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(10i32);
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]
-pub const SaferObjectSidsToDisable: SAFER_OBJECT_INFO_CLASS = 11i32;
+pub const SaferObjectSidsToDisable: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(11i32);
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]
-pub const SaferObjectRestrictedSidsInverted: SAFER_OBJECT_INFO_CLASS = 12i32;
+pub const SaferObjectRestrictedSidsInverted: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(12i32);
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]
-pub const SaferObjectRestrictedSidsAdded: SAFER_OBJECT_INFO_CLASS = 13i32;
+pub const SaferObjectRestrictedSidsAdded: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(13i32);
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]
-pub const SaferObjectAllIdentificationGuids: SAFER_OBJECT_INFO_CLASS = 14i32;
+pub const SaferObjectAllIdentificationGuids: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(14i32);
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]
-pub const SaferObjectSingleIdentification: SAFER_OBJECT_INFO_CLASS = 15i32;
+pub const SaferObjectSingleIdentification: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(15i32);
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]
-pub const SaferObjectExtendedError: SAFER_OBJECT_INFO_CLASS = 16i32;
+pub const SaferObjectExtendedError: SAFER_OBJECT_INFO_CLASS = SAFER_OBJECT_INFO_CLASS(16i32);
+impl ::core::marker::Copy for SAFER_OBJECT_INFO_CLASS {}
+impl ::core::clone::Clone for SAFER_OBJECT_INFO_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SAFER_OBJECT_INFO_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SAFER_OBJECT_INFO_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SAFER_OBJECT_INFO_CLASS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_AppLocker', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -394,21 +470,37 @@ pub const SAFER_POLICY_BLOCK_CLIENT_UI: u32 = 8192u32;
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]
 pub const SAFER_POLICY_HASH_DUPLICATE: u32 = 262144u32;
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]
-pub type SAFER_POLICY_INFO_CLASS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SAFER_POLICY_INFO_CLASS(pub i32);
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]
-pub const SaferPolicyLevelList: SAFER_POLICY_INFO_CLASS = 1i32;
+pub const SaferPolicyLevelList: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(1i32);
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]
-pub const SaferPolicyEnableTransparentEnforcement: SAFER_POLICY_INFO_CLASS = 2i32;
+pub const SaferPolicyEnableTransparentEnforcement: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(2i32);
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]
-pub const SaferPolicyDefaultLevel: SAFER_POLICY_INFO_CLASS = 3i32;
+pub const SaferPolicyDefaultLevel: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(3i32);
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]
-pub const SaferPolicyEvaluateUserScope: SAFER_POLICY_INFO_CLASS = 4i32;
+pub const SaferPolicyEvaluateUserScope: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(4i32);
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]
-pub const SaferPolicyScopeFlags: SAFER_POLICY_INFO_CLASS = 5i32;
+pub const SaferPolicyScopeFlags: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(5i32);
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]
-pub const SaferPolicyDefaultLevelFlags: SAFER_POLICY_INFO_CLASS = 6i32;
+pub const SaferPolicyDefaultLevelFlags: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(6i32);
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]
-pub const SaferPolicyAuthenticodeEnabled: SAFER_POLICY_INFO_CLASS = 7i32;
+pub const SaferPolicyAuthenticodeEnabled: SAFER_POLICY_INFO_CLASS = SAFER_POLICY_INFO_CLASS(7i32);
+impl ::core::marker::Copy for SAFER_POLICY_INFO_CLASS {}
+impl ::core::clone::Clone for SAFER_POLICY_INFO_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SAFER_POLICY_INFO_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SAFER_POLICY_INFO_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SAFER_POLICY_INFO_CLASS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]
 pub const SAFER_POLICY_JOBID_CONSTRAINED: u32 = 67108864u32;
 #[doc = "*Required features: 'Win32_Security_AppLocker'*"]

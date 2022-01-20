@@ -9333,65 +9333,145 @@ impl ::core::default::Default for MONTHLYDOW {
     }
 }
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub type TASKPAGE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TASKPAGE(pub i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASKPAGE_TASK: TASKPAGE = 0i32;
+pub const TASKPAGE_TASK: TASKPAGE = TASKPAGE(0i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASKPAGE_SCHEDULE: TASKPAGE = 1i32;
+pub const TASKPAGE_SCHEDULE: TASKPAGE = TASKPAGE(1i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASKPAGE_SETTINGS: TASKPAGE = 2i32;
+pub const TASKPAGE_SETTINGS: TASKPAGE = TASKPAGE(2i32);
+impl ::core::marker::Copy for TASKPAGE {}
+impl ::core::clone::Clone for TASKPAGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TASKPAGE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TASKPAGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TASKPAGE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub type TASK_ACTION_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TASK_ACTION_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_ACTION_EXEC: TASK_ACTION_TYPE = 0i32;
+pub const TASK_ACTION_EXEC: TASK_ACTION_TYPE = TASK_ACTION_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_ACTION_COM_HANDLER: TASK_ACTION_TYPE = 5i32;
+pub const TASK_ACTION_COM_HANDLER: TASK_ACTION_TYPE = TASK_ACTION_TYPE(5i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_ACTION_SEND_EMAIL: TASK_ACTION_TYPE = 6i32;
+pub const TASK_ACTION_SEND_EMAIL: TASK_ACTION_TYPE = TASK_ACTION_TYPE(6i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_ACTION_SHOW_MESSAGE: TASK_ACTION_TYPE = 7i32;
+pub const TASK_ACTION_SHOW_MESSAGE: TASK_ACTION_TYPE = TASK_ACTION_TYPE(7i32);
+impl ::core::marker::Copy for TASK_ACTION_TYPE {}
+impl ::core::clone::Clone for TASK_ACTION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TASK_ACTION_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TASK_ACTION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TASK_ACTION_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_APRIL: u32 = 8u32;
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_AUGUST: u32 = 128u32;
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub type TASK_COMPATIBILITY = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TASK_COMPATIBILITY(pub i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_COMPATIBILITY_AT: TASK_COMPATIBILITY = 0i32;
+pub const TASK_COMPATIBILITY_AT: TASK_COMPATIBILITY = TASK_COMPATIBILITY(0i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_COMPATIBILITY_V1: TASK_COMPATIBILITY = 1i32;
+pub const TASK_COMPATIBILITY_V1: TASK_COMPATIBILITY = TASK_COMPATIBILITY(1i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_COMPATIBILITY_V2: TASK_COMPATIBILITY = 2i32;
+pub const TASK_COMPATIBILITY_V2: TASK_COMPATIBILITY = TASK_COMPATIBILITY(2i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_COMPATIBILITY_V2_1: TASK_COMPATIBILITY = 3i32;
+pub const TASK_COMPATIBILITY_V2_1: TASK_COMPATIBILITY = TASK_COMPATIBILITY(3i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_COMPATIBILITY_V2_2: TASK_COMPATIBILITY = 4i32;
+pub const TASK_COMPATIBILITY_V2_2: TASK_COMPATIBILITY = TASK_COMPATIBILITY(4i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_COMPATIBILITY_V2_3: TASK_COMPATIBILITY = 5i32;
+pub const TASK_COMPATIBILITY_V2_3: TASK_COMPATIBILITY = TASK_COMPATIBILITY(5i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_COMPATIBILITY_V2_4: TASK_COMPATIBILITY = 6i32;
+pub const TASK_COMPATIBILITY_V2_4: TASK_COMPATIBILITY = TASK_COMPATIBILITY(6i32);
+impl ::core::marker::Copy for TASK_COMPATIBILITY {}
+impl ::core::clone::Clone for TASK_COMPATIBILITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TASK_COMPATIBILITY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TASK_COMPATIBILITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TASK_COMPATIBILITY").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub type TASK_CREATION = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TASK_CREATION(pub i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_VALIDATE_ONLY: TASK_CREATION = 1i32;
+pub const TASK_VALIDATE_ONLY: TASK_CREATION = TASK_CREATION(1i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_CREATE: TASK_CREATION = 2i32;
+pub const TASK_CREATE: TASK_CREATION = TASK_CREATION(2i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_UPDATE: TASK_CREATION = 4i32;
+pub const TASK_UPDATE: TASK_CREATION = TASK_CREATION(4i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_CREATE_OR_UPDATE: TASK_CREATION = 6i32;
+pub const TASK_CREATE_OR_UPDATE: TASK_CREATION = TASK_CREATION(6i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_DISABLE: TASK_CREATION = 8i32;
+pub const TASK_DISABLE: TASK_CREATION = TASK_CREATION(8i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_DONT_ADD_PRINCIPAL_ACE: TASK_CREATION = 16i32;
+pub const TASK_DONT_ADD_PRINCIPAL_ACE: TASK_CREATION = TASK_CREATION(16i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_IGNORE_REGISTRATION_TRIGGERS: TASK_CREATION = 32i32;
+pub const TASK_IGNORE_REGISTRATION_TRIGGERS: TASK_CREATION = TASK_CREATION(32i32);
+impl ::core::marker::Copy for TASK_CREATION {}
+impl ::core::clone::Clone for TASK_CREATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TASK_CREATION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TASK_CREATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TASK_CREATION").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_DECEMBER: u32 = 2048u32;
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub type TASK_ENUM_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TASK_ENUM_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_ENUM_HIDDEN: TASK_ENUM_FLAGS = 1i32;
+pub const TASK_ENUM_HIDDEN: TASK_ENUM_FLAGS = TASK_ENUM_FLAGS(1i32);
+impl ::core::marker::Copy for TASK_ENUM_FLAGS {}
+impl ::core::clone::Clone for TASK_ENUM_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TASK_ENUM_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TASK_ENUM_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TASK_ENUM_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_FEBRUARY: u32 = 2u32;
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
@@ -9427,15 +9507,31 @@ pub const TASK_FOURTH_WEEK: u32 = 4u32;
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_FRIDAY: u32 = 32u32;
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub type TASK_INSTANCES_POLICY = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TASK_INSTANCES_POLICY(pub i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_INSTANCES_PARALLEL: TASK_INSTANCES_POLICY = 0i32;
+pub const TASK_INSTANCES_PARALLEL: TASK_INSTANCES_POLICY = TASK_INSTANCES_POLICY(0i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_INSTANCES_QUEUE: TASK_INSTANCES_POLICY = 1i32;
+pub const TASK_INSTANCES_QUEUE: TASK_INSTANCES_POLICY = TASK_INSTANCES_POLICY(1i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_INSTANCES_IGNORE_NEW: TASK_INSTANCES_POLICY = 2i32;
+pub const TASK_INSTANCES_IGNORE_NEW: TASK_INSTANCES_POLICY = TASK_INSTANCES_POLICY(2i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_INSTANCES_STOP_EXISTING: TASK_INSTANCES_POLICY = 3i32;
+pub const TASK_INSTANCES_STOP_EXISTING: TASK_INSTANCES_POLICY = TASK_INSTANCES_POLICY(3i32);
+impl ::core::marker::Copy for TASK_INSTANCES_POLICY {}
+impl ::core::clone::Clone for TASK_INSTANCES_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TASK_INSTANCES_POLICY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TASK_INSTANCES_POLICY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TASK_INSTANCES_POLICY").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_JANUARY: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
@@ -9445,21 +9541,37 @@ pub const TASK_JUNE: u32 = 32u32;
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_LAST_WEEK: u32 = 5u32;
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub type TASK_LOGON_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TASK_LOGON_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_LOGON_NONE: TASK_LOGON_TYPE = 0i32;
+pub const TASK_LOGON_NONE: TASK_LOGON_TYPE = TASK_LOGON_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_LOGON_PASSWORD: TASK_LOGON_TYPE = 1i32;
+pub const TASK_LOGON_PASSWORD: TASK_LOGON_TYPE = TASK_LOGON_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_LOGON_S4U: TASK_LOGON_TYPE = 2i32;
+pub const TASK_LOGON_S4U: TASK_LOGON_TYPE = TASK_LOGON_TYPE(2i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_LOGON_INTERACTIVE_TOKEN: TASK_LOGON_TYPE = 3i32;
+pub const TASK_LOGON_INTERACTIVE_TOKEN: TASK_LOGON_TYPE = TASK_LOGON_TYPE(3i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_LOGON_GROUP: TASK_LOGON_TYPE = 4i32;
+pub const TASK_LOGON_GROUP: TASK_LOGON_TYPE = TASK_LOGON_TYPE(4i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_LOGON_SERVICE_ACCOUNT: TASK_LOGON_TYPE = 5i32;
+pub const TASK_LOGON_SERVICE_ACCOUNT: TASK_LOGON_TYPE = TASK_LOGON_TYPE(5i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_LOGON_INTERACTIVE_TOKEN_OR_PASSWORD: TASK_LOGON_TYPE = 6i32;
+pub const TASK_LOGON_INTERACTIVE_TOKEN_OR_PASSWORD: TASK_LOGON_TYPE = TASK_LOGON_TYPE(6i32);
+impl ::core::marker::Copy for TASK_LOGON_TYPE {}
+impl ::core::clone::Clone for TASK_LOGON_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TASK_LOGON_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TASK_LOGON_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TASK_LOGON_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_MARCH: u32 = 4u32;
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
@@ -9473,31 +9585,79 @@ pub const TASK_NOVEMBER: u32 = 1024u32;
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_OCTOBER: u32 = 512u32;
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub type TASK_PROCESSTOKENSID_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TASK_PROCESSTOKENSID_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_PROCESSTOKENSID_NONE: TASK_PROCESSTOKENSID_TYPE = 0i32;
+pub const TASK_PROCESSTOKENSID_NONE: TASK_PROCESSTOKENSID_TYPE = TASK_PROCESSTOKENSID_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_PROCESSTOKENSID_UNRESTRICTED: TASK_PROCESSTOKENSID_TYPE = 1i32;
+pub const TASK_PROCESSTOKENSID_UNRESTRICTED: TASK_PROCESSTOKENSID_TYPE = TASK_PROCESSTOKENSID_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_PROCESSTOKENSID_DEFAULT: TASK_PROCESSTOKENSID_TYPE = 2i32;
+pub const TASK_PROCESSTOKENSID_DEFAULT: TASK_PROCESSTOKENSID_TYPE = TASK_PROCESSTOKENSID_TYPE(2i32);
+impl ::core::marker::Copy for TASK_PROCESSTOKENSID_TYPE {}
+impl ::core::clone::Clone for TASK_PROCESSTOKENSID_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TASK_PROCESSTOKENSID_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TASK_PROCESSTOKENSID_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TASK_PROCESSTOKENSID_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub type TASK_RUNLEVEL_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TASK_RUNLEVEL_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_RUNLEVEL_LUA: TASK_RUNLEVEL_TYPE = 0i32;
+pub const TASK_RUNLEVEL_LUA: TASK_RUNLEVEL_TYPE = TASK_RUNLEVEL_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_RUNLEVEL_HIGHEST: TASK_RUNLEVEL_TYPE = 1i32;
+pub const TASK_RUNLEVEL_HIGHEST: TASK_RUNLEVEL_TYPE = TASK_RUNLEVEL_TYPE(1i32);
+impl ::core::marker::Copy for TASK_RUNLEVEL_TYPE {}
+impl ::core::clone::Clone for TASK_RUNLEVEL_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TASK_RUNLEVEL_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TASK_RUNLEVEL_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TASK_RUNLEVEL_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub type TASK_RUN_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TASK_RUN_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_RUN_NO_FLAGS: TASK_RUN_FLAGS = 0i32;
+pub const TASK_RUN_NO_FLAGS: TASK_RUN_FLAGS = TASK_RUN_FLAGS(0i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_RUN_AS_SELF: TASK_RUN_FLAGS = 1i32;
+pub const TASK_RUN_AS_SELF: TASK_RUN_FLAGS = TASK_RUN_FLAGS(1i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_RUN_IGNORE_CONSTRAINTS: TASK_RUN_FLAGS = 2i32;
+pub const TASK_RUN_IGNORE_CONSTRAINTS: TASK_RUN_FLAGS = TASK_RUN_FLAGS(2i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_RUN_USE_SESSION_ID: TASK_RUN_FLAGS = 4i32;
+pub const TASK_RUN_USE_SESSION_ID: TASK_RUN_FLAGS = TASK_RUN_FLAGS(4i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_RUN_USER_SID: TASK_RUN_FLAGS = 8i32;
+pub const TASK_RUN_USER_SID: TASK_RUN_FLAGS = TASK_RUN_FLAGS(8i32);
+impl ::core::marker::Copy for TASK_RUN_FLAGS {}
+impl ::core::clone::Clone for TASK_RUN_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TASK_RUN_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TASK_RUN_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TASK_RUN_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_SATURDAY: u32 = 64u32;
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
@@ -9505,31 +9665,63 @@ pub const TASK_SECOND_WEEK: u32 = 2u32;
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_SEPTEMBER: u32 = 256u32;
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub type TASK_SESSION_STATE_CHANGE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TASK_SESSION_STATE_CHANGE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_CONSOLE_CONNECT: TASK_SESSION_STATE_CHANGE_TYPE = 1i32;
+pub const TASK_CONSOLE_CONNECT: TASK_SESSION_STATE_CHANGE_TYPE = TASK_SESSION_STATE_CHANGE_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_CONSOLE_DISCONNECT: TASK_SESSION_STATE_CHANGE_TYPE = 2i32;
+pub const TASK_CONSOLE_DISCONNECT: TASK_SESSION_STATE_CHANGE_TYPE = TASK_SESSION_STATE_CHANGE_TYPE(2i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_REMOTE_CONNECT: TASK_SESSION_STATE_CHANGE_TYPE = 3i32;
+pub const TASK_REMOTE_CONNECT: TASK_SESSION_STATE_CHANGE_TYPE = TASK_SESSION_STATE_CHANGE_TYPE(3i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_REMOTE_DISCONNECT: TASK_SESSION_STATE_CHANGE_TYPE = 4i32;
+pub const TASK_REMOTE_DISCONNECT: TASK_SESSION_STATE_CHANGE_TYPE = TASK_SESSION_STATE_CHANGE_TYPE(4i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_SESSION_LOCK: TASK_SESSION_STATE_CHANGE_TYPE = 7i32;
+pub const TASK_SESSION_LOCK: TASK_SESSION_STATE_CHANGE_TYPE = TASK_SESSION_STATE_CHANGE_TYPE(7i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_SESSION_UNLOCK: TASK_SESSION_STATE_CHANGE_TYPE = 8i32;
+pub const TASK_SESSION_UNLOCK: TASK_SESSION_STATE_CHANGE_TYPE = TASK_SESSION_STATE_CHANGE_TYPE(8i32);
+impl ::core::marker::Copy for TASK_SESSION_STATE_CHANGE_TYPE {}
+impl ::core::clone::Clone for TASK_SESSION_STATE_CHANGE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TASK_SESSION_STATE_CHANGE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TASK_SESSION_STATE_CHANGE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TASK_SESSION_STATE_CHANGE_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub type TASK_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TASK_STATE(pub i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_STATE_UNKNOWN: TASK_STATE = 0i32;
+pub const TASK_STATE_UNKNOWN: TASK_STATE = TASK_STATE(0i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_STATE_DISABLED: TASK_STATE = 1i32;
+pub const TASK_STATE_DISABLED: TASK_STATE = TASK_STATE(1i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_STATE_QUEUED: TASK_STATE = 2i32;
+pub const TASK_STATE_QUEUED: TASK_STATE = TASK_STATE(2i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_STATE_READY: TASK_STATE = 3i32;
+pub const TASK_STATE_READY: TASK_STATE = TASK_STATE(3i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_STATE_RUNNING: TASK_STATE = 4i32;
+pub const TASK_STATE_RUNNING: TASK_STATE = TASK_STATE(4i32);
+impl ::core::marker::Copy for TASK_STATE {}
+impl ::core::clone::Clone for TASK_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TASK_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TASK_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TASK_STATE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_SUNDAY: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
@@ -9584,49 +9776,81 @@ pub const TASK_TRIGGER_FLAG_HAS_END_DATE: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_TRIGGER_FLAG_KILL_AT_DURATION_END: u32 = 2u32;
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub type TASK_TRIGGER_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TASK_TRIGGER_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_TIME_TRIGGER_ONCE: TASK_TRIGGER_TYPE = 0i32;
+pub const TASK_TIME_TRIGGER_ONCE: TASK_TRIGGER_TYPE = TASK_TRIGGER_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_TIME_TRIGGER_DAILY: TASK_TRIGGER_TYPE = 1i32;
+pub const TASK_TIME_TRIGGER_DAILY: TASK_TRIGGER_TYPE = TASK_TRIGGER_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_TIME_TRIGGER_WEEKLY: TASK_TRIGGER_TYPE = 2i32;
+pub const TASK_TIME_TRIGGER_WEEKLY: TASK_TRIGGER_TYPE = TASK_TRIGGER_TYPE(2i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_TIME_TRIGGER_MONTHLYDATE: TASK_TRIGGER_TYPE = 3i32;
+pub const TASK_TIME_TRIGGER_MONTHLYDATE: TASK_TRIGGER_TYPE = TASK_TRIGGER_TYPE(3i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_TIME_TRIGGER_MONTHLYDOW: TASK_TRIGGER_TYPE = 4i32;
+pub const TASK_TIME_TRIGGER_MONTHLYDOW: TASK_TRIGGER_TYPE = TASK_TRIGGER_TYPE(4i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_EVENT_TRIGGER_ON_IDLE: TASK_TRIGGER_TYPE = 5i32;
+pub const TASK_EVENT_TRIGGER_ON_IDLE: TASK_TRIGGER_TYPE = TASK_TRIGGER_TYPE(5i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_EVENT_TRIGGER_AT_SYSTEMSTART: TASK_TRIGGER_TYPE = 6i32;
+pub const TASK_EVENT_TRIGGER_AT_SYSTEMSTART: TASK_TRIGGER_TYPE = TASK_TRIGGER_TYPE(6i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_EVENT_TRIGGER_AT_LOGON: TASK_TRIGGER_TYPE = 7i32;
+pub const TASK_EVENT_TRIGGER_AT_LOGON: TASK_TRIGGER_TYPE = TASK_TRIGGER_TYPE(7i32);
+impl ::core::marker::Copy for TASK_TRIGGER_TYPE {}
+impl ::core::clone::Clone for TASK_TRIGGER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TASK_TRIGGER_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TASK_TRIGGER_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TASK_TRIGGER_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub type TASK_TRIGGER_TYPE2 = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TASK_TRIGGER_TYPE2(pub i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_TRIGGER_EVENT: TASK_TRIGGER_TYPE2 = 0i32;
+pub const TASK_TRIGGER_EVENT: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(0i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_TRIGGER_TIME: TASK_TRIGGER_TYPE2 = 1i32;
+pub const TASK_TRIGGER_TIME: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(1i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_TRIGGER_DAILY: TASK_TRIGGER_TYPE2 = 2i32;
+pub const TASK_TRIGGER_DAILY: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(2i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_TRIGGER_WEEKLY: TASK_TRIGGER_TYPE2 = 3i32;
+pub const TASK_TRIGGER_WEEKLY: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(3i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_TRIGGER_MONTHLY: TASK_TRIGGER_TYPE2 = 4i32;
+pub const TASK_TRIGGER_MONTHLY: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(4i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_TRIGGER_MONTHLYDOW: TASK_TRIGGER_TYPE2 = 5i32;
+pub const TASK_TRIGGER_MONTHLYDOW: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(5i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_TRIGGER_IDLE: TASK_TRIGGER_TYPE2 = 6i32;
+pub const TASK_TRIGGER_IDLE: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(6i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_TRIGGER_REGISTRATION: TASK_TRIGGER_TYPE2 = 7i32;
+pub const TASK_TRIGGER_REGISTRATION: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(7i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_TRIGGER_BOOT: TASK_TRIGGER_TYPE2 = 8i32;
+pub const TASK_TRIGGER_BOOT: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(8i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_TRIGGER_LOGON: TASK_TRIGGER_TYPE2 = 9i32;
+pub const TASK_TRIGGER_LOGON: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(9i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_TRIGGER_SESSION_STATE_CHANGE: TASK_TRIGGER_TYPE2 = 11i32;
+pub const TASK_TRIGGER_SESSION_STATE_CHANGE: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(11i32);
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
-pub const TASK_TRIGGER_CUSTOM_TRIGGER_01: TASK_TRIGGER_TYPE2 = 12i32;
+pub const TASK_TRIGGER_CUSTOM_TRIGGER_01: TASK_TRIGGER_TYPE2 = TASK_TRIGGER_TYPE2(12i32);
+impl ::core::marker::Copy for TASK_TRIGGER_TYPE2 {}
+impl ::core::clone::Clone for TASK_TRIGGER_TYPE2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TASK_TRIGGER_TYPE2 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TASK_TRIGGER_TYPE2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TASK_TRIGGER_TYPE2").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]
 pub const TASK_TUESDAY: u32 = 4u32;
 #[doc = "*Required features: 'Win32_System_TaskScheduler'*"]

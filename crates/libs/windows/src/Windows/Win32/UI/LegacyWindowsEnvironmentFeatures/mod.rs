@@ -628,22 +628,38 @@ pub const REC_S_NOTCOMPLETEBUTPROPAGATE: ::windows::core::HRESULT = ::windows::c
 #[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
 pub const STATEBITS_FLAT: u32 = 1u32;
 #[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
-pub type _reconcilef = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct _reconcilef(pub i32);
 #[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
-pub const RECONCILEF_MAYBOTHERUSER: _reconcilef = 1i32;
+pub const RECONCILEF_MAYBOTHERUSER: _reconcilef = _reconcilef(1i32);
 #[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
-pub const RECONCILEF_FEEDBACKWINDOWVALID: _reconcilef = 2i32;
+pub const RECONCILEF_FEEDBACKWINDOWVALID: _reconcilef = _reconcilef(2i32);
 #[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
-pub const RECONCILEF_NORESIDUESOK: _reconcilef = 4i32;
+pub const RECONCILEF_NORESIDUESOK: _reconcilef = _reconcilef(4i32);
 #[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
-pub const RECONCILEF_OMITSELFRESIDUE: _reconcilef = 8i32;
+pub const RECONCILEF_OMITSELFRESIDUE: _reconcilef = _reconcilef(8i32);
 #[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
-pub const RECONCILEF_RESUMERECONCILIATION: _reconcilef = 16i32;
+pub const RECONCILEF_RESUMERECONCILIATION: _reconcilef = _reconcilef(16i32);
 #[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
-pub const RECONCILEF_YOUMAYDOTHEUPDATES: _reconcilef = 32i32;
+pub const RECONCILEF_YOUMAYDOTHEUPDATES: _reconcilef = _reconcilef(32i32);
 #[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
-pub const RECONCILEF_ONLYYOUWERECHANGED: _reconcilef = 64i32;
+pub const RECONCILEF_ONLYYOUWERECHANGED: _reconcilef = _reconcilef(64i32);
 #[doc = "*Required features: 'Win32_UI_LegacyWindowsEnvironmentFeatures'*"]
-pub const ALL_RECONCILE_FLAGS: _reconcilef = 127i32;
+pub const ALL_RECONCILE_FLAGS: _reconcilef = _reconcilef(127i32);
+impl ::core::marker::Copy for _reconcilef {}
+impl ::core::clone::Clone for _reconcilef {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for _reconcilef {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for _reconcilef {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_reconcilef").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

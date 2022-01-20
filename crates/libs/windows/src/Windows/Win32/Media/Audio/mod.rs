@@ -1051,15 +1051,47 @@ pub const ACM_STREAMSIZEF_QUERYMASK: i32 = 15i32;
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ACM_STREAMSIZEF_SOURCE: i32 = 0i32;
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub type AMBISONICS_CHANNEL_ORDERING = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct AMBISONICS_CHANNEL_ORDERING(pub i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AMBISONICS_CHANNEL_ORDERING_ACN: AMBISONICS_CHANNEL_ORDERING = 0i32;
+pub const AMBISONICS_CHANNEL_ORDERING_ACN: AMBISONICS_CHANNEL_ORDERING = AMBISONICS_CHANNEL_ORDERING(0i32);
+impl ::core::marker::Copy for AMBISONICS_CHANNEL_ORDERING {}
+impl ::core::clone::Clone for AMBISONICS_CHANNEL_ORDERING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for AMBISONICS_CHANNEL_ORDERING {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AMBISONICS_CHANNEL_ORDERING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AMBISONICS_CHANNEL_ORDERING").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub type AMBISONICS_NORMALIZATION = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct AMBISONICS_NORMALIZATION(pub i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AMBISONICS_NORMALIZATION_SN3D: AMBISONICS_NORMALIZATION = 0i32;
+pub const AMBISONICS_NORMALIZATION_SN3D: AMBISONICS_NORMALIZATION = AMBISONICS_NORMALIZATION(0i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AMBISONICS_NORMALIZATION_N3D: AMBISONICS_NORMALIZATION = 1i32;
+pub const AMBISONICS_NORMALIZATION_N3D: AMBISONICS_NORMALIZATION = AMBISONICS_NORMALIZATION(1i32);
+impl ::core::marker::Copy for AMBISONICS_NORMALIZATION {}
+impl ::core::clone::Clone for AMBISONICS_NORMALIZATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for AMBISONICS_NORMALIZATION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AMBISONICS_NORMALIZATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AMBISONICS_NORMALIZATION").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub struct AMBISONICS_PARAMS {
@@ -1100,9 +1132,25 @@ impl ::core::default::Default for AMBISONICS_PARAMS {
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const AMBISONICS_PARAM_VERSION_1: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub type AMBISONICS_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct AMBISONICS_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AMBISONICS_TYPE_FULL3D: AMBISONICS_TYPE = 0i32;
+pub const AMBISONICS_TYPE_FULL3D: AMBISONICS_TYPE = AMBISONICS_TYPE(0i32);
+impl ::core::marker::Copy for AMBISONICS_TYPE {}
+impl ::core::clone::Clone for AMBISONICS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for AMBISONICS_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AMBISONICS_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AMBISONICS_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const AUDCLNT_E_ALREADY_INITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287486i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
@@ -1186,11 +1234,27 @@ pub const AUDCLNT_SESSIONFLAGS_DISPLAY_HIDEWHENEXPIRED: u32 = 1073741824u32;
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const AUDCLNT_SESSIONFLAGS_EXPIREWHENUNOWNED: u32 = 268435456u32;
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub type AUDCLNT_SHAREMODE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct AUDCLNT_SHAREMODE(pub i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AUDCLNT_SHAREMODE_SHARED: AUDCLNT_SHAREMODE = 0i32;
+pub const AUDCLNT_SHAREMODE_SHARED: AUDCLNT_SHAREMODE = AUDCLNT_SHAREMODE(0i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AUDCLNT_SHAREMODE_EXCLUSIVE: AUDCLNT_SHAREMODE = 1i32;
+pub const AUDCLNT_SHAREMODE_EXCLUSIVE: AUDCLNT_SHAREMODE = AUDCLNT_SHAREMODE(1i32);
+impl ::core::marker::Copy for AUDCLNT_SHAREMODE {}
+impl ::core::clone::Clone for AUDCLNT_SHAREMODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for AUDCLNT_SHAREMODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AUDCLNT_SHAREMODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AUDCLNT_SHAREMODE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const AUDCLNT_STREAMFLAGS_AUTOCONVERTPCM: u32 = 2147483648u32;
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
@@ -1206,15 +1270,59 @@ pub const AUDCLNT_STREAMFLAGS_RATEADJUST: u32 = 1048576u32;
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const AUDCLNT_STREAMFLAGS_SRC_DEFAULT_QUALITY: u32 = 134217728u32;
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub type AUDCLNT_STREAMOPTIONS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct AUDCLNT_STREAMOPTIONS(pub u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AUDCLNT_STREAMOPTIONS_NONE: AUDCLNT_STREAMOPTIONS = 0u32;
+pub const AUDCLNT_STREAMOPTIONS_NONE: AUDCLNT_STREAMOPTIONS = AUDCLNT_STREAMOPTIONS(0u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AUDCLNT_STREAMOPTIONS_RAW: AUDCLNT_STREAMOPTIONS = 1u32;
+pub const AUDCLNT_STREAMOPTIONS_RAW: AUDCLNT_STREAMOPTIONS = AUDCLNT_STREAMOPTIONS(1u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AUDCLNT_STREAMOPTIONS_MATCH_FORMAT: AUDCLNT_STREAMOPTIONS = 2u32;
+pub const AUDCLNT_STREAMOPTIONS_MATCH_FORMAT: AUDCLNT_STREAMOPTIONS = AUDCLNT_STREAMOPTIONS(2u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AUDCLNT_STREAMOPTIONS_AMBISONICS: AUDCLNT_STREAMOPTIONS = 4u32;
+pub const AUDCLNT_STREAMOPTIONS_AMBISONICS: AUDCLNT_STREAMOPTIONS = AUDCLNT_STREAMOPTIONS(4u32);
+impl ::core::marker::Copy for AUDCLNT_STREAMOPTIONS {}
+impl ::core::clone::Clone for AUDCLNT_STREAMOPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for AUDCLNT_STREAMOPTIONS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AUDCLNT_STREAMOPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AUDCLNT_STREAMOPTIONS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for AUDCLNT_STREAMOPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for AUDCLNT_STREAMOPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for AUDCLNT_STREAMOPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for AUDCLNT_STREAMOPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for AUDCLNT_STREAMOPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const AUDCLNT_S_BUFFER_EMPTY: ::windows::core::HRESULT = ::windows::core::HRESULT(143196161i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
@@ -1273,11 +1381,27 @@ impl ::core::default::Default for AUDIOCLIENT_ACTIVATION_PARAMS_0 {
     }
 }
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub type AUDIOCLIENT_ACTIVATION_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct AUDIOCLIENT_ACTIVATION_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AUDIOCLIENT_ACTIVATION_TYPE_DEFAULT: AUDIOCLIENT_ACTIVATION_TYPE = 0i32;
+pub const AUDIOCLIENT_ACTIVATION_TYPE_DEFAULT: AUDIOCLIENT_ACTIVATION_TYPE = AUDIOCLIENT_ACTIVATION_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AUDIOCLIENT_ACTIVATION_TYPE_PROCESS_LOOPBACK: AUDIOCLIENT_ACTIVATION_TYPE = 1i32;
+pub const AUDIOCLIENT_ACTIVATION_TYPE_PROCESS_LOOPBACK: AUDIOCLIENT_ACTIVATION_TYPE = AUDIOCLIENT_ACTIVATION_TYPE(1i32);
+impl ::core::marker::Copy for AUDIOCLIENT_ACTIVATION_TYPE {}
+impl ::core::clone::Clone for AUDIOCLIENT_ACTIVATION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for AUDIOCLIENT_ACTIVATION_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AUDIOCLIENT_ACTIVATION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AUDIOCLIENT_ACTIVATION_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub struct AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS {
@@ -1312,11 +1436,55 @@ impl ::core::default::Default for AUDIOCLIENT_PROCESS_LOOPBACK_PARAMS {
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const AUDIOCLOCK_CHARACTERISTIC_FIXED_FREQ: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub type AUDIO_DUCKING_OPTIONS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct AUDIO_DUCKING_OPTIONS(pub u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AUDIO_DUCKING_OPTIONS_DEFAULT: AUDIO_DUCKING_OPTIONS = 0u32;
+pub const AUDIO_DUCKING_OPTIONS_DEFAULT: AUDIO_DUCKING_OPTIONS = AUDIO_DUCKING_OPTIONS(0u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AUDIO_DUCKING_OPTIONS_DO_NOT_DUCK_OTHER_STREAMS: AUDIO_DUCKING_OPTIONS = 1u32;
+pub const AUDIO_DUCKING_OPTIONS_DO_NOT_DUCK_OTHER_STREAMS: AUDIO_DUCKING_OPTIONS = AUDIO_DUCKING_OPTIONS(1u32);
+impl ::core::marker::Copy for AUDIO_DUCKING_OPTIONS {}
+impl ::core::clone::Clone for AUDIO_DUCKING_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for AUDIO_DUCKING_OPTIONS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AUDIO_DUCKING_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AUDIO_DUCKING_OPTIONS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for AUDIO_DUCKING_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for AUDIO_DUCKING_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for AUDIO_DUCKING_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for AUDIO_DUCKING_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for AUDIO_DUCKING_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1358,41 +1526,73 @@ impl ::core::default::Default for AUDIO_EFFECT {
     }
 }
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub type AUDIO_EFFECT_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct AUDIO_EFFECT_STATE(pub i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AUDIO_EFFECT_STATE_OFF: AUDIO_EFFECT_STATE = 0i32;
+pub const AUDIO_EFFECT_STATE_OFF: AUDIO_EFFECT_STATE = AUDIO_EFFECT_STATE(0i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AUDIO_EFFECT_STATE_ON: AUDIO_EFFECT_STATE = 1i32;
+pub const AUDIO_EFFECT_STATE_ON: AUDIO_EFFECT_STATE = AUDIO_EFFECT_STATE(1i32);
+impl ::core::marker::Copy for AUDIO_EFFECT_STATE {}
+impl ::core::clone::Clone for AUDIO_EFFECT_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for AUDIO_EFFECT_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AUDIO_EFFECT_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AUDIO_EFFECT_STATE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub type AUDIO_STREAM_CATEGORY = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct AUDIO_STREAM_CATEGORY(pub i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AudioCategory_Other: AUDIO_STREAM_CATEGORY = 0i32;
+pub const AudioCategory_Other: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(0i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AudioCategory_ForegroundOnlyMedia: AUDIO_STREAM_CATEGORY = 1i32;
+pub const AudioCategory_ForegroundOnlyMedia: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(1i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AudioCategory_Communications: AUDIO_STREAM_CATEGORY = 3i32;
+pub const AudioCategory_Communications: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(3i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AudioCategory_Alerts: AUDIO_STREAM_CATEGORY = 4i32;
+pub const AudioCategory_Alerts: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(4i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AudioCategory_SoundEffects: AUDIO_STREAM_CATEGORY = 5i32;
+pub const AudioCategory_SoundEffects: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(5i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AudioCategory_GameEffects: AUDIO_STREAM_CATEGORY = 6i32;
+pub const AudioCategory_GameEffects: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(6i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AudioCategory_GameMedia: AUDIO_STREAM_CATEGORY = 7i32;
+pub const AudioCategory_GameMedia: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(7i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AudioCategory_GameChat: AUDIO_STREAM_CATEGORY = 8i32;
+pub const AudioCategory_GameChat: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(8i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AudioCategory_Speech: AUDIO_STREAM_CATEGORY = 9i32;
+pub const AudioCategory_Speech: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(9i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AudioCategory_Movie: AUDIO_STREAM_CATEGORY = 10i32;
+pub const AudioCategory_Movie: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(10i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AudioCategory_Media: AUDIO_STREAM_CATEGORY = 11i32;
+pub const AudioCategory_Media: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(11i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AudioCategory_FarFieldSpeech: AUDIO_STREAM_CATEGORY = 12i32;
+pub const AudioCategory_FarFieldSpeech: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(12i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AudioCategory_UniformSpeech: AUDIO_STREAM_CATEGORY = 13i32;
+pub const AudioCategory_UniformSpeech: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(13i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AudioCategory_VoiceTyping: AUDIO_STREAM_CATEGORY = 14i32;
+pub const AudioCategory_VoiceTyping: AUDIO_STREAM_CATEGORY = AUDIO_STREAM_CATEGORY(14i32);
+impl ::core::marker::Copy for AUDIO_STREAM_CATEGORY {}
+impl ::core::clone::Clone for AUDIO_STREAM_CATEGORY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for AUDIO_STREAM_CATEGORY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AUDIO_STREAM_CATEGORY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AUDIO_STREAM_CATEGORY").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1719,75 +1919,167 @@ impl ::core::default::Default for AudioExtensionParams {
     }
 }
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub type AudioObjectType = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct AudioObjectType(pub u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AudioObjectType_None: AudioObjectType = 0u32;
+pub const AudioObjectType_None: AudioObjectType = AudioObjectType(0u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AudioObjectType_Dynamic: AudioObjectType = 1u32;
+pub const AudioObjectType_Dynamic: AudioObjectType = AudioObjectType(1u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AudioObjectType_FrontLeft: AudioObjectType = 2u32;
+pub const AudioObjectType_FrontLeft: AudioObjectType = AudioObjectType(2u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AudioObjectType_FrontRight: AudioObjectType = 4u32;
+pub const AudioObjectType_FrontRight: AudioObjectType = AudioObjectType(4u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AudioObjectType_FrontCenter: AudioObjectType = 8u32;
+pub const AudioObjectType_FrontCenter: AudioObjectType = AudioObjectType(8u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AudioObjectType_LowFrequency: AudioObjectType = 16u32;
+pub const AudioObjectType_LowFrequency: AudioObjectType = AudioObjectType(16u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AudioObjectType_SideLeft: AudioObjectType = 32u32;
+pub const AudioObjectType_SideLeft: AudioObjectType = AudioObjectType(32u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AudioObjectType_SideRight: AudioObjectType = 64u32;
+pub const AudioObjectType_SideRight: AudioObjectType = AudioObjectType(64u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AudioObjectType_BackLeft: AudioObjectType = 128u32;
+pub const AudioObjectType_BackLeft: AudioObjectType = AudioObjectType(128u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AudioObjectType_BackRight: AudioObjectType = 256u32;
+pub const AudioObjectType_BackRight: AudioObjectType = AudioObjectType(256u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AudioObjectType_TopFrontLeft: AudioObjectType = 512u32;
+pub const AudioObjectType_TopFrontLeft: AudioObjectType = AudioObjectType(512u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AudioObjectType_TopFrontRight: AudioObjectType = 1024u32;
+pub const AudioObjectType_TopFrontRight: AudioObjectType = AudioObjectType(1024u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AudioObjectType_TopBackLeft: AudioObjectType = 2048u32;
+pub const AudioObjectType_TopBackLeft: AudioObjectType = AudioObjectType(2048u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AudioObjectType_TopBackRight: AudioObjectType = 4096u32;
+pub const AudioObjectType_TopBackRight: AudioObjectType = AudioObjectType(4096u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AudioObjectType_BottomFrontLeft: AudioObjectType = 8192u32;
+pub const AudioObjectType_BottomFrontLeft: AudioObjectType = AudioObjectType(8192u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AudioObjectType_BottomFrontRight: AudioObjectType = 16384u32;
+pub const AudioObjectType_BottomFrontRight: AudioObjectType = AudioObjectType(16384u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AudioObjectType_BottomBackLeft: AudioObjectType = 32768u32;
+pub const AudioObjectType_BottomBackLeft: AudioObjectType = AudioObjectType(32768u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AudioObjectType_BottomBackRight: AudioObjectType = 65536u32;
+pub const AudioObjectType_BottomBackRight: AudioObjectType = AudioObjectType(65536u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AudioObjectType_BackCenter: AudioObjectType = 131072u32;
+pub const AudioObjectType_BackCenter: AudioObjectType = AudioObjectType(131072u32);
+impl ::core::marker::Copy for AudioObjectType {}
+impl ::core::clone::Clone for AudioObjectType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for AudioObjectType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AudioObjectType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioObjectType").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for AudioObjectType {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for AudioObjectType {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for AudioObjectType {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for AudioObjectType {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for AudioObjectType {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub type AudioSessionDisconnectReason = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct AudioSessionDisconnectReason(pub i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const DisconnectReasonDeviceRemoval: AudioSessionDisconnectReason = 0i32;
+pub const DisconnectReasonDeviceRemoval: AudioSessionDisconnectReason = AudioSessionDisconnectReason(0i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const DisconnectReasonServerShutdown: AudioSessionDisconnectReason = 1i32;
+pub const DisconnectReasonServerShutdown: AudioSessionDisconnectReason = AudioSessionDisconnectReason(1i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const DisconnectReasonFormatChanged: AudioSessionDisconnectReason = 2i32;
+pub const DisconnectReasonFormatChanged: AudioSessionDisconnectReason = AudioSessionDisconnectReason(2i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const DisconnectReasonSessionLogoff: AudioSessionDisconnectReason = 3i32;
+pub const DisconnectReasonSessionLogoff: AudioSessionDisconnectReason = AudioSessionDisconnectReason(3i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const DisconnectReasonSessionDisconnected: AudioSessionDisconnectReason = 4i32;
+pub const DisconnectReasonSessionDisconnected: AudioSessionDisconnectReason = AudioSessionDisconnectReason(4i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const DisconnectReasonExclusiveModeOverride: AudioSessionDisconnectReason = 5i32;
+pub const DisconnectReasonExclusiveModeOverride: AudioSessionDisconnectReason = AudioSessionDisconnectReason(5i32);
+impl ::core::marker::Copy for AudioSessionDisconnectReason {}
+impl ::core::clone::Clone for AudioSessionDisconnectReason {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for AudioSessionDisconnectReason {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AudioSessionDisconnectReason {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioSessionDisconnectReason").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub type AudioSessionState = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct AudioSessionState(pub i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AudioSessionStateInactive: AudioSessionState = 0i32;
+pub const AudioSessionStateInactive: AudioSessionState = AudioSessionState(0i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AudioSessionStateActive: AudioSessionState = 1i32;
+pub const AudioSessionStateActive: AudioSessionState = AudioSessionState(1i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AudioSessionStateExpired: AudioSessionState = 2i32;
+pub const AudioSessionStateExpired: AudioSessionState = AudioSessionState(2i32);
+impl ::core::marker::Copy for AudioSessionState {}
+impl ::core::clone::Clone for AudioSessionState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for AudioSessionState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AudioSessionState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioSessionState").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub type AudioStateMonitorSoundLevel = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct AudioStateMonitorSoundLevel(pub i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const Muted: AudioStateMonitorSoundLevel = 0i32;
+pub const Muted: AudioStateMonitorSoundLevel = AudioStateMonitorSoundLevel(0i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const Low: AudioStateMonitorSoundLevel = 1i32;
+pub const Low: AudioStateMonitorSoundLevel = AudioStateMonitorSoundLevel(1i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const Full: AudioStateMonitorSoundLevel = 2i32;
+pub const Full: AudioStateMonitorSoundLevel = AudioStateMonitorSoundLevel(2i32);
+impl ::core::marker::Copy for AudioStateMonitorSoundLevel {}
+impl ::core::clone::Clone for AudioStateMonitorSoundLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for AudioStateMonitorSoundLevel {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AudioStateMonitorSoundLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioStateMonitorSoundLevel").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 #[inline]
 pub unsafe fn CoRegisterMessageFilter<'a, Param0: ::windows::core::IntoParam<'a, IMessageFilter>>(lpmessagefilter: Param0) -> ::windows::core::Result<IMessageFilter> {
@@ -2006,11 +2298,27 @@ pub const DRV_MAPPER_PREFERRED_INPUT_GET: u32 = 16384u32;
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const DRV_MAPPER_PREFERRED_OUTPUT_GET: u32 = 16386u32;
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub type DataFlow = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DataFlow(pub i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const In: DataFlow = 0i32;
+pub const In: DataFlow = DataFlow(0i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const Out: DataFlow = 1i32;
+pub const Out: DataFlow = DataFlow(1i32);
+impl ::core::marker::Copy for DataFlow {}
+impl ::core::clone::Clone for DataFlow {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DataFlow {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DataFlow {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DataFlow").field(&self.0).finish()
+    }
+}
 pub const DeviceTopology: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1df639d0_5ec1_47aa_9379_828dc1aa8c59);
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
@@ -2040,15 +2348,31 @@ impl ::core::default::Default for ECHOWAVEFILTER {
     }
 }
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub type EDataFlow = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct EDataFlow(pub i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const eRender: EDataFlow = 0i32;
+pub const eRender: EDataFlow = EDataFlow(0i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const eCapture: EDataFlow = 1i32;
+pub const eCapture: EDataFlow = EDataFlow(1i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const eAll: EDataFlow = 2i32;
+pub const eAll: EDataFlow = EDataFlow(2i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const EDataFlow_enum_count: EDataFlow = 3i32;
+pub const EDataFlow_enum_count: EDataFlow = EDataFlow(3i32);
+impl ::core::marker::Copy for EDataFlow {}
+impl ::core::clone::Clone for EDataFlow {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for EDataFlow {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EDataFlow {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EDataFlow").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ENDPOINT_FORMAT_RESET_MIX_ONLY: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
@@ -2062,42 +2386,74 @@ pub const ENDPOINT_SYSFX_DISABLED: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const ENDPOINT_SYSFX_ENABLED: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub type ERole = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ERole(pub i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const eConsole: ERole = 0i32;
+pub const eConsole: ERole = ERole(0i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const eMultimedia: ERole = 1i32;
+pub const eMultimedia: ERole = ERole(1i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const eCommunications: ERole = 2i32;
+pub const eCommunications: ERole = ERole(2i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const ERole_enum_count: ERole = 3i32;
+pub const ERole_enum_count: ERole = ERole(3i32);
+impl ::core::marker::Copy for ERole {}
+impl ::core::clone::Clone for ERole {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ERole {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ERole {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ERole").field(&self.0).finish()
+    }
+}
 pub const EVENTCONTEXT_VOLUMESLIDER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2c2e9de_09b1_4b04_84e5_07931225ee04);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub type EndpointFormFactor = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct EndpointFormFactor(pub i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const RemoteNetworkDevice: EndpointFormFactor = 0i32;
+pub const RemoteNetworkDevice: EndpointFormFactor = EndpointFormFactor(0i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const Speakers: EndpointFormFactor = 1i32;
+pub const Speakers: EndpointFormFactor = EndpointFormFactor(1i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const LineLevel: EndpointFormFactor = 2i32;
+pub const LineLevel: EndpointFormFactor = EndpointFormFactor(2i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const Headphones: EndpointFormFactor = 3i32;
+pub const Headphones: EndpointFormFactor = EndpointFormFactor(3i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const Microphone: EndpointFormFactor = 4i32;
+pub const Microphone: EndpointFormFactor = EndpointFormFactor(4i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const Headset: EndpointFormFactor = 5i32;
+pub const Headset: EndpointFormFactor = EndpointFormFactor(5i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const Handset: EndpointFormFactor = 6i32;
+pub const Handset: EndpointFormFactor = EndpointFormFactor(6i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const UnknownDigitalPassthrough: EndpointFormFactor = 7i32;
+pub const UnknownDigitalPassthrough: EndpointFormFactor = EndpointFormFactor(7i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const SPDIF: EndpointFormFactor = 8i32;
+pub const SPDIF: EndpointFormFactor = EndpointFormFactor(8i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const DigitalAudioDisplayDevice: EndpointFormFactor = 9i32;
+pub const DigitalAudioDisplayDevice: EndpointFormFactor = EndpointFormFactor(9i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const UnknownFormFactor: EndpointFormFactor = 10i32;
+pub const UnknownFormFactor: EndpointFormFactor = EndpointFormFactor(10i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const EndpointFormFactor_enum_count: EndpointFormFactor = 11i32;
+pub const EndpointFormFactor_enum_count: EndpointFormFactor = EndpointFormFactor(11i32);
+impl ::core::marker::Copy for EndpointFormFactor {}
+impl ::core::clone::Clone for EndpointFormFactor {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for EndpointFormFactor {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EndpointFormFactor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EndpointFormFactor").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const FILTERCHOOSE_CUSTOM_VERIFY: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
@@ -9109,35 +9465,79 @@ pub const MIDI_CACHE_QUERY: u32 = 3u32;
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIDI_UNCACHE: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub type MIDI_WAVE_OPEN_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MIDI_WAVE_OPEN_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const CALLBACK_TYPEMASK: MIDI_WAVE_OPEN_TYPE = 458752u32;
+pub const CALLBACK_TYPEMASK: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(458752u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const CALLBACK_NULL: MIDI_WAVE_OPEN_TYPE = 0u32;
+pub const CALLBACK_NULL: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(0u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const CALLBACK_WINDOW: MIDI_WAVE_OPEN_TYPE = 65536u32;
+pub const CALLBACK_WINDOW: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(65536u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const CALLBACK_TASK: MIDI_WAVE_OPEN_TYPE = 131072u32;
+pub const CALLBACK_TASK: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(131072u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const CALLBACK_FUNCTION: MIDI_WAVE_OPEN_TYPE = 196608u32;
+pub const CALLBACK_FUNCTION: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(196608u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const CALLBACK_THREAD: MIDI_WAVE_OPEN_TYPE = 131072u32;
+pub const CALLBACK_THREAD: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(131072u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const CALLBACK_EVENT: MIDI_WAVE_OPEN_TYPE = 327680u32;
+pub const CALLBACK_EVENT: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(327680u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const WAVE_FORMAT_QUERY: MIDI_WAVE_OPEN_TYPE = 1u32;
+pub const WAVE_FORMAT_QUERY: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(1u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const WAVE_ALLOWSYNC: MIDI_WAVE_OPEN_TYPE = 2u32;
+pub const WAVE_ALLOWSYNC: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(2u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const WAVE_MAPPED: MIDI_WAVE_OPEN_TYPE = 4u32;
+pub const WAVE_MAPPED: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(4u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const WAVE_FORMAT_DIRECT: MIDI_WAVE_OPEN_TYPE = 8u32;
+pub const WAVE_FORMAT_DIRECT: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(8u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const WAVE_FORMAT_DIRECT_QUERY: MIDI_WAVE_OPEN_TYPE = 9u32;
+pub const WAVE_FORMAT_DIRECT_QUERY: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(9u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const WAVE_MAPPED_DEFAULT_COMMUNICATION_DEVICE: MIDI_WAVE_OPEN_TYPE = 16u32;
+pub const WAVE_MAPPED_DEFAULT_COMMUNICATION_DEVICE: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(16u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const MIDI_IO_STATUS: MIDI_WAVE_OPEN_TYPE = 32u32;
+pub const MIDI_IO_STATUS: MIDI_WAVE_OPEN_TYPE = MIDI_WAVE_OPEN_TYPE(32u32);
+impl ::core::marker::Copy for MIDI_WAVE_OPEN_TYPE {}
+impl ::core::clone::Clone for MIDI_WAVE_OPEN_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MIDI_WAVE_OPEN_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MIDI_WAVE_OPEN_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MIDI_WAVE_OPEN_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for MIDI_WAVE_OPEN_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for MIDI_WAVE_OPEN_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for MIDI_WAVE_OPEN_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for MIDI_WAVE_OPEN_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for MIDI_WAVE_OPEN_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10188,47 +10588,91 @@ impl ::core::default::Default for MIXERLINEW_0 {
     }
 }
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub type MIXERLINE_COMPONENTTYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MIXERLINE_COMPONENTTYPE(pub u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const MIXERLINE_COMPONENTTYPE_DST_DIGITAL: MIXERLINE_COMPONENTTYPE = 1u32;
+pub const MIXERLINE_COMPONENTTYPE_DST_DIGITAL: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(1u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const MIXERLINE_COMPONENTTYPE_DST_HEADPHONES: MIXERLINE_COMPONENTTYPE = 5u32;
+pub const MIXERLINE_COMPONENTTYPE_DST_HEADPHONES: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(5u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const MIXERLINE_COMPONENTTYPE_DST_LINE: MIXERLINE_COMPONENTTYPE = 2u32;
+pub const MIXERLINE_COMPONENTTYPE_DST_LINE: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(2u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const MIXERLINE_COMPONENTTYPE_DST_MONITOR: MIXERLINE_COMPONENTTYPE = 3u32;
+pub const MIXERLINE_COMPONENTTYPE_DST_MONITOR: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(3u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const MIXERLINE_COMPONENTTYPE_DST_SPEAKERS: MIXERLINE_COMPONENTTYPE = 4u32;
+pub const MIXERLINE_COMPONENTTYPE_DST_SPEAKERS: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const MIXERLINE_COMPONENTTYPE_DST_TELEPHONE: MIXERLINE_COMPONENTTYPE = 6u32;
+pub const MIXERLINE_COMPONENTTYPE_DST_TELEPHONE: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(6u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const MIXERLINE_COMPONENTTYPE_DST_UNDEFINED: MIXERLINE_COMPONENTTYPE = 0u32;
+pub const MIXERLINE_COMPONENTTYPE_DST_UNDEFINED: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(0u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const MIXERLINE_COMPONENTTYPE_DST_VOICEIN: MIXERLINE_COMPONENTTYPE = 8u32;
+pub const MIXERLINE_COMPONENTTYPE_DST_VOICEIN: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(8u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const MIXERLINE_COMPONENTTYPE_DST_WAVEIN: MIXERLINE_COMPONENTTYPE = 7u32;
+pub const MIXERLINE_COMPONENTTYPE_DST_WAVEIN: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(7u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const MIXERLINE_COMPONENTTYPE_SRC_ANALOG: MIXERLINE_COMPONENTTYPE = 4106u32;
+pub const MIXERLINE_COMPONENTTYPE_SRC_ANALOG: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4106u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const MIXERLINE_COMPONENTTYPE_SRC_AUXILIARY: MIXERLINE_COMPONENTTYPE = 4105u32;
+pub const MIXERLINE_COMPONENTTYPE_SRC_AUXILIARY: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4105u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const MIXERLINE_COMPONENTTYPE_SRC_COMPACTDISC: MIXERLINE_COMPONENTTYPE = 4101u32;
+pub const MIXERLINE_COMPONENTTYPE_SRC_COMPACTDISC: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4101u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const MIXERLINE_COMPONENTTYPE_SRC_DIGITAL: MIXERLINE_COMPONENTTYPE = 4097u32;
+pub const MIXERLINE_COMPONENTTYPE_SRC_DIGITAL: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4097u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const MIXERLINE_COMPONENTTYPE_SRC_LINE: MIXERLINE_COMPONENTTYPE = 4098u32;
+pub const MIXERLINE_COMPONENTTYPE_SRC_LINE: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4098u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const MIXERLINE_COMPONENTTYPE_SRC_MICROPHONE: MIXERLINE_COMPONENTTYPE = 4099u32;
+pub const MIXERLINE_COMPONENTTYPE_SRC_MICROPHONE: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4099u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const MIXERLINE_COMPONENTTYPE_SRC_PCSPEAKER: MIXERLINE_COMPONENTTYPE = 4103u32;
+pub const MIXERLINE_COMPONENTTYPE_SRC_PCSPEAKER: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4103u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const MIXERLINE_COMPONENTTYPE_SRC_SYNTHESIZER: MIXERLINE_COMPONENTTYPE = 4100u32;
+pub const MIXERLINE_COMPONENTTYPE_SRC_SYNTHESIZER: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4100u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const MIXERLINE_COMPONENTTYPE_SRC_TELEPHONE: MIXERLINE_COMPONENTTYPE = 4102u32;
+pub const MIXERLINE_COMPONENTTYPE_SRC_TELEPHONE: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4102u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const MIXERLINE_COMPONENTTYPE_SRC_UNDEFINED: MIXERLINE_COMPONENTTYPE = 4096u32;
+pub const MIXERLINE_COMPONENTTYPE_SRC_UNDEFINED: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4096u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const MIXERLINE_COMPONENTTYPE_SRC_WAVEOUT: MIXERLINE_COMPONENTTYPE = 4104u32;
+pub const MIXERLINE_COMPONENTTYPE_SRC_WAVEOUT: MIXERLINE_COMPONENTTYPE = MIXERLINE_COMPONENTTYPE(4104u32);
+impl ::core::marker::Copy for MIXERLINE_COMPONENTTYPE {}
+impl ::core::clone::Clone for MIXERLINE_COMPONENTTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MIXERLINE_COMPONENTTYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MIXERLINE_COMPONENTTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MIXERLINE_COMPONENTTYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for MIXERLINE_COMPONENTTYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for MIXERLINE_COMPONENTTYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for MIXERLINE_COMPONENTTYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for MIXERLINE_COMPONENTTYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for MIXERLINE_COMPONENTTYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const MIXERLINE_COMPONENTTYPE_DST_FIRST: i32 = 0i32;
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
@@ -10409,17 +10853,49 @@ pub const PKEY_AudioEngine_DeviceFormat: super::super::UI::Shell::PropertiesSyst
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PKEY_AudioEngine_OEMFormat: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xe4870e26_3cc5_4cd2_ba46_ca0a9a70ed04), pid: 3u32 };
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub type PROCESS_LOOPBACK_MODE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PROCESS_LOOPBACK_MODE(pub i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const PROCESS_LOOPBACK_MODE_INCLUDE_TARGET_PROCESS_TREE: PROCESS_LOOPBACK_MODE = 0i32;
+pub const PROCESS_LOOPBACK_MODE_INCLUDE_TARGET_PROCESS_TREE: PROCESS_LOOPBACK_MODE = PROCESS_LOOPBACK_MODE(0i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const PROCESS_LOOPBACK_MODE_EXCLUDE_TARGET_PROCESS_TREE: PROCESS_LOOPBACK_MODE = 1i32;
+pub const PROCESS_LOOPBACK_MODE_EXCLUDE_TARGET_PROCESS_TREE: PROCESS_LOOPBACK_MODE = PROCESS_LOOPBACK_MODE(1i32);
+impl ::core::marker::Copy for PROCESS_LOOPBACK_MODE {}
+impl ::core::clone::Clone for PROCESS_LOOPBACK_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PROCESS_LOOPBACK_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PROCESS_LOOPBACK_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PROCESS_LOOPBACK_MODE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub type PartType = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PartType(pub i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const Connector: PartType = 0i32;
+pub const Connector: PartType = PartType(0i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const Subunit: PartType = 1i32;
+pub const Subunit: PartType = PartType(1i32);
+impl ::core::marker::Copy for PartType {}
+impl ::core::clone::Clone for PartType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PartType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PartType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PartType").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -10489,11 +10965,55 @@ pub const SPATIAL_AUDIO_POSITION: u32 = 200u32;
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const SPATIAL_AUDIO_STANDARD_COMMANDS_START: u32 = 200u32;
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub type SPATIAL_AUDIO_STREAM_OPTIONS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SPATIAL_AUDIO_STREAM_OPTIONS(pub u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const SPATIAL_AUDIO_STREAM_OPTIONS_NONE: SPATIAL_AUDIO_STREAM_OPTIONS = 0u32;
+pub const SPATIAL_AUDIO_STREAM_OPTIONS_NONE: SPATIAL_AUDIO_STREAM_OPTIONS = SPATIAL_AUDIO_STREAM_OPTIONS(0u32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const SPATIAL_AUDIO_STREAM_OPTIONS_OFFLOAD: SPATIAL_AUDIO_STREAM_OPTIONS = 1u32;
+pub const SPATIAL_AUDIO_STREAM_OPTIONS_OFFLOAD: SPATIAL_AUDIO_STREAM_OPTIONS = SPATIAL_AUDIO_STREAM_OPTIONS(1u32);
+impl ::core::marker::Copy for SPATIAL_AUDIO_STREAM_OPTIONS {}
+impl ::core::clone::Clone for SPATIAL_AUDIO_STREAM_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SPATIAL_AUDIO_STREAM_OPTIONS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SPATIAL_AUDIO_STREAM_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SPATIAL_AUDIO_STREAM_OPTIONS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SPATIAL_AUDIO_STREAM_OPTIONS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SPATIAL_AUDIO_STREAM_OPTIONS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SPATIAL_AUDIO_STREAM_OPTIONS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SPATIAL_AUDIO_STREAM_OPTIONS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SPATIAL_AUDIO_STREAM_OPTIONS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const SPTLAUDCLNT_E_DESTROYED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2004287232i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
@@ -10756,13 +11276,29 @@ impl ::core::default::Default for SpatialAudioHrtfDirectivityCone {
     }
 }
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub type SpatialAudioHrtfDirectivityType = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SpatialAudioHrtfDirectivityType(pub i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const SpatialAudioHrtfDirectivity_OmniDirectional: SpatialAudioHrtfDirectivityType = 0i32;
+pub const SpatialAudioHrtfDirectivity_OmniDirectional: SpatialAudioHrtfDirectivityType = SpatialAudioHrtfDirectivityType(0i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const SpatialAudioHrtfDirectivity_Cardioid: SpatialAudioHrtfDirectivityType = 1i32;
+pub const SpatialAudioHrtfDirectivity_Cardioid: SpatialAudioHrtfDirectivityType = SpatialAudioHrtfDirectivityType(1i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const SpatialAudioHrtfDirectivity_Cone: SpatialAudioHrtfDirectivityType = 2i32;
+pub const SpatialAudioHrtfDirectivity_Cone: SpatialAudioHrtfDirectivityType = SpatialAudioHrtfDirectivityType(2i32);
+impl ::core::marker::Copy for SpatialAudioHrtfDirectivityType {}
+impl ::core::clone::Clone for SpatialAudioHrtfDirectivityType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SpatialAudioHrtfDirectivityType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SpatialAudioHrtfDirectivityType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialAudioHrtfDirectivityType").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub union SpatialAudioHrtfDirectivityUnion {
@@ -10820,33 +11356,81 @@ impl ::core::default::Default for SpatialAudioHrtfDistanceDecay {
     }
 }
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub type SpatialAudioHrtfDistanceDecayType = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SpatialAudioHrtfDistanceDecayType(pub i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const SpatialAudioHrtfDistanceDecay_NaturalDecay: SpatialAudioHrtfDistanceDecayType = 0i32;
+pub const SpatialAudioHrtfDistanceDecay_NaturalDecay: SpatialAudioHrtfDistanceDecayType = SpatialAudioHrtfDistanceDecayType(0i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const SpatialAudioHrtfDistanceDecay_CustomDecay: SpatialAudioHrtfDistanceDecayType = 1i32;
+pub const SpatialAudioHrtfDistanceDecay_CustomDecay: SpatialAudioHrtfDistanceDecayType = SpatialAudioHrtfDistanceDecayType(1i32);
+impl ::core::marker::Copy for SpatialAudioHrtfDistanceDecayType {}
+impl ::core::clone::Clone for SpatialAudioHrtfDistanceDecayType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SpatialAudioHrtfDistanceDecayType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SpatialAudioHrtfDistanceDecayType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialAudioHrtfDistanceDecayType").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub type SpatialAudioHrtfEnvironmentType = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SpatialAudioHrtfEnvironmentType(pub i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const SpatialAudioHrtfEnvironment_Small: SpatialAudioHrtfEnvironmentType = 0i32;
+pub const SpatialAudioHrtfEnvironment_Small: SpatialAudioHrtfEnvironmentType = SpatialAudioHrtfEnvironmentType(0i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const SpatialAudioHrtfEnvironment_Medium: SpatialAudioHrtfEnvironmentType = 1i32;
+pub const SpatialAudioHrtfEnvironment_Medium: SpatialAudioHrtfEnvironmentType = SpatialAudioHrtfEnvironmentType(1i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const SpatialAudioHrtfEnvironment_Large: SpatialAudioHrtfEnvironmentType = 2i32;
+pub const SpatialAudioHrtfEnvironment_Large: SpatialAudioHrtfEnvironmentType = SpatialAudioHrtfEnvironmentType(2i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const SpatialAudioHrtfEnvironment_Outdoors: SpatialAudioHrtfEnvironmentType = 3i32;
+pub const SpatialAudioHrtfEnvironment_Outdoors: SpatialAudioHrtfEnvironmentType = SpatialAudioHrtfEnvironmentType(3i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const SpatialAudioHrtfEnvironment_Average: SpatialAudioHrtfEnvironmentType = 4i32;
+pub const SpatialAudioHrtfEnvironment_Average: SpatialAudioHrtfEnvironmentType = SpatialAudioHrtfEnvironmentType(4i32);
+impl ::core::marker::Copy for SpatialAudioHrtfEnvironmentType {}
+impl ::core::clone::Clone for SpatialAudioHrtfEnvironmentType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SpatialAudioHrtfEnvironmentType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SpatialAudioHrtfEnvironmentType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialAudioHrtfEnvironmentType").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub type SpatialAudioMetadataCopyMode = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SpatialAudioMetadataCopyMode(pub i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const SpatialAudioMetadataCopy_Overwrite: SpatialAudioMetadataCopyMode = 0i32;
+pub const SpatialAudioMetadataCopy_Overwrite: SpatialAudioMetadataCopyMode = SpatialAudioMetadataCopyMode(0i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const SpatialAudioMetadataCopy_Append: SpatialAudioMetadataCopyMode = 1i32;
+pub const SpatialAudioMetadataCopy_Append: SpatialAudioMetadataCopyMode = SpatialAudioMetadataCopyMode(1i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const SpatialAudioMetadataCopy_AppendMergeWithLast: SpatialAudioMetadataCopyMode = 2i32;
+pub const SpatialAudioMetadataCopy_AppendMergeWithLast: SpatialAudioMetadataCopyMode = SpatialAudioMetadataCopyMode(2i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const SpatialAudioMetadataCopy_AppendMergeWithFirst: SpatialAudioMetadataCopyMode = 3i32;
+pub const SpatialAudioMetadataCopy_AppendMergeWithFirst: SpatialAudioMetadataCopyMode = SpatialAudioMetadataCopyMode(3i32);
+impl ::core::marker::Copy for SpatialAudioMetadataCopyMode {}
+impl ::core::clone::Clone for SpatialAudioMetadataCopyMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SpatialAudioMetadataCopyMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SpatialAudioMetadataCopyMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialAudioMetadataCopyMode").field(&self.0).finish()
+    }
+}
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub struct SpatialAudioMetadataItemsInfo {
@@ -10876,13 +11460,29 @@ impl ::core::default::Default for SpatialAudioMetadataItemsInfo {
     }
 }
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub type SpatialAudioMetadataWriterOverflowMode = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SpatialAudioMetadataWriterOverflowMode(pub i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const SpatialAudioMetadataWriterOverflow_Fail: SpatialAudioMetadataWriterOverflowMode = 0i32;
+pub const SpatialAudioMetadataWriterOverflow_Fail: SpatialAudioMetadataWriterOverflowMode = SpatialAudioMetadataWriterOverflowMode(0i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const SpatialAudioMetadataWriterOverflow_MergeWithNew: SpatialAudioMetadataWriterOverflowMode = 1i32;
+pub const SpatialAudioMetadataWriterOverflow_MergeWithNew: SpatialAudioMetadataWriterOverflowMode = SpatialAudioMetadataWriterOverflowMode(1i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const SpatialAudioMetadataWriterOverflow_MergeWithLast: SpatialAudioMetadataWriterOverflowMode = 2i32;
+pub const SpatialAudioMetadataWriterOverflow_MergeWithLast: SpatialAudioMetadataWriterOverflowMode = SpatialAudioMetadataWriterOverflowMode(2i32);
+impl ::core::marker::Copy for SpatialAudioMetadataWriterOverflowMode {}
+impl ::core::clone::Clone for SpatialAudioMetadataWriterOverflowMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SpatialAudioMetadataWriterOverflowMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SpatialAudioMetadataWriterOverflowMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialAudioMetadataWriterOverflowMode").field(&self.0).finish()
+    }
+}
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11614,23 +12214,55 @@ pub const WIDM_MAPPER_STATUS: u32 = 8192u32;
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
 pub const WODM_MAPPER_STATUS: u32 = 8192u32;
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub type _AUDCLNT_BUFFERFLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct _AUDCLNT_BUFFERFLAGS(pub i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AUDCLNT_BUFFERFLAGS_DATA_DISCONTINUITY: _AUDCLNT_BUFFERFLAGS = 1i32;
+pub const AUDCLNT_BUFFERFLAGS_DATA_DISCONTINUITY: _AUDCLNT_BUFFERFLAGS = _AUDCLNT_BUFFERFLAGS(1i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AUDCLNT_BUFFERFLAGS_SILENT: _AUDCLNT_BUFFERFLAGS = 2i32;
+pub const AUDCLNT_BUFFERFLAGS_SILENT: _AUDCLNT_BUFFERFLAGS = _AUDCLNT_BUFFERFLAGS(2i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AUDCLNT_BUFFERFLAGS_TIMESTAMP_ERROR: _AUDCLNT_BUFFERFLAGS = 4i32;
+pub const AUDCLNT_BUFFERFLAGS_TIMESTAMP_ERROR: _AUDCLNT_BUFFERFLAGS = _AUDCLNT_BUFFERFLAGS(4i32);
+impl ::core::marker::Copy for _AUDCLNT_BUFFERFLAGS {}
+impl ::core::clone::Clone for _AUDCLNT_BUFFERFLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for _AUDCLNT_BUFFERFLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for _AUDCLNT_BUFFERFLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_AUDCLNT_BUFFERFLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub type __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002(pub i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_DEFAULT: __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 = 0i32;
+pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_DEFAULT: __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 = __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002(0i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_USER: __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 = 1i32;
+pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_USER: __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 = __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002(1i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_VOLATILE: __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 = 2i32;
+pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_VOLATILE: __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 = __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002(2i32);
 #[doc = "*Required features: 'Win32_Media_Audio'*"]
-pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_ENUM_COUNT: __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 = 3i32;
+pub const AUDIO_SYSTEMEFFECTS_PROPERTYSTORE_TYPE_ENUM_COUNT: __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 = __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002(3i32);
+impl ::core::marker::Copy for __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 {}
+impl ::core::clone::Clone for __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for __MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("__MIDL___MIDL_itf_mmdeviceapi_0000_0008_0002").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_Audio', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]

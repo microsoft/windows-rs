@@ -41,17 +41,33 @@ pub const DEVPKEY_AudioEndpointPlugin_FactoryCLSID: super::super::super::UI::She
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_AudioEndpointPlugin_PnPInterface: super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x12d83bd7_cf12_46be_8540_812710d3021c), pid: 3u32 };
 #[doc = "*Required features: 'Win32_Media_Audio_Endpoints'*"]
-pub type EndpointConnectorType = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct EndpointConnectorType(pub i32);
 #[doc = "*Required features: 'Win32_Media_Audio_Endpoints'*"]
-pub const eHostProcessConnector: EndpointConnectorType = 0i32;
+pub const eHostProcessConnector: EndpointConnectorType = EndpointConnectorType(0i32);
 #[doc = "*Required features: 'Win32_Media_Audio_Endpoints'*"]
-pub const eOffloadConnector: EndpointConnectorType = 1i32;
+pub const eOffloadConnector: EndpointConnectorType = EndpointConnectorType(1i32);
 #[doc = "*Required features: 'Win32_Media_Audio_Endpoints'*"]
-pub const eLoopbackConnector: EndpointConnectorType = 2i32;
+pub const eLoopbackConnector: EndpointConnectorType = EndpointConnectorType(2i32);
 #[doc = "*Required features: 'Win32_Media_Audio_Endpoints'*"]
-pub const eKeywordDetectorConnector: EndpointConnectorType = 3i32;
+pub const eKeywordDetectorConnector: EndpointConnectorType = EndpointConnectorType(3i32);
 #[doc = "*Required features: 'Win32_Media_Audio_Endpoints'*"]
-pub const eConnectorCount: EndpointConnectorType = 4i32;
+pub const eConnectorCount: EndpointConnectorType = EndpointConnectorType(4i32);
+impl ::core::marker::Copy for EndpointConnectorType {}
+impl ::core::clone::Clone for EndpointConnectorType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for EndpointConnectorType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EndpointConnectorType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EndpointConnectorType").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_Audio_Endpoints'*"]
 #[repr(transparent)]
 pub struct IAudioEndpointFormatControl(::windows::core::IUnknown);

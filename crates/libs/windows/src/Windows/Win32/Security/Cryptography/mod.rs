@@ -516,11 +516,55 @@ impl ::core::default::Default for BCRYPT_DH_KEY_BLOB {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type BCRYPT_DH_KEY_BLOB_MAGIC = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct BCRYPT_DH_KEY_BLOB_MAGIC(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_DH_PUBLIC_MAGIC: BCRYPT_DH_KEY_BLOB_MAGIC = 1112557636u32;
+pub const BCRYPT_DH_PUBLIC_MAGIC: BCRYPT_DH_KEY_BLOB_MAGIC = BCRYPT_DH_KEY_BLOB_MAGIC(1112557636u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_DH_PRIVATE_MAGIC: BCRYPT_DH_KEY_BLOB_MAGIC = 1448101956u32;
+pub const BCRYPT_DH_PRIVATE_MAGIC: BCRYPT_DH_KEY_BLOB_MAGIC = BCRYPT_DH_KEY_BLOB_MAGIC(1448101956u32);
+impl ::core::marker::Copy for BCRYPT_DH_KEY_BLOB_MAGIC {}
+impl ::core::clone::Clone for BCRYPT_DH_KEY_BLOB_MAGIC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BCRYPT_DH_KEY_BLOB_MAGIC {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BCRYPT_DH_KEY_BLOB_MAGIC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BCRYPT_DH_KEY_BLOB_MAGIC").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for BCRYPT_DH_KEY_BLOB_MAGIC {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for BCRYPT_DH_KEY_BLOB_MAGIC {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for BCRYPT_DH_KEY_BLOB_MAGIC {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for BCRYPT_DH_KEY_BLOB_MAGIC {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for BCRYPT_DH_KEY_BLOB_MAGIC {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const BCRYPT_DH_PARAMETERS_MAGIC: u32 = 1297107012u32;
 #[repr(C)]
@@ -628,11 +672,55 @@ impl ::core::default::Default for BCRYPT_DSA_KEY_BLOB_V2 {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type BCRYPT_DSA_MAGIC = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct BCRYPT_DSA_MAGIC(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_DSA_PUBLIC_MAGIC: BCRYPT_DSA_MAGIC = 1112560452u32;
+pub const BCRYPT_DSA_PUBLIC_MAGIC: BCRYPT_DSA_MAGIC = BCRYPT_DSA_MAGIC(1112560452u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_DSA_PRIVATE_MAGIC: BCRYPT_DSA_MAGIC = 1448104772u32;
+pub const BCRYPT_DSA_PRIVATE_MAGIC: BCRYPT_DSA_MAGIC = BCRYPT_DSA_MAGIC(1448104772u32);
+impl ::core::marker::Copy for BCRYPT_DSA_MAGIC {}
+impl ::core::clone::Clone for BCRYPT_DSA_MAGIC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BCRYPT_DSA_MAGIC {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BCRYPT_DSA_MAGIC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BCRYPT_DSA_MAGIC").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for BCRYPT_DSA_MAGIC {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for BCRYPT_DSA_MAGIC {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for BCRYPT_DSA_MAGIC {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for BCRYPT_DSA_MAGIC {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for BCRYPT_DSA_MAGIC {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const BCRYPT_DSA_PARAMETERS_MAGIC: u32 = 1297109828u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -881,11 +969,27 @@ pub const BCRYPT_GENERATE_IV: u32 = 32u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const BCRYPT_HASH_INTERFACE_MAJORVERSION_2: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type BCRYPT_HASH_OPERATION_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct BCRYPT_HASH_OPERATION_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_HASH_OPERATION_HASH_DATA: BCRYPT_HASH_OPERATION_TYPE = 1i32;
+pub const BCRYPT_HASH_OPERATION_HASH_DATA: BCRYPT_HASH_OPERATION_TYPE = BCRYPT_HASH_OPERATION_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_HASH_OPERATION_FINISH_HASH: BCRYPT_HASH_OPERATION_TYPE = 2i32;
+pub const BCRYPT_HASH_OPERATION_FINISH_HASH: BCRYPT_HASH_OPERATION_TYPE = BCRYPT_HASH_OPERATION_TYPE(2i32);
+impl ::core::marker::Copy for BCRYPT_HASH_OPERATION_TYPE {}
+impl ::core::clone::Clone for BCRYPT_HASH_OPERATION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BCRYPT_HASH_OPERATION_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BCRYPT_HASH_OPERATION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BCRYPT_HASH_OPERATION_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const BCRYPT_HKDF_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(913u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -903,25 +1007,69 @@ pub const BCRYPT_HMAC_SHA384_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(1
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const BCRYPT_HMAC_SHA512_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(209u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type BCRYPT_INTERFACE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct BCRYPT_INTERFACE(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_ASYMMETRIC_ENCRYPTION_INTERFACE: BCRYPT_INTERFACE = 3u32;
+pub const BCRYPT_ASYMMETRIC_ENCRYPTION_INTERFACE: BCRYPT_INTERFACE = BCRYPT_INTERFACE(3u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_CIPHER_INTERFACE: BCRYPT_INTERFACE = 1u32;
+pub const BCRYPT_CIPHER_INTERFACE: BCRYPT_INTERFACE = BCRYPT_INTERFACE(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_HASH_INTERFACE: BCRYPT_INTERFACE = 2u32;
+pub const BCRYPT_HASH_INTERFACE: BCRYPT_INTERFACE = BCRYPT_INTERFACE(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_RNG_INTERFACE: BCRYPT_INTERFACE = 6u32;
+pub const BCRYPT_RNG_INTERFACE: BCRYPT_INTERFACE = BCRYPT_INTERFACE(6u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_SECRET_AGREEMENT_INTERFACE: BCRYPT_INTERFACE = 4u32;
+pub const BCRYPT_SECRET_AGREEMENT_INTERFACE: BCRYPT_INTERFACE = BCRYPT_INTERFACE(4u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_SIGNATURE_INTERFACE: BCRYPT_INTERFACE = 5u32;
+pub const BCRYPT_SIGNATURE_INTERFACE: BCRYPT_INTERFACE = BCRYPT_INTERFACE(5u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const NCRYPT_KEY_STORAGE_INTERFACE: BCRYPT_INTERFACE = 65537u32;
+pub const NCRYPT_KEY_STORAGE_INTERFACE: BCRYPT_INTERFACE = BCRYPT_INTERFACE(65537u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const NCRYPT_SCHANNEL_INTERFACE: BCRYPT_INTERFACE = 65538u32;
+pub const NCRYPT_SCHANNEL_INTERFACE: BCRYPT_INTERFACE = BCRYPT_INTERFACE(65538u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const NCRYPT_SCHANNEL_SIGNATURE_INTERFACE: BCRYPT_INTERFACE = 65539u32;
+pub const NCRYPT_SCHANNEL_SIGNATURE_INTERFACE: BCRYPT_INTERFACE = BCRYPT_INTERFACE(65539u32);
+impl ::core::marker::Copy for BCRYPT_INTERFACE {}
+impl ::core::clone::Clone for BCRYPT_INTERFACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BCRYPT_INTERFACE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BCRYPT_INTERFACE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BCRYPT_INTERFACE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for BCRYPT_INTERFACE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for BCRYPT_INTERFACE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for BCRYPT_INTERFACE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for BCRYPT_INTERFACE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for BCRYPT_INTERFACE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub struct BCRYPT_INTERFACE_VERSION {
@@ -1168,9 +1316,25 @@ impl ::core::default::Default for BCRYPT_MULTI_OBJECT_LENGTH_STRUCT {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type BCRYPT_MULTI_OPERATION_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct BCRYPT_MULTI_OPERATION_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_OPERATION_TYPE_HASH: BCRYPT_MULTI_OPERATION_TYPE = 1i32;
+pub const BCRYPT_OPERATION_TYPE_HASH: BCRYPT_MULTI_OPERATION_TYPE = BCRYPT_MULTI_OPERATION_TYPE(1i32);
+impl ::core::marker::Copy for BCRYPT_MULTI_OPERATION_TYPE {}
+impl ::core::clone::Clone for BCRYPT_MULTI_OPERATION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BCRYPT_MULTI_OPERATION_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BCRYPT_MULTI_OPERATION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BCRYPT_MULTI_OPERATION_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const BCRYPT_NO_KEY_VALIDATION: u32 = 8u32;
 #[repr(C)]
@@ -1278,27 +1442,115 @@ impl ::core::default::Default for BCRYPT_OID_LIST {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_ALG_HANDLE_HMAC_FLAG: BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS = 8u32;
+pub const BCRYPT_ALG_HANDLE_HMAC_FLAG: BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS = BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_PROV_DISPATCH: BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS = 1u32;
+pub const BCRYPT_PROV_DISPATCH: BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS = BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_HASH_REUSABLE_FLAG: BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS = 32u32;
+pub const BCRYPT_HASH_REUSABLE_FLAG: BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS = BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS(32u32);
+impl ::core::marker::Copy for BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS {}
+impl ::core::clone::Clone for BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for BCRYPT_OPEN_ALGORITHM_PROVIDER_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type BCRYPT_OPERATION = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct BCRYPT_OPERATION(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_CIPHER_OPERATION: BCRYPT_OPERATION = 1u32;
+pub const BCRYPT_CIPHER_OPERATION: BCRYPT_OPERATION = BCRYPT_OPERATION(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_HASH_OPERATION: BCRYPT_OPERATION = 2u32;
+pub const BCRYPT_HASH_OPERATION: BCRYPT_OPERATION = BCRYPT_OPERATION(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_ASYMMETRIC_ENCRYPTION_OPERATION: BCRYPT_OPERATION = 4u32;
+pub const BCRYPT_ASYMMETRIC_ENCRYPTION_OPERATION: BCRYPT_OPERATION = BCRYPT_OPERATION(4u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_SECRET_AGREEMENT_OPERATION: BCRYPT_OPERATION = 8u32;
+pub const BCRYPT_SECRET_AGREEMENT_OPERATION: BCRYPT_OPERATION = BCRYPT_OPERATION(8u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_SIGNATURE_OPERATION: BCRYPT_OPERATION = 16u32;
+pub const BCRYPT_SIGNATURE_OPERATION: BCRYPT_OPERATION = BCRYPT_OPERATION(16u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_RNG_OPERATION: BCRYPT_OPERATION = 32u32;
+pub const BCRYPT_RNG_OPERATION: BCRYPT_OPERATION = BCRYPT_OPERATION(32u32);
+impl ::core::marker::Copy for BCRYPT_OPERATION {}
+impl ::core::clone::Clone for BCRYPT_OPERATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BCRYPT_OPERATION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BCRYPT_OPERATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BCRYPT_OPERATION").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for BCRYPT_OPERATION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for BCRYPT_OPERATION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for BCRYPT_OPERATION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for BCRYPT_OPERATION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for BCRYPT_OPERATION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const BCRYPT_PAD_PKCS1_OPTIONAL_HASH_OID: u32 = 16u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -1423,15 +1675,59 @@ impl ::core::default::Default for BCRYPT_PSS_PADDING_INFO {
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const BCRYPT_PUBLIC_KEY_FLAG: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type BCRYPT_QUERY_PROVIDER_MODE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct BCRYPT_QUERY_PROVIDER_MODE(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_ANY: BCRYPT_QUERY_PROVIDER_MODE = 4u32;
+pub const CRYPT_ANY: BCRYPT_QUERY_PROVIDER_MODE = BCRYPT_QUERY_PROVIDER_MODE(4u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_UM: BCRYPT_QUERY_PROVIDER_MODE = 1u32;
+pub const CRYPT_UM: BCRYPT_QUERY_PROVIDER_MODE = BCRYPT_QUERY_PROVIDER_MODE(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_KM: BCRYPT_QUERY_PROVIDER_MODE = 2u32;
+pub const CRYPT_KM: BCRYPT_QUERY_PROVIDER_MODE = BCRYPT_QUERY_PROVIDER_MODE(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_MM: BCRYPT_QUERY_PROVIDER_MODE = 3u32;
+pub const CRYPT_MM: BCRYPT_QUERY_PROVIDER_MODE = BCRYPT_QUERY_PROVIDER_MODE(3u32);
+impl ::core::marker::Copy for BCRYPT_QUERY_PROVIDER_MODE {}
+impl ::core::clone::Clone for BCRYPT_QUERY_PROVIDER_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BCRYPT_QUERY_PROVIDER_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BCRYPT_QUERY_PROVIDER_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BCRYPT_QUERY_PROVIDER_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for BCRYPT_QUERY_PROVIDER_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for BCRYPT_QUERY_PROVIDER_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for BCRYPT_QUERY_PROVIDER_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for BCRYPT_QUERY_PROVIDER_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for BCRYPT_QUERY_PROVIDER_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const BCRYPT_RC2_CBC_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(593u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -1441,11 +1737,55 @@ pub const BCRYPT_RC2_ECB_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(609u3
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const BCRYPT_RC4_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(113u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type BCRYPT_RESOLVE_PROVIDERS_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct BCRYPT_RESOLVE_PROVIDERS_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_ALL_FUNCTIONS: BCRYPT_RESOLVE_PROVIDERS_FLAGS = 1u32;
+pub const CRYPT_ALL_FUNCTIONS: BCRYPT_RESOLVE_PROVIDERS_FLAGS = BCRYPT_RESOLVE_PROVIDERS_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_ALL_PROVIDERS: BCRYPT_RESOLVE_PROVIDERS_FLAGS = 2u32;
+pub const CRYPT_ALL_PROVIDERS: BCRYPT_RESOLVE_PROVIDERS_FLAGS = BCRYPT_RESOLVE_PROVIDERS_FLAGS(2u32);
+impl ::core::marker::Copy for BCRYPT_RESOLVE_PROVIDERS_FLAGS {}
+impl ::core::clone::Clone for BCRYPT_RESOLVE_PROVIDERS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BCRYPT_RESOLVE_PROVIDERS_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BCRYPT_RESOLVE_PROVIDERS_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BCRYPT_RESOLVE_PROVIDERS_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for BCRYPT_RESOLVE_PROVIDERS_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for BCRYPT_RESOLVE_PROVIDERS_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for BCRYPT_RESOLVE_PROVIDERS_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for BCRYPT_RESOLVE_PROVIDERS_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for BCRYPT_RESOLVE_PROVIDERS_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const BCRYPT_RNG_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(129u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -1486,13 +1826,57 @@ impl ::core::default::Default for BCRYPT_RSAKEY_BLOB {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type BCRYPT_RSAKEY_BLOB_MAGIC = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct BCRYPT_RSAKEY_BLOB_MAGIC(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_RSAPUBLIC_MAGIC: BCRYPT_RSAKEY_BLOB_MAGIC = 826364754u32;
+pub const BCRYPT_RSAPUBLIC_MAGIC: BCRYPT_RSAKEY_BLOB_MAGIC = BCRYPT_RSAKEY_BLOB_MAGIC(826364754u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_RSAPRIVATE_MAGIC: BCRYPT_RSAKEY_BLOB_MAGIC = 843141970u32;
+pub const BCRYPT_RSAPRIVATE_MAGIC: BCRYPT_RSAKEY_BLOB_MAGIC = BCRYPT_RSAKEY_BLOB_MAGIC(843141970u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_RSAFULLPRIVATE_MAGIC: BCRYPT_RSAKEY_BLOB_MAGIC = 859919186u32;
+pub const BCRYPT_RSAFULLPRIVATE_MAGIC: BCRYPT_RSAKEY_BLOB_MAGIC = BCRYPT_RSAKEY_BLOB_MAGIC(859919186u32);
+impl ::core::marker::Copy for BCRYPT_RSAKEY_BLOB_MAGIC {}
+impl ::core::clone::Clone for BCRYPT_RSAKEY_BLOB_MAGIC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BCRYPT_RSAKEY_BLOB_MAGIC {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BCRYPT_RSAKEY_BLOB_MAGIC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BCRYPT_RSAKEY_BLOB_MAGIC").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for BCRYPT_RSAKEY_BLOB_MAGIC {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for BCRYPT_RSAKEY_BLOB_MAGIC {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for BCRYPT_RSAKEY_BLOB_MAGIC {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for BCRYPT_RSAKEY_BLOB_MAGIC {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for BCRYPT_RSAKEY_BLOB_MAGIC {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const BCRYPT_RSA_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(225u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -1520,11 +1904,55 @@ pub const BCRYPT_SUPPORTED_PAD_PSS: u32 = 16u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const BCRYPT_SUPPORTED_PAD_ROUTER: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type BCRYPT_TABLE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct BCRYPT_TABLE(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_LOCAL: BCRYPT_TABLE = 1u32;
+pub const CRYPT_LOCAL: BCRYPT_TABLE = BCRYPT_TABLE(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_DOMAIN: BCRYPT_TABLE = 2u32;
+pub const CRYPT_DOMAIN: BCRYPT_TABLE = BCRYPT_TABLE(2u32);
+impl ::core::marker::Copy for BCRYPT_TABLE {}
+impl ::core::clone::Clone for BCRYPT_TABLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BCRYPT_TABLE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BCRYPT_TABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BCRYPT_TABLE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for BCRYPT_TABLE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for BCRYPT_TABLE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for BCRYPT_TABLE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for BCRYPT_TABLE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for BCRYPT_TABLE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const BCRYPT_TLS1_1_KDF_ALG_HANDLE: BCRYPT_ALG_HANDLE = BCRYPT_ALG_HANDLE(865u32 as _);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -2398,57 +2826,89 @@ pub const CALG_OID_INFO_CNG_ONLY: u32 = 4294967295u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CALG_OID_INFO_PARAMETERS: u32 = 4294967294u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CASetupProperty = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CASetupProperty(pub i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ENUM_SETUPPROP_INVALID: CASetupProperty = -1i32;
+pub const ENUM_SETUPPROP_INVALID: CASetupProperty = CASetupProperty(-1i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ENUM_SETUPPROP_CATYPE: CASetupProperty = 0i32;
+pub const ENUM_SETUPPROP_CATYPE: CASetupProperty = CASetupProperty(0i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ENUM_SETUPPROP_CAKEYINFORMATION: CASetupProperty = 1i32;
+pub const ENUM_SETUPPROP_CAKEYINFORMATION: CASetupProperty = CASetupProperty(1i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ENUM_SETUPPROP_INTERACTIVE: CASetupProperty = 2i32;
+pub const ENUM_SETUPPROP_INTERACTIVE: CASetupProperty = CASetupProperty(2i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ENUM_SETUPPROP_CANAME: CASetupProperty = 3i32;
+pub const ENUM_SETUPPROP_CANAME: CASetupProperty = CASetupProperty(3i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ENUM_SETUPPROP_CADSSUFFIX: CASetupProperty = 4i32;
+pub const ENUM_SETUPPROP_CADSSUFFIX: CASetupProperty = CASetupProperty(4i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ENUM_SETUPPROP_VALIDITYPERIOD: CASetupProperty = 5i32;
+pub const ENUM_SETUPPROP_VALIDITYPERIOD: CASetupProperty = CASetupProperty(5i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ENUM_SETUPPROP_VALIDITYPERIODUNIT: CASetupProperty = 6i32;
+pub const ENUM_SETUPPROP_VALIDITYPERIODUNIT: CASetupProperty = CASetupProperty(6i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ENUM_SETUPPROP_EXPIRATIONDATE: CASetupProperty = 7i32;
+pub const ENUM_SETUPPROP_EXPIRATIONDATE: CASetupProperty = CASetupProperty(7i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ENUM_SETUPPROP_PRESERVEDATABASE: CASetupProperty = 8i32;
+pub const ENUM_SETUPPROP_PRESERVEDATABASE: CASetupProperty = CASetupProperty(8i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ENUM_SETUPPROP_DATABASEDIRECTORY: CASetupProperty = 9i32;
+pub const ENUM_SETUPPROP_DATABASEDIRECTORY: CASetupProperty = CASetupProperty(9i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ENUM_SETUPPROP_LOGDIRECTORY: CASetupProperty = 10i32;
+pub const ENUM_SETUPPROP_LOGDIRECTORY: CASetupProperty = CASetupProperty(10i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ENUM_SETUPPROP_SHAREDFOLDER: CASetupProperty = 11i32;
+pub const ENUM_SETUPPROP_SHAREDFOLDER: CASetupProperty = CASetupProperty(11i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ENUM_SETUPPROP_PARENTCAMACHINE: CASetupProperty = 12i32;
+pub const ENUM_SETUPPROP_PARENTCAMACHINE: CASetupProperty = CASetupProperty(12i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ENUM_SETUPPROP_PARENTCANAME: CASetupProperty = 13i32;
+pub const ENUM_SETUPPROP_PARENTCANAME: CASetupProperty = CASetupProperty(13i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ENUM_SETUPPROP_REQUESTFILE: CASetupProperty = 14i32;
+pub const ENUM_SETUPPROP_REQUESTFILE: CASetupProperty = CASetupProperty(14i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ENUM_SETUPPROP_WEBCAMACHINE: CASetupProperty = 15i32;
+pub const ENUM_SETUPPROP_WEBCAMACHINE: CASetupProperty = CASetupProperty(15i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ENUM_SETUPPROP_WEBCANAME: CASetupProperty = 16i32;
+pub const ENUM_SETUPPROP_WEBCANAME: CASetupProperty = CASetupProperty(16i32);
+impl ::core::marker::Copy for CASetupProperty {}
+impl ::core::clone::Clone for CASetupProperty {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CASetupProperty {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CASetupProperty {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CASetupProperty").field(&self.0).finish()
+    }
+}
 pub const CCertSrvSetup: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x961f180f_f55c_413d_a9b3_7d2af4d8e42f);
 pub const CCertSrvSetupKeyInformation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38373906_5433_4633_b0fb_29b7e78262e1);
 pub const CCertificateEnrollmentPolicyServerSetup: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xafe2fa32_41b1_459d_a5de_49add8a72182);
 pub const CCertificateEnrollmentServerSetup: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9902f3bc_88af_4cf8_ae62_7140531552b6);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CEPSetupProperty = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CEPSetupProperty(pub i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ENUM_CEPSETUPPROP_AUTHENTICATION: CEPSetupProperty = 0i32;
+pub const ENUM_CEPSETUPPROP_AUTHENTICATION: CEPSetupProperty = CEPSetupProperty(0i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ENUM_CEPSETUPPROP_SSLCERTHASH: CEPSetupProperty = 1i32;
+pub const ENUM_CEPSETUPPROP_SSLCERTHASH: CEPSetupProperty = CEPSetupProperty(1i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ENUM_CEPSETUPPROP_URL: CEPSetupProperty = 2i32;
+pub const ENUM_CEPSETUPPROP_URL: CEPSetupProperty = CEPSetupProperty(2i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ENUM_CEPSETUPPROP_KEYBASED_RENEWAL: CEPSetupProperty = 3i32;
+pub const ENUM_CEPSETUPPROP_KEYBASED_RENEWAL: CEPSetupProperty = CEPSetupProperty(3i32);
+impl ::core::marker::Copy for CEPSetupProperty {}
+impl ::core::clone::Clone for CEPSetupProperty {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CEPSetupProperty {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CEPSetupProperty {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CEPSetupProperty").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub struct CERTIFICATE_CHAIN_BLOB {
@@ -2930,11 +3390,55 @@ impl ::core::default::Default for CERT_BIOMETRIC_DATA_0 {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CERT_BIOMETRIC_DATA_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CERT_BIOMETRIC_DATA_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_BIOMETRIC_PREDEFINED_DATA_CHOICE: CERT_BIOMETRIC_DATA_TYPE = 1u32;
+pub const CERT_BIOMETRIC_PREDEFINED_DATA_CHOICE: CERT_BIOMETRIC_DATA_TYPE = CERT_BIOMETRIC_DATA_TYPE(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_BIOMETRIC_OID_DATA_CHOICE: CERT_BIOMETRIC_DATA_TYPE = 2u32;
+pub const CERT_BIOMETRIC_OID_DATA_CHOICE: CERT_BIOMETRIC_DATA_TYPE = CERT_BIOMETRIC_DATA_TYPE(2u32);
+impl ::core::marker::Copy for CERT_BIOMETRIC_DATA_TYPE {}
+impl ::core::clone::Clone for CERT_BIOMETRIC_DATA_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CERT_BIOMETRIC_DATA_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CERT_BIOMETRIC_DATA_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CERT_BIOMETRIC_DATA_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CERT_BIOMETRIC_DATA_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CERT_BIOMETRIC_DATA_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CERT_BIOMETRIC_DATA_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CERT_BIOMETRIC_DATA_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CERT_BIOMETRIC_DATA_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3403,43 +3907,87 @@ impl ::core::default::Default for CERT_CHAIN_PARA {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CERT_CHAIN_POLICY_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CERT_CHAIN_POLICY_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_CHAIN_POLICY_IGNORE_NOT_TIME_VALID_FLAG: CERT_CHAIN_POLICY_FLAGS = 1u32;
+pub const CERT_CHAIN_POLICY_IGNORE_NOT_TIME_VALID_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_CHAIN_POLICY_IGNORE_CTL_NOT_TIME_VALID_FLAG: CERT_CHAIN_POLICY_FLAGS = 2u32;
+pub const CERT_CHAIN_POLICY_IGNORE_CTL_NOT_TIME_VALID_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_CHAIN_POLICY_IGNORE_NOT_TIME_NESTED_FLAG: CERT_CHAIN_POLICY_FLAGS = 4u32;
+pub const CERT_CHAIN_POLICY_IGNORE_NOT_TIME_NESTED_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_CHAIN_POLICY_IGNORE_ALL_NOT_TIME_VALID_FLAGS: CERT_CHAIN_POLICY_FLAGS = 7u32;
+pub const CERT_CHAIN_POLICY_IGNORE_ALL_NOT_TIME_VALID_FLAGS: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(7u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_CHAIN_POLICY_IGNORE_INVALID_BASIC_CONSTRAINTS_FLAG: CERT_CHAIN_POLICY_FLAGS = 8u32;
+pub const CERT_CHAIN_POLICY_IGNORE_INVALID_BASIC_CONSTRAINTS_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_CHAIN_POLICY_ALLOW_UNKNOWN_CA_FLAG: CERT_CHAIN_POLICY_FLAGS = 16u32;
+pub const CERT_CHAIN_POLICY_ALLOW_UNKNOWN_CA_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_CHAIN_POLICY_IGNORE_WRONG_USAGE_FLAG: CERT_CHAIN_POLICY_FLAGS = 32u32;
+pub const CERT_CHAIN_POLICY_IGNORE_WRONG_USAGE_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(32u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_CHAIN_POLICY_IGNORE_INVALID_NAME_FLAG: CERT_CHAIN_POLICY_FLAGS = 64u32;
+pub const CERT_CHAIN_POLICY_IGNORE_INVALID_NAME_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(64u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_CHAIN_POLICY_IGNORE_INVALID_POLICY_FLAG: CERT_CHAIN_POLICY_FLAGS = 128u32;
+pub const CERT_CHAIN_POLICY_IGNORE_INVALID_POLICY_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(128u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_CHAIN_POLICY_IGNORE_END_REV_UNKNOWN_FLAG: CERT_CHAIN_POLICY_FLAGS = 256u32;
+pub const CERT_CHAIN_POLICY_IGNORE_END_REV_UNKNOWN_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(256u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_CHAIN_POLICY_IGNORE_CTL_SIGNER_REV_UNKNOWN_FLAG: CERT_CHAIN_POLICY_FLAGS = 512u32;
+pub const CERT_CHAIN_POLICY_IGNORE_CTL_SIGNER_REV_UNKNOWN_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(512u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_CHAIN_POLICY_IGNORE_CA_REV_UNKNOWN_FLAG: CERT_CHAIN_POLICY_FLAGS = 1024u32;
+pub const CERT_CHAIN_POLICY_IGNORE_CA_REV_UNKNOWN_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(1024u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_CHAIN_POLICY_IGNORE_ROOT_REV_UNKNOWN_FLAG: CERT_CHAIN_POLICY_FLAGS = 2048u32;
+pub const CERT_CHAIN_POLICY_IGNORE_ROOT_REV_UNKNOWN_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(2048u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_CHAIN_POLICY_IGNORE_ALL_REV_UNKNOWN_FLAGS: CERT_CHAIN_POLICY_FLAGS = 3840u32;
+pub const CERT_CHAIN_POLICY_IGNORE_ALL_REV_UNKNOWN_FLAGS: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(3840u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_CHAIN_POLICY_ALLOW_TESTROOT_FLAG: CERT_CHAIN_POLICY_FLAGS = 32768u32;
+pub const CERT_CHAIN_POLICY_ALLOW_TESTROOT_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(32768u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_CHAIN_POLICY_TRUST_TESTROOT_FLAG: CERT_CHAIN_POLICY_FLAGS = 16384u32;
+pub const CERT_CHAIN_POLICY_TRUST_TESTROOT_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(16384u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_CHAIN_POLICY_IGNORE_NOT_SUPPORTED_CRITICAL_EXT_FLAG: CERT_CHAIN_POLICY_FLAGS = 8192u32;
+pub const CERT_CHAIN_POLICY_IGNORE_NOT_SUPPORTED_CRITICAL_EXT_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(8192u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_CHAIN_POLICY_IGNORE_PEER_TRUST_FLAG: CERT_CHAIN_POLICY_FLAGS = 4096u32;
+pub const CERT_CHAIN_POLICY_IGNORE_PEER_TRUST_FLAG: CERT_CHAIN_POLICY_FLAGS = CERT_CHAIN_POLICY_FLAGS(4096u32);
+impl ::core::marker::Copy for CERT_CHAIN_POLICY_FLAGS {}
+impl ::core::clone::Clone for CERT_CHAIN_POLICY_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CERT_CHAIN_POLICY_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CERT_CHAIN_POLICY_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CERT_CHAIN_POLICY_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CERT_CHAIN_POLICY_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CERT_CHAIN_POLICY_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CERT_CHAIN_POLICY_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CERT_CHAIN_POLICY_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CERT_CHAIN_POLICY_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_CHAIN_POLICY_IGNORE_WEAK_SIGNATURE_FLAG: u32 = 134217728u32;
 #[repr(C)]
@@ -3655,13 +4203,57 @@ impl ::core::default::Default for CERT_CONTEXT {
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_CONTEXT_REVOCATION_TYPE: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CERT_CONTROL_STORE_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CERT_CONTROL_STORE_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_CTRL_COMMIT_FORCE_FLAG: CERT_CONTROL_STORE_FLAGS = 1u32;
+pub const CERT_STORE_CTRL_COMMIT_FORCE_FLAG: CERT_CONTROL_STORE_FLAGS = CERT_CONTROL_STORE_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_CTRL_COMMIT_CLEAR_FLAG: CERT_CONTROL_STORE_FLAGS = 2u32;
+pub const CERT_STORE_CTRL_COMMIT_CLEAR_FLAG: CERT_CONTROL_STORE_FLAGS = CERT_CONTROL_STORE_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_CTRL_INHIBIT_DUPLICATE_HANDLE_FLAG: CERT_CONTROL_STORE_FLAGS = 1u32;
+pub const CERT_STORE_CTRL_INHIBIT_DUPLICATE_HANDLE_FLAG: CERT_CONTROL_STORE_FLAGS = CERT_CONTROL_STORE_FLAGS(1u32);
+impl ::core::marker::Copy for CERT_CONTROL_STORE_FLAGS {}
+impl ::core::clone::Clone for CERT_CONTROL_STORE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CERT_CONTROL_STORE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CERT_CONTROL_STORE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CERT_CONTROL_STORE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CERT_CONTROL_STORE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CERT_CONTROL_STORE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CERT_CONTROL_STORE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CERT_CONTROL_STORE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CERT_CONTROL_STORE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_CREATE_CONTEXT_NOCOPY_FLAG: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -3713,11 +4305,55 @@ impl ::core::default::Default for CERT_CREATE_CONTEXT_PARA {
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_CREATE_CONTEXT_SORTED_FLAG: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CERT_CREATE_SELFSIGN_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CERT_CREATE_SELFSIGN_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_CREATE_SELFSIGN_NO_KEY_INFO: CERT_CREATE_SELFSIGN_FLAGS = 2u32;
+pub const CERT_CREATE_SELFSIGN_NO_KEY_INFO: CERT_CREATE_SELFSIGN_FLAGS = CERT_CREATE_SELFSIGN_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_CREATE_SELFSIGN_NO_SIGN: CERT_CREATE_SELFSIGN_FLAGS = 1u32;
+pub const CERT_CREATE_SELFSIGN_NO_SIGN: CERT_CREATE_SELFSIGN_FLAGS = CERT_CREATE_SELFSIGN_FLAGS(1u32);
+impl ::core::marker::Copy for CERT_CREATE_SELFSIGN_FLAGS {}
+impl ::core::clone::Clone for CERT_CREATE_SELFSIGN_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CERT_CREATE_SELFSIGN_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CERT_CREATE_SELFSIGN_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CERT_CREATE_SELFSIGN_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CERT_CREATE_SELFSIGN_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CERT_CREATE_SELFSIGN_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CERT_CREATE_SELFSIGN_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CERT_CREATE_SELFSIGN_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CERT_CREATE_SELFSIGN_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3975,121 +4611,253 @@ pub const CERT_FILE_HASH_USE_TYPE: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_FILE_STORE_COMMIT_ENABLE_FLAG: u32 = 65536u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CERT_FIND_CHAIN_IN_STORE_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CERT_FIND_CHAIN_IN_STORE_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_CHAIN_FIND_BY_ISSUER_COMPARE_KEY_FLAG: CERT_FIND_CHAIN_IN_STORE_FLAGS = 1u32;
+pub const CERT_CHAIN_FIND_BY_ISSUER_COMPARE_KEY_FLAG: CERT_FIND_CHAIN_IN_STORE_FLAGS = CERT_FIND_CHAIN_IN_STORE_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_CHAIN_FIND_BY_ISSUER_COMPLEX_CHAIN_FLAG: CERT_FIND_CHAIN_IN_STORE_FLAGS = 2u32;
+pub const CERT_CHAIN_FIND_BY_ISSUER_COMPLEX_CHAIN_FLAG: CERT_FIND_CHAIN_IN_STORE_FLAGS = CERT_FIND_CHAIN_IN_STORE_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_CHAIN_FIND_BY_ISSUER_CACHE_ONLY_FLAG: CERT_FIND_CHAIN_IN_STORE_FLAGS = 32768u32;
+pub const CERT_CHAIN_FIND_BY_ISSUER_CACHE_ONLY_FLAG: CERT_FIND_CHAIN_IN_STORE_FLAGS = CERT_FIND_CHAIN_IN_STORE_FLAGS(32768u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_CHAIN_FIND_BY_ISSUER_CACHE_ONLY_URL_FLAG: CERT_FIND_CHAIN_IN_STORE_FLAGS = 4u32;
+pub const CERT_CHAIN_FIND_BY_ISSUER_CACHE_ONLY_URL_FLAG: CERT_FIND_CHAIN_IN_STORE_FLAGS = CERT_FIND_CHAIN_IN_STORE_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_CHAIN_FIND_BY_ISSUER_LOCAL_MACHINE_FLAG: CERT_FIND_CHAIN_IN_STORE_FLAGS = 8u32;
+pub const CERT_CHAIN_FIND_BY_ISSUER_LOCAL_MACHINE_FLAG: CERT_FIND_CHAIN_IN_STORE_FLAGS = CERT_FIND_CHAIN_IN_STORE_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_CHAIN_FIND_BY_ISSUER_NO_KEY_FLAG: CERT_FIND_CHAIN_IN_STORE_FLAGS = 16384u32;
+pub const CERT_CHAIN_FIND_BY_ISSUER_NO_KEY_FLAG: CERT_FIND_CHAIN_IN_STORE_FLAGS = CERT_FIND_CHAIN_IN_STORE_FLAGS(16384u32);
+impl ::core::marker::Copy for CERT_FIND_CHAIN_IN_STORE_FLAGS {}
+impl ::core::clone::Clone for CERT_FIND_CHAIN_IN_STORE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CERT_FIND_CHAIN_IN_STORE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CERT_FIND_CHAIN_IN_STORE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CERT_FIND_CHAIN_IN_STORE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CERT_FIND_CHAIN_IN_STORE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CERT_FIND_CHAIN_IN_STORE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CERT_FIND_CHAIN_IN_STORE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CERT_FIND_CHAIN_IN_STORE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CERT_FIND_CHAIN_IN_STORE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CERT_FIND_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CERT_FIND_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_FIND_ANY: CERT_FIND_FLAGS = 0u32;
+pub const CERT_FIND_ANY: CERT_FIND_FLAGS = CERT_FIND_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_FIND_CERT_ID: CERT_FIND_FLAGS = 1048576u32;
+pub const CERT_FIND_CERT_ID: CERT_FIND_FLAGS = CERT_FIND_FLAGS(1048576u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_FIND_CTL_USAGE: CERT_FIND_FLAGS = 655360u32;
+pub const CERT_FIND_CTL_USAGE: CERT_FIND_FLAGS = CERT_FIND_FLAGS(655360u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_FIND_ENHKEY_USAGE: CERT_FIND_FLAGS = 655360u32;
+pub const CERT_FIND_ENHKEY_USAGE: CERT_FIND_FLAGS = CERT_FIND_FLAGS(655360u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_FIND_EXISTING: CERT_FIND_FLAGS = 851968u32;
+pub const CERT_FIND_EXISTING: CERT_FIND_FLAGS = CERT_FIND_FLAGS(851968u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_FIND_HASH: CERT_FIND_FLAGS = 65536u32;
+pub const CERT_FIND_HASH: CERT_FIND_FLAGS = CERT_FIND_FLAGS(65536u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_FIND_HAS_PRIVATE_KEY: CERT_FIND_FLAGS = 1376256u32;
+pub const CERT_FIND_HAS_PRIVATE_KEY: CERT_FIND_FLAGS = CERT_FIND_FLAGS(1376256u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_FIND_ISSUER_ATTR: CERT_FIND_FLAGS = 196612u32;
+pub const CERT_FIND_ISSUER_ATTR: CERT_FIND_FLAGS = CERT_FIND_FLAGS(196612u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_FIND_ISSUER_NAME: CERT_FIND_FLAGS = 131076u32;
+pub const CERT_FIND_ISSUER_NAME: CERT_FIND_FLAGS = CERT_FIND_FLAGS(131076u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_FIND_ISSUER_OF: CERT_FIND_FLAGS = 786432u32;
+pub const CERT_FIND_ISSUER_OF: CERT_FIND_FLAGS = CERT_FIND_FLAGS(786432u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_FIND_ISSUER_STR: CERT_FIND_FLAGS = 524292u32;
+pub const CERT_FIND_ISSUER_STR: CERT_FIND_FLAGS = CERT_FIND_FLAGS(524292u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_FIND_KEY_IDENTIFIER: CERT_FIND_FLAGS = 983040u32;
+pub const CERT_FIND_KEY_IDENTIFIER: CERT_FIND_FLAGS = CERT_FIND_FLAGS(983040u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_FIND_KEY_SPEC: CERT_FIND_FLAGS = 589824u32;
+pub const CERT_FIND_KEY_SPEC: CERT_FIND_FLAGS = CERT_FIND_FLAGS(589824u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_FIND_MD5_HASH: CERT_FIND_FLAGS = 262144u32;
+pub const CERT_FIND_MD5_HASH: CERT_FIND_FLAGS = CERT_FIND_FLAGS(262144u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_FIND_PROPERTY: CERT_FIND_FLAGS = 327680u32;
+pub const CERT_FIND_PROPERTY: CERT_FIND_FLAGS = CERT_FIND_FLAGS(327680u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_FIND_PUBLIC_KEY: CERT_FIND_FLAGS = 393216u32;
+pub const CERT_FIND_PUBLIC_KEY: CERT_FIND_FLAGS = CERT_FIND_FLAGS(393216u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_FIND_SHA1_HASH: CERT_FIND_FLAGS = 65536u32;
+pub const CERT_FIND_SHA1_HASH: CERT_FIND_FLAGS = CERT_FIND_FLAGS(65536u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_FIND_SIGNATURE_HASH: CERT_FIND_FLAGS = 917504u32;
+pub const CERT_FIND_SIGNATURE_HASH: CERT_FIND_FLAGS = CERT_FIND_FLAGS(917504u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_FIND_SUBJECT_ATTR: CERT_FIND_FLAGS = 196615u32;
+pub const CERT_FIND_SUBJECT_ATTR: CERT_FIND_FLAGS = CERT_FIND_FLAGS(196615u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_FIND_SUBJECT_CERT: CERT_FIND_FLAGS = 720896u32;
+pub const CERT_FIND_SUBJECT_CERT: CERT_FIND_FLAGS = CERT_FIND_FLAGS(720896u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_FIND_SUBJECT_NAME: CERT_FIND_FLAGS = 131079u32;
+pub const CERT_FIND_SUBJECT_NAME: CERT_FIND_FLAGS = CERT_FIND_FLAGS(131079u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_FIND_SUBJECT_STR: CERT_FIND_FLAGS = 524295u32;
+pub const CERT_FIND_SUBJECT_STR: CERT_FIND_FLAGS = CERT_FIND_FLAGS(524295u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_FIND_CROSS_CERT_DIST_POINTS: CERT_FIND_FLAGS = 1114112u32;
+pub const CERT_FIND_CROSS_CERT_DIST_POINTS: CERT_FIND_FLAGS = CERT_FIND_FLAGS(1114112u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_FIND_PUBKEY_MD5_HASH: CERT_FIND_FLAGS = 1179648u32;
+pub const CERT_FIND_PUBKEY_MD5_HASH: CERT_FIND_FLAGS = CERT_FIND_FLAGS(1179648u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_FIND_SUBJECT_STR_A: CERT_FIND_FLAGS = 458759u32;
+pub const CERT_FIND_SUBJECT_STR_A: CERT_FIND_FLAGS = CERT_FIND_FLAGS(458759u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_FIND_SUBJECT_STR_W: CERT_FIND_FLAGS = 524295u32;
+pub const CERT_FIND_SUBJECT_STR_W: CERT_FIND_FLAGS = CERT_FIND_FLAGS(524295u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_FIND_ISSUER_STR_A: CERT_FIND_FLAGS = 458756u32;
+pub const CERT_FIND_ISSUER_STR_A: CERT_FIND_FLAGS = CERT_FIND_FLAGS(458756u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_FIND_ISSUER_STR_W: CERT_FIND_FLAGS = 524292u32;
+pub const CERT_FIND_ISSUER_STR_W: CERT_FIND_FLAGS = CERT_FIND_FLAGS(524292u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_FIND_SUBJECT_INFO_ACCESS: CERT_FIND_FLAGS = 1245184u32;
+pub const CERT_FIND_SUBJECT_INFO_ACCESS: CERT_FIND_FLAGS = CERT_FIND_FLAGS(1245184u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_FIND_HASH_STR: CERT_FIND_FLAGS = 1310720u32;
+pub const CERT_FIND_HASH_STR: CERT_FIND_FLAGS = CERT_FIND_FLAGS(1310720u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_FIND_OPTIONAL_ENHKEY_USAGE_FLAG: CERT_FIND_FLAGS = 1u32;
+pub const CERT_FIND_OPTIONAL_ENHKEY_USAGE_FLAG: CERT_FIND_FLAGS = CERT_FIND_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_FIND_EXT_ONLY_ENHKEY_USAGE_FLAG: CERT_FIND_FLAGS = 2u32;
+pub const CERT_FIND_EXT_ONLY_ENHKEY_USAGE_FLAG: CERT_FIND_FLAGS = CERT_FIND_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_FIND_PROP_ONLY_ENHKEY_USAGE_FLAG: CERT_FIND_FLAGS = 4u32;
+pub const CERT_FIND_PROP_ONLY_ENHKEY_USAGE_FLAG: CERT_FIND_FLAGS = CERT_FIND_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_FIND_NO_ENHKEY_USAGE_FLAG: CERT_FIND_FLAGS = 8u32;
+pub const CERT_FIND_NO_ENHKEY_USAGE_FLAG: CERT_FIND_FLAGS = CERT_FIND_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_FIND_OR_ENHKEY_USAGE_FLAG: CERT_FIND_FLAGS = 16u32;
+pub const CERT_FIND_OR_ENHKEY_USAGE_FLAG: CERT_FIND_FLAGS = CERT_FIND_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_FIND_VALID_ENHKEY_USAGE_FLAG: CERT_FIND_FLAGS = 32u32;
+pub const CERT_FIND_VALID_ENHKEY_USAGE_FLAG: CERT_FIND_FLAGS = CERT_FIND_FLAGS(32u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_FIND_OPTIONAL_CTL_USAGE_FLAG: CERT_FIND_FLAGS = 1u32;
+pub const CERT_FIND_OPTIONAL_CTL_USAGE_FLAG: CERT_FIND_FLAGS = CERT_FIND_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_FIND_EXT_ONLY_CTL_USAGE_FLAG: CERT_FIND_FLAGS = 2u32;
+pub const CERT_FIND_EXT_ONLY_CTL_USAGE_FLAG: CERT_FIND_FLAGS = CERT_FIND_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_FIND_PROP_ONLY_CTL_USAGE_FLAG: CERT_FIND_FLAGS = 4u32;
+pub const CERT_FIND_PROP_ONLY_CTL_USAGE_FLAG: CERT_FIND_FLAGS = CERT_FIND_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_FIND_NO_CTL_USAGE_FLAG: CERT_FIND_FLAGS = 8u32;
+pub const CERT_FIND_NO_CTL_USAGE_FLAG: CERT_FIND_FLAGS = CERT_FIND_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_FIND_OR_CTL_USAGE_FLAG: CERT_FIND_FLAGS = 16u32;
+pub const CERT_FIND_OR_CTL_USAGE_FLAG: CERT_FIND_FLAGS = CERT_FIND_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_FIND_VALID_CTL_USAGE_FLAG: CERT_FIND_FLAGS = 32u32;
+pub const CERT_FIND_VALID_CTL_USAGE_FLAG: CERT_FIND_FLAGS = CERT_FIND_FLAGS(32u32);
+impl ::core::marker::Copy for CERT_FIND_FLAGS {}
+impl ::core::clone::Clone for CERT_FIND_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CERT_FIND_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CERT_FIND_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CERT_FIND_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CERT_FIND_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CERT_FIND_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CERT_FIND_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CERT_FIND_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CERT_FIND_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CERT_FIND_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CERT_FIND_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CTL_FIND_ANY: CERT_FIND_TYPE = 0u32;
+pub const CTL_FIND_ANY: CERT_FIND_TYPE = CERT_FIND_TYPE(0u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CTL_FIND_SHA1_HASH: CERT_FIND_TYPE = 1u32;
+pub const CTL_FIND_SHA1_HASH: CERT_FIND_TYPE = CERT_FIND_TYPE(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CTL_FIND_MD5_HASH: CERT_FIND_TYPE = 2u32;
+pub const CTL_FIND_MD5_HASH: CERT_FIND_TYPE = CERT_FIND_TYPE(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CTL_FIND_USAGE: CERT_FIND_TYPE = 3u32;
+pub const CTL_FIND_USAGE: CERT_FIND_TYPE = CERT_FIND_TYPE(3u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CTL_FIND_SAME_USAGE_FLAG: CERT_FIND_TYPE = 1u32;
+pub const CTL_FIND_SAME_USAGE_FLAG: CERT_FIND_TYPE = CERT_FIND_TYPE(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CTL_FIND_EXISTING: CERT_FIND_TYPE = 5u32;
+pub const CTL_FIND_EXISTING: CERT_FIND_TYPE = CERT_FIND_TYPE(5u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CTL_FIND_SUBJECT: CERT_FIND_TYPE = 4u32;
+pub const CTL_FIND_SUBJECT: CERT_FIND_TYPE = CERT_FIND_TYPE(4u32);
+impl ::core::marker::Copy for CERT_FIND_TYPE {}
+impl ::core::clone::Clone for CERT_FIND_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CERT_FIND_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CERT_FIND_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CERT_FIND_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CERT_FIND_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CERT_FIND_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CERT_FIND_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CERT_FIND_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CERT_FIND_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_FIRST_RESERVED_PROP_ID: u32 = 128u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -4265,13 +5033,57 @@ impl ::core::default::Default for CERT_ID_0 {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CERT_ID_OPTION = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CERT_ID_OPTION(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_ID_ISSUER_SERIAL_NUMBER: CERT_ID_OPTION = 1u32;
+pub const CERT_ID_ISSUER_SERIAL_NUMBER: CERT_ID_OPTION = CERT_ID_OPTION(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_ID_KEY_IDENTIFIER: CERT_ID_OPTION = 2u32;
+pub const CERT_ID_KEY_IDENTIFIER: CERT_ID_OPTION = CERT_ID_OPTION(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_ID_SHA1_HASH: CERT_ID_OPTION = 3u32;
+pub const CERT_ID_SHA1_HASH: CERT_ID_OPTION = CERT_ID_OPTION(3u32);
+impl ::core::marker::Copy for CERT_ID_OPTION {}
+impl ::core::clone::Clone for CERT_ID_OPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CERT_ID_OPTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CERT_ID_OPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CERT_ID_OPTION").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CERT_ID_OPTION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CERT_ID_OPTION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CERT_ID_OPTION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CERT_ID_OPTION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CERT_ID_OPTION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_IE30_RESERVED_PROP_ID: u32 = 7u32;
 #[repr(C)]
@@ -4555,13 +5367,57 @@ pub const CERT_KEY_PROV_INFO_PROP_ID: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_KEY_REPAIR_ATTEMPTED_PROP_ID: u32 = 103u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CERT_KEY_SPEC = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CERT_KEY_SPEC(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const AT_KEYEXCHANGE: CERT_KEY_SPEC = 1u32;
+pub const AT_KEYEXCHANGE: CERT_KEY_SPEC = CERT_KEY_SPEC(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const AT_SIGNATURE: CERT_KEY_SPEC = 2u32;
+pub const AT_SIGNATURE: CERT_KEY_SPEC = CERT_KEY_SPEC(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_NCRYPT_KEY_SPEC: CERT_KEY_SPEC = 4294967295u32;
+pub const CERT_NCRYPT_KEY_SPEC: CERT_KEY_SPEC = CERT_KEY_SPEC(4294967295u32);
+impl ::core::marker::Copy for CERT_KEY_SPEC {}
+impl ::core::clone::Clone for CERT_KEY_SPEC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CERT_KEY_SPEC {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CERT_KEY_SPEC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CERT_KEY_SPEC").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CERT_KEY_SPEC {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CERT_KEY_SPEC {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CERT_KEY_SPEC {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CERT_KEY_SPEC {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CERT_KEY_SPEC {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_KEY_SPEC_PROP_ID: u32 = 6u32;
 #[repr(C)]
@@ -4737,13 +5593,57 @@ impl ::core::default::Default for CERT_LOGOTYPE_AUDIO_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CERT_LOGOTYPE_CHOICE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CERT_LOGOTYPE_CHOICE(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_LOGOTYPE_NO_IMAGE_RESOLUTION_CHOICE: CERT_LOGOTYPE_CHOICE = 0u32;
+pub const CERT_LOGOTYPE_NO_IMAGE_RESOLUTION_CHOICE: CERT_LOGOTYPE_CHOICE = CERT_LOGOTYPE_CHOICE(0u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_LOGOTYPE_BITS_IMAGE_RESOLUTION_CHOICE: CERT_LOGOTYPE_CHOICE = 1u32;
+pub const CERT_LOGOTYPE_BITS_IMAGE_RESOLUTION_CHOICE: CERT_LOGOTYPE_CHOICE = CERT_LOGOTYPE_CHOICE(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_LOGOTYPE_TABLE_SIZE_IMAGE_RESOLUTION_CHOICE: CERT_LOGOTYPE_CHOICE = 2u32;
+pub const CERT_LOGOTYPE_TABLE_SIZE_IMAGE_RESOLUTION_CHOICE: CERT_LOGOTYPE_CHOICE = CERT_LOGOTYPE_CHOICE(2u32);
+impl ::core::marker::Copy for CERT_LOGOTYPE_CHOICE {}
+impl ::core::clone::Clone for CERT_LOGOTYPE_CHOICE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CERT_LOGOTYPE_CHOICE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CERT_LOGOTYPE_CHOICE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CERT_LOGOTYPE_CHOICE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CERT_LOGOTYPE_CHOICE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CERT_LOGOTYPE_CHOICE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CERT_LOGOTYPE_CHOICE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CERT_LOGOTYPE_CHOICE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CERT_LOGOTYPE_CHOICE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4979,11 +5879,55 @@ impl ::core::default::Default for CERT_LOGOTYPE_IMAGE_INFO_0 {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CERT_LOGOTYPE_IMAGE_INFO_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CERT_LOGOTYPE_IMAGE_INFO_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_LOGOTYPE_GRAY_SCALE_IMAGE_INFO_CHOICE: CERT_LOGOTYPE_IMAGE_INFO_TYPE = 1u32;
+pub const CERT_LOGOTYPE_GRAY_SCALE_IMAGE_INFO_CHOICE: CERT_LOGOTYPE_IMAGE_INFO_TYPE = CERT_LOGOTYPE_IMAGE_INFO_TYPE(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_LOGOTYPE_COLOR_IMAGE_INFO_CHOICE: CERT_LOGOTYPE_IMAGE_INFO_TYPE = 2u32;
+pub const CERT_LOGOTYPE_COLOR_IMAGE_INFO_CHOICE: CERT_LOGOTYPE_IMAGE_INFO_TYPE = CERT_LOGOTYPE_IMAGE_INFO_TYPE(2u32);
+impl ::core::marker::Copy for CERT_LOGOTYPE_IMAGE_INFO_TYPE {}
+impl ::core::clone::Clone for CERT_LOGOTYPE_IMAGE_INFO_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CERT_LOGOTYPE_IMAGE_INFO_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CERT_LOGOTYPE_IMAGE_INFO_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CERT_LOGOTYPE_IMAGE_INFO_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CERT_LOGOTYPE_IMAGE_INFO_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CERT_LOGOTYPE_IMAGE_INFO_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CERT_LOGOTYPE_IMAGE_INFO_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CERT_LOGOTYPE_IMAGE_INFO_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CERT_LOGOTYPE_IMAGE_INFO_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5051,11 +5995,55 @@ impl ::core::default::Default for CERT_LOGOTYPE_INFO_0 {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CERT_LOGOTYPE_OPTION = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CERT_LOGOTYPE_OPTION(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_LOGOTYPE_DIRECT_INFO_CHOICE: CERT_LOGOTYPE_OPTION = 1u32;
+pub const CERT_LOGOTYPE_DIRECT_INFO_CHOICE: CERT_LOGOTYPE_OPTION = CERT_LOGOTYPE_OPTION(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_LOGOTYPE_INDIRECT_INFO_CHOICE: CERT_LOGOTYPE_OPTION = 2u32;
+pub const CERT_LOGOTYPE_INDIRECT_INFO_CHOICE: CERT_LOGOTYPE_OPTION = CERT_LOGOTYPE_OPTION(2u32);
+impl ::core::marker::Copy for CERT_LOGOTYPE_OPTION {}
+impl ::core::clone::Clone for CERT_LOGOTYPE_OPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CERT_LOGOTYPE_OPTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CERT_LOGOTYPE_OPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CERT_LOGOTYPE_OPTION").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CERT_LOGOTYPE_OPTION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CERT_LOGOTYPE_OPTION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CERT_LOGOTYPE_OPTION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CERT_LOGOTYPE_OPTION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CERT_LOGOTYPE_OPTION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5285,31 +6273,75 @@ pub const CERT_OCSP_RESPONSE_PROP_ID: u32 = 70u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_OFFLINE_CRL_SIGN_KEY_USAGE: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CERT_OPEN_STORE_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CERT_OPEN_STORE_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_BACKUP_RESTORE_FLAG: CERT_OPEN_STORE_FLAGS = 2048u32;
+pub const CERT_STORE_BACKUP_RESTORE_FLAG: CERT_OPEN_STORE_FLAGS = CERT_OPEN_STORE_FLAGS(2048u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_CREATE_NEW_FLAG: CERT_OPEN_STORE_FLAGS = 8192u32;
+pub const CERT_STORE_CREATE_NEW_FLAG: CERT_OPEN_STORE_FLAGS = CERT_OPEN_STORE_FLAGS(8192u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_DEFER_CLOSE_UNTIL_LAST_FREE_FLAG: CERT_OPEN_STORE_FLAGS = 4u32;
+pub const CERT_STORE_DEFER_CLOSE_UNTIL_LAST_FREE_FLAG: CERT_OPEN_STORE_FLAGS = CERT_OPEN_STORE_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_DELETE_FLAG: CERT_OPEN_STORE_FLAGS = 16u32;
+pub const CERT_STORE_DELETE_FLAG: CERT_OPEN_STORE_FLAGS = CERT_OPEN_STORE_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_ENUM_ARCHIVED_FLAG: CERT_OPEN_STORE_FLAGS = 512u32;
+pub const CERT_STORE_ENUM_ARCHIVED_FLAG: CERT_OPEN_STORE_FLAGS = CERT_OPEN_STORE_FLAGS(512u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_MAXIMUM_ALLOWED_FLAG: CERT_OPEN_STORE_FLAGS = 4096u32;
+pub const CERT_STORE_MAXIMUM_ALLOWED_FLAG: CERT_OPEN_STORE_FLAGS = CERT_OPEN_STORE_FLAGS(4096u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_NO_CRYPT_RELEASE_FLAG: CERT_OPEN_STORE_FLAGS = 1u32;
+pub const CERT_STORE_NO_CRYPT_RELEASE_FLAG: CERT_OPEN_STORE_FLAGS = CERT_OPEN_STORE_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_OPEN_EXISTING_FLAG: CERT_OPEN_STORE_FLAGS = 16384u32;
+pub const CERT_STORE_OPEN_EXISTING_FLAG: CERT_OPEN_STORE_FLAGS = CERT_OPEN_STORE_FLAGS(16384u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_READONLY_FLAG: CERT_OPEN_STORE_FLAGS = 32768u32;
+pub const CERT_STORE_READONLY_FLAG: CERT_OPEN_STORE_FLAGS = CERT_OPEN_STORE_FLAGS(32768u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_SET_LOCALIZED_NAME_FLAG: CERT_OPEN_STORE_FLAGS = 2u32;
+pub const CERT_STORE_SET_LOCALIZED_NAME_FLAG: CERT_OPEN_STORE_FLAGS = CERT_OPEN_STORE_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_SHARE_CONTEXT_FLAG: CERT_OPEN_STORE_FLAGS = 128u32;
+pub const CERT_STORE_SHARE_CONTEXT_FLAG: CERT_OPEN_STORE_FLAGS = CERT_OPEN_STORE_FLAGS(128u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_UPDATE_KEYID_FLAG: CERT_OPEN_STORE_FLAGS = 1024u32;
+pub const CERT_STORE_UPDATE_KEYID_FLAG: CERT_OPEN_STORE_FLAGS = CERT_OPEN_STORE_FLAGS(1024u32);
+impl ::core::marker::Copy for CERT_OPEN_STORE_FLAGS {}
+impl ::core::clone::Clone for CERT_OPEN_STORE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CERT_OPEN_STORE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CERT_OPEN_STORE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CERT_OPEN_STORE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CERT_OPEN_STORE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CERT_OPEN_STORE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CERT_OPEN_STORE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CERT_OPEN_STORE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CERT_OPEN_STORE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub struct CERT_OR_CRL_BLOB {
@@ -6110,99 +7142,363 @@ impl ::core::default::Default for CERT_QC_STATEMENTS_EXT_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CERT_QUERY_CONTENT_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CERT_QUERY_CONTENT_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_QUERY_CONTENT_CERT: CERT_QUERY_CONTENT_TYPE = 1u32;
+pub const CERT_QUERY_CONTENT_CERT: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_QUERY_CONTENT_CTL: CERT_QUERY_CONTENT_TYPE = 2u32;
+pub const CERT_QUERY_CONTENT_CTL: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_QUERY_CONTENT_CRL: CERT_QUERY_CONTENT_TYPE = 3u32;
+pub const CERT_QUERY_CONTENT_CRL: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(3u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_QUERY_CONTENT_SERIALIZED_STORE: CERT_QUERY_CONTENT_TYPE = 4u32;
+pub const CERT_QUERY_CONTENT_SERIALIZED_STORE: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(4u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_QUERY_CONTENT_SERIALIZED_CERT: CERT_QUERY_CONTENT_TYPE = 5u32;
+pub const CERT_QUERY_CONTENT_SERIALIZED_CERT: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(5u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_QUERY_CONTENT_SERIALIZED_CTL: CERT_QUERY_CONTENT_TYPE = 6u32;
+pub const CERT_QUERY_CONTENT_SERIALIZED_CTL: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(6u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_QUERY_CONTENT_SERIALIZED_CRL: CERT_QUERY_CONTENT_TYPE = 7u32;
+pub const CERT_QUERY_CONTENT_SERIALIZED_CRL: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(7u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_QUERY_CONTENT_PKCS7_SIGNED: CERT_QUERY_CONTENT_TYPE = 8u32;
+pub const CERT_QUERY_CONTENT_PKCS7_SIGNED: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(8u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_QUERY_CONTENT_PKCS7_UNSIGNED: CERT_QUERY_CONTENT_TYPE = 9u32;
+pub const CERT_QUERY_CONTENT_PKCS7_UNSIGNED: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(9u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_QUERY_CONTENT_PKCS7_SIGNED_EMBED: CERT_QUERY_CONTENT_TYPE = 10u32;
+pub const CERT_QUERY_CONTENT_PKCS7_SIGNED_EMBED: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(10u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_QUERY_CONTENT_PKCS10: CERT_QUERY_CONTENT_TYPE = 11u32;
+pub const CERT_QUERY_CONTENT_PKCS10: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(11u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_QUERY_CONTENT_PFX: CERT_QUERY_CONTENT_TYPE = 12u32;
+pub const CERT_QUERY_CONTENT_PFX: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(12u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_QUERY_CONTENT_CERT_PAIR: CERT_QUERY_CONTENT_TYPE = 13u32;
+pub const CERT_QUERY_CONTENT_CERT_PAIR: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(13u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_QUERY_CONTENT_PFX_AND_LOAD: CERT_QUERY_CONTENT_TYPE = 14u32;
+pub const CERT_QUERY_CONTENT_PFX_AND_LOAD: CERT_QUERY_CONTENT_TYPE = CERT_QUERY_CONTENT_TYPE(14u32);
+impl ::core::marker::Copy for CERT_QUERY_CONTENT_TYPE {}
+impl ::core::clone::Clone for CERT_QUERY_CONTENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CERT_QUERY_CONTENT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CERT_QUERY_CONTENT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CERT_QUERY_CONTENT_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CERT_QUERY_CONTENT_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CERT_QUERY_CONTENT_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CERT_QUERY_CONTENT_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CERT_QUERY_CONTENT_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CERT_QUERY_CONTENT_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CERT_QUERY_CONTENT_TYPE_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CERT_QUERY_CONTENT_TYPE_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_QUERY_CONTENT_FLAG_CERT: CERT_QUERY_CONTENT_TYPE_FLAGS = 2u32;
+pub const CERT_QUERY_CONTENT_FLAG_CERT: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_QUERY_CONTENT_FLAG_CTL: CERT_QUERY_CONTENT_TYPE_FLAGS = 4u32;
+pub const CERT_QUERY_CONTENT_FLAG_CTL: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_QUERY_CONTENT_FLAG_CRL: CERT_QUERY_CONTENT_TYPE_FLAGS = 8u32;
+pub const CERT_QUERY_CONTENT_FLAG_CRL: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_QUERY_CONTENT_FLAG_SERIALIZED_STORE: CERT_QUERY_CONTENT_TYPE_FLAGS = 16u32;
+pub const CERT_QUERY_CONTENT_FLAG_SERIALIZED_STORE: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_QUERY_CONTENT_FLAG_SERIALIZED_CERT: CERT_QUERY_CONTENT_TYPE_FLAGS = 32u32;
+pub const CERT_QUERY_CONTENT_FLAG_SERIALIZED_CERT: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(32u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_QUERY_CONTENT_FLAG_SERIALIZED_CTL: CERT_QUERY_CONTENT_TYPE_FLAGS = 64u32;
+pub const CERT_QUERY_CONTENT_FLAG_SERIALIZED_CTL: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(64u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_QUERY_CONTENT_FLAG_SERIALIZED_CRL: CERT_QUERY_CONTENT_TYPE_FLAGS = 128u32;
+pub const CERT_QUERY_CONTENT_FLAG_SERIALIZED_CRL: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(128u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_QUERY_CONTENT_FLAG_PKCS7_SIGNED: CERT_QUERY_CONTENT_TYPE_FLAGS = 256u32;
+pub const CERT_QUERY_CONTENT_FLAG_PKCS7_SIGNED: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(256u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_QUERY_CONTENT_FLAG_PKCS7_UNSIGNED: CERT_QUERY_CONTENT_TYPE_FLAGS = 512u32;
+pub const CERT_QUERY_CONTENT_FLAG_PKCS7_UNSIGNED: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(512u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_QUERY_CONTENT_FLAG_PKCS7_SIGNED_EMBED: CERT_QUERY_CONTENT_TYPE_FLAGS = 1024u32;
+pub const CERT_QUERY_CONTENT_FLAG_PKCS7_SIGNED_EMBED: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(1024u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_QUERY_CONTENT_FLAG_PKCS10: CERT_QUERY_CONTENT_TYPE_FLAGS = 2048u32;
+pub const CERT_QUERY_CONTENT_FLAG_PKCS10: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(2048u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_QUERY_CONTENT_FLAG_PFX: CERT_QUERY_CONTENT_TYPE_FLAGS = 4096u32;
+pub const CERT_QUERY_CONTENT_FLAG_PFX: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(4096u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_QUERY_CONTENT_FLAG_CERT_PAIR: CERT_QUERY_CONTENT_TYPE_FLAGS = 8192u32;
+pub const CERT_QUERY_CONTENT_FLAG_CERT_PAIR: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(8192u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_QUERY_CONTENT_FLAG_PFX_AND_LOAD: CERT_QUERY_CONTENT_TYPE_FLAGS = 16384u32;
+pub const CERT_QUERY_CONTENT_FLAG_PFX_AND_LOAD: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(16384u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_QUERY_CONTENT_FLAG_ALL: CERT_QUERY_CONTENT_TYPE_FLAGS = 16382u32;
+pub const CERT_QUERY_CONTENT_FLAG_ALL: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(16382u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_QUERY_CONTENT_FLAG_ALL_ISSUER_CERT: CERT_QUERY_CONTENT_TYPE_FLAGS = 818u32;
+pub const CERT_QUERY_CONTENT_FLAG_ALL_ISSUER_CERT: CERT_QUERY_CONTENT_TYPE_FLAGS = CERT_QUERY_CONTENT_TYPE_FLAGS(818u32);
+impl ::core::marker::Copy for CERT_QUERY_CONTENT_TYPE_FLAGS {}
+impl ::core::clone::Clone for CERT_QUERY_CONTENT_TYPE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CERT_QUERY_CONTENT_TYPE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CERT_QUERY_CONTENT_TYPE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CERT_QUERY_CONTENT_TYPE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CERT_QUERY_CONTENT_TYPE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CERT_QUERY_CONTENT_TYPE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CERT_QUERY_CONTENT_TYPE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CERT_QUERY_CONTENT_TYPE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CERT_QUERY_CONTENT_TYPE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CERT_QUERY_ENCODING_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CERT_QUERY_ENCODING_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const X509_ASN_ENCODING: CERT_QUERY_ENCODING_TYPE = 1u32;
+pub const X509_ASN_ENCODING: CERT_QUERY_ENCODING_TYPE = CERT_QUERY_ENCODING_TYPE(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const PKCS_7_ASN_ENCODING: CERT_QUERY_ENCODING_TYPE = 65536u32;
+pub const PKCS_7_ASN_ENCODING: CERT_QUERY_ENCODING_TYPE = CERT_QUERY_ENCODING_TYPE(65536u32);
+impl ::core::marker::Copy for CERT_QUERY_ENCODING_TYPE {}
+impl ::core::clone::Clone for CERT_QUERY_ENCODING_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CERT_QUERY_ENCODING_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CERT_QUERY_ENCODING_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CERT_QUERY_ENCODING_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CERT_QUERY_ENCODING_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CERT_QUERY_ENCODING_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CERT_QUERY_ENCODING_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CERT_QUERY_ENCODING_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CERT_QUERY_ENCODING_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CERT_QUERY_FORMAT_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CERT_QUERY_FORMAT_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_QUERY_FORMAT_BINARY: CERT_QUERY_FORMAT_TYPE = 1u32;
+pub const CERT_QUERY_FORMAT_BINARY: CERT_QUERY_FORMAT_TYPE = CERT_QUERY_FORMAT_TYPE(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_QUERY_FORMAT_BASE64_ENCODED: CERT_QUERY_FORMAT_TYPE = 2u32;
+pub const CERT_QUERY_FORMAT_BASE64_ENCODED: CERT_QUERY_FORMAT_TYPE = CERT_QUERY_FORMAT_TYPE(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_QUERY_FORMAT_ASN_ASCII_HEX_ENCODED: CERT_QUERY_FORMAT_TYPE = 3u32;
+pub const CERT_QUERY_FORMAT_ASN_ASCII_HEX_ENCODED: CERT_QUERY_FORMAT_TYPE = CERT_QUERY_FORMAT_TYPE(3u32);
+impl ::core::marker::Copy for CERT_QUERY_FORMAT_TYPE {}
+impl ::core::clone::Clone for CERT_QUERY_FORMAT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CERT_QUERY_FORMAT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CERT_QUERY_FORMAT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CERT_QUERY_FORMAT_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CERT_QUERY_FORMAT_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CERT_QUERY_FORMAT_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CERT_QUERY_FORMAT_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CERT_QUERY_FORMAT_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CERT_QUERY_FORMAT_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CERT_QUERY_FORMAT_TYPE_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CERT_QUERY_FORMAT_TYPE_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_QUERY_FORMAT_FLAG_BINARY: CERT_QUERY_FORMAT_TYPE_FLAGS = 2u32;
+pub const CERT_QUERY_FORMAT_FLAG_BINARY: CERT_QUERY_FORMAT_TYPE_FLAGS = CERT_QUERY_FORMAT_TYPE_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_QUERY_FORMAT_FLAG_BASE64_ENCODED: CERT_QUERY_FORMAT_TYPE_FLAGS = 4u32;
+pub const CERT_QUERY_FORMAT_FLAG_BASE64_ENCODED: CERT_QUERY_FORMAT_TYPE_FLAGS = CERT_QUERY_FORMAT_TYPE_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_QUERY_FORMAT_FLAG_ASN_ASCII_HEX_ENCODED: CERT_QUERY_FORMAT_TYPE_FLAGS = 8u32;
+pub const CERT_QUERY_FORMAT_FLAG_ASN_ASCII_HEX_ENCODED: CERT_QUERY_FORMAT_TYPE_FLAGS = CERT_QUERY_FORMAT_TYPE_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_QUERY_FORMAT_FLAG_ALL: CERT_QUERY_FORMAT_TYPE_FLAGS = 14u32;
+pub const CERT_QUERY_FORMAT_FLAG_ALL: CERT_QUERY_FORMAT_TYPE_FLAGS = CERT_QUERY_FORMAT_TYPE_FLAGS(14u32);
+impl ::core::marker::Copy for CERT_QUERY_FORMAT_TYPE_FLAGS {}
+impl ::core::clone::Clone for CERT_QUERY_FORMAT_TYPE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CERT_QUERY_FORMAT_TYPE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CERT_QUERY_FORMAT_TYPE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CERT_QUERY_FORMAT_TYPE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CERT_QUERY_FORMAT_TYPE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CERT_QUERY_FORMAT_TYPE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CERT_QUERY_FORMAT_TYPE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CERT_QUERY_FORMAT_TYPE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CERT_QUERY_FORMAT_TYPE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CERT_QUERY_OBJECT_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CERT_QUERY_OBJECT_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_QUERY_OBJECT_FILE: CERT_QUERY_OBJECT_TYPE = 1u32;
+pub const CERT_QUERY_OBJECT_FILE: CERT_QUERY_OBJECT_TYPE = CERT_QUERY_OBJECT_TYPE(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_QUERY_OBJECT_BLOB: CERT_QUERY_OBJECT_TYPE = 2u32;
+pub const CERT_QUERY_OBJECT_BLOB: CERT_QUERY_OBJECT_TYPE = CERT_QUERY_OBJECT_TYPE(2u32);
+impl ::core::marker::Copy for CERT_QUERY_OBJECT_TYPE {}
+impl ::core::clone::Clone for CERT_QUERY_OBJECT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CERT_QUERY_OBJECT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CERT_QUERY_OBJECT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CERT_QUERY_OBJECT_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CERT_QUERY_OBJECT_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CERT_QUERY_OBJECT_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CERT_QUERY_OBJECT_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CERT_QUERY_OBJECT_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CERT_QUERY_OBJECT_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6283,43 +7579,87 @@ impl ::core::default::Default for CERT_RDN_ATTR {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CERT_RDN_ATTR_VALUE_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CERT_RDN_ATTR_VALUE_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_RDN_ANY_TYPE: CERT_RDN_ATTR_VALUE_TYPE = 0u32;
+pub const CERT_RDN_ANY_TYPE: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(0u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_RDN_NUMERIC_STRING: CERT_RDN_ATTR_VALUE_TYPE = 3u32;
+pub const CERT_RDN_NUMERIC_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(3u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_RDN_PRINTABLE_STRING: CERT_RDN_ATTR_VALUE_TYPE = 4u32;
+pub const CERT_RDN_PRINTABLE_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(4u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_RDN_T61_STRING: CERT_RDN_ATTR_VALUE_TYPE = 5u32;
+pub const CERT_RDN_T61_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(5u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_RDN_VIDEOTEX_STRING: CERT_RDN_ATTR_VALUE_TYPE = 6u32;
+pub const CERT_RDN_VIDEOTEX_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(6u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_RDN_IA5_STRING: CERT_RDN_ATTR_VALUE_TYPE = 7u32;
+pub const CERT_RDN_IA5_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(7u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_RDN_GRAPHIC_STRING: CERT_RDN_ATTR_VALUE_TYPE = 8u32;
+pub const CERT_RDN_GRAPHIC_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(8u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_RDN_ISO646_STRING: CERT_RDN_ATTR_VALUE_TYPE = 9u32;
+pub const CERT_RDN_ISO646_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(9u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_RDN_GENERAL_STRING: CERT_RDN_ATTR_VALUE_TYPE = 10u32;
+pub const CERT_RDN_GENERAL_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(10u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_RDN_INT4_STRING: CERT_RDN_ATTR_VALUE_TYPE = 11u32;
+pub const CERT_RDN_INT4_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(11u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_RDN_UNICODE_STRING: CERT_RDN_ATTR_VALUE_TYPE = 12u32;
+pub const CERT_RDN_UNICODE_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(12u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_RDN_BMP_STRING: CERT_RDN_ATTR_VALUE_TYPE = 12u32;
+pub const CERT_RDN_BMP_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(12u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_RDN_ENCODED_BLOB: CERT_RDN_ATTR_VALUE_TYPE = 1u32;
+pub const CERT_RDN_ENCODED_BLOB: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_RDN_OCTET_STRING: CERT_RDN_ATTR_VALUE_TYPE = 2u32;
+pub const CERT_RDN_OCTET_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_RDN_TELETEX_STRING: CERT_RDN_ATTR_VALUE_TYPE = 5u32;
+pub const CERT_RDN_TELETEX_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(5u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_RDN_UNIVERSAL_STRING: CERT_RDN_ATTR_VALUE_TYPE = 11u32;
+pub const CERT_RDN_UNIVERSAL_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(11u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_RDN_UTF8_STRING: CERT_RDN_ATTR_VALUE_TYPE = 13u32;
+pub const CERT_RDN_UTF8_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(13u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_RDN_VISIBLE_STRING: CERT_RDN_ATTR_VALUE_TYPE = 9u32;
+pub const CERT_RDN_VISIBLE_STRING: CERT_RDN_ATTR_VALUE_TYPE = CERT_RDN_ATTR_VALUE_TYPE(9u32);
+impl ::core::marker::Copy for CERT_RDN_ATTR_VALUE_TYPE {}
+impl ::core::clone::Clone for CERT_RDN_ATTR_VALUE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CERT_RDN_ATTR_VALUE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CERT_RDN_ATTR_VALUE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CERT_RDN_ATTR_VALUE_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CERT_RDN_ATTR_VALUE_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CERT_RDN_ATTR_VALUE_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CERT_RDN_ATTR_VALUE_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CERT_RDN_ATTR_VALUE_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CERT_RDN_ATTR_VALUE_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_RDN_DISABLE_CHECK_TYPE_FLAG: u32 = 1073741824u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -6694,35 +8034,123 @@ impl ::core::default::Default for CERT_REVOCATION_STATUS {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CERT_REVOCATION_STATUS_REASON = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CERT_REVOCATION_STATUS_REASON(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRL_REASON_UNSPECIFIED: CERT_REVOCATION_STATUS_REASON = 0u32;
+pub const CRL_REASON_UNSPECIFIED: CERT_REVOCATION_STATUS_REASON = CERT_REVOCATION_STATUS_REASON(0u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRL_REASON_KEY_COMPROMISE: CERT_REVOCATION_STATUS_REASON = 1u32;
+pub const CRL_REASON_KEY_COMPROMISE: CERT_REVOCATION_STATUS_REASON = CERT_REVOCATION_STATUS_REASON(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRL_REASON_CA_COMPROMISE: CERT_REVOCATION_STATUS_REASON = 2u32;
+pub const CRL_REASON_CA_COMPROMISE: CERT_REVOCATION_STATUS_REASON = CERT_REVOCATION_STATUS_REASON(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRL_REASON_AFFILIATION_CHANGED: CERT_REVOCATION_STATUS_REASON = 3u32;
+pub const CRL_REASON_AFFILIATION_CHANGED: CERT_REVOCATION_STATUS_REASON = CERT_REVOCATION_STATUS_REASON(3u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRL_REASON_SUPERSEDED: CERT_REVOCATION_STATUS_REASON = 4u32;
+pub const CRL_REASON_SUPERSEDED: CERT_REVOCATION_STATUS_REASON = CERT_REVOCATION_STATUS_REASON(4u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRL_REASON_CESSATION_OF_OPERATION: CERT_REVOCATION_STATUS_REASON = 5u32;
+pub const CRL_REASON_CESSATION_OF_OPERATION: CERT_REVOCATION_STATUS_REASON = CERT_REVOCATION_STATUS_REASON(5u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRL_REASON_CERTIFICATE_HOLD: CERT_REVOCATION_STATUS_REASON = 6u32;
+pub const CRL_REASON_CERTIFICATE_HOLD: CERT_REVOCATION_STATUS_REASON = CERT_REVOCATION_STATUS_REASON(6u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRL_REASON_REMOVE_FROM_CRL: CERT_REVOCATION_STATUS_REASON = 8u32;
+pub const CRL_REASON_REMOVE_FROM_CRL: CERT_REVOCATION_STATUS_REASON = CERT_REVOCATION_STATUS_REASON(8u32);
+impl ::core::marker::Copy for CERT_REVOCATION_STATUS_REASON {}
+impl ::core::clone::Clone for CERT_REVOCATION_STATUS_REASON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CERT_REVOCATION_STATUS_REASON {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CERT_REVOCATION_STATUS_REASON {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CERT_REVOCATION_STATUS_REASON").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CERT_REVOCATION_STATUS_REASON {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CERT_REVOCATION_STATUS_REASON {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CERT_REVOCATION_STATUS_REASON {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CERT_REVOCATION_STATUS_REASON {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CERT_REVOCATION_STATUS_REASON {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_ROOT_PROGRAM_CERT_POLICIES_PROP_ID: u32 = 83u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_ROOT_PROGRAM_CHAIN_POLICIES_PROP_ID: u32 = 105u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CERT_ROOT_PROGRAM_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CERT_ROOT_PROGRAM_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_ROOT_PROGRAM_FLAG_LSC: CERT_ROOT_PROGRAM_FLAGS = 64u32;
+pub const CERT_ROOT_PROGRAM_FLAG_LSC: CERT_ROOT_PROGRAM_FLAGS = CERT_ROOT_PROGRAM_FLAGS(64u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_ROOT_PROGRAM_FLAG_ORG: CERT_ROOT_PROGRAM_FLAGS = 128u32;
+pub const CERT_ROOT_PROGRAM_FLAG_ORG: CERT_ROOT_PROGRAM_FLAGS = CERT_ROOT_PROGRAM_FLAGS(128u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_ROOT_PROGRAM_FLAG_SUBJECT_LOGO: CERT_ROOT_PROGRAM_FLAGS = 32u32;
+pub const CERT_ROOT_PROGRAM_FLAG_SUBJECT_LOGO: CERT_ROOT_PROGRAM_FLAGS = CERT_ROOT_PROGRAM_FLAGS(32u32);
+impl ::core::marker::Copy for CERT_ROOT_PROGRAM_FLAGS {}
+impl ::core::clone::Clone for CERT_ROOT_PROGRAM_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CERT_ROOT_PROGRAM_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CERT_ROOT_PROGRAM_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CERT_ROOT_PROGRAM_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CERT_ROOT_PROGRAM_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CERT_ROOT_PROGRAM_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CERT_ROOT_PROGRAM_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CERT_ROOT_PROGRAM_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CERT_ROOT_PROGRAM_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_ROOT_PROGRAM_FLAG_ADDRESS: u32 = 8u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -6836,29 +8264,73 @@ impl ::core::default::Default for CERT_SELECT_CRITERIA {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CERT_SELECT_CRITERIA_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CERT_SELECT_CRITERIA_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_SELECT_BY_ENHKEY_USAGE: CERT_SELECT_CRITERIA_TYPE = 1u32;
+pub const CERT_SELECT_BY_ENHKEY_USAGE: CERT_SELECT_CRITERIA_TYPE = CERT_SELECT_CRITERIA_TYPE(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_SELECT_BY_KEY_USAGE: CERT_SELECT_CRITERIA_TYPE = 2u32;
+pub const CERT_SELECT_BY_KEY_USAGE: CERT_SELECT_CRITERIA_TYPE = CERT_SELECT_CRITERIA_TYPE(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_SELECT_BY_POLICY_OID: CERT_SELECT_CRITERIA_TYPE = 3u32;
+pub const CERT_SELECT_BY_POLICY_OID: CERT_SELECT_CRITERIA_TYPE = CERT_SELECT_CRITERIA_TYPE(3u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_SELECT_BY_PROV_NAME: CERT_SELECT_CRITERIA_TYPE = 4u32;
+pub const CERT_SELECT_BY_PROV_NAME: CERT_SELECT_CRITERIA_TYPE = CERT_SELECT_CRITERIA_TYPE(4u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_SELECT_BY_EXTENSION: CERT_SELECT_CRITERIA_TYPE = 5u32;
+pub const CERT_SELECT_BY_EXTENSION: CERT_SELECT_CRITERIA_TYPE = CERT_SELECT_CRITERIA_TYPE(5u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_SELECT_BY_SUBJECT_HOST_NAME: CERT_SELECT_CRITERIA_TYPE = 6u32;
+pub const CERT_SELECT_BY_SUBJECT_HOST_NAME: CERT_SELECT_CRITERIA_TYPE = CERT_SELECT_CRITERIA_TYPE(6u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_SELECT_BY_ISSUER_ATTR: CERT_SELECT_CRITERIA_TYPE = 7u32;
+pub const CERT_SELECT_BY_ISSUER_ATTR: CERT_SELECT_CRITERIA_TYPE = CERT_SELECT_CRITERIA_TYPE(7u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_SELECT_BY_SUBJECT_ATTR: CERT_SELECT_CRITERIA_TYPE = 8u32;
+pub const CERT_SELECT_BY_SUBJECT_ATTR: CERT_SELECT_CRITERIA_TYPE = CERT_SELECT_CRITERIA_TYPE(8u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_SELECT_BY_ISSUER_NAME: CERT_SELECT_CRITERIA_TYPE = 9u32;
+pub const CERT_SELECT_BY_ISSUER_NAME: CERT_SELECT_CRITERIA_TYPE = CERT_SELECT_CRITERIA_TYPE(9u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_SELECT_BY_PUBLIC_KEY: CERT_SELECT_CRITERIA_TYPE = 10u32;
+pub const CERT_SELECT_BY_PUBLIC_KEY: CERT_SELECT_CRITERIA_TYPE = CERT_SELECT_CRITERIA_TYPE(10u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_SELECT_BY_TLS_SIGNATURES: CERT_SELECT_CRITERIA_TYPE = 11u32;
+pub const CERT_SELECT_BY_TLS_SIGNATURES: CERT_SELECT_CRITERIA_TYPE = CERT_SELECT_CRITERIA_TYPE(11u32);
+impl ::core::marker::Copy for CERT_SELECT_CRITERIA_TYPE {}
+impl ::core::clone::Clone for CERT_SELECT_CRITERIA_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CERT_SELECT_CRITERIA_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CERT_SELECT_CRITERIA_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CERT_SELECT_CRITERIA_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CERT_SELECT_CRITERIA_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CERT_SELECT_CRITERIA_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CERT_SELECT_CRITERIA_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CERT_SELECT_CRITERIA_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CERT_SELECT_CRITERIA_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_SELECT_DISALLOW_SELFSIGNED: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -7165,17 +8637,61 @@ impl ::core::default::Default for CERT_STORE_PROV_FIND_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CERT_STORE_PROV_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CERT_STORE_PROV_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_PROV_EXTERNAL_FLAG: CERT_STORE_PROV_FLAGS = 1u32;
+pub const CERT_STORE_PROV_EXTERNAL_FLAG: CERT_STORE_PROV_FLAGS = CERT_STORE_PROV_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_PROV_DELETED_FLAG: CERT_STORE_PROV_FLAGS = 2u32;
+pub const CERT_STORE_PROV_DELETED_FLAG: CERT_STORE_PROV_FLAGS = CERT_STORE_PROV_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_PROV_NO_PERSIST_FLAG: CERT_STORE_PROV_FLAGS = 4u32;
+pub const CERT_STORE_PROV_NO_PERSIST_FLAG: CERT_STORE_PROV_FLAGS = CERT_STORE_PROV_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_PROV_SYSTEM_STORE_FLAG: CERT_STORE_PROV_FLAGS = 8u32;
+pub const CERT_STORE_PROV_SYSTEM_STORE_FLAG: CERT_STORE_PROV_FLAGS = CERT_STORE_PROV_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_PROV_LM_SYSTEM_STORE_FLAG: CERT_STORE_PROV_FLAGS = 16u32;
+pub const CERT_STORE_PROV_LM_SYSTEM_STORE_FLAG: CERT_STORE_PROV_FLAGS = CERT_STORE_PROV_FLAGS(16u32);
+impl ::core::marker::Copy for CERT_STORE_PROV_FLAGS {}
+impl ::core::clone::Clone for CERT_STORE_PROV_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CERT_STORE_PROV_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CERT_STORE_PROV_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CERT_STORE_PROV_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CERT_STORE_PROV_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CERT_STORE_PROV_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CERT_STORE_PROV_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CERT_STORE_PROV_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CERT_STORE_PROV_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_STORE_PROV_FREE_FIND_CERT_FUNC: u32 = 15u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -7250,25 +8766,113 @@ pub const CERT_STORE_PROV_WRITE_CTL_FUNC: u32 = 10u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_STORE_REVOCATION_FLAG: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CERT_STORE_SAVE_AS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CERT_STORE_SAVE_AS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_SAVE_AS_PKCS7: CERT_STORE_SAVE_AS = 2u32;
+pub const CERT_STORE_SAVE_AS_PKCS7: CERT_STORE_SAVE_AS = CERT_STORE_SAVE_AS(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_SAVE_AS_STORE: CERT_STORE_SAVE_AS = 1u32;
+pub const CERT_STORE_SAVE_AS_STORE: CERT_STORE_SAVE_AS = CERT_STORE_SAVE_AS(1u32);
+impl ::core::marker::Copy for CERT_STORE_SAVE_AS {}
+impl ::core::clone::Clone for CERT_STORE_SAVE_AS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CERT_STORE_SAVE_AS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CERT_STORE_SAVE_AS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CERT_STORE_SAVE_AS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CERT_STORE_SAVE_AS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CERT_STORE_SAVE_AS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CERT_STORE_SAVE_AS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CERT_STORE_SAVE_AS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CERT_STORE_SAVE_AS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_STORE_SAVE_AS_PKCS12: u32 = 3u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CERT_STORE_SAVE_TO = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CERT_STORE_SAVE_TO(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_SAVE_TO_FILE: CERT_STORE_SAVE_TO = 1u32;
+pub const CERT_STORE_SAVE_TO_FILE: CERT_STORE_SAVE_TO = CERT_STORE_SAVE_TO(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_SAVE_TO_FILENAME: CERT_STORE_SAVE_TO = 4u32;
+pub const CERT_STORE_SAVE_TO_FILENAME: CERT_STORE_SAVE_TO = CERT_STORE_SAVE_TO(4u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_SAVE_TO_FILENAME_A: CERT_STORE_SAVE_TO = 3u32;
+pub const CERT_STORE_SAVE_TO_FILENAME_A: CERT_STORE_SAVE_TO = CERT_STORE_SAVE_TO(3u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_SAVE_TO_FILENAME_W: CERT_STORE_SAVE_TO = 4u32;
+pub const CERT_STORE_SAVE_TO_FILENAME_W: CERT_STORE_SAVE_TO = CERT_STORE_SAVE_TO(4u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STORE_SAVE_TO_MEMORY: CERT_STORE_SAVE_TO = 2u32;
+pub const CERT_STORE_SAVE_TO_MEMORY: CERT_STORE_SAVE_TO = CERT_STORE_SAVE_TO(2u32);
+impl ::core::marker::Copy for CERT_STORE_SAVE_TO {}
+impl ::core::clone::Clone for CERT_STORE_SAVE_TO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CERT_STORE_SAVE_TO {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CERT_STORE_SAVE_TO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CERT_STORE_SAVE_TO").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CERT_STORE_SAVE_TO {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CERT_STORE_SAVE_TO {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CERT_STORE_SAVE_TO {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CERT_STORE_SAVE_TO {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CERT_STORE_SAVE_TO {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_STORE_SHARE_STORE_FLAG: u32 = 64u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -7278,19 +8882,107 @@ pub const CERT_STORE_TIME_VALIDITY_FLAG: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_STORE_UNSAFE_PHYSICAL_FLAG: u32 = 32u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CERT_STRING_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CERT_STRING_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_SIMPLE_NAME_STR: CERT_STRING_TYPE = 1u32;
+pub const CERT_SIMPLE_NAME_STR: CERT_STRING_TYPE = CERT_STRING_TYPE(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_OID_NAME_STR: CERT_STRING_TYPE = 2u32;
+pub const CERT_OID_NAME_STR: CERT_STRING_TYPE = CERT_STRING_TYPE(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_X500_NAME_STR: CERT_STRING_TYPE = 3u32;
+pub const CERT_X500_NAME_STR: CERT_STRING_TYPE = CERT_STRING_TYPE(3u32);
+impl ::core::marker::Copy for CERT_STRING_TYPE {}
+impl ::core::clone::Clone for CERT_STRING_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CERT_STRING_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CERT_STRING_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CERT_STRING_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CERT_STRING_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CERT_STRING_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CERT_STRING_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CERT_STRING_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CERT_STRING_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CERT_STRONG_SIGN_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CERT_STRONG_SIGN_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STRONG_SIGN_ENABLE_CRL_CHECK: CERT_STRONG_SIGN_FLAGS = 1u32;
+pub const CERT_STRONG_SIGN_ENABLE_CRL_CHECK: CERT_STRONG_SIGN_FLAGS = CERT_STRONG_SIGN_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_STRONG_SIGN_ENABLE_OCSP_CHECK: CERT_STRONG_SIGN_FLAGS = 2u32;
+pub const CERT_STRONG_SIGN_ENABLE_OCSP_CHECK: CERT_STRONG_SIGN_FLAGS = CERT_STRONG_SIGN_FLAGS(2u32);
+impl ::core::marker::Copy for CERT_STRONG_SIGN_FLAGS {}
+impl ::core::clone::Clone for CERT_STRONG_SIGN_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CERT_STRONG_SIGN_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CERT_STRONG_SIGN_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CERT_STRONG_SIGN_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CERT_STRONG_SIGN_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CERT_STRONG_SIGN_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CERT_STRONG_SIGN_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CERT_STRONG_SIGN_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CERT_STRONG_SIGN_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_STRONG_SIGN_OID_INFO_CHOICE: u32 = 2u32;
 #[repr(C)]
@@ -7464,11 +9156,55 @@ pub const CERT_SYSTEM_STORE_CURRENT_USER_ID: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_SYSTEM_STORE_DEFER_READ_FLAG: u32 = 536870912u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CERT_SYSTEM_STORE_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CERT_SYSTEM_STORE_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_SYSTEM_STORE_LOCATION_MASK: CERT_SYSTEM_STORE_FLAGS = 16711680u32;
+pub const CERT_SYSTEM_STORE_LOCATION_MASK: CERT_SYSTEM_STORE_FLAGS = CERT_SYSTEM_STORE_FLAGS(16711680u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_SYSTEM_STORE_RELOCATE_FLAG: CERT_SYSTEM_STORE_FLAGS = 2147483648u32;
+pub const CERT_SYSTEM_STORE_RELOCATE_FLAG: CERT_SYSTEM_STORE_FLAGS = CERT_SYSTEM_STORE_FLAGS(2147483648u32);
+impl ::core::marker::Copy for CERT_SYSTEM_STORE_FLAGS {}
+impl ::core::clone::Clone for CERT_SYSTEM_STORE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CERT_SYSTEM_STORE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CERT_SYSTEM_STORE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CERT_SYSTEM_STORE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CERT_SYSTEM_STORE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CERT_SYSTEM_STORE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CERT_SYSTEM_STORE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CERT_SYSTEM_STORE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CERT_SYSTEM_STORE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub struct CERT_SYSTEM_STORE_INFO {
@@ -8032,21 +9768,37 @@ impl ::core::default::Default for CERT_X942_DH_VALIDATION_PARAMS {
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CERT_XML_NAME_STR: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CESSetupProperty = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CESSetupProperty(pub i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ENUM_CESSETUPPROP_USE_IISAPPPOOLIDENTITY: CESSetupProperty = 0i32;
+pub const ENUM_CESSETUPPROP_USE_IISAPPPOOLIDENTITY: CESSetupProperty = CESSetupProperty(0i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ENUM_CESSETUPPROP_CACONFIG: CESSetupProperty = 1i32;
+pub const ENUM_CESSETUPPROP_CACONFIG: CESSetupProperty = CESSetupProperty(1i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ENUM_CESSETUPPROP_AUTHENTICATION: CESSetupProperty = 2i32;
+pub const ENUM_CESSETUPPROP_AUTHENTICATION: CESSetupProperty = CESSetupProperty(2i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ENUM_CESSETUPPROP_SSLCERTHASH: CESSetupProperty = 3i32;
+pub const ENUM_CESSETUPPROP_SSLCERTHASH: CESSetupProperty = CESSetupProperty(3i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ENUM_CESSETUPPROP_URL: CESSetupProperty = 4i32;
+pub const ENUM_CESSETUPPROP_URL: CESSetupProperty = CESSetupProperty(4i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ENUM_CESSETUPPROP_RENEWALONLY: CESSetupProperty = 5i32;
+pub const ENUM_CESSETUPPROP_RENEWALONLY: CESSetupProperty = CESSetupProperty(5i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ENUM_CESSETUPPROP_ALLOW_KEYBASED_RENEWAL: CESSetupProperty = 6i32;
+pub const ENUM_CESSETUPPROP_ALLOW_KEYBASED_RENEWAL: CESSetupProperty = CESSetupProperty(6i32);
+impl ::core::marker::Copy for CESSetupProperty {}
+impl ::core::clone::Clone for CESSetupProperty {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CESSetupProperty {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CESSetupProperty {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CESSetupProperty").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9585,17 +11337,105 @@ impl ::core::default::Default for CMSG_KEY_AGREE_KEY_ENCRYPT_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CMSG_KEY_AGREE_OPTION = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CMSG_KEY_AGREE_OPTION(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CMSG_KEY_AGREE_EPHEMERAL_KEY_CHOICE: CMSG_KEY_AGREE_OPTION = 1u32;
+pub const CMSG_KEY_AGREE_EPHEMERAL_KEY_CHOICE: CMSG_KEY_AGREE_OPTION = CMSG_KEY_AGREE_OPTION(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CMSG_KEY_AGREE_STATIC_KEY_CHOICE: CMSG_KEY_AGREE_OPTION = 2u32;
+pub const CMSG_KEY_AGREE_STATIC_KEY_CHOICE: CMSG_KEY_AGREE_OPTION = CMSG_KEY_AGREE_OPTION(2u32);
+impl ::core::marker::Copy for CMSG_KEY_AGREE_OPTION {}
+impl ::core::clone::Clone for CMSG_KEY_AGREE_OPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CMSG_KEY_AGREE_OPTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CMSG_KEY_AGREE_OPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CMSG_KEY_AGREE_OPTION").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CMSG_KEY_AGREE_OPTION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CMSG_KEY_AGREE_OPTION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CMSG_KEY_AGREE_OPTION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CMSG_KEY_AGREE_OPTION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CMSG_KEY_AGREE_OPTION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CMSG_KEY_AGREE_ORIGINATOR = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CMSG_KEY_AGREE_ORIGINATOR(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CMSG_KEY_AGREE_ORIGINATOR_CERT: CMSG_KEY_AGREE_ORIGINATOR = 1u32;
+pub const CMSG_KEY_AGREE_ORIGINATOR_CERT: CMSG_KEY_AGREE_ORIGINATOR = CMSG_KEY_AGREE_ORIGINATOR(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CMSG_KEY_AGREE_ORIGINATOR_PUBLIC_KEY: CMSG_KEY_AGREE_ORIGINATOR = 2u32;
+pub const CMSG_KEY_AGREE_ORIGINATOR_PUBLIC_KEY: CMSG_KEY_AGREE_ORIGINATOR = CMSG_KEY_AGREE_ORIGINATOR(2u32);
+impl ::core::marker::Copy for CMSG_KEY_AGREE_ORIGINATOR {}
+impl ::core::clone::Clone for CMSG_KEY_AGREE_ORIGINATOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CMSG_KEY_AGREE_ORIGINATOR {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CMSG_KEY_AGREE_ORIGINATOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CMSG_KEY_AGREE_ORIGINATOR").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CMSG_KEY_AGREE_ORIGINATOR {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CMSG_KEY_AGREE_ORIGINATOR {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CMSG_KEY_AGREE_ORIGINATOR {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CMSG_KEY_AGREE_ORIGINATOR {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CMSG_KEY_AGREE_ORIGINATOR {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CMSG_KEY_AGREE_RECIPIENT: u32 = 2u32;
 #[repr(C)]
@@ -11493,17 +13333,61 @@ pub const CRYPT_ACCUMULATIVE_TIMEOUT: u32 = 2048u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CRYPT_ACQUIRE_ALLOW_NCRYPT_KEY_FLAG: u32 = 65536u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CRYPT_ACQUIRE_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRYPT_ACQUIRE_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_ACQUIRE_CACHE_FLAG: CRYPT_ACQUIRE_FLAGS = 1u32;
+pub const CRYPT_ACQUIRE_CACHE_FLAG: CRYPT_ACQUIRE_FLAGS = CRYPT_ACQUIRE_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_ACQUIRE_COMPARE_KEY_FLAG: CRYPT_ACQUIRE_FLAGS = 4u32;
+pub const CRYPT_ACQUIRE_COMPARE_KEY_FLAG: CRYPT_ACQUIRE_FLAGS = CRYPT_ACQUIRE_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_ACQUIRE_NO_HEALING: CRYPT_ACQUIRE_FLAGS = 8u32;
+pub const CRYPT_ACQUIRE_NO_HEALING: CRYPT_ACQUIRE_FLAGS = CRYPT_ACQUIRE_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_ACQUIRE_SILENT_FLAG: CRYPT_ACQUIRE_FLAGS = 64u32;
+pub const CRYPT_ACQUIRE_SILENT_FLAG: CRYPT_ACQUIRE_FLAGS = CRYPT_ACQUIRE_FLAGS(64u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_ACQUIRE_USE_PROV_INFO_FLAG: CRYPT_ACQUIRE_FLAGS = 2u32;
+pub const CRYPT_ACQUIRE_USE_PROV_INFO_FLAG: CRYPT_ACQUIRE_FLAGS = CRYPT_ACQUIRE_FLAGS(2u32);
+impl ::core::marker::Copy for CRYPT_ACQUIRE_FLAGS {}
+impl ::core::clone::Clone for CRYPT_ACQUIRE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CRYPT_ACQUIRE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRYPT_ACQUIRE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRYPT_ACQUIRE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRYPT_ACQUIRE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRYPT_ACQUIRE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRYPT_ACQUIRE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRYPT_ACQUIRE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRYPT_ACQUIRE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CRYPT_ACQUIRE_NCRYPT_KEY_FLAGS_MASK: u32 = 458752u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -12001,11 +13885,55 @@ impl ::core::default::Default for CRYPT_CONTEXT_CONFIG {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CRYPT_CONTEXT_CONFIG_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRYPT_CONTEXT_CONFIG_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_EXCLUSIVE: CRYPT_CONTEXT_CONFIG_FLAGS = 1u32;
+pub const CRYPT_EXCLUSIVE: CRYPT_CONTEXT_CONFIG_FLAGS = CRYPT_CONTEXT_CONFIG_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_OVERRIDE: CRYPT_CONTEXT_CONFIG_FLAGS = 65536u32;
+pub const CRYPT_OVERRIDE: CRYPT_CONTEXT_CONFIG_FLAGS = CRYPT_CONTEXT_CONFIG_FLAGS(65536u32);
+impl ::core::marker::Copy for CRYPT_CONTEXT_CONFIG_FLAGS {}
+impl ::core::clone::Clone for CRYPT_CONTEXT_CONFIG_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CRYPT_CONTEXT_CONFIG_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRYPT_CONTEXT_CONFIG_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRYPT_CONTEXT_CONFIG_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRYPT_CONTEXT_CONFIG_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRYPT_CONTEXT_CONFIG_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRYPT_CONTEXT_CONFIG_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRYPT_CONTEXT_CONFIG_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRYPT_CONTEXT_CONFIG_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12283,11 +14211,55 @@ pub const CRYPT_DECRYPT_RSA_NO_PADDING_CHECK: u32 = 32u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CRYPT_DEFAULT_CONTAINER_OPTIONAL: u32 = 128u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CRYPT_DEFAULT_CONTEXT_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRYPT_DEFAULT_CONTEXT_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_DEFAULT_CONTEXT_AUTO_RELEASE_FLAG: CRYPT_DEFAULT_CONTEXT_FLAGS = 1u32;
+pub const CRYPT_DEFAULT_CONTEXT_AUTO_RELEASE_FLAG: CRYPT_DEFAULT_CONTEXT_FLAGS = CRYPT_DEFAULT_CONTEXT_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_DEFAULT_CONTEXT_PROCESS_FLAG: CRYPT_DEFAULT_CONTEXT_FLAGS = 2u32;
+pub const CRYPT_DEFAULT_CONTEXT_PROCESS_FLAG: CRYPT_DEFAULT_CONTEXT_FLAGS = CRYPT_DEFAULT_CONTEXT_FLAGS(2u32);
+impl ::core::marker::Copy for CRYPT_DEFAULT_CONTEXT_FLAGS {}
+impl ::core::clone::Clone for CRYPT_DEFAULT_CONTEXT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CRYPT_DEFAULT_CONTEXT_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRYPT_DEFAULT_CONTEXT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRYPT_DEFAULT_CONTEXT_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRYPT_DEFAULT_CONTEXT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRYPT_DEFAULT_CONTEXT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRYPT_DEFAULT_CONTEXT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRYPT_DEFAULT_CONTEXT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRYPT_DEFAULT_CONTEXT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12328,11 +14300,55 @@ impl ::core::default::Default for CRYPT_DEFAULT_CONTEXT_MULTI_OID_PARA {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CRYPT_DEFAULT_CONTEXT_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRYPT_DEFAULT_CONTEXT_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_DEFAULT_CONTEXT_CERT_SIGN_OID: CRYPT_DEFAULT_CONTEXT_TYPE = 1u32;
+pub const CRYPT_DEFAULT_CONTEXT_CERT_SIGN_OID: CRYPT_DEFAULT_CONTEXT_TYPE = CRYPT_DEFAULT_CONTEXT_TYPE(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_DEFAULT_CONTEXT_MULTI_CERT_SIGN_OID: CRYPT_DEFAULT_CONTEXT_TYPE = 2u32;
+pub const CRYPT_DEFAULT_CONTEXT_MULTI_CERT_SIGN_OID: CRYPT_DEFAULT_CONTEXT_TYPE = CRYPT_DEFAULT_CONTEXT_TYPE(2u32);
+impl ::core::marker::Copy for CRYPT_DEFAULT_CONTEXT_TYPE {}
+impl ::core::clone::Clone for CRYPT_DEFAULT_CONTEXT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CRYPT_DEFAULT_CONTEXT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRYPT_DEFAULT_CONTEXT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRYPT_DEFAULT_CONTEXT_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRYPT_DEFAULT_CONTEXT_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRYPT_DEFAULT_CONTEXT_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRYPT_DEFAULT_CONTEXT_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRYPT_DEFAULT_CONTEXT_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRYPT_DEFAULT_CONTEXT_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CRYPT_DELETEKEYSET: u32 = 16u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -12473,17 +14489,61 @@ pub const CRYPT_ENCODE_ENABLE_UTF8PERCENT_FLAG: u32 = 262144u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CRYPT_ENCODE_NO_SIGNATURE_BYTE_REVERSAL_FLAG: u32 = 8u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CRYPT_ENCODE_OBJECT_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRYPT_ENCODE_OBJECT_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_ENCODE_ALLOC_FLAG: CRYPT_ENCODE_OBJECT_FLAGS = 32768u32;
+pub const CRYPT_ENCODE_ALLOC_FLAG: CRYPT_ENCODE_OBJECT_FLAGS = CRYPT_ENCODE_OBJECT_FLAGS(32768u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_ENCODE_ENABLE_PUNYCODE_FLAG: CRYPT_ENCODE_OBJECT_FLAGS = 131072u32;
+pub const CRYPT_ENCODE_ENABLE_PUNYCODE_FLAG: CRYPT_ENCODE_OBJECT_FLAGS = CRYPT_ENCODE_OBJECT_FLAGS(131072u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_UNICODE_NAME_ENCODE_DISABLE_CHECK_TYPE_FLAG: CRYPT_ENCODE_OBJECT_FLAGS = 1073741824u32;
+pub const CRYPT_UNICODE_NAME_ENCODE_DISABLE_CHECK_TYPE_FLAG: CRYPT_ENCODE_OBJECT_FLAGS = CRYPT_ENCODE_OBJECT_FLAGS(1073741824u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_UNICODE_NAME_ENCODE_ENABLE_T61_UNICODE_FLAG: CRYPT_ENCODE_OBJECT_FLAGS = 2147483648u32;
+pub const CRYPT_UNICODE_NAME_ENCODE_ENABLE_T61_UNICODE_FLAG: CRYPT_ENCODE_OBJECT_FLAGS = CRYPT_ENCODE_OBJECT_FLAGS(2147483648u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_UNICODE_NAME_ENCODE_ENABLE_UTF8_UNICODE_FLAG: CRYPT_ENCODE_OBJECT_FLAGS = 536870912u32;
+pub const CRYPT_UNICODE_NAME_ENCODE_ENABLE_UTF8_UNICODE_FLAG: CRYPT_ENCODE_OBJECT_FLAGS = CRYPT_ENCODE_OBJECT_FLAGS(536870912u32);
+impl ::core::marker::Copy for CRYPT_ENCODE_OBJECT_FLAGS {}
+impl ::core::clone::Clone for CRYPT_ENCODE_OBJECT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CRYPT_ENCODE_OBJECT_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRYPT_ENCODE_OBJECT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRYPT_ENCODE_OBJECT_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRYPT_ENCODE_OBJECT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRYPT_ENCODE_OBJECT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRYPT_ENCODE_OBJECT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRYPT_ENCODE_OBJECT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRYPT_ENCODE_OBJECT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub struct CRYPT_ENCODE_PARA {
@@ -12655,13 +14715,57 @@ pub const CRYPT_FAILED: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CRYPT_FASTSGC: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CRYPT_FIND_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRYPT_FIND_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_FIND_USER_KEYSET_FLAG: CRYPT_FIND_FLAGS = 1u32;
+pub const CRYPT_FIND_USER_KEYSET_FLAG: CRYPT_FIND_FLAGS = CRYPT_FIND_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_FIND_MACHINE_KEYSET_FLAG: CRYPT_FIND_FLAGS = 2u32;
+pub const CRYPT_FIND_MACHINE_KEYSET_FLAG: CRYPT_FIND_FLAGS = CRYPT_FIND_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_FIND_SILENT_KEYSET_FLAG: CRYPT_FIND_FLAGS = 64u32;
+pub const CRYPT_FIND_SILENT_KEYSET_FLAG: CRYPT_FIND_FLAGS = CRYPT_FIND_FLAGS(64u32);
+impl ::core::marker::Copy for CRYPT_FIND_FLAGS {}
+impl ::core::clone::Clone for CRYPT_FIND_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CRYPT_FIND_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRYPT_FIND_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRYPT_FIND_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRYPT_FIND_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRYPT_FIND_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRYPT_FIND_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRYPT_FIND_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRYPT_FIND_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CRYPT_FIRST: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -12749,15 +14853,59 @@ impl ::core::default::Default for CRYPT_GET_TIME_VALID_OBJECT_EXTRA_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CRYPT_GET_URL_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRYPT_GET_URL_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_GET_URL_FROM_PROPERTY: CRYPT_GET_URL_FLAGS = 1u32;
+pub const CRYPT_GET_URL_FROM_PROPERTY: CRYPT_GET_URL_FLAGS = CRYPT_GET_URL_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_GET_URL_FROM_EXTENSION: CRYPT_GET_URL_FLAGS = 2u32;
+pub const CRYPT_GET_URL_FROM_EXTENSION: CRYPT_GET_URL_FLAGS = CRYPT_GET_URL_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_GET_URL_FROM_UNAUTH_ATTRIBUTE: CRYPT_GET_URL_FLAGS = 4u32;
+pub const CRYPT_GET_URL_FROM_UNAUTH_ATTRIBUTE: CRYPT_GET_URL_FLAGS = CRYPT_GET_URL_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_GET_URL_FROM_AUTH_ATTRIBUTE: CRYPT_GET_URL_FLAGS = 8u32;
+pub const CRYPT_GET_URL_FROM_AUTH_ATTRIBUTE: CRYPT_GET_URL_FLAGS = CRYPT_GET_URL_FLAGS(8u32);
+impl ::core::marker::Copy for CRYPT_GET_URL_FLAGS {}
+impl ::core::clone::Clone for CRYPT_GET_URL_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CRYPT_GET_URL_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRYPT_GET_URL_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRYPT_GET_URL_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRYPT_GET_URL_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRYPT_GET_URL_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRYPT_GET_URL_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRYPT_GET_URL_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRYPT_GET_URL_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CRYPT_HASH_ALG_OID_GROUP_ID: u32 = 1u32;
 #[repr(C)]
@@ -12883,11 +15031,55 @@ impl ::core::default::Default for CRYPT_IMAGE_REF {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CRYPT_IMAGE_REF_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRYPT_IMAGE_REF_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_MIN_DEPENDENCIES: CRYPT_IMAGE_REF_FLAGS = 1u32;
+pub const CRYPT_MIN_DEPENDENCIES: CRYPT_IMAGE_REF_FLAGS = CRYPT_IMAGE_REF_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_PROCESS_ISOLATE: CRYPT_IMAGE_REF_FLAGS = 65536u32;
+pub const CRYPT_PROCESS_ISOLATE: CRYPT_IMAGE_REF_FLAGS = CRYPT_IMAGE_REF_FLAGS(65536u32);
+impl ::core::marker::Copy for CRYPT_IMAGE_REF_FLAGS {}
+impl ::core::clone::Clone for CRYPT_IMAGE_REF_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CRYPT_IMAGE_REF_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRYPT_IMAGE_REF_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRYPT_IMAGE_REF_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRYPT_IMAGE_REF_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRYPT_IMAGE_REF_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRYPT_IMAGE_REF_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRYPT_IMAGE_REF_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRYPT_IMAGE_REF_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12941,11 +15133,55 @@ pub const CRYPT_IMPL_UNKNOWN: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CRYPT_IMPORT_KEY: u32 = 128u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CRYPT_IMPORT_PUBLIC_KEY_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRYPT_IMPORT_PUBLIC_KEY_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_OID_INFO_PUBKEY_SIGN_KEY_FLAG: CRYPT_IMPORT_PUBLIC_KEY_FLAGS = 2147483648u32;
+pub const CRYPT_OID_INFO_PUBKEY_SIGN_KEY_FLAG: CRYPT_IMPORT_PUBLIC_KEY_FLAGS = CRYPT_IMPORT_PUBLIC_KEY_FLAGS(2147483648u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_OID_INFO_PUBKEY_ENCRYPT_KEY_FLAG: CRYPT_IMPORT_PUBLIC_KEY_FLAGS = 1073741824u32;
+pub const CRYPT_OID_INFO_PUBKEY_ENCRYPT_KEY_FLAG: CRYPT_IMPORT_PUBLIC_KEY_FLAGS = CRYPT_IMPORT_PUBLIC_KEY_FLAGS(1073741824u32);
+impl ::core::marker::Copy for CRYPT_IMPORT_PUBLIC_KEY_FLAGS {}
+impl ::core::clone::Clone for CRYPT_IMPORT_PUBLIC_KEY_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CRYPT_IMPORT_PUBLIC_KEY_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRYPT_IMPORT_PUBLIC_KEY_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRYPT_IMPORT_PUBLIC_KEY_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRYPT_IMPORT_PUBLIC_KEY_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRYPT_IMPORT_PUBLIC_KEY_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRYPT_IMPORT_PUBLIC_KEY_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRYPT_IMPORT_PUBLIC_KEY_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRYPT_IMPORT_PUBLIC_KEY_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CRYPT_INSTALL_OID_FUNC_BEFORE_FLAG: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -13004,87 +15240,175 @@ pub const CRYPT_KEYID_MACHINE_FLAG: u32 = 32u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CRYPT_KEYID_SET_NEW_FLAG: u32 = 8192u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CRYPT_KEY_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRYPT_KEY_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_EXPORTABLE: CRYPT_KEY_FLAGS = 1u32;
+pub const CRYPT_EXPORTABLE: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_USER_PROTECTED: CRYPT_KEY_FLAGS = 2u32;
+pub const CRYPT_USER_PROTECTED: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_ARCHIVABLE: CRYPT_KEY_FLAGS = 16384u32;
+pub const CRYPT_ARCHIVABLE: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(16384u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_CREATE_IV: CRYPT_KEY_FLAGS = 512u32;
+pub const CRYPT_CREATE_IV: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(512u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_CREATE_SALT: CRYPT_KEY_FLAGS = 4u32;
+pub const CRYPT_CREATE_SALT: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_DATA_KEY: CRYPT_KEY_FLAGS = 2048u32;
+pub const CRYPT_DATA_KEY: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(2048u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_FORCE_KEY_PROTECTION_HIGH: CRYPT_KEY_FLAGS = 32768u32;
+pub const CRYPT_FORCE_KEY_PROTECTION_HIGH: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(32768u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_KEK: CRYPT_KEY_FLAGS = 1024u32;
+pub const CRYPT_KEK: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(1024u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_INITIATOR: CRYPT_KEY_FLAGS = 64u32;
+pub const CRYPT_INITIATOR: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(64u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_NO_SALT: CRYPT_KEY_FLAGS = 16u32;
+pub const CRYPT_NO_SALT: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_ONLINE: CRYPT_KEY_FLAGS = 128u32;
+pub const CRYPT_ONLINE: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(128u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_PREGEN: CRYPT_KEY_FLAGS = 64u32;
+pub const CRYPT_PREGEN: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(64u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_RECIPIENT: CRYPT_KEY_FLAGS = 16u32;
+pub const CRYPT_RECIPIENT: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_SF: CRYPT_KEY_FLAGS = 256u32;
+pub const CRYPT_SF: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(256u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_SGCKEY: CRYPT_KEY_FLAGS = 8192u32;
+pub const CRYPT_SGCKEY: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(8192u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_VOLATILE: CRYPT_KEY_FLAGS = 4096u32;
+pub const CRYPT_VOLATILE: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(4096u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_MACHINE_KEYSET: CRYPT_KEY_FLAGS = 32u32;
+pub const CRYPT_MACHINE_KEYSET: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(32u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_USER_KEYSET: CRYPT_KEY_FLAGS = 4096u32;
+pub const CRYPT_USER_KEYSET: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(4096u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const PKCS12_PREFER_CNG_KSP: CRYPT_KEY_FLAGS = 256u32;
+pub const PKCS12_PREFER_CNG_KSP: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(256u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const PKCS12_ALWAYS_CNG_KSP: CRYPT_KEY_FLAGS = 512u32;
+pub const PKCS12_ALWAYS_CNG_KSP: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(512u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const PKCS12_ALLOW_OVERWRITE_KEY: CRYPT_KEY_FLAGS = 16384u32;
+pub const PKCS12_ALLOW_OVERWRITE_KEY: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(16384u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const PKCS12_NO_PERSIST_KEY: CRYPT_KEY_FLAGS = 32768u32;
+pub const PKCS12_NO_PERSIST_KEY: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(32768u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const PKCS12_INCLUDE_EXTENDED_PROPERTIES: CRYPT_KEY_FLAGS = 16u32;
+pub const PKCS12_INCLUDE_EXTENDED_PROPERTIES: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_OAEP: CRYPT_KEY_FLAGS = 64u32;
+pub const CRYPT_OAEP: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(64u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_BLOB_VER3: CRYPT_KEY_FLAGS = 128u32;
+pub const CRYPT_BLOB_VER3: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(128u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_DESTROYKEY: CRYPT_KEY_FLAGS = 4u32;
+pub const CRYPT_DESTROYKEY: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_SSL2_FALLBACK: CRYPT_KEY_FLAGS = 2u32;
+pub const CRYPT_SSL2_FALLBACK: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_Y_ONLY: CRYPT_KEY_FLAGS = 1u32;
+pub const CRYPT_Y_ONLY: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_IPSEC_HMAC_KEY: CRYPT_KEY_FLAGS = 256u32;
+pub const CRYPT_IPSEC_HMAC_KEY: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(256u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_SET_KEY_PROV_HANDLE_PROP_ID: CRYPT_KEY_FLAGS = 1u32;
+pub const CERT_SET_KEY_PROV_HANDLE_PROP_ID: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CERT_SET_KEY_CONTEXT_PROP_ID: CRYPT_KEY_FLAGS = 1u32;
+pub const CERT_SET_KEY_CONTEXT_PROP_ID: CRYPT_KEY_FLAGS = CRYPT_KEY_FLAGS(1u32);
+impl ::core::marker::Copy for CRYPT_KEY_FLAGS {}
+impl ::core::clone::Clone for CRYPT_KEY_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CRYPT_KEY_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRYPT_KEY_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRYPT_KEY_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRYPT_KEY_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRYPT_KEY_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRYPT_KEY_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRYPT_KEY_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRYPT_KEY_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CRYPT_KEY_PARAM_ID = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRYPT_KEY_PARAM_ID(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const KP_ALGID: CRYPT_KEY_PARAM_ID = 7u32;
+pub const KP_ALGID: CRYPT_KEY_PARAM_ID = CRYPT_KEY_PARAM_ID(7u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const KP_CERTIFICATE: CRYPT_KEY_PARAM_ID = 26u32;
+pub const KP_CERTIFICATE: CRYPT_KEY_PARAM_ID = CRYPT_KEY_PARAM_ID(26u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const KP_PERMISSIONS: CRYPT_KEY_PARAM_ID = 6u32;
+pub const KP_PERMISSIONS: CRYPT_KEY_PARAM_ID = CRYPT_KEY_PARAM_ID(6u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const KP_SALT: CRYPT_KEY_PARAM_ID = 2u32;
+pub const KP_SALT: CRYPT_KEY_PARAM_ID = CRYPT_KEY_PARAM_ID(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const KP_SALT_EX: CRYPT_KEY_PARAM_ID = 10u32;
+pub const KP_SALT_EX: CRYPT_KEY_PARAM_ID = CRYPT_KEY_PARAM_ID(10u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const KP_BLOCKLEN: CRYPT_KEY_PARAM_ID = 8u32;
+pub const KP_BLOCKLEN: CRYPT_KEY_PARAM_ID = CRYPT_KEY_PARAM_ID(8u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const KP_GET_USE_COUNT: CRYPT_KEY_PARAM_ID = 42u32;
+pub const KP_GET_USE_COUNT: CRYPT_KEY_PARAM_ID = CRYPT_KEY_PARAM_ID(42u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const KP_KEYLEN: CRYPT_KEY_PARAM_ID = 9u32;
+pub const KP_KEYLEN: CRYPT_KEY_PARAM_ID = CRYPT_KEY_PARAM_ID(9u32);
+impl ::core::marker::Copy for CRYPT_KEY_PARAM_ID {}
+impl ::core::clone::Clone for CRYPT_KEY_PARAM_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CRYPT_KEY_PARAM_ID {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRYPT_KEY_PARAM_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRYPT_KEY_PARAM_ID").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRYPT_KEY_PARAM_ID {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRYPT_KEY_PARAM_ID {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRYPT_KEY_PARAM_ID {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRYPT_KEY_PARAM_ID {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRYPT_KEY_PARAM_ID {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -13357,17 +15681,61 @@ pub const CRYPT_MODE_OFB: u32 = 3u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CRYPT_MODE_OFBP: u32 = 8u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CRYPT_MSG_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRYPT_MSG_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CMSG_DATA: CRYPT_MSG_TYPE = 1u32;
+pub const CMSG_DATA: CRYPT_MSG_TYPE = CRYPT_MSG_TYPE(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CMSG_SIGNED: CRYPT_MSG_TYPE = 2u32;
+pub const CMSG_SIGNED: CRYPT_MSG_TYPE = CRYPT_MSG_TYPE(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CMSG_ENVELOPED: CRYPT_MSG_TYPE = 3u32;
+pub const CMSG_ENVELOPED: CRYPT_MSG_TYPE = CRYPT_MSG_TYPE(3u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CMSG_SIGNED_AND_ENVELOPED: CRYPT_MSG_TYPE = 4u32;
+pub const CMSG_SIGNED_AND_ENVELOPED: CRYPT_MSG_TYPE = CRYPT_MSG_TYPE(4u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CMSG_HASHED: CRYPT_MSG_TYPE = 5u32;
+pub const CMSG_HASHED: CRYPT_MSG_TYPE = CRYPT_MSG_TYPE(5u32);
+impl ::core::marker::Copy for CRYPT_MSG_TYPE {}
+impl ::core::clone::Clone for CRYPT_MSG_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CRYPT_MSG_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRYPT_MSG_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRYPT_MSG_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRYPT_MSG_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRYPT_MSG_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRYPT_MSG_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRYPT_MSG_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRYPT_MSG_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CRYPT_NDR_ENCODING: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -13432,15 +15800,59 @@ impl ::core::default::Default for CRYPT_OBJECT_LOCATOR_PROVIDER_TABLE {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CRYPT_OBJECT_LOCATOR_RELEASE_REASON = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRYPT_OBJECT_LOCATOR_RELEASE_REASON(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_OBJECT_LOCATOR_RELEASE_SYSTEM_SHUTDOWN: CRYPT_OBJECT_LOCATOR_RELEASE_REASON = 1u32;
+pub const CRYPT_OBJECT_LOCATOR_RELEASE_SYSTEM_SHUTDOWN: CRYPT_OBJECT_LOCATOR_RELEASE_REASON = CRYPT_OBJECT_LOCATOR_RELEASE_REASON(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_OBJECT_LOCATOR_RELEASE_SERVICE_STOP: CRYPT_OBJECT_LOCATOR_RELEASE_REASON = 2u32;
+pub const CRYPT_OBJECT_LOCATOR_RELEASE_SERVICE_STOP: CRYPT_OBJECT_LOCATOR_RELEASE_REASON = CRYPT_OBJECT_LOCATOR_RELEASE_REASON(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_OBJECT_LOCATOR_RELEASE_PROCESS_EXIT: CRYPT_OBJECT_LOCATOR_RELEASE_REASON = 3u32;
+pub const CRYPT_OBJECT_LOCATOR_RELEASE_PROCESS_EXIT: CRYPT_OBJECT_LOCATOR_RELEASE_REASON = CRYPT_OBJECT_LOCATOR_RELEASE_REASON(3u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_OBJECT_LOCATOR_RELEASE_DLL_UNLOAD: CRYPT_OBJECT_LOCATOR_RELEASE_REASON = 4u32;
+pub const CRYPT_OBJECT_LOCATOR_RELEASE_DLL_UNLOAD: CRYPT_OBJECT_LOCATOR_RELEASE_REASON = CRYPT_OBJECT_LOCATOR_RELEASE_REASON(4u32);
+impl ::core::marker::Copy for CRYPT_OBJECT_LOCATOR_RELEASE_REASON {}
+impl ::core::clone::Clone for CRYPT_OBJECT_LOCATOR_RELEASE_REASON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CRYPT_OBJECT_LOCATOR_RELEASE_REASON {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRYPT_OBJECT_LOCATOR_RELEASE_REASON {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRYPT_OBJECT_LOCATOR_RELEASE_REASON").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRYPT_OBJECT_LOCATOR_RELEASE_REASON {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRYPT_OBJECT_LOCATOR_RELEASE_REASON {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRYPT_OBJECT_LOCATOR_RELEASE_REASON {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRYPT_OBJECT_LOCATOR_RELEASE_REASON {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRYPT_OBJECT_LOCATOR_RELEASE_REASON {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CRYPT_OBJECT_LOCATOR_SPN_NAME_TYPE: u32 = 1u32;
 #[repr(C)]
@@ -14402,47 +16814,135 @@ impl ::core::default::Default for CRYPT_SEQUENCE_OF_ANY {
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CRYPT_SERVER: u32 = 1024u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CRYPT_SET_HASH_PARAM = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRYPT_SET_HASH_PARAM(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const HP_HMAC_INFO: CRYPT_SET_HASH_PARAM = 5u32;
+pub const HP_HMAC_INFO: CRYPT_SET_HASH_PARAM = CRYPT_SET_HASH_PARAM(5u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const HP_HASHVAL: CRYPT_SET_HASH_PARAM = 2u32;
+pub const HP_HASHVAL: CRYPT_SET_HASH_PARAM = CRYPT_SET_HASH_PARAM(2u32);
+impl ::core::marker::Copy for CRYPT_SET_HASH_PARAM {}
+impl ::core::clone::Clone for CRYPT_SET_HASH_PARAM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CRYPT_SET_HASH_PARAM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRYPT_SET_HASH_PARAM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRYPT_SET_HASH_PARAM").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRYPT_SET_HASH_PARAM {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRYPT_SET_HASH_PARAM {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRYPT_SET_HASH_PARAM {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRYPT_SET_HASH_PARAM {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRYPT_SET_HASH_PARAM {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CRYPT_SET_PROV_PARAM_ID = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRYPT_SET_PROV_PARAM_ID(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const PP_CLIENT_HWND: CRYPT_SET_PROV_PARAM_ID = 1u32;
+pub const PP_CLIENT_HWND: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const PP_DELETEKEY: CRYPT_SET_PROV_PARAM_ID = 24u32;
+pub const PP_DELETEKEY: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(24u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const PP_KEYEXCHANGE_ALG: CRYPT_SET_PROV_PARAM_ID = 14u32;
+pub const PP_KEYEXCHANGE_ALG: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(14u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const PP_KEYEXCHANGE_PIN: CRYPT_SET_PROV_PARAM_ID = 32u32;
+pub const PP_KEYEXCHANGE_PIN: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(32u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const PP_KEYEXCHANGE_KEYSIZE: CRYPT_SET_PROV_PARAM_ID = 12u32;
+pub const PP_KEYEXCHANGE_KEYSIZE: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(12u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const PP_KEYSET_SEC_DESCR: CRYPT_SET_PROV_PARAM_ID = 8u32;
+pub const PP_KEYSET_SEC_DESCR: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(8u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const PP_PIN_PROMPT_STRING: CRYPT_SET_PROV_PARAM_ID = 44u32;
+pub const PP_PIN_PROMPT_STRING: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(44u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const PP_ROOT_CERTSTORE: CRYPT_SET_PROV_PARAM_ID = 46u32;
+pub const PP_ROOT_CERTSTORE: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(46u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const PP_SIGNATURE_ALG: CRYPT_SET_PROV_PARAM_ID = 15u32;
+pub const PP_SIGNATURE_ALG: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(15u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const PP_SIGNATURE_PIN: CRYPT_SET_PROV_PARAM_ID = 33u32;
+pub const PP_SIGNATURE_PIN: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(33u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const PP_SIGNATURE_KEYSIZE: CRYPT_SET_PROV_PARAM_ID = 13u32;
+pub const PP_SIGNATURE_KEYSIZE: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(13u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const PP_UI_PROMPT: CRYPT_SET_PROV_PARAM_ID = 21u32;
+pub const PP_UI_PROMPT: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(21u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const PP_USE_HARDWARE_RNG: CRYPT_SET_PROV_PARAM_ID = 38u32;
+pub const PP_USE_HARDWARE_RNG: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(38u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const PP_USER_CERTSTORE: CRYPT_SET_PROV_PARAM_ID = 42u32;
+pub const PP_USER_CERTSTORE: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(42u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const PP_SECURE_KEYEXCHANGE_PIN: CRYPT_SET_PROV_PARAM_ID = 47u32;
+pub const PP_SECURE_KEYEXCHANGE_PIN: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(47u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const PP_SECURE_SIGNATURE_PIN: CRYPT_SET_PROV_PARAM_ID = 48u32;
+pub const PP_SECURE_SIGNATURE_PIN: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(48u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const PP_SMARTCARD_READER: CRYPT_SET_PROV_PARAM_ID = 43u32;
+pub const PP_SMARTCARD_READER: CRYPT_SET_PROV_PARAM_ID = CRYPT_SET_PROV_PARAM_ID(43u32);
+impl ::core::marker::Copy for CRYPT_SET_PROV_PARAM_ID {}
+impl ::core::clone::Clone for CRYPT_SET_PROV_PARAM_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CRYPT_SET_PROV_PARAM_ID {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRYPT_SET_PROV_PARAM_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRYPT_SET_PROV_PARAM_ID").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRYPT_SET_PROV_PARAM_ID {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRYPT_SET_PROV_PARAM_ID {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRYPT_SET_PROV_PARAM_ID {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRYPT_SET_PROV_PARAM_ID {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRYPT_SET_PROV_PARAM_ID {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CRYPT_SGC: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -14633,35 +17133,79 @@ pub const CRYPT_SORTED_CTL_ENCODE_HASHED_SUBJECT_IDENTIFIER_FLAG: u32 = 65536u32
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CRYPT_STICKY_CACHE_RETRIEVAL: u32 = 4096u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CRYPT_STRING = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRYPT_STRING(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_STRING_BASE64HEADER: CRYPT_STRING = 0u32;
+pub const CRYPT_STRING_BASE64HEADER: CRYPT_STRING = CRYPT_STRING(0u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_STRING_BASE64: CRYPT_STRING = 1u32;
+pub const CRYPT_STRING_BASE64: CRYPT_STRING = CRYPT_STRING(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_STRING_BINARY: CRYPT_STRING = 2u32;
+pub const CRYPT_STRING_BINARY: CRYPT_STRING = CRYPT_STRING(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_STRING_BASE64REQUESTHEADER: CRYPT_STRING = 3u32;
+pub const CRYPT_STRING_BASE64REQUESTHEADER: CRYPT_STRING = CRYPT_STRING(3u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_STRING_HEX: CRYPT_STRING = 4u32;
+pub const CRYPT_STRING_HEX: CRYPT_STRING = CRYPT_STRING(4u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_STRING_HEXASCII: CRYPT_STRING = 5u32;
+pub const CRYPT_STRING_HEXASCII: CRYPT_STRING = CRYPT_STRING(5u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_STRING_BASE64X509CRLHEADER: CRYPT_STRING = 9u32;
+pub const CRYPT_STRING_BASE64X509CRLHEADER: CRYPT_STRING = CRYPT_STRING(9u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_STRING_HEXADDR: CRYPT_STRING = 10u32;
+pub const CRYPT_STRING_HEXADDR: CRYPT_STRING = CRYPT_STRING(10u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_STRING_HEXASCIIADDR: CRYPT_STRING = 11u32;
+pub const CRYPT_STRING_HEXASCIIADDR: CRYPT_STRING = CRYPT_STRING(11u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_STRING_HEXRAW: CRYPT_STRING = 12u32;
+pub const CRYPT_STRING_HEXRAW: CRYPT_STRING = CRYPT_STRING(12u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_STRING_STRICT: CRYPT_STRING = 536870912u32;
+pub const CRYPT_STRING_STRICT: CRYPT_STRING = CRYPT_STRING(536870912u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_STRING_BASE64_ANY: CRYPT_STRING = 6u32;
+pub const CRYPT_STRING_BASE64_ANY: CRYPT_STRING = CRYPT_STRING(6u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_STRING_ANY: CRYPT_STRING = 7u32;
+pub const CRYPT_STRING_ANY: CRYPT_STRING = CRYPT_STRING(7u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_STRING_HEX_ANY: CRYPT_STRING = 8u32;
+pub const CRYPT_STRING_HEX_ANY: CRYPT_STRING = CRYPT_STRING(8u32);
+impl ::core::marker::Copy for CRYPT_STRING {}
+impl ::core::clone::Clone for CRYPT_STRING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CRYPT_STRING {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRYPT_STRING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRYPT_STRING").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRYPT_STRING {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRYPT_STRING {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRYPT_STRING {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRYPT_STRING {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRYPT_STRING {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CRYPT_STRING_BASE64URI: u32 = 13u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -14946,23 +17490,111 @@ impl ::core::default::Default for CRYPT_TIMESTAMP_RESPONSE {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CRYPT_TIMESTAMP_RESPONSE_STATUS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRYPT_TIMESTAMP_RESPONSE_STATUS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const TIMESTAMP_STATUS_GRANTED: CRYPT_TIMESTAMP_RESPONSE_STATUS = 0u32;
+pub const TIMESTAMP_STATUS_GRANTED: CRYPT_TIMESTAMP_RESPONSE_STATUS = CRYPT_TIMESTAMP_RESPONSE_STATUS(0u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const TIMESTAMP_STATUS_GRANTED_WITH_MODS: CRYPT_TIMESTAMP_RESPONSE_STATUS = 1u32;
+pub const TIMESTAMP_STATUS_GRANTED_WITH_MODS: CRYPT_TIMESTAMP_RESPONSE_STATUS = CRYPT_TIMESTAMP_RESPONSE_STATUS(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const TIMESTAMP_STATUS_REJECTED: CRYPT_TIMESTAMP_RESPONSE_STATUS = 2u32;
+pub const TIMESTAMP_STATUS_REJECTED: CRYPT_TIMESTAMP_RESPONSE_STATUS = CRYPT_TIMESTAMP_RESPONSE_STATUS(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const TIMESTAMP_STATUS_WAITING: CRYPT_TIMESTAMP_RESPONSE_STATUS = 3u32;
+pub const TIMESTAMP_STATUS_WAITING: CRYPT_TIMESTAMP_RESPONSE_STATUS = CRYPT_TIMESTAMP_RESPONSE_STATUS(3u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const TIMESTAMP_STATUS_REVOCATION_WARNING: CRYPT_TIMESTAMP_RESPONSE_STATUS = 4u32;
+pub const TIMESTAMP_STATUS_REVOCATION_WARNING: CRYPT_TIMESTAMP_RESPONSE_STATUS = CRYPT_TIMESTAMP_RESPONSE_STATUS(4u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const TIMESTAMP_STATUS_REVOKED: CRYPT_TIMESTAMP_RESPONSE_STATUS = 5u32;
+pub const TIMESTAMP_STATUS_REVOKED: CRYPT_TIMESTAMP_RESPONSE_STATUS = CRYPT_TIMESTAMP_RESPONSE_STATUS(5u32);
+impl ::core::marker::Copy for CRYPT_TIMESTAMP_RESPONSE_STATUS {}
+impl ::core::clone::Clone for CRYPT_TIMESTAMP_RESPONSE_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CRYPT_TIMESTAMP_RESPONSE_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRYPT_TIMESTAMP_RESPONSE_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRYPT_TIMESTAMP_RESPONSE_STATUS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRYPT_TIMESTAMP_RESPONSE_STATUS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRYPT_TIMESTAMP_RESPONSE_STATUS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRYPT_TIMESTAMP_RESPONSE_STATUS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRYPT_TIMESTAMP_RESPONSE_STATUS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRYPT_TIMESTAMP_RESPONSE_STATUS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CRYPT_TIMESTAMP_VERSION = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRYPT_TIMESTAMP_VERSION(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const TIMESTAMP_VERSION: CRYPT_TIMESTAMP_VERSION = 1u32;
+pub const TIMESTAMP_VERSION: CRYPT_TIMESTAMP_VERSION = CRYPT_TIMESTAMP_VERSION(1u32);
+impl ::core::marker::Copy for CRYPT_TIMESTAMP_VERSION {}
+impl ::core::clone::Clone for CRYPT_TIMESTAMP_VERSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CRYPT_TIMESTAMP_VERSION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRYPT_TIMESTAMP_VERSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRYPT_TIMESTAMP_VERSION").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRYPT_TIMESTAMP_VERSION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRYPT_TIMESTAMP_VERSION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRYPT_TIMESTAMP_VERSION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRYPT_TIMESTAMP_VERSION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRYPT_TIMESTAMP_VERSION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -15096,13 +17728,57 @@ pub const CRYPT_USER_PROTECTED_STRONG: u32 = 1048576u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CRYPT_VERIFYCONTEXT: u32 = 4026531840u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CRYPT_VERIFY_CERT_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRYPT_VERIFY_CERT_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_VERIFY_CERT_SIGN_DISABLE_MD2_MD4_FLAG: CRYPT_VERIFY_CERT_FLAGS = 1u32;
+pub const CRYPT_VERIFY_CERT_SIGN_DISABLE_MD2_MD4_FLAG: CRYPT_VERIFY_CERT_FLAGS = CRYPT_VERIFY_CERT_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_VERIFY_CERT_SIGN_SET_STRONG_PROPERTIES_FLAG: CRYPT_VERIFY_CERT_FLAGS = 2u32;
+pub const CRYPT_VERIFY_CERT_SIGN_SET_STRONG_PROPERTIES_FLAG: CRYPT_VERIFY_CERT_FLAGS = CRYPT_VERIFY_CERT_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_VERIFY_CERT_SIGN_RETURN_STRONG_PROPERTIES_FLAG: CRYPT_VERIFY_CERT_FLAGS = 4u32;
+pub const CRYPT_VERIFY_CERT_SIGN_RETURN_STRONG_PROPERTIES_FLAG: CRYPT_VERIFY_CERT_FLAGS = CRYPT_VERIFY_CERT_FLAGS(4u32);
+impl ::core::marker::Copy for CRYPT_VERIFY_CERT_FLAGS {}
+impl ::core::clone::Clone for CRYPT_VERIFY_CERT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CRYPT_VERIFY_CERT_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRYPT_VERIFY_CERT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRYPT_VERIFY_CERT_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRYPT_VERIFY_CERT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRYPT_VERIFY_CERT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRYPT_VERIFY_CERT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRYPT_VERIFY_CERT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRYPT_VERIFY_CERT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CRYPT_VERIFY_CERT_SIGN_CHECK_WEAK_HASH_FLAG: u32 = 8u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -15419,15 +18095,31 @@ impl ::core::default::Default for CRYPT_XML_BLOB {
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CRYPT_XML_BLOB_MAX: u32 = 2147483640u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CRYPT_XML_CHARSET = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRYPT_XML_CHARSET(pub i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_CHARSET_AUTO: CRYPT_XML_CHARSET = 0i32;
+pub const CRYPT_XML_CHARSET_AUTO: CRYPT_XML_CHARSET = CRYPT_XML_CHARSET(0i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_CHARSET_UTF8: CRYPT_XML_CHARSET = 1i32;
+pub const CRYPT_XML_CHARSET_UTF8: CRYPT_XML_CHARSET = CRYPT_XML_CHARSET(1i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_CHARSET_UTF16LE: CRYPT_XML_CHARSET = 2i32;
+pub const CRYPT_XML_CHARSET_UTF16LE: CRYPT_XML_CHARSET = CRYPT_XML_CHARSET(2i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_CHARSET_UTF16BE: CRYPT_XML_CHARSET = 3i32;
+pub const CRYPT_XML_CHARSET_UTF16BE: CRYPT_XML_CHARSET = CRYPT_XML_CHARSET(3i32);
+impl ::core::marker::Copy for CRYPT_XML_CHARSET {}
+impl ::core::clone::Clone for CRYPT_XML_CHARSET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CRYPT_XML_CHARSET {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRYPT_XML_CHARSET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRYPT_XML_CHARSET").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -15635,13 +18327,57 @@ pub const CRYPT_XML_E_UNRESOLVED_REFERENCE: ::windows::core::HRESULT = ::windows
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CRYPT_XML_E_VERIFY_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146885363i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CRYPT_XML_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRYPT_XML_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_FLAG_DISABLE_EXTENSIONS: CRYPT_XML_FLAGS = 268435456u32;
+pub const CRYPT_XML_FLAG_DISABLE_EXTENSIONS: CRYPT_XML_FLAGS = CRYPT_XML_FLAGS(268435456u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_FLAG_NO_SERIALIZE: CRYPT_XML_FLAGS = 2147483648u32;
+pub const CRYPT_XML_FLAG_NO_SERIALIZE: CRYPT_XML_FLAGS = CRYPT_XML_FLAGS(2147483648u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_SIGN_ADD_KEYVALUE: CRYPT_XML_FLAGS = 1u32;
+pub const CRYPT_XML_SIGN_ADD_KEYVALUE: CRYPT_XML_FLAGS = CRYPT_XML_FLAGS(1u32);
+impl ::core::marker::Copy for CRYPT_XML_FLAGS {}
+impl ::core::clone::Clone for CRYPT_XML_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CRYPT_XML_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRYPT_XML_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRYPT_XML_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRYPT_XML_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRYPT_XML_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRYPT_XML_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRYPT_XML_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRYPT_XML_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CRYPT_XML_FLAG_ADD_OBJECT_CREATE_COPY: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -15655,11 +18391,55 @@ pub const CRYPT_XML_FLAG_ENFORCE_ID_NAME_FORMAT: u32 = 134217728u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CRYPT_XML_FLAG_ENFORCE_ID_NCNAME_FORMAT: u32 = 536870912u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CRYPT_XML_GROUP_ID = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRYPT_XML_GROUP_ID(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_GROUP_ID_HASH_________: CRYPT_XML_GROUP_ID = 1u32;
+pub const CRYPT_XML_GROUP_ID_HASH_________: CRYPT_XML_GROUP_ID = CRYPT_XML_GROUP_ID(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_GROUP_ID_SIGN_________: CRYPT_XML_GROUP_ID = 2u32;
+pub const CRYPT_XML_GROUP_ID_SIGN_________: CRYPT_XML_GROUP_ID = CRYPT_XML_GROUP_ID(2u32);
+impl ::core::marker::Copy for CRYPT_XML_GROUP_ID {}
+impl ::core::clone::Clone for CRYPT_XML_GROUP_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CRYPT_XML_GROUP_ID {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRYPT_XML_GROUP_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRYPT_XML_GROUP_ID").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRYPT_XML_GROUP_ID {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRYPT_XML_GROUP_ID {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRYPT_XML_GROUP_ID {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRYPT_XML_GROUP_ID {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRYPT_XML_GROUP_ID {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CRYPT_XML_GROUP_ID_HASH: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -15751,25 +18531,85 @@ impl ::core::default::Default for CRYPT_XML_KEYINFO_PARAM {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CRYPT_XML_KEYINFO_SPEC = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRYPT_XML_KEYINFO_SPEC(pub i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_KEYINFO_SPEC_NONE: CRYPT_XML_KEYINFO_SPEC = 0i32;
+pub const CRYPT_XML_KEYINFO_SPEC_NONE: CRYPT_XML_KEYINFO_SPEC = CRYPT_XML_KEYINFO_SPEC(0i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_KEYINFO_SPEC_ENCODED: CRYPT_XML_KEYINFO_SPEC = 1i32;
+pub const CRYPT_XML_KEYINFO_SPEC_ENCODED: CRYPT_XML_KEYINFO_SPEC = CRYPT_XML_KEYINFO_SPEC(1i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_KEYINFO_SPEC_PARAM: CRYPT_XML_KEYINFO_SPEC = 2i32;
+pub const CRYPT_XML_KEYINFO_SPEC_PARAM: CRYPT_XML_KEYINFO_SPEC = CRYPT_XML_KEYINFO_SPEC(2i32);
+impl ::core::marker::Copy for CRYPT_XML_KEYINFO_SPEC {}
+impl ::core::clone::Clone for CRYPT_XML_KEYINFO_SPEC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CRYPT_XML_KEYINFO_SPEC {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRYPT_XML_KEYINFO_SPEC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRYPT_XML_KEYINFO_SPEC").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CRYPT_XML_KEYINFO_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRYPT_XML_KEYINFO_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_KEYINFO_TYPE_KEYNAME: CRYPT_XML_KEYINFO_TYPE = 1u32;
+pub const CRYPT_XML_KEYINFO_TYPE_KEYNAME: CRYPT_XML_KEYINFO_TYPE = CRYPT_XML_KEYINFO_TYPE(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_KEYINFO_TYPE_KEYVALUE: CRYPT_XML_KEYINFO_TYPE = 2u32;
+pub const CRYPT_XML_KEYINFO_TYPE_KEYVALUE: CRYPT_XML_KEYINFO_TYPE = CRYPT_XML_KEYINFO_TYPE(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_KEYINFO_TYPE_RETRIEVAL: CRYPT_XML_KEYINFO_TYPE = 3u32;
+pub const CRYPT_XML_KEYINFO_TYPE_RETRIEVAL: CRYPT_XML_KEYINFO_TYPE = CRYPT_XML_KEYINFO_TYPE(3u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_KEYINFO_TYPE_X509DATA: CRYPT_XML_KEYINFO_TYPE = 4u32;
+pub const CRYPT_XML_KEYINFO_TYPE_X509DATA: CRYPT_XML_KEYINFO_TYPE = CRYPT_XML_KEYINFO_TYPE(4u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_KEYINFO_TYPE_CUSTOM: CRYPT_XML_KEYINFO_TYPE = 5u32;
+pub const CRYPT_XML_KEYINFO_TYPE_CUSTOM: CRYPT_XML_KEYINFO_TYPE = CRYPT_XML_KEYINFO_TYPE(5u32);
+impl ::core::marker::Copy for CRYPT_XML_KEYINFO_TYPE {}
+impl ::core::clone::Clone for CRYPT_XML_KEYINFO_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CRYPT_XML_KEYINFO_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRYPT_XML_KEYINFO_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRYPT_XML_KEYINFO_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRYPT_XML_KEYINFO_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRYPT_XML_KEYINFO_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRYPT_XML_KEYINFO_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRYPT_XML_KEYINFO_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRYPT_XML_KEYINFO_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub struct CRYPT_XML_KEY_DSA_KEY_VALUE {
@@ -16058,15 +18898,59 @@ impl ::core::default::Default for CRYPT_XML_KEY_VALUE_0 {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CRYPT_XML_KEY_VALUE_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRYPT_XML_KEY_VALUE_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_KEY_VALUE_TYPE_DSA: CRYPT_XML_KEY_VALUE_TYPE = 1u32;
+pub const CRYPT_XML_KEY_VALUE_TYPE_DSA: CRYPT_XML_KEY_VALUE_TYPE = CRYPT_XML_KEY_VALUE_TYPE(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_KEY_VALUE_TYPE_RSA: CRYPT_XML_KEY_VALUE_TYPE = 2u32;
+pub const CRYPT_XML_KEY_VALUE_TYPE_RSA: CRYPT_XML_KEY_VALUE_TYPE = CRYPT_XML_KEY_VALUE_TYPE(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_KEY_VALUE_TYPE_ECDSA: CRYPT_XML_KEY_VALUE_TYPE = 3u32;
+pub const CRYPT_XML_KEY_VALUE_TYPE_ECDSA: CRYPT_XML_KEY_VALUE_TYPE = CRYPT_XML_KEY_VALUE_TYPE(3u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_KEY_VALUE_TYPE_CUSTOM: CRYPT_XML_KEY_VALUE_TYPE = 4u32;
+pub const CRYPT_XML_KEY_VALUE_TYPE_CUSTOM: CRYPT_XML_KEY_VALUE_TYPE = CRYPT_XML_KEY_VALUE_TYPE(4u32);
+impl ::core::marker::Copy for CRYPT_XML_KEY_VALUE_TYPE {}
+impl ::core::clone::Clone for CRYPT_XML_KEY_VALUE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CRYPT_XML_KEY_VALUE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRYPT_XML_KEY_VALUE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRYPT_XML_KEY_VALUE_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRYPT_XML_KEY_VALUE_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRYPT_XML_KEY_VALUE_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRYPT_XML_KEY_VALUE_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRYPT_XML_KEY_VALUE_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRYPT_XML_KEY_VALUE_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16146,17 +19030,33 @@ impl ::core::default::Default for CRYPT_XML_PROPERTY {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CRYPT_XML_PROPERTY_ID = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRYPT_XML_PROPERTY_ID(pub i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_PROPERTY_MAX_HEAP_SIZE: CRYPT_XML_PROPERTY_ID = 1i32;
+pub const CRYPT_XML_PROPERTY_MAX_HEAP_SIZE: CRYPT_XML_PROPERTY_ID = CRYPT_XML_PROPERTY_ID(1i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_PROPERTY_SIGNATURE_LOCATION: CRYPT_XML_PROPERTY_ID = 2i32;
+pub const CRYPT_XML_PROPERTY_SIGNATURE_LOCATION: CRYPT_XML_PROPERTY_ID = CRYPT_XML_PROPERTY_ID(2i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_PROPERTY_MAX_SIGNATURES: CRYPT_XML_PROPERTY_ID = 3i32;
+pub const CRYPT_XML_PROPERTY_MAX_SIGNATURES: CRYPT_XML_PROPERTY_ID = CRYPT_XML_PROPERTY_ID(3i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_PROPERTY_DOC_DECLARATION: CRYPT_XML_PROPERTY_ID = 4i32;
+pub const CRYPT_XML_PROPERTY_DOC_DECLARATION: CRYPT_XML_PROPERTY_ID = CRYPT_XML_PROPERTY_ID(4i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_PROPERTY_XML_OUTPUT_CHARSET: CRYPT_XML_PROPERTY_ID = 5i32;
+pub const CRYPT_XML_PROPERTY_XML_OUTPUT_CHARSET: CRYPT_XML_PROPERTY_ID = CRYPT_XML_PROPERTY_ID(5i32);
+impl ::core::marker::Copy for CRYPT_XML_PROPERTY_ID {}
+impl ::core::clone::Clone for CRYPT_XML_PROPERTY_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CRYPT_XML_PROPERTY_ID {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRYPT_XML_PROPERTY_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRYPT_XML_PROPERTY_ID").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16370,33 +19270,121 @@ impl ::core::default::Default for CRYPT_XML_STATUS {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CRYPT_XML_STATUS_ERROR_STATUS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRYPT_XML_STATUS_ERROR_STATUS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_STATUS_ERROR_NOT_RESOLVED: CRYPT_XML_STATUS_ERROR_STATUS = 1u32;
+pub const CRYPT_XML_STATUS_ERROR_NOT_RESOLVED: CRYPT_XML_STATUS_ERROR_STATUS = CRYPT_XML_STATUS_ERROR_STATUS(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_STATUS_ERROR_DIGEST_INVALID: CRYPT_XML_STATUS_ERROR_STATUS = 2u32;
+pub const CRYPT_XML_STATUS_ERROR_DIGEST_INVALID: CRYPT_XML_STATUS_ERROR_STATUS = CRYPT_XML_STATUS_ERROR_STATUS(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_STATUS_ERROR_NOT_SUPPORTED_ALGORITHM: CRYPT_XML_STATUS_ERROR_STATUS = 5u32;
+pub const CRYPT_XML_STATUS_ERROR_NOT_SUPPORTED_ALGORITHM: CRYPT_XML_STATUS_ERROR_STATUS = CRYPT_XML_STATUS_ERROR_STATUS(5u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_STATUS_ERROR_NOT_SUPPORTED_TRANSFORM: CRYPT_XML_STATUS_ERROR_STATUS = 8u32;
+pub const CRYPT_XML_STATUS_ERROR_NOT_SUPPORTED_TRANSFORM: CRYPT_XML_STATUS_ERROR_STATUS = CRYPT_XML_STATUS_ERROR_STATUS(8u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_STATUS_ERROR_SIGNATURE_INVALID: CRYPT_XML_STATUS_ERROR_STATUS = 65536u32;
+pub const CRYPT_XML_STATUS_ERROR_SIGNATURE_INVALID: CRYPT_XML_STATUS_ERROR_STATUS = CRYPT_XML_STATUS_ERROR_STATUS(65536u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_STATUS_ERROR_KEYINFO_NOT_PARSED: CRYPT_XML_STATUS_ERROR_STATUS = 131072u32;
+pub const CRYPT_XML_STATUS_ERROR_KEYINFO_NOT_PARSED: CRYPT_XML_STATUS_ERROR_STATUS = CRYPT_XML_STATUS_ERROR_STATUS(131072u32);
+impl ::core::marker::Copy for CRYPT_XML_STATUS_ERROR_STATUS {}
+impl ::core::clone::Clone for CRYPT_XML_STATUS_ERROR_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CRYPT_XML_STATUS_ERROR_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRYPT_XML_STATUS_ERROR_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRYPT_XML_STATUS_ERROR_STATUS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRYPT_XML_STATUS_ERROR_STATUS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRYPT_XML_STATUS_ERROR_STATUS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRYPT_XML_STATUS_ERROR_STATUS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRYPT_XML_STATUS_ERROR_STATUS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRYPT_XML_STATUS_ERROR_STATUS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CRYPT_XML_STATUS_INFO_STATUS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRYPT_XML_STATUS_INFO_STATUS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_STATUS_INTERNAL_REFERENCE: CRYPT_XML_STATUS_INFO_STATUS = 1u32;
+pub const CRYPT_XML_STATUS_INTERNAL_REFERENCE: CRYPT_XML_STATUS_INFO_STATUS = CRYPT_XML_STATUS_INFO_STATUS(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_STATUS_KEY_AVAILABLE: CRYPT_XML_STATUS_INFO_STATUS = 2u32;
+pub const CRYPT_XML_STATUS_KEY_AVAILABLE: CRYPT_XML_STATUS_INFO_STATUS = CRYPT_XML_STATUS_INFO_STATUS(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_STATUS_DIGESTING: CRYPT_XML_STATUS_INFO_STATUS = 4u32;
+pub const CRYPT_XML_STATUS_DIGESTING: CRYPT_XML_STATUS_INFO_STATUS = CRYPT_XML_STATUS_INFO_STATUS(4u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_STATUS_DIGEST_VALID: CRYPT_XML_STATUS_INFO_STATUS = 8u32;
+pub const CRYPT_XML_STATUS_DIGEST_VALID: CRYPT_XML_STATUS_INFO_STATUS = CRYPT_XML_STATUS_INFO_STATUS(8u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_STATUS_SIGNATURE_VALID: CRYPT_XML_STATUS_INFO_STATUS = 65536u32;
+pub const CRYPT_XML_STATUS_SIGNATURE_VALID: CRYPT_XML_STATUS_INFO_STATUS = CRYPT_XML_STATUS_INFO_STATUS(65536u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_STATUS_OPENED_TO_ENCODE: CRYPT_XML_STATUS_INFO_STATUS = 2147483648u32;
+pub const CRYPT_XML_STATUS_OPENED_TO_ENCODE: CRYPT_XML_STATUS_INFO_STATUS = CRYPT_XML_STATUS_INFO_STATUS(2147483648u32);
+impl ::core::marker::Copy for CRYPT_XML_STATUS_INFO_STATUS {}
+impl ::core::clone::Clone for CRYPT_XML_STATUS_INFO_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CRYPT_XML_STATUS_INFO_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRYPT_XML_STATUS_INFO_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRYPT_XML_STATUS_INFO_STATUS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRYPT_XML_STATUS_INFO_STATUS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRYPT_XML_STATUS_INFO_STATUS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRYPT_XML_STATUS_INFO_STATUS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRYPT_XML_STATUS_INFO_STATUS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRYPT_XML_STATUS_INFO_STATUS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const CRYPT_XML_STATUS_NO_ERROR: u32 = 0u32;
 #[repr(C)]
@@ -16440,13 +19428,57 @@ impl ::core::default::Default for CRYPT_XML_TRANSFORM_CHAIN_CONFIG {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CRYPT_XML_TRANSFORM_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRYPT_XML_TRANSFORM_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_TRANSFORM_ON_STREAM: CRYPT_XML_TRANSFORM_FLAGS = 1u32;
+pub const CRYPT_XML_TRANSFORM_ON_STREAM: CRYPT_XML_TRANSFORM_FLAGS = CRYPT_XML_TRANSFORM_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_TRANSFORM_ON_NODESET: CRYPT_XML_TRANSFORM_FLAGS = 2u32;
+pub const CRYPT_XML_TRANSFORM_ON_NODESET: CRYPT_XML_TRANSFORM_FLAGS = CRYPT_XML_TRANSFORM_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_TRANSFORM_URI_QUERY_STRING: CRYPT_XML_TRANSFORM_FLAGS = 3u32;
+pub const CRYPT_XML_TRANSFORM_URI_QUERY_STRING: CRYPT_XML_TRANSFORM_FLAGS = CRYPT_XML_TRANSFORM_FLAGS(3u32);
+impl ::core::marker::Copy for CRYPT_XML_TRANSFORM_FLAGS {}
+impl ::core::clone::Clone for CRYPT_XML_TRANSFORM_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CRYPT_XML_TRANSFORM_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRYPT_XML_TRANSFORM_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRYPT_XML_TRANSFORM_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRYPT_XML_TRANSFORM_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRYPT_XML_TRANSFORM_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRYPT_XML_TRANSFORM_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRYPT_XML_TRANSFORM_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRYPT_XML_TRANSFORM_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -16601,19 +19633,63 @@ impl ::core::default::Default for CRYPT_XML_X509DATA_ITEM_0 {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CRYPT_XML_X509DATA_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRYPT_XML_X509DATA_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_X509DATA_TYPE_ISSUER_SERIAL: CRYPT_XML_X509DATA_TYPE = 1u32;
+pub const CRYPT_XML_X509DATA_TYPE_ISSUER_SERIAL: CRYPT_XML_X509DATA_TYPE = CRYPT_XML_X509DATA_TYPE(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_X509DATA_TYPE_SKI: CRYPT_XML_X509DATA_TYPE = 2u32;
+pub const CRYPT_XML_X509DATA_TYPE_SKI: CRYPT_XML_X509DATA_TYPE = CRYPT_XML_X509DATA_TYPE(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_X509DATA_TYPE_SUBJECT_NAME: CRYPT_XML_X509DATA_TYPE = 3u32;
+pub const CRYPT_XML_X509DATA_TYPE_SUBJECT_NAME: CRYPT_XML_X509DATA_TYPE = CRYPT_XML_X509DATA_TYPE(3u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_X509DATA_TYPE_CERTIFICATE: CRYPT_XML_X509DATA_TYPE = 4u32;
+pub const CRYPT_XML_X509DATA_TYPE_CERTIFICATE: CRYPT_XML_X509DATA_TYPE = CRYPT_XML_X509DATA_TYPE(4u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_X509DATA_TYPE_CRL: CRYPT_XML_X509DATA_TYPE = 5u32;
+pub const CRYPT_XML_X509DATA_TYPE_CRL: CRYPT_XML_X509DATA_TYPE = CRYPT_XML_X509DATA_TYPE(5u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const CRYPT_XML_X509DATA_TYPE_CUSTOM: CRYPT_XML_X509DATA_TYPE = 6u32;
+pub const CRYPT_XML_X509DATA_TYPE_CUSTOM: CRYPT_XML_X509DATA_TYPE = CRYPT_XML_X509DATA_TYPE(6u32);
+impl ::core::marker::Copy for CRYPT_XML_X509DATA_TYPE {}
+impl ::core::clone::Clone for CRYPT_XML_X509DATA_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CRYPT_XML_X509DATA_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRYPT_XML_X509DATA_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRYPT_XML_X509DATA_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CRYPT_XML_X509DATA_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CRYPT_XML_X509DATA_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CRYPT_XML_X509DATA_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CRYPT_XML_X509DATA_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CRYPT_XML_X509DATA_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -18318,25 +21394,69 @@ pub unsafe fn CertIsWeakHash<'a, Param1: ::windows::core::IntoParam<'a, super::s
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type CertKeyType = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CertKeyType(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const KeyTypeOther: CertKeyType = 0u32;
+pub const KeyTypeOther: CertKeyType = CertKeyType(0u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const KeyTypeVirtualSmartCard: CertKeyType = 1u32;
+pub const KeyTypeVirtualSmartCard: CertKeyType = CertKeyType(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const KeyTypePhysicalSmartCard: CertKeyType = 2u32;
+pub const KeyTypePhysicalSmartCard: CertKeyType = CertKeyType(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const KeyTypePassport: CertKeyType = 3u32;
+pub const KeyTypePassport: CertKeyType = CertKeyType(3u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const KeyTypePassportRemote: CertKeyType = 4u32;
+pub const KeyTypePassportRemote: CertKeyType = CertKeyType(4u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const KeyTypePassportSmartCard: CertKeyType = 5u32;
+pub const KeyTypePassportSmartCard: CertKeyType = CertKeyType(5u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const KeyTypeHardware: CertKeyType = 6u32;
+pub const KeyTypeHardware: CertKeyType = CertKeyType(6u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const KeyTypeSoftware: CertKeyType = 7u32;
+pub const KeyTypeSoftware: CertKeyType = CertKeyType(7u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const KeyTypeSelfSigned: CertKeyType = 8u32;
+pub const KeyTypeSelfSigned: CertKeyType = CertKeyType(8u32);
+impl ::core::marker::Copy for CertKeyType {}
+impl ::core::clone::Clone for CertKeyType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CertKeyType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CertKeyType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CertKeyType").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CertKeyType {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CertKeyType {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CertKeyType {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CertKeyType {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CertKeyType {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -21344,11 +24464,27 @@ pub unsafe fn CryptXmlVerifySignature<'a, Param1: ::windows::core::IntoParam<'a,
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type DSAFIPSVERSION_ENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DSAFIPSVERSION_ENUM(pub i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const DSA_FIPS186_2: DSAFIPSVERSION_ENUM = 0i32;
+pub const DSA_FIPS186_2: DSAFIPSVERSION_ENUM = DSAFIPSVERSION_ENUM(0i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const DSA_FIPS186_3: DSAFIPSVERSION_ENUM = 1i32;
+pub const DSA_FIPS186_3: DSAFIPSVERSION_ENUM = DSAFIPSVERSION_ENUM(1i32);
+impl ::core::marker::Copy for DSAFIPSVERSION_ENUM {}
+impl ::core::clone::Clone for DSAFIPSVERSION_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DSAFIPSVERSION_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DSAFIPSVERSION_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DSAFIPSVERSION_ENUM").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub struct DSSSEED {
@@ -21396,23 +24532,71 @@ pub unsafe fn Decrypt<'a, Param1: ::windows::core::IntoParam<'a, super::super::F
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type Direction = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct Direction(pub i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const DirectionEncrypt: Direction = 1i32;
+pub const DirectionEncrypt: Direction = Direction(1i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const DirectionDecrypt: Direction = 2i32;
+pub const DirectionDecrypt: Direction = Direction(2i32);
+impl ::core::marker::Copy for Direction {}
+impl ::core::clone::Clone for Direction {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for Direction {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for Direction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Direction").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type ECC_CURVE_ALG_ID_ENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ECC_CURVE_ALG_ID_ENUM(pub i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_NO_CURVE_GENERATION_ALG_ID: ECC_CURVE_ALG_ID_ENUM = 0i32;
+pub const BCRYPT_NO_CURVE_GENERATION_ALG_ID: ECC_CURVE_ALG_ID_ENUM = ECC_CURVE_ALG_ID_ENUM(0i32);
+impl ::core::marker::Copy for ECC_CURVE_ALG_ID_ENUM {}
+impl ::core::clone::Clone for ECC_CURVE_ALG_ID_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ECC_CURVE_ALG_ID_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ECC_CURVE_ALG_ID_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ECC_CURVE_ALG_ID_ENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type ECC_CURVE_TYPE_ENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ECC_CURVE_TYPE_ENUM(pub i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_ECC_PRIME_SHORT_WEIERSTRASS_CURVE: ECC_CURVE_TYPE_ENUM = 1i32;
+pub const BCRYPT_ECC_PRIME_SHORT_WEIERSTRASS_CURVE: ECC_CURVE_TYPE_ENUM = ECC_CURVE_TYPE_ENUM(1i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_ECC_PRIME_TWISTED_EDWARDS_CURVE: ECC_CURVE_TYPE_ENUM = 2i32;
+pub const BCRYPT_ECC_PRIME_TWISTED_EDWARDS_CURVE: ECC_CURVE_TYPE_ENUM = ECC_CURVE_TYPE_ENUM(2i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_ECC_PRIME_MONTGOMERY_CURVE: ECC_CURVE_TYPE_ENUM = 3i32;
+pub const BCRYPT_ECC_PRIME_MONTGOMERY_CURVE: ECC_CURVE_TYPE_ENUM = ECC_CURVE_TYPE_ENUM(3i32);
+impl ::core::marker::Copy for ECC_CURVE_TYPE_ENUM {}
+impl ::core::clone::Clone for ECC_CURVE_TYPE_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ECC_CURVE_TYPE_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ECC_CURVE_TYPE_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ECC_CURVE_TYPE_ENUM").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -21771,13 +24955,29 @@ pub unsafe fn GetToken(cpolicychain: u32, ppolicychain: *const POLICY_ELEMENT, s
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type HASHALGORITHM_ENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HASHALGORITHM_ENUM(pub i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const DSA_HASH_ALGORITHM_SHA1: HASHALGORITHM_ENUM = 0i32;
+pub const DSA_HASH_ALGORITHM_SHA1: HASHALGORITHM_ENUM = HASHALGORITHM_ENUM(0i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const DSA_HASH_ALGORITHM_SHA256: HASHALGORITHM_ENUM = 1i32;
+pub const DSA_HASH_ALGORITHM_SHA256: HASHALGORITHM_ENUM = HASHALGORITHM_ENUM(1i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const DSA_HASH_ALGORITHM_SHA512: HASHALGORITHM_ENUM = 2i32;
+pub const DSA_HASH_ALGORITHM_SHA512: HASHALGORITHM_ENUM = HASHALGORITHM_ENUM(2i32);
+impl ::core::marker::Copy for HASHALGORITHM_ENUM {}
+impl ::core::clone::Clone for HASHALGORITHM_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for HASHALGORITHM_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HASHALGORITHM_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HASHALGORITHM_ENUM").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct HCERTCHAINENGINE(pub isize);
@@ -21889,11 +25089,55 @@ pub const HP_TLS1PRF_LABEL: u32 = 6u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const HP_TLS1PRF_SEED: u32 = 7u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const AUTHTYPE_CLIENT: HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE = 1u32;
+pub const AUTHTYPE_CLIENT: HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE = HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const AUTHTYPE_SERVER: HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE = 2u32;
+pub const AUTHTYPE_SERVER: HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE = HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE(2u32);
+impl ::core::marker::Copy for HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE {}
+impl ::core::clone::Clone for HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for HTTPSPOLICY_CALLBACK_DATA_AUTH_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -23521,35 +26765,51 @@ pub const MICROSOFT_ROOT_CERT_CHAIN_POLICY_DISABLE_FLIGHT_ROOT_FLAG: u32 = 26214
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const MICROSOFT_ROOT_CERT_CHAIN_POLICY_ENABLE_TEST_ROOT_FLAG: u32 = 65536u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type MSCEPSetupProperty = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MSCEPSetupProperty(pub i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ENUM_CEPSETUPPROP_USELOCALSYSTEM: MSCEPSetupProperty = 0i32;
+pub const ENUM_CEPSETUPPROP_USELOCALSYSTEM: MSCEPSetupProperty = MSCEPSetupProperty(0i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ENUM_CEPSETUPPROP_USECHALLENGE: MSCEPSetupProperty = 1i32;
+pub const ENUM_CEPSETUPPROP_USECHALLENGE: MSCEPSetupProperty = MSCEPSetupProperty(1i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ENUM_CEPSETUPPROP_RANAME_CN: MSCEPSetupProperty = 2i32;
+pub const ENUM_CEPSETUPPROP_RANAME_CN: MSCEPSetupProperty = MSCEPSetupProperty(2i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ENUM_CEPSETUPPROP_RANAME_EMAIL: MSCEPSetupProperty = 3i32;
+pub const ENUM_CEPSETUPPROP_RANAME_EMAIL: MSCEPSetupProperty = MSCEPSetupProperty(3i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ENUM_CEPSETUPPROP_RANAME_COMPANY: MSCEPSetupProperty = 4i32;
+pub const ENUM_CEPSETUPPROP_RANAME_COMPANY: MSCEPSetupProperty = MSCEPSetupProperty(4i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ENUM_CEPSETUPPROP_RANAME_DEPT: MSCEPSetupProperty = 5i32;
+pub const ENUM_CEPSETUPPROP_RANAME_DEPT: MSCEPSetupProperty = MSCEPSetupProperty(5i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ENUM_CEPSETUPPROP_RANAME_CITY: MSCEPSetupProperty = 6i32;
+pub const ENUM_CEPSETUPPROP_RANAME_CITY: MSCEPSetupProperty = MSCEPSetupProperty(6i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ENUM_CEPSETUPPROP_RANAME_STATE: MSCEPSetupProperty = 7i32;
+pub const ENUM_CEPSETUPPROP_RANAME_STATE: MSCEPSetupProperty = MSCEPSetupProperty(7i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ENUM_CEPSETUPPROP_RANAME_COUNTRY: MSCEPSetupProperty = 8i32;
+pub const ENUM_CEPSETUPPROP_RANAME_COUNTRY: MSCEPSetupProperty = MSCEPSetupProperty(8i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ENUM_CEPSETUPPROP_SIGNINGKEYINFORMATION: MSCEPSetupProperty = 9i32;
+pub const ENUM_CEPSETUPPROP_SIGNINGKEYINFORMATION: MSCEPSetupProperty = MSCEPSetupProperty(9i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ENUM_CEPSETUPPROP_EXCHANGEKEYINFORMATION: MSCEPSetupProperty = 10i32;
+pub const ENUM_CEPSETUPPROP_EXCHANGEKEYINFORMATION: MSCEPSetupProperty = MSCEPSetupProperty(10i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ENUM_CEPSETUPPROP_CAINFORMATION: MSCEPSetupProperty = 11i32;
+pub const ENUM_CEPSETUPPROP_CAINFORMATION: MSCEPSetupProperty = MSCEPSetupProperty(11i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ENUM_CEPSETUPPROP_MSCEPURL: MSCEPSetupProperty = 12i32;
+pub const ENUM_CEPSETUPPROP_MSCEPURL: MSCEPSetupProperty = MSCEPSetupProperty(12i32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const ENUM_CEPSETUPPROP_CHALLENGEURL: MSCEPSetupProperty = 13i32;
+pub const ENUM_CEPSETUPPROP_CHALLENGEURL: MSCEPSetupProperty = MSCEPSetupProperty(13i32);
+impl ::core::marker::Copy for MSCEPSetupProperty {}
+impl ::core::clone::Clone for MSCEPSetupProperty {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MSCEPSetupProperty {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MSCEPSetupProperty {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MSCEPSetupProperty").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 #[inline]
 pub unsafe fn ManageCardSpace() -> ::windows::core::Result<()> {
@@ -23635,13 +26895,57 @@ pub const NCRYPTBUFFER_VERSION: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const NCRYPTBUFFER_VSM_KEY_ATTESTATION_CLAIM_RESTRICTIONS: u32 = 54u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type NCRYPT_ALGORITHM_NAME_CLASS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NCRYPT_ALGORITHM_NAME_CLASS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const NCRYPT_ASYMMETRIC_ENCRYPTION_INTERFACE: NCRYPT_ALGORITHM_NAME_CLASS = 3u32;
+pub const NCRYPT_ASYMMETRIC_ENCRYPTION_INTERFACE: NCRYPT_ALGORITHM_NAME_CLASS = NCRYPT_ALGORITHM_NAME_CLASS(3u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const NCRYPT_SECRET_AGREEMENT_INTERFACE: NCRYPT_ALGORITHM_NAME_CLASS = 4u32;
+pub const NCRYPT_SECRET_AGREEMENT_INTERFACE: NCRYPT_ALGORITHM_NAME_CLASS = NCRYPT_ALGORITHM_NAME_CLASS(4u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const NCRYPT_SIGNATURE_INTERFACE: NCRYPT_ALGORITHM_NAME_CLASS = 5u32;
+pub const NCRYPT_SIGNATURE_INTERFACE: NCRYPT_ALGORITHM_NAME_CLASS = NCRYPT_ALGORITHM_NAME_CLASS(5u32);
+impl ::core::marker::Copy for NCRYPT_ALGORITHM_NAME_CLASS {}
+impl ::core::clone::Clone for NCRYPT_ALGORITHM_NAME_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NCRYPT_ALGORITHM_NAME_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NCRYPT_ALGORITHM_NAME_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NCRYPT_ALGORITHM_NAME_CLASS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for NCRYPT_ALGORITHM_NAME_CLASS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for NCRYPT_ALGORITHM_NAME_CLASS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for NCRYPT_ALGORITHM_NAME_CLASS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for NCRYPT_ALGORITHM_NAME_CLASS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for NCRYPT_ALGORITHM_NAME_CLASS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub struct NCRYPT_ALLOC_PARA {
@@ -23831,43 +27135,87 @@ pub const NCRYPT_EXPORTED_ISOLATED_KEY_HEADER_V0: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const NCRYPT_EXPORT_LEGACY_FLAG: u32 = 2048u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type NCRYPT_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NCRYPT_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_PAD_NONE: NCRYPT_FLAGS = 1u32;
+pub const BCRYPT_PAD_NONE: NCRYPT_FLAGS = NCRYPT_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_PAD_OAEP: NCRYPT_FLAGS = 4u32;
+pub const BCRYPT_PAD_OAEP: NCRYPT_FLAGS = NCRYPT_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_PAD_PKCS1: NCRYPT_FLAGS = 2u32;
+pub const BCRYPT_PAD_PKCS1: NCRYPT_FLAGS = NCRYPT_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const BCRYPT_PAD_PSS: NCRYPT_FLAGS = 8u32;
+pub const BCRYPT_PAD_PSS: NCRYPT_FLAGS = NCRYPT_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const NCRYPT_SILENT_FLAG: NCRYPT_FLAGS = 64u32;
+pub const NCRYPT_SILENT_FLAG: NCRYPT_FLAGS = NCRYPT_FLAGS(64u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const NCRYPT_NO_PADDING_FLAG: NCRYPT_FLAGS = 1u32;
+pub const NCRYPT_NO_PADDING_FLAG: NCRYPT_FLAGS = NCRYPT_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const NCRYPT_PAD_OAEP_FLAG: NCRYPT_FLAGS = 4u32;
+pub const NCRYPT_PAD_OAEP_FLAG: NCRYPT_FLAGS = NCRYPT_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const NCRYPT_PAD_PKCS1_FLAG: NCRYPT_FLAGS = 2u32;
+pub const NCRYPT_PAD_PKCS1_FLAG: NCRYPT_FLAGS = NCRYPT_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const NCRYPT_REGISTER_NOTIFY_FLAG: NCRYPT_FLAGS = 1u32;
+pub const NCRYPT_REGISTER_NOTIFY_FLAG: NCRYPT_FLAGS = NCRYPT_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const NCRYPT_UNREGISTER_NOTIFY_FLAG: NCRYPT_FLAGS = 2u32;
+pub const NCRYPT_UNREGISTER_NOTIFY_FLAG: NCRYPT_FLAGS = NCRYPT_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const NCRYPT_MACHINE_KEY_FLAG: NCRYPT_FLAGS = 32u32;
+pub const NCRYPT_MACHINE_KEY_FLAG: NCRYPT_FLAGS = NCRYPT_FLAGS(32u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const NCRYPT_UNPROTECT_NO_DECRYPT: NCRYPT_FLAGS = 1u32;
+pub const NCRYPT_UNPROTECT_NO_DECRYPT: NCRYPT_FLAGS = NCRYPT_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const NCRYPT_OVERWRITE_KEY_FLAG: NCRYPT_FLAGS = 128u32;
+pub const NCRYPT_OVERWRITE_KEY_FLAG: NCRYPT_FLAGS = NCRYPT_FLAGS(128u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const NCRYPT_NO_KEY_VALIDATION: NCRYPT_FLAGS = 8u32;
+pub const NCRYPT_NO_KEY_VALIDATION: NCRYPT_FLAGS = NCRYPT_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const NCRYPT_WRITE_KEY_TO_LEGACY_STORE_FLAG: NCRYPT_FLAGS = 512u32;
+pub const NCRYPT_WRITE_KEY_TO_LEGACY_STORE_FLAG: NCRYPT_FLAGS = NCRYPT_FLAGS(512u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const NCRYPT_PAD_PSS_FLAG: NCRYPT_FLAGS = 8u32;
+pub const NCRYPT_PAD_PSS_FLAG: NCRYPT_FLAGS = NCRYPT_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const NCRYPT_PERSIST_FLAG: NCRYPT_FLAGS = 2147483648u32;
+pub const NCRYPT_PERSIST_FLAG: NCRYPT_FLAGS = NCRYPT_FLAGS(2147483648u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const NCRYPT_PERSIST_ONLY_FLAG: NCRYPT_FLAGS = 1073741824u32;
+pub const NCRYPT_PERSIST_ONLY_FLAG: NCRYPT_FLAGS = NCRYPT_FLAGS(1073741824u32);
+impl ::core::marker::Copy for NCRYPT_FLAGS {}
+impl ::core::clone::Clone for NCRYPT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NCRYPT_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NCRYPT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NCRYPT_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for NCRYPT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for NCRYPT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for NCRYPT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for NCRYPT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for NCRYPT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const NCRYPT_IGNORE_DEVICE_STATE_FLAG: u32 = 4096u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
@@ -24045,17 +27393,61 @@ pub const NCRYPT_NAMED_DESCRIPTOR_FLAG: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const NCRYPT_NO_CACHED_PASSWORD: u32 = 16384u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub type NCRYPT_OPERATION = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NCRYPT_OPERATION(pub u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const NCRYPT_CIPHER_OPERATION: NCRYPT_OPERATION = 1u32;
+pub const NCRYPT_CIPHER_OPERATION: NCRYPT_OPERATION = NCRYPT_OPERATION(1u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const NCRYPT_HASH_OPERATION: NCRYPT_OPERATION = 2u32;
+pub const NCRYPT_HASH_OPERATION: NCRYPT_OPERATION = NCRYPT_OPERATION(2u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const NCRYPT_ASYMMETRIC_ENCRYPTION_OPERATION: NCRYPT_OPERATION = 4u32;
+pub const NCRYPT_ASYMMETRIC_ENCRYPTION_OPERATION: NCRYPT_OPERATION = NCRYPT_OPERATION(4u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const NCRYPT_SECRET_AGREEMENT_OPERATION: NCRYPT_OPERATION = 8u32;
+pub const NCRYPT_SECRET_AGREEMENT_OPERATION: NCRYPT_OPERATION = NCRYPT_OPERATION(8u32);
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
-pub const NCRYPT_SIGNATURE_OPERATION: NCRYPT_OPERATION = 16u32;
+pub const NCRYPT_SIGNATURE_OPERATION: NCRYPT_OPERATION = NCRYPT_OPERATION(16u32);
+impl ::core::marker::Copy for NCRYPT_OPERATION {}
+impl ::core::clone::Clone for NCRYPT_OPERATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NCRYPT_OPERATION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NCRYPT_OPERATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NCRYPT_OPERATION").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for NCRYPT_OPERATION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for NCRYPT_OPERATION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for NCRYPT_OPERATION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for NCRYPT_OPERATION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for NCRYPT_OPERATION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]
 pub const NCRYPT_PAD_CIPHER_FLAG: u32 = 16u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography'*"]

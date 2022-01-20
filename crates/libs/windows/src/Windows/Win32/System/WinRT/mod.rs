@@ -30,19 +30,35 @@ pub mod Storage;
 #[cfg(feature = "Win32_System_WinRT_Xaml")]
 pub mod Xaml;
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub type ACTIVATIONTYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ACTIVATIONTYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub const ACTIVATIONTYPE_UNCATEGORIZED: ACTIVATIONTYPE = 0i32;
+pub const ACTIVATIONTYPE_UNCATEGORIZED: ACTIVATIONTYPE = ACTIVATIONTYPE(0i32);
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub const ACTIVATIONTYPE_FROM_MONIKER: ACTIVATIONTYPE = 1i32;
+pub const ACTIVATIONTYPE_FROM_MONIKER: ACTIVATIONTYPE = ACTIVATIONTYPE(1i32);
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub const ACTIVATIONTYPE_FROM_DATA: ACTIVATIONTYPE = 2i32;
+pub const ACTIVATIONTYPE_FROM_DATA: ACTIVATIONTYPE = ACTIVATIONTYPE(2i32);
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub const ACTIVATIONTYPE_FROM_STORAGE: ACTIVATIONTYPE = 4i32;
+pub const ACTIVATIONTYPE_FROM_STORAGE: ACTIVATIONTYPE = ACTIVATIONTYPE(4i32);
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub const ACTIVATIONTYPE_FROM_STREAM: ACTIVATIONTYPE = 8i32;
+pub const ACTIVATIONTYPE_FROM_STREAM: ACTIVATIONTYPE = ACTIVATIONTYPE(8i32);
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub const ACTIVATIONTYPE_FROM_FILE: ACTIVATIONTYPE = 16i32;
+pub const ACTIVATIONTYPE_FROM_FILE: ACTIVATIONTYPE = ACTIVATIONTYPE(16i32);
+impl ::core::marker::Copy for ACTIVATIONTYPE {}
+impl ::core::clone::Clone for ACTIVATIONTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ACTIVATIONTYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ACTIVATIONTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ACTIVATIONTYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct APARTMENT_SHUTDOWN_REGISTRATION_COOKIE(pub isize);
@@ -78,45 +94,109 @@ unsafe impl ::windows::core::Abi for APARTMENT_SHUTDOWN_REGISTRATION_COOKIE {
     type Abi = Self;
 }
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub type AgileReferenceOptions = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct AgileReferenceOptions(pub i32);
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub const AGILEREFERENCE_DEFAULT: AgileReferenceOptions = 0i32;
+pub const AGILEREFERENCE_DEFAULT: AgileReferenceOptions = AgileReferenceOptions(0i32);
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub const AGILEREFERENCE_DELAYEDMARSHAL: AgileReferenceOptions = 1i32;
+pub const AGILEREFERENCE_DELAYEDMARSHAL: AgileReferenceOptions = AgileReferenceOptions(1i32);
+impl ::core::marker::Copy for AgileReferenceOptions {}
+impl ::core::clone::Clone for AgileReferenceOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for AgileReferenceOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AgileReferenceOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AgileReferenceOptions").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub type BSOS_OPTIONS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct BSOS_OPTIONS(pub i32);
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub const BSOS_DEFAULT: BSOS_OPTIONS = 0i32;
+pub const BSOS_DEFAULT: BSOS_OPTIONS = BSOS_OPTIONS(0i32);
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub const BSOS_PREFERDESTINATIONSTREAM: BSOS_OPTIONS = 1i32;
+pub const BSOS_PREFERDESTINATIONSTREAM: BSOS_OPTIONS = BSOS_OPTIONS(1i32);
+impl ::core::marker::Copy for BSOS_OPTIONS {}
+impl ::core::clone::Clone for BSOS_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BSOS_OPTIONS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BSOS_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BSOS_OPTIONS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub type CASTING_CONNECTION_ERROR_STATUS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CASTING_CONNECTION_ERROR_STATUS(pub i32);
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub const CASTING_CONNECTION_ERROR_STATUS_SUCCEEDED: CASTING_CONNECTION_ERROR_STATUS = 0i32;
+pub const CASTING_CONNECTION_ERROR_STATUS_SUCCEEDED: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(0i32);
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub const CASTING_CONNECTION_ERROR_STATUS_DEVICE_DID_NOT_RESPOND: CASTING_CONNECTION_ERROR_STATUS = 1i32;
+pub const CASTING_CONNECTION_ERROR_STATUS_DEVICE_DID_NOT_RESPOND: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(1i32);
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub const CASTING_CONNECTION_ERROR_STATUS_DEVICE_ERROR: CASTING_CONNECTION_ERROR_STATUS = 2i32;
+pub const CASTING_CONNECTION_ERROR_STATUS_DEVICE_ERROR: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(2i32);
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub const CASTING_CONNECTION_ERROR_STATUS_DEVICE_LOCKED: CASTING_CONNECTION_ERROR_STATUS = 3i32;
+pub const CASTING_CONNECTION_ERROR_STATUS_DEVICE_LOCKED: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(3i32);
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub const CASTING_CONNECTION_ERROR_STATUS_PROTECTED_PLAYBACK_FAILED: CASTING_CONNECTION_ERROR_STATUS = 4i32;
+pub const CASTING_CONNECTION_ERROR_STATUS_PROTECTED_PLAYBACK_FAILED: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(4i32);
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub const CASTING_CONNECTION_ERROR_STATUS_INVALID_CASTING_SOURCE: CASTING_CONNECTION_ERROR_STATUS = 5i32;
+pub const CASTING_CONNECTION_ERROR_STATUS_INVALID_CASTING_SOURCE: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(5i32);
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub const CASTING_CONNECTION_ERROR_STATUS_UNKNOWN: CASTING_CONNECTION_ERROR_STATUS = 6i32;
+pub const CASTING_CONNECTION_ERROR_STATUS_UNKNOWN: CASTING_CONNECTION_ERROR_STATUS = CASTING_CONNECTION_ERROR_STATUS(6i32);
+impl ::core::marker::Copy for CASTING_CONNECTION_ERROR_STATUS {}
+impl ::core::clone::Clone for CASTING_CONNECTION_ERROR_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CASTING_CONNECTION_ERROR_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CASTING_CONNECTION_ERROR_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CASTING_CONNECTION_ERROR_STATUS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub type CASTING_CONNECTION_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CASTING_CONNECTION_STATE(pub i32);
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub const CASTING_CONNECTION_STATE_DISCONNECTED: CASTING_CONNECTION_STATE = 0i32;
+pub const CASTING_CONNECTION_STATE_DISCONNECTED: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(0i32);
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub const CASTING_CONNECTION_STATE_CONNECTED: CASTING_CONNECTION_STATE = 1i32;
+pub const CASTING_CONNECTION_STATE_CONNECTED: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(1i32);
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub const CASTING_CONNECTION_STATE_RENDERING: CASTING_CONNECTION_STATE = 2i32;
+pub const CASTING_CONNECTION_STATE_RENDERING: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(2i32);
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub const CASTING_CONNECTION_STATE_DISCONNECTING: CASTING_CONNECTION_STATE = 3i32;
+pub const CASTING_CONNECTION_STATE_DISCONNECTING: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(3i32);
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub const CASTING_CONNECTION_STATE_CONNECTING: CASTING_CONNECTION_STATE = 4i32;
+pub const CASTING_CONNECTION_STATE_CONNECTING: CASTING_CONNECTION_STATE = CASTING_CONNECTION_STATE(4i32);
+impl ::core::marker::Copy for CASTING_CONNECTION_STATE {}
+impl ::core::clone::Clone for CASTING_CONNECTION_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CASTING_CONNECTION_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CASTING_CONNECTION_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CASTING_CONNECTION_STATE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
 pub const CastingSourceInfo_Property_CastingTypes: &'static str = "CastingTypes";
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
@@ -202,19 +282,51 @@ pub unsafe fn CreateStreamOverRandomAccessStream<'a, Param0: ::windows::core::In
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub type DISPATCHERQUEUE_THREAD_APARTMENTTYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DISPATCHERQUEUE_THREAD_APARTMENTTYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub const DQTAT_COM_NONE: DISPATCHERQUEUE_THREAD_APARTMENTTYPE = 0i32;
+pub const DQTAT_COM_NONE: DISPATCHERQUEUE_THREAD_APARTMENTTYPE = DISPATCHERQUEUE_THREAD_APARTMENTTYPE(0i32);
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub const DQTAT_COM_ASTA: DISPATCHERQUEUE_THREAD_APARTMENTTYPE = 1i32;
+pub const DQTAT_COM_ASTA: DISPATCHERQUEUE_THREAD_APARTMENTTYPE = DISPATCHERQUEUE_THREAD_APARTMENTTYPE(1i32);
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub const DQTAT_COM_STA: DISPATCHERQUEUE_THREAD_APARTMENTTYPE = 2i32;
+pub const DQTAT_COM_STA: DISPATCHERQUEUE_THREAD_APARTMENTTYPE = DISPATCHERQUEUE_THREAD_APARTMENTTYPE(2i32);
+impl ::core::marker::Copy for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {}
+impl ::core::clone::Clone for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPATCHERQUEUE_THREAD_APARTMENTTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPATCHERQUEUE_THREAD_APARTMENTTYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub type DISPATCHERQUEUE_THREAD_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DISPATCHERQUEUE_THREAD_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub const DQTYPE_THREAD_DEDICATED: DISPATCHERQUEUE_THREAD_TYPE = 1i32;
+pub const DQTYPE_THREAD_DEDICATED: DISPATCHERQUEUE_THREAD_TYPE = DISPATCHERQUEUE_THREAD_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub const DQTYPE_THREAD_CURRENT: DISPATCHERQUEUE_THREAD_TYPE = 2i32;
+pub const DQTYPE_THREAD_CURRENT: DISPATCHERQUEUE_THREAD_TYPE = DISPATCHERQUEUE_THREAD_TYPE(2i32);
+impl ::core::marker::Copy for DISPATCHERQUEUE_THREAD_TYPE {}
+impl ::core::clone::Clone for DISPATCHERQUEUE_THREAD_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DISPATCHERQUEUE_THREAD_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DISPATCHERQUEUE_THREAD_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DISPATCHERQUEUE_THREAD_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
 pub struct DispatcherQueueOptions {
@@ -3129,23 +3241,83 @@ unsafe impl ::windows::core::Abi for ROPARAMIIDHANDLE {
     type Abi = Self;
 }
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub type RO_ERROR_REPORTING_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RO_ERROR_REPORTING_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub const RO_ERROR_REPORTING_NONE: RO_ERROR_REPORTING_FLAGS = 0u32;
+pub const RO_ERROR_REPORTING_NONE: RO_ERROR_REPORTING_FLAGS = RO_ERROR_REPORTING_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub const RO_ERROR_REPORTING_SUPPRESSEXCEPTIONS: RO_ERROR_REPORTING_FLAGS = 1u32;
+pub const RO_ERROR_REPORTING_SUPPRESSEXCEPTIONS: RO_ERROR_REPORTING_FLAGS = RO_ERROR_REPORTING_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub const RO_ERROR_REPORTING_FORCEEXCEPTIONS: RO_ERROR_REPORTING_FLAGS = 2u32;
+pub const RO_ERROR_REPORTING_FORCEEXCEPTIONS: RO_ERROR_REPORTING_FLAGS = RO_ERROR_REPORTING_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub const RO_ERROR_REPORTING_USESETERRORINFO: RO_ERROR_REPORTING_FLAGS = 4u32;
+pub const RO_ERROR_REPORTING_USESETERRORINFO: RO_ERROR_REPORTING_FLAGS = RO_ERROR_REPORTING_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub const RO_ERROR_REPORTING_SUPPRESSSETERRORINFO: RO_ERROR_REPORTING_FLAGS = 8u32;
+pub const RO_ERROR_REPORTING_SUPPRESSSETERRORINFO: RO_ERROR_REPORTING_FLAGS = RO_ERROR_REPORTING_FLAGS(8u32);
+impl ::core::marker::Copy for RO_ERROR_REPORTING_FLAGS {}
+impl ::core::clone::Clone for RO_ERROR_REPORTING_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RO_ERROR_REPORTING_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RO_ERROR_REPORTING_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RO_ERROR_REPORTING_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for RO_ERROR_REPORTING_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for RO_ERROR_REPORTING_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for RO_ERROR_REPORTING_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for RO_ERROR_REPORTING_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for RO_ERROR_REPORTING_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub type RO_INIT_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RO_INIT_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub const RO_INIT_SINGLETHREADED: RO_INIT_TYPE = 0i32;
+pub const RO_INIT_SINGLETHREADED: RO_INIT_TYPE = RO_INIT_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub const RO_INIT_MULTITHREADED: RO_INIT_TYPE = 1i32;
+pub const RO_INIT_MULTITHREADED: RO_INIT_TYPE = RO_INIT_TYPE(1i32);
+impl ::core::marker::Copy for RO_INIT_TYPE {}
+impl ::core::clone::Clone for RO_INIT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RO_INIT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RO_INIT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RO_INIT_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
 #[inline]
 pub unsafe fn RoActivateInstance<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(activatableclassid: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
@@ -3646,13 +3818,29 @@ pub unsafe fn SetRestrictedErrorInfo<'a, Param0: ::windows::core::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub type TrustLevel = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TrustLevel(pub i32);
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub const BaseTrust: TrustLevel = 0i32;
+pub const BaseTrust: TrustLevel = TrustLevel(0i32);
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub const PartialTrust: TrustLevel = 1i32;
+pub const PartialTrust: TrustLevel = TrustLevel(1i32);
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
-pub const FullTrust: TrustLevel = 2i32;
+pub const FullTrust: TrustLevel = TrustLevel(2i32);
+impl ::core::marker::Copy for TrustLevel {}
+impl ::core::clone::Clone for TrustLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TrustLevel {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TrustLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TrustLevel").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_WinRT'*"]
 #[inline]
 pub unsafe fn WindowsCompareStringOrdinal<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(string1: Param0, string2: Param1) -> ::windows::core::Result<i32> {

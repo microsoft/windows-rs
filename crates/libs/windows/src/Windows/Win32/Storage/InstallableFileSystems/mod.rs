@@ -276,13 +276,29 @@ impl ::core::default::Default for FILTER_FULL_INFORMATION {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub type FILTER_INFORMATION_CLASS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FILTER_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub const FilterFullInformation: FILTER_INFORMATION_CLASS = 0i32;
+pub const FilterFullInformation: FILTER_INFORMATION_CLASS = FILTER_INFORMATION_CLASS(0i32);
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub const FilterAggregateBasicInformation: FILTER_INFORMATION_CLASS = 1i32;
+pub const FilterAggregateBasicInformation: FILTER_INFORMATION_CLASS = FILTER_INFORMATION_CLASS(1i32);
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub const FilterAggregateStandardInformation: FILTER_INFORMATION_CLASS = 2i32;
+pub const FilterAggregateStandardInformation: FILTER_INFORMATION_CLASS = FILTER_INFORMATION_CLASS(2i32);
+impl ::core::marker::Copy for FILTER_INFORMATION_CLASS {}
+impl ::core::clone::Clone for FILTER_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FILTER_INFORMATION_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FILTER_INFORMATION_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FILTER_INFORMATION_CLASS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
 pub struct FILTER_MESSAGE_HEADER {
@@ -387,11 +403,27 @@ impl ::core::default::Default for FILTER_VOLUME_BASIC_INFORMATION {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub type FILTER_VOLUME_INFORMATION_CLASS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FILTER_VOLUME_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub const FilterVolumeBasicInformation: FILTER_VOLUME_INFORMATION_CLASS = 0i32;
+pub const FilterVolumeBasicInformation: FILTER_VOLUME_INFORMATION_CLASS = FILTER_VOLUME_INFORMATION_CLASS(0i32);
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub const FilterVolumeStandardInformation: FILTER_VOLUME_INFORMATION_CLASS = 1i32;
+pub const FilterVolumeStandardInformation: FILTER_VOLUME_INFORMATION_CLASS = FILTER_VOLUME_INFORMATION_CLASS(1i32);
+impl ::core::marker::Copy for FILTER_VOLUME_INFORMATION_CLASS {}
+impl ::core::clone::Clone for FILTER_VOLUME_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FILTER_VOLUME_INFORMATION_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FILTER_VOLUME_INFORMATION_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FILTER_VOLUME_INFORMATION_CLASS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
 pub struct FILTER_VOLUME_STANDARD_INFORMATION {
@@ -446,69 +478,85 @@ pub const FLTFL_IASI_IS_MINIFILTER: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
 pub const FLTFL_VSI_DETACHED_VOLUME: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub type FLT_FILESYSTEM_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FLT_FILESYSTEM_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub const FLT_FSTYPE_UNKNOWN: FLT_FILESYSTEM_TYPE = 0i32;
+pub const FLT_FSTYPE_UNKNOWN: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub const FLT_FSTYPE_RAW: FLT_FILESYSTEM_TYPE = 1i32;
+pub const FLT_FSTYPE_RAW: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub const FLT_FSTYPE_NTFS: FLT_FILESYSTEM_TYPE = 2i32;
+pub const FLT_FSTYPE_NTFS: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub const FLT_FSTYPE_FAT: FLT_FILESYSTEM_TYPE = 3i32;
+pub const FLT_FSTYPE_FAT: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub const FLT_FSTYPE_CDFS: FLT_FILESYSTEM_TYPE = 4i32;
+pub const FLT_FSTYPE_CDFS: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(4i32);
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub const FLT_FSTYPE_UDFS: FLT_FILESYSTEM_TYPE = 5i32;
+pub const FLT_FSTYPE_UDFS: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(5i32);
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub const FLT_FSTYPE_LANMAN: FLT_FILESYSTEM_TYPE = 6i32;
+pub const FLT_FSTYPE_LANMAN: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(6i32);
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub const FLT_FSTYPE_WEBDAV: FLT_FILESYSTEM_TYPE = 7i32;
+pub const FLT_FSTYPE_WEBDAV: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(7i32);
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub const FLT_FSTYPE_RDPDR: FLT_FILESYSTEM_TYPE = 8i32;
+pub const FLT_FSTYPE_RDPDR: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(8i32);
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub const FLT_FSTYPE_NFS: FLT_FILESYSTEM_TYPE = 9i32;
+pub const FLT_FSTYPE_NFS: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(9i32);
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub const FLT_FSTYPE_MS_NETWARE: FLT_FILESYSTEM_TYPE = 10i32;
+pub const FLT_FSTYPE_MS_NETWARE: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(10i32);
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub const FLT_FSTYPE_NETWARE: FLT_FILESYSTEM_TYPE = 11i32;
+pub const FLT_FSTYPE_NETWARE: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(11i32);
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub const FLT_FSTYPE_BSUDF: FLT_FILESYSTEM_TYPE = 12i32;
+pub const FLT_FSTYPE_BSUDF: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(12i32);
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub const FLT_FSTYPE_MUP: FLT_FILESYSTEM_TYPE = 13i32;
+pub const FLT_FSTYPE_MUP: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(13i32);
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub const FLT_FSTYPE_RSFX: FLT_FILESYSTEM_TYPE = 14i32;
+pub const FLT_FSTYPE_RSFX: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(14i32);
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub const FLT_FSTYPE_ROXIO_UDF1: FLT_FILESYSTEM_TYPE = 15i32;
+pub const FLT_FSTYPE_ROXIO_UDF1: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(15i32);
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub const FLT_FSTYPE_ROXIO_UDF2: FLT_FILESYSTEM_TYPE = 16i32;
+pub const FLT_FSTYPE_ROXIO_UDF2: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(16i32);
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub const FLT_FSTYPE_ROXIO_UDF3: FLT_FILESYSTEM_TYPE = 17i32;
+pub const FLT_FSTYPE_ROXIO_UDF3: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(17i32);
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub const FLT_FSTYPE_TACIT: FLT_FILESYSTEM_TYPE = 18i32;
+pub const FLT_FSTYPE_TACIT: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(18i32);
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub const FLT_FSTYPE_FS_REC: FLT_FILESYSTEM_TYPE = 19i32;
+pub const FLT_FSTYPE_FS_REC: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(19i32);
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub const FLT_FSTYPE_INCD: FLT_FILESYSTEM_TYPE = 20i32;
+pub const FLT_FSTYPE_INCD: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(20i32);
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub const FLT_FSTYPE_INCD_FAT: FLT_FILESYSTEM_TYPE = 21i32;
+pub const FLT_FSTYPE_INCD_FAT: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(21i32);
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub const FLT_FSTYPE_EXFAT: FLT_FILESYSTEM_TYPE = 22i32;
+pub const FLT_FSTYPE_EXFAT: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(22i32);
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub const FLT_FSTYPE_PSFS: FLT_FILESYSTEM_TYPE = 23i32;
+pub const FLT_FSTYPE_PSFS: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(23i32);
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub const FLT_FSTYPE_GPFS: FLT_FILESYSTEM_TYPE = 24i32;
+pub const FLT_FSTYPE_GPFS: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(24i32);
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub const FLT_FSTYPE_NPFS: FLT_FILESYSTEM_TYPE = 25i32;
+pub const FLT_FSTYPE_NPFS: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(25i32);
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub const FLT_FSTYPE_MSFS: FLT_FILESYSTEM_TYPE = 26i32;
+pub const FLT_FSTYPE_MSFS: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(26i32);
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub const FLT_FSTYPE_CSVFS: FLT_FILESYSTEM_TYPE = 27i32;
+pub const FLT_FSTYPE_CSVFS: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(27i32);
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub const FLT_FSTYPE_REFS: FLT_FILESYSTEM_TYPE = 28i32;
+pub const FLT_FSTYPE_REFS: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(28i32);
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub const FLT_FSTYPE_OPENAFS: FLT_FILESYSTEM_TYPE = 29i32;
+pub const FLT_FSTYPE_OPENAFS: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(29i32);
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub const FLT_FSTYPE_CIMFS: FLT_FILESYSTEM_TYPE = 30i32;
+pub const FLT_FSTYPE_CIMFS: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(30i32);
+impl ::core::marker::Copy for FLT_FILESYSTEM_TYPE {}
+impl ::core::clone::Clone for FLT_FILESYSTEM_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FLT_FILESYSTEM_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FLT_FILESYSTEM_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FLT_FILESYSTEM_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
 pub const FLT_PORT_FLAG_SYNC_HANDLE: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems', 'Win32_Foundation'*"]
@@ -1357,15 +1405,31 @@ impl ::core::default::Default for INSTANCE_FULL_INFORMATION {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub type INSTANCE_INFORMATION_CLASS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct INSTANCE_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub const InstanceBasicInformation: INSTANCE_INFORMATION_CLASS = 0i32;
+pub const InstanceBasicInformation: INSTANCE_INFORMATION_CLASS = INSTANCE_INFORMATION_CLASS(0i32);
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub const InstancePartialInformation: INSTANCE_INFORMATION_CLASS = 1i32;
+pub const InstancePartialInformation: INSTANCE_INFORMATION_CLASS = INSTANCE_INFORMATION_CLASS(1i32);
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub const InstanceFullInformation: INSTANCE_INFORMATION_CLASS = 2i32;
+pub const InstanceFullInformation: INSTANCE_INFORMATION_CLASS = INSTANCE_INFORMATION_CLASS(2i32);
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
-pub const InstanceAggregateStandardInformation: INSTANCE_INFORMATION_CLASS = 3i32;
+pub const InstanceAggregateStandardInformation: INSTANCE_INFORMATION_CLASS = INSTANCE_INFORMATION_CLASS(3i32);
+impl ::core::marker::Copy for INSTANCE_INFORMATION_CLASS {}
+impl ::core::clone::Clone for INSTANCE_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for INSTANCE_INFORMATION_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for INSTANCE_INFORMATION_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INSTANCE_INFORMATION_CLASS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_InstallableFileSystems'*"]
 pub const INSTANCE_NAME_MAX_CHARS: u32 = 255u32;
 #[repr(C)]

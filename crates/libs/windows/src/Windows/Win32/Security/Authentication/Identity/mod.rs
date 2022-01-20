@@ -2,21 +2,65 @@
 #[cfg(feature = "Win32_Security_Authentication_Identity_Provider")]
 pub mod Provider;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ(pub u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const ASC_REQ_ALLOCATE_MEMORY: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = 256u32;
+pub const ASC_REQ_ALLOCATE_MEMORY: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ(256u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const ASC_REQ_CONNECTION: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = 2048u32;
+pub const ASC_REQ_CONNECTION: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ(2048u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const ASC_REQ_DELEGATE: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = 1u32;
+pub const ASC_REQ_DELEGATE: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ(1u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const ASC_REQ_EXTENDED_ERROR: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = 32768u32;
+pub const ASC_REQ_EXTENDED_ERROR: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ(32768u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const ASC_REQ_REPLAY_DETECT: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = 4u32;
+pub const ASC_REQ_REPLAY_DETECT: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ(4u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const ASC_REQ_SEQUENCE_DETECT: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = 8u32;
+pub const ASC_REQ_SEQUENCE_DETECT: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ(8u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const ASC_REQ_STREAM: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = 65536u32;
+pub const ASC_REQ_STREAM: ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ = ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ(65536u32);
+impl ::core::marker::Copy for ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ {}
+impl ::core::clone::Clone for ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for ACCEPT_SECURITY_CONTEXT_CONTEXT_REQ {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Security_Credentials'*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type ACCEPT_SECURITY_CONTEXT_FN = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: *mut super::super::Credentials::SecHandle, param2: *mut SecBufferDesc, param3: u32, param4: u32, param5: *mut super::super::Credentials::SecHandle, param6: *mut SecBufferDesc, param7: *mut u32, param8: *mut i64) -> i32>;
@@ -879,13 +923,29 @@ pub const CREDP_FLAGS_USE_MIDL_HEAP: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const CREDP_FLAGS_VALIDATE_PROXY_TARGET: u32 = 64u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type CRED_FETCH = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CRED_FETCH(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const CredFetchDefault: CRED_FETCH = 0i32;
+pub const CredFetchDefault: CRED_FETCH = CRED_FETCH(0i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const CredFetchDPAPI: CRED_FETCH = 1i32;
+pub const CredFetchDPAPI: CRED_FETCH = CRED_FETCH(1i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const CredFetchForced: CRED_FETCH = 2i32;
+pub const CredFetchForced: CRED_FETCH = CRED_FETCH(2i32);
+impl ::core::marker::Copy for CRED_FETCH {}
+impl ::core::clone::Clone for CRED_FETCH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CRED_FETCH {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CRED_FETCH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CRED_FETCH").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const CRED_MARSHALED_TI_SIZE_SIZE: u32 = 12u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
@@ -1023,19 +1083,63 @@ impl ::core::default::Default for DOMAIN_PASSWORD_INFORMATION {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type DOMAIN_PASSWORD_PROPERTIES = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DOMAIN_PASSWORD_PROPERTIES(pub u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const DOMAIN_PASSWORD_COMPLEX: DOMAIN_PASSWORD_PROPERTIES = 1u32;
+pub const DOMAIN_PASSWORD_COMPLEX: DOMAIN_PASSWORD_PROPERTIES = DOMAIN_PASSWORD_PROPERTIES(1u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const DOMAIN_PASSWORD_NO_ANON_CHANGE: DOMAIN_PASSWORD_PROPERTIES = 2u32;
+pub const DOMAIN_PASSWORD_NO_ANON_CHANGE: DOMAIN_PASSWORD_PROPERTIES = DOMAIN_PASSWORD_PROPERTIES(2u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const DOMAIN_PASSWORD_NO_CLEAR_CHANGE: DOMAIN_PASSWORD_PROPERTIES = 4u32;
+pub const DOMAIN_PASSWORD_NO_CLEAR_CHANGE: DOMAIN_PASSWORD_PROPERTIES = DOMAIN_PASSWORD_PROPERTIES(4u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const DOMAIN_LOCKOUT_ADMINS: DOMAIN_PASSWORD_PROPERTIES = 8u32;
+pub const DOMAIN_LOCKOUT_ADMINS: DOMAIN_PASSWORD_PROPERTIES = DOMAIN_PASSWORD_PROPERTIES(8u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const DOMAIN_PASSWORD_STORE_CLEARTEXT: DOMAIN_PASSWORD_PROPERTIES = 16u32;
+pub const DOMAIN_PASSWORD_STORE_CLEARTEXT: DOMAIN_PASSWORD_PROPERTIES = DOMAIN_PASSWORD_PROPERTIES(16u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const DOMAIN_REFUSE_PASSWORD_CHANGE: DOMAIN_PASSWORD_PROPERTIES = 32u32;
+pub const DOMAIN_REFUSE_PASSWORD_CHANGE: DOMAIN_PASSWORD_PROPERTIES = DOMAIN_PASSWORD_PROPERTIES(32u32);
+impl ::core::marker::Copy for DOMAIN_PASSWORD_PROPERTIES {}
+impl ::core::clone::Clone for DOMAIN_PASSWORD_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DOMAIN_PASSWORD_PROPERTIES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DOMAIN_PASSWORD_PROPERTIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DOMAIN_PASSWORD_PROPERTIES").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for DOMAIN_PASSWORD_PROPERTIES {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DOMAIN_PASSWORD_PROPERTIES {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DOMAIN_PASSWORD_PROPERTIES {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DOMAIN_PASSWORD_PROPERTIES {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DOMAIN_PASSWORD_PROPERTIES {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const DS_UNKNOWN_ADDRESS_TYPE: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Security_Credentials'*"]
@@ -1147,42 +1251,102 @@ pub type ENUMERATE_SECURITY_PACKAGES_FN_A = ::core::option::Option<unsafe extern
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub type ENUMERATE_SECURITY_PACKAGES_FN_W = ::core::option::Option<unsafe extern "system" fn(param0: *mut u32, param1: *mut *mut SecPkgInfoW) -> i32>;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type EXPORT_SECURITY_CONTEXT_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct EXPORT_SECURITY_CONTEXT_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_CONTEXT_EXPORT_RESET_NEW: EXPORT_SECURITY_CONTEXT_FLAGS = 1u32;
+pub const SECPKG_CONTEXT_EXPORT_RESET_NEW: EXPORT_SECURITY_CONTEXT_FLAGS = EXPORT_SECURITY_CONTEXT_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_CONTEXT_EXPORT_DELETE_OLD: EXPORT_SECURITY_CONTEXT_FLAGS = 2u32;
+pub const SECPKG_CONTEXT_EXPORT_DELETE_OLD: EXPORT_SECURITY_CONTEXT_FLAGS = EXPORT_SECURITY_CONTEXT_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_CONTEXT_EXPORT_TO_KERNEL: EXPORT_SECURITY_CONTEXT_FLAGS = 4u32;
+pub const SECPKG_CONTEXT_EXPORT_TO_KERNEL: EXPORT_SECURITY_CONTEXT_FLAGS = EXPORT_SECURITY_CONTEXT_FLAGS(4u32);
+impl ::core::marker::Copy for EXPORT_SECURITY_CONTEXT_FLAGS {}
+impl ::core::clone::Clone for EXPORT_SECURITY_CONTEXT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for EXPORT_SECURITY_CONTEXT_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EXPORT_SECURITY_CONTEXT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EXPORT_SECURITY_CONTEXT_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for EXPORT_SECURITY_CONTEXT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for EXPORT_SECURITY_CONTEXT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for EXPORT_SECURITY_CONTEXT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for EXPORT_SECURITY_CONTEXT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for EXPORT_SECURITY_CONTEXT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Security_Credentials'*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 pub type EXPORT_SECURITY_CONTEXT_FN = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::super::Credentials::SecHandle, param1: u32, param2: *mut SecBuffer, param3: *mut *mut ::core::ffi::c_void) -> i32>;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type EXTENDED_NAME_FORMAT = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct EXTENDED_NAME_FORMAT(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const NameUnknown: EXTENDED_NAME_FORMAT = 0i32;
+pub const NameUnknown: EXTENDED_NAME_FORMAT = EXTENDED_NAME_FORMAT(0i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const NameFullyQualifiedDN: EXTENDED_NAME_FORMAT = 1i32;
+pub const NameFullyQualifiedDN: EXTENDED_NAME_FORMAT = EXTENDED_NAME_FORMAT(1i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const NameSamCompatible: EXTENDED_NAME_FORMAT = 2i32;
+pub const NameSamCompatible: EXTENDED_NAME_FORMAT = EXTENDED_NAME_FORMAT(2i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const NameDisplay: EXTENDED_NAME_FORMAT = 3i32;
+pub const NameDisplay: EXTENDED_NAME_FORMAT = EXTENDED_NAME_FORMAT(3i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const NameUniqueId: EXTENDED_NAME_FORMAT = 6i32;
+pub const NameUniqueId: EXTENDED_NAME_FORMAT = EXTENDED_NAME_FORMAT(6i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const NameCanonical: EXTENDED_NAME_FORMAT = 7i32;
+pub const NameCanonical: EXTENDED_NAME_FORMAT = EXTENDED_NAME_FORMAT(7i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const NameUserPrincipal: EXTENDED_NAME_FORMAT = 8i32;
+pub const NameUserPrincipal: EXTENDED_NAME_FORMAT = EXTENDED_NAME_FORMAT(8i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const NameCanonicalEx: EXTENDED_NAME_FORMAT = 9i32;
+pub const NameCanonicalEx: EXTENDED_NAME_FORMAT = EXTENDED_NAME_FORMAT(9i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const NameServicePrincipal: EXTENDED_NAME_FORMAT = 10i32;
+pub const NameServicePrincipal: EXTENDED_NAME_FORMAT = EXTENDED_NAME_FORMAT(10i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const NameDnsDomain: EXTENDED_NAME_FORMAT = 12i32;
+pub const NameDnsDomain: EXTENDED_NAME_FORMAT = EXTENDED_NAME_FORMAT(12i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const NameGivenName: EXTENDED_NAME_FORMAT = 13i32;
+pub const NameGivenName: EXTENDED_NAME_FORMAT = EXTENDED_NAME_FORMAT(13i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const NameSurname: EXTENDED_NAME_FORMAT = 14i32;
+pub const NameSurname: EXTENDED_NAME_FORMAT = EXTENDED_NAME_FORMAT(14i32);
+impl ::core::marker::Copy for EXTENDED_NAME_FORMAT {}
+impl ::core::clone::Clone for EXTENDED_NAME_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for EXTENDED_NAME_FORMAT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EXTENDED_NAME_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EXTENDED_NAME_FORMAT").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const E_RM_UNKNOWN_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073415165i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Security_Credentials'*"]
@@ -1699,11 +1863,55 @@ pub const KERBEROS_REVISION: u32 = 6u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const KERBEROS_VERSION: u32 = 5u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type KERB_ADDRESS_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct KERB_ADDRESS_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const DS_INET_ADDRESS: KERB_ADDRESS_TYPE = 1u32;
+pub const DS_INET_ADDRESS: KERB_ADDRESS_TYPE = KERB_ADDRESS_TYPE(1u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const DS_NETBIOS_ADDRESS: KERB_ADDRESS_TYPE = 2u32;
+pub const DS_NETBIOS_ADDRESS: KERB_ADDRESS_TYPE = KERB_ADDRESS_TYPE(2u32);
+impl ::core::marker::Copy for KERB_ADDRESS_TYPE {}
+impl ::core::clone::Clone for KERB_ADDRESS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for KERB_ADDRESS_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KERB_ADDRESS_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KERB_ADDRESS_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for KERB_ADDRESS_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for KERB_ADDRESS_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for KERB_ADDRESS_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for KERB_ADDRESS_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for KERB_ADDRESS_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2010,9 +2218,25 @@ impl ::core::default::Default for KERB_CERTIFICATE_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type KERB_CERTIFICATE_INFO_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct KERB_CERTIFICATE_INFO_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const CertHashInfo: KERB_CERTIFICATE_INFO_TYPE = 1i32;
+pub const CertHashInfo: KERB_CERTIFICATE_INFO_TYPE = KERB_CERTIFICATE_INFO_TYPE(1i32);
+impl ::core::marker::Copy for KERB_CERTIFICATE_INFO_TYPE {}
+impl ::core::clone::Clone for KERB_CERTIFICATE_INFO_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for KERB_CERTIFICATE_INFO_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KERB_CERTIFICATE_INFO_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KERB_CERTIFICATE_INFO_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2444,19 +2668,35 @@ impl ::core::default::Default for KERB_CRYPTO_KEY32 {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type KERB_CRYPTO_KEY_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct KERB_CRYPTO_KEY_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KERB_ETYPE_DES_CBC_CRC: KERB_CRYPTO_KEY_TYPE = 1i32;
+pub const KERB_ETYPE_DES_CBC_CRC: KERB_CRYPTO_KEY_TYPE = KERB_CRYPTO_KEY_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KERB_ETYPE_DES_CBC_MD4: KERB_CRYPTO_KEY_TYPE = 2i32;
+pub const KERB_ETYPE_DES_CBC_MD4: KERB_CRYPTO_KEY_TYPE = KERB_CRYPTO_KEY_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KERB_ETYPE_DES_CBC_MD5: KERB_CRYPTO_KEY_TYPE = 3i32;
+pub const KERB_ETYPE_DES_CBC_MD5: KERB_CRYPTO_KEY_TYPE = KERB_CRYPTO_KEY_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KERB_ETYPE_NULL: KERB_CRYPTO_KEY_TYPE = 0i32;
+pub const KERB_ETYPE_NULL: KERB_CRYPTO_KEY_TYPE = KERB_CRYPTO_KEY_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KERB_ETYPE_RC4_HMAC_NT: KERB_CRYPTO_KEY_TYPE = 23i32;
+pub const KERB_ETYPE_RC4_HMAC_NT: KERB_CRYPTO_KEY_TYPE = KERB_CRYPTO_KEY_TYPE(23i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KERB_ETYPE_RC4_MD4: KERB_CRYPTO_KEY_TYPE = -128i32;
+pub const KERB_ETYPE_RC4_MD4: KERB_CRYPTO_KEY_TYPE = KERB_CRYPTO_KEY_TYPE(-128i32);
+impl ::core::marker::Copy for KERB_CRYPTO_KEY_TYPE {}
+impl ::core::clone::Clone for KERB_CRYPTO_KEY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for KERB_CRYPTO_KEY_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KERB_CRYPTO_KEY_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KERB_CRYPTO_KEY_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const KERB_DECRYPT_FLAG_DEFAULT_KEY: u32 = 1u32;
 #[repr(C)]
@@ -2867,33 +3107,49 @@ pub const KERB_LOGON_FLAG_ALLOW_EXPIRED_TICKET: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const KERB_LOGON_FLAG_REDIRECTED: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type KERB_LOGON_SUBMIT_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct KERB_LOGON_SUBMIT_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbInteractiveLogon: KERB_LOGON_SUBMIT_TYPE = 2i32;
+pub const KerbInteractiveLogon: KERB_LOGON_SUBMIT_TYPE = KERB_LOGON_SUBMIT_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbSmartCardLogon: KERB_LOGON_SUBMIT_TYPE = 6i32;
+pub const KerbSmartCardLogon: KERB_LOGON_SUBMIT_TYPE = KERB_LOGON_SUBMIT_TYPE(6i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbWorkstationUnlockLogon: KERB_LOGON_SUBMIT_TYPE = 7i32;
+pub const KerbWorkstationUnlockLogon: KERB_LOGON_SUBMIT_TYPE = KERB_LOGON_SUBMIT_TYPE(7i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbSmartCardUnlockLogon: KERB_LOGON_SUBMIT_TYPE = 8i32;
+pub const KerbSmartCardUnlockLogon: KERB_LOGON_SUBMIT_TYPE = KERB_LOGON_SUBMIT_TYPE(8i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbProxyLogon: KERB_LOGON_SUBMIT_TYPE = 9i32;
+pub const KerbProxyLogon: KERB_LOGON_SUBMIT_TYPE = KERB_LOGON_SUBMIT_TYPE(9i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbTicketLogon: KERB_LOGON_SUBMIT_TYPE = 10i32;
+pub const KerbTicketLogon: KERB_LOGON_SUBMIT_TYPE = KERB_LOGON_SUBMIT_TYPE(10i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbTicketUnlockLogon: KERB_LOGON_SUBMIT_TYPE = 11i32;
+pub const KerbTicketUnlockLogon: KERB_LOGON_SUBMIT_TYPE = KERB_LOGON_SUBMIT_TYPE(11i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbS4ULogon: KERB_LOGON_SUBMIT_TYPE = 12i32;
+pub const KerbS4ULogon: KERB_LOGON_SUBMIT_TYPE = KERB_LOGON_SUBMIT_TYPE(12i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbCertificateLogon: KERB_LOGON_SUBMIT_TYPE = 13i32;
+pub const KerbCertificateLogon: KERB_LOGON_SUBMIT_TYPE = KERB_LOGON_SUBMIT_TYPE(13i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbCertificateS4ULogon: KERB_LOGON_SUBMIT_TYPE = 14i32;
+pub const KerbCertificateS4ULogon: KERB_LOGON_SUBMIT_TYPE = KERB_LOGON_SUBMIT_TYPE(14i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbCertificateUnlockLogon: KERB_LOGON_SUBMIT_TYPE = 15i32;
+pub const KerbCertificateUnlockLogon: KERB_LOGON_SUBMIT_TYPE = KERB_LOGON_SUBMIT_TYPE(15i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbNoElevationLogon: KERB_LOGON_SUBMIT_TYPE = 83i32;
+pub const KerbNoElevationLogon: KERB_LOGON_SUBMIT_TYPE = KERB_LOGON_SUBMIT_TYPE(83i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbLuidLogon: KERB_LOGON_SUBMIT_TYPE = 84i32;
+pub const KerbLuidLogon: KERB_LOGON_SUBMIT_TYPE = KERB_LOGON_SUBMIT_TYPE(84i32);
+impl ::core::marker::Copy for KERB_LOGON_SUBMIT_TYPE {}
+impl ::core::clone::Clone for KERB_LOGON_SUBMIT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for KERB_LOGON_SUBMIT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KERB_LOGON_SUBMIT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KERB_LOGON_SUBMIT_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2974,89 +3230,121 @@ impl ::core::default::Default for KERB_NET_ADDRESSES {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type KERB_PROFILE_BUFFER_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct KERB_PROFILE_BUFFER_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbInteractiveProfile: KERB_PROFILE_BUFFER_TYPE = 2i32;
+pub const KerbInteractiveProfile: KERB_PROFILE_BUFFER_TYPE = KERB_PROFILE_BUFFER_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbSmartCardProfile: KERB_PROFILE_BUFFER_TYPE = 4i32;
+pub const KerbSmartCardProfile: KERB_PROFILE_BUFFER_TYPE = KERB_PROFILE_BUFFER_TYPE(4i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbTicketProfile: KERB_PROFILE_BUFFER_TYPE = 6i32;
+pub const KerbTicketProfile: KERB_PROFILE_BUFFER_TYPE = KERB_PROFILE_BUFFER_TYPE(6i32);
+impl ::core::marker::Copy for KERB_PROFILE_BUFFER_TYPE {}
+impl ::core::clone::Clone for KERB_PROFILE_BUFFER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for KERB_PROFILE_BUFFER_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KERB_PROFILE_BUFFER_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KERB_PROFILE_BUFFER_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type KERB_PROTOCOL_MESSAGE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct KERB_PROTOCOL_MESSAGE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbDebugRequestMessage: KERB_PROTOCOL_MESSAGE_TYPE = 0i32;
+pub const KerbDebugRequestMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbQueryTicketCacheMessage: KERB_PROTOCOL_MESSAGE_TYPE = 1i32;
+pub const KerbQueryTicketCacheMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbChangeMachinePasswordMessage: KERB_PROTOCOL_MESSAGE_TYPE = 2i32;
+pub const KerbChangeMachinePasswordMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbVerifyPacMessage: KERB_PROTOCOL_MESSAGE_TYPE = 3i32;
+pub const KerbVerifyPacMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbRetrieveTicketMessage: KERB_PROTOCOL_MESSAGE_TYPE = 4i32;
+pub const KerbRetrieveTicketMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(4i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbUpdateAddressesMessage: KERB_PROTOCOL_MESSAGE_TYPE = 5i32;
+pub const KerbUpdateAddressesMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(5i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbPurgeTicketCacheMessage: KERB_PROTOCOL_MESSAGE_TYPE = 6i32;
+pub const KerbPurgeTicketCacheMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(6i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbChangePasswordMessage: KERB_PROTOCOL_MESSAGE_TYPE = 7i32;
+pub const KerbChangePasswordMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(7i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbRetrieveEncodedTicketMessage: KERB_PROTOCOL_MESSAGE_TYPE = 8i32;
+pub const KerbRetrieveEncodedTicketMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(8i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbDecryptDataMessage: KERB_PROTOCOL_MESSAGE_TYPE = 9i32;
+pub const KerbDecryptDataMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(9i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbAddBindingCacheEntryMessage: KERB_PROTOCOL_MESSAGE_TYPE = 10i32;
+pub const KerbAddBindingCacheEntryMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(10i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbSetPasswordMessage: KERB_PROTOCOL_MESSAGE_TYPE = 11i32;
+pub const KerbSetPasswordMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(11i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbSetPasswordExMessage: KERB_PROTOCOL_MESSAGE_TYPE = 12i32;
+pub const KerbSetPasswordExMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(12i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbVerifyCredentialsMessage: KERB_PROTOCOL_MESSAGE_TYPE = 13i32;
+pub const KerbVerifyCredentialsMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(13i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbQueryTicketCacheExMessage: KERB_PROTOCOL_MESSAGE_TYPE = 14i32;
+pub const KerbQueryTicketCacheExMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(14i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbPurgeTicketCacheExMessage: KERB_PROTOCOL_MESSAGE_TYPE = 15i32;
+pub const KerbPurgeTicketCacheExMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(15i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbRefreshSmartcardCredentialsMessage: KERB_PROTOCOL_MESSAGE_TYPE = 16i32;
+pub const KerbRefreshSmartcardCredentialsMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(16i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbAddExtraCredentialsMessage: KERB_PROTOCOL_MESSAGE_TYPE = 17i32;
+pub const KerbAddExtraCredentialsMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(17i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbQuerySupplementalCredentialsMessage: KERB_PROTOCOL_MESSAGE_TYPE = 18i32;
+pub const KerbQuerySupplementalCredentialsMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(18i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbTransferCredentialsMessage: KERB_PROTOCOL_MESSAGE_TYPE = 19i32;
+pub const KerbTransferCredentialsMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(19i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbQueryTicketCacheEx2Message: KERB_PROTOCOL_MESSAGE_TYPE = 20i32;
+pub const KerbQueryTicketCacheEx2Message: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(20i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbSubmitTicketMessage: KERB_PROTOCOL_MESSAGE_TYPE = 21i32;
+pub const KerbSubmitTicketMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(21i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbAddExtraCredentialsExMessage: KERB_PROTOCOL_MESSAGE_TYPE = 22i32;
+pub const KerbAddExtraCredentialsExMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(22i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbQueryKdcProxyCacheMessage: KERB_PROTOCOL_MESSAGE_TYPE = 23i32;
+pub const KerbQueryKdcProxyCacheMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(23i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbPurgeKdcProxyCacheMessage: KERB_PROTOCOL_MESSAGE_TYPE = 24i32;
+pub const KerbPurgeKdcProxyCacheMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(24i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbQueryTicketCacheEx3Message: KERB_PROTOCOL_MESSAGE_TYPE = 25i32;
+pub const KerbQueryTicketCacheEx3Message: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(25i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbCleanupMachinePkinitCredsMessage: KERB_PROTOCOL_MESSAGE_TYPE = 26i32;
+pub const KerbCleanupMachinePkinitCredsMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(26i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbAddBindingCacheEntryExMessage: KERB_PROTOCOL_MESSAGE_TYPE = 27i32;
+pub const KerbAddBindingCacheEntryExMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(27i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbQueryBindingCacheMessage: KERB_PROTOCOL_MESSAGE_TYPE = 28i32;
+pub const KerbQueryBindingCacheMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(28i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbPurgeBindingCacheMessage: KERB_PROTOCOL_MESSAGE_TYPE = 29i32;
+pub const KerbPurgeBindingCacheMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(29i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbPinKdcMessage: KERB_PROTOCOL_MESSAGE_TYPE = 30i32;
+pub const KerbPinKdcMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(30i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbUnpinAllKdcsMessage: KERB_PROTOCOL_MESSAGE_TYPE = 31i32;
+pub const KerbUnpinAllKdcsMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(31i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbQueryDomainExtendedPoliciesMessage: KERB_PROTOCOL_MESSAGE_TYPE = 32i32;
+pub const KerbQueryDomainExtendedPoliciesMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(32i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbQueryS4U2ProxyCacheMessage: KERB_PROTOCOL_MESSAGE_TYPE = 33i32;
+pub const KerbQueryS4U2ProxyCacheMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(33i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbRetrieveKeyTabMessage: KERB_PROTOCOL_MESSAGE_TYPE = 34i32;
+pub const KerbRetrieveKeyTabMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(34i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbRefreshPolicyMessage: KERB_PROTOCOL_MESSAGE_TYPE = 35i32;
+pub const KerbRefreshPolicyMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(35i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KerbPrintCloudKerberosDebugMessage: KERB_PROTOCOL_MESSAGE_TYPE = 36i32;
+pub const KerbPrintCloudKerberosDebugMessage: KERB_PROTOCOL_MESSAGE_TYPE = KERB_PROTOCOL_MESSAGE_TYPE(36i32);
+impl ::core::marker::Copy for KERB_PROTOCOL_MESSAGE_TYPE {}
+impl ::core::clone::Clone for KERB_PROTOCOL_MESSAGE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for KERB_PROTOCOL_MESSAGE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KERB_PROTOCOL_MESSAGE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KERB_PROTOCOL_MESSAGE_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const KERB_PURGE_ALL_TICKETS: u32 = 1u32;
 #[repr(C)]
@@ -3858,13 +4146,57 @@ impl ::core::default::Default for KERB_REFRESH_SCCRED_REQUEST {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type KERB_REQUEST_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct KERB_REQUEST_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KERB_REQUEST_ADD_CREDENTIAL: KERB_REQUEST_FLAGS = 1u32;
+pub const KERB_REQUEST_ADD_CREDENTIAL: KERB_REQUEST_FLAGS = KERB_REQUEST_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KERB_REQUEST_REPLACE_CREDENTIAL: KERB_REQUEST_FLAGS = 2u32;
+pub const KERB_REQUEST_REPLACE_CREDENTIAL: KERB_REQUEST_FLAGS = KERB_REQUEST_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KERB_REQUEST_REMOVE_CREDENTIAL: KERB_REQUEST_FLAGS = 4u32;
+pub const KERB_REQUEST_REMOVE_CREDENTIAL: KERB_REQUEST_FLAGS = KERB_REQUEST_FLAGS(4u32);
+impl ::core::marker::Copy for KERB_REQUEST_FLAGS {}
+impl ::core::clone::Clone for KERB_REQUEST_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for KERB_REQUEST_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KERB_REQUEST_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KERB_REQUEST_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for KERB_REQUEST_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for KERB_REQUEST_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for KERB_REQUEST_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for KERB_REQUEST_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for KERB_REQUEST_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4647,35 +4979,79 @@ impl ::core::default::Default for KERB_TICKET_CACHE_INFO_EX3 {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type KERB_TICKET_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct KERB_TICKET_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KERB_TICKET_FLAGS_forwardable: KERB_TICKET_FLAGS = 1073741824u32;
+pub const KERB_TICKET_FLAGS_forwardable: KERB_TICKET_FLAGS = KERB_TICKET_FLAGS(1073741824u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KERB_TICKET_FLAGS_forwarded: KERB_TICKET_FLAGS = 536870912u32;
+pub const KERB_TICKET_FLAGS_forwarded: KERB_TICKET_FLAGS = KERB_TICKET_FLAGS(536870912u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KERB_TICKET_FLAGS_hw_authent: KERB_TICKET_FLAGS = 1048576u32;
+pub const KERB_TICKET_FLAGS_hw_authent: KERB_TICKET_FLAGS = KERB_TICKET_FLAGS(1048576u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KERB_TICKET_FLAGS_initial: KERB_TICKET_FLAGS = 4194304u32;
+pub const KERB_TICKET_FLAGS_initial: KERB_TICKET_FLAGS = KERB_TICKET_FLAGS(4194304u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KERB_TICKET_FLAGS_invalid: KERB_TICKET_FLAGS = 16777216u32;
+pub const KERB_TICKET_FLAGS_invalid: KERB_TICKET_FLAGS = KERB_TICKET_FLAGS(16777216u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KERB_TICKET_FLAGS_may_postdate: KERB_TICKET_FLAGS = 67108864u32;
+pub const KERB_TICKET_FLAGS_may_postdate: KERB_TICKET_FLAGS = KERB_TICKET_FLAGS(67108864u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KERB_TICKET_FLAGS_ok_as_delegate: KERB_TICKET_FLAGS = 262144u32;
+pub const KERB_TICKET_FLAGS_ok_as_delegate: KERB_TICKET_FLAGS = KERB_TICKET_FLAGS(262144u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KERB_TICKET_FLAGS_postdated: KERB_TICKET_FLAGS = 33554432u32;
+pub const KERB_TICKET_FLAGS_postdated: KERB_TICKET_FLAGS = KERB_TICKET_FLAGS(33554432u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KERB_TICKET_FLAGS_pre_authent: KERB_TICKET_FLAGS = 2097152u32;
+pub const KERB_TICKET_FLAGS_pre_authent: KERB_TICKET_FLAGS = KERB_TICKET_FLAGS(2097152u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KERB_TICKET_FLAGS_proxiable: KERB_TICKET_FLAGS = 268435456u32;
+pub const KERB_TICKET_FLAGS_proxiable: KERB_TICKET_FLAGS = KERB_TICKET_FLAGS(268435456u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KERB_TICKET_FLAGS_proxy: KERB_TICKET_FLAGS = 134217728u32;
+pub const KERB_TICKET_FLAGS_proxy: KERB_TICKET_FLAGS = KERB_TICKET_FLAGS(134217728u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KERB_TICKET_FLAGS_renewable: KERB_TICKET_FLAGS = 8388608u32;
+pub const KERB_TICKET_FLAGS_renewable: KERB_TICKET_FLAGS = KERB_TICKET_FLAGS(8388608u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KERB_TICKET_FLAGS_reserved: KERB_TICKET_FLAGS = 2147483648u32;
+pub const KERB_TICKET_FLAGS_reserved: KERB_TICKET_FLAGS = KERB_TICKET_FLAGS(2147483648u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KERB_TICKET_FLAGS_reserved1: KERB_TICKET_FLAGS = 1u32;
+pub const KERB_TICKET_FLAGS_reserved1: KERB_TICKET_FLAGS = KERB_TICKET_FLAGS(1u32);
+impl ::core::marker::Copy for KERB_TICKET_FLAGS {}
+impl ::core::clone::Clone for KERB_TICKET_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for KERB_TICKET_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KERB_TICKET_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KERB_TICKET_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for KERB_TICKET_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for KERB_TICKET_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for KERB_TICKET_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for KERB_TICKET_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for KERB_TICKET_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const KERB_TICKET_FLAGS_cname_in_pa_data: u32 = 262144u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
@@ -4877,11 +5253,27 @@ pub const KRB_NT_WELLKNOWN: u32 = 11u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const KRB_NT_X500_PRINCIPAL: u32 = 6u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type KSEC_CONTEXT_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct KSEC_CONTEXT_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KSecPaged: KSEC_CONTEXT_TYPE = 0i32;
+pub const KSecPaged: KSEC_CONTEXT_TYPE = KSEC_CONTEXT_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const KSecNonPaged: KSEC_CONTEXT_TYPE = 1i32;
+pub const KSecNonPaged: KSEC_CONTEXT_TYPE = KSEC_CONTEXT_TYPE(1i32);
+impl ::core::marker::Copy for KSEC_CONTEXT_TYPE {}
+impl ::core::clone::Clone for KSEC_CONTEXT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for KSEC_CONTEXT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KSEC_CONTEXT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KSEC_CONTEXT_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_System_Kernel'*"]
 #[cfg(feature = "Win32_System_Kernel")]
@@ -5067,15 +5459,59 @@ impl ::core::default::Default for LSA_AUTH_INFORMATION {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type LSA_AUTH_INFORMATION_AUTH_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct LSA_AUTH_INFORMATION_AUTH_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TRUST_AUTH_TYPE_NONE: LSA_AUTH_INFORMATION_AUTH_TYPE = 0u32;
+pub const TRUST_AUTH_TYPE_NONE: LSA_AUTH_INFORMATION_AUTH_TYPE = LSA_AUTH_INFORMATION_AUTH_TYPE(0u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TRUST_AUTH_TYPE_NT4OWF: LSA_AUTH_INFORMATION_AUTH_TYPE = 1u32;
+pub const TRUST_AUTH_TYPE_NT4OWF: LSA_AUTH_INFORMATION_AUTH_TYPE = LSA_AUTH_INFORMATION_AUTH_TYPE(1u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TRUST_AUTH_TYPE_CLEAR: LSA_AUTH_INFORMATION_AUTH_TYPE = 2u32;
+pub const TRUST_AUTH_TYPE_CLEAR: LSA_AUTH_INFORMATION_AUTH_TYPE = LSA_AUTH_INFORMATION_AUTH_TYPE(2u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TRUST_AUTH_TYPE_VERSION: LSA_AUTH_INFORMATION_AUTH_TYPE = 3u32;
+pub const TRUST_AUTH_TYPE_VERSION: LSA_AUTH_INFORMATION_AUTH_TYPE = LSA_AUTH_INFORMATION_AUTH_TYPE(3u32);
+impl ::core::marker::Copy for LSA_AUTH_INFORMATION_AUTH_TYPE {}
+impl ::core::clone::Clone for LSA_AUTH_INFORMATION_AUTH_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for LSA_AUTH_INFORMATION_AUTH_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LSA_AUTH_INFORMATION_AUTH_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LSA_AUTH_INFORMATION_AUTH_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for LSA_AUTH_INFORMATION_AUTH_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for LSA_AUTH_INFORMATION_AUTH_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for LSA_AUTH_INFORMATION_AUTH_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for LSA_AUTH_INFORMATION_AUTH_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for LSA_AUTH_INFORMATION_AUTH_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const LSA_CALL_LICENSE_SERVER: u32 = 2147483648u32;
 #[repr(C)]
@@ -5288,13 +5724,29 @@ impl ::core::default::Default for LSA_FOREST_TRUST_COLLISION_RECORD {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type LSA_FOREST_TRUST_COLLISION_RECORD_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct LSA_FOREST_TRUST_COLLISION_RECORD_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const CollisionTdo: LSA_FOREST_TRUST_COLLISION_RECORD_TYPE = 0i32;
+pub const CollisionTdo: LSA_FOREST_TRUST_COLLISION_RECORD_TYPE = LSA_FOREST_TRUST_COLLISION_RECORD_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const CollisionXref: LSA_FOREST_TRUST_COLLISION_RECORD_TYPE = 1i32;
+pub const CollisionXref: LSA_FOREST_TRUST_COLLISION_RECORD_TYPE = LSA_FOREST_TRUST_COLLISION_RECORD_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const CollisionOther: LSA_FOREST_TRUST_COLLISION_RECORD_TYPE = 2i32;
+pub const CollisionOther: LSA_FOREST_TRUST_COLLISION_RECORD_TYPE = LSA_FOREST_TRUST_COLLISION_RECORD_TYPE(2i32);
+impl ::core::marker::Copy for LSA_FOREST_TRUST_COLLISION_RECORD_TYPE {}
+impl ::core::clone::Clone for LSA_FOREST_TRUST_COLLISION_RECORD_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for LSA_FOREST_TRUST_COLLISION_RECORD_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LSA_FOREST_TRUST_COLLISION_RECORD_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LSA_FOREST_TRUST_COLLISION_RECORD_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5444,15 +5896,31 @@ impl ::core::default::Default for LSA_FOREST_TRUST_RECORD_0 {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type LSA_FOREST_TRUST_RECORD_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct LSA_FOREST_TRUST_RECORD_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const ForestTrustTopLevelName: LSA_FOREST_TRUST_RECORD_TYPE = 0i32;
+pub const ForestTrustTopLevelName: LSA_FOREST_TRUST_RECORD_TYPE = LSA_FOREST_TRUST_RECORD_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const ForestTrustTopLevelNameEx: LSA_FOREST_TRUST_RECORD_TYPE = 1i32;
+pub const ForestTrustTopLevelNameEx: LSA_FOREST_TRUST_RECORD_TYPE = LSA_FOREST_TRUST_RECORD_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const ForestTrustDomainInfo: LSA_FOREST_TRUST_RECORD_TYPE = 2i32;
+pub const ForestTrustDomainInfo: LSA_FOREST_TRUST_RECORD_TYPE = LSA_FOREST_TRUST_RECORD_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const ForestTrustRecordTypeLast: LSA_FOREST_TRUST_RECORD_TYPE = 2i32;
+pub const ForestTrustRecordTypeLast: LSA_FOREST_TRUST_RECORD_TYPE = LSA_FOREST_TRUST_RECORD_TYPE(2i32);
+impl ::core::marker::Copy for LSA_FOREST_TRUST_RECORD_TYPE {}
+impl ::core::clone::Clone for LSA_FOREST_TRUST_RECORD_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for LSA_FOREST_TRUST_RECORD_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LSA_FOREST_TRUST_RECORD_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LSA_FOREST_TRUST_RECORD_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const LSA_FOREST_TRUST_RECORD_TYPE_UNRECOGNIZED: u32 = 2147483648u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
@@ -5496,11 +5964,27 @@ pub const LSA_LOCAL_SECRET_PREFIX_LENGTH: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const LSA_LOOKUP_DISALLOW_CONNECTED_ACCOUNT_INTERNET_SID: u32 = 2147483648u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type LSA_LOOKUP_DOMAIN_INFO_CLASS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct LSA_LOOKUP_DOMAIN_INFO_CLASS(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const AccountDomainInformation: LSA_LOOKUP_DOMAIN_INFO_CLASS = 5i32;
+pub const AccountDomainInformation: LSA_LOOKUP_DOMAIN_INFO_CLASS = LSA_LOOKUP_DOMAIN_INFO_CLASS(5i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const DnsDomainInformation: LSA_LOOKUP_DOMAIN_INFO_CLASS = 12i32;
+pub const DnsDomainInformation: LSA_LOOKUP_DOMAIN_INFO_CLASS = LSA_LOOKUP_DOMAIN_INFO_CLASS(12i32);
+impl ::core::marker::Copy for LSA_LOOKUP_DOMAIN_INFO_CLASS {}
+impl ::core::clone::Clone for LSA_LOOKUP_DOMAIN_INFO_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for LSA_LOOKUP_DOMAIN_INFO_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LSA_LOOKUP_DOMAIN_INFO_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LSA_LOOKUP_DOMAIN_INFO_CLASS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const LSA_LOOKUP_ISOLATED_AS_LOCAL: u32 = 2147483648u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
@@ -5780,15 +6264,31 @@ impl ::core::default::Default for LSA_TOKEN_INFORMATION_NULL {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type LSA_TOKEN_INFORMATION_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct LSA_TOKEN_INFORMATION_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const LsaTokenInformationNull: LSA_TOKEN_INFORMATION_TYPE = 0i32;
+pub const LsaTokenInformationNull: LSA_TOKEN_INFORMATION_TYPE = LSA_TOKEN_INFORMATION_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const LsaTokenInformationV1: LSA_TOKEN_INFORMATION_TYPE = 1i32;
+pub const LsaTokenInformationV1: LSA_TOKEN_INFORMATION_TYPE = LSA_TOKEN_INFORMATION_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const LsaTokenInformationV2: LSA_TOKEN_INFORMATION_TYPE = 2i32;
+pub const LsaTokenInformationV2: LSA_TOKEN_INFORMATION_TYPE = LSA_TOKEN_INFORMATION_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const LsaTokenInformationV3: LSA_TOKEN_INFORMATION_TYPE = 3i32;
+pub const LsaTokenInformationV3: LSA_TOKEN_INFORMATION_TYPE = LSA_TOKEN_INFORMATION_TYPE(3i32);
+impl ::core::marker::Copy for LSA_TOKEN_INFORMATION_TYPE {}
+impl ::core::clone::Clone for LSA_TOKEN_INFORMATION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for LSA_TOKEN_INFORMATION_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LSA_TOKEN_INFORMATION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LSA_TOKEN_INFORMATION_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -6741,39 +7241,99 @@ pub const MAX_RECORDS_IN_FOREST_TRUST_INFO: u32 = 4000u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const MAX_USER_RECORDS: u32 = 1000u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type MSV1_0 = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MSV1_0(pub u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MSV1_0_PASSTHRU: MSV1_0 = 1u32;
+pub const MSV1_0_PASSTHRU: MSV1_0 = MSV1_0(1u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MSV1_0_GUEST_LOGON: MSV1_0 = 2u32;
+pub const MSV1_0_GUEST_LOGON: MSV1_0 = MSV1_0(2u32);
+impl ::core::marker::Copy for MSV1_0 {}
+impl ::core::clone::Clone for MSV1_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MSV1_0 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MSV1_0 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MSV1_0").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for MSV1_0 {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for MSV1_0 {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for MSV1_0 {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for MSV1_0 {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for MSV1_0 {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const MSV1_0_ALLOW_FORCE_GUEST: u32 = 8192u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const MSV1_0_ALLOW_MSVCHAPV2: u32 = 65536u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type MSV1_0_AVID = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MSV1_0_AVID(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsvAvEOL: MSV1_0_AVID = 0i32;
+pub const MsvAvEOL: MSV1_0_AVID = MSV1_0_AVID(0i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsvAvNbComputerName: MSV1_0_AVID = 1i32;
+pub const MsvAvNbComputerName: MSV1_0_AVID = MSV1_0_AVID(1i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsvAvNbDomainName: MSV1_0_AVID = 2i32;
+pub const MsvAvNbDomainName: MSV1_0_AVID = MSV1_0_AVID(2i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsvAvDnsComputerName: MSV1_0_AVID = 3i32;
+pub const MsvAvDnsComputerName: MSV1_0_AVID = MSV1_0_AVID(3i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsvAvDnsDomainName: MSV1_0_AVID = 4i32;
+pub const MsvAvDnsDomainName: MSV1_0_AVID = MSV1_0_AVID(4i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsvAvDnsTreeName: MSV1_0_AVID = 5i32;
+pub const MsvAvDnsTreeName: MSV1_0_AVID = MSV1_0_AVID(5i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsvAvFlags: MSV1_0_AVID = 6i32;
+pub const MsvAvFlags: MSV1_0_AVID = MSV1_0_AVID(6i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsvAvTimestamp: MSV1_0_AVID = 7i32;
+pub const MsvAvTimestamp: MSV1_0_AVID = MSV1_0_AVID(7i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsvAvRestrictions: MSV1_0_AVID = 8i32;
+pub const MsvAvRestrictions: MSV1_0_AVID = MSV1_0_AVID(8i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsvAvTargetName: MSV1_0_AVID = 9i32;
+pub const MsvAvTargetName: MSV1_0_AVID = MSV1_0_AVID(9i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsvAvChannelBindings: MSV1_0_AVID = 10i32;
+pub const MsvAvChannelBindings: MSV1_0_AVID = MSV1_0_AVID(10i32);
+impl ::core::marker::Copy for MSV1_0_AVID {}
+impl ::core::clone::Clone for MSV1_0_AVID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MSV1_0_AVID {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MSV1_0_AVID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MSV1_0_AVID").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const MSV1_0_AV_FLAG_FORCE_GUEST: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
@@ -6933,17 +7493,33 @@ impl ::core::default::Default for MSV1_0_CREDENTIAL_KEY {
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const MSV1_0_CREDENTIAL_KEY_LENGTH: u32 = 20u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type MSV1_0_CREDENTIAL_KEY_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MSV1_0_CREDENTIAL_KEY_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const InvalidCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = 0i32;
+pub const InvalidCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = MSV1_0_CREDENTIAL_KEY_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const DeprecatedIUMCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = 1i32;
+pub const DeprecatedIUMCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = MSV1_0_CREDENTIAL_KEY_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const DomainUserCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = 2i32;
+pub const DomainUserCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = MSV1_0_CREDENTIAL_KEY_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const LocalUserCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = 3i32;
+pub const LocalUserCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = MSV1_0_CREDENTIAL_KEY_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const ExternallySuppliedCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = 4i32;
+pub const ExternallySuppliedCredKey: MSV1_0_CREDENTIAL_KEY_TYPE = MSV1_0_CREDENTIAL_KEY_TYPE(4i32);
+impl ::core::marker::Copy for MSV1_0_CREDENTIAL_KEY_TYPE {}
+impl ::core::clone::Clone for MSV1_0_CREDENTIAL_KEY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MSV1_0_CREDENTIAL_KEY_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MSV1_0_CREDENTIAL_KEY_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MSV1_0_CREDENTIAL_KEY_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const MSV1_0_CRED_CREDKEY_PRESENT: u32 = 8u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
@@ -7205,25 +7781,41 @@ impl ::core::default::Default for MSV1_0_LM20_LOGON_PROFILE {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type MSV1_0_LOGON_SUBMIT_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MSV1_0_LOGON_SUBMIT_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsV1_0InteractiveLogon: MSV1_0_LOGON_SUBMIT_TYPE = 2i32;
+pub const MsV1_0InteractiveLogon: MSV1_0_LOGON_SUBMIT_TYPE = MSV1_0_LOGON_SUBMIT_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsV1_0Lm20Logon: MSV1_0_LOGON_SUBMIT_TYPE = 3i32;
+pub const MsV1_0Lm20Logon: MSV1_0_LOGON_SUBMIT_TYPE = MSV1_0_LOGON_SUBMIT_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsV1_0NetworkLogon: MSV1_0_LOGON_SUBMIT_TYPE = 4i32;
+pub const MsV1_0NetworkLogon: MSV1_0_LOGON_SUBMIT_TYPE = MSV1_0_LOGON_SUBMIT_TYPE(4i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsV1_0SubAuthLogon: MSV1_0_LOGON_SUBMIT_TYPE = 5i32;
+pub const MsV1_0SubAuthLogon: MSV1_0_LOGON_SUBMIT_TYPE = MSV1_0_LOGON_SUBMIT_TYPE(5i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsV1_0WorkstationUnlockLogon: MSV1_0_LOGON_SUBMIT_TYPE = 7i32;
+pub const MsV1_0WorkstationUnlockLogon: MSV1_0_LOGON_SUBMIT_TYPE = MSV1_0_LOGON_SUBMIT_TYPE(7i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsV1_0S4ULogon: MSV1_0_LOGON_SUBMIT_TYPE = 12i32;
+pub const MsV1_0S4ULogon: MSV1_0_LOGON_SUBMIT_TYPE = MSV1_0_LOGON_SUBMIT_TYPE(12i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsV1_0VirtualLogon: MSV1_0_LOGON_SUBMIT_TYPE = 82i32;
+pub const MsV1_0VirtualLogon: MSV1_0_LOGON_SUBMIT_TYPE = MSV1_0_LOGON_SUBMIT_TYPE(82i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsV1_0NoElevationLogon: MSV1_0_LOGON_SUBMIT_TYPE = 83i32;
+pub const MsV1_0NoElevationLogon: MSV1_0_LOGON_SUBMIT_TYPE = MSV1_0_LOGON_SUBMIT_TYPE(83i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsV1_0LuidLogon: MSV1_0_LOGON_SUBMIT_TYPE = 84i32;
+pub const MsV1_0LuidLogon: MSV1_0_LOGON_SUBMIT_TYPE = MSV1_0_LOGON_SUBMIT_TYPE(84i32);
+impl ::core::marker::Copy for MSV1_0_LOGON_SUBMIT_TYPE {}
+impl ::core::clone::Clone for MSV1_0_LOGON_SUBMIT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MSV1_0_LOGON_SUBMIT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MSV1_0_LOGON_SUBMIT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MSV1_0_LOGON_SUBMIT_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const MSV1_0_MAX_AVL_SIZE: u32 = 64000u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
@@ -7351,65 +7943,97 @@ impl ::core::default::Default for MSV1_0_PASSTHROUGH_RESPONSE {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type MSV1_0_PROFILE_BUFFER_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MSV1_0_PROFILE_BUFFER_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsV1_0InteractiveProfile: MSV1_0_PROFILE_BUFFER_TYPE = 2i32;
+pub const MsV1_0InteractiveProfile: MSV1_0_PROFILE_BUFFER_TYPE = MSV1_0_PROFILE_BUFFER_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsV1_0Lm20LogonProfile: MSV1_0_PROFILE_BUFFER_TYPE = 3i32;
+pub const MsV1_0Lm20LogonProfile: MSV1_0_PROFILE_BUFFER_TYPE = MSV1_0_PROFILE_BUFFER_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsV1_0SmartCardProfile: MSV1_0_PROFILE_BUFFER_TYPE = 4i32;
+pub const MsV1_0SmartCardProfile: MSV1_0_PROFILE_BUFFER_TYPE = MSV1_0_PROFILE_BUFFER_TYPE(4i32);
+impl ::core::marker::Copy for MSV1_0_PROFILE_BUFFER_TYPE {}
+impl ::core::clone::Clone for MSV1_0_PROFILE_BUFFER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MSV1_0_PROFILE_BUFFER_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MSV1_0_PROFILE_BUFFER_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MSV1_0_PROFILE_BUFFER_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type MSV1_0_PROTOCOL_MESSAGE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MSV1_0_PROTOCOL_MESSAGE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsV1_0Lm20ChallengeRequest: MSV1_0_PROTOCOL_MESSAGE_TYPE = 0i32;
+pub const MsV1_0Lm20ChallengeRequest: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsV1_0Lm20GetChallengeResponse: MSV1_0_PROTOCOL_MESSAGE_TYPE = 1i32;
+pub const MsV1_0Lm20GetChallengeResponse: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsV1_0EnumerateUsers: MSV1_0_PROTOCOL_MESSAGE_TYPE = 2i32;
+pub const MsV1_0EnumerateUsers: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsV1_0GetUserInfo: MSV1_0_PROTOCOL_MESSAGE_TYPE = 3i32;
+pub const MsV1_0GetUserInfo: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsV1_0ReLogonUsers: MSV1_0_PROTOCOL_MESSAGE_TYPE = 4i32;
+pub const MsV1_0ReLogonUsers: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(4i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsV1_0ChangePassword: MSV1_0_PROTOCOL_MESSAGE_TYPE = 5i32;
+pub const MsV1_0ChangePassword: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(5i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsV1_0ChangeCachedPassword: MSV1_0_PROTOCOL_MESSAGE_TYPE = 6i32;
+pub const MsV1_0ChangeCachedPassword: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(6i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsV1_0GenericPassthrough: MSV1_0_PROTOCOL_MESSAGE_TYPE = 7i32;
+pub const MsV1_0GenericPassthrough: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(7i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsV1_0CacheLogon: MSV1_0_PROTOCOL_MESSAGE_TYPE = 8i32;
+pub const MsV1_0CacheLogon: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(8i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsV1_0SubAuth: MSV1_0_PROTOCOL_MESSAGE_TYPE = 9i32;
+pub const MsV1_0SubAuth: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(9i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsV1_0DeriveCredential: MSV1_0_PROTOCOL_MESSAGE_TYPE = 10i32;
+pub const MsV1_0DeriveCredential: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(10i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsV1_0CacheLookup: MSV1_0_PROTOCOL_MESSAGE_TYPE = 11i32;
+pub const MsV1_0CacheLookup: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(11i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsV1_0SetProcessOption: MSV1_0_PROTOCOL_MESSAGE_TYPE = 12i32;
+pub const MsV1_0SetProcessOption: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(12i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsV1_0ConfigLocalAliases: MSV1_0_PROTOCOL_MESSAGE_TYPE = 13i32;
+pub const MsV1_0ConfigLocalAliases: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(13i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsV1_0ClearCachedCredentials: MSV1_0_PROTOCOL_MESSAGE_TYPE = 14i32;
+pub const MsV1_0ClearCachedCredentials: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(14i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsV1_0LookupToken: MSV1_0_PROTOCOL_MESSAGE_TYPE = 15i32;
+pub const MsV1_0LookupToken: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(15i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsV1_0ValidateAuth: MSV1_0_PROTOCOL_MESSAGE_TYPE = 16i32;
+pub const MsV1_0ValidateAuth: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(16i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsV1_0CacheLookupEx: MSV1_0_PROTOCOL_MESSAGE_TYPE = 17i32;
+pub const MsV1_0CacheLookupEx: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(17i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsV1_0GetCredentialKey: MSV1_0_PROTOCOL_MESSAGE_TYPE = 18i32;
+pub const MsV1_0GetCredentialKey: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(18i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsV1_0SetThreadOption: MSV1_0_PROTOCOL_MESSAGE_TYPE = 19i32;
+pub const MsV1_0SetThreadOption: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(19i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsV1_0DecryptDpapiMasterKey: MSV1_0_PROTOCOL_MESSAGE_TYPE = 20i32;
+pub const MsV1_0DecryptDpapiMasterKey: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(20i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsV1_0GetStrongCredentialKey: MSV1_0_PROTOCOL_MESSAGE_TYPE = 21i32;
+pub const MsV1_0GetStrongCredentialKey: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(21i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsV1_0TransferCred: MSV1_0_PROTOCOL_MESSAGE_TYPE = 22i32;
+pub const MsV1_0TransferCred: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(22i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsV1_0ProvisionTbal: MSV1_0_PROTOCOL_MESSAGE_TYPE = 23i32;
+pub const MsV1_0ProvisionTbal: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(23i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MsV1_0DeleteTbalSecrets: MSV1_0_PROTOCOL_MESSAGE_TYPE = 24i32;
+pub const MsV1_0DeleteTbalSecrets: MSV1_0_PROTOCOL_MESSAGE_TYPE = MSV1_0_PROTOCOL_MESSAGE_TYPE(24i32);
+impl ::core::marker::Copy for MSV1_0_PROTOCOL_MESSAGE_TYPE {}
+impl ::core::clone::Clone for MSV1_0_PROTOCOL_MESSAGE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MSV1_0_PROTOCOL_MESSAGE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MSV1_0_PROTOCOL_MESSAGE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MSV1_0_PROTOCOL_MESSAGE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub struct MSV1_0_REMOTE_SUPPLEMENTAL_CREDENTIAL {
@@ -7794,55 +8418,187 @@ pub const MSV1_0_VALIDATION_USER_FLAGS: u32 = 32u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const MSV1_0_VALIDATION_USER_ID: u32 = 64u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MSV_SUBAUTH_LOGON_PARAMETER_CONTROL(pub u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MSV1_0_CLEARTEXT_PASSWORD_ALLOWED: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = 2u32;
+pub const MSV1_0_CLEARTEXT_PASSWORD_ALLOWED: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = MSV_SUBAUTH_LOGON_PARAMETER_CONTROL(2u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MSV1_0_UPDATE_LOGON_STATISTICS: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = 4u32;
+pub const MSV1_0_UPDATE_LOGON_STATISTICS: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = MSV_SUBAUTH_LOGON_PARAMETER_CONTROL(4u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MSV1_0_RETURN_USER_PARAMETERS: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = 8u32;
+pub const MSV1_0_RETURN_USER_PARAMETERS: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = MSV_SUBAUTH_LOGON_PARAMETER_CONTROL(8u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MSV1_0_DONT_TRY_GUEST_ACCOUNT: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = 16u32;
+pub const MSV1_0_DONT_TRY_GUEST_ACCOUNT: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = MSV_SUBAUTH_LOGON_PARAMETER_CONTROL(16u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MSV1_0_ALLOW_SERVER_TRUST_ACCOUNT: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = 32u32;
+pub const MSV1_0_ALLOW_SERVER_TRUST_ACCOUNT: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = MSV_SUBAUTH_LOGON_PARAMETER_CONTROL(32u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MSV1_0_RETURN_PASSWORD_EXPIRY: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = 64u32;
+pub const MSV1_0_RETURN_PASSWORD_EXPIRY: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = MSV_SUBAUTH_LOGON_PARAMETER_CONTROL(64u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MSV1_0_ALLOW_WORKSTATION_TRUST_ACCOUNT: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = 2048u32;
+pub const MSV1_0_ALLOW_WORKSTATION_TRUST_ACCOUNT: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = MSV_SUBAUTH_LOGON_PARAMETER_CONTROL(2048u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MSV1_0_TRY_GUEST_ACCOUNT_ONLY: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = 256u32;
+pub const MSV1_0_TRY_GUEST_ACCOUNT_ONLY: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = MSV_SUBAUTH_LOGON_PARAMETER_CONTROL(256u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MSV1_0_RETURN_PROFILE_PATH: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = 512u32;
+pub const MSV1_0_RETURN_PROFILE_PATH: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = MSV_SUBAUTH_LOGON_PARAMETER_CONTROL(512u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MSV1_0_TRY_SPECIFIED_DOMAIN_ONLY: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = 1024u32;
+pub const MSV1_0_TRY_SPECIFIED_DOMAIN_ONLY: MSV_SUBAUTH_LOGON_PARAMETER_CONTROL = MSV_SUBAUTH_LOGON_PARAMETER_CONTROL(1024u32);
+impl ::core::marker::Copy for MSV_SUBAUTH_LOGON_PARAMETER_CONTROL {}
+impl ::core::clone::Clone for MSV_SUBAUTH_LOGON_PARAMETER_CONTROL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MSV_SUBAUTH_LOGON_PARAMETER_CONTROL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MSV_SUBAUTH_LOGON_PARAMETER_CONTROL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MSV_SUBAUTH_LOGON_PARAMETER_CONTROL").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for MSV_SUBAUTH_LOGON_PARAMETER_CONTROL {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for MSV_SUBAUTH_LOGON_PARAMETER_CONTROL {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for MSV_SUBAUTH_LOGON_PARAMETER_CONTROL {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for MSV_SUBAUTH_LOGON_PARAMETER_CONTROL {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for MSV_SUBAUTH_LOGON_PARAMETER_CONTROL {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type MSV_SUB_AUTHENTICATION_FILTER = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MSV_SUB_AUTHENTICATION_FILTER(pub u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const LOGON_GUEST: MSV_SUB_AUTHENTICATION_FILTER = 1u32;
+pub const LOGON_GUEST: MSV_SUB_AUTHENTICATION_FILTER = MSV_SUB_AUTHENTICATION_FILTER(1u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const LOGON_NOENCRYPTION: MSV_SUB_AUTHENTICATION_FILTER = 2u32;
+pub const LOGON_NOENCRYPTION: MSV_SUB_AUTHENTICATION_FILTER = MSV_SUB_AUTHENTICATION_FILTER(2u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const LOGON_CACHED_ACCOUNT: MSV_SUB_AUTHENTICATION_FILTER = 4u32;
+pub const LOGON_CACHED_ACCOUNT: MSV_SUB_AUTHENTICATION_FILTER = MSV_SUB_AUTHENTICATION_FILTER(4u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const LOGON_USED_LM_PASSWORD: MSV_SUB_AUTHENTICATION_FILTER = 8u32;
+pub const LOGON_USED_LM_PASSWORD: MSV_SUB_AUTHENTICATION_FILTER = MSV_SUB_AUTHENTICATION_FILTER(8u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const LOGON_EXTRA_SIDS: MSV_SUB_AUTHENTICATION_FILTER = 32u32;
+pub const LOGON_EXTRA_SIDS: MSV_SUB_AUTHENTICATION_FILTER = MSV_SUB_AUTHENTICATION_FILTER(32u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const LOGON_SUBAUTH_SESSION_KEY: MSV_SUB_AUTHENTICATION_FILTER = 64u32;
+pub const LOGON_SUBAUTH_SESSION_KEY: MSV_SUB_AUTHENTICATION_FILTER = MSV_SUB_AUTHENTICATION_FILTER(64u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const LOGON_SERVER_TRUST_ACCOUNT: MSV_SUB_AUTHENTICATION_FILTER = 128u32;
+pub const LOGON_SERVER_TRUST_ACCOUNT: MSV_SUB_AUTHENTICATION_FILTER = MSV_SUB_AUTHENTICATION_FILTER(128u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const LOGON_PROFILE_PATH_RETURNED: MSV_SUB_AUTHENTICATION_FILTER = 1024u32;
+pub const LOGON_PROFILE_PATH_RETURNED: MSV_SUB_AUTHENTICATION_FILTER = MSV_SUB_AUTHENTICATION_FILTER(1024u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const LOGON_RESOURCE_GROUPS: MSV_SUB_AUTHENTICATION_FILTER = 512u32;
+pub const LOGON_RESOURCE_GROUPS: MSV_SUB_AUTHENTICATION_FILTER = MSV_SUB_AUTHENTICATION_FILTER(512u32);
+impl ::core::marker::Copy for MSV_SUB_AUTHENTICATION_FILTER {}
+impl ::core::clone::Clone for MSV_SUB_AUTHENTICATION_FILTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MSV_SUB_AUTHENTICATION_FILTER {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MSV_SUB_AUTHENTICATION_FILTER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MSV_SUB_AUTHENTICATION_FILTER").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for MSV_SUB_AUTHENTICATION_FILTER {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for MSV_SUB_AUTHENTICATION_FILTER {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for MSV_SUB_AUTHENTICATION_FILTER {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for MSV_SUB_AUTHENTICATION_FILTER {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for MSV_SUB_AUTHENTICATION_FILTER {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MSV1_0_CRED_LM_PRESENT: MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS = 1u32;
+pub const MSV1_0_CRED_LM_PRESENT: MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS = MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MSV1_0_CRED_NT_PRESENT: MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS = 2u32;
+pub const MSV1_0_CRED_NT_PRESENT: MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS = MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const MSV1_0_CRED_VERSION: MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS = 0u32;
+pub const MSV1_0_CRED_VERSION: MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS = MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS(0u32);
+impl ::core::marker::Copy for MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS {}
+impl ::core::clone::Clone for MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for MSV_SUPPLEMENTAL_CREDENTIAL_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Security_Credentials'*"]
 #[cfg(feature = "Win32_Security_Credentials")]
 #[inline]
@@ -7941,17 +8697,33 @@ impl ::core::default::Default for NEGOTIATE_CALLER_NAME_RESPONSE {
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const NEGOTIATE_MAX_PREFIX: u32 = 32u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type NEGOTIATE_MESSAGES = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NEGOTIATE_MESSAGES(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const NegEnumPackagePrefixes: NEGOTIATE_MESSAGES = 0i32;
+pub const NegEnumPackagePrefixes: NEGOTIATE_MESSAGES = NEGOTIATE_MESSAGES(0i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const NegGetCallerName: NEGOTIATE_MESSAGES = 1i32;
+pub const NegGetCallerName: NEGOTIATE_MESSAGES = NEGOTIATE_MESSAGES(1i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const NegTransferCredentials: NEGOTIATE_MESSAGES = 2i32;
+pub const NegTransferCredentials: NEGOTIATE_MESSAGES = NEGOTIATE_MESSAGES(2i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const NegMsgReserved1: NEGOTIATE_MESSAGES = 3i32;
+pub const NegMsgReserved1: NEGOTIATE_MESSAGES = NEGOTIATE_MESSAGES(3i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const NegCallPackageMax: NEGOTIATE_MESSAGES = 4i32;
+pub const NegCallPackageMax: NEGOTIATE_MESSAGES = NEGOTIATE_MESSAGES(4i32);
+impl ::core::marker::Copy for NEGOTIATE_MESSAGES {}
+impl ::core::clone::Clone for NEGOTIATE_MESSAGES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NEGOTIATE_MESSAGES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NEGOTIATE_MESSAGES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NEGOTIATE_MESSAGES").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const NEGOTIATE_NEG_NTLM: u32 = 536870912u32;
 #[repr(C)]
@@ -8145,21 +8917,37 @@ impl ::core::default::Default for NETLOGON_LOGON_IDENTITY_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type NETLOGON_LOGON_INFO_CLASS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NETLOGON_LOGON_INFO_CLASS(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const NetlogonInteractiveInformation: NETLOGON_LOGON_INFO_CLASS = 1i32;
+pub const NetlogonInteractiveInformation: NETLOGON_LOGON_INFO_CLASS = NETLOGON_LOGON_INFO_CLASS(1i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const NetlogonNetworkInformation: NETLOGON_LOGON_INFO_CLASS = 2i32;
+pub const NetlogonNetworkInformation: NETLOGON_LOGON_INFO_CLASS = NETLOGON_LOGON_INFO_CLASS(2i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const NetlogonServiceInformation: NETLOGON_LOGON_INFO_CLASS = 3i32;
+pub const NetlogonServiceInformation: NETLOGON_LOGON_INFO_CLASS = NETLOGON_LOGON_INFO_CLASS(3i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const NetlogonGenericInformation: NETLOGON_LOGON_INFO_CLASS = 4i32;
+pub const NetlogonGenericInformation: NETLOGON_LOGON_INFO_CLASS = NETLOGON_LOGON_INFO_CLASS(4i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const NetlogonInteractiveTransitiveInformation: NETLOGON_LOGON_INFO_CLASS = 5i32;
+pub const NetlogonInteractiveTransitiveInformation: NETLOGON_LOGON_INFO_CLASS = NETLOGON_LOGON_INFO_CLASS(5i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const NetlogonNetworkTransitiveInformation: NETLOGON_LOGON_INFO_CLASS = 6i32;
+pub const NetlogonNetworkTransitiveInformation: NETLOGON_LOGON_INFO_CLASS = NETLOGON_LOGON_INFO_CLASS(6i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const NetlogonServiceTransitiveInformation: NETLOGON_LOGON_INFO_CLASS = 7i32;
+pub const NetlogonServiceTransitiveInformation: NETLOGON_LOGON_INFO_CLASS = NETLOGON_LOGON_INFO_CLASS(7i32);
+impl ::core::marker::Copy for NETLOGON_LOGON_INFO_CLASS {}
+impl ::core::clone::Clone for NETLOGON_LOGON_INFO_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NETLOGON_LOGON_INFO_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NETLOGON_LOGON_INFO_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NETLOGON_LOGON_INFO_CLASS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
@@ -8415,9 +9203,25 @@ impl ::core::default::Default for PKU2U_CREDUI_CONTEXT {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type PKU2U_LOGON_SUBMIT_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PKU2U_LOGON_SUBMIT_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const Pku2uCertificateS4ULogon: PKU2U_LOGON_SUBMIT_TYPE = 14i32;
+pub const Pku2uCertificateS4ULogon: PKU2U_LOGON_SUBMIT_TYPE = PKU2U_LOGON_SUBMIT_TYPE(14i32);
+impl ::core::marker::Copy for PKU2U_LOGON_SUBMIT_TYPE {}
+impl ::core::clone::Clone for PKU2U_LOGON_SUBMIT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PKU2U_LOGON_SUBMIT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PKU2U_LOGON_SUBMIT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PKU2U_LOGON_SUBMIT_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation', 'Win32_System_Kernel'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub type PLSA_ADD_CREDENTIAL = ::core::option::Option<unsafe extern "system" fn(logonid: *const super::super::super::Foundation::LUID, authenticationpackage: u32, primarykeyvalue: *const super::super::super::System::Kernel::STRING, credentials: *const super::super::super::System::Kernel::STRING) -> super::super::super::Foundation::NTSTATUS>;
@@ -8802,25 +9606,41 @@ pub const POLICY_AUDIT_EVENT_NONE: i32 = 4i32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const POLICY_AUDIT_EVENT_SUCCESS: i32 = 1i32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type POLICY_AUDIT_EVENT_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct POLICY_AUDIT_EVENT_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const AuditCategorySystem: POLICY_AUDIT_EVENT_TYPE = 0i32;
+pub const AuditCategorySystem: POLICY_AUDIT_EVENT_TYPE = POLICY_AUDIT_EVENT_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const AuditCategoryLogon: POLICY_AUDIT_EVENT_TYPE = 1i32;
+pub const AuditCategoryLogon: POLICY_AUDIT_EVENT_TYPE = POLICY_AUDIT_EVENT_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const AuditCategoryObjectAccess: POLICY_AUDIT_EVENT_TYPE = 2i32;
+pub const AuditCategoryObjectAccess: POLICY_AUDIT_EVENT_TYPE = POLICY_AUDIT_EVENT_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const AuditCategoryPrivilegeUse: POLICY_AUDIT_EVENT_TYPE = 3i32;
+pub const AuditCategoryPrivilegeUse: POLICY_AUDIT_EVENT_TYPE = POLICY_AUDIT_EVENT_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const AuditCategoryDetailedTracking: POLICY_AUDIT_EVENT_TYPE = 4i32;
+pub const AuditCategoryDetailedTracking: POLICY_AUDIT_EVENT_TYPE = POLICY_AUDIT_EVENT_TYPE(4i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const AuditCategoryPolicyChange: POLICY_AUDIT_EVENT_TYPE = 5i32;
+pub const AuditCategoryPolicyChange: POLICY_AUDIT_EVENT_TYPE = POLICY_AUDIT_EVENT_TYPE(5i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const AuditCategoryAccountManagement: POLICY_AUDIT_EVENT_TYPE = 6i32;
+pub const AuditCategoryAccountManagement: POLICY_AUDIT_EVENT_TYPE = POLICY_AUDIT_EVENT_TYPE(6i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const AuditCategoryDirectoryServiceAccess: POLICY_AUDIT_EVENT_TYPE = 7i32;
+pub const AuditCategoryDirectoryServiceAccess: POLICY_AUDIT_EVENT_TYPE = POLICY_AUDIT_EVENT_TYPE(7i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const AuditCategoryAccountLogon: POLICY_AUDIT_EVENT_TYPE = 8i32;
+pub const AuditCategoryAccountLogon: POLICY_AUDIT_EVENT_TYPE = POLICY_AUDIT_EVENT_TYPE(8i32);
+impl ::core::marker::Copy for POLICY_AUDIT_EVENT_TYPE {}
+impl ::core::clone::Clone for POLICY_AUDIT_EVENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for POLICY_AUDIT_EVENT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for POLICY_AUDIT_EVENT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("POLICY_AUDIT_EVENT_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const POLICY_AUDIT_EVENT_UNCHANGED: i32 = 0i32;
 #[repr(C)]
@@ -9125,11 +9945,27 @@ impl ::core::default::Default for POLICY_DOMAIN_EFS_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type POLICY_DOMAIN_INFORMATION_CLASS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct POLICY_DOMAIN_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const PolicyDomainEfsInformation: POLICY_DOMAIN_INFORMATION_CLASS = 2i32;
+pub const PolicyDomainEfsInformation: POLICY_DOMAIN_INFORMATION_CLASS = POLICY_DOMAIN_INFORMATION_CLASS(2i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const PolicyDomainKerberosTicketInformation: POLICY_DOMAIN_INFORMATION_CLASS = 3i32;
+pub const PolicyDomainKerberosTicketInformation: POLICY_DOMAIN_INFORMATION_CLASS = POLICY_DOMAIN_INFORMATION_CLASS(3i32);
+impl ::core::marker::Copy for POLICY_DOMAIN_INFORMATION_CLASS {}
+impl ::core::clone::Clone for POLICY_DOMAIN_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for POLICY_DOMAIN_INFORMATION_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for POLICY_DOMAIN_INFORMATION_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("POLICY_DOMAIN_INFORMATION_CLASS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub struct POLICY_DOMAIN_KERBEROS_TICKET_INFO {
@@ -9168,49 +10004,81 @@ impl ::core::default::Default for POLICY_DOMAIN_KERBEROS_TICKET_INFO {
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const POLICY_GET_PRIVATE_INFORMATION: i32 = 4i32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type POLICY_INFORMATION_CLASS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct POLICY_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const PolicyAuditLogInformation: POLICY_INFORMATION_CLASS = 1i32;
+pub const PolicyAuditLogInformation: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(1i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const PolicyAuditEventsInformation: POLICY_INFORMATION_CLASS = 2i32;
+pub const PolicyAuditEventsInformation: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(2i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const PolicyPrimaryDomainInformation: POLICY_INFORMATION_CLASS = 3i32;
+pub const PolicyPrimaryDomainInformation: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(3i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const PolicyPdAccountInformation: POLICY_INFORMATION_CLASS = 4i32;
+pub const PolicyPdAccountInformation: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(4i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const PolicyAccountDomainInformation: POLICY_INFORMATION_CLASS = 5i32;
+pub const PolicyAccountDomainInformation: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(5i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const PolicyLsaServerRoleInformation: POLICY_INFORMATION_CLASS = 6i32;
+pub const PolicyLsaServerRoleInformation: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(6i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const PolicyReplicaSourceInformation: POLICY_INFORMATION_CLASS = 7i32;
+pub const PolicyReplicaSourceInformation: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(7i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const PolicyDefaultQuotaInformation: POLICY_INFORMATION_CLASS = 8i32;
+pub const PolicyDefaultQuotaInformation: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(8i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const PolicyModificationInformation: POLICY_INFORMATION_CLASS = 9i32;
+pub const PolicyModificationInformation: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(9i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const PolicyAuditFullSetInformation: POLICY_INFORMATION_CLASS = 10i32;
+pub const PolicyAuditFullSetInformation: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(10i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const PolicyAuditFullQueryInformation: POLICY_INFORMATION_CLASS = 11i32;
+pub const PolicyAuditFullQueryInformation: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(11i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const PolicyDnsDomainInformation: POLICY_INFORMATION_CLASS = 12i32;
+pub const PolicyDnsDomainInformation: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(12i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const PolicyDnsDomainInformationInt: POLICY_INFORMATION_CLASS = 13i32;
+pub const PolicyDnsDomainInformationInt: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(13i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const PolicyLocalAccountDomainInformation: POLICY_INFORMATION_CLASS = 14i32;
+pub const PolicyLocalAccountDomainInformation: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(14i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const PolicyMachineAccountInformation: POLICY_INFORMATION_CLASS = 15i32;
+pub const PolicyMachineAccountInformation: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(15i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const PolicyLastEntry: POLICY_INFORMATION_CLASS = 16i32;
+pub const PolicyLastEntry: POLICY_INFORMATION_CLASS = POLICY_INFORMATION_CLASS(16i32);
+impl ::core::marker::Copy for POLICY_INFORMATION_CLASS {}
+impl ::core::clone::Clone for POLICY_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for POLICY_INFORMATION_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for POLICY_INFORMATION_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("POLICY_INFORMATION_CLASS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const POLICY_KERBEROS_VALIDATE_CLIENT: u32 = 128u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const POLICY_LOOKUP_NAMES: i32 = 2048i32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type POLICY_LSA_SERVER_ROLE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct POLICY_LSA_SERVER_ROLE(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const PolicyServerRoleBackup: POLICY_LSA_SERVER_ROLE = 2i32;
+pub const PolicyServerRoleBackup: POLICY_LSA_SERVER_ROLE = POLICY_LSA_SERVER_ROLE(2i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const PolicyServerRolePrimary: POLICY_LSA_SERVER_ROLE = 3i32;
+pub const PolicyServerRolePrimary: POLICY_LSA_SERVER_ROLE = POLICY_LSA_SERVER_ROLE(3i32);
+impl ::core::marker::Copy for POLICY_LSA_SERVER_ROLE {}
+impl ::core::clone::Clone for POLICY_LSA_SERVER_ROLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for POLICY_LSA_SERVER_ROLE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for POLICY_LSA_SERVER_ROLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("POLICY_LSA_SERVER_ROLE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub struct POLICY_LSA_SERVER_ROLE_INFO {
@@ -9314,25 +10182,41 @@ impl ::core::default::Default for POLICY_MODIFICATION_INFO {
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const POLICY_NOTIFICATION: i32 = 4096i32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type POLICY_NOTIFICATION_INFORMATION_CLASS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct POLICY_NOTIFICATION_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const PolicyNotifyAuditEventsInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = 1i32;
+pub const PolicyNotifyAuditEventsInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = POLICY_NOTIFICATION_INFORMATION_CLASS(1i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const PolicyNotifyAccountDomainInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = 2i32;
+pub const PolicyNotifyAccountDomainInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = POLICY_NOTIFICATION_INFORMATION_CLASS(2i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const PolicyNotifyServerRoleInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = 3i32;
+pub const PolicyNotifyServerRoleInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = POLICY_NOTIFICATION_INFORMATION_CLASS(3i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const PolicyNotifyDnsDomainInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = 4i32;
+pub const PolicyNotifyDnsDomainInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = POLICY_NOTIFICATION_INFORMATION_CLASS(4i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const PolicyNotifyDomainEfsInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = 5i32;
+pub const PolicyNotifyDomainEfsInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = POLICY_NOTIFICATION_INFORMATION_CLASS(5i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const PolicyNotifyDomainKerberosTicketInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = 6i32;
+pub const PolicyNotifyDomainKerberosTicketInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = POLICY_NOTIFICATION_INFORMATION_CLASS(6i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const PolicyNotifyMachineAccountPasswordInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = 7i32;
+pub const PolicyNotifyMachineAccountPasswordInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = POLICY_NOTIFICATION_INFORMATION_CLASS(7i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const PolicyNotifyGlobalSaclInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = 8i32;
+pub const PolicyNotifyGlobalSaclInformation: POLICY_NOTIFICATION_INFORMATION_CLASS = POLICY_NOTIFICATION_INFORMATION_CLASS(8i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const PolicyNotifyMax: POLICY_NOTIFICATION_INFORMATION_CLASS = 9i32;
+pub const PolicyNotifyMax: POLICY_NOTIFICATION_INFORMATION_CLASS = POLICY_NOTIFICATION_INFORMATION_CLASS(9i32);
+impl ::core::marker::Copy for POLICY_NOTIFICATION_INFORMATION_CLASS {}
+impl ::core::clone::Clone for POLICY_NOTIFICATION_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for POLICY_NOTIFICATION_INFORMATION_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for POLICY_NOTIFICATION_INFORMATION_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("POLICY_NOTIFICATION_INFORMATION_CLASS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9928,11 +10812,27 @@ impl ::core::default::Default for SAM_REGISTER_MAPPING_TABLE {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type SASL_AUTHZID_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SASL_AUTHZID_STATE(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const Sasl_AuthZIDForbidden: SASL_AUTHZID_STATE = 0i32;
+pub const Sasl_AuthZIDForbidden: SASL_AUTHZID_STATE = SASL_AUTHZID_STATE(0i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const Sasl_AuthZIDProcessed: SASL_AUTHZID_STATE = 1i32;
+pub const Sasl_AuthZIDProcessed: SASL_AUTHZID_STATE = SASL_AUTHZID_STATE(1i32);
+impl ::core::marker::Copy for SASL_AUTHZID_STATE {}
+impl ::core::clone::Clone for SASL_AUTHZID_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SASL_AUTHZID_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SASL_AUTHZID_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SASL_AUTHZID_STATE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const SASL_OPTION_AUTHZ_PROCESSING: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
@@ -9976,11 +10876,55 @@ impl ::core::default::Default for SCHANNEL_ALERT_TOKEN {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type SCHANNEL_ALERT_TOKEN_ALERT_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SCHANNEL_ALERT_TOKEN_ALERT_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TLS1_ALERT_WARNING: SCHANNEL_ALERT_TOKEN_ALERT_TYPE = 1u32;
+pub const TLS1_ALERT_WARNING: SCHANNEL_ALERT_TOKEN_ALERT_TYPE = SCHANNEL_ALERT_TOKEN_ALERT_TYPE(1u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TLS1_ALERT_FATAL: SCHANNEL_ALERT_TOKEN_ALERT_TYPE = 2u32;
+pub const TLS1_ALERT_FATAL: SCHANNEL_ALERT_TOKEN_ALERT_TYPE = SCHANNEL_ALERT_TOKEN_ALERT_TYPE(2u32);
+impl ::core::marker::Copy for SCHANNEL_ALERT_TOKEN_ALERT_TYPE {}
+impl ::core::clone::Clone for SCHANNEL_ALERT_TOKEN_ALERT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SCHANNEL_ALERT_TOKEN_ALERT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SCHANNEL_ALERT_TOKEN_ALERT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SCHANNEL_ALERT_TOKEN_ALERT_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SCHANNEL_ALERT_TOKEN_ALERT_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SCHANNEL_ALERT_TOKEN_ALERT_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SCHANNEL_ALERT_TOKEN_ALERT_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SCHANNEL_ALERT_TOKEN_ALERT_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SCHANNEL_ALERT_TOKEN_ALERT_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub struct SCHANNEL_CERT_HASH {
@@ -10149,41 +11093,85 @@ impl ::core::default::Default for SCHANNEL_CRED {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type SCHANNEL_CRED_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SCHANNEL_CRED_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SCH_CRED_AUTO_CRED_VALIDATION: SCHANNEL_CRED_FLAGS = 32u32;
+pub const SCH_CRED_AUTO_CRED_VALIDATION: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_FLAGS(32u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SCH_CRED_CACHE_ONLY_URL_RETRIEVAL_ON_CREATE: SCHANNEL_CRED_FLAGS = 131072u32;
+pub const SCH_CRED_CACHE_ONLY_URL_RETRIEVAL_ON_CREATE: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_FLAGS(131072u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SCH_DISABLE_RECONNECTS: SCHANNEL_CRED_FLAGS = 128u32;
+pub const SCH_DISABLE_RECONNECTS: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_FLAGS(128u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SCH_CRED_IGNORE_NO_REVOCATION_CHECK: SCHANNEL_CRED_FLAGS = 2048u32;
+pub const SCH_CRED_IGNORE_NO_REVOCATION_CHECK: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_FLAGS(2048u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SCH_CRED_IGNORE_REVOCATION_OFFLINE: SCHANNEL_CRED_FLAGS = 4096u32;
+pub const SCH_CRED_IGNORE_REVOCATION_OFFLINE: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_FLAGS(4096u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SCH_CRED_MANUAL_CRED_VALIDATION: SCHANNEL_CRED_FLAGS = 8u32;
+pub const SCH_CRED_MANUAL_CRED_VALIDATION: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SCH_CRED_NO_DEFAULT_CREDS: SCHANNEL_CRED_FLAGS = 16u32;
+pub const SCH_CRED_NO_DEFAULT_CREDS: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SCH_CRED_NO_SERVERNAME_CHECK: SCHANNEL_CRED_FLAGS = 4u32;
+pub const SCH_CRED_NO_SERVERNAME_CHECK: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SCH_CRED_NO_SYSTEM_MAPPER: SCHANNEL_CRED_FLAGS = 2u32;
+pub const SCH_CRED_NO_SYSTEM_MAPPER: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SCH_CRED_REVOCATION_CHECK_CHAIN: SCHANNEL_CRED_FLAGS = 512u32;
+pub const SCH_CRED_REVOCATION_CHECK_CHAIN: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_FLAGS(512u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SCH_CRED_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT: SCHANNEL_CRED_FLAGS = 1024u32;
+pub const SCH_CRED_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_FLAGS(1024u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SCH_CRED_REVOCATION_CHECK_END_CERT: SCHANNEL_CRED_FLAGS = 256u32;
+pub const SCH_CRED_REVOCATION_CHECK_END_CERT: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_FLAGS(256u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SCH_CRED_USE_DEFAULT_CREDS: SCHANNEL_CRED_FLAGS = 64u32;
+pub const SCH_CRED_USE_DEFAULT_CREDS: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_FLAGS(64u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SCH_SEND_AUX_RECORD: SCHANNEL_CRED_FLAGS = 2097152u32;
+pub const SCH_SEND_AUX_RECORD: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_FLAGS(2097152u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SCH_SEND_ROOT_CERT: SCHANNEL_CRED_FLAGS = 262144u32;
+pub const SCH_SEND_ROOT_CERT: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_FLAGS(262144u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SCH_USE_STRONG_CRYPTO: SCHANNEL_CRED_FLAGS = 4194304u32;
+pub const SCH_USE_STRONG_CRYPTO: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_FLAGS(4194304u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SCH_USE_PRESHAREDKEY_ONLY: SCHANNEL_CRED_FLAGS = 8388608u32;
+pub const SCH_USE_PRESHAREDKEY_ONLY: SCHANNEL_CRED_FLAGS = SCHANNEL_CRED_FLAGS(8388608u32);
+impl ::core::marker::Copy for SCHANNEL_CRED_FLAGS {}
+impl ::core::clone::Clone for SCHANNEL_CRED_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SCHANNEL_CRED_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SCHANNEL_CRED_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SCHANNEL_CRED_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SCHANNEL_CRED_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SCHANNEL_CRED_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SCHANNEL_CRED_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SCHANNEL_CRED_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SCHANNEL_CRED_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const SCHANNEL_CRED_VERSION: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
@@ -10226,11 +11214,55 @@ impl ::core::default::Default for SCHANNEL_SESSION_TOKEN {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type SCHANNEL_SESSION_TOKEN_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SCHANNEL_SESSION_TOKEN_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SSL_SESSION_ENABLE_RECONNECTS: SCHANNEL_SESSION_TOKEN_FLAGS = 1u32;
+pub const SSL_SESSION_ENABLE_RECONNECTS: SCHANNEL_SESSION_TOKEN_FLAGS = SCHANNEL_SESSION_TOKEN_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SSL_SESSION_DISABLE_RECONNECTS: SCHANNEL_SESSION_TOKEN_FLAGS = 2u32;
+pub const SSL_SESSION_DISABLE_RECONNECTS: SCHANNEL_SESSION_TOKEN_FLAGS = SCHANNEL_SESSION_TOKEN_FLAGS(2u32);
+impl ::core::marker::Copy for SCHANNEL_SESSION_TOKEN_FLAGS {}
+impl ::core::clone::Clone for SCHANNEL_SESSION_TOKEN_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SCHANNEL_SESSION_TOKEN_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SCHANNEL_SESSION_TOKEN_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SCHANNEL_SESSION_TOKEN_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SCHANNEL_SESSION_TOKEN_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SCHANNEL_SESSION_TOKEN_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SCHANNEL_SESSION_TOKEN_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SCHANNEL_SESSION_TOKEN_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SCHANNEL_SESSION_TOKEN_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const SCHANNEL_SHUTDOWN: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
@@ -10585,89 +11617,133 @@ impl ::core::default::Default for SECPKG_APP_MODE_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type SECPKG_ATTR = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SECPKG_ATTR(pub u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_ATTR_C_ACCESS_TOKEN: SECPKG_ATTR = 2147483666u32;
+pub const SECPKG_ATTR_C_ACCESS_TOKEN: SECPKG_ATTR = SECPKG_ATTR(2147483666u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_ATTR_C_FULL_ACCESS_TOKEN: SECPKG_ATTR = 2147483778u32;
+pub const SECPKG_ATTR_C_FULL_ACCESS_TOKEN: SECPKG_ATTR = SECPKG_ATTR(2147483778u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_ATTR_CERT_TRUST_STATUS: SECPKG_ATTR = 2147483780u32;
+pub const SECPKG_ATTR_CERT_TRUST_STATUS: SECPKG_ATTR = SECPKG_ATTR(2147483780u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_ATTR_CREDS: SECPKG_ATTR = 2147483776u32;
+pub const SECPKG_ATTR_CREDS: SECPKG_ATTR = SECPKG_ATTR(2147483776u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_ATTR_CREDS_2: SECPKG_ATTR = 2147483782u32;
+pub const SECPKG_ATTR_CREDS_2: SECPKG_ATTR = SECPKG_ATTR(2147483782u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_ATTR_NEGOTIATION_PACKAGE: SECPKG_ATTR = 2147483777u32;
+pub const SECPKG_ATTR_NEGOTIATION_PACKAGE: SECPKG_ATTR = SECPKG_ATTR(2147483777u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_ATTR_PACKAGE_INFO: SECPKG_ATTR = 10u32;
+pub const SECPKG_ATTR_PACKAGE_INFO: SECPKG_ATTR = SECPKG_ATTR(10u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_ATTR_SERVER_AUTH_FLAGS: SECPKG_ATTR = 2147483779u32;
+pub const SECPKG_ATTR_SERVER_AUTH_FLAGS: SECPKG_ATTR = SECPKG_ATTR(2147483779u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_ATTR_SIZES: SECPKG_ATTR = 0u32;
+pub const SECPKG_ATTR_SIZES: SECPKG_ATTR = SECPKG_ATTR(0u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_ATTR_SUBJECT_SECURITY_ATTRIBUTES: SECPKG_ATTR = 124u32;
+pub const SECPKG_ATTR_SUBJECT_SECURITY_ATTRIBUTES: SECPKG_ATTR = SECPKG_ATTR(124u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_ATTR_APP_DATA: SECPKG_ATTR = 94u32;
+pub const SECPKG_ATTR_APP_DATA: SECPKG_ATTR = SECPKG_ATTR(94u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_ATTR_EAP_PRF_INFO: SECPKG_ATTR = 101u32;
+pub const SECPKG_ATTR_EAP_PRF_INFO: SECPKG_ATTR = SECPKG_ATTR(101u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_ATTR_EARLY_START: SECPKG_ATTR = 105u32;
+pub const SECPKG_ATTR_EARLY_START: SECPKG_ATTR = SECPKG_ATTR(105u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_ATTR_DTLS_MTU: SECPKG_ATTR = 34u32;
+pub const SECPKG_ATTR_DTLS_MTU: SECPKG_ATTR = SECPKG_ATTR(34u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_ATTR_KEYING_MATERIAL_INFO: SECPKG_ATTR = 106u32;
+pub const SECPKG_ATTR_KEYING_MATERIAL_INFO: SECPKG_ATTR = SECPKG_ATTR(106u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_ATTR_ACCESS_TOKEN: SECPKG_ATTR = 18u32;
+pub const SECPKG_ATTR_ACCESS_TOKEN: SECPKG_ATTR = SECPKG_ATTR(18u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_ATTR_AUTHORITY: SECPKG_ATTR = 6u32;
+pub const SECPKG_ATTR_AUTHORITY: SECPKG_ATTR = SECPKG_ATTR(6u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_ATTR_CLIENT_SPECIFIED_TARGET: SECPKG_ATTR = 27u32;
+pub const SECPKG_ATTR_CLIENT_SPECIFIED_TARGET: SECPKG_ATTR = SECPKG_ATTR(27u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_ATTR_CONNECTION_INFO: SECPKG_ATTR = 90u32;
+pub const SECPKG_ATTR_CONNECTION_INFO: SECPKG_ATTR = SECPKG_ATTR(90u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_ATTR_DCE_INFO: SECPKG_ATTR = 3u32;
+pub const SECPKG_ATTR_DCE_INFO: SECPKG_ATTR = SECPKG_ATTR(3u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_ATTR_ENDPOINT_BINDINGS: SECPKG_ATTR = 26u32;
+pub const SECPKG_ATTR_ENDPOINT_BINDINGS: SECPKG_ATTR = SECPKG_ATTR(26u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_ATTR_EAP_KEY_BLOCK: SECPKG_ATTR = 91u32;
+pub const SECPKG_ATTR_EAP_KEY_BLOCK: SECPKG_ATTR = SECPKG_ATTR(91u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_ATTR_FLAGS: SECPKG_ATTR = 14u32;
+pub const SECPKG_ATTR_FLAGS: SECPKG_ATTR = SECPKG_ATTR(14u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_ATTR_ISSUER_LIST_EX: SECPKG_ATTR = 89u32;
+pub const SECPKG_ATTR_ISSUER_LIST_EX: SECPKG_ATTR = SECPKG_ATTR(89u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_ATTR_KEY_INFO: SECPKG_ATTR = 5u32;
+pub const SECPKG_ATTR_KEY_INFO: SECPKG_ATTR = SECPKG_ATTR(5u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_ATTR_LAST_CLIENT_TOKEN_STATUS: SECPKG_ATTR = 30u32;
+pub const SECPKG_ATTR_LAST_CLIENT_TOKEN_STATUS: SECPKG_ATTR = SECPKG_ATTR(30u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_ATTR_LIFESPAN: SECPKG_ATTR = 2u32;
+pub const SECPKG_ATTR_LIFESPAN: SECPKG_ATTR = SECPKG_ATTR(2u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_ATTR_LOCAL_CERT_CONTEXT: SECPKG_ATTR = 84u32;
+pub const SECPKG_ATTR_LOCAL_CERT_CONTEXT: SECPKG_ATTR = SECPKG_ATTR(84u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_ATTR_LOCAL_CRED: SECPKG_ATTR = 82u32;
+pub const SECPKG_ATTR_LOCAL_CRED: SECPKG_ATTR = SECPKG_ATTR(82u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_ATTR_NAMES: SECPKG_ATTR = 1u32;
+pub const SECPKG_ATTR_NAMES: SECPKG_ATTR = SECPKG_ATTR(1u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_ATTR_NATIVE_NAMES: SECPKG_ATTR = 13u32;
+pub const SECPKG_ATTR_NATIVE_NAMES: SECPKG_ATTR = SECPKG_ATTR(13u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_ATTR_NEGOTIATION_INFO: SECPKG_ATTR = 12u32;
+pub const SECPKG_ATTR_NEGOTIATION_INFO: SECPKG_ATTR = SECPKG_ATTR(12u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_ATTR_PASSWORD_EXPIRY: SECPKG_ATTR = 8u32;
+pub const SECPKG_ATTR_PASSWORD_EXPIRY: SECPKG_ATTR = SECPKG_ATTR(8u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_ATTR_REMOTE_CERT_CONTEXT: SECPKG_ATTR = 83u32;
+pub const SECPKG_ATTR_REMOTE_CERT_CONTEXT: SECPKG_ATTR = SECPKG_ATTR(83u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_ATTR_ROOT_STORE: SECPKG_ATTR = 85u32;
+pub const SECPKG_ATTR_ROOT_STORE: SECPKG_ATTR = SECPKG_ATTR(85u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_ATTR_SESSION_KEY: SECPKG_ATTR = 9u32;
+pub const SECPKG_ATTR_SESSION_KEY: SECPKG_ATTR = SECPKG_ATTR(9u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_ATTR_SESSION_INFO: SECPKG_ATTR = 93u32;
+pub const SECPKG_ATTR_SESSION_INFO: SECPKG_ATTR = SECPKG_ATTR(93u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_ATTR_STREAM_SIZES: SECPKG_ATTR = 4u32;
+pub const SECPKG_ATTR_STREAM_SIZES: SECPKG_ATTR = SECPKG_ATTR(4u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_ATTR_SUPPORTED_SIGNATURES: SECPKG_ATTR = 102u32;
+pub const SECPKG_ATTR_SUPPORTED_SIGNATURES: SECPKG_ATTR = SECPKG_ATTR(102u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_ATTR_TARGET_INFORMATION: SECPKG_ATTR = 17u32;
+pub const SECPKG_ATTR_TARGET_INFORMATION: SECPKG_ATTR = SECPKG_ATTR(17u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_ATTR_UNIQUE_BINDINGS: SECPKG_ATTR = 25u32;
+pub const SECPKG_ATTR_UNIQUE_BINDINGS: SECPKG_ATTR = SECPKG_ATTR(25u32);
+impl ::core::marker::Copy for SECPKG_ATTR {}
+impl ::core::clone::Clone for SECPKG_ATTR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SECPKG_ATTR {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SECPKG_ATTR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SECPKG_ATTR").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SECPKG_ATTR {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SECPKG_ATTR {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SECPKG_ATTR {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SECPKG_ATTR {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SECPKG_ATTR {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const SECPKG_ATTR_APPLICATION_PROTOCOL: u32 = 35u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
@@ -10701,13 +11777,29 @@ pub const SECPKG_ATTR_KEYING_MATERIAL_INPROC: u32 = 112u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const SECPKG_ATTR_KEYING_MATERIAL_TOKEN_BINDING: u32 = 111u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type SECPKG_ATTR_LCT_STATUS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SECPKG_ATTR_LCT_STATUS(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SecPkgAttrLastClientTokenYes: SECPKG_ATTR_LCT_STATUS = 0i32;
+pub const SecPkgAttrLastClientTokenYes: SECPKG_ATTR_LCT_STATUS = SECPKG_ATTR_LCT_STATUS(0i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SecPkgAttrLastClientTokenNo: SECPKG_ATTR_LCT_STATUS = 1i32;
+pub const SecPkgAttrLastClientTokenNo: SECPKG_ATTR_LCT_STATUS = SECPKG_ATTR_LCT_STATUS(1i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SecPkgAttrLastClientTokenMaybe: SECPKG_ATTR_LCT_STATUS = 2i32;
+pub const SecPkgAttrLastClientTokenMaybe: SECPKG_ATTR_LCT_STATUS = SECPKG_ATTR_LCT_STATUS(2i32);
+impl ::core::marker::Copy for SECPKG_ATTR_LCT_STATUS {}
+impl ::core::clone::Clone for SECPKG_ATTR_LCT_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SECPKG_ATTR_LCT_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SECPKG_ATTR_LCT_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SECPKG_ATTR_LCT_STATUS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const SECPKG_ATTR_LOCAL_CERT_INFO: u32 = 99u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
@@ -10856,17 +11948,33 @@ pub const SECPKG_CALL_NEGO_EXTENDER: u32 = 32768u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const SECPKG_CALL_NETWORK_ONLY: u32 = 1024u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type SECPKG_CALL_PACKAGE_MESSAGE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SECPKG_CALL_PACKAGE_MESSAGE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SecPkgCallPackageMinMessage: SECPKG_CALL_PACKAGE_MESSAGE_TYPE = 1024i32;
+pub const SecPkgCallPackageMinMessage: SECPKG_CALL_PACKAGE_MESSAGE_TYPE = SECPKG_CALL_PACKAGE_MESSAGE_TYPE(1024i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SecPkgCallPackagePinDcMessage: SECPKG_CALL_PACKAGE_MESSAGE_TYPE = 1024i32;
+pub const SecPkgCallPackagePinDcMessage: SECPKG_CALL_PACKAGE_MESSAGE_TYPE = SECPKG_CALL_PACKAGE_MESSAGE_TYPE(1024i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SecPkgCallPackageUnpinAllDcsMessage: SECPKG_CALL_PACKAGE_MESSAGE_TYPE = 1025i32;
+pub const SecPkgCallPackageUnpinAllDcsMessage: SECPKG_CALL_PACKAGE_MESSAGE_TYPE = SECPKG_CALL_PACKAGE_MESSAGE_TYPE(1025i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SecPkgCallPackageTransferCredMessage: SECPKG_CALL_PACKAGE_MESSAGE_TYPE = 1026i32;
+pub const SecPkgCallPackageTransferCredMessage: SECPKG_CALL_PACKAGE_MESSAGE_TYPE = SECPKG_CALL_PACKAGE_MESSAGE_TYPE(1026i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SecPkgCallPackageMaxMessage: SECPKG_CALL_PACKAGE_MESSAGE_TYPE = 1026i32;
+pub const SecPkgCallPackageMaxMessage: SECPKG_CALL_PACKAGE_MESSAGE_TYPE = SECPKG_CALL_PACKAGE_MESSAGE_TYPE(1026i32);
+impl ::core::marker::Copy for SECPKG_CALL_PACKAGE_MESSAGE_TYPE {}
+impl ::core::clone::Clone for SECPKG_CALL_PACKAGE_MESSAGE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SECPKG_CALL_PACKAGE_MESSAGE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SECPKG_CALL_PACKAGE_MESSAGE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SECPKG_CALL_PACKAGE_MESSAGE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11089,11 +12197,55 @@ impl ::core::default::Default for SECPKG_CONTEXT_THUNKS {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type SECPKG_CRED = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SECPKG_CRED(pub u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_CRED_INBOUND: SECPKG_CRED = 1u32;
+pub const SECPKG_CRED_INBOUND: SECPKG_CRED = SECPKG_CRED(1u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_CRED_OUTBOUND: SECPKG_CRED = 2u32;
+pub const SECPKG_CRED_OUTBOUND: SECPKG_CRED = SECPKG_CRED(2u32);
+impl ::core::marker::Copy for SECPKG_CRED {}
+impl ::core::clone::Clone for SECPKG_CRED {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SECPKG_CRED {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SECPKG_CRED {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SECPKG_CRED").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SECPKG_CRED {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SECPKG_CRED {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SECPKG_CRED {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SECPKG_CRED {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SECPKG_CRED {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -11183,17 +12335,33 @@ pub const SECPKG_CRED_AUTOLOGON_RESTRICTED: u32 = 16u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const SECPKG_CRED_BOTH: u32 = 3u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type SECPKG_CRED_CLASS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SECPKG_CRED_CLASS(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SecPkgCredClass_None: SECPKG_CRED_CLASS = 0i32;
+pub const SecPkgCredClass_None: SECPKG_CRED_CLASS = SECPKG_CRED_CLASS(0i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SecPkgCredClass_Ephemeral: SECPKG_CRED_CLASS = 10i32;
+pub const SecPkgCredClass_Ephemeral: SECPKG_CRED_CLASS = SECPKG_CRED_CLASS(10i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SecPkgCredClass_PersistedGeneric: SECPKG_CRED_CLASS = 20i32;
+pub const SecPkgCredClass_PersistedGeneric: SECPKG_CRED_CLASS = SECPKG_CRED_CLASS(20i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SecPkgCredClass_PersistedSpecific: SECPKG_CRED_CLASS = 30i32;
+pub const SecPkgCredClass_PersistedSpecific: SECPKG_CRED_CLASS = SECPKG_CRED_CLASS(30i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SecPkgCredClass_Explicit: SECPKG_CRED_CLASS = 40i32;
+pub const SecPkgCredClass_Explicit: SECPKG_CRED_CLASS = SECPKG_CRED_CLASS(40i32);
+impl ::core::marker::Copy for SECPKG_CRED_CLASS {}
+impl ::core::clone::Clone for SECPKG_CRED_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SECPKG_CRED_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SECPKG_CRED_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SECPKG_CRED_CLASS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const SECPKG_CRED_DEFAULT: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
@@ -11417,21 +12585,37 @@ impl ::core::default::Default for SECPKG_EXTENDED_INFORMATION_0 {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type SECPKG_EXTENDED_INFORMATION_CLASS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SECPKG_EXTENDED_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SecpkgGssInfo: SECPKG_EXTENDED_INFORMATION_CLASS = 1i32;
+pub const SecpkgGssInfo: SECPKG_EXTENDED_INFORMATION_CLASS = SECPKG_EXTENDED_INFORMATION_CLASS(1i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SecpkgContextThunks: SECPKG_EXTENDED_INFORMATION_CLASS = 2i32;
+pub const SecpkgContextThunks: SECPKG_EXTENDED_INFORMATION_CLASS = SECPKG_EXTENDED_INFORMATION_CLASS(2i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SecpkgMutualAuthLevel: SECPKG_EXTENDED_INFORMATION_CLASS = 3i32;
+pub const SecpkgMutualAuthLevel: SECPKG_EXTENDED_INFORMATION_CLASS = SECPKG_EXTENDED_INFORMATION_CLASS(3i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SecpkgWowClientDll: SECPKG_EXTENDED_INFORMATION_CLASS = 4i32;
+pub const SecpkgWowClientDll: SECPKG_EXTENDED_INFORMATION_CLASS = SECPKG_EXTENDED_INFORMATION_CLASS(4i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SecpkgExtraOids: SECPKG_EXTENDED_INFORMATION_CLASS = 5i32;
+pub const SecpkgExtraOids: SECPKG_EXTENDED_INFORMATION_CLASS = SECPKG_EXTENDED_INFORMATION_CLASS(5i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SecpkgMaxInfo: SECPKG_EXTENDED_INFORMATION_CLASS = 6i32;
+pub const SecpkgMaxInfo: SECPKG_EXTENDED_INFORMATION_CLASS = SECPKG_EXTENDED_INFORMATION_CLASS(6i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SecpkgNego2Info: SECPKG_EXTENDED_INFORMATION_CLASS = 7i32;
+pub const SecpkgNego2Info: SECPKG_EXTENDED_INFORMATION_CLASS = SECPKG_EXTENDED_INFORMATION_CLASS(7i32);
+impl ::core::marker::Copy for SECPKG_EXTENDED_INFORMATION_CLASS {}
+impl ::core::clone::Clone for SECPKG_EXTENDED_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SECPKG_EXTENDED_INFORMATION_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SECPKG_EXTENDED_INFORMATION_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SECPKG_EXTENDED_INFORMATION_CLASS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub struct SECPKG_EXTRA_OIDS {
@@ -11847,17 +13031,33 @@ impl ::core::default::Default for SECPKG_MUTUAL_AUTH_LEVEL {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type SECPKG_NAME_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SECPKG_NAME_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SecNameSamCompatible: SECPKG_NAME_TYPE = 0i32;
+pub const SecNameSamCompatible: SECPKG_NAME_TYPE = SECPKG_NAME_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SecNameAlternateId: SECPKG_NAME_TYPE = 1i32;
+pub const SecNameAlternateId: SECPKG_NAME_TYPE = SECPKG_NAME_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SecNameFlat: SECPKG_NAME_TYPE = 2i32;
+pub const SecNameFlat: SECPKG_NAME_TYPE = SECPKG_NAME_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SecNameDN: SECPKG_NAME_TYPE = 3i32;
+pub const SecNameDN: SECPKG_NAME_TYPE = SECPKG_NAME_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SecNameSPN: SECPKG_NAME_TYPE = 4i32;
+pub const SecNameSPN: SECPKG_NAME_TYPE = SECPKG_NAME_TYPE(4i32);
+impl ::core::marker::Copy for SECPKG_NAME_TYPE {}
+impl ::core::clone::Clone for SECPKG_NAME_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SECPKG_NAME_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SECPKG_NAME_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SECPKG_NAME_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub struct SECPKG_NEGO2_INFO {
@@ -11902,13 +13102,57 @@ pub const SECPKG_NEGOTIATION_TRY_MULTICRED: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const SECPKG_OPTIONS_PERMANENT: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type SECPKG_PACKAGE_CHANGE_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SECPKG_PACKAGE_CHANGE_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_PACKAGE_CHANGE_LOAD: SECPKG_PACKAGE_CHANGE_TYPE = 0u32;
+pub const SECPKG_PACKAGE_CHANGE_LOAD: SECPKG_PACKAGE_CHANGE_TYPE = SECPKG_PACKAGE_CHANGE_TYPE(0u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_PACKAGE_CHANGE_UNLOAD: SECPKG_PACKAGE_CHANGE_TYPE = 1u32;
+pub const SECPKG_PACKAGE_CHANGE_UNLOAD: SECPKG_PACKAGE_CHANGE_TYPE = SECPKG_PACKAGE_CHANGE_TYPE(1u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_PACKAGE_CHANGE_SELECT: SECPKG_PACKAGE_CHANGE_TYPE = 2u32;
+pub const SECPKG_PACKAGE_CHANGE_SELECT: SECPKG_PACKAGE_CHANGE_TYPE = SECPKG_PACKAGE_CHANGE_TYPE(2u32);
+impl ::core::marker::Copy for SECPKG_PACKAGE_CHANGE_TYPE {}
+impl ::core::clone::Clone for SECPKG_PACKAGE_CHANGE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SECPKG_PACKAGE_CHANGE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SECPKG_PACKAGE_CHANGE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SECPKG_PACKAGE_CHANGE_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SECPKG_PACKAGE_CHANGE_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SECPKG_PACKAGE_CHANGE_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SECPKG_PACKAGE_CHANGE_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SECPKG_PACKAGE_CHANGE_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SECPKG_PACKAGE_CHANGE_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12218,9 +13462,25 @@ impl ::core::default::Default for SECPKG_SERIALIZED_OID {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type SECPKG_SESSIONINFO_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SECPKG_SESSIONINFO_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SecSessionPrimaryCred: SECPKG_SESSIONINFO_TYPE = 0i32;
+pub const SecSessionPrimaryCred: SECPKG_SESSIONINFO_TYPE = SECPKG_SESSIONINFO_TYPE(0i32);
+impl ::core::marker::Copy for SECPKG_SESSIONINFO_TYPE {}
+impl ::core::clone::Clone for SECPKG_SESSIONINFO_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SECPKG_SESSIONINFO_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SECPKG_SESSIONINFO_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SECPKG_SESSIONINFO_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub struct SECPKG_SHORT_VECTOR {
@@ -12765,13 +14025,57 @@ impl ::core::default::Default for SECURITY_PACKAGE_OPTIONS {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type SECURITY_PACKAGE_OPTIONS_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SECURITY_PACKAGE_OPTIONS_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_OPTIONS_TYPE_UNKNOWN: SECURITY_PACKAGE_OPTIONS_TYPE = 0u32;
+pub const SECPKG_OPTIONS_TYPE_UNKNOWN: SECURITY_PACKAGE_OPTIONS_TYPE = SECURITY_PACKAGE_OPTIONS_TYPE(0u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_OPTIONS_TYPE_LSA: SECURITY_PACKAGE_OPTIONS_TYPE = 1u32;
+pub const SECPKG_OPTIONS_TYPE_LSA: SECURITY_PACKAGE_OPTIONS_TYPE = SECURITY_PACKAGE_OPTIONS_TYPE(1u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SECPKG_OPTIONS_TYPE_SSPI: SECURITY_PACKAGE_OPTIONS_TYPE = 2u32;
+pub const SECPKG_OPTIONS_TYPE_SSPI: SECURITY_PACKAGE_OPTIONS_TYPE = SECURITY_PACKAGE_OPTIONS_TYPE(2u32);
+impl ::core::marker::Copy for SECURITY_PACKAGE_OPTIONS_TYPE {}
+impl ::core::clone::Clone for SECURITY_PACKAGE_OPTIONS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SECURITY_PACKAGE_OPTIONS_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SECURITY_PACKAGE_OPTIONS_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SECURITY_PACKAGE_OPTIONS_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SECURITY_PACKAGE_OPTIONS_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SECURITY_PACKAGE_OPTIONS_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SECURITY_PACKAGE_OPTIONS_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SECURITY_PACKAGE_OPTIONS_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SECURITY_PACKAGE_OPTIONS_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const SECURITY_SUPPORT_PROVIDER_INTERFACE_VERSION: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
@@ -12887,21 +14191,53 @@ impl ::core::default::Default for SEC_APPLICATION_PROTOCOL_LIST {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SecApplicationProtocolNegotiationExt_None: SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT = 0i32;
+pub const SecApplicationProtocolNegotiationExt_None: SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT = SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT(0i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SecApplicationProtocolNegotiationExt_NPN: SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT = 1i32;
+pub const SecApplicationProtocolNegotiationExt_NPN: SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT = SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT(1i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SecApplicationProtocolNegotiationExt_ALPN: SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT = 2i32;
+pub const SecApplicationProtocolNegotiationExt_ALPN: SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT = SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT(2i32);
+impl ::core::marker::Copy for SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT {}
+impl ::core::clone::Clone for SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SEC_APPLICATION_PROTOCOL_NEGOTIATION_EXT").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SecApplicationProtocolNegotiationStatus_None: SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS = 0i32;
+pub const SecApplicationProtocolNegotiationStatus_None: SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS = SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS(0i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SecApplicationProtocolNegotiationStatus_Success: SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS = 1i32;
+pub const SecApplicationProtocolNegotiationStatus_Success: SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS = SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS(1i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SecApplicationProtocolNegotiationStatus_SelectedClientOnly: SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS = 2i32;
+pub const SecApplicationProtocolNegotiationStatus_SelectedClientOnly: SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS = SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS(2i32);
+impl ::core::marker::Copy for SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS {}
+impl ::core::clone::Clone for SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SEC_APPLICATION_PROTOCOL_NEGOTIATION_STATUS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub struct SEC_CHANNEL_BINDINGS {
@@ -13240,13 +14576,29 @@ impl ::core::default::Default for SEC_TRAFFIC_SECRETS {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type SEC_TRAFFIC_SECRET_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SEC_TRAFFIC_SECRET_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SecTrafficSecret_None: SEC_TRAFFIC_SECRET_TYPE = 0i32;
+pub const SecTrafficSecret_None: SEC_TRAFFIC_SECRET_TYPE = SEC_TRAFFIC_SECRET_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SecTrafficSecret_Client: SEC_TRAFFIC_SECRET_TYPE = 1i32;
+pub const SecTrafficSecret_Client: SEC_TRAFFIC_SECRET_TYPE = SEC_TRAFFIC_SECRET_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SecTrafficSecret_Server: SEC_TRAFFIC_SECRET_TYPE = 2i32;
+pub const SecTrafficSecret_Server: SEC_TRAFFIC_SECRET_TYPE = SEC_TRAFFIC_SECRET_TYPE(2i32);
+impl ::core::marker::Copy for SEC_TRAFFIC_SECRET_TYPE {}
+impl ::core::clone::Clone for SEC_TRAFFIC_SECRET_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SEC_TRAFFIC_SECRET_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SEC_TRAFFIC_SECRET_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SEC_TRAFFIC_SECRET_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub struct SEC_WINNT_AUTH_IDENTITY32 {
@@ -13810,79 +15162,95 @@ pub const SE_ADT_PARAMETER_EXTENSIBLE_AUDIT: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const SE_ADT_PARAMETER_GENERIC_AUDIT: u32 = 8u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type SE_ADT_PARAMETER_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SE_ADT_PARAMETER_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SeAdtParmTypeNone: SE_ADT_PARAMETER_TYPE = 0i32;
+pub const SeAdtParmTypeNone: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SeAdtParmTypeString: SE_ADT_PARAMETER_TYPE = 1i32;
+pub const SeAdtParmTypeString: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SeAdtParmTypeFileSpec: SE_ADT_PARAMETER_TYPE = 2i32;
+pub const SeAdtParmTypeFileSpec: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SeAdtParmTypeUlong: SE_ADT_PARAMETER_TYPE = 3i32;
+pub const SeAdtParmTypeUlong: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SeAdtParmTypeSid: SE_ADT_PARAMETER_TYPE = 4i32;
+pub const SeAdtParmTypeSid: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(4i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SeAdtParmTypeLogonId: SE_ADT_PARAMETER_TYPE = 5i32;
+pub const SeAdtParmTypeLogonId: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(5i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SeAdtParmTypeNoLogonId: SE_ADT_PARAMETER_TYPE = 6i32;
+pub const SeAdtParmTypeNoLogonId: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(6i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SeAdtParmTypeAccessMask: SE_ADT_PARAMETER_TYPE = 7i32;
+pub const SeAdtParmTypeAccessMask: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(7i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SeAdtParmTypePrivs: SE_ADT_PARAMETER_TYPE = 8i32;
+pub const SeAdtParmTypePrivs: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(8i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SeAdtParmTypeObjectTypes: SE_ADT_PARAMETER_TYPE = 9i32;
+pub const SeAdtParmTypeObjectTypes: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(9i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SeAdtParmTypeHexUlong: SE_ADT_PARAMETER_TYPE = 10i32;
+pub const SeAdtParmTypeHexUlong: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(10i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SeAdtParmTypePtr: SE_ADT_PARAMETER_TYPE = 11i32;
+pub const SeAdtParmTypePtr: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(11i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SeAdtParmTypeTime: SE_ADT_PARAMETER_TYPE = 12i32;
+pub const SeAdtParmTypeTime: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(12i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SeAdtParmTypeGuid: SE_ADT_PARAMETER_TYPE = 13i32;
+pub const SeAdtParmTypeGuid: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(13i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SeAdtParmTypeLuid: SE_ADT_PARAMETER_TYPE = 14i32;
+pub const SeAdtParmTypeLuid: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(14i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SeAdtParmTypeHexInt64: SE_ADT_PARAMETER_TYPE = 15i32;
+pub const SeAdtParmTypeHexInt64: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(15i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SeAdtParmTypeStringList: SE_ADT_PARAMETER_TYPE = 16i32;
+pub const SeAdtParmTypeStringList: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(16i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SeAdtParmTypeSidList: SE_ADT_PARAMETER_TYPE = 17i32;
+pub const SeAdtParmTypeSidList: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(17i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SeAdtParmTypeDuration: SE_ADT_PARAMETER_TYPE = 18i32;
+pub const SeAdtParmTypeDuration: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(18i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SeAdtParmTypeUserAccountControl: SE_ADT_PARAMETER_TYPE = 19i32;
+pub const SeAdtParmTypeUserAccountControl: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(19i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SeAdtParmTypeNoUac: SE_ADT_PARAMETER_TYPE = 20i32;
+pub const SeAdtParmTypeNoUac: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(20i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SeAdtParmTypeMessage: SE_ADT_PARAMETER_TYPE = 21i32;
+pub const SeAdtParmTypeMessage: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(21i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SeAdtParmTypeDateTime: SE_ADT_PARAMETER_TYPE = 22i32;
+pub const SeAdtParmTypeDateTime: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(22i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SeAdtParmTypeSockAddr: SE_ADT_PARAMETER_TYPE = 23i32;
+pub const SeAdtParmTypeSockAddr: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(23i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SeAdtParmTypeSD: SE_ADT_PARAMETER_TYPE = 24i32;
+pub const SeAdtParmTypeSD: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(24i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SeAdtParmTypeLogonHours: SE_ADT_PARAMETER_TYPE = 25i32;
+pub const SeAdtParmTypeLogonHours: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(25i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SeAdtParmTypeLogonIdNoSid: SE_ADT_PARAMETER_TYPE = 26i32;
+pub const SeAdtParmTypeLogonIdNoSid: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(26i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SeAdtParmTypeUlongNoConv: SE_ADT_PARAMETER_TYPE = 27i32;
+pub const SeAdtParmTypeUlongNoConv: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(27i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SeAdtParmTypeSockAddrNoPort: SE_ADT_PARAMETER_TYPE = 28i32;
+pub const SeAdtParmTypeSockAddrNoPort: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(28i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SeAdtParmTypeAccessReason: SE_ADT_PARAMETER_TYPE = 29i32;
+pub const SeAdtParmTypeAccessReason: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(29i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SeAdtParmTypeStagingReason: SE_ADT_PARAMETER_TYPE = 30i32;
+pub const SeAdtParmTypeStagingReason: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(30i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SeAdtParmTypeResourceAttribute: SE_ADT_PARAMETER_TYPE = 31i32;
+pub const SeAdtParmTypeResourceAttribute: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(31i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SeAdtParmTypeClaims: SE_ADT_PARAMETER_TYPE = 32i32;
+pub const SeAdtParmTypeClaims: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(32i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SeAdtParmTypeLogonIdAsSid: SE_ADT_PARAMETER_TYPE = 33i32;
+pub const SeAdtParmTypeLogonIdAsSid: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(33i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SeAdtParmTypeMultiSzString: SE_ADT_PARAMETER_TYPE = 34i32;
+pub const SeAdtParmTypeMultiSzString: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(34i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SeAdtParmTypeLogonIdEx: SE_ADT_PARAMETER_TYPE = 35i32;
+pub const SeAdtParmTypeLogonIdEx: SE_ADT_PARAMETER_TYPE = SE_ADT_PARAMETER_TYPE(35i32);
+impl ::core::marker::Copy for SE_ADT_PARAMETER_TYPE {}
+impl ::core::clone::Clone for SE_ADT_PARAMETER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SE_ADT_PARAMETER_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SE_ADT_PARAMETER_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SE_ADT_PARAMETER_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const SE_ADT_PARAMETER_WRITE_SYNCHRONOUS: u32 = 16u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
@@ -13951,19 +15319,63 @@ pub unsafe fn SLConsumeRight<'a, Param3: ::windows::core::IntoParam<'a, super::s
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type SLDATATYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SLDATATYPE(pub u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SL_DATA_NONE: SLDATATYPE = 0u32;
+pub const SL_DATA_NONE: SLDATATYPE = SLDATATYPE(0u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SL_DATA_SZ: SLDATATYPE = 1u32;
+pub const SL_DATA_SZ: SLDATATYPE = SLDATATYPE(1u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SL_DATA_DWORD: SLDATATYPE = 4u32;
+pub const SL_DATA_DWORD: SLDATATYPE = SLDATATYPE(4u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SL_DATA_BINARY: SLDATATYPE = 3u32;
+pub const SL_DATA_BINARY: SLDATATYPE = SLDATATYPE(3u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SL_DATA_MULTI_SZ: SLDATATYPE = 7u32;
+pub const SL_DATA_MULTI_SZ: SLDATATYPE = SLDATATYPE(7u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SL_DATA_SUM: SLDATATYPE = 100u32;
+pub const SL_DATA_SUM: SLDATATYPE = SLDATATYPE(100u32);
+impl ::core::marker::Copy for SLDATATYPE {}
+impl ::core::clone::Clone for SLDATATYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SLDATATYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SLDATATYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SLDATATYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SLDATATYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SLDATATYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SLDATATYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SLDATATYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SLDATATYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -14314,25 +15726,41 @@ pub unsafe fn SLGetWindowsInformationDWORD<'a, Param0: ::windows::core::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type SLIDTYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SLIDTYPE(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SL_ID_APPLICATION: SLIDTYPE = 0i32;
+pub const SL_ID_APPLICATION: SLIDTYPE = SLIDTYPE(0i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SL_ID_PRODUCT_SKU: SLIDTYPE = 1i32;
+pub const SL_ID_PRODUCT_SKU: SLIDTYPE = SLIDTYPE(1i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SL_ID_LICENSE_FILE: SLIDTYPE = 2i32;
+pub const SL_ID_LICENSE_FILE: SLIDTYPE = SLIDTYPE(2i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SL_ID_LICENSE: SLIDTYPE = 3i32;
+pub const SL_ID_LICENSE: SLIDTYPE = SLIDTYPE(3i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SL_ID_PKEY: SLIDTYPE = 4i32;
+pub const SL_ID_PKEY: SLIDTYPE = SLIDTYPE(4i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SL_ID_ALL_LICENSES: SLIDTYPE = 5i32;
+pub const SL_ID_ALL_LICENSES: SLIDTYPE = SLIDTYPE(5i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SL_ID_ALL_LICENSE_FILES: SLIDTYPE = 6i32;
+pub const SL_ID_ALL_LICENSE_FILES: SLIDTYPE = SLIDTYPE(6i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SL_ID_STORE_TOKEN: SLIDTYPE = 7i32;
+pub const SL_ID_STORE_TOKEN: SLIDTYPE = SLIDTYPE(7i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SL_ID_LAST: SLIDTYPE = 8i32;
+pub const SL_ID_LAST: SLIDTYPE = SLIDTYPE(8i32);
+impl ::core::marker::Copy for SLIDTYPE {}
+impl ::core::clone::Clone for SLIDTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SLIDTYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SLIDTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SLIDTYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 #[inline]
 pub unsafe fn SLInstallLicense(hslc: *const ::core::ffi::c_void, cblicenseblob: u32, pblicenseblob: *const u8) -> ::windows::core::Result<::windows::core::GUID> {
@@ -14379,17 +15807,33 @@ pub unsafe fn SLIsGenuineLocal(pappid: *const ::windows::core::GUID, pgenuinesta
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type SLLICENSINGSTATUS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SLLICENSINGSTATUS(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SL_LICENSING_STATUS_UNLICENSED: SLLICENSINGSTATUS = 0i32;
+pub const SL_LICENSING_STATUS_UNLICENSED: SLLICENSINGSTATUS = SLLICENSINGSTATUS(0i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SL_LICENSING_STATUS_LICENSED: SLLICENSINGSTATUS = 1i32;
+pub const SL_LICENSING_STATUS_LICENSED: SLLICENSINGSTATUS = SLLICENSINGSTATUS(1i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SL_LICENSING_STATUS_IN_GRACE_PERIOD: SLLICENSINGSTATUS = 2i32;
+pub const SL_LICENSING_STATUS_IN_GRACE_PERIOD: SLLICENSINGSTATUS = SLLICENSINGSTATUS(2i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SL_LICENSING_STATUS_NOTIFICATION: SLLICENSINGSTATUS = 3i32;
+pub const SL_LICENSING_STATUS_NOTIFICATION: SLLICENSINGSTATUS = SLLICENSINGSTATUS(3i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SL_LICENSING_STATUS_LAST: SLLICENSINGSTATUS = 4i32;
+pub const SL_LICENSING_STATUS_LAST: SLLICENSINGSTATUS = SLLICENSINGSTATUS(4i32);
+impl ::core::marker::Copy for SLLICENSINGSTATUS {}
+impl ::core::clone::Clone for SLLICENSINGSTATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SLLICENSINGSTATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SLLICENSINGSTATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SLLICENSINGSTATUS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 #[inline]
 pub unsafe fn SLOpen(phslc: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -14420,17 +15864,33 @@ pub unsafe fn SLQueryLicenseValueFromApp<'a, Param0: ::windows::core::IntoParam<
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type SLREFERRALTYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SLREFERRALTYPE(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SL_REFERRALTYPE_SKUID: SLREFERRALTYPE = 0i32;
+pub const SL_REFERRALTYPE_SKUID: SLREFERRALTYPE = SLREFERRALTYPE(0i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SL_REFERRALTYPE_APPID: SLREFERRALTYPE = 1i32;
+pub const SL_REFERRALTYPE_APPID: SLREFERRALTYPE = SLREFERRALTYPE(1i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SL_REFERRALTYPE_OVERRIDE_SKUID: SLREFERRALTYPE = 2i32;
+pub const SL_REFERRALTYPE_OVERRIDE_SKUID: SLREFERRALTYPE = SLREFERRALTYPE(2i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SL_REFERRALTYPE_OVERRIDE_APPID: SLREFERRALTYPE = 3i32;
+pub const SL_REFERRALTYPE_OVERRIDE_APPID: SLREFERRALTYPE = SLREFERRALTYPE(3i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SL_REFERRALTYPE_BEST_MATCH: SLREFERRALTYPE = 4i32;
+pub const SL_REFERRALTYPE_BEST_MATCH: SLREFERRALTYPE = SLREFERRALTYPE(4i32);
+impl ::core::marker::Copy for SLREFERRALTYPE {}
+impl ::core::clone::Clone for SLREFERRALTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SLREFERRALTYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SLREFERRALTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SLREFERRALTYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -14550,11 +16010,27 @@ impl ::core::default::Default for SL_ACTIVATION_INFO_HEADER {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type SL_ACTIVATION_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SL_ACTIVATION_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SL_ACTIVATION_TYPE_DEFAULT: SL_ACTIVATION_TYPE = 0i32;
+pub const SL_ACTIVATION_TYPE_DEFAULT: SL_ACTIVATION_TYPE = SL_ACTIVATION_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SL_ACTIVATION_TYPE_ACTIVE_DIRECTORY: SL_ACTIVATION_TYPE = 1i32;
+pub const SL_ACTIVATION_TYPE_ACTIVE_DIRECTORY: SL_ACTIVATION_TYPE = SL_ACTIVATION_TYPE(1i32);
+impl ::core::marker::Copy for SL_ACTIVATION_TYPE {}
+impl ::core::clone::Clone for SL_ACTIVATION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SL_ACTIVATION_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SL_ACTIVATION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SL_ACTIVATION_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -15166,17 +16642,33 @@ pub const SL_E_WINDOWS_INVALID_LICENSE_STATE: ::windows::core::HRESULT = ::windo
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const SL_E_WINDOWS_VERSION_MISMATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(-1073422297i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type SL_GENUINE_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SL_GENUINE_STATE(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SL_GEN_STATE_IS_GENUINE: SL_GENUINE_STATE = 0i32;
+pub const SL_GEN_STATE_IS_GENUINE: SL_GENUINE_STATE = SL_GENUINE_STATE(0i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SL_GEN_STATE_INVALID_LICENSE: SL_GENUINE_STATE = 1i32;
+pub const SL_GEN_STATE_INVALID_LICENSE: SL_GENUINE_STATE = SL_GENUINE_STATE(1i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SL_GEN_STATE_TAMPERED: SL_GENUINE_STATE = 2i32;
+pub const SL_GEN_STATE_TAMPERED: SL_GENUINE_STATE = SL_GENUINE_STATE(2i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SL_GEN_STATE_OFFLINE: SL_GENUINE_STATE = 3i32;
+pub const SL_GEN_STATE_OFFLINE: SL_GENUINE_STATE = SL_GENUINE_STATE(3i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SL_GEN_STATE_LAST: SL_GENUINE_STATE = 4i32;
+pub const SL_GEN_STATE_LAST: SL_GENUINE_STATE = SL_GENUINE_STATE(4i32);
+impl ::core::marker::Copy for SL_GENUINE_STATE {}
+impl ::core::clone::Clone for SL_GENUINE_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SL_GENUINE_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SL_GENUINE_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SL_GENUINE_STATE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const SL_INTERNAL_ZONE: u32 = 57344u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
@@ -15892,11 +17384,55 @@ pub unsafe fn SaslSetContextOption(contexthandle: *const super::super::Credentia
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type SchGetExtensionsOptions = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SchGetExtensionsOptions(pub u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SCH_EXTENSIONS_OPTIONS_NONE: SchGetExtensionsOptions = 0u32;
+pub const SCH_EXTENSIONS_OPTIONS_NONE: SchGetExtensionsOptions = SchGetExtensionsOptions(0u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SCH_NO_RECORD_HEADER: SchGetExtensionsOptions = 1u32;
+pub const SCH_NO_RECORD_HEADER: SchGetExtensionsOptions = SchGetExtensionsOptions(1u32);
+impl ::core::marker::Copy for SchGetExtensionsOptions {}
+impl ::core::clone::Clone for SchGetExtensionsOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SchGetExtensionsOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SchGetExtensionsOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SchGetExtensionsOptions").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SchGetExtensionsOptions {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SchGetExtensionsOptions {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SchGetExtensionsOptions {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SchGetExtensionsOptions {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SchGetExtensionsOptions {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub struct SecBuffer {
@@ -15962,17 +17498,33 @@ impl ::core::default::Default for SecBufferDesc {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type SecDelegationType = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SecDelegationType(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SecFull: SecDelegationType = 0i32;
+pub const SecFull: SecDelegationType = SecDelegationType(0i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SecService: SecDelegationType = 1i32;
+pub const SecService: SecDelegationType = SecDelegationType(1i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SecTree: SecDelegationType = 2i32;
+pub const SecTree: SecDelegationType = SecDelegationType(2i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SecDirectory: SecDelegationType = 3i32;
+pub const SecDirectory: SecDelegationType = SecDelegationType(3i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const SecObject: SecDelegationType = 4i32;
+pub const SecObject: SecDelegationType = SecDelegationType(4i32);
+impl ::core::marker::Copy for SecDelegationType {}
+impl ::core::clone::Clone for SecDelegationType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SecDelegationType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SecDelegationType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecDelegationType").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub struct SecPkgContext_AccessToken {
@@ -19504,9 +21056,25 @@ impl ::core::default::Default for TLS_EXTENSION_SUBSCRIPTION {
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub const TLS_PARAMS_OPTIONAL: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type TOKENBINDING_EXTENSION_FORMAT = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TOKENBINDING_EXTENSION_FORMAT(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TOKENBINDING_EXTENSION_FORMAT_UNDEFINED: TOKENBINDING_EXTENSION_FORMAT = 0i32;
+pub const TOKENBINDING_EXTENSION_FORMAT_UNDEFINED: TOKENBINDING_EXTENSION_FORMAT = TOKENBINDING_EXTENSION_FORMAT(0i32);
+impl ::core::marker::Copy for TOKENBINDING_EXTENSION_FORMAT {}
+impl ::core::clone::Clone for TOKENBINDING_EXTENSION_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TOKENBINDING_EXTENSION_FORMAT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TOKENBINDING_EXTENSION_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TOKENBINDING_EXTENSION_FORMAT").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub struct TOKENBINDING_IDENTIFIER {
@@ -19538,15 +21106,31 @@ impl ::core::default::Default for TOKENBINDING_IDENTIFIER {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type TOKENBINDING_KEY_PARAMETERS_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TOKENBINDING_KEY_PARAMETERS_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TOKENBINDING_KEY_PARAMETERS_TYPE_RSA2048_PKCS: TOKENBINDING_KEY_PARAMETERS_TYPE = 0i32;
+pub const TOKENBINDING_KEY_PARAMETERS_TYPE_RSA2048_PKCS: TOKENBINDING_KEY_PARAMETERS_TYPE = TOKENBINDING_KEY_PARAMETERS_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TOKENBINDING_KEY_PARAMETERS_TYPE_RSA2048_PSS: TOKENBINDING_KEY_PARAMETERS_TYPE = 1i32;
+pub const TOKENBINDING_KEY_PARAMETERS_TYPE_RSA2048_PSS: TOKENBINDING_KEY_PARAMETERS_TYPE = TOKENBINDING_KEY_PARAMETERS_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TOKENBINDING_KEY_PARAMETERS_TYPE_ECDSAP256: TOKENBINDING_KEY_PARAMETERS_TYPE = 2i32;
+pub const TOKENBINDING_KEY_PARAMETERS_TYPE_ECDSAP256: TOKENBINDING_KEY_PARAMETERS_TYPE = TOKENBINDING_KEY_PARAMETERS_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TOKENBINDING_KEY_PARAMETERS_TYPE_ANYEXISTING: TOKENBINDING_KEY_PARAMETERS_TYPE = 255i32;
+pub const TOKENBINDING_KEY_PARAMETERS_TYPE_ANYEXISTING: TOKENBINDING_KEY_PARAMETERS_TYPE = TOKENBINDING_KEY_PARAMETERS_TYPE(255i32);
+impl ::core::marker::Copy for TOKENBINDING_KEY_PARAMETERS_TYPE {}
+impl ::core::clone::Clone for TOKENBINDING_KEY_PARAMETERS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TOKENBINDING_KEY_PARAMETERS_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TOKENBINDING_KEY_PARAMETERS_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TOKENBINDING_KEY_PARAMETERS_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
 pub struct TOKENBINDING_KEY_TYPES {
@@ -19645,11 +21229,27 @@ impl ::core::default::Default for TOKENBINDING_RESULT_LIST {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type TOKENBINDING_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TOKENBINDING_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TOKENBINDING_TYPE_PROVIDED: TOKENBINDING_TYPE = 0i32;
+pub const TOKENBINDING_TYPE_PROVIDED: TOKENBINDING_TYPE = TOKENBINDING_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TOKENBINDING_TYPE_REFERRED: TOKENBINDING_TYPE = 1i32;
+pub const TOKENBINDING_TYPE_REFERRED: TOKENBINDING_TYPE = TOKENBINDING_TYPE(1i32);
+impl ::core::marker::Copy for TOKENBINDING_TYPE {}
+impl ::core::clone::Clone for TOKENBINDING_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TOKENBINDING_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TOKENBINDING_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TOKENBINDING_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -19968,69 +21568,217 @@ impl ::core::default::Default for TRUSTED_DOMAIN_SUPPORTED_ENCRYPTION_TYPES {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type TRUSTED_DOMAIN_TRUST_ATTRIBUTES = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TRUSTED_DOMAIN_TRUST_ATTRIBUTES(pub u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TRUST_ATTRIBUTE_NON_TRANSITIVE: TRUSTED_DOMAIN_TRUST_ATTRIBUTES = 1u32;
+pub const TRUST_ATTRIBUTE_NON_TRANSITIVE: TRUSTED_DOMAIN_TRUST_ATTRIBUTES = TRUSTED_DOMAIN_TRUST_ATTRIBUTES(1u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TRUST_ATTRIBUTE_UPLEVEL_ONLY: TRUSTED_DOMAIN_TRUST_ATTRIBUTES = 2u32;
+pub const TRUST_ATTRIBUTE_UPLEVEL_ONLY: TRUSTED_DOMAIN_TRUST_ATTRIBUTES = TRUSTED_DOMAIN_TRUST_ATTRIBUTES(2u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TRUST_ATTRIBUTE_FILTER_SIDS: TRUSTED_DOMAIN_TRUST_ATTRIBUTES = 4u32;
+pub const TRUST_ATTRIBUTE_FILTER_SIDS: TRUSTED_DOMAIN_TRUST_ATTRIBUTES = TRUSTED_DOMAIN_TRUST_ATTRIBUTES(4u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TRUST_ATTRIBUTE_FOREST_TRANSITIVE: TRUSTED_DOMAIN_TRUST_ATTRIBUTES = 8u32;
+pub const TRUST_ATTRIBUTE_FOREST_TRANSITIVE: TRUSTED_DOMAIN_TRUST_ATTRIBUTES = TRUSTED_DOMAIN_TRUST_ATTRIBUTES(8u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TRUST_ATTRIBUTE_CROSS_ORGANIZATION: TRUSTED_DOMAIN_TRUST_ATTRIBUTES = 16u32;
+pub const TRUST_ATTRIBUTE_CROSS_ORGANIZATION: TRUSTED_DOMAIN_TRUST_ATTRIBUTES = TRUSTED_DOMAIN_TRUST_ATTRIBUTES(16u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TRUST_ATTRIBUTE_TREAT_AS_EXTERNAL: TRUSTED_DOMAIN_TRUST_ATTRIBUTES = 64u32;
+pub const TRUST_ATTRIBUTE_TREAT_AS_EXTERNAL: TRUSTED_DOMAIN_TRUST_ATTRIBUTES = TRUSTED_DOMAIN_TRUST_ATTRIBUTES(64u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TRUST_ATTRIBUTE_WITHIN_FOREST: TRUSTED_DOMAIN_TRUST_ATTRIBUTES = 32u32;
+pub const TRUST_ATTRIBUTE_WITHIN_FOREST: TRUSTED_DOMAIN_TRUST_ATTRIBUTES = TRUSTED_DOMAIN_TRUST_ATTRIBUTES(32u32);
+impl ::core::marker::Copy for TRUSTED_DOMAIN_TRUST_ATTRIBUTES {}
+impl ::core::clone::Clone for TRUSTED_DOMAIN_TRUST_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TRUSTED_DOMAIN_TRUST_ATTRIBUTES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TRUSTED_DOMAIN_TRUST_ATTRIBUTES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TRUSTED_DOMAIN_TRUST_ATTRIBUTES").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for TRUSTED_DOMAIN_TRUST_ATTRIBUTES {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for TRUSTED_DOMAIN_TRUST_ATTRIBUTES {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for TRUSTED_DOMAIN_TRUST_ATTRIBUTES {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for TRUSTED_DOMAIN_TRUST_ATTRIBUTES {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for TRUSTED_DOMAIN_TRUST_ATTRIBUTES {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type TRUSTED_DOMAIN_TRUST_DIRECTION = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TRUSTED_DOMAIN_TRUST_DIRECTION(pub u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TRUST_DIRECTION_DISABLED: TRUSTED_DOMAIN_TRUST_DIRECTION = 0u32;
+pub const TRUST_DIRECTION_DISABLED: TRUSTED_DOMAIN_TRUST_DIRECTION = TRUSTED_DOMAIN_TRUST_DIRECTION(0u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TRUST_DIRECTION_INBOUND: TRUSTED_DOMAIN_TRUST_DIRECTION = 1u32;
+pub const TRUST_DIRECTION_INBOUND: TRUSTED_DOMAIN_TRUST_DIRECTION = TRUSTED_DOMAIN_TRUST_DIRECTION(1u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TRUST_DIRECTION_OUTBOUND: TRUSTED_DOMAIN_TRUST_DIRECTION = 2u32;
+pub const TRUST_DIRECTION_OUTBOUND: TRUSTED_DOMAIN_TRUST_DIRECTION = TRUSTED_DOMAIN_TRUST_DIRECTION(2u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TRUST_DIRECTION_BIDIRECTIONAL: TRUSTED_DOMAIN_TRUST_DIRECTION = 3u32;
+pub const TRUST_DIRECTION_BIDIRECTIONAL: TRUSTED_DOMAIN_TRUST_DIRECTION = TRUSTED_DOMAIN_TRUST_DIRECTION(3u32);
+impl ::core::marker::Copy for TRUSTED_DOMAIN_TRUST_DIRECTION {}
+impl ::core::clone::Clone for TRUSTED_DOMAIN_TRUST_DIRECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TRUSTED_DOMAIN_TRUST_DIRECTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TRUSTED_DOMAIN_TRUST_DIRECTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TRUSTED_DOMAIN_TRUST_DIRECTION").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for TRUSTED_DOMAIN_TRUST_DIRECTION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for TRUSTED_DOMAIN_TRUST_DIRECTION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for TRUSTED_DOMAIN_TRUST_DIRECTION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for TRUSTED_DOMAIN_TRUST_DIRECTION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for TRUSTED_DOMAIN_TRUST_DIRECTION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type TRUSTED_DOMAIN_TRUST_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TRUSTED_DOMAIN_TRUST_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TRUST_TYPE_DOWNLEVEL: TRUSTED_DOMAIN_TRUST_TYPE = 1u32;
+pub const TRUST_TYPE_DOWNLEVEL: TRUSTED_DOMAIN_TRUST_TYPE = TRUSTED_DOMAIN_TRUST_TYPE(1u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TRUST_TYPE_UPLEVEL: TRUSTED_DOMAIN_TRUST_TYPE = 2u32;
+pub const TRUST_TYPE_UPLEVEL: TRUSTED_DOMAIN_TRUST_TYPE = TRUSTED_DOMAIN_TRUST_TYPE(2u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TRUST_TYPE_MIT: TRUSTED_DOMAIN_TRUST_TYPE = 3u32;
+pub const TRUST_TYPE_MIT: TRUSTED_DOMAIN_TRUST_TYPE = TRUSTED_DOMAIN_TRUST_TYPE(3u32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TRUST_TYPE_DCE: TRUSTED_DOMAIN_TRUST_TYPE = 4u32;
+pub const TRUST_TYPE_DCE: TRUSTED_DOMAIN_TRUST_TYPE = TRUSTED_DOMAIN_TRUST_TYPE(4u32);
+impl ::core::marker::Copy for TRUSTED_DOMAIN_TRUST_TYPE {}
+impl ::core::clone::Clone for TRUSTED_DOMAIN_TRUST_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TRUSTED_DOMAIN_TRUST_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TRUSTED_DOMAIN_TRUST_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TRUSTED_DOMAIN_TRUST_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for TRUSTED_DOMAIN_TRUST_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for TRUSTED_DOMAIN_TRUST_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for TRUSTED_DOMAIN_TRUST_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for TRUSTED_DOMAIN_TRUST_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for TRUSTED_DOMAIN_TRUST_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type TRUSTED_INFORMATION_CLASS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TRUSTED_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TrustedDomainNameInformation: TRUSTED_INFORMATION_CLASS = 1i32;
+pub const TrustedDomainNameInformation: TRUSTED_INFORMATION_CLASS = TRUSTED_INFORMATION_CLASS(1i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TrustedControllersInformation: TRUSTED_INFORMATION_CLASS = 2i32;
+pub const TrustedControllersInformation: TRUSTED_INFORMATION_CLASS = TRUSTED_INFORMATION_CLASS(2i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TrustedPosixOffsetInformation: TRUSTED_INFORMATION_CLASS = 3i32;
+pub const TrustedPosixOffsetInformation: TRUSTED_INFORMATION_CLASS = TRUSTED_INFORMATION_CLASS(3i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TrustedPasswordInformation: TRUSTED_INFORMATION_CLASS = 4i32;
+pub const TrustedPasswordInformation: TRUSTED_INFORMATION_CLASS = TRUSTED_INFORMATION_CLASS(4i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TrustedDomainInformationBasic: TRUSTED_INFORMATION_CLASS = 5i32;
+pub const TrustedDomainInformationBasic: TRUSTED_INFORMATION_CLASS = TRUSTED_INFORMATION_CLASS(5i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TrustedDomainInformationEx: TRUSTED_INFORMATION_CLASS = 6i32;
+pub const TrustedDomainInformationEx: TRUSTED_INFORMATION_CLASS = TRUSTED_INFORMATION_CLASS(6i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TrustedDomainAuthInformation: TRUSTED_INFORMATION_CLASS = 7i32;
+pub const TrustedDomainAuthInformation: TRUSTED_INFORMATION_CLASS = TRUSTED_INFORMATION_CLASS(7i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TrustedDomainFullInformation: TRUSTED_INFORMATION_CLASS = 8i32;
+pub const TrustedDomainFullInformation: TRUSTED_INFORMATION_CLASS = TRUSTED_INFORMATION_CLASS(8i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TrustedDomainAuthInformationInternal: TRUSTED_INFORMATION_CLASS = 9i32;
+pub const TrustedDomainAuthInformationInternal: TRUSTED_INFORMATION_CLASS = TRUSTED_INFORMATION_CLASS(9i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TrustedDomainFullInformationInternal: TRUSTED_INFORMATION_CLASS = 10i32;
+pub const TrustedDomainFullInformationInternal: TRUSTED_INFORMATION_CLASS = TRUSTED_INFORMATION_CLASS(10i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TrustedDomainInformationEx2Internal: TRUSTED_INFORMATION_CLASS = 11i32;
+pub const TrustedDomainInformationEx2Internal: TRUSTED_INFORMATION_CLASS = TRUSTED_INFORMATION_CLASS(11i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TrustedDomainFullInformation2Internal: TRUSTED_INFORMATION_CLASS = 12i32;
+pub const TrustedDomainFullInformation2Internal: TRUSTED_INFORMATION_CLASS = TRUSTED_INFORMATION_CLASS(12i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TrustedDomainSupportedEncryptionTypes: TRUSTED_INFORMATION_CLASS = 13i32;
+pub const TrustedDomainSupportedEncryptionTypes: TRUSTED_INFORMATION_CLASS = TRUSTED_INFORMATION_CLASS(13i32);
+impl ::core::marker::Copy for TRUSTED_INFORMATION_CLASS {}
+impl ::core::clone::Clone for TRUSTED_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TRUSTED_INFORMATION_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TRUSTED_INFORMATION_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TRUSTED_INFORMATION_CLASS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -20528,30 +22276,62 @@ pub const _FACILITY_WINDOWS_STORE: u32 = 63u32;
 #[repr(C)]
 pub struct _HMAPPER(pub u8);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type eTlsHashAlgorithm = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct eTlsHashAlgorithm(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TlsHashAlgorithm_None: eTlsHashAlgorithm = 0i32;
+pub const TlsHashAlgorithm_None: eTlsHashAlgorithm = eTlsHashAlgorithm(0i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TlsHashAlgorithm_Md5: eTlsHashAlgorithm = 1i32;
+pub const TlsHashAlgorithm_Md5: eTlsHashAlgorithm = eTlsHashAlgorithm(1i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TlsHashAlgorithm_Sha1: eTlsHashAlgorithm = 2i32;
+pub const TlsHashAlgorithm_Sha1: eTlsHashAlgorithm = eTlsHashAlgorithm(2i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TlsHashAlgorithm_Sha224: eTlsHashAlgorithm = 3i32;
+pub const TlsHashAlgorithm_Sha224: eTlsHashAlgorithm = eTlsHashAlgorithm(3i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TlsHashAlgorithm_Sha256: eTlsHashAlgorithm = 4i32;
+pub const TlsHashAlgorithm_Sha256: eTlsHashAlgorithm = eTlsHashAlgorithm(4i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TlsHashAlgorithm_Sha384: eTlsHashAlgorithm = 5i32;
+pub const TlsHashAlgorithm_Sha384: eTlsHashAlgorithm = eTlsHashAlgorithm(5i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TlsHashAlgorithm_Sha512: eTlsHashAlgorithm = 6i32;
+pub const TlsHashAlgorithm_Sha512: eTlsHashAlgorithm = eTlsHashAlgorithm(6i32);
+impl ::core::marker::Copy for eTlsHashAlgorithm {}
+impl ::core::clone::Clone for eTlsHashAlgorithm {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for eTlsHashAlgorithm {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for eTlsHashAlgorithm {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("eTlsHashAlgorithm").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub type eTlsSignatureAlgorithm = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct eTlsSignatureAlgorithm(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TlsSignatureAlgorithm_Anonymous: eTlsSignatureAlgorithm = 0i32;
+pub const TlsSignatureAlgorithm_Anonymous: eTlsSignatureAlgorithm = eTlsSignatureAlgorithm(0i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TlsSignatureAlgorithm_Rsa: eTlsSignatureAlgorithm = 1i32;
+pub const TlsSignatureAlgorithm_Rsa: eTlsSignatureAlgorithm = eTlsSignatureAlgorithm(1i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TlsSignatureAlgorithm_Dsa: eTlsSignatureAlgorithm = 2i32;
+pub const TlsSignatureAlgorithm_Dsa: eTlsSignatureAlgorithm = eTlsSignatureAlgorithm(2i32);
 #[doc = "*Required features: 'Win32_Security_Authentication_Identity'*"]
-pub const TlsSignatureAlgorithm_Ecdsa: eTlsSignatureAlgorithm = 3i32;
+pub const TlsSignatureAlgorithm_Ecdsa: eTlsSignatureAlgorithm = eTlsSignatureAlgorithm(3i32);
+impl ::core::marker::Copy for eTlsSignatureAlgorithm {}
+impl ::core::clone::Clone for eTlsSignatureAlgorithm {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for eTlsSignatureAlgorithm {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for eTlsSignatureAlgorithm {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("eTlsSignatureAlgorithm").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

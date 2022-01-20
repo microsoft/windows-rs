@@ -113,11 +113,55 @@ pub const AVRF_MAX_TRACES: u32 = 32u32;
 #[doc = "*Required features: 'Win32_System_ApplicationVerifier'*"]
 pub type AVRF_RESOURCE_ENUMERATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(resourcedescription: *mut ::core::ffi::c_void, enumerationcontext: *mut ::core::ffi::c_void, enumerationlevel: *mut u32) -> u32>;
 #[doc = "*Required features: 'Win32_System_ApplicationVerifier'*"]
-pub type VERIFIER_ENUM_RESOURCE_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct VERIFIER_ENUM_RESOURCE_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_System_ApplicationVerifier'*"]
-pub const AVRF_ENUM_RESOURCES_FLAGS_DONT_RESOLVE_TRACES: VERIFIER_ENUM_RESOURCE_FLAGS = 2u32;
+pub const AVRF_ENUM_RESOURCES_FLAGS_DONT_RESOLVE_TRACES: VERIFIER_ENUM_RESOURCE_FLAGS = VERIFIER_ENUM_RESOURCE_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_System_ApplicationVerifier'*"]
-pub const AVRF_ENUM_RESOURCES_FLAGS_SUSPEND: VERIFIER_ENUM_RESOURCE_FLAGS = 1u32;
+pub const AVRF_ENUM_RESOURCES_FLAGS_SUSPEND: VERIFIER_ENUM_RESOURCE_FLAGS = VERIFIER_ENUM_RESOURCE_FLAGS(1u32);
+impl ::core::marker::Copy for VERIFIER_ENUM_RESOURCE_FLAGS {}
+impl ::core::clone::Clone for VERIFIER_ENUM_RESOURCE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for VERIFIER_ENUM_RESOURCE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for VERIFIER_ENUM_RESOURCE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VERIFIER_ENUM_RESOURCE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for VERIFIER_ENUM_RESOURCE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for VERIFIER_ENUM_RESOURCE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for VERIFIER_ENUM_RESOURCE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for VERIFIER_ENUM_RESOURCE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for VERIFIER_ENUM_RESOURCE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_ApplicationVerifier', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -134,44 +178,124 @@ pub unsafe fn VerifierEnumerateResource<'a, Param0: ::windows::core::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_System_ApplicationVerifier'*"]
-pub type eAvrfResourceTypes = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct eAvrfResourceTypes(pub i32);
 #[doc = "*Required features: 'Win32_System_ApplicationVerifier'*"]
-pub const AvrfResourceHeapAllocation: eAvrfResourceTypes = 0i32;
+pub const AvrfResourceHeapAllocation: eAvrfResourceTypes = eAvrfResourceTypes(0i32);
 #[doc = "*Required features: 'Win32_System_ApplicationVerifier'*"]
-pub const AvrfResourceHandleTrace: eAvrfResourceTypes = 1i32;
+pub const AvrfResourceHandleTrace: eAvrfResourceTypes = eAvrfResourceTypes(1i32);
 #[doc = "*Required features: 'Win32_System_ApplicationVerifier'*"]
-pub const AvrfResourceMax: eAvrfResourceTypes = 2i32;
+pub const AvrfResourceMax: eAvrfResourceTypes = eAvrfResourceTypes(2i32);
+impl ::core::marker::Copy for eAvrfResourceTypes {}
+impl ::core::clone::Clone for eAvrfResourceTypes {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for eAvrfResourceTypes {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for eAvrfResourceTypes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("eAvrfResourceTypes").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_ApplicationVerifier'*"]
-pub type eHANDLE_TRACE_OPERATIONS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct eHANDLE_TRACE_OPERATIONS(pub i32);
 #[doc = "*Required features: 'Win32_System_ApplicationVerifier'*"]
-pub const OperationDbUnused: eHANDLE_TRACE_OPERATIONS = 0i32;
+pub const OperationDbUnused: eHANDLE_TRACE_OPERATIONS = eHANDLE_TRACE_OPERATIONS(0i32);
 #[doc = "*Required features: 'Win32_System_ApplicationVerifier'*"]
-pub const OperationDbOPEN: eHANDLE_TRACE_OPERATIONS = 1i32;
+pub const OperationDbOPEN: eHANDLE_TRACE_OPERATIONS = eHANDLE_TRACE_OPERATIONS(1i32);
 #[doc = "*Required features: 'Win32_System_ApplicationVerifier'*"]
-pub const OperationDbCLOSE: eHANDLE_TRACE_OPERATIONS = 2i32;
+pub const OperationDbCLOSE: eHANDLE_TRACE_OPERATIONS = eHANDLE_TRACE_OPERATIONS(2i32);
 #[doc = "*Required features: 'Win32_System_ApplicationVerifier'*"]
-pub const OperationDbBADREF: eHANDLE_TRACE_OPERATIONS = 3i32;
+pub const OperationDbBADREF: eHANDLE_TRACE_OPERATIONS = eHANDLE_TRACE_OPERATIONS(3i32);
+impl ::core::marker::Copy for eHANDLE_TRACE_OPERATIONS {}
+impl ::core::clone::Clone for eHANDLE_TRACE_OPERATIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for eHANDLE_TRACE_OPERATIONS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for eHANDLE_TRACE_OPERATIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("eHANDLE_TRACE_OPERATIONS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_ApplicationVerifier'*"]
-pub type eHeapAllocationState = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct eHeapAllocationState(pub i32);
 #[doc = "*Required features: 'Win32_System_ApplicationVerifier'*"]
-pub const HeapFullPageHeap: eHeapAllocationState = 1073741824i32;
+pub const HeapFullPageHeap: eHeapAllocationState = eHeapAllocationState(1073741824i32);
 #[doc = "*Required features: 'Win32_System_ApplicationVerifier'*"]
-pub const HeapMetadata: eHeapAllocationState = -2147483648i32;
+pub const HeapMetadata: eHeapAllocationState = eHeapAllocationState(-2147483648i32);
 #[doc = "*Required features: 'Win32_System_ApplicationVerifier'*"]
-pub const HeapStateMask: eHeapAllocationState = -65536i32;
+pub const HeapStateMask: eHeapAllocationState = eHeapAllocationState(-65536i32);
+impl ::core::marker::Copy for eHeapAllocationState {}
+impl ::core::clone::Clone for eHeapAllocationState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for eHeapAllocationState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for eHeapAllocationState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("eHeapAllocationState").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_ApplicationVerifier'*"]
-pub type eHeapEnumerationLevel = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct eHeapEnumerationLevel(pub i32);
 #[doc = "*Required features: 'Win32_System_ApplicationVerifier'*"]
-pub const HeapEnumerationEverything: eHeapEnumerationLevel = 0i32;
+pub const HeapEnumerationEverything: eHeapEnumerationLevel = eHeapEnumerationLevel(0i32);
 #[doc = "*Required features: 'Win32_System_ApplicationVerifier'*"]
-pub const HeapEnumerationStop: eHeapEnumerationLevel = -1i32;
+pub const HeapEnumerationStop: eHeapEnumerationLevel = eHeapEnumerationLevel(-1i32);
+impl ::core::marker::Copy for eHeapEnumerationLevel {}
+impl ::core::clone::Clone for eHeapEnumerationLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for eHeapEnumerationLevel {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for eHeapEnumerationLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("eHeapEnumerationLevel").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_ApplicationVerifier'*"]
-pub type eUserAllocationState = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct eUserAllocationState(pub i32);
 #[doc = "*Required features: 'Win32_System_ApplicationVerifier'*"]
-pub const AllocationStateUnknown: eUserAllocationState = 0i32;
+pub const AllocationStateUnknown: eUserAllocationState = eUserAllocationState(0i32);
 #[doc = "*Required features: 'Win32_System_ApplicationVerifier'*"]
-pub const AllocationStateBusy: eUserAllocationState = 1i32;
+pub const AllocationStateBusy: eUserAllocationState = eUserAllocationState(1i32);
 #[doc = "*Required features: 'Win32_System_ApplicationVerifier'*"]
-pub const AllocationStateFree: eUserAllocationState = 2i32;
+pub const AllocationStateFree: eUserAllocationState = eUserAllocationState(2i32);
+impl ::core::marker::Copy for eUserAllocationState {}
+impl ::core::clone::Clone for eUserAllocationState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for eUserAllocationState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for eUserAllocationState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("eUserAllocationState").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

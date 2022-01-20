@@ -45,13 +45,29 @@ impl ::core::default::Default for CompositionFrameDisplayInstance {
     }
 }
 #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
-pub type CompositionFrameInstanceKind = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CompositionFrameInstanceKind(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
-pub const CompositionFrameInstanceKind_ComposedOnScreen: CompositionFrameInstanceKind = 0i32;
+pub const CompositionFrameInstanceKind_ComposedOnScreen: CompositionFrameInstanceKind = CompositionFrameInstanceKind(0i32);
 #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
-pub const CompositionFrameInstanceKind_ScanoutOnScreen: CompositionFrameInstanceKind = 1i32;
+pub const CompositionFrameInstanceKind_ScanoutOnScreen: CompositionFrameInstanceKind = CompositionFrameInstanceKind(1i32);
 #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
-pub const CompositionFrameInstanceKind_ComposedToIntermediate: CompositionFrameInstanceKind = 2i32;
+pub const CompositionFrameInstanceKind_ComposedToIntermediate: CompositionFrameInstanceKind = CompositionFrameInstanceKind(2i32);
+impl ::core::marker::Copy for CompositionFrameInstanceKind {}
+impl ::core::clone::Clone for CompositionFrameInstanceKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CompositionFrameInstanceKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CompositionFrameInstanceKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionFrameInstanceKind").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 #[inline]
 pub unsafe fn CreatePresentationFactory<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(d3ddevice: Param0, riid: *const ::windows::core::GUID, presentationfactory: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -870,21 +886,53 @@ pub struct IPresentationSurface_Vtbl {
     pub SetLetterboxingMargins: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, leftletterboxsize: f32, topletterboxsize: f32, rightletterboxsize: f32, bottomletterboxsize: f32) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
-pub type PresentStatisticsKind = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PresentStatisticsKind(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
-pub const PresentStatisticsKind_PresentStatus: PresentStatisticsKind = 1i32;
+pub const PresentStatisticsKind_PresentStatus: PresentStatisticsKind = PresentStatisticsKind(1i32);
 #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
-pub const PresentStatisticsKind_CompositionFrame: PresentStatisticsKind = 2i32;
+pub const PresentStatisticsKind_CompositionFrame: PresentStatisticsKind = PresentStatisticsKind(2i32);
 #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
-pub const PresentStatisticsKind_IndependentFlipFrame: PresentStatisticsKind = 3i32;
+pub const PresentStatisticsKind_IndependentFlipFrame: PresentStatisticsKind = PresentStatisticsKind(3i32);
+impl ::core::marker::Copy for PresentStatisticsKind {}
+impl ::core::clone::Clone for PresentStatisticsKind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PresentStatisticsKind {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PresentStatisticsKind {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PresentStatisticsKind").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
-pub type PresentStatus = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PresentStatus(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
-pub const PresentStatus_Queued: PresentStatus = 0i32;
+pub const PresentStatus_Queued: PresentStatus = PresentStatus(0i32);
 #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
-pub const PresentStatus_Skipped: PresentStatus = 1i32;
+pub const PresentStatus_Skipped: PresentStatus = PresentStatus(1i32);
 #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
-pub const PresentStatus_Canceled: PresentStatus = 2i32;
+pub const PresentStatus_Canceled: PresentStatus = PresentStatus(2i32);
+impl ::core::marker::Copy for PresentStatus {}
+impl ::core::clone::Clone for PresentStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PresentStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PresentStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PresentStatus").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 pub struct PresentationTransform {

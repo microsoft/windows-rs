@@ -366,13 +366,29 @@ pub struct IInkPresenterDesktop_Vtbl {
     pub OnHighContrastChanged: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_UI_Input_Ink'*"]
-pub type INK_HIGH_CONTRAST_ADJUSTMENT = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct INK_HIGH_CONTRAST_ADJUSTMENT(pub i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ink'*"]
-pub const USE_SYSTEM_COLORS_WHEN_NECESSARY: INK_HIGH_CONTRAST_ADJUSTMENT = 0i32;
+pub const USE_SYSTEM_COLORS_WHEN_NECESSARY: INK_HIGH_CONTRAST_ADJUSTMENT = INK_HIGH_CONTRAST_ADJUSTMENT(0i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ink'*"]
-pub const USE_SYSTEM_COLORS: INK_HIGH_CONTRAST_ADJUSTMENT = 1i32;
+pub const USE_SYSTEM_COLORS: INK_HIGH_CONTRAST_ADJUSTMENT = INK_HIGH_CONTRAST_ADJUSTMENT(1i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ink'*"]
-pub const USE_ORIGINAL_COLORS: INK_HIGH_CONTRAST_ADJUSTMENT = 2i32;
+pub const USE_ORIGINAL_COLORS: INK_HIGH_CONTRAST_ADJUSTMENT = INK_HIGH_CONTRAST_ADJUSTMENT(2i32);
+impl ::core::marker::Copy for INK_HIGH_CONTRAST_ADJUSTMENT {}
+impl ::core::clone::Clone for INK_HIGH_CONTRAST_ADJUSTMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for INK_HIGH_CONTRAST_ADJUSTMENT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for INK_HIGH_CONTRAST_ADJUSTMENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INK_HIGH_CONTRAST_ADJUSTMENT").field(&self.0).finish()
+    }
+}
 pub const InkD2DRenderer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4044e60c_7b01_4671_a97c_04e0210a07a5);
 pub const InkDesktopHost: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x062584a6_f830_4bdc_a4d2_0a10ab062b1d);
 #[cfg(feature = "implement")]

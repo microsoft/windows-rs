@@ -699,11 +699,27 @@ impl ::core::default::Default for DEVPROPKEY {
     }
 }
 #[doc = "*Required features: 'Win32_Devices_Properties'*"]
-pub type DEVPROPSTORE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DEVPROPSTORE(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Properties'*"]
-pub const DEVPROP_STORE_SYSTEM: DEVPROPSTORE = 0i32;
+pub const DEVPROP_STORE_SYSTEM: DEVPROPSTORE = DEVPROPSTORE(0i32);
 #[doc = "*Required features: 'Win32_Devices_Properties'*"]
-pub const DEVPROP_STORE_USER: DEVPROPSTORE = 1i32;
+pub const DEVPROP_STORE_USER: DEVPROPSTORE = DEVPROPSTORE(1i32);
+impl ::core::marker::Copy for DEVPROPSTORE {}
+impl ::core::clone::Clone for DEVPROPSTORE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DEVPROPSTORE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DEVPROPSTORE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DEVPROPSTORE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Properties'*"]
 pub const DEVPROP_MASK_TYPE: u32 = 4095u32;
 #[doc = "*Required features: 'Win32_Devices_Properties'*"]

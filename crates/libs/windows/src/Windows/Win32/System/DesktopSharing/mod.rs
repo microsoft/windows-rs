@@ -1,56 +1,136 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub type ATTENDEE_DISCONNECT_REASON = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ATTENDEE_DISCONNECT_REASON(pub i32);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub const ATTENDEE_DISCONNECT_REASON_MIN: ATTENDEE_DISCONNECT_REASON = 0i32;
+pub const ATTENDEE_DISCONNECT_REASON_MIN: ATTENDEE_DISCONNECT_REASON = ATTENDEE_DISCONNECT_REASON(0i32);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub const ATTENDEE_DISCONNECT_REASON_APP: ATTENDEE_DISCONNECT_REASON = 0i32;
+pub const ATTENDEE_DISCONNECT_REASON_APP: ATTENDEE_DISCONNECT_REASON = ATTENDEE_DISCONNECT_REASON(0i32);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub const ATTENDEE_DISCONNECT_REASON_ERR: ATTENDEE_DISCONNECT_REASON = 1i32;
+pub const ATTENDEE_DISCONNECT_REASON_ERR: ATTENDEE_DISCONNECT_REASON = ATTENDEE_DISCONNECT_REASON(1i32);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub const ATTENDEE_DISCONNECT_REASON_CLI: ATTENDEE_DISCONNECT_REASON = 2i32;
+pub const ATTENDEE_DISCONNECT_REASON_CLI: ATTENDEE_DISCONNECT_REASON = ATTENDEE_DISCONNECT_REASON(2i32);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub const ATTENDEE_DISCONNECT_REASON_MAX: ATTENDEE_DISCONNECT_REASON = 2i32;
+pub const ATTENDEE_DISCONNECT_REASON_MAX: ATTENDEE_DISCONNECT_REASON = ATTENDEE_DISCONNECT_REASON(2i32);
+impl ::core::marker::Copy for ATTENDEE_DISCONNECT_REASON {}
+impl ::core::clone::Clone for ATTENDEE_DISCONNECT_REASON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ATTENDEE_DISCONNECT_REASON {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ATTENDEE_DISCONNECT_REASON {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ATTENDEE_DISCONNECT_REASON").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub type CHANNEL_ACCESS_ENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CHANNEL_ACCESS_ENUM(pub i32);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub const CHANNEL_ACCESS_ENUM_NONE: CHANNEL_ACCESS_ENUM = 0i32;
+pub const CHANNEL_ACCESS_ENUM_NONE: CHANNEL_ACCESS_ENUM = CHANNEL_ACCESS_ENUM(0i32);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub const CHANNEL_ACCESS_ENUM_SENDRECEIVE: CHANNEL_ACCESS_ENUM = 1i32;
+pub const CHANNEL_ACCESS_ENUM_SENDRECEIVE: CHANNEL_ACCESS_ENUM = CHANNEL_ACCESS_ENUM(1i32);
+impl ::core::marker::Copy for CHANNEL_ACCESS_ENUM {}
+impl ::core::clone::Clone for CHANNEL_ACCESS_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CHANNEL_ACCESS_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CHANNEL_ACCESS_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CHANNEL_ACCESS_ENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub type CHANNEL_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CHANNEL_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub const CHANNEL_FLAGS_LEGACY: CHANNEL_FLAGS = 1i32;
+pub const CHANNEL_FLAGS_LEGACY: CHANNEL_FLAGS = CHANNEL_FLAGS(1i32);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub const CHANNEL_FLAGS_UNCOMPRESSED: CHANNEL_FLAGS = 2i32;
+pub const CHANNEL_FLAGS_UNCOMPRESSED: CHANNEL_FLAGS = CHANNEL_FLAGS(2i32);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub const CHANNEL_FLAGS_DYNAMIC: CHANNEL_FLAGS = 4i32;
+pub const CHANNEL_FLAGS_DYNAMIC: CHANNEL_FLAGS = CHANNEL_FLAGS(4i32);
+impl ::core::marker::Copy for CHANNEL_FLAGS {}
+impl ::core::clone::Clone for CHANNEL_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CHANNEL_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CHANNEL_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CHANNEL_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub type CHANNEL_PRIORITY = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CHANNEL_PRIORITY(pub i32);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub const CHANNEL_PRIORITY_LO: CHANNEL_PRIORITY = 0i32;
+pub const CHANNEL_PRIORITY_LO: CHANNEL_PRIORITY = CHANNEL_PRIORITY(0i32);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub const CHANNEL_PRIORITY_MED: CHANNEL_PRIORITY = 1i32;
+pub const CHANNEL_PRIORITY_MED: CHANNEL_PRIORITY = CHANNEL_PRIORITY(1i32);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub const CHANNEL_PRIORITY_HI: CHANNEL_PRIORITY = 2i32;
+pub const CHANNEL_PRIORITY_HI: CHANNEL_PRIORITY = CHANNEL_PRIORITY(2i32);
+impl ::core::marker::Copy for CHANNEL_PRIORITY {}
+impl ::core::clone::Clone for CHANNEL_PRIORITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CHANNEL_PRIORITY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CHANNEL_PRIORITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CHANNEL_PRIORITY").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub type CTRL_LEVEL = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CTRL_LEVEL(pub i32);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub const CTRL_LEVEL_MIN: CTRL_LEVEL = 0i32;
+pub const CTRL_LEVEL_MIN: CTRL_LEVEL = CTRL_LEVEL(0i32);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub const CTRL_LEVEL_INVALID: CTRL_LEVEL = 0i32;
+pub const CTRL_LEVEL_INVALID: CTRL_LEVEL = CTRL_LEVEL(0i32);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub const CTRL_LEVEL_NONE: CTRL_LEVEL = 1i32;
+pub const CTRL_LEVEL_NONE: CTRL_LEVEL = CTRL_LEVEL(1i32);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub const CTRL_LEVEL_VIEW: CTRL_LEVEL = 2i32;
+pub const CTRL_LEVEL_VIEW: CTRL_LEVEL = CTRL_LEVEL(2i32);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub const CTRL_LEVEL_INTERACTIVE: CTRL_LEVEL = 3i32;
+pub const CTRL_LEVEL_INTERACTIVE: CTRL_LEVEL = CTRL_LEVEL(3i32);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub const CTRL_LEVEL_REQCTRL_VIEW: CTRL_LEVEL = 4i32;
+pub const CTRL_LEVEL_REQCTRL_VIEW: CTRL_LEVEL = CTRL_LEVEL(4i32);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub const CTRL_LEVEL_REQCTRL_INTERACTIVE: CTRL_LEVEL = 5i32;
+pub const CTRL_LEVEL_REQCTRL_INTERACTIVE: CTRL_LEVEL = CTRL_LEVEL(5i32);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub const CTRL_LEVEL_MAX: CTRL_LEVEL = 5i32;
+pub const CTRL_LEVEL_MAX: CTRL_LEVEL = CTRL_LEVEL(5i32);
+impl ::core::marker::Copy for CTRL_LEVEL {}
+impl ::core::clone::Clone for CTRL_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CTRL_LEVEL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CTRL_LEVEL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CTRL_LEVEL").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub const DISPID_RDPAPI_EVENT_ON_BOUNDING_RECT_CHANGED: u32 = 340u32;
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
@@ -3717,9 +3797,25 @@ pub struct IRDPViewerInputSink_Vtbl {
     pub EndTouchFrame: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub type RDPENCOMAPI_ATTENDEE_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RDPENCOMAPI_ATTENDEE_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub const ATTENDEE_FLAGS_LOCAL: RDPENCOMAPI_ATTENDEE_FLAGS = 1i32;
+pub const ATTENDEE_FLAGS_LOCAL: RDPENCOMAPI_ATTENDEE_FLAGS = RDPENCOMAPI_ATTENDEE_FLAGS(1i32);
+impl ::core::marker::Copy for RDPENCOMAPI_ATTENDEE_FLAGS {}
+impl ::core::clone::Clone for RDPENCOMAPI_ATTENDEE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RDPENCOMAPI_ATTENDEE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RDPENCOMAPI_ATTENDEE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RDPENCOMAPI_ATTENDEE_FLAGS").field(&self.0).finish()
+    }
+}
 pub const RDPSRAPIApplication: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc116a484_4b25_4b9f_8a54_b934b06e57fa);
 pub const RDPSRAPIApplicationFilter: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe35ace89_c7e8_427e_a4f9_b9da072826bd);
 pub const RDPSRAPIApplicationList: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e31c815_7433_4876_97fb_ed59fe2baa22);
@@ -3734,43 +3830,123 @@ pub const RDPSRAPITcpConnectionInfo: ::windows::core::GUID = ::windows::core::GU
 pub const RDPSRAPIWindow: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03cf46db_ce45_4d36_86ed_ed28b74398bf);
 pub const RDPSRAPIWindowList: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c21e2b8_5dd4_42cc_81ba_1c099852e6fa);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub type RDPSRAPI_APP_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RDPSRAPI_APP_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub const APP_FLAG_PRIVILEGED: RDPSRAPI_APP_FLAGS = 1i32;
+pub const APP_FLAG_PRIVILEGED: RDPSRAPI_APP_FLAGS = RDPSRAPI_APP_FLAGS(1i32);
+impl ::core::marker::Copy for RDPSRAPI_APP_FLAGS {}
+impl ::core::clone::Clone for RDPSRAPI_APP_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RDPSRAPI_APP_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RDPSRAPI_APP_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RDPSRAPI_APP_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub type RDPSRAPI_KBD_CODE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RDPSRAPI_KBD_CODE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub const RDPSRAPI_KBD_CODE_SCANCODE: RDPSRAPI_KBD_CODE_TYPE = 0i32;
+pub const RDPSRAPI_KBD_CODE_SCANCODE: RDPSRAPI_KBD_CODE_TYPE = RDPSRAPI_KBD_CODE_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub const RDPSRAPI_KBD_CODE_UNICODE: RDPSRAPI_KBD_CODE_TYPE = 1i32;
+pub const RDPSRAPI_KBD_CODE_UNICODE: RDPSRAPI_KBD_CODE_TYPE = RDPSRAPI_KBD_CODE_TYPE(1i32);
+impl ::core::marker::Copy for RDPSRAPI_KBD_CODE_TYPE {}
+impl ::core::clone::Clone for RDPSRAPI_KBD_CODE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RDPSRAPI_KBD_CODE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RDPSRAPI_KBD_CODE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RDPSRAPI_KBD_CODE_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub type RDPSRAPI_KBD_SYNC_FLAG = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RDPSRAPI_KBD_SYNC_FLAG(pub i32);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub const RDPSRAPI_KBD_SYNC_FLAG_SCROLL_LOCK: RDPSRAPI_KBD_SYNC_FLAG = 1i32;
+pub const RDPSRAPI_KBD_SYNC_FLAG_SCROLL_LOCK: RDPSRAPI_KBD_SYNC_FLAG = RDPSRAPI_KBD_SYNC_FLAG(1i32);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub const RDPSRAPI_KBD_SYNC_FLAG_NUM_LOCK: RDPSRAPI_KBD_SYNC_FLAG = 2i32;
+pub const RDPSRAPI_KBD_SYNC_FLAG_NUM_LOCK: RDPSRAPI_KBD_SYNC_FLAG = RDPSRAPI_KBD_SYNC_FLAG(2i32);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub const RDPSRAPI_KBD_SYNC_FLAG_CAPS_LOCK: RDPSRAPI_KBD_SYNC_FLAG = 4i32;
+pub const RDPSRAPI_KBD_SYNC_FLAG_CAPS_LOCK: RDPSRAPI_KBD_SYNC_FLAG = RDPSRAPI_KBD_SYNC_FLAG(4i32);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub const RDPSRAPI_KBD_SYNC_FLAG_KANA_LOCK: RDPSRAPI_KBD_SYNC_FLAG = 8i32;
+pub const RDPSRAPI_KBD_SYNC_FLAG_KANA_LOCK: RDPSRAPI_KBD_SYNC_FLAG = RDPSRAPI_KBD_SYNC_FLAG(8i32);
+impl ::core::marker::Copy for RDPSRAPI_KBD_SYNC_FLAG {}
+impl ::core::clone::Clone for RDPSRAPI_KBD_SYNC_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RDPSRAPI_KBD_SYNC_FLAG {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RDPSRAPI_KBD_SYNC_FLAG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RDPSRAPI_KBD_SYNC_FLAG").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub type RDPSRAPI_MOUSE_BUTTON_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RDPSRAPI_MOUSE_BUTTON_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub const RDPSRAPI_MOUSE_BUTTON_BUTTON1: RDPSRAPI_MOUSE_BUTTON_TYPE = 0i32;
+pub const RDPSRAPI_MOUSE_BUTTON_BUTTON1: RDPSRAPI_MOUSE_BUTTON_TYPE = RDPSRAPI_MOUSE_BUTTON_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub const RDPSRAPI_MOUSE_BUTTON_BUTTON2: RDPSRAPI_MOUSE_BUTTON_TYPE = 1i32;
+pub const RDPSRAPI_MOUSE_BUTTON_BUTTON2: RDPSRAPI_MOUSE_BUTTON_TYPE = RDPSRAPI_MOUSE_BUTTON_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub const RDPSRAPI_MOUSE_BUTTON_BUTTON3: RDPSRAPI_MOUSE_BUTTON_TYPE = 2i32;
+pub const RDPSRAPI_MOUSE_BUTTON_BUTTON3: RDPSRAPI_MOUSE_BUTTON_TYPE = RDPSRAPI_MOUSE_BUTTON_TYPE(2i32);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub const RDPSRAPI_MOUSE_BUTTON_XBUTTON1: RDPSRAPI_MOUSE_BUTTON_TYPE = 3i32;
+pub const RDPSRAPI_MOUSE_BUTTON_XBUTTON1: RDPSRAPI_MOUSE_BUTTON_TYPE = RDPSRAPI_MOUSE_BUTTON_TYPE(3i32);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub const RDPSRAPI_MOUSE_BUTTON_XBUTTON2: RDPSRAPI_MOUSE_BUTTON_TYPE = 4i32;
+pub const RDPSRAPI_MOUSE_BUTTON_XBUTTON2: RDPSRAPI_MOUSE_BUTTON_TYPE = RDPSRAPI_MOUSE_BUTTON_TYPE(4i32);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub const RDPSRAPI_MOUSE_BUTTON_XBUTTON3: RDPSRAPI_MOUSE_BUTTON_TYPE = 5i32;
+pub const RDPSRAPI_MOUSE_BUTTON_XBUTTON3: RDPSRAPI_MOUSE_BUTTON_TYPE = RDPSRAPI_MOUSE_BUTTON_TYPE(5i32);
+impl ::core::marker::Copy for RDPSRAPI_MOUSE_BUTTON_TYPE {}
+impl ::core::clone::Clone for RDPSRAPI_MOUSE_BUTTON_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RDPSRAPI_MOUSE_BUTTON_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RDPSRAPI_MOUSE_BUTTON_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RDPSRAPI_MOUSE_BUTTON_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub type RDPSRAPI_WND_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RDPSRAPI_WND_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub const WND_FLAG_PRIVILEGED: RDPSRAPI_WND_FLAGS = 1i32;
+pub const WND_FLAG_PRIVILEGED: RDPSRAPI_WND_FLAGS = RDPSRAPI_WND_FLAGS(1i32);
+impl ::core::marker::Copy for RDPSRAPI_WND_FLAGS {}
+impl ::core::clone::Clone for RDPSRAPI_WND_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RDPSRAPI_WND_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RDPSRAPI_WND_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RDPSRAPI_WND_FLAGS").field(&self.0).finish()
+    }
+}
 pub const RDPSession: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b78f0e6_3e05_4a5b_b2e8_e743a8956b65);
 pub const RDPTransportStreamBuffer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d4a1c69_f17f_4549_a699_761c6e6b5c0a);
 pub const RDPTransportStreamEvents: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31e3ab20_5350_483f_9dc6_6748665efdeb);
@@ -3884,21 +4060,37 @@ pub struct _IRDPSessionEvents_Vtbl {
     pub base: super::Com::IDispatch_Vtbl,
 }
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub type __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001(pub i32);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub const CONST_MAX_CHANNEL_MESSAGE_SIZE: __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 = 1024i32;
+pub const CONST_MAX_CHANNEL_MESSAGE_SIZE: __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 = __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001(1024i32);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub const CONST_MAX_CHANNEL_NAME_LEN: __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 = 8i32;
+pub const CONST_MAX_CHANNEL_NAME_LEN: __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 = __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001(8i32);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub const CONST_MAX_LEGACY_CHANNEL_MESSAGE_SIZE: __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 = 409600i32;
+pub const CONST_MAX_LEGACY_CHANNEL_MESSAGE_SIZE: __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 = __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001(409600i32);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub const CONST_ATTENDEE_ID_EVERYONE: __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 = -1i32;
+pub const CONST_ATTENDEE_ID_EVERYONE: __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 = __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001(-1i32);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub const CONST_ATTENDEE_ID_HOST: __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 = 0i32;
+pub const CONST_ATTENDEE_ID_HOST: __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 = __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001(0i32);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub const CONST_CONN_INTERVAL: __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 = 50i32;
+pub const CONST_CONN_INTERVAL: __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 = __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001(50i32);
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
-pub const CONST_ATTENDEE_ID_DEFAULT: __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 = -1i32;
+pub const CONST_ATTENDEE_ID_DEFAULT: __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 = __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001(-1i32);
+impl ::core::marker::Copy for __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 {}
+impl ::core::clone::Clone for __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for __MIDL___MIDL_itf_rdpencomapi_0000_0027_0001 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("__MIDL___MIDL_itf_rdpencomapi_0000_0027_0001").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_DesktopSharing'*"]
 pub struct __ReferenceRemainingTypes__ {

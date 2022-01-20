@@ -1,14 +1,58 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'Win32_Security_EnterpriseData'*"]
-pub type ENTERPRISE_DATA_POLICIES = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ENTERPRISE_DATA_POLICIES(pub u32);
 #[doc = "*Required features: 'Win32_Security_EnterpriseData'*"]
-pub const ENTERPRISE_POLICY_NONE: ENTERPRISE_DATA_POLICIES = 0u32;
+pub const ENTERPRISE_POLICY_NONE: ENTERPRISE_DATA_POLICIES = ENTERPRISE_DATA_POLICIES(0u32);
 #[doc = "*Required features: 'Win32_Security_EnterpriseData'*"]
-pub const ENTERPRISE_POLICY_ALLOWED: ENTERPRISE_DATA_POLICIES = 1u32;
+pub const ENTERPRISE_POLICY_ALLOWED: ENTERPRISE_DATA_POLICIES = ENTERPRISE_DATA_POLICIES(1u32);
 #[doc = "*Required features: 'Win32_Security_EnterpriseData'*"]
-pub const ENTERPRISE_POLICY_ENLIGHTENED: ENTERPRISE_DATA_POLICIES = 2u32;
+pub const ENTERPRISE_POLICY_ENLIGHTENED: ENTERPRISE_DATA_POLICIES = ENTERPRISE_DATA_POLICIES(2u32);
 #[doc = "*Required features: 'Win32_Security_EnterpriseData'*"]
-pub const ENTERPRISE_POLICY_EXEMPT: ENTERPRISE_DATA_POLICIES = 4u32;
+pub const ENTERPRISE_POLICY_EXEMPT: ENTERPRISE_DATA_POLICIES = ENTERPRISE_DATA_POLICIES(4u32);
+impl ::core::marker::Copy for ENTERPRISE_DATA_POLICIES {}
+impl ::core::clone::Clone for ENTERPRISE_DATA_POLICIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ENTERPRISE_DATA_POLICIES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ENTERPRISE_DATA_POLICIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ENTERPRISE_DATA_POLICIES").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for ENTERPRISE_DATA_POLICIES {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for ENTERPRISE_DATA_POLICIES {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for ENTERPRISE_DATA_POLICIES {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for ENTERPRISE_DATA_POLICIES {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for ENTERPRISE_DATA_POLICIES {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_EnterpriseData'*"]
 pub struct FILE_UNPROTECT_OPTIONS {
@@ -434,17 +478,49 @@ pub unsafe fn ProtectFileToEnterpriseIdentity<'a, Param0: ::windows::core::IntoP
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Security_EnterpriseData'*"]
-pub type SRPHOSTING_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SRPHOSTING_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Security_EnterpriseData'*"]
-pub const SRPHOSTING_TYPE_NONE: SRPHOSTING_TYPE = 0i32;
+pub const SRPHOSTING_TYPE_NONE: SRPHOSTING_TYPE = SRPHOSTING_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Security_EnterpriseData'*"]
-pub const SRPHOSTING_TYPE_WINHTTP: SRPHOSTING_TYPE = 1i32;
+pub const SRPHOSTING_TYPE_WINHTTP: SRPHOSTING_TYPE = SRPHOSTING_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Security_EnterpriseData'*"]
-pub const SRPHOSTING_TYPE_WININET: SRPHOSTING_TYPE = 2i32;
+pub const SRPHOSTING_TYPE_WININET: SRPHOSTING_TYPE = SRPHOSTING_TYPE(2i32);
+impl ::core::marker::Copy for SRPHOSTING_TYPE {}
+impl ::core::clone::Clone for SRPHOSTING_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SRPHOSTING_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SRPHOSTING_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SRPHOSTING_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_EnterpriseData'*"]
-pub type SRPHOSTING_VERSION = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SRPHOSTING_VERSION(pub i32);
 #[doc = "*Required features: 'Win32_Security_EnterpriseData'*"]
-pub const SRPHOSTING_VERSION1: SRPHOSTING_VERSION = 1i32;
+pub const SRPHOSTING_VERSION1: SRPHOSTING_VERSION = SRPHOSTING_VERSION(1i32);
+impl ::core::marker::Copy for SRPHOSTING_VERSION {}
+impl ::core::clone::Clone for SRPHOSTING_VERSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SRPHOSTING_VERSION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SRPHOSTING_VERSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SRPHOSTING_VERSION").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_EnterpriseData', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]

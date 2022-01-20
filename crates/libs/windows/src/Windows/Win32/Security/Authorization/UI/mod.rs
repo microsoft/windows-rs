@@ -627,13 +627,57 @@ pub struct ISecurityObjectTypeInfo_Vtbl {
     GetInheritSource: usize,
 }
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
-pub type SECURITY_INFO_PAGE_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SECURITY_INFO_PAGE_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
-pub const SI_ADVANCED: SECURITY_INFO_PAGE_FLAGS = 16u32;
+pub const SI_ADVANCED: SECURITY_INFO_PAGE_FLAGS = SECURITY_INFO_PAGE_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
-pub const SI_EDIT_AUDITS: SECURITY_INFO_PAGE_FLAGS = 2u32;
+pub const SI_EDIT_AUDITS: SECURITY_INFO_PAGE_FLAGS = SECURITY_INFO_PAGE_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
-pub const SI_EDIT_PROPERTIES: SECURITY_INFO_PAGE_FLAGS = 128u32;
+pub const SI_EDIT_PROPERTIES: SECURITY_INFO_PAGE_FLAGS = SECURITY_INFO_PAGE_FLAGS(128u32);
+impl ::core::marker::Copy for SECURITY_INFO_PAGE_FLAGS {}
+impl ::core::clone::Clone for SECURITY_INFO_PAGE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SECURITY_INFO_PAGE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SECURITY_INFO_PAGE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SECURITY_INFO_PAGE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SECURITY_INFO_PAGE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SECURITY_INFO_PAGE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SECURITY_INFO_PAGE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SECURITY_INFO_PAGE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SECURITY_INFO_PAGE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Security_Authorization_UI', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -911,73 +955,149 @@ impl ::core::default::Default for SI_OBJECT_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
-pub type SI_OBJECT_INFO_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SI_OBJECT_INFO_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
-pub const SI_AUDITS_ELEVATION_REQUIRED: SI_OBJECT_INFO_FLAGS = 33554432u32;
+pub const SI_AUDITS_ELEVATION_REQUIRED: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(33554432u32);
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
-pub const SI_DISABLE_DENY_ACE: SI_OBJECT_INFO_FLAGS = 2147483648u32;
+pub const SI_DISABLE_DENY_ACE: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(2147483648u32);
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
-pub const SI_EDIT_EFFECTIVE: SI_OBJECT_INFO_FLAGS = 131072u32;
+pub const SI_EDIT_EFFECTIVE: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(131072u32);
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
-pub const SI_ENABLE_CENTRAL_POLICY: SI_OBJECT_INFO_FLAGS = 1073741824u32;
+pub const SI_ENABLE_CENTRAL_POLICY: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(1073741824u32);
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
-pub const SI_ENABLE_EDIT_ATTRIBUTE_CONDITION: SI_OBJECT_INFO_FLAGS = 536870912u32;
+pub const SI_ENABLE_EDIT_ATTRIBUTE_CONDITION: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(536870912u32);
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
-pub const SI_MAY_WRITE: SI_OBJECT_INFO_FLAGS = 268435456u32;
+pub const SI_MAY_WRITE: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(268435456u32);
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
-pub const SI_NO_ADDITIONAL_PERMISSION: SI_OBJECT_INFO_FLAGS = 2097152u32;
+pub const SI_NO_ADDITIONAL_PERMISSION: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(2097152u32);
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
-pub const SI_OWNER_ELEVATION_REQUIRED: SI_OBJECT_INFO_FLAGS = 67108864u32;
+pub const SI_OWNER_ELEVATION_REQUIRED: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(67108864u32);
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
-pub const SI_PERMS_ELEVATION_REQUIRED: SI_OBJECT_INFO_FLAGS = 16777216u32;
+pub const SI_PERMS_ELEVATION_REQUIRED: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(16777216u32);
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
-pub const SI_RESET_DACL: SI_OBJECT_INFO_FLAGS = 262144u32;
+pub const SI_RESET_DACL: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(262144u32);
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
-pub const SI_RESET_OWNER: SI_OBJECT_INFO_FLAGS = 1048576u32;
+pub const SI_RESET_OWNER: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(1048576u32);
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
-pub const SI_RESET_SACL: SI_OBJECT_INFO_FLAGS = 524288u32;
+pub const SI_RESET_SACL: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(524288u32);
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
-pub const SI_SCOPE_ELEVATION_REQUIRED: SI_OBJECT_INFO_FLAGS = 134217728u32;
+pub const SI_SCOPE_ELEVATION_REQUIRED: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(134217728u32);
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
-pub const SI_VIEW_ONLY: SI_OBJECT_INFO_FLAGS = 4194304u32;
+pub const SI_VIEW_ONLY: SI_OBJECT_INFO_FLAGS = SI_OBJECT_INFO_FLAGS(4194304u32);
+impl ::core::marker::Copy for SI_OBJECT_INFO_FLAGS {}
+impl ::core::clone::Clone for SI_OBJECT_INFO_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SI_OBJECT_INFO_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SI_OBJECT_INFO_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SI_OBJECT_INFO_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SI_OBJECT_INFO_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SI_OBJECT_INFO_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SI_OBJECT_INFO_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SI_OBJECT_INFO_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SI_OBJECT_INFO_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 pub const SI_OWNER_READONLY: i32 = 64i32;
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 pub const SI_OWNER_RECURSE: i32 = 256i32;
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
-pub type SI_PAGE_ACTIVATED = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SI_PAGE_ACTIVATED(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
-pub const SI_SHOW_DEFAULT: SI_PAGE_ACTIVATED = 0i32;
+pub const SI_SHOW_DEFAULT: SI_PAGE_ACTIVATED = SI_PAGE_ACTIVATED(0i32);
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
-pub const SI_SHOW_PERM_ACTIVATED: SI_PAGE_ACTIVATED = 1i32;
+pub const SI_SHOW_PERM_ACTIVATED: SI_PAGE_ACTIVATED = SI_PAGE_ACTIVATED(1i32);
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
-pub const SI_SHOW_AUDIT_ACTIVATED: SI_PAGE_ACTIVATED = 2i32;
+pub const SI_SHOW_AUDIT_ACTIVATED: SI_PAGE_ACTIVATED = SI_PAGE_ACTIVATED(2i32);
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
-pub const SI_SHOW_OWNER_ACTIVATED: SI_PAGE_ACTIVATED = 3i32;
+pub const SI_SHOW_OWNER_ACTIVATED: SI_PAGE_ACTIVATED = SI_PAGE_ACTIVATED(3i32);
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
-pub const SI_SHOW_EFFECTIVE_ACTIVATED: SI_PAGE_ACTIVATED = 4i32;
+pub const SI_SHOW_EFFECTIVE_ACTIVATED: SI_PAGE_ACTIVATED = SI_PAGE_ACTIVATED(4i32);
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
-pub const SI_SHOW_SHARE_ACTIVATED: SI_PAGE_ACTIVATED = 5i32;
+pub const SI_SHOW_SHARE_ACTIVATED: SI_PAGE_ACTIVATED = SI_PAGE_ACTIVATED(5i32);
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
-pub const SI_SHOW_CENTRAL_POLICY_ACTIVATED: SI_PAGE_ACTIVATED = 6i32;
+pub const SI_SHOW_CENTRAL_POLICY_ACTIVATED: SI_PAGE_ACTIVATED = SI_PAGE_ACTIVATED(6i32);
+impl ::core::marker::Copy for SI_PAGE_ACTIVATED {}
+impl ::core::clone::Clone for SI_PAGE_ACTIVATED {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SI_PAGE_ACTIVATED {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SI_PAGE_ACTIVATED {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SI_PAGE_ACTIVATED").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 pub const SI_PAGE_TITLE: i32 = 2048i32;
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
-pub type SI_PAGE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SI_PAGE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
-pub const SI_PAGE_PERM: SI_PAGE_TYPE = 0i32;
+pub const SI_PAGE_PERM: SI_PAGE_TYPE = SI_PAGE_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
-pub const SI_PAGE_ADVPERM: SI_PAGE_TYPE = 1i32;
+pub const SI_PAGE_ADVPERM: SI_PAGE_TYPE = SI_PAGE_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
-pub const SI_PAGE_AUDIT: SI_PAGE_TYPE = 2i32;
+pub const SI_PAGE_AUDIT: SI_PAGE_TYPE = SI_PAGE_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
-pub const SI_PAGE_OWNER: SI_PAGE_TYPE = 3i32;
+pub const SI_PAGE_OWNER: SI_PAGE_TYPE = SI_PAGE_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
-pub const SI_PAGE_EFFECTIVE: SI_PAGE_TYPE = 4i32;
+pub const SI_PAGE_EFFECTIVE: SI_PAGE_TYPE = SI_PAGE_TYPE(4i32);
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
-pub const SI_PAGE_TAKEOWNERSHIP: SI_PAGE_TYPE = 5i32;
+pub const SI_PAGE_TAKEOWNERSHIP: SI_PAGE_TYPE = SI_PAGE_TYPE(5i32);
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
-pub const SI_PAGE_SHARE: SI_PAGE_TYPE = 6i32;
+pub const SI_PAGE_SHARE: SI_PAGE_TYPE = SI_PAGE_TYPE(6i32);
+impl ::core::marker::Copy for SI_PAGE_TYPE {}
+impl ::core::clone::Clone for SI_PAGE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SI_PAGE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SI_PAGE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SI_PAGE_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]
 pub const SI_READONLY: i32 = 8i32;
 #[doc = "*Required features: 'Win32_Security_Authorization_UI'*"]

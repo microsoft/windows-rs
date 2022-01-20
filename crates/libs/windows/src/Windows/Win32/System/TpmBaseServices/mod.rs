@@ -30,29 +30,117 @@ pub unsafe fn GetDeviceIDString(pszwindowsaik: super::super::Foundation::PWSTR, 
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
-pub type TBS_COMMAND_LOCALITY = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TBS_COMMAND_LOCALITY(pub u32);
 #[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
-pub const TBS_COMMAND_LOCALITY_ZERO: TBS_COMMAND_LOCALITY = 0u32;
+pub const TBS_COMMAND_LOCALITY_ZERO: TBS_COMMAND_LOCALITY = TBS_COMMAND_LOCALITY(0u32);
 #[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
-pub const TBS_COMMAND_LOCALITY_ONE: TBS_COMMAND_LOCALITY = 1u32;
+pub const TBS_COMMAND_LOCALITY_ONE: TBS_COMMAND_LOCALITY = TBS_COMMAND_LOCALITY(1u32);
 #[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
-pub const TBS_COMMAND_LOCALITY_TWO: TBS_COMMAND_LOCALITY = 2u32;
+pub const TBS_COMMAND_LOCALITY_TWO: TBS_COMMAND_LOCALITY = TBS_COMMAND_LOCALITY(2u32);
 #[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
-pub const TBS_COMMAND_LOCALITY_THREE: TBS_COMMAND_LOCALITY = 3u32;
+pub const TBS_COMMAND_LOCALITY_THREE: TBS_COMMAND_LOCALITY = TBS_COMMAND_LOCALITY(3u32);
 #[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
-pub const TBS_COMMAND_LOCALITY_FOUR: TBS_COMMAND_LOCALITY = 4u32;
+pub const TBS_COMMAND_LOCALITY_FOUR: TBS_COMMAND_LOCALITY = TBS_COMMAND_LOCALITY(4u32);
+impl ::core::marker::Copy for TBS_COMMAND_LOCALITY {}
+impl ::core::clone::Clone for TBS_COMMAND_LOCALITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TBS_COMMAND_LOCALITY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TBS_COMMAND_LOCALITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TBS_COMMAND_LOCALITY").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for TBS_COMMAND_LOCALITY {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for TBS_COMMAND_LOCALITY {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for TBS_COMMAND_LOCALITY {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for TBS_COMMAND_LOCALITY {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for TBS_COMMAND_LOCALITY {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
-pub type TBS_COMMAND_PRIORITY = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TBS_COMMAND_PRIORITY(pub u32);
 #[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
-pub const TBS_COMMAND_PRIORITY_LOW: TBS_COMMAND_PRIORITY = 100u32;
+pub const TBS_COMMAND_PRIORITY_LOW: TBS_COMMAND_PRIORITY = TBS_COMMAND_PRIORITY(100u32);
 #[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
-pub const TBS_COMMAND_PRIORITY_NORMAL: TBS_COMMAND_PRIORITY = 200u32;
+pub const TBS_COMMAND_PRIORITY_NORMAL: TBS_COMMAND_PRIORITY = TBS_COMMAND_PRIORITY(200u32);
 #[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
-pub const TBS_COMMAND_PRIORITY_SYSTEM: TBS_COMMAND_PRIORITY = 400u32;
+pub const TBS_COMMAND_PRIORITY_SYSTEM: TBS_COMMAND_PRIORITY = TBS_COMMAND_PRIORITY(400u32);
 #[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
-pub const TBS_COMMAND_PRIORITY_HIGH: TBS_COMMAND_PRIORITY = 300u32;
+pub const TBS_COMMAND_PRIORITY_HIGH: TBS_COMMAND_PRIORITY = TBS_COMMAND_PRIORITY(300u32);
 #[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
-pub const TBS_COMMAND_PRIORITY_MAX: TBS_COMMAND_PRIORITY = 2147483648u32;
+pub const TBS_COMMAND_PRIORITY_MAX: TBS_COMMAND_PRIORITY = TBS_COMMAND_PRIORITY(2147483648u32);
+impl ::core::marker::Copy for TBS_COMMAND_PRIORITY {}
+impl ::core::clone::Clone for TBS_COMMAND_PRIORITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TBS_COMMAND_PRIORITY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TBS_COMMAND_PRIORITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TBS_COMMAND_PRIORITY").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for TBS_COMMAND_PRIORITY {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for TBS_COMMAND_PRIORITY {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for TBS_COMMAND_PRIORITY {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for TBS_COMMAND_PRIORITY {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for TBS_COMMAND_PRIORITY {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_TpmBaseServices'*"]
 pub struct TBS_CONTEXT_PARAMS {

@@ -261,37 +261,69 @@ pub struct IRendezvousSession_Vtbl {
     Terminate: usize,
 }
 #[doc = "*Required features: 'Win32_System_RemoteAssistance'*"]
-pub type RENDEZVOUS_SESSION_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RENDEZVOUS_SESSION_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_System_RemoteAssistance'*"]
-pub const RSF_NONE: RENDEZVOUS_SESSION_FLAGS = 0i32;
+pub const RSF_NONE: RENDEZVOUS_SESSION_FLAGS = RENDEZVOUS_SESSION_FLAGS(0i32);
 #[doc = "*Required features: 'Win32_System_RemoteAssistance'*"]
-pub const RSF_INVITER: RENDEZVOUS_SESSION_FLAGS = 1i32;
+pub const RSF_INVITER: RENDEZVOUS_SESSION_FLAGS = RENDEZVOUS_SESSION_FLAGS(1i32);
 #[doc = "*Required features: 'Win32_System_RemoteAssistance'*"]
-pub const RSF_INVITEE: RENDEZVOUS_SESSION_FLAGS = 2i32;
+pub const RSF_INVITEE: RENDEZVOUS_SESSION_FLAGS = RENDEZVOUS_SESSION_FLAGS(2i32);
 #[doc = "*Required features: 'Win32_System_RemoteAssistance'*"]
-pub const RSF_ORIGINAL_INVITER: RENDEZVOUS_SESSION_FLAGS = 4i32;
+pub const RSF_ORIGINAL_INVITER: RENDEZVOUS_SESSION_FLAGS = RENDEZVOUS_SESSION_FLAGS(4i32);
 #[doc = "*Required features: 'Win32_System_RemoteAssistance'*"]
-pub const RSF_REMOTE_LEGACYSESSION: RENDEZVOUS_SESSION_FLAGS = 8i32;
+pub const RSF_REMOTE_LEGACYSESSION: RENDEZVOUS_SESSION_FLAGS = RENDEZVOUS_SESSION_FLAGS(8i32);
 #[doc = "*Required features: 'Win32_System_RemoteAssistance'*"]
-pub const RSF_REMOTE_WIN7SESSION: RENDEZVOUS_SESSION_FLAGS = 16i32;
+pub const RSF_REMOTE_WIN7SESSION: RENDEZVOUS_SESSION_FLAGS = RENDEZVOUS_SESSION_FLAGS(16i32);
+impl ::core::marker::Copy for RENDEZVOUS_SESSION_FLAGS {}
+impl ::core::clone::Clone for RENDEZVOUS_SESSION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RENDEZVOUS_SESSION_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RENDEZVOUS_SESSION_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RENDEZVOUS_SESSION_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_RemoteAssistance'*"]
-pub type RENDEZVOUS_SESSION_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RENDEZVOUS_SESSION_STATE(pub i32);
 #[doc = "*Required features: 'Win32_System_RemoteAssistance'*"]
-pub const RSS_UNKNOWN: RENDEZVOUS_SESSION_STATE = 0i32;
+pub const RSS_UNKNOWN: RENDEZVOUS_SESSION_STATE = RENDEZVOUS_SESSION_STATE(0i32);
 #[doc = "*Required features: 'Win32_System_RemoteAssistance'*"]
-pub const RSS_READY: RENDEZVOUS_SESSION_STATE = 1i32;
+pub const RSS_READY: RENDEZVOUS_SESSION_STATE = RENDEZVOUS_SESSION_STATE(1i32);
 #[doc = "*Required features: 'Win32_System_RemoteAssistance'*"]
-pub const RSS_INVITATION: RENDEZVOUS_SESSION_STATE = 2i32;
+pub const RSS_INVITATION: RENDEZVOUS_SESSION_STATE = RENDEZVOUS_SESSION_STATE(2i32);
 #[doc = "*Required features: 'Win32_System_RemoteAssistance'*"]
-pub const RSS_ACCEPTED: RENDEZVOUS_SESSION_STATE = 3i32;
+pub const RSS_ACCEPTED: RENDEZVOUS_SESSION_STATE = RENDEZVOUS_SESSION_STATE(3i32);
 #[doc = "*Required features: 'Win32_System_RemoteAssistance'*"]
-pub const RSS_CONNECTED: RENDEZVOUS_SESSION_STATE = 4i32;
+pub const RSS_CONNECTED: RENDEZVOUS_SESSION_STATE = RENDEZVOUS_SESSION_STATE(4i32);
 #[doc = "*Required features: 'Win32_System_RemoteAssistance'*"]
-pub const RSS_CANCELLED: RENDEZVOUS_SESSION_STATE = 5i32;
+pub const RSS_CANCELLED: RENDEZVOUS_SESSION_STATE = RENDEZVOUS_SESSION_STATE(5i32);
 #[doc = "*Required features: 'Win32_System_RemoteAssistance'*"]
-pub const RSS_DECLINED: RENDEZVOUS_SESSION_STATE = 6i32;
+pub const RSS_DECLINED: RENDEZVOUS_SESSION_STATE = RENDEZVOUS_SESSION_STATE(6i32);
 #[doc = "*Required features: 'Win32_System_RemoteAssistance'*"]
-pub const RSS_TERMINATED: RENDEZVOUS_SESSION_STATE = 7i32;
+pub const RSS_TERMINATED: RENDEZVOUS_SESSION_STATE = RENDEZVOUS_SESSION_STATE(7i32);
+impl ::core::marker::Copy for RENDEZVOUS_SESSION_STATE {}
+impl ::core::clone::Clone for RENDEZVOUS_SESSION_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RENDEZVOUS_SESSION_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RENDEZVOUS_SESSION_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RENDEZVOUS_SESSION_STATE").field(&self.0).finish()
+    }
+}
 pub const RendezvousApplication: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b7e019a_b5de_47fa_8966_9082f82fb192);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

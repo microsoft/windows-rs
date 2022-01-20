@@ -50,43 +50,59 @@ pub const ACCESS_REASON_EXDATA_MASK: u32 = 2130706432u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const ACCESS_REASON_STAGING_MASK: u32 = 2147483648u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type ACCESS_REASON_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ACCESS_REASON_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const AccessReasonNone: ACCESS_REASON_TYPE = 0i32;
+pub const AccessReasonNone: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const AccessReasonAllowedAce: ACCESS_REASON_TYPE = 65536i32;
+pub const AccessReasonAllowedAce: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(65536i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const AccessReasonDeniedAce: ACCESS_REASON_TYPE = 131072i32;
+pub const AccessReasonDeniedAce: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(131072i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const AccessReasonAllowedParentAce: ACCESS_REASON_TYPE = 196608i32;
+pub const AccessReasonAllowedParentAce: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(196608i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const AccessReasonDeniedParentAce: ACCESS_REASON_TYPE = 262144i32;
+pub const AccessReasonDeniedParentAce: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(262144i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const AccessReasonNotGrantedByCape: ACCESS_REASON_TYPE = 327680i32;
+pub const AccessReasonNotGrantedByCape: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(327680i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const AccessReasonNotGrantedByParentCape: ACCESS_REASON_TYPE = 393216i32;
+pub const AccessReasonNotGrantedByParentCape: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(393216i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const AccessReasonNotGrantedToAppContainer: ACCESS_REASON_TYPE = 458752i32;
+pub const AccessReasonNotGrantedToAppContainer: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(458752i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const AccessReasonMissingPrivilege: ACCESS_REASON_TYPE = 1048576i32;
+pub const AccessReasonMissingPrivilege: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(1048576i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const AccessReasonFromPrivilege: ACCESS_REASON_TYPE = 2097152i32;
+pub const AccessReasonFromPrivilege: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(2097152i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const AccessReasonIntegrityLevel: ACCESS_REASON_TYPE = 3145728i32;
+pub const AccessReasonIntegrityLevel: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(3145728i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const AccessReasonOwnership: ACCESS_REASON_TYPE = 4194304i32;
+pub const AccessReasonOwnership: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(4194304i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const AccessReasonNullDacl: ACCESS_REASON_TYPE = 5242880i32;
+pub const AccessReasonNullDacl: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(5242880i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const AccessReasonEmptyDacl: ACCESS_REASON_TYPE = 6291456i32;
+pub const AccessReasonEmptyDacl: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(6291456i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const AccessReasonNoSD: ACCESS_REASON_TYPE = 7340032i32;
+pub const AccessReasonNoSD: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(7340032i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const AccessReasonNoGrant: ACCESS_REASON_TYPE = 8388608i32;
+pub const AccessReasonNoGrant: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(8388608i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const AccessReasonTrustLabel: ACCESS_REASON_TYPE = 9437184i32;
+pub const AccessReasonTrustLabel: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(9437184i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const AccessReasonFilterAce: ACCESS_REASON_TYPE = 10485760i32;
+pub const AccessReasonFilterAce: ACCESS_REASON_TYPE = ACCESS_REASON_TYPE(10485760i32);
+impl ::core::marker::Copy for ACCESS_REASON_TYPE {}
+impl ::core::clone::Clone for ACCESS_REASON_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ACCESS_REASON_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ACCESS_REASON_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ACCESS_REASON_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const ACCESS_REASON_TYPE_MASK: u32 = 16711680u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
@@ -106,27 +122,43 @@ pub const ACPI_PPM_SOFTWARE_ALL: u32 = 252u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const ACPI_PPM_SOFTWARE_ANY: u32 = 253u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type ACTIVATION_CONTEXT_INFO_CLASS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ACTIVATION_CONTEXT_INFO_CLASS(pub i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ActivationContextBasicInformation: ACTIVATION_CONTEXT_INFO_CLASS = 1i32;
+pub const ActivationContextBasicInformation: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(1i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ActivationContextDetailedInformation: ACTIVATION_CONTEXT_INFO_CLASS = 2i32;
+pub const ActivationContextDetailedInformation: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(2i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const AssemblyDetailedInformationInActivationContext: ACTIVATION_CONTEXT_INFO_CLASS = 3i32;
+pub const AssemblyDetailedInformationInActivationContext: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(3i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const FileInformationInAssemblyOfAssemblyInActivationContext: ACTIVATION_CONTEXT_INFO_CLASS = 4i32;
+pub const FileInformationInAssemblyOfAssemblyInActivationContext: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(4i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const RunlevelInformationInActivationContext: ACTIVATION_CONTEXT_INFO_CLASS = 5i32;
+pub const RunlevelInformationInActivationContext: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(5i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CompatibilityInformationInActivationContext: ACTIVATION_CONTEXT_INFO_CLASS = 6i32;
+pub const CompatibilityInformationInActivationContext: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(6i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ActivationContextManifestResourceName: ACTIVATION_CONTEXT_INFO_CLASS = 7i32;
+pub const ActivationContextManifestResourceName: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(7i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MaxActivationContextInfoClass: ACTIVATION_CONTEXT_INFO_CLASS = 8i32;
+pub const MaxActivationContextInfoClass: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(8i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const AssemblyDetailedInformationInActivationContxt: ACTIVATION_CONTEXT_INFO_CLASS = 3i32;
+pub const AssemblyDetailedInformationInActivationContxt: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(3i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const FileInformationInAssemblyOfAssemblyInActivationContxt: ACTIVATION_CONTEXT_INFO_CLASS = 4i32;
+pub const FileInformationInAssemblyOfAssemblyInActivationContxt: ACTIVATION_CONTEXT_INFO_CLASS = ACTIVATION_CONTEXT_INFO_CLASS(4i32);
+impl ::core::marker::Copy for ACTIVATION_CONTEXT_INFO_CLASS {}
+impl ::core::clone::Clone for ACTIVATION_CONTEXT_INFO_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ACTIVATION_CONTEXT_INFO_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ACTIVATION_CONTEXT_INFO_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ACTIVATION_CONTEXT_INFO_CLASS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const ACTIVATION_CONTEXT_PATH_TYPE_ASSEMBLYREF: u32 = 4u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
@@ -160,17 +192,61 @@ pub const ACTIVATION_CONTEXT_SECTION_WINDOW_CLASS_REDIRECTION: u32 = 3u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const ACTIVATION_CONTEXT_SECTION_WINRT_ACTIVATABLE_CLASSES: u32 = 12u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type ALERT_SYSTEM_SEV = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ALERT_SYSTEM_SEV(pub u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ALERT_SYSTEM_INFORMATIONAL: ALERT_SYSTEM_SEV = 1u32;
+pub const ALERT_SYSTEM_INFORMATIONAL: ALERT_SYSTEM_SEV = ALERT_SYSTEM_SEV(1u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ALERT_SYSTEM_WARNING: ALERT_SYSTEM_SEV = 2u32;
+pub const ALERT_SYSTEM_WARNING: ALERT_SYSTEM_SEV = ALERT_SYSTEM_SEV(2u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ALERT_SYSTEM_ERROR: ALERT_SYSTEM_SEV = 3u32;
+pub const ALERT_SYSTEM_ERROR: ALERT_SYSTEM_SEV = ALERT_SYSTEM_SEV(3u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ALERT_SYSTEM_QUERY: ALERT_SYSTEM_SEV = 4u32;
+pub const ALERT_SYSTEM_QUERY: ALERT_SYSTEM_SEV = ALERT_SYSTEM_SEV(4u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ALERT_SYSTEM_CRITICAL: ALERT_SYSTEM_SEV = 5u32;
+pub const ALERT_SYSTEM_CRITICAL: ALERT_SYSTEM_SEV = ALERT_SYSTEM_SEV(5u32);
+impl ::core::marker::Copy for ALERT_SYSTEM_SEV {}
+impl ::core::clone::Clone for ALERT_SYSTEM_SEV {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ALERT_SYSTEM_SEV {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ALERT_SYSTEM_SEV {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ALERT_SYSTEM_SEV").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for ALERT_SYSTEM_SEV {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for ALERT_SYSTEM_SEV {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for ALERT_SYSTEM_SEV {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for ALERT_SYSTEM_SEV {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for ALERT_SYSTEM_SEV {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const ALL_POWERSCHEMES_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68a1e95e_13ea_41e1_8011_0c496ca490b0);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const ALL_PROCESSOR_GROUPS: u32 = 65535u32;
@@ -310,115 +386,159 @@ pub const ANYSIZE_ARRAY: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub type APC_CALLBACK_FUNCTION = ::core::option::Option<unsafe extern "system" fn(param0: u32, param1: *mut ::core::ffi::c_void, param2: *mut ::core::ffi::c_void)>;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type APPCOMMAND_ID = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct APPCOMMAND_ID(pub u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_BROWSER_BACKWARD: APPCOMMAND_ID = 1u32;
+pub const APPCOMMAND_BROWSER_BACKWARD: APPCOMMAND_ID = APPCOMMAND_ID(1u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_BROWSER_FORWARD: APPCOMMAND_ID = 2u32;
+pub const APPCOMMAND_BROWSER_FORWARD: APPCOMMAND_ID = APPCOMMAND_ID(2u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_BROWSER_REFRESH: APPCOMMAND_ID = 3u32;
+pub const APPCOMMAND_BROWSER_REFRESH: APPCOMMAND_ID = APPCOMMAND_ID(3u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_BROWSER_STOP: APPCOMMAND_ID = 4u32;
+pub const APPCOMMAND_BROWSER_STOP: APPCOMMAND_ID = APPCOMMAND_ID(4u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_BROWSER_SEARCH: APPCOMMAND_ID = 5u32;
+pub const APPCOMMAND_BROWSER_SEARCH: APPCOMMAND_ID = APPCOMMAND_ID(5u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_BROWSER_FAVORITES: APPCOMMAND_ID = 6u32;
+pub const APPCOMMAND_BROWSER_FAVORITES: APPCOMMAND_ID = APPCOMMAND_ID(6u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_BROWSER_HOME: APPCOMMAND_ID = 7u32;
+pub const APPCOMMAND_BROWSER_HOME: APPCOMMAND_ID = APPCOMMAND_ID(7u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_VOLUME_MUTE: APPCOMMAND_ID = 8u32;
+pub const APPCOMMAND_VOLUME_MUTE: APPCOMMAND_ID = APPCOMMAND_ID(8u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_VOLUME_DOWN: APPCOMMAND_ID = 9u32;
+pub const APPCOMMAND_VOLUME_DOWN: APPCOMMAND_ID = APPCOMMAND_ID(9u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_VOLUME_UP: APPCOMMAND_ID = 10u32;
+pub const APPCOMMAND_VOLUME_UP: APPCOMMAND_ID = APPCOMMAND_ID(10u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_MEDIA_NEXTTRACK: APPCOMMAND_ID = 11u32;
+pub const APPCOMMAND_MEDIA_NEXTTRACK: APPCOMMAND_ID = APPCOMMAND_ID(11u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_MEDIA_PREVIOUSTRACK: APPCOMMAND_ID = 12u32;
+pub const APPCOMMAND_MEDIA_PREVIOUSTRACK: APPCOMMAND_ID = APPCOMMAND_ID(12u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_MEDIA_STOP: APPCOMMAND_ID = 13u32;
+pub const APPCOMMAND_MEDIA_STOP: APPCOMMAND_ID = APPCOMMAND_ID(13u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_MEDIA_PLAY_PAUSE: APPCOMMAND_ID = 14u32;
+pub const APPCOMMAND_MEDIA_PLAY_PAUSE: APPCOMMAND_ID = APPCOMMAND_ID(14u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_LAUNCH_MAIL: APPCOMMAND_ID = 15u32;
+pub const APPCOMMAND_LAUNCH_MAIL: APPCOMMAND_ID = APPCOMMAND_ID(15u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_LAUNCH_MEDIA_SELECT: APPCOMMAND_ID = 16u32;
+pub const APPCOMMAND_LAUNCH_MEDIA_SELECT: APPCOMMAND_ID = APPCOMMAND_ID(16u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_LAUNCH_APP1: APPCOMMAND_ID = 17u32;
+pub const APPCOMMAND_LAUNCH_APP1: APPCOMMAND_ID = APPCOMMAND_ID(17u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_LAUNCH_APP2: APPCOMMAND_ID = 18u32;
+pub const APPCOMMAND_LAUNCH_APP2: APPCOMMAND_ID = APPCOMMAND_ID(18u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_BASS_DOWN: APPCOMMAND_ID = 19u32;
+pub const APPCOMMAND_BASS_DOWN: APPCOMMAND_ID = APPCOMMAND_ID(19u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_BASS_BOOST: APPCOMMAND_ID = 20u32;
+pub const APPCOMMAND_BASS_BOOST: APPCOMMAND_ID = APPCOMMAND_ID(20u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_BASS_UP: APPCOMMAND_ID = 21u32;
+pub const APPCOMMAND_BASS_UP: APPCOMMAND_ID = APPCOMMAND_ID(21u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_TREBLE_DOWN: APPCOMMAND_ID = 22u32;
+pub const APPCOMMAND_TREBLE_DOWN: APPCOMMAND_ID = APPCOMMAND_ID(22u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_TREBLE_UP: APPCOMMAND_ID = 23u32;
+pub const APPCOMMAND_TREBLE_UP: APPCOMMAND_ID = APPCOMMAND_ID(23u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_MICROPHONE_VOLUME_MUTE: APPCOMMAND_ID = 24u32;
+pub const APPCOMMAND_MICROPHONE_VOLUME_MUTE: APPCOMMAND_ID = APPCOMMAND_ID(24u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_MICROPHONE_VOLUME_DOWN: APPCOMMAND_ID = 25u32;
+pub const APPCOMMAND_MICROPHONE_VOLUME_DOWN: APPCOMMAND_ID = APPCOMMAND_ID(25u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_MICROPHONE_VOLUME_UP: APPCOMMAND_ID = 26u32;
+pub const APPCOMMAND_MICROPHONE_VOLUME_UP: APPCOMMAND_ID = APPCOMMAND_ID(26u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_HELP: APPCOMMAND_ID = 27u32;
+pub const APPCOMMAND_HELP: APPCOMMAND_ID = APPCOMMAND_ID(27u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_FIND: APPCOMMAND_ID = 28u32;
+pub const APPCOMMAND_FIND: APPCOMMAND_ID = APPCOMMAND_ID(28u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_NEW: APPCOMMAND_ID = 29u32;
+pub const APPCOMMAND_NEW: APPCOMMAND_ID = APPCOMMAND_ID(29u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_OPEN: APPCOMMAND_ID = 30u32;
+pub const APPCOMMAND_OPEN: APPCOMMAND_ID = APPCOMMAND_ID(30u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_CLOSE: APPCOMMAND_ID = 31u32;
+pub const APPCOMMAND_CLOSE: APPCOMMAND_ID = APPCOMMAND_ID(31u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_SAVE: APPCOMMAND_ID = 32u32;
+pub const APPCOMMAND_SAVE: APPCOMMAND_ID = APPCOMMAND_ID(32u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_PRINT: APPCOMMAND_ID = 33u32;
+pub const APPCOMMAND_PRINT: APPCOMMAND_ID = APPCOMMAND_ID(33u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_UNDO: APPCOMMAND_ID = 34u32;
+pub const APPCOMMAND_UNDO: APPCOMMAND_ID = APPCOMMAND_ID(34u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_REDO: APPCOMMAND_ID = 35u32;
+pub const APPCOMMAND_REDO: APPCOMMAND_ID = APPCOMMAND_ID(35u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_COPY: APPCOMMAND_ID = 36u32;
+pub const APPCOMMAND_COPY: APPCOMMAND_ID = APPCOMMAND_ID(36u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_CUT: APPCOMMAND_ID = 37u32;
+pub const APPCOMMAND_CUT: APPCOMMAND_ID = APPCOMMAND_ID(37u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_PASTE: APPCOMMAND_ID = 38u32;
+pub const APPCOMMAND_PASTE: APPCOMMAND_ID = APPCOMMAND_ID(38u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_REPLY_TO_MAIL: APPCOMMAND_ID = 39u32;
+pub const APPCOMMAND_REPLY_TO_MAIL: APPCOMMAND_ID = APPCOMMAND_ID(39u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_FORWARD_MAIL: APPCOMMAND_ID = 40u32;
+pub const APPCOMMAND_FORWARD_MAIL: APPCOMMAND_ID = APPCOMMAND_ID(40u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_SEND_MAIL: APPCOMMAND_ID = 41u32;
+pub const APPCOMMAND_SEND_MAIL: APPCOMMAND_ID = APPCOMMAND_ID(41u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_SPELL_CHECK: APPCOMMAND_ID = 42u32;
+pub const APPCOMMAND_SPELL_CHECK: APPCOMMAND_ID = APPCOMMAND_ID(42u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_DICTATE_OR_COMMAND_CONTROL_TOGGLE: APPCOMMAND_ID = 43u32;
+pub const APPCOMMAND_DICTATE_OR_COMMAND_CONTROL_TOGGLE: APPCOMMAND_ID = APPCOMMAND_ID(43u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_MIC_ON_OFF_TOGGLE: APPCOMMAND_ID = 44u32;
+pub const APPCOMMAND_MIC_ON_OFF_TOGGLE: APPCOMMAND_ID = APPCOMMAND_ID(44u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_CORRECTION_LIST: APPCOMMAND_ID = 45u32;
+pub const APPCOMMAND_CORRECTION_LIST: APPCOMMAND_ID = APPCOMMAND_ID(45u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_MEDIA_PLAY: APPCOMMAND_ID = 46u32;
+pub const APPCOMMAND_MEDIA_PLAY: APPCOMMAND_ID = APPCOMMAND_ID(46u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_MEDIA_PAUSE: APPCOMMAND_ID = 47u32;
+pub const APPCOMMAND_MEDIA_PAUSE: APPCOMMAND_ID = APPCOMMAND_ID(47u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_MEDIA_RECORD: APPCOMMAND_ID = 48u32;
+pub const APPCOMMAND_MEDIA_RECORD: APPCOMMAND_ID = APPCOMMAND_ID(48u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_MEDIA_FAST_FORWARD: APPCOMMAND_ID = 49u32;
+pub const APPCOMMAND_MEDIA_FAST_FORWARD: APPCOMMAND_ID = APPCOMMAND_ID(49u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_MEDIA_REWIND: APPCOMMAND_ID = 50u32;
+pub const APPCOMMAND_MEDIA_REWIND: APPCOMMAND_ID = APPCOMMAND_ID(50u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_MEDIA_CHANNEL_UP: APPCOMMAND_ID = 51u32;
+pub const APPCOMMAND_MEDIA_CHANNEL_UP: APPCOMMAND_ID = APPCOMMAND_ID(51u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_MEDIA_CHANNEL_DOWN: APPCOMMAND_ID = 52u32;
+pub const APPCOMMAND_MEDIA_CHANNEL_DOWN: APPCOMMAND_ID = APPCOMMAND_ID(52u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_DELETE: APPCOMMAND_ID = 53u32;
+pub const APPCOMMAND_DELETE: APPCOMMAND_ID = APPCOMMAND_ID(53u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const APPCOMMAND_DWM_FLIP3D: APPCOMMAND_ID = 54u32;
+pub const APPCOMMAND_DWM_FLIP3D: APPCOMMAND_ID = APPCOMMAND_ID(54u32);
+impl ::core::marker::Copy for APPCOMMAND_ID {}
+impl ::core::clone::Clone for APPCOMMAND_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for APPCOMMAND_ID {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for APPCOMMAND_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("APPCOMMAND_ID").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for APPCOMMAND_ID {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for APPCOMMAND_ID {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for APPCOMMAND_ID {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for APPCOMMAND_ID {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for APPCOMMAND_ID {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub struct APPLICATIONLAUNCH_SETTING_VALUE {
@@ -454,23 +574,55 @@ impl ::core::default::Default for APPLICATIONLAUNCH_SETTING_VALUE {
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const APPLICATION_ERROR_MASK: u32 = 536870912u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type ARM64_FNPDATA_CR = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ARM64_FNPDATA_CR(pub i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const PdataCrUnchained: ARM64_FNPDATA_CR = 0i32;
+pub const PdataCrUnchained: ARM64_FNPDATA_CR = ARM64_FNPDATA_CR(0i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const PdataCrUnchainedSavedLr: ARM64_FNPDATA_CR = 1i32;
+pub const PdataCrUnchainedSavedLr: ARM64_FNPDATA_CR = ARM64_FNPDATA_CR(1i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const PdataCrChainedWithPac: ARM64_FNPDATA_CR = 2i32;
+pub const PdataCrChainedWithPac: ARM64_FNPDATA_CR = ARM64_FNPDATA_CR(2i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const PdataCrChained: ARM64_FNPDATA_CR = 3i32;
+pub const PdataCrChained: ARM64_FNPDATA_CR = ARM64_FNPDATA_CR(3i32);
+impl ::core::marker::Copy for ARM64_FNPDATA_CR {}
+impl ::core::clone::Clone for ARM64_FNPDATA_CR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ARM64_FNPDATA_CR {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ARM64_FNPDATA_CR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ARM64_FNPDATA_CR").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type ARM64_FNPDATA_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ARM64_FNPDATA_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const PdataRefToFullXdata: ARM64_FNPDATA_FLAGS = 0i32;
+pub const PdataRefToFullXdata: ARM64_FNPDATA_FLAGS = ARM64_FNPDATA_FLAGS(0i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const PdataPackedUnwindFunction: ARM64_FNPDATA_FLAGS = 1i32;
+pub const PdataPackedUnwindFunction: ARM64_FNPDATA_FLAGS = ARM64_FNPDATA_FLAGS(1i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const PdataPackedUnwindFragment: ARM64_FNPDATA_FLAGS = 2i32;
+pub const PdataPackedUnwindFragment: ARM64_FNPDATA_FLAGS = ARM64_FNPDATA_FLAGS(2i32);
+impl ::core::marker::Copy for ARM64_FNPDATA_FLAGS {}
+impl ::core::clone::Clone for ARM64_FNPDATA_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ARM64_FNPDATA_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ARM64_FNPDATA_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ARM64_FNPDATA_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const ARM64_MAX_BREAKPOINTS: u32 = 8u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
@@ -502,11 +654,55 @@ pub const ARM_MAX_WATCHPOINTS: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const ASSERT_BREAKPOINT: u32 = 524291u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type ATF_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ATF_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ATF_TIMEOUTON: ATF_FLAGS = 1u32;
+pub const ATF_TIMEOUTON: ATF_FLAGS = ATF_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ATF_ONOFFFEEDBACK: ATF_FLAGS = 2u32;
+pub const ATF_ONOFFFEEDBACK: ATF_FLAGS = ATF_FLAGS(2u32);
+impl ::core::marker::Copy for ATF_FLAGS {}
+impl ::core::clone::Clone for ATF_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ATF_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ATF_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ATF_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for ATF_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for ATF_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for ATF_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for ATF_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for ATF_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const AUDIT_ALLOW_NO_PRIVILEGE: u32 = 1u32;
 #[repr(C)]
@@ -524,49 +720,93 @@ pub const BSF_MSGSRV32ISOK_BIT: u32 = 31u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const CACHE_FULLY_ASSOCIATIVE: u32 = 255u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type CFE_UNDERLINE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CFE_UNDERLINE(pub u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CFU_CF1UNDERLINE: CFE_UNDERLINE = 255u32;
+pub const CFU_CF1UNDERLINE: CFE_UNDERLINE = CFE_UNDERLINE(255u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CFU_INVERT: CFE_UNDERLINE = 254u32;
+pub const CFU_INVERT: CFE_UNDERLINE = CFE_UNDERLINE(254u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CFU_UNDERLINETHICKLONGDASH: CFE_UNDERLINE = 18u32;
+pub const CFU_UNDERLINETHICKLONGDASH: CFE_UNDERLINE = CFE_UNDERLINE(18u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CFU_UNDERLINETHICKDOTTED: CFE_UNDERLINE = 17u32;
+pub const CFU_UNDERLINETHICKDOTTED: CFE_UNDERLINE = CFE_UNDERLINE(17u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CFU_UNDERLINETHICKDASHDOTDOT: CFE_UNDERLINE = 16u32;
+pub const CFU_UNDERLINETHICKDASHDOTDOT: CFE_UNDERLINE = CFE_UNDERLINE(16u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CFU_UNDERLINETHICKDASHDOT: CFE_UNDERLINE = 15u32;
+pub const CFU_UNDERLINETHICKDASHDOT: CFE_UNDERLINE = CFE_UNDERLINE(15u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CFU_UNDERLINETHICKDASH: CFE_UNDERLINE = 14u32;
+pub const CFU_UNDERLINETHICKDASH: CFE_UNDERLINE = CFE_UNDERLINE(14u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CFU_UNDERLINELONGDASH: CFE_UNDERLINE = 13u32;
+pub const CFU_UNDERLINELONGDASH: CFE_UNDERLINE = CFE_UNDERLINE(13u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CFU_UNDERLINEHEAVYWAVE: CFE_UNDERLINE = 12u32;
+pub const CFU_UNDERLINEHEAVYWAVE: CFE_UNDERLINE = CFE_UNDERLINE(12u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CFU_UNDERLINEDOUBLEWAVE: CFE_UNDERLINE = 11u32;
+pub const CFU_UNDERLINEDOUBLEWAVE: CFE_UNDERLINE = CFE_UNDERLINE(11u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CFU_UNDERLINEHAIRLINE: CFE_UNDERLINE = 10u32;
+pub const CFU_UNDERLINEHAIRLINE: CFE_UNDERLINE = CFE_UNDERLINE(10u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CFU_UNDERLINETHICK: CFE_UNDERLINE = 9u32;
+pub const CFU_UNDERLINETHICK: CFE_UNDERLINE = CFE_UNDERLINE(9u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CFU_UNDERLINEWAVE: CFE_UNDERLINE = 8u32;
+pub const CFU_UNDERLINEWAVE: CFE_UNDERLINE = CFE_UNDERLINE(8u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CFU_UNDERLINEDASHDOTDOT: CFE_UNDERLINE = 7u32;
+pub const CFU_UNDERLINEDASHDOTDOT: CFE_UNDERLINE = CFE_UNDERLINE(7u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CFU_UNDERLINEDASHDOT: CFE_UNDERLINE = 6u32;
+pub const CFU_UNDERLINEDASHDOT: CFE_UNDERLINE = CFE_UNDERLINE(6u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CFU_UNDERLINEDASH: CFE_UNDERLINE = 5u32;
+pub const CFU_UNDERLINEDASH: CFE_UNDERLINE = CFE_UNDERLINE(5u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CFU_UNDERLINEDOTTED: CFE_UNDERLINE = 4u32;
+pub const CFU_UNDERLINEDOTTED: CFE_UNDERLINE = CFE_UNDERLINE(4u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CFU_UNDERLINEDOUBLE: CFE_UNDERLINE = 3u32;
+pub const CFU_UNDERLINEDOUBLE: CFE_UNDERLINE = CFE_UNDERLINE(3u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CFU_UNDERLINEWORD: CFE_UNDERLINE = 2u32;
+pub const CFU_UNDERLINEWORD: CFE_UNDERLINE = CFE_UNDERLINE(2u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CFU_UNDERLINE: CFE_UNDERLINE = 1u32;
+pub const CFU_UNDERLINE: CFE_UNDERLINE = CFE_UNDERLINE(1u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CFU_UNDERLINENONE: CFE_UNDERLINE = 0u32;
+pub const CFU_UNDERLINENONE: CFE_UNDERLINE = CFE_UNDERLINE(0u32);
+impl ::core::marker::Copy for CFE_UNDERLINE {}
+impl ::core::clone::Clone for CFE_UNDERLINE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CFE_UNDERLINE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CFE_UNDERLINE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CFE_UNDERLINE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CFE_UNDERLINE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CFE_UNDERLINE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CFE_UNDERLINE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CFE_UNDERLINE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CFE_UNDERLINE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const CFG_CALL_TARGET_CONVERT_EXPORT_SUPPRESSED_TO_VALID: u32 = 4u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
@@ -578,25 +818,69 @@ pub const CFG_CALL_TARGET_VALID: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const CFG_CALL_TARGET_VALID_XFG: u32 = 8u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type CHOOSECOLOR_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CHOOSECOLOR_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CC_RGBINIT: CHOOSECOLOR_FLAGS = 1u32;
+pub const CC_RGBINIT: CHOOSECOLOR_FLAGS = CHOOSECOLOR_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CC_FULLOPEN: CHOOSECOLOR_FLAGS = 2u32;
+pub const CC_FULLOPEN: CHOOSECOLOR_FLAGS = CHOOSECOLOR_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CC_PREVENTFULLOPEN: CHOOSECOLOR_FLAGS = 4u32;
+pub const CC_PREVENTFULLOPEN: CHOOSECOLOR_FLAGS = CHOOSECOLOR_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CC_SHOWHELP: CHOOSECOLOR_FLAGS = 8u32;
+pub const CC_SHOWHELP: CHOOSECOLOR_FLAGS = CHOOSECOLOR_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CC_ENABLEHOOK: CHOOSECOLOR_FLAGS = 16u32;
+pub const CC_ENABLEHOOK: CHOOSECOLOR_FLAGS = CHOOSECOLOR_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CC_ENABLETEMPLATE: CHOOSECOLOR_FLAGS = 32u32;
+pub const CC_ENABLETEMPLATE: CHOOSECOLOR_FLAGS = CHOOSECOLOR_FLAGS(32u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CC_ENABLETEMPLATEHANDLE: CHOOSECOLOR_FLAGS = 64u32;
+pub const CC_ENABLETEMPLATEHANDLE: CHOOSECOLOR_FLAGS = CHOOSECOLOR_FLAGS(64u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CC_SOLIDCOLOR: CHOOSECOLOR_FLAGS = 128u32;
+pub const CC_SOLIDCOLOR: CHOOSECOLOR_FLAGS = CHOOSECOLOR_FLAGS(128u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CC_ANYCOLOR: CHOOSECOLOR_FLAGS = 256u32;
+pub const CC_ANYCOLOR: CHOOSECOLOR_FLAGS = CHOOSECOLOR_FLAGS(256u32);
+impl ::core::marker::Copy for CHOOSECOLOR_FLAGS {}
+impl ::core::clone::Clone for CHOOSECOLOR_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CHOOSECOLOR_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CHOOSECOLOR_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CHOOSECOLOR_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CHOOSECOLOR_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CHOOSECOLOR_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CHOOSECOLOR_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CHOOSECOLOR_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CHOOSECOLOR_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const CLAIM_SECURITY_ATTRIBUTES_INFORMATION_VERSION: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
@@ -606,101 +890,193 @@ pub const CLAIM_SECURITY_ATTRIBUTE_CUSTOM_FLAGS: u32 = 4294901760u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_INVALID: u32 = 0u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type CLIPBOARD_FORMATS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CLIPBOARD_FORMATS(pub u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CF_TEXT: CLIPBOARD_FORMATS = 1u32;
+pub const CF_TEXT: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(1u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CF_BITMAP: CLIPBOARD_FORMATS = 2u32;
+pub const CF_BITMAP: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(2u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CF_METAFILEPICT: CLIPBOARD_FORMATS = 3u32;
+pub const CF_METAFILEPICT: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(3u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CF_SYLK: CLIPBOARD_FORMATS = 4u32;
+pub const CF_SYLK: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(4u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CF_DIF: CLIPBOARD_FORMATS = 5u32;
+pub const CF_DIF: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(5u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CF_TIFF: CLIPBOARD_FORMATS = 6u32;
+pub const CF_TIFF: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(6u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CF_OEMTEXT: CLIPBOARD_FORMATS = 7u32;
+pub const CF_OEMTEXT: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(7u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CF_DIB: CLIPBOARD_FORMATS = 8u32;
+pub const CF_DIB: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(8u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CF_PALETTE: CLIPBOARD_FORMATS = 9u32;
+pub const CF_PALETTE: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(9u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CF_PENDATA: CLIPBOARD_FORMATS = 10u32;
+pub const CF_PENDATA: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(10u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CF_RIFF: CLIPBOARD_FORMATS = 11u32;
+pub const CF_RIFF: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(11u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CF_WAVE: CLIPBOARD_FORMATS = 12u32;
+pub const CF_WAVE: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(12u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CF_UNICODETEXT: CLIPBOARD_FORMATS = 13u32;
+pub const CF_UNICODETEXT: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(13u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CF_ENHMETAFILE: CLIPBOARD_FORMATS = 14u32;
+pub const CF_ENHMETAFILE: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(14u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CF_HDROP: CLIPBOARD_FORMATS = 15u32;
+pub const CF_HDROP: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(15u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CF_LOCALE: CLIPBOARD_FORMATS = 16u32;
+pub const CF_LOCALE: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(16u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CF_DIBV5: CLIPBOARD_FORMATS = 17u32;
+pub const CF_DIBV5: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(17u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CF_MAX: CLIPBOARD_FORMATS = 18u32;
+pub const CF_MAX: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(18u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CF_OWNERDISPLAY: CLIPBOARD_FORMATS = 128u32;
+pub const CF_OWNERDISPLAY: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(128u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CF_DSPTEXT: CLIPBOARD_FORMATS = 129u32;
+pub const CF_DSPTEXT: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(129u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CF_DSPBITMAP: CLIPBOARD_FORMATS = 130u32;
+pub const CF_DSPBITMAP: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(130u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CF_DSPMETAFILEPICT: CLIPBOARD_FORMATS = 131u32;
+pub const CF_DSPMETAFILEPICT: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(131u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CF_DSPENHMETAFILE: CLIPBOARD_FORMATS = 142u32;
+pub const CF_DSPENHMETAFILE: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(142u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CF_PRIVATEFIRST: CLIPBOARD_FORMATS = 512u32;
+pub const CF_PRIVATEFIRST: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(512u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CF_PRIVATELAST: CLIPBOARD_FORMATS = 767u32;
+pub const CF_PRIVATELAST: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(767u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CF_GDIOBJFIRST: CLIPBOARD_FORMATS = 768u32;
+pub const CF_GDIOBJFIRST: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(768u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CF_GDIOBJLAST: CLIPBOARD_FORMATS = 1023u32;
+pub const CF_GDIOBJLAST: CLIPBOARD_FORMATS = CLIPBOARD_FORMATS(1023u32);
+impl ::core::marker::Copy for CLIPBOARD_FORMATS {}
+impl ::core::clone::Clone for CLIPBOARD_FORMATS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CLIPBOARD_FORMATS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CLIPBOARD_FORMATS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CLIPBOARD_FORMATS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CLIPBOARD_FORMATS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CLIPBOARD_FORMATS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CLIPBOARD_FORMATS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CLIPBOARD_FORMATS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CLIPBOARD_FORMATS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type CM_ERROR_CONTROL_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CM_ERROR_CONTROL_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const IgnoreError: CM_ERROR_CONTROL_TYPE = 0i32;
+pub const IgnoreError: CM_ERROR_CONTROL_TYPE = CM_ERROR_CONTROL_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const NormalError: CM_ERROR_CONTROL_TYPE = 1i32;
+pub const NormalError: CM_ERROR_CONTROL_TYPE = CM_ERROR_CONTROL_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const SevereError: CM_ERROR_CONTROL_TYPE = 2i32;
+pub const SevereError: CM_ERROR_CONTROL_TYPE = CM_ERROR_CONTROL_TYPE(2i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const CriticalError: CM_ERROR_CONTROL_TYPE = 3i32;
+pub const CriticalError: CM_ERROR_CONTROL_TYPE = CM_ERROR_CONTROL_TYPE(3i32);
+impl ::core::marker::Copy for CM_ERROR_CONTROL_TYPE {}
+impl ::core::clone::Clone for CM_ERROR_CONTROL_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CM_ERROR_CONTROL_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CM_ERROR_CONTROL_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CM_ERROR_CONTROL_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type CM_SERVICE_LOAD_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CM_SERVICE_LOAD_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const BootLoad: CM_SERVICE_LOAD_TYPE = 0i32;
+pub const BootLoad: CM_SERVICE_LOAD_TYPE = CM_SERVICE_LOAD_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const SystemLoad: CM_SERVICE_LOAD_TYPE = 1i32;
+pub const SystemLoad: CM_SERVICE_LOAD_TYPE = CM_SERVICE_LOAD_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const AutoLoad: CM_SERVICE_LOAD_TYPE = 2i32;
+pub const AutoLoad: CM_SERVICE_LOAD_TYPE = CM_SERVICE_LOAD_TYPE(2i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const DemandLoad: CM_SERVICE_LOAD_TYPE = 3i32;
+pub const DemandLoad: CM_SERVICE_LOAD_TYPE = CM_SERVICE_LOAD_TYPE(3i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const DisableLoad: CM_SERVICE_LOAD_TYPE = 4i32;
+pub const DisableLoad: CM_SERVICE_LOAD_TYPE = CM_SERVICE_LOAD_TYPE(4i32);
+impl ::core::marker::Copy for CM_SERVICE_LOAD_TYPE {}
+impl ::core::clone::Clone for CM_SERVICE_LOAD_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CM_SERVICE_LOAD_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CM_SERVICE_LOAD_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CM_SERVICE_LOAD_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const CM_SERVICE_MEASURED_BOOT_LOAD: u32 = 32u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const CM_SERVICE_NETWORK_BOOT_LOAD: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type CM_SERVICE_NODE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CM_SERVICE_NODE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const DriverType: CM_SERVICE_NODE_TYPE = 1i32;
+pub const DriverType: CM_SERVICE_NODE_TYPE = CM_SERVICE_NODE_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const FileSystemType: CM_SERVICE_NODE_TYPE = 2i32;
+pub const FileSystemType: CM_SERVICE_NODE_TYPE = CM_SERVICE_NODE_TYPE(2i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const Win32ServiceOwnProcess: CM_SERVICE_NODE_TYPE = 16i32;
+pub const Win32ServiceOwnProcess: CM_SERVICE_NODE_TYPE = CM_SERVICE_NODE_TYPE(16i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const Win32ServiceShareProcess: CM_SERVICE_NODE_TYPE = 32i32;
+pub const Win32ServiceShareProcess: CM_SERVICE_NODE_TYPE = CM_SERVICE_NODE_TYPE(32i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const AdapterType: CM_SERVICE_NODE_TYPE = 4i32;
+pub const AdapterType: CM_SERVICE_NODE_TYPE = CM_SERVICE_NODE_TYPE(4i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const RecognizerType: CM_SERVICE_NODE_TYPE = 8i32;
+pub const RecognizerType: CM_SERVICE_NODE_TYPE = CM_SERVICE_NODE_TYPE(8i32);
+impl ::core::marker::Copy for CM_SERVICE_NODE_TYPE {}
+impl ::core::clone::Clone for CM_SERVICE_NODE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CM_SERVICE_NODE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CM_SERVICE_NODE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CM_SERVICE_NODE_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const CM_SERVICE_RAM_DISK_BOOT_LOAD: u32 = 256u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
@@ -2216,17 +2592,61 @@ impl ::core::default::Default for DEV_BROADCAST_HDR {
     }
 }
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type DEV_BROADCAST_HDR_DEVICE_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DEV_BROADCAST_HDR_DEVICE_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const DBT_DEVTYP_DEVICEINTERFACE: DEV_BROADCAST_HDR_DEVICE_TYPE = 5u32;
+pub const DBT_DEVTYP_DEVICEINTERFACE: DEV_BROADCAST_HDR_DEVICE_TYPE = DEV_BROADCAST_HDR_DEVICE_TYPE(5u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const DBT_DEVTYP_HANDLE: DEV_BROADCAST_HDR_DEVICE_TYPE = 6u32;
+pub const DBT_DEVTYP_HANDLE: DEV_BROADCAST_HDR_DEVICE_TYPE = DEV_BROADCAST_HDR_DEVICE_TYPE(6u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const DBT_DEVTYP_OEM: DEV_BROADCAST_HDR_DEVICE_TYPE = 0u32;
+pub const DBT_DEVTYP_OEM: DEV_BROADCAST_HDR_DEVICE_TYPE = DEV_BROADCAST_HDR_DEVICE_TYPE(0u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const DBT_DEVTYP_PORT: DEV_BROADCAST_HDR_DEVICE_TYPE = 3u32;
+pub const DBT_DEVTYP_PORT: DEV_BROADCAST_HDR_DEVICE_TYPE = DEV_BROADCAST_HDR_DEVICE_TYPE(3u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const DBT_DEVTYP_VOLUME: DEV_BROADCAST_HDR_DEVICE_TYPE = 2u32;
+pub const DBT_DEVTYP_VOLUME: DEV_BROADCAST_HDR_DEVICE_TYPE = DEV_BROADCAST_HDR_DEVICE_TYPE(2u32);
+impl ::core::marker::Copy for DEV_BROADCAST_HDR_DEVICE_TYPE {}
+impl ::core::clone::Clone for DEV_BROADCAST_HDR_DEVICE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DEV_BROADCAST_HDR_DEVICE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DEV_BROADCAST_HDR_DEVICE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DEV_BROADCAST_HDR_DEVICE_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for DEV_BROADCAST_HDR_DEVICE_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DEV_BROADCAST_HDR_DEVICE_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DEV_BROADCAST_HDR_DEVICE_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DEV_BROADCAST_HDR_DEVICE_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DEV_BROADCAST_HDR_DEVICE_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub struct DEV_BROADCAST_NET {
@@ -2404,11 +2824,27 @@ impl ::core::default::Default for DEV_BROADCAST_VOLUME {
     }
 }
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type DEV_BROADCAST_VOLUME_FLAGS = u16;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DEV_BROADCAST_VOLUME_FLAGS(pub u16);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const DBTF_MEDIA: DEV_BROADCAST_VOLUME_FLAGS = 1u16;
+pub const DBTF_MEDIA: DEV_BROADCAST_VOLUME_FLAGS = DEV_BROADCAST_VOLUME_FLAGS(1u16);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const DBTF_NET: DEV_BROADCAST_VOLUME_FLAGS = 2u16;
+pub const DBTF_NET: DEV_BROADCAST_VOLUME_FLAGS = DEV_BROADCAST_VOLUME_FLAGS(2u16);
+impl ::core::marker::Copy for DEV_BROADCAST_VOLUME_FLAGS {}
+impl ::core::clone::Clone for DEV_BROADCAST_VOLUME_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DEV_BROADCAST_VOLUME_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DEV_BROADCAST_VOLUME_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DEV_BROADCAST_VOLUME_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const DIAGNOSTIC_REASON_DETAILED_STRING: u32 = 2u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
@@ -2791,13 +3227,29 @@ impl ::core::default::Default for ENLISTMENT_CRM_INFORMATION {
     }
 }
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type ENLISTMENT_INFORMATION_CLASS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ENLISTMENT_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const EnlistmentBasicInformation: ENLISTMENT_INFORMATION_CLASS = 0i32;
+pub const EnlistmentBasicInformation: ENLISTMENT_INFORMATION_CLASS = ENLISTMENT_INFORMATION_CLASS(0i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const EnlistmentRecoveryInformation: ENLISTMENT_INFORMATION_CLASS = 1i32;
+pub const EnlistmentRecoveryInformation: ENLISTMENT_INFORMATION_CLASS = ENLISTMENT_INFORMATION_CLASS(1i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const EnlistmentCrmInformation: ENLISTMENT_INFORMATION_CLASS = 2i32;
+pub const EnlistmentCrmInformation: ENLISTMENT_INFORMATION_CLASS = ENLISTMENT_INFORMATION_CLASS(2i32);
+impl ::core::marker::Copy for ENLISTMENT_INFORMATION_CLASS {}
+impl ::core::clone::Clone for ENLISTMENT_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ENLISTMENT_INFORMATION_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ENLISTMENT_INFORMATION_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ENLISTMENT_INFORMATION_CLASS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const ENLISTMENT_QUERY_INFORMATION: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
@@ -3157,29 +3609,73 @@ pub const GENERIC_READ: u32 = 2147483648u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const GENERIC_WRITE: u32 = 1073741824u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type GESTURECONFIG_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct GESTURECONFIG_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const GC_ALLGESTURES: GESTURECONFIG_FLAGS = 1u32;
+pub const GC_ALLGESTURES: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const GC_ZOOM: GESTURECONFIG_FLAGS = 1u32;
+pub const GC_ZOOM: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const GC_PAN: GESTURECONFIG_FLAGS = 1u32;
+pub const GC_PAN: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const GC_PAN_WITH_SINGLE_FINGER_VERTICALLY: GESTURECONFIG_FLAGS = 2u32;
+pub const GC_PAN_WITH_SINGLE_FINGER_VERTICALLY: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const GC_PAN_WITH_SINGLE_FINGER_HORIZONTALLY: GESTURECONFIG_FLAGS = 4u32;
+pub const GC_PAN_WITH_SINGLE_FINGER_HORIZONTALLY: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const GC_PAN_WITH_GUTTER: GESTURECONFIG_FLAGS = 8u32;
+pub const GC_PAN_WITH_GUTTER: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const GC_PAN_WITH_INERTIA: GESTURECONFIG_FLAGS = 16u32;
+pub const GC_PAN_WITH_INERTIA: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const GC_ROTATE: GESTURECONFIG_FLAGS = 1u32;
+pub const GC_ROTATE: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const GC_TWOFINGERTAP: GESTURECONFIG_FLAGS = 1u32;
+pub const GC_TWOFINGERTAP: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const GC_PRESSANDTAP: GESTURECONFIG_FLAGS = 1u32;
+pub const GC_PRESSANDTAP: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const GC_ROLLOVER: GESTURECONFIG_FLAGS = 1u32;
+pub const GC_ROLLOVER: GESTURECONFIG_FLAGS = GESTURECONFIG_FLAGS(1u32);
+impl ::core::marker::Copy for GESTURECONFIG_FLAGS {}
+impl ::core::clone::Clone for GESTURECONFIG_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for GESTURECONFIG_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GESTURECONFIG_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GESTURECONFIG_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for GESTURECONFIG_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for GESTURECONFIG_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for GESTURECONFIG_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for GESTURECONFIG_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for GESTURECONFIG_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const GUID_ACDC_POWER_SOURCE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d3e9a59_e9d5_4b00_a6bd_ff34ff516548);
 pub const GUID_ACTIVE_POWERSCHEME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31f9f286_5084_42fe_b720_2b0264993763);
 pub const GUID_ADAPTIVE_INPUT_CONTROLLER_STATE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e98fae9_f45a_4de1_a757_6031f197f6ea);
@@ -3512,23 +4008,39 @@ impl ::core::default::Default for HIBERFILE_BUCKET {
     }
 }
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type HIBERFILE_BUCKET_SIZE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HIBERFILE_BUCKET_SIZE(pub i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const HiberFileBucket1GB: HIBERFILE_BUCKET_SIZE = 0i32;
+pub const HiberFileBucket1GB: HIBERFILE_BUCKET_SIZE = HIBERFILE_BUCKET_SIZE(0i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const HiberFileBucket2GB: HIBERFILE_BUCKET_SIZE = 1i32;
+pub const HiberFileBucket2GB: HIBERFILE_BUCKET_SIZE = HIBERFILE_BUCKET_SIZE(1i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const HiberFileBucket4GB: HIBERFILE_BUCKET_SIZE = 2i32;
+pub const HiberFileBucket4GB: HIBERFILE_BUCKET_SIZE = HIBERFILE_BUCKET_SIZE(2i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const HiberFileBucket8GB: HIBERFILE_BUCKET_SIZE = 3i32;
+pub const HiberFileBucket8GB: HIBERFILE_BUCKET_SIZE = HIBERFILE_BUCKET_SIZE(3i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const HiberFileBucket16GB: HIBERFILE_BUCKET_SIZE = 4i32;
+pub const HiberFileBucket16GB: HIBERFILE_BUCKET_SIZE = HIBERFILE_BUCKET_SIZE(4i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const HiberFileBucket32GB: HIBERFILE_BUCKET_SIZE = 5i32;
+pub const HiberFileBucket32GB: HIBERFILE_BUCKET_SIZE = HIBERFILE_BUCKET_SIZE(5i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const HiberFileBucketUnlimited: HIBERFILE_BUCKET_SIZE = 6i32;
+pub const HiberFileBucketUnlimited: HIBERFILE_BUCKET_SIZE = HIBERFILE_BUCKET_SIZE(6i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const HiberFileBucketMax: HIBERFILE_BUCKET_SIZE = 7i32;
+pub const HiberFileBucketMax: HIBERFILE_BUCKET_SIZE = HIBERFILE_BUCKET_SIZE(7i32);
+impl ::core::marker::Copy for HIBERFILE_BUCKET_SIZE {}
+impl ::core::clone::Clone for HIBERFILE_BUCKET_SIZE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for HIBERFILE_BUCKET_SIZE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HIBERFILE_BUCKET_SIZE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HIBERFILE_BUCKET_SIZE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const HIBERFILE_TYPE_FULL: u32 = 2u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
@@ -3538,21 +4050,65 @@ pub const HIBERFILE_TYPE_NONE: u32 = 0u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const HIBERFILE_TYPE_REDUCED: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type IGP_ID = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct IGP_ID(pub u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const IGP_GETIMEVERSION: IGP_ID = 4294967292u32;
+pub const IGP_GETIMEVERSION: IGP_ID = IGP_ID(4294967292u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const IGP_PROPERTY: IGP_ID = 4u32;
+pub const IGP_PROPERTY: IGP_ID = IGP_ID(4u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const IGP_CONVERSION: IGP_ID = 8u32;
+pub const IGP_CONVERSION: IGP_ID = IGP_ID(8u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const IGP_SENTENCE: IGP_ID = 12u32;
+pub const IGP_SENTENCE: IGP_ID = IGP_ID(12u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const IGP_UI: IGP_ID = 16u32;
+pub const IGP_UI: IGP_ID = IGP_ID(16u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const IGP_SETCOMPSTR: IGP_ID = 20u32;
+pub const IGP_SETCOMPSTR: IGP_ID = IGP_ID(20u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const IGP_SELECT: IGP_ID = 24u32;
+pub const IGP_SELECT: IGP_ID = IGP_ID(24u32);
+impl ::core::marker::Copy for IGP_ID {}
+impl ::core::clone::Clone for IGP_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for IGP_ID {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IGP_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGP_ID").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for IGP_ID {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for IGP_ID {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for IGP_ID {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for IGP_ID {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for IGP_ID {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C, packed(4))]
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub struct IMAGE_ALPHA64_RUNTIME_FUNCTION_ENTRY {
@@ -4338,9 +4894,25 @@ impl ::core::default::Default for IMAGE_AUX_SYMBOL_TOKEN_DEF {
     }
 }
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type IMAGE_AUX_SYMBOL_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct IMAGE_AUX_SYMBOL_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const IMAGE_AUX_SYMBOL_TYPE_TOKEN_DEF: IMAGE_AUX_SYMBOL_TYPE = 1i32;
+pub const IMAGE_AUX_SYMBOL_TYPE_TOKEN_DEF: IMAGE_AUX_SYMBOL_TYPE = IMAGE_AUX_SYMBOL_TYPE(1i32);
+impl ::core::marker::Copy for IMAGE_AUX_SYMBOL_TYPE {}
+impl ::core::clone::Clone for IMAGE_AUX_SYMBOL_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for IMAGE_AUX_SYMBOL_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IMAGE_AUX_SYMBOL_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMAGE_AUX_SYMBOL_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub struct IMAGE_BASE_RELOCATION {
@@ -5368,63 +5940,95 @@ impl ::core::default::Default for IMAGE_POLICY_ENTRY_0 {
     }
 }
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type IMAGE_POLICY_ENTRY_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct IMAGE_POLICY_ENTRY_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ImagePolicyEntryTypeNone: IMAGE_POLICY_ENTRY_TYPE = 0i32;
+pub const ImagePolicyEntryTypeNone: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ImagePolicyEntryTypeBool: IMAGE_POLICY_ENTRY_TYPE = 1i32;
+pub const ImagePolicyEntryTypeBool: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ImagePolicyEntryTypeInt8: IMAGE_POLICY_ENTRY_TYPE = 2i32;
+pub const ImagePolicyEntryTypeInt8: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(2i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ImagePolicyEntryTypeUInt8: IMAGE_POLICY_ENTRY_TYPE = 3i32;
+pub const ImagePolicyEntryTypeUInt8: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(3i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ImagePolicyEntryTypeInt16: IMAGE_POLICY_ENTRY_TYPE = 4i32;
+pub const ImagePolicyEntryTypeInt16: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(4i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ImagePolicyEntryTypeUInt16: IMAGE_POLICY_ENTRY_TYPE = 5i32;
+pub const ImagePolicyEntryTypeUInt16: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(5i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ImagePolicyEntryTypeInt32: IMAGE_POLICY_ENTRY_TYPE = 6i32;
+pub const ImagePolicyEntryTypeInt32: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(6i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ImagePolicyEntryTypeUInt32: IMAGE_POLICY_ENTRY_TYPE = 7i32;
+pub const ImagePolicyEntryTypeUInt32: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(7i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ImagePolicyEntryTypeInt64: IMAGE_POLICY_ENTRY_TYPE = 8i32;
+pub const ImagePolicyEntryTypeInt64: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(8i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ImagePolicyEntryTypeUInt64: IMAGE_POLICY_ENTRY_TYPE = 9i32;
+pub const ImagePolicyEntryTypeUInt64: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(9i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ImagePolicyEntryTypeAnsiString: IMAGE_POLICY_ENTRY_TYPE = 10i32;
+pub const ImagePolicyEntryTypeAnsiString: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(10i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ImagePolicyEntryTypeUnicodeString: IMAGE_POLICY_ENTRY_TYPE = 11i32;
+pub const ImagePolicyEntryTypeUnicodeString: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(11i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ImagePolicyEntryTypeOverride: IMAGE_POLICY_ENTRY_TYPE = 12i32;
+pub const ImagePolicyEntryTypeOverride: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(12i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ImagePolicyEntryTypeMaximum: IMAGE_POLICY_ENTRY_TYPE = 13i32;
+pub const ImagePolicyEntryTypeMaximum: IMAGE_POLICY_ENTRY_TYPE = IMAGE_POLICY_ENTRY_TYPE(13i32);
+impl ::core::marker::Copy for IMAGE_POLICY_ENTRY_TYPE {}
+impl ::core::clone::Clone for IMAGE_POLICY_ENTRY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for IMAGE_POLICY_ENTRY_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IMAGE_POLICY_ENTRY_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMAGE_POLICY_ENTRY_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type IMAGE_POLICY_ID = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct IMAGE_POLICY_ID(pub i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ImagePolicyIdNone: IMAGE_POLICY_ID = 0i32;
+pub const ImagePolicyIdNone: IMAGE_POLICY_ID = IMAGE_POLICY_ID(0i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ImagePolicyIdEtw: IMAGE_POLICY_ID = 1i32;
+pub const ImagePolicyIdEtw: IMAGE_POLICY_ID = IMAGE_POLICY_ID(1i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ImagePolicyIdDebug: IMAGE_POLICY_ID = 2i32;
+pub const ImagePolicyIdDebug: IMAGE_POLICY_ID = IMAGE_POLICY_ID(2i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ImagePolicyIdCrashDump: IMAGE_POLICY_ID = 3i32;
+pub const ImagePolicyIdCrashDump: IMAGE_POLICY_ID = IMAGE_POLICY_ID(3i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ImagePolicyIdCrashDumpKey: IMAGE_POLICY_ID = 4i32;
+pub const ImagePolicyIdCrashDumpKey: IMAGE_POLICY_ID = IMAGE_POLICY_ID(4i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ImagePolicyIdCrashDumpKeyGuid: IMAGE_POLICY_ID = 5i32;
+pub const ImagePolicyIdCrashDumpKeyGuid: IMAGE_POLICY_ID = IMAGE_POLICY_ID(5i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ImagePolicyIdParentSd: IMAGE_POLICY_ID = 6i32;
+pub const ImagePolicyIdParentSd: IMAGE_POLICY_ID = IMAGE_POLICY_ID(6i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ImagePolicyIdParentSdRev: IMAGE_POLICY_ID = 7i32;
+pub const ImagePolicyIdParentSdRev: IMAGE_POLICY_ID = IMAGE_POLICY_ID(7i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ImagePolicyIdSvn: IMAGE_POLICY_ID = 8i32;
+pub const ImagePolicyIdSvn: IMAGE_POLICY_ID = IMAGE_POLICY_ID(8i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ImagePolicyIdDeviceId: IMAGE_POLICY_ID = 9i32;
+pub const ImagePolicyIdDeviceId: IMAGE_POLICY_ID = IMAGE_POLICY_ID(9i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ImagePolicyIdCapability: IMAGE_POLICY_ID = 10i32;
+pub const ImagePolicyIdCapability: IMAGE_POLICY_ID = IMAGE_POLICY_ID(10i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ImagePolicyIdScenarioId: IMAGE_POLICY_ID = 11i32;
+pub const ImagePolicyIdScenarioId: IMAGE_POLICY_ID = IMAGE_POLICY_ID(11i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ImagePolicyIdMaximum: IMAGE_POLICY_ID = 12i32;
+pub const ImagePolicyIdMaximum: IMAGE_POLICY_ID = IMAGE_POLICY_ID(12i32);
+impl ::core::marker::Copy for IMAGE_POLICY_ID {}
+impl ::core::clone::Clone for IMAGE_POLICY_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for IMAGE_POLICY_ID {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IMAGE_POLICY_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMAGE_POLICY_ID").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_SystemServices', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -7027,25 +7631,57 @@ impl ::core::default::Default for IMPORT_OBJECT_HEADER_0 {
     }
 }
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type IMPORT_OBJECT_NAME_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct IMPORT_OBJECT_NAME_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const IMPORT_OBJECT_ORDINAL: IMPORT_OBJECT_NAME_TYPE = 0i32;
+pub const IMPORT_OBJECT_ORDINAL: IMPORT_OBJECT_NAME_TYPE = IMPORT_OBJECT_NAME_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const IMPORT_OBJECT_NAME: IMPORT_OBJECT_NAME_TYPE = 1i32;
+pub const IMPORT_OBJECT_NAME: IMPORT_OBJECT_NAME_TYPE = IMPORT_OBJECT_NAME_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const IMPORT_OBJECT_NAME_NO_PREFIX: IMPORT_OBJECT_NAME_TYPE = 2i32;
+pub const IMPORT_OBJECT_NAME_NO_PREFIX: IMPORT_OBJECT_NAME_TYPE = IMPORT_OBJECT_NAME_TYPE(2i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const IMPORT_OBJECT_NAME_UNDECORATE: IMPORT_OBJECT_NAME_TYPE = 3i32;
+pub const IMPORT_OBJECT_NAME_UNDECORATE: IMPORT_OBJECT_NAME_TYPE = IMPORT_OBJECT_NAME_TYPE(3i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const IMPORT_OBJECT_NAME_EXPORTAS: IMPORT_OBJECT_NAME_TYPE = 4i32;
+pub const IMPORT_OBJECT_NAME_EXPORTAS: IMPORT_OBJECT_NAME_TYPE = IMPORT_OBJECT_NAME_TYPE(4i32);
+impl ::core::marker::Copy for IMPORT_OBJECT_NAME_TYPE {}
+impl ::core::clone::Clone for IMPORT_OBJECT_NAME_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for IMPORT_OBJECT_NAME_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IMPORT_OBJECT_NAME_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMPORT_OBJECT_NAME_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type IMPORT_OBJECT_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct IMPORT_OBJECT_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const IMPORT_OBJECT_CODE: IMPORT_OBJECT_TYPE = 0i32;
+pub const IMPORT_OBJECT_CODE: IMPORT_OBJECT_TYPE = IMPORT_OBJECT_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const IMPORT_OBJECT_DATA: IMPORT_OBJECT_TYPE = 1i32;
+pub const IMPORT_OBJECT_DATA: IMPORT_OBJECT_TYPE = IMPORT_OBJECT_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const IMPORT_OBJECT_CONST: IMPORT_OBJECT_TYPE = 2i32;
+pub const IMPORT_OBJECT_CONST: IMPORT_OBJECT_TYPE = IMPORT_OBJECT_TYPE(2i32);
+impl ::core::marker::Copy for IMPORT_OBJECT_TYPE {}
+impl ::core::clone::Clone for IMPORT_OBJECT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for IMPORT_OBJECT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IMPORT_OBJECT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMPORT_OBJECT_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const INITIAL_CPSR: u32 = 16u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
@@ -7594,17 +8230,33 @@ impl ::core::default::Default for KTMOBJECT_CURSOR {
     }
 }
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type KTMOBJECT_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct KTMOBJECT_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const KTMOBJECT_TRANSACTION: KTMOBJECT_TYPE = 0i32;
+pub const KTMOBJECT_TRANSACTION: KTMOBJECT_TYPE = KTMOBJECT_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const KTMOBJECT_TRANSACTION_MANAGER: KTMOBJECT_TYPE = 1i32;
+pub const KTMOBJECT_TRANSACTION_MANAGER: KTMOBJECT_TYPE = KTMOBJECT_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const KTMOBJECT_RESOURCE_MANAGER: KTMOBJECT_TYPE = 2i32;
+pub const KTMOBJECT_RESOURCE_MANAGER: KTMOBJECT_TYPE = KTMOBJECT_TYPE(2i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const KTMOBJECT_ENLISTMENT: KTMOBJECT_TYPE = 3i32;
+pub const KTMOBJECT_ENLISTMENT: KTMOBJECT_TYPE = KTMOBJECT_TYPE(3i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const KTMOBJECT_INVALID: KTMOBJECT_TYPE = 4i32;
+pub const KTMOBJECT_INVALID: KTMOBJECT_TYPE = KTMOBJECT_TYPE(4i32);
+impl ::core::marker::Copy for KTMOBJECT_TYPE {}
+impl ::core::clone::Clone for KTMOBJECT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for KTMOBJECT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KTMOBJECT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KTMOBJECT_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const LANG_AFRIKAANS: u32 = 54u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
@@ -8304,17 +8956,33 @@ impl ::core::default::Default for MEM_ADDRESS_REQUIREMENTS {
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const MEM_COALESCE_PLACEHOLDERS: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type MEM_DEDICATED_ATTRIBUTE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MEM_DEDICATED_ATTRIBUTE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MemDedicatedAttributeReadBandwidth: MEM_DEDICATED_ATTRIBUTE_TYPE = 0i32;
+pub const MemDedicatedAttributeReadBandwidth: MEM_DEDICATED_ATTRIBUTE_TYPE = MEM_DEDICATED_ATTRIBUTE_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MemDedicatedAttributeReadLatency: MEM_DEDICATED_ATTRIBUTE_TYPE = 1i32;
+pub const MemDedicatedAttributeReadLatency: MEM_DEDICATED_ATTRIBUTE_TYPE = MEM_DEDICATED_ATTRIBUTE_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MemDedicatedAttributeWriteBandwidth: MEM_DEDICATED_ATTRIBUTE_TYPE = 2i32;
+pub const MemDedicatedAttributeWriteBandwidth: MEM_DEDICATED_ATTRIBUTE_TYPE = MEM_DEDICATED_ATTRIBUTE_TYPE(2i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MemDedicatedAttributeWriteLatency: MEM_DEDICATED_ATTRIBUTE_TYPE = 3i32;
+pub const MemDedicatedAttributeWriteLatency: MEM_DEDICATED_ATTRIBUTE_TYPE = MEM_DEDICATED_ATTRIBUTE_TYPE(3i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MemDedicatedAttributeMax: MEM_DEDICATED_ATTRIBUTE_TYPE = 4i32;
+pub const MemDedicatedAttributeMax: MEM_DEDICATED_ATTRIBUTE_TYPE = MEM_DEDICATED_ATTRIBUTE_TYPE(4i32);
+impl ::core::marker::Copy for MEM_DEDICATED_ATTRIBUTE_TYPE {}
+impl ::core::clone::Clone for MEM_DEDICATED_ATTRIBUTE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MEM_DEDICATED_ATTRIBUTE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MEM_DEDICATED_ATTRIBUTE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MEM_DEDICATED_ATTRIBUTE_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const MEM_DIFFERENT_IMAGE_BASE_OK: u32 = 8388608u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
@@ -8338,17 +9006,33 @@ pub const MEM_PHYSICAL: u32 = 4194304u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const MEM_ROTATE: u32 = 8388608u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type MEM_SECTION_EXTENDED_PARAMETER_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MEM_SECTION_EXTENDED_PARAMETER_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MemSectionExtendedParameterInvalidType: MEM_SECTION_EXTENDED_PARAMETER_TYPE = 0i32;
+pub const MemSectionExtendedParameterInvalidType: MEM_SECTION_EXTENDED_PARAMETER_TYPE = MEM_SECTION_EXTENDED_PARAMETER_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MemSectionExtendedParameterUserPhysicalFlags: MEM_SECTION_EXTENDED_PARAMETER_TYPE = 1i32;
+pub const MemSectionExtendedParameterUserPhysicalFlags: MEM_SECTION_EXTENDED_PARAMETER_TYPE = MEM_SECTION_EXTENDED_PARAMETER_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MemSectionExtendedParameterNumaNode: MEM_SECTION_EXTENDED_PARAMETER_TYPE = 2i32;
+pub const MemSectionExtendedParameterNumaNode: MEM_SECTION_EXTENDED_PARAMETER_TYPE = MEM_SECTION_EXTENDED_PARAMETER_TYPE(2i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MemSectionExtendedParameterSigningLevel: MEM_SECTION_EXTENDED_PARAMETER_TYPE = 3i32;
+pub const MemSectionExtendedParameterSigningLevel: MEM_SECTION_EXTENDED_PARAMETER_TYPE = MEM_SECTION_EXTENDED_PARAMETER_TYPE(3i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MemSectionExtendedParameterMax: MEM_SECTION_EXTENDED_PARAMETER_TYPE = 4i32;
+pub const MemSectionExtendedParameterMax: MEM_SECTION_EXTENDED_PARAMETER_TYPE = MEM_SECTION_EXTENDED_PARAMETER_TYPE(4i32);
+impl ::core::marker::Copy for MEM_SECTION_EXTENDED_PARAMETER_TYPE {}
+impl ::core::clone::Clone for MEM_SECTION_EXTENDED_PARAMETER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MEM_SECTION_EXTENDED_PARAMETER_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MEM_SECTION_EXTENDED_PARAMETER_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MEM_SECTION_EXTENDED_PARAMETER_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const MEM_TOP_DOWN: u32 = 1048576u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
@@ -8366,13 +9050,29 @@ pub const MINSHORT: u32 = 32768u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const MIN_UCSCHAR: u32 = 0u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type MONITOR_DISPLAY_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MONITOR_DISPLAY_STATE(pub i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const PowerMonitorOff: MONITOR_DISPLAY_STATE = 0i32;
+pub const PowerMonitorOff: MONITOR_DISPLAY_STATE = MONITOR_DISPLAY_STATE(0i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const PowerMonitorOn: MONITOR_DISPLAY_STATE = 1i32;
+pub const PowerMonitorOn: MONITOR_DISPLAY_STATE = MONITOR_DISPLAY_STATE(1i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const PowerMonitorDim: MONITOR_DISPLAY_STATE = 2i32;
+pub const PowerMonitorDim: MONITOR_DISPLAY_STATE = MONITOR_DISPLAY_STATE(2i32);
+impl ::core::marker::Copy for MONITOR_DISPLAY_STATE {}
+impl ::core::clone::Clone for MONITOR_DISPLAY_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MONITOR_DISPLAY_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MONITOR_DISPLAY_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MONITOR_DISPLAY_STATE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const MS_PPM_SOFTWARE_ALL: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
@@ -8867,127 +9567,159 @@ impl ::core::default::Default for POWER_MONITOR_INVOCATION {
     }
 }
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type POWER_MONITOR_REQUEST_REASON = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct POWER_MONITOR_REQUEST_REASON(pub i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonUnknown: POWER_MONITOR_REQUEST_REASON = 0i32;
+pub const MonitorRequestReasonUnknown: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(0i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonPowerButton: POWER_MONITOR_REQUEST_REASON = 1i32;
+pub const MonitorRequestReasonPowerButton: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(1i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonRemoteConnection: POWER_MONITOR_REQUEST_REASON = 2i32;
+pub const MonitorRequestReasonRemoteConnection: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(2i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonScMonitorpower: POWER_MONITOR_REQUEST_REASON = 3i32;
+pub const MonitorRequestReasonScMonitorpower: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(3i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonUserInput: POWER_MONITOR_REQUEST_REASON = 4i32;
+pub const MonitorRequestReasonUserInput: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(4i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonAcDcDisplayBurst: POWER_MONITOR_REQUEST_REASON = 5i32;
+pub const MonitorRequestReasonAcDcDisplayBurst: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(5i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonUserDisplayBurst: POWER_MONITOR_REQUEST_REASON = 6i32;
+pub const MonitorRequestReasonUserDisplayBurst: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(6i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonPoSetSystemState: POWER_MONITOR_REQUEST_REASON = 7i32;
+pub const MonitorRequestReasonPoSetSystemState: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(7i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonSetThreadExecutionState: POWER_MONITOR_REQUEST_REASON = 8i32;
+pub const MonitorRequestReasonSetThreadExecutionState: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(8i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonFullWake: POWER_MONITOR_REQUEST_REASON = 9i32;
+pub const MonitorRequestReasonFullWake: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(9i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonSessionUnlock: POWER_MONITOR_REQUEST_REASON = 10i32;
+pub const MonitorRequestReasonSessionUnlock: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(10i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonScreenOffRequest: POWER_MONITOR_REQUEST_REASON = 11i32;
+pub const MonitorRequestReasonScreenOffRequest: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(11i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonIdleTimeout: POWER_MONITOR_REQUEST_REASON = 12i32;
+pub const MonitorRequestReasonIdleTimeout: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(12i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonPolicyChange: POWER_MONITOR_REQUEST_REASON = 13i32;
+pub const MonitorRequestReasonPolicyChange: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(13i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonSleepButton: POWER_MONITOR_REQUEST_REASON = 14i32;
+pub const MonitorRequestReasonSleepButton: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(14i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonLid: POWER_MONITOR_REQUEST_REASON = 15i32;
+pub const MonitorRequestReasonLid: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(15i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonBatteryCountChange: POWER_MONITOR_REQUEST_REASON = 16i32;
+pub const MonitorRequestReasonBatteryCountChange: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(16i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonGracePeriod: POWER_MONITOR_REQUEST_REASON = 17i32;
+pub const MonitorRequestReasonGracePeriod: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(17i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonPnP: POWER_MONITOR_REQUEST_REASON = 18i32;
+pub const MonitorRequestReasonPnP: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(18i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonDP: POWER_MONITOR_REQUEST_REASON = 19i32;
+pub const MonitorRequestReasonDP: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(19i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonSxTransition: POWER_MONITOR_REQUEST_REASON = 20i32;
+pub const MonitorRequestReasonSxTransition: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(20i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonSystemIdle: POWER_MONITOR_REQUEST_REASON = 21i32;
+pub const MonitorRequestReasonSystemIdle: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(21i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonNearProximity: POWER_MONITOR_REQUEST_REASON = 22i32;
+pub const MonitorRequestReasonNearProximity: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(22i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonThermalStandby: POWER_MONITOR_REQUEST_REASON = 23i32;
+pub const MonitorRequestReasonThermalStandby: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(23i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonResumePdc: POWER_MONITOR_REQUEST_REASON = 24i32;
+pub const MonitorRequestReasonResumePdc: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(24i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonResumeS4: POWER_MONITOR_REQUEST_REASON = 25i32;
+pub const MonitorRequestReasonResumeS4: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(25i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonTerminal: POWER_MONITOR_REQUEST_REASON = 26i32;
+pub const MonitorRequestReasonTerminal: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(26i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonPdcSignal: POWER_MONITOR_REQUEST_REASON = 27i32;
+pub const MonitorRequestReasonPdcSignal: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(27i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonAcDcDisplayBurstSuppressed: POWER_MONITOR_REQUEST_REASON = 28i32;
+pub const MonitorRequestReasonAcDcDisplayBurstSuppressed: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(28i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonSystemStateEntered: POWER_MONITOR_REQUEST_REASON = 29i32;
+pub const MonitorRequestReasonSystemStateEntered: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(29i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonWinrt: POWER_MONITOR_REQUEST_REASON = 30i32;
+pub const MonitorRequestReasonWinrt: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(30i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonUserInputKeyboard: POWER_MONITOR_REQUEST_REASON = 31i32;
+pub const MonitorRequestReasonUserInputKeyboard: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(31i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonUserInputMouse: POWER_MONITOR_REQUEST_REASON = 32i32;
+pub const MonitorRequestReasonUserInputMouse: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(32i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonUserInputTouchpad: POWER_MONITOR_REQUEST_REASON = 33i32;
+pub const MonitorRequestReasonUserInputTouchpad: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(33i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonUserInputPen: POWER_MONITOR_REQUEST_REASON = 34i32;
+pub const MonitorRequestReasonUserInputPen: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(34i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonUserInputAccelerometer: POWER_MONITOR_REQUEST_REASON = 35i32;
+pub const MonitorRequestReasonUserInputAccelerometer: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(35i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonUserInputHid: POWER_MONITOR_REQUEST_REASON = 36i32;
+pub const MonitorRequestReasonUserInputHid: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(36i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonUserInputPoUserPresent: POWER_MONITOR_REQUEST_REASON = 37i32;
+pub const MonitorRequestReasonUserInputPoUserPresent: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(37i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonUserInputSessionSwitch: POWER_MONITOR_REQUEST_REASON = 38i32;
+pub const MonitorRequestReasonUserInputSessionSwitch: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(38i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonUserInputInitialization: POWER_MONITOR_REQUEST_REASON = 39i32;
+pub const MonitorRequestReasonUserInputInitialization: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(39i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonPdcSignalWindowsMobilePwrNotif: POWER_MONITOR_REQUEST_REASON = 40i32;
+pub const MonitorRequestReasonPdcSignalWindowsMobilePwrNotif: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(40i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonPdcSignalWindowsMobileShell: POWER_MONITOR_REQUEST_REASON = 41i32;
+pub const MonitorRequestReasonPdcSignalWindowsMobileShell: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(41i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonPdcSignalHeyCortana: POWER_MONITOR_REQUEST_REASON = 42i32;
+pub const MonitorRequestReasonPdcSignalHeyCortana: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(42i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonPdcSignalHolographicShell: POWER_MONITOR_REQUEST_REASON = 43i32;
+pub const MonitorRequestReasonPdcSignalHolographicShell: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(43i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonPdcSignalFingerprint: POWER_MONITOR_REQUEST_REASON = 44i32;
+pub const MonitorRequestReasonPdcSignalFingerprint: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(44i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonDirectedDrips: POWER_MONITOR_REQUEST_REASON = 45i32;
+pub const MonitorRequestReasonDirectedDrips: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(45i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonDim: POWER_MONITOR_REQUEST_REASON = 46i32;
+pub const MonitorRequestReasonDim: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(46i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonBuiltinPanel: POWER_MONITOR_REQUEST_REASON = 47i32;
+pub const MonitorRequestReasonBuiltinPanel: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(47i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonDisplayRequiredUnDim: POWER_MONITOR_REQUEST_REASON = 48i32;
+pub const MonitorRequestReasonDisplayRequiredUnDim: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(48i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonBatteryCountChangeSuppressed: POWER_MONITOR_REQUEST_REASON = 49i32;
+pub const MonitorRequestReasonBatteryCountChangeSuppressed: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(49i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonResumeModernStandby: POWER_MONITOR_REQUEST_REASON = 50i32;
+pub const MonitorRequestReasonResumeModernStandby: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(50i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonTerminalInit: POWER_MONITOR_REQUEST_REASON = 51i32;
+pub const MonitorRequestReasonTerminalInit: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(51i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonPdcSignalSensorsHumanPresence: POWER_MONITOR_REQUEST_REASON = 52i32;
+pub const MonitorRequestReasonPdcSignalSensorsHumanPresence: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(52i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonBatteryPreCritical: POWER_MONITOR_REQUEST_REASON = 53i32;
+pub const MonitorRequestReasonBatteryPreCritical: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(53i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonUserInputTouch: POWER_MONITOR_REQUEST_REASON = 54i32;
+pub const MonitorRequestReasonUserInputTouch: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(54i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestReasonMax: POWER_MONITOR_REQUEST_REASON = 55i32;
+pub const MonitorRequestReasonMax: POWER_MONITOR_REQUEST_REASON = POWER_MONITOR_REQUEST_REASON(55i32);
+impl ::core::marker::Copy for POWER_MONITOR_REQUEST_REASON {}
+impl ::core::clone::Clone for POWER_MONITOR_REQUEST_REASON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for POWER_MONITOR_REQUEST_REASON {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for POWER_MONITOR_REQUEST_REASON {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("POWER_MONITOR_REQUEST_REASON").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type POWER_MONITOR_REQUEST_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct POWER_MONITOR_REQUEST_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestTypeOff: POWER_MONITOR_REQUEST_TYPE = 0i32;
+pub const MonitorRequestTypeOff: POWER_MONITOR_REQUEST_TYPE = POWER_MONITOR_REQUEST_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestTypeOnAndPresent: POWER_MONITOR_REQUEST_TYPE = 1i32;
+pub const MonitorRequestTypeOnAndPresent: POWER_MONITOR_REQUEST_TYPE = POWER_MONITOR_REQUEST_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MonitorRequestTypeToggleOn: POWER_MONITOR_REQUEST_TYPE = 2i32;
+pub const MonitorRequestTypeToggleOn: POWER_MONITOR_REQUEST_TYPE = POWER_MONITOR_REQUEST_TYPE(2i32);
+impl ::core::marker::Copy for POWER_MONITOR_REQUEST_TYPE {}
+impl ::core::clone::Clone for POWER_MONITOR_REQUEST_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for POWER_MONITOR_REQUEST_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for POWER_MONITOR_REQUEST_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("POWER_MONITOR_REQUEST_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_SystemServices', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -9216,21 +9948,37 @@ impl ::core::default::Default for POWER_SESSION_WINLOGON {
     }
 }
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type POWER_SETTING_ALTITUDE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct POWER_SETTING_ALTITUDE(pub i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ALTITUDE_GROUP_POLICY: POWER_SETTING_ALTITUDE = 0i32;
+pub const ALTITUDE_GROUP_POLICY: POWER_SETTING_ALTITUDE = POWER_SETTING_ALTITUDE(0i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ALTITUDE_USER: POWER_SETTING_ALTITUDE = 1i32;
+pub const ALTITUDE_USER: POWER_SETTING_ALTITUDE = POWER_SETTING_ALTITUDE(1i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ALTITUDE_RUNTIME_OVERRIDE: POWER_SETTING_ALTITUDE = 2i32;
+pub const ALTITUDE_RUNTIME_OVERRIDE: POWER_SETTING_ALTITUDE = POWER_SETTING_ALTITUDE(2i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ALTITUDE_PROVISIONING: POWER_SETTING_ALTITUDE = 3i32;
+pub const ALTITUDE_PROVISIONING: POWER_SETTING_ALTITUDE = POWER_SETTING_ALTITUDE(3i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ALTITUDE_OEM_CUSTOMIZATION: POWER_SETTING_ALTITUDE = 4i32;
+pub const ALTITUDE_OEM_CUSTOMIZATION: POWER_SETTING_ALTITUDE = POWER_SETTING_ALTITUDE(4i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ALTITUDE_INTERNAL_OVERRIDE: POWER_SETTING_ALTITUDE = 5i32;
+pub const ALTITUDE_INTERNAL_OVERRIDE: POWER_SETTING_ALTITUDE = POWER_SETTING_ALTITUDE(5i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ALTITUDE_OS_DEFAULT: POWER_SETTING_ALTITUDE = 6i32;
+pub const ALTITUDE_OS_DEFAULT: POWER_SETTING_ALTITUDE = POWER_SETTING_ALTITUDE(6i32);
+impl ::core::marker::Copy for POWER_SETTING_ALTITUDE {}
+impl ::core::clone::Clone for POWER_SETTING_ALTITUDE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for POWER_SETTING_ALTITUDE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for POWER_SETTING_ALTITUDE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("POWER_SETTING_ALTITUDE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const POWER_SETTING_VALUE_VERSION: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
@@ -9268,13 +10016,29 @@ impl ::core::default::Default for POWER_USER_PRESENCE {
     }
 }
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type POWER_USER_PRESENCE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct POWER_USER_PRESENCE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const UserNotPresent: POWER_USER_PRESENCE_TYPE = 0i32;
+pub const UserNotPresent: POWER_USER_PRESENCE_TYPE = POWER_USER_PRESENCE_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const UserPresent: POWER_USER_PRESENCE_TYPE = 1i32;
+pub const UserPresent: POWER_USER_PRESENCE_TYPE = POWER_USER_PRESENCE_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const UserUnknown: POWER_USER_PRESENCE_TYPE = 255i32;
+pub const UserUnknown: POWER_USER_PRESENCE_TYPE = POWER_USER_PRESENCE_TYPE(255i32);
+impl ::core::marker::Copy for POWER_USER_PRESENCE_TYPE {}
+impl ::core::clone::Clone for POWER_USER_PRESENCE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for POWER_USER_PRESENCE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for POWER_USER_PRESENCE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("POWER_USER_PRESENCE_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const PO_THROTTLE_ADAPTIVE: u32 = 3u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
@@ -12222,11 +12986,27 @@ pub const RESOURCEMANAGER_ENLIST: u32 = 8u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const RESOURCEMANAGER_GET_NOTIFICATION: u32 = 16u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type RESOURCEMANAGER_INFORMATION_CLASS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RESOURCEMANAGER_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ResourceManagerBasicInformation: RESOURCEMANAGER_INFORMATION_CLASS = 0i32;
+pub const ResourceManagerBasicInformation: RESOURCEMANAGER_INFORMATION_CLASS = RESOURCEMANAGER_INFORMATION_CLASS(0i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const ResourceManagerCompletionInformation: RESOURCEMANAGER_INFORMATION_CLASS = 1i32;
+pub const ResourceManagerCompletionInformation: RESOURCEMANAGER_INFORMATION_CLASS = RESOURCEMANAGER_INFORMATION_CLASS(1i32);
+impl ::core::marker::Copy for RESOURCEMANAGER_INFORMATION_CLASS {}
+impl ::core::clone::Clone for RESOURCEMANAGER_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RESOURCEMANAGER_INFORMATION_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RESOURCEMANAGER_INFORMATION_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RESOURCEMANAGER_INFORMATION_CLASS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const RESOURCEMANAGER_QUERY_INFORMATION: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
@@ -12298,13 +13078,29 @@ pub const RTL_RUN_ONCE_CTX_RESERVED_BITS: u32 = 2u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const RTL_RUN_ONCE_INIT_FAILED: u32 = 4u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type RTL_UMS_SCHEDULER_REASON = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RTL_UMS_SCHEDULER_REASON(pub i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const UmsSchedulerStartup: RTL_UMS_SCHEDULER_REASON = 0i32;
+pub const UmsSchedulerStartup: RTL_UMS_SCHEDULER_REASON = RTL_UMS_SCHEDULER_REASON(0i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const UmsSchedulerThreadBlocked: RTL_UMS_SCHEDULER_REASON = 1i32;
+pub const UmsSchedulerThreadBlocked: RTL_UMS_SCHEDULER_REASON = RTL_UMS_SCHEDULER_REASON(1i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const UmsSchedulerThreadYield: RTL_UMS_SCHEDULER_REASON = 2i32;
+pub const UmsSchedulerThreadYield: RTL_UMS_SCHEDULER_REASON = RTL_UMS_SCHEDULER_REASON(2i32);
+impl ::core::marker::Copy for RTL_UMS_SCHEDULER_REASON {}
+impl ::core::clone::Clone for RTL_UMS_SCHEDULER_REASON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTL_UMS_SCHEDULER_REASON {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RTL_UMS_SCHEDULER_REASON {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RTL_UMS_SCHEDULER_REASON").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const RTL_UMS_VERSION: u32 = 256u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
@@ -12554,57 +13350,73 @@ impl ::core::default::Default for RemotableHandle_0 {
     }
 }
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type ReplacesCorHdrNumericDefines = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ReplacesCorHdrNumericDefines(pub i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const COMIMAGE_FLAGS_ILONLY: ReplacesCorHdrNumericDefines = 1i32;
+pub const COMIMAGE_FLAGS_ILONLY: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(1i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const COMIMAGE_FLAGS_32BITREQUIRED: ReplacesCorHdrNumericDefines = 2i32;
+pub const COMIMAGE_FLAGS_32BITREQUIRED: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(2i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const COMIMAGE_FLAGS_IL_LIBRARY: ReplacesCorHdrNumericDefines = 4i32;
+pub const COMIMAGE_FLAGS_IL_LIBRARY: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(4i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const COMIMAGE_FLAGS_STRONGNAMESIGNED: ReplacesCorHdrNumericDefines = 8i32;
+pub const COMIMAGE_FLAGS_STRONGNAMESIGNED: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(8i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const COMIMAGE_FLAGS_NATIVE_ENTRYPOINT: ReplacesCorHdrNumericDefines = 16i32;
+pub const COMIMAGE_FLAGS_NATIVE_ENTRYPOINT: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(16i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const COMIMAGE_FLAGS_TRACKDEBUGDATA: ReplacesCorHdrNumericDefines = 65536i32;
+pub const COMIMAGE_FLAGS_TRACKDEBUGDATA: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(65536i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const COMIMAGE_FLAGS_32BITPREFERRED: ReplacesCorHdrNumericDefines = 131072i32;
+pub const COMIMAGE_FLAGS_32BITPREFERRED: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(131072i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const COR_VERSION_MAJOR_V2: ReplacesCorHdrNumericDefines = 2i32;
+pub const COR_VERSION_MAJOR_V2: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(2i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const COR_VERSION_MAJOR: ReplacesCorHdrNumericDefines = 2i32;
+pub const COR_VERSION_MAJOR: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(2i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const COR_VERSION_MINOR: ReplacesCorHdrNumericDefines = 5i32;
+pub const COR_VERSION_MINOR: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(5i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const COR_DELETED_NAME_LENGTH: ReplacesCorHdrNumericDefines = 8i32;
+pub const COR_DELETED_NAME_LENGTH: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(8i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const COR_VTABLEGAP_NAME_LENGTH: ReplacesCorHdrNumericDefines = 8i32;
+pub const COR_VTABLEGAP_NAME_LENGTH: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(8i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const NATIVE_TYPE_MAX_CB: ReplacesCorHdrNumericDefines = 1i32;
+pub const NATIVE_TYPE_MAX_CB: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(1i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const COR_ILMETHOD_SECT_SMALL_MAX_DATASIZE: ReplacesCorHdrNumericDefines = 255i32;
+pub const COR_ILMETHOD_SECT_SMALL_MAX_DATASIZE: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(255i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const IMAGE_COR_MIH_METHODRVA: ReplacesCorHdrNumericDefines = 1i32;
+pub const IMAGE_COR_MIH_METHODRVA: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(1i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const IMAGE_COR_MIH_EHRVA: ReplacesCorHdrNumericDefines = 2i32;
+pub const IMAGE_COR_MIH_EHRVA: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(2i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const IMAGE_COR_MIH_BASICBLOCK: ReplacesCorHdrNumericDefines = 8i32;
+pub const IMAGE_COR_MIH_BASICBLOCK: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(8i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const COR_VTABLE_32BIT: ReplacesCorHdrNumericDefines = 1i32;
+pub const COR_VTABLE_32BIT: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(1i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const COR_VTABLE_64BIT: ReplacesCorHdrNumericDefines = 2i32;
+pub const COR_VTABLE_64BIT: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(2i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const COR_VTABLE_FROM_UNMANAGED: ReplacesCorHdrNumericDefines = 4i32;
+pub const COR_VTABLE_FROM_UNMANAGED: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(4i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const COR_VTABLE_FROM_UNMANAGED_RETAIN_APPDOMAIN: ReplacesCorHdrNumericDefines = 8i32;
+pub const COR_VTABLE_FROM_UNMANAGED_RETAIN_APPDOMAIN: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(8i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const COR_VTABLE_CALL_MOST_DERIVED: ReplacesCorHdrNumericDefines = 16i32;
+pub const COR_VTABLE_CALL_MOST_DERIVED: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(16i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const IMAGE_COR_EATJ_THUNK_SIZE: ReplacesCorHdrNumericDefines = 32i32;
+pub const IMAGE_COR_EATJ_THUNK_SIZE: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(32i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MAX_CLASS_NAME: ReplacesCorHdrNumericDefines = 1024i32;
+pub const MAX_CLASS_NAME: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(1024i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const MAX_PACKAGE_NAME: ReplacesCorHdrNumericDefines = 1024i32;
+pub const MAX_PACKAGE_NAME: ReplacesCorHdrNumericDefines = ReplacesCorHdrNumericDefines(1024i32);
+impl ::core::marker::Copy for ReplacesCorHdrNumericDefines {}
+impl ::core::clone::Clone for ReplacesCorHdrNumericDefines {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ReplacesCorHdrNumericDefines {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ReplacesCorHdrNumericDefines {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ReplacesCorHdrNumericDefines").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub struct SCOPE_TABLE_AMD64 {
@@ -12998,21 +13810,65 @@ impl ::core::default::Default for SCRUB_PARITY_EXTENT_DATA {
     }
 }
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type SECTION_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SECTION_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const SECTION_ALL_ACCESS: SECTION_FLAGS = 983071u32;
+pub const SECTION_ALL_ACCESS: SECTION_FLAGS = SECTION_FLAGS(983071u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const SECTION_QUERY: SECTION_FLAGS = 1u32;
+pub const SECTION_QUERY: SECTION_FLAGS = SECTION_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const SECTION_MAP_WRITE: SECTION_FLAGS = 2u32;
+pub const SECTION_MAP_WRITE: SECTION_FLAGS = SECTION_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const SECTION_MAP_READ: SECTION_FLAGS = 4u32;
+pub const SECTION_MAP_READ: SECTION_FLAGS = SECTION_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const SECTION_MAP_EXECUTE: SECTION_FLAGS = 8u32;
+pub const SECTION_MAP_EXECUTE: SECTION_FLAGS = SECTION_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const SECTION_EXTEND_SIZE: SECTION_FLAGS = 16u32;
+pub const SECTION_EXTEND_SIZE: SECTION_FLAGS = SECTION_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const SECTION_MAP_EXECUTE_EXPLICIT: SECTION_FLAGS = 32u32;
+pub const SECTION_MAP_EXECUTE_EXPLICIT: SECTION_FLAGS = SECTION_FLAGS(32u32);
+impl ::core::marker::Copy for SECTION_FLAGS {}
+impl ::core::clone::Clone for SECTION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SECTION_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SECTION_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SECTION_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SECTION_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SECTION_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SECTION_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SECTION_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SECTION_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const SECURITY_ANONYMOUS_LOGON_RID: i32 = 7i32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
@@ -13406,17 +14262,33 @@ impl ::core::default::Default for SERVERSILO_BASIC_INFORMATION {
     }
 }
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type SERVERSILO_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SERVERSILO_STATE(pub i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const SERVERSILO_INITING: SERVERSILO_STATE = 0i32;
+pub const SERVERSILO_INITING: SERVERSILO_STATE = SERVERSILO_STATE(0i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const SERVERSILO_STARTED: SERVERSILO_STATE = 1i32;
+pub const SERVERSILO_STARTED: SERVERSILO_STATE = SERVERSILO_STATE(1i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const SERVERSILO_SHUTTING_DOWN: SERVERSILO_STATE = 2i32;
+pub const SERVERSILO_SHUTTING_DOWN: SERVERSILO_STATE = SERVERSILO_STATE(2i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const SERVERSILO_TERMINATING: SERVERSILO_STATE = 3i32;
+pub const SERVERSILO_TERMINATING: SERVERSILO_STATE = SERVERSILO_STATE(3i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const SERVERSILO_TERMINATED: SERVERSILO_STATE = 4i32;
+pub const SERVERSILO_TERMINATED: SERVERSILO_STATE = SERVERSILO_STATE(4i32);
+impl ::core::marker::Copy for SERVERSILO_STATE {}
+impl ::core::clone::Clone for SERVERSILO_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SERVERSILO_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SERVERSILO_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SERVERSILO_STATE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const SERVICE_INTERACTIVE_PROCESS: u32 = 256u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
@@ -13464,31 +14336,63 @@ pub const SE_GROUP_RESOURCE: i32 = 536870912i32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const SE_GROUP_USE_FOR_DENY_ONLY: i32 = 16i32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type SE_IMAGE_SIGNATURE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SE_IMAGE_SIGNATURE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const SeImageSignatureNone: SE_IMAGE_SIGNATURE_TYPE = 0i32;
+pub const SeImageSignatureNone: SE_IMAGE_SIGNATURE_TYPE = SE_IMAGE_SIGNATURE_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const SeImageSignatureEmbedded: SE_IMAGE_SIGNATURE_TYPE = 1i32;
+pub const SeImageSignatureEmbedded: SE_IMAGE_SIGNATURE_TYPE = SE_IMAGE_SIGNATURE_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const SeImageSignatureCache: SE_IMAGE_SIGNATURE_TYPE = 2i32;
+pub const SeImageSignatureCache: SE_IMAGE_SIGNATURE_TYPE = SE_IMAGE_SIGNATURE_TYPE(2i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const SeImageSignatureCatalogCached: SE_IMAGE_SIGNATURE_TYPE = 3i32;
+pub const SeImageSignatureCatalogCached: SE_IMAGE_SIGNATURE_TYPE = SE_IMAGE_SIGNATURE_TYPE(3i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const SeImageSignatureCatalogNotCached: SE_IMAGE_SIGNATURE_TYPE = 4i32;
+pub const SeImageSignatureCatalogNotCached: SE_IMAGE_SIGNATURE_TYPE = SE_IMAGE_SIGNATURE_TYPE(4i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const SeImageSignatureCatalogHint: SE_IMAGE_SIGNATURE_TYPE = 5i32;
+pub const SeImageSignatureCatalogHint: SE_IMAGE_SIGNATURE_TYPE = SE_IMAGE_SIGNATURE_TYPE(5i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const SeImageSignaturePackageCatalog: SE_IMAGE_SIGNATURE_TYPE = 6i32;
+pub const SeImageSignaturePackageCatalog: SE_IMAGE_SIGNATURE_TYPE = SE_IMAGE_SIGNATURE_TYPE(6i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const SeImageSignaturePplMitigated: SE_IMAGE_SIGNATURE_TYPE = 7i32;
+pub const SeImageSignaturePplMitigated: SE_IMAGE_SIGNATURE_TYPE = SE_IMAGE_SIGNATURE_TYPE(7i32);
+impl ::core::marker::Copy for SE_IMAGE_SIGNATURE_TYPE {}
+impl ::core::clone::Clone for SE_IMAGE_SIGNATURE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SE_IMAGE_SIGNATURE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SE_IMAGE_SIGNATURE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SE_IMAGE_SIGNATURE_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type SE_LEARNING_MODE_DATA_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SE_LEARNING_MODE_DATA_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const SeLearningModeInvalidType: SE_LEARNING_MODE_DATA_TYPE = 0i32;
+pub const SeLearningModeInvalidType: SE_LEARNING_MODE_DATA_TYPE = SE_LEARNING_MODE_DATA_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const SeLearningModeSettings: SE_LEARNING_MODE_DATA_TYPE = 1i32;
+pub const SeLearningModeSettings: SE_LEARNING_MODE_DATA_TYPE = SE_LEARNING_MODE_DATA_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const SeLearningModeMax: SE_LEARNING_MODE_DATA_TYPE = 2i32;
+pub const SeLearningModeMax: SE_LEARNING_MODE_DATA_TYPE = SE_LEARNING_MODE_DATA_TYPE(2i32);
+impl ::core::marker::Copy for SE_LEARNING_MODE_DATA_TYPE {}
+impl ::core::clone::Clone for SE_LEARNING_MODE_DATA_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SE_LEARNING_MODE_DATA_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SE_LEARNING_MODE_DATA_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SE_LEARNING_MODE_DATA_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const SE_LEARNING_MODE_FLAG_PERMISSIVE: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
@@ -14367,23 +15271,55 @@ pub const SYSTEM_RESOURCE_ATTRIBUTE_ACE_TYPE: u32 = 18u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const SYSTEM_SCOPED_POLICY_ID_ACE_TYPE: u32 = 19u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type SharedVirtualDiskHandleState = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SharedVirtualDiskHandleState(pub i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const SharedVirtualDiskHandleStateNone: SharedVirtualDiskHandleState = 0i32;
+pub const SharedVirtualDiskHandleStateNone: SharedVirtualDiskHandleState = SharedVirtualDiskHandleState(0i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const SharedVirtualDiskHandleStateFileShared: SharedVirtualDiskHandleState = 1i32;
+pub const SharedVirtualDiskHandleStateFileShared: SharedVirtualDiskHandleState = SharedVirtualDiskHandleState(1i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const SharedVirtualDiskHandleStateHandleShared: SharedVirtualDiskHandleState = 3i32;
+pub const SharedVirtualDiskHandleStateHandleShared: SharedVirtualDiskHandleState = SharedVirtualDiskHandleState(3i32);
+impl ::core::marker::Copy for SharedVirtualDiskHandleState {}
+impl ::core::clone::Clone for SharedVirtualDiskHandleState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SharedVirtualDiskHandleState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SharedVirtualDiskHandleState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SharedVirtualDiskHandleState").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type SharedVirtualDiskSupportType = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SharedVirtualDiskSupportType(pub i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const SharedVirtualDisksUnsupported: SharedVirtualDiskSupportType = 0i32;
+pub const SharedVirtualDisksUnsupported: SharedVirtualDiskSupportType = SharedVirtualDiskSupportType(0i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const SharedVirtualDisksSupported: SharedVirtualDiskSupportType = 1i32;
+pub const SharedVirtualDisksSupported: SharedVirtualDiskSupportType = SharedVirtualDiskSupportType(1i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const SharedVirtualDiskSnapshotsSupported: SharedVirtualDiskSupportType = 3i32;
+pub const SharedVirtualDiskSnapshotsSupported: SharedVirtualDiskSupportType = SharedVirtualDiskSupportType(3i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const SharedVirtualDiskCDPSnapshotsSupported: SharedVirtualDiskSupportType = 7i32;
+pub const SharedVirtualDiskCDPSnapshotsSupported: SharedVirtualDiskSupportType = SharedVirtualDiskSupportType(7i32);
+impl ::core::marker::Copy for SharedVirtualDiskSupportType {}
+impl ::core::clone::Clone for SharedVirtualDiskSupportType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SharedVirtualDiskSupportType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SharedVirtualDiskSupportType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SharedVirtualDiskSupportType").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const TAPE_CHECK_FOR_DRIVE_PROBLEM: i32 = 2i32;
 #[repr(C)]
@@ -14455,35 +15391,51 @@ pub const TAPE_DRIVE_INITIATOR: u32 = 4u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const TAPE_DRIVE_PADDING: u32 = 262144u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type TAPE_DRIVE_PROBLEM_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TAPE_DRIVE_PROBLEM_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TapeDriveProblemNone: TAPE_DRIVE_PROBLEM_TYPE = 0i32;
+pub const TapeDriveProblemNone: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TapeDriveReadWriteWarning: TAPE_DRIVE_PROBLEM_TYPE = 1i32;
+pub const TapeDriveReadWriteWarning: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TapeDriveReadWriteError: TAPE_DRIVE_PROBLEM_TYPE = 2i32;
+pub const TapeDriveReadWriteError: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(2i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TapeDriveReadWarning: TAPE_DRIVE_PROBLEM_TYPE = 3i32;
+pub const TapeDriveReadWarning: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(3i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TapeDriveWriteWarning: TAPE_DRIVE_PROBLEM_TYPE = 4i32;
+pub const TapeDriveWriteWarning: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(4i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TapeDriveReadError: TAPE_DRIVE_PROBLEM_TYPE = 5i32;
+pub const TapeDriveReadError: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(5i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TapeDriveWriteError: TAPE_DRIVE_PROBLEM_TYPE = 6i32;
+pub const TapeDriveWriteError: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(6i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TapeDriveHardwareError: TAPE_DRIVE_PROBLEM_TYPE = 7i32;
+pub const TapeDriveHardwareError: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(7i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TapeDriveUnsupportedMedia: TAPE_DRIVE_PROBLEM_TYPE = 8i32;
+pub const TapeDriveUnsupportedMedia: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(8i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TapeDriveScsiConnectionError: TAPE_DRIVE_PROBLEM_TYPE = 9i32;
+pub const TapeDriveScsiConnectionError: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(9i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TapeDriveTimetoClean: TAPE_DRIVE_PROBLEM_TYPE = 10i32;
+pub const TapeDriveTimetoClean: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(10i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TapeDriveCleanDriveNow: TAPE_DRIVE_PROBLEM_TYPE = 11i32;
+pub const TapeDriveCleanDriveNow: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(11i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TapeDriveMediaLifeExpired: TAPE_DRIVE_PROBLEM_TYPE = 12i32;
+pub const TapeDriveMediaLifeExpired: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(12i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TapeDriveSnappedTape: TAPE_DRIVE_PROBLEM_TYPE = 13i32;
+pub const TapeDriveSnappedTape: TAPE_DRIVE_PROBLEM_TYPE = TAPE_DRIVE_PROBLEM_TYPE(13i32);
+impl ::core::marker::Copy for TAPE_DRIVE_PROBLEM_TYPE {}
+impl ::core::clone::Clone for TAPE_DRIVE_PROBLEM_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TAPE_DRIVE_PROBLEM_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TAPE_DRIVE_PROBLEM_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TAPE_DRIVE_PROBLEM_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const TAPE_DRIVE_REPORT_SMKS: u32 = 524288u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
@@ -14563,65 +15515,109 @@ impl ::core::default::Default for TAPE_GET_DRIVE_PARAMETERS {
     }
 }
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(pub u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TAPE_DRIVE_ABS_BLK_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2147491840u32;
+pub const TAPE_DRIVE_ABS_BLK_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147491840u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TAPE_DRIVE_ABSOLUTE_BLK: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2147487744u32;
+pub const TAPE_DRIVE_ABSOLUTE_BLK: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147487744u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TAPE_DRIVE_END_OF_DATA: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2147549184u32;
+pub const TAPE_DRIVE_END_OF_DATA: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147549184u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TAPE_DRIVE_FILEMARKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2147745792u32;
+pub const TAPE_DRIVE_FILEMARKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147745792u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TAPE_DRIVE_LOAD_UNLOAD: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2147483649u32;
+pub const TAPE_DRIVE_LOAD_UNLOAD: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483649u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TAPE_DRIVE_LOAD_UNLD_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2147483680u32;
+pub const TAPE_DRIVE_LOAD_UNLD_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483680u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TAPE_DRIVE_LOCK_UNLOCK: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2147483652u32;
+pub const TAPE_DRIVE_LOCK_UNLOCK: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483652u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TAPE_DRIVE_LOCK_UNLK_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2147483776u32;
+pub const TAPE_DRIVE_LOCK_UNLK_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483776u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TAPE_DRIVE_LOG_BLK_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2147516416u32;
+pub const TAPE_DRIVE_LOG_BLK_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147516416u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TAPE_DRIVE_LOGICAL_BLK: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2147500032u32;
+pub const TAPE_DRIVE_LOGICAL_BLK: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147500032u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TAPE_DRIVE_RELATIVE_BLKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2147614720u32;
+pub const TAPE_DRIVE_RELATIVE_BLKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147614720u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TAPE_DRIVE_REVERSE_POSITION: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2151677952u32;
+pub const TAPE_DRIVE_REVERSE_POSITION: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2151677952u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TAPE_DRIVE_REWIND_IMMEDIATE: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2147483656u32;
+pub const TAPE_DRIVE_REWIND_IMMEDIATE: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483656u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TAPE_DRIVE_SEQUENTIAL_FMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2148007936u32;
+pub const TAPE_DRIVE_SEQUENTIAL_FMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2148007936u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TAPE_DRIVE_SEQUENTIAL_SMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2149580800u32;
+pub const TAPE_DRIVE_SEQUENTIAL_SMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2149580800u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TAPE_DRIVE_SET_BLOCK_SIZE: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2147483664u32;
+pub const TAPE_DRIVE_SET_BLOCK_SIZE: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483664u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TAPE_DRIVE_SET_COMPRESSION: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2147484160u32;
+pub const TAPE_DRIVE_SET_COMPRESSION: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147484160u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TAPE_DRIVE_SET_ECC: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2147483904u32;
+pub const TAPE_DRIVE_SET_ECC: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483904u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TAPE_DRIVE_SET_PADDING: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2147484672u32;
+pub const TAPE_DRIVE_SET_PADDING: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147484672u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TAPE_DRIVE_SET_REPORT_SMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2147485696u32;
+pub const TAPE_DRIVE_SET_REPORT_SMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147485696u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TAPE_DRIVE_SETMARKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2148532224u32;
+pub const TAPE_DRIVE_SETMARKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2148532224u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TAPE_DRIVE_SPACE_IMMEDIATE: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2155872256u32;
+pub const TAPE_DRIVE_SPACE_IMMEDIATE: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2155872256u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TAPE_DRIVE_TENSION: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2147483650u32;
+pub const TAPE_DRIVE_TENSION: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483650u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TAPE_DRIVE_TENSION_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2147483712u32;
+pub const TAPE_DRIVE_TENSION_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2147483712u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TAPE_DRIVE_WRITE_FILEMARKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2181038080u32;
+pub const TAPE_DRIVE_WRITE_FILEMARKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2181038080u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TAPE_DRIVE_WRITE_LONG_FMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2281701376u32;
+pub const TAPE_DRIVE_WRITE_LONG_FMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2281701376u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TAPE_DRIVE_WRITE_MARK_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2415919104u32;
+pub const TAPE_DRIVE_WRITE_MARK_IMMED: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2415919104u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TAPE_DRIVE_WRITE_SETMARKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2164260864u32;
+pub const TAPE_DRIVE_WRITE_SETMARKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2164260864u32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TAPE_DRIVE_WRITE_SHORT_FMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = 2214592512u32;
+pub const TAPE_DRIVE_WRITE_SHORT_FMKS: TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH = TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH(2214592512u32);
+impl ::core::marker::Copy for TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH {}
+impl ::core::clone::Clone for TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for TAPE_GET_DRIVE_PARAMETERS_FEATURES_HIGH {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_SystemServices', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -14925,19 +15921,35 @@ pub const TRANSACTIONMANAGER_BIND_TRANSACTION: u32 = 32u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const TRANSACTIONMANAGER_CREATE_RM: u32 = 16u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type TRANSACTIONMANAGER_INFORMATION_CLASS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TRANSACTIONMANAGER_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TransactionManagerBasicInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = 0i32;
+pub const TransactionManagerBasicInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = TRANSACTIONMANAGER_INFORMATION_CLASS(0i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TransactionManagerLogInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = 1i32;
+pub const TransactionManagerLogInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = TRANSACTIONMANAGER_INFORMATION_CLASS(1i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TransactionManagerLogPathInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = 2i32;
+pub const TransactionManagerLogPathInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = TRANSACTIONMANAGER_INFORMATION_CLASS(2i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TransactionManagerRecoveryInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = 4i32;
+pub const TransactionManagerRecoveryInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = TRANSACTIONMANAGER_INFORMATION_CLASS(4i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TransactionManagerOnlineProbeInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = 3i32;
+pub const TransactionManagerOnlineProbeInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = TRANSACTIONMANAGER_INFORMATION_CLASS(3i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TransactionManagerOldestTransactionInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = 5i32;
+pub const TransactionManagerOldestTransactionInformation: TRANSACTIONMANAGER_INFORMATION_CLASS = TRANSACTIONMANAGER_INFORMATION_CLASS(5i32);
+impl ::core::marker::Copy for TRANSACTIONMANAGER_INFORMATION_CLASS {}
+impl ::core::clone::Clone for TRANSACTIONMANAGER_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TRANSACTIONMANAGER_INFORMATION_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TRANSACTIONMANAGER_INFORMATION_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TRANSACTIONMANAGER_INFORMATION_CLASS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub struct TRANSACTIONMANAGER_LOGPATH_INFORMATION {
@@ -15204,19 +16216,35 @@ impl ::core::default::Default for TRANSACTION_ENLISTMENT_PAIR {
     }
 }
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type TRANSACTION_INFORMATION_CLASS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TRANSACTION_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TransactionBasicInformation: TRANSACTION_INFORMATION_CLASS = 0i32;
+pub const TransactionBasicInformation: TRANSACTION_INFORMATION_CLASS = TRANSACTION_INFORMATION_CLASS(0i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TransactionPropertiesInformation: TRANSACTION_INFORMATION_CLASS = 1i32;
+pub const TransactionPropertiesInformation: TRANSACTION_INFORMATION_CLASS = TRANSACTION_INFORMATION_CLASS(1i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TransactionEnlistmentInformation: TRANSACTION_INFORMATION_CLASS = 2i32;
+pub const TransactionEnlistmentInformation: TRANSACTION_INFORMATION_CLASS = TRANSACTION_INFORMATION_CLASS(2i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TransactionSuperiorEnlistmentInformation: TRANSACTION_INFORMATION_CLASS = 3i32;
+pub const TransactionSuperiorEnlistmentInformation: TRANSACTION_INFORMATION_CLASS = TRANSACTION_INFORMATION_CLASS(3i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TransactionBindInformation: TRANSACTION_INFORMATION_CLASS = 4i32;
+pub const TransactionBindInformation: TRANSACTION_INFORMATION_CLASS = TRANSACTION_INFORMATION_CLASS(4i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TransactionDTCPrivateInformation: TRANSACTION_INFORMATION_CLASS = 5i32;
+pub const TransactionDTCPrivateInformation: TRANSACTION_INFORMATION_CLASS = TRANSACTION_INFORMATION_CLASS(5i32);
+impl ::core::marker::Copy for TRANSACTION_INFORMATION_CLASS {}
+impl ::core::clone::Clone for TRANSACTION_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TRANSACTION_INFORMATION_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TRANSACTION_INFORMATION_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TRANSACTION_INFORMATION_CLASS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub struct TRANSACTION_LIST_ENTRY {
@@ -15324,13 +16352,29 @@ pub const TRANSACTION_ROLLBACK: u32 = 16u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const TRANSACTION_SET_INFORMATION: u32 = 2u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type TRANSACTION_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TRANSACTION_STATE(pub i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TransactionStateNormal: TRANSACTION_STATE = 1i32;
+pub const TransactionStateNormal: TRANSACTION_STATE = TRANSACTION_STATE(1i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TransactionStateIndoubt: TRANSACTION_STATE = 2i32;
+pub const TransactionStateIndoubt: TRANSACTION_STATE = TRANSACTION_STATE(2i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const TransactionStateCommittedNotify: TRANSACTION_STATE = 3i32;
+pub const TransactionStateCommittedNotify: TRANSACTION_STATE = TRANSACTION_STATE(3i32);
+impl ::core::marker::Copy for TRANSACTION_STATE {}
+impl ::core::clone::Clone for TRANSACTION_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TRANSACTION_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TRANSACTION_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TRANSACTION_STATE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub struct TRANSACTION_SUPERIOR_ENLISTMENT_INFORMATION {
@@ -15416,17 +16460,33 @@ pub const UNWIND_HISTORY_TABLE_SIZE: u32 = 12u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub const UNW_FLAG_NO_EPILOGUE: u32 = 2147483648u32;
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub type USER_ACTIVITY_PRESENCE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct USER_ACTIVITY_PRESENCE(pub i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const PowerUserPresent: USER_ACTIVITY_PRESENCE = 0i32;
+pub const PowerUserPresent: USER_ACTIVITY_PRESENCE = USER_ACTIVITY_PRESENCE(0i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const PowerUserNotPresent: USER_ACTIVITY_PRESENCE = 1i32;
+pub const PowerUserNotPresent: USER_ACTIVITY_PRESENCE = USER_ACTIVITY_PRESENCE(1i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const PowerUserInactive: USER_ACTIVITY_PRESENCE = 2i32;
+pub const PowerUserInactive: USER_ACTIVITY_PRESENCE = USER_ACTIVITY_PRESENCE(2i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const PowerUserMaximum: USER_ACTIVITY_PRESENCE = 3i32;
+pub const PowerUserMaximum: USER_ACTIVITY_PRESENCE = USER_ACTIVITY_PRESENCE(3i32);
 #[doc = "*Required features: 'Win32_System_SystemServices'*"]
-pub const PowerUserInvalid: USER_ACTIVITY_PRESENCE = 3i32;
+pub const PowerUserInvalid: USER_ACTIVITY_PRESENCE = USER_ACTIVITY_PRESENCE(3i32);
+impl ::core::marker::Copy for USER_ACTIVITY_PRESENCE {}
+impl ::core::clone::Clone for USER_ACTIVITY_PRESENCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for USER_ACTIVITY_PRESENCE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for USER_ACTIVITY_PRESENCE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("USER_ACTIVITY_PRESENCE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_SystemServices', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]

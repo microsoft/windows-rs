@@ -114,11 +114,27 @@ impl ::core::default::Default for PRJ_CALLBACK_DATA {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub type PRJ_CALLBACK_DATA_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PRJ_CALLBACK_DATA_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_CB_DATA_FLAG_ENUM_RESTART_SCAN: PRJ_CALLBACK_DATA_FLAGS = 1i32;
+pub const PRJ_CB_DATA_FLAG_ENUM_RESTART_SCAN: PRJ_CALLBACK_DATA_FLAGS = PRJ_CALLBACK_DATA_FLAGS(1i32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_CB_DATA_FLAG_ENUM_RETURN_SINGLE_ENTRY: PRJ_CALLBACK_DATA_FLAGS = 2i32;
+pub const PRJ_CB_DATA_FLAG_ENUM_RETURN_SINGLE_ENTRY: PRJ_CALLBACK_DATA_FLAGS = PRJ_CALLBACK_DATA_FLAGS(2i32);
+impl ::core::marker::Copy for PRJ_CALLBACK_DATA_FLAGS {}
+impl ::core::clone::Clone for PRJ_CALLBACK_DATA_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PRJ_CALLBACK_DATA_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PRJ_CALLBACK_DATA_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PRJ_CALLBACK_DATA_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRJ_CANCEL_COMMAND_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA)>;
@@ -235,11 +251,27 @@ impl ::core::default::Default for PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS_0_1 {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub type PRJ_COMPLETE_COMMAND_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PRJ_COMPLETE_COMMAND_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_COMPLETE_COMMAND_TYPE_NOTIFICATION: PRJ_COMPLETE_COMMAND_TYPE = 1i32;
+pub const PRJ_COMPLETE_COMMAND_TYPE_NOTIFICATION: PRJ_COMPLETE_COMMAND_TYPE = PRJ_COMPLETE_COMMAND_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_COMPLETE_COMMAND_TYPE_ENUMERATION: PRJ_COMPLETE_COMMAND_TYPE = 2i32;
+pub const PRJ_COMPLETE_COMMAND_TYPE_ENUMERATION: PRJ_COMPLETE_COMMAND_TYPE = PRJ_COMPLETE_COMMAND_TYPE(2i32);
+impl ::core::marker::Copy for PRJ_COMPLETE_COMMAND_TYPE {}
+impl ::core::clone::Clone for PRJ_COMPLETE_COMMAND_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PRJ_COMPLETE_COMMAND_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PRJ_COMPLETE_COMMAND_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PRJ_COMPLETE_COMMAND_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct PRJ_DIR_ENTRY_BUFFER_HANDLE(pub isize);
@@ -382,9 +414,25 @@ impl ::core::default::Default for PRJ_EXTENDED_INFO_0_0 {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub type PRJ_EXT_INFO_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PRJ_EXT_INFO_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_EXT_INFO_TYPE_SYMLINK: PRJ_EXT_INFO_TYPE = 1i32;
+pub const PRJ_EXT_INFO_TYPE_SYMLINK: PRJ_EXT_INFO_TYPE = PRJ_EXT_INFO_TYPE(1i32);
+impl ::core::marker::Copy for PRJ_EXT_INFO_TYPE {}
+impl ::core::clone::Clone for PRJ_EXT_INFO_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PRJ_EXT_INFO_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PRJ_EXT_INFO_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PRJ_EXT_INFO_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -430,17 +478,61 @@ impl ::core::default::Default for PRJ_FILE_BASIC_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub type PRJ_FILE_STATE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PRJ_FILE_STATE(pub u32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_FILE_STATE_PLACEHOLDER: PRJ_FILE_STATE = 1u32;
+pub const PRJ_FILE_STATE_PLACEHOLDER: PRJ_FILE_STATE = PRJ_FILE_STATE(1u32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_FILE_STATE_HYDRATED_PLACEHOLDER: PRJ_FILE_STATE = 2u32;
+pub const PRJ_FILE_STATE_HYDRATED_PLACEHOLDER: PRJ_FILE_STATE = PRJ_FILE_STATE(2u32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_FILE_STATE_DIRTY_PLACEHOLDER: PRJ_FILE_STATE = 4u32;
+pub const PRJ_FILE_STATE_DIRTY_PLACEHOLDER: PRJ_FILE_STATE = PRJ_FILE_STATE(4u32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_FILE_STATE_FULL: PRJ_FILE_STATE = 8u32;
+pub const PRJ_FILE_STATE_FULL: PRJ_FILE_STATE = PRJ_FILE_STATE(8u32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_FILE_STATE_TOMBSTONE: PRJ_FILE_STATE = 16u32;
+pub const PRJ_FILE_STATE_TOMBSTONE: PRJ_FILE_STATE = PRJ_FILE_STATE(16u32);
+impl ::core::marker::Copy for PRJ_FILE_STATE {}
+impl ::core::clone::Clone for PRJ_FILE_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PRJ_FILE_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PRJ_FILE_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PRJ_FILE_STATE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for PRJ_FILE_STATE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for PRJ_FILE_STATE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for PRJ_FILE_STATE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for PRJ_FILE_STATE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for PRJ_FILE_STATE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRJ_GET_DIRECTORY_ENUMERATION_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const ::windows::core::GUID, searchexpression: super::super::Foundation::PWSTR, direntrybufferhandle: PRJ_DIR_ENTRY_BUFFER_HANDLE) -> ::windows::core::HRESULT>;
@@ -485,31 +577,47 @@ unsafe impl ::windows::core::Abi for PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT {
     type Abi = Self;
 }
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub type PRJ_NOTIFICATION = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PRJ_NOTIFICATION(pub i32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_NOTIFICATION_FILE_OPENED: PRJ_NOTIFICATION = 2i32;
+pub const PRJ_NOTIFICATION_FILE_OPENED: PRJ_NOTIFICATION = PRJ_NOTIFICATION(2i32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_NOTIFICATION_NEW_FILE_CREATED: PRJ_NOTIFICATION = 4i32;
+pub const PRJ_NOTIFICATION_NEW_FILE_CREATED: PRJ_NOTIFICATION = PRJ_NOTIFICATION(4i32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_NOTIFICATION_FILE_OVERWRITTEN: PRJ_NOTIFICATION = 8i32;
+pub const PRJ_NOTIFICATION_FILE_OVERWRITTEN: PRJ_NOTIFICATION = PRJ_NOTIFICATION(8i32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_NOTIFICATION_PRE_DELETE: PRJ_NOTIFICATION = 16i32;
+pub const PRJ_NOTIFICATION_PRE_DELETE: PRJ_NOTIFICATION = PRJ_NOTIFICATION(16i32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_NOTIFICATION_PRE_RENAME: PRJ_NOTIFICATION = 32i32;
+pub const PRJ_NOTIFICATION_PRE_RENAME: PRJ_NOTIFICATION = PRJ_NOTIFICATION(32i32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_NOTIFICATION_PRE_SET_HARDLINK: PRJ_NOTIFICATION = 64i32;
+pub const PRJ_NOTIFICATION_PRE_SET_HARDLINK: PRJ_NOTIFICATION = PRJ_NOTIFICATION(64i32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_NOTIFICATION_FILE_RENAMED: PRJ_NOTIFICATION = 128i32;
+pub const PRJ_NOTIFICATION_FILE_RENAMED: PRJ_NOTIFICATION = PRJ_NOTIFICATION(128i32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_NOTIFICATION_HARDLINK_CREATED: PRJ_NOTIFICATION = 256i32;
+pub const PRJ_NOTIFICATION_HARDLINK_CREATED: PRJ_NOTIFICATION = PRJ_NOTIFICATION(256i32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_NOTIFICATION_FILE_HANDLE_CLOSED_NO_MODIFICATION: PRJ_NOTIFICATION = 512i32;
+pub const PRJ_NOTIFICATION_FILE_HANDLE_CLOSED_NO_MODIFICATION: PRJ_NOTIFICATION = PRJ_NOTIFICATION(512i32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_NOTIFICATION_FILE_HANDLE_CLOSED_FILE_MODIFIED: PRJ_NOTIFICATION = 1024i32;
+pub const PRJ_NOTIFICATION_FILE_HANDLE_CLOSED_FILE_MODIFIED: PRJ_NOTIFICATION = PRJ_NOTIFICATION(1024i32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_NOTIFICATION_FILE_HANDLE_CLOSED_FILE_DELETED: PRJ_NOTIFICATION = 2048i32;
+pub const PRJ_NOTIFICATION_FILE_HANDLE_CLOSED_FILE_DELETED: PRJ_NOTIFICATION = PRJ_NOTIFICATION(2048i32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_NOTIFICATION_FILE_PRE_CONVERT_TO_FULL: PRJ_NOTIFICATION = 4096i32;
+pub const PRJ_NOTIFICATION_FILE_PRE_CONVERT_TO_FULL: PRJ_NOTIFICATION = PRJ_NOTIFICATION(4096i32);
+impl ::core::marker::Copy for PRJ_NOTIFICATION {}
+impl ::core::clone::Clone for PRJ_NOTIFICATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PRJ_NOTIFICATION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PRJ_NOTIFICATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PRJ_NOTIFICATION").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PRJ_NOTIFICATION_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, isdirectory: super::super::Foundation::BOOLEAN, notification: PRJ_NOTIFICATION, destinationfilename: super::super::Foundation::PWSTR, operationparameters: *mut PRJ_NOTIFICATION_PARAMETERS) -> ::windows::core::HRESULT>;
@@ -701,41 +809,101 @@ impl ::core::default::Default for PRJ_NOTIFICATION_PARAMETERS_2 {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub type PRJ_NOTIFY_TYPES = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PRJ_NOTIFY_TYPES(pub u32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_NOTIFY_NONE: PRJ_NOTIFY_TYPES = 0u32;
+pub const PRJ_NOTIFY_NONE: PRJ_NOTIFY_TYPES = PRJ_NOTIFY_TYPES(0u32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_NOTIFY_SUPPRESS_NOTIFICATIONS: PRJ_NOTIFY_TYPES = 1u32;
+pub const PRJ_NOTIFY_SUPPRESS_NOTIFICATIONS: PRJ_NOTIFY_TYPES = PRJ_NOTIFY_TYPES(1u32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_NOTIFY_FILE_OPENED: PRJ_NOTIFY_TYPES = 2u32;
+pub const PRJ_NOTIFY_FILE_OPENED: PRJ_NOTIFY_TYPES = PRJ_NOTIFY_TYPES(2u32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_NOTIFY_NEW_FILE_CREATED: PRJ_NOTIFY_TYPES = 4u32;
+pub const PRJ_NOTIFY_NEW_FILE_CREATED: PRJ_NOTIFY_TYPES = PRJ_NOTIFY_TYPES(4u32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_NOTIFY_FILE_OVERWRITTEN: PRJ_NOTIFY_TYPES = 8u32;
+pub const PRJ_NOTIFY_FILE_OVERWRITTEN: PRJ_NOTIFY_TYPES = PRJ_NOTIFY_TYPES(8u32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_NOTIFY_PRE_DELETE: PRJ_NOTIFY_TYPES = 16u32;
+pub const PRJ_NOTIFY_PRE_DELETE: PRJ_NOTIFY_TYPES = PRJ_NOTIFY_TYPES(16u32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_NOTIFY_PRE_RENAME: PRJ_NOTIFY_TYPES = 32u32;
+pub const PRJ_NOTIFY_PRE_RENAME: PRJ_NOTIFY_TYPES = PRJ_NOTIFY_TYPES(32u32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_NOTIFY_PRE_SET_HARDLINK: PRJ_NOTIFY_TYPES = 64u32;
+pub const PRJ_NOTIFY_PRE_SET_HARDLINK: PRJ_NOTIFY_TYPES = PRJ_NOTIFY_TYPES(64u32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_NOTIFY_FILE_RENAMED: PRJ_NOTIFY_TYPES = 128u32;
+pub const PRJ_NOTIFY_FILE_RENAMED: PRJ_NOTIFY_TYPES = PRJ_NOTIFY_TYPES(128u32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_NOTIFY_HARDLINK_CREATED: PRJ_NOTIFY_TYPES = 256u32;
+pub const PRJ_NOTIFY_HARDLINK_CREATED: PRJ_NOTIFY_TYPES = PRJ_NOTIFY_TYPES(256u32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_NOTIFY_FILE_HANDLE_CLOSED_NO_MODIFICATION: PRJ_NOTIFY_TYPES = 512u32;
+pub const PRJ_NOTIFY_FILE_HANDLE_CLOSED_NO_MODIFICATION: PRJ_NOTIFY_TYPES = PRJ_NOTIFY_TYPES(512u32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_NOTIFY_FILE_HANDLE_CLOSED_FILE_MODIFIED: PRJ_NOTIFY_TYPES = 1024u32;
+pub const PRJ_NOTIFY_FILE_HANDLE_CLOSED_FILE_MODIFIED: PRJ_NOTIFY_TYPES = PRJ_NOTIFY_TYPES(1024u32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_NOTIFY_FILE_HANDLE_CLOSED_FILE_DELETED: PRJ_NOTIFY_TYPES = 2048u32;
+pub const PRJ_NOTIFY_FILE_HANDLE_CLOSED_FILE_DELETED: PRJ_NOTIFY_TYPES = PRJ_NOTIFY_TYPES(2048u32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_NOTIFY_FILE_PRE_CONVERT_TO_FULL: PRJ_NOTIFY_TYPES = 4096u32;
+pub const PRJ_NOTIFY_FILE_PRE_CONVERT_TO_FULL: PRJ_NOTIFY_TYPES = PRJ_NOTIFY_TYPES(4096u32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_NOTIFY_USE_EXISTING_MASK: PRJ_NOTIFY_TYPES = 4294967295u32;
+pub const PRJ_NOTIFY_USE_EXISTING_MASK: PRJ_NOTIFY_TYPES = PRJ_NOTIFY_TYPES(4294967295u32);
+impl ::core::marker::Copy for PRJ_NOTIFY_TYPES {}
+impl ::core::clone::Clone for PRJ_NOTIFY_TYPES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PRJ_NOTIFY_TYPES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PRJ_NOTIFY_TYPES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PRJ_NOTIFY_TYPES").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for PRJ_NOTIFY_TYPES {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for PRJ_NOTIFY_TYPES {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for PRJ_NOTIFY_TYPES {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for PRJ_NOTIFY_TYPES {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for PRJ_NOTIFY_TYPES {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub type PRJ_PLACEHOLDER_ID = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PRJ_PLACEHOLDER_ID(pub i32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_PLACEHOLDER_ID_LENGTH: PRJ_PLACEHOLDER_ID = 128i32;
+pub const PRJ_PLACEHOLDER_ID_LENGTH: PRJ_PLACEHOLDER_ID = PRJ_PLACEHOLDER_ID(128i32);
+impl ::core::marker::Copy for PRJ_PLACEHOLDER_ID {}
+impl ::core::clone::Clone for PRJ_PLACEHOLDER_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PRJ_PLACEHOLDER_ID {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PRJ_PLACEHOLDER_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PRJ_PLACEHOLDER_ID").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -931,11 +1099,55 @@ impl ::core::default::Default for PRJ_PLACEHOLDER_VERSION_INFO {
 #[cfg(feature = "Win32_Foundation")]
 pub type PRJ_QUERY_FILE_NAME_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub type PRJ_STARTVIRTUALIZING_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PRJ_STARTVIRTUALIZING_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_FLAG_NONE: PRJ_STARTVIRTUALIZING_FLAGS = 0u32;
+pub const PRJ_FLAG_NONE: PRJ_STARTVIRTUALIZING_FLAGS = PRJ_STARTVIRTUALIZING_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_FLAG_USE_NEGATIVE_PATH_CACHE: PRJ_STARTVIRTUALIZING_FLAGS = 1u32;
+pub const PRJ_FLAG_USE_NEGATIVE_PATH_CACHE: PRJ_STARTVIRTUALIZING_FLAGS = PRJ_STARTVIRTUALIZING_FLAGS(1u32);
+impl ::core::marker::Copy for PRJ_STARTVIRTUALIZING_FLAGS {}
+impl ::core::clone::Clone for PRJ_STARTVIRTUALIZING_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PRJ_STARTVIRTUALIZING_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PRJ_STARTVIRTUALIZING_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PRJ_STARTVIRTUALIZING_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for PRJ_STARTVIRTUALIZING_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for PRJ_STARTVIRTUALIZING_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for PRJ_STARTVIRTUALIZING_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for PRJ_STARTVIRTUALIZING_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for PRJ_STARTVIRTUALIZING_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -982,35 +1194,123 @@ impl ::core::default::Default for PRJ_STARTVIRTUALIZING_OPTIONS {
 #[cfg(feature = "Win32_Foundation")]
 pub type PRJ_START_DIRECTORY_ENUMERATION_CB = ::core::option::Option<unsafe extern "system" fn(callbackdata: *const PRJ_CALLBACK_DATA, enumerationid: *const ::windows::core::GUID) -> ::windows::core::HRESULT>;
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub type PRJ_UPDATE_FAILURE_CAUSES = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PRJ_UPDATE_FAILURE_CAUSES(pub u32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_UPDATE_FAILURE_CAUSE_NONE: PRJ_UPDATE_FAILURE_CAUSES = 0u32;
+pub const PRJ_UPDATE_FAILURE_CAUSE_NONE: PRJ_UPDATE_FAILURE_CAUSES = PRJ_UPDATE_FAILURE_CAUSES(0u32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_UPDATE_FAILURE_CAUSE_DIRTY_METADATA: PRJ_UPDATE_FAILURE_CAUSES = 1u32;
+pub const PRJ_UPDATE_FAILURE_CAUSE_DIRTY_METADATA: PRJ_UPDATE_FAILURE_CAUSES = PRJ_UPDATE_FAILURE_CAUSES(1u32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_UPDATE_FAILURE_CAUSE_DIRTY_DATA: PRJ_UPDATE_FAILURE_CAUSES = 2u32;
+pub const PRJ_UPDATE_FAILURE_CAUSE_DIRTY_DATA: PRJ_UPDATE_FAILURE_CAUSES = PRJ_UPDATE_FAILURE_CAUSES(2u32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_UPDATE_FAILURE_CAUSE_TOMBSTONE: PRJ_UPDATE_FAILURE_CAUSES = 4u32;
+pub const PRJ_UPDATE_FAILURE_CAUSE_TOMBSTONE: PRJ_UPDATE_FAILURE_CAUSES = PRJ_UPDATE_FAILURE_CAUSES(4u32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_UPDATE_FAILURE_CAUSE_READ_ONLY: PRJ_UPDATE_FAILURE_CAUSES = 8u32;
+pub const PRJ_UPDATE_FAILURE_CAUSE_READ_ONLY: PRJ_UPDATE_FAILURE_CAUSES = PRJ_UPDATE_FAILURE_CAUSES(8u32);
+impl ::core::marker::Copy for PRJ_UPDATE_FAILURE_CAUSES {}
+impl ::core::clone::Clone for PRJ_UPDATE_FAILURE_CAUSES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PRJ_UPDATE_FAILURE_CAUSES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PRJ_UPDATE_FAILURE_CAUSES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PRJ_UPDATE_FAILURE_CAUSES").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for PRJ_UPDATE_FAILURE_CAUSES {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for PRJ_UPDATE_FAILURE_CAUSES {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for PRJ_UPDATE_FAILURE_CAUSES {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for PRJ_UPDATE_FAILURE_CAUSES {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for PRJ_UPDATE_FAILURE_CAUSES {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub type PRJ_UPDATE_TYPES = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PRJ_UPDATE_TYPES(pub u32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_UPDATE_NONE: PRJ_UPDATE_TYPES = 0u32;
+pub const PRJ_UPDATE_NONE: PRJ_UPDATE_TYPES = PRJ_UPDATE_TYPES(0u32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_UPDATE_ALLOW_DIRTY_METADATA: PRJ_UPDATE_TYPES = 1u32;
+pub const PRJ_UPDATE_ALLOW_DIRTY_METADATA: PRJ_UPDATE_TYPES = PRJ_UPDATE_TYPES(1u32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_UPDATE_ALLOW_DIRTY_DATA: PRJ_UPDATE_TYPES = 2u32;
+pub const PRJ_UPDATE_ALLOW_DIRTY_DATA: PRJ_UPDATE_TYPES = PRJ_UPDATE_TYPES(2u32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_UPDATE_ALLOW_TOMBSTONE: PRJ_UPDATE_TYPES = 4u32;
+pub const PRJ_UPDATE_ALLOW_TOMBSTONE: PRJ_UPDATE_TYPES = PRJ_UPDATE_TYPES(4u32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_UPDATE_RESERVED1: PRJ_UPDATE_TYPES = 8u32;
+pub const PRJ_UPDATE_RESERVED1: PRJ_UPDATE_TYPES = PRJ_UPDATE_TYPES(8u32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_UPDATE_RESERVED2: PRJ_UPDATE_TYPES = 16u32;
+pub const PRJ_UPDATE_RESERVED2: PRJ_UPDATE_TYPES = PRJ_UPDATE_TYPES(16u32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_UPDATE_ALLOW_READ_ONLY: PRJ_UPDATE_TYPES = 32u32;
+pub const PRJ_UPDATE_ALLOW_READ_ONLY: PRJ_UPDATE_TYPES = PRJ_UPDATE_TYPES(32u32);
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
-pub const PRJ_UPDATE_MAX_VAL: PRJ_UPDATE_TYPES = 64u32;
+pub const PRJ_UPDATE_MAX_VAL: PRJ_UPDATE_TYPES = PRJ_UPDATE_TYPES(64u32);
+impl ::core::marker::Copy for PRJ_UPDATE_TYPES {}
+impl ::core::clone::Clone for PRJ_UPDATE_TYPES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PRJ_UPDATE_TYPES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PRJ_UPDATE_TYPES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PRJ_UPDATE_TYPES").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for PRJ_UPDATE_TYPES {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for PRJ_UPDATE_TYPES {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for PRJ_UPDATE_TYPES {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for PRJ_UPDATE_TYPES {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for PRJ_UPDATE_TYPES {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
 pub struct PRJ_VIRTUALIZATION_INSTANCE_INFO {

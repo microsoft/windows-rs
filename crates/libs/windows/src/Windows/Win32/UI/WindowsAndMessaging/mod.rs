@@ -78,25 +78,69 @@ impl ::core::default::Default for ALTTABINFO {
     }
 }
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type ANIMATE_WINDOW_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ANIMATE_WINDOW_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const AW_ACTIVATE: ANIMATE_WINDOW_FLAGS = 131072u32;
+pub const AW_ACTIVATE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(131072u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const AW_BLEND: ANIMATE_WINDOW_FLAGS = 524288u32;
+pub const AW_BLEND: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(524288u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const AW_CENTER: ANIMATE_WINDOW_FLAGS = 16u32;
+pub const AW_CENTER: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const AW_HIDE: ANIMATE_WINDOW_FLAGS = 65536u32;
+pub const AW_HIDE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(65536u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const AW_HOR_POSITIVE: ANIMATE_WINDOW_FLAGS = 1u32;
+pub const AW_HOR_POSITIVE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const AW_HOR_NEGATIVE: ANIMATE_WINDOW_FLAGS = 2u32;
+pub const AW_HOR_NEGATIVE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const AW_SLIDE: ANIMATE_WINDOW_FLAGS = 262144u32;
+pub const AW_SLIDE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(262144u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const AW_VER_POSITIVE: ANIMATE_WINDOW_FLAGS = 4u32;
+pub const AW_VER_POSITIVE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const AW_VER_NEGATIVE: ANIMATE_WINDOW_FLAGS = 8u32;
+pub const AW_VER_NEGATIVE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(8u32);
+impl ::core::marker::Copy for ANIMATE_WINDOW_FLAGS {}
+impl ::core::clone::Clone for ANIMATE_WINDOW_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ANIMATE_WINDOW_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ANIMATE_WINDOW_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ANIMATE_WINDOW_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for ANIMATE_WINDOW_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for ANIMATE_WINDOW_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for ANIMATE_WINDOW_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for ANIMATE_WINDOW_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for ANIMATE_WINDOW_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub struct ANIMATIONINFO {
@@ -446,11 +490,55 @@ pub unsafe fn BringWindowToTop<'a, Param0: ::windows::core::IntoParam<'a, super:
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const CALERT_SYSTEM: u32 = 6u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type CASCADE_WINDOWS_HOW = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CASCADE_WINDOWS_HOW(pub u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MDITILE_SKIPDISABLED: CASCADE_WINDOWS_HOW = 2u32;
+pub const MDITILE_SKIPDISABLED: CASCADE_WINDOWS_HOW = CASCADE_WINDOWS_HOW(2u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MDITILE_ZORDER: CASCADE_WINDOWS_HOW = 4u32;
+pub const MDITILE_ZORDER: CASCADE_WINDOWS_HOW = CASCADE_WINDOWS_HOW(4u32);
+impl ::core::marker::Copy for CASCADE_WINDOWS_HOW {}
+impl ::core::clone::Clone for CASCADE_WINDOWS_HOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CASCADE_WINDOWS_HOW {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CASCADE_WINDOWS_HOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CASCADE_WINDOWS_HOW").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CASCADE_WINDOWS_HOW {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CASCADE_WINDOWS_HOW {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CASCADE_WINDOWS_HOW {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CASCADE_WINDOWS_HOW {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CASCADE_WINDOWS_HOW {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const CBN_CLOSEUP: u32 = 8u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
@@ -732,11 +820,55 @@ impl ::core::default::Default for CHANGEFILTERSTRUCT {
     }
 }
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type CHANGE_WINDOW_MESSAGE_FILTER_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CHANGE_WINDOW_MESSAGE_FILTER_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MSGFLT_ADD: CHANGE_WINDOW_MESSAGE_FILTER_FLAGS = 1u32;
+pub const MSGFLT_ADD: CHANGE_WINDOW_MESSAGE_FILTER_FLAGS = CHANGE_WINDOW_MESSAGE_FILTER_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MSGFLT_REMOVE: CHANGE_WINDOW_MESSAGE_FILTER_FLAGS = 2u32;
+pub const MSGFLT_REMOVE: CHANGE_WINDOW_MESSAGE_FILTER_FLAGS = CHANGE_WINDOW_MESSAGE_FILTER_FLAGS(2u32);
+impl ::core::marker::Copy for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {}
+impl ::core::clone::Clone for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CHANGE_WINDOW_MESSAGE_FILTER_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const CHILDID_SELF: u32 = 0u32;
 #[repr(C)]
@@ -954,11 +1086,55 @@ impl ::core::default::Default for CURSORINFO {
     }
 }
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type CURSORINFO_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CURSORINFO_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const CURSOR_SHOWING: CURSORINFO_FLAGS = 1u32;
+pub const CURSOR_SHOWING: CURSORINFO_FLAGS = CURSORINFO_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const CURSOR_SUPPRESSED: CURSORINFO_FLAGS = 2u32;
+pub const CURSOR_SUPPRESSED: CURSORINFO_FLAGS = CURSORINFO_FLAGS(2u32);
+impl ::core::marker::Copy for CURSORINFO_FLAGS {}
+impl ::core::clone::Clone for CURSORINFO_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CURSORINFO_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CURSORINFO_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CURSORINFO_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CURSORINFO_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CURSORINFO_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CURSORINFO_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CURSORINFO_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CURSORINFO_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub struct CURSORSHAPE {
@@ -1085,15 +1261,59 @@ impl ::core::default::Default for CWPSTRUCT {
     }
 }
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type CWP_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct CWP_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const CWP_ALL: CWP_FLAGS = 0u32;
+pub const CWP_ALL: CWP_FLAGS = CWP_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const CWP_SKIPINVISIBLE: CWP_FLAGS = 1u32;
+pub const CWP_SKIPINVISIBLE: CWP_FLAGS = CWP_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const CWP_SKIPDISABLED: CWP_FLAGS = 2u32;
+pub const CWP_SKIPDISABLED: CWP_FLAGS = CWP_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const CWP_SKIPTRANSPARENT: CWP_FLAGS = 4u32;
+pub const CWP_SKIPTRANSPARENT: CWP_FLAGS = CWP_FLAGS(4u32);
+impl ::core::marker::Copy for CWP_FLAGS {}
+impl ::core::clone::Clone for CWP_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CWP_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for CWP_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CWP_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for CWP_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for CWP_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for CWP_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for CWP_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for CWP_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const CW_USEDEFAULT: i32 = -2147483648i32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
@@ -2044,19 +2264,63 @@ pub const DF_ALLOWOTHERACCOUNTHOOK: i32 = 1i32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const DIFFERENCE: u32 = 11u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type DI_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DI_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const DI_MASK: DI_FLAGS = 1u32;
+pub const DI_MASK: DI_FLAGS = DI_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const DI_IMAGE: DI_FLAGS = 2u32;
+pub const DI_IMAGE: DI_FLAGS = DI_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const DI_NORMAL: DI_FLAGS = 3u32;
+pub const DI_NORMAL: DI_FLAGS = DI_FLAGS(3u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const DI_COMPAT: DI_FLAGS = 4u32;
+pub const DI_COMPAT: DI_FLAGS = DI_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const DI_DEFAULTSIZE: DI_FLAGS = 8u32;
+pub const DI_DEFAULTSIZE: DI_FLAGS = DI_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const DI_NOMIRROR: DI_FLAGS = 16u32;
+pub const DI_NOMIRROR: DI_FLAGS = DI_FLAGS(16u32);
+impl ::core::marker::Copy for DI_FLAGS {}
+impl ::core::clone::Clone for DI_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DI_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DI_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DI_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for DI_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DI_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DI_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DI_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DI_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const DLGC_BUTTON: u32 = 8192u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
@@ -2708,11 +2972,27 @@ pub const EC_USEFONTINFO: u32 = 65535u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const EDD_GET_DEVICE_INTERFACE_NAME: u32 = 1u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type EDIT_CONTROL_FEATURE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct EDIT_CONTROL_FEATURE(pub i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const EDIT_CONTROL_FEATURE_ENTERPRISE_DATA_PROTECTION_PASTE_SUPPORT: EDIT_CONTROL_FEATURE = 0i32;
+pub const EDIT_CONTROL_FEATURE_ENTERPRISE_DATA_PROTECTION_PASTE_SUPPORT: EDIT_CONTROL_FEATURE = EDIT_CONTROL_FEATURE(0i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const EDIT_CONTROL_FEATURE_PASTE_NOTIFICATIONS: EDIT_CONTROL_FEATURE = 1i32;
+pub const EDIT_CONTROL_FEATURE_PASTE_NOTIFICATIONS: EDIT_CONTROL_FEATURE = EDIT_CONTROL_FEATURE(1i32);
+impl ::core::marker::Copy for EDIT_CONTROL_FEATURE {}
+impl ::core::clone::Clone for EDIT_CONTROL_FEATURE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for EDIT_CONTROL_FEATURE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EDIT_CONTROL_FEATURE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EDIT_CONTROL_FEATURE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const EDS_RAWMODE: u32 = 2u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
@@ -3253,27 +3533,115 @@ impl ::core::default::Default for FLASHWINFO {
     }
 }
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type FLASHWINFO_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FLASHWINFO_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const FLASHW_ALL: FLASHWINFO_FLAGS = 3u32;
+pub const FLASHW_ALL: FLASHWINFO_FLAGS = FLASHWINFO_FLAGS(3u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const FLASHW_CAPTION: FLASHWINFO_FLAGS = 1u32;
+pub const FLASHW_CAPTION: FLASHWINFO_FLAGS = FLASHWINFO_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const FLASHW_STOP: FLASHWINFO_FLAGS = 0u32;
+pub const FLASHW_STOP: FLASHWINFO_FLAGS = FLASHWINFO_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const FLASHW_TIMER: FLASHWINFO_FLAGS = 4u32;
+pub const FLASHW_TIMER: FLASHWINFO_FLAGS = FLASHWINFO_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const FLASHW_TIMERNOFG: FLASHWINFO_FLAGS = 12u32;
+pub const FLASHW_TIMERNOFG: FLASHWINFO_FLAGS = FLASHWINFO_FLAGS(12u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const FLASHW_TRAY: FLASHWINFO_FLAGS = 2u32;
+pub const FLASHW_TRAY: FLASHWINFO_FLAGS = FLASHWINFO_FLAGS(2u32);
+impl ::core::marker::Copy for FLASHWINFO_FLAGS {}
+impl ::core::clone::Clone for FLASHWINFO_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FLASHWINFO_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FLASHWINFO_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FLASHWINFO_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for FLASHWINFO_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for FLASHWINFO_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for FLASHWINFO_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for FLASHWINFO_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for FLASHWINFO_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const FNOINVERT: u32 = 2u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type FOREGROUND_WINDOW_LOCK_CODE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FOREGROUND_WINDOW_LOCK_CODE(pub u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const LSFW_LOCK: FOREGROUND_WINDOW_LOCK_CODE = 1u32;
+pub const LSFW_LOCK: FOREGROUND_WINDOW_LOCK_CODE = FOREGROUND_WINDOW_LOCK_CODE(1u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const LSFW_UNLOCK: FOREGROUND_WINDOW_LOCK_CODE = 2u32;
+pub const LSFW_UNLOCK: FOREGROUND_WINDOW_LOCK_CODE = FOREGROUND_WINDOW_LOCK_CODE(2u32);
+impl ::core::marker::Copy for FOREGROUND_WINDOW_LOCK_CODE {}
+impl ::core::clone::Clone for FOREGROUND_WINDOW_LOCK_CODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FOREGROUND_WINDOW_LOCK_CODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FOREGROUND_WINDOW_LOCK_CODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FOREGROUND_WINDOW_LOCK_CODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for FOREGROUND_WINDOW_LOCK_CODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for FOREGROUND_WINDOW_LOCK_CODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for FOREGROUND_WINDOW_LOCK_CODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for FOREGROUND_WINDOW_LOCK_CODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for FOREGROUND_WINDOW_LOCK_CODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const FSHIFT: u32 = 4u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
@@ -3371,13 +3739,57 @@ pub unsafe fn FlashWindowEx(pfwi: *const FLASHWINFO) -> super::super::Foundation
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const GCF_INCLUDE_ANCESTORS: u32 = 1u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type GDI_IMAGE_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct GDI_IMAGE_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const IMAGE_BITMAP: GDI_IMAGE_TYPE = 0u32;
+pub const IMAGE_BITMAP: GDI_IMAGE_TYPE = GDI_IMAGE_TYPE(0u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const IMAGE_CURSOR: GDI_IMAGE_TYPE = 2u32;
+pub const IMAGE_CURSOR: GDI_IMAGE_TYPE = GDI_IMAGE_TYPE(2u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const IMAGE_ICON: GDI_IMAGE_TYPE = 1u32;
+pub const IMAGE_ICON: GDI_IMAGE_TYPE = GDI_IMAGE_TYPE(1u32);
+impl ::core::marker::Copy for GDI_IMAGE_TYPE {}
+impl ::core::clone::Clone for GDI_IMAGE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for GDI_IMAGE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GDI_IMAGE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GDI_IMAGE_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for GDI_IMAGE_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for GDI_IMAGE_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for GDI_IMAGE_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for GDI_IMAGE_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for GDI_IMAGE_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const GESTURECONFIGMAXCOUNT: u32 = 256u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
@@ -3395,73 +3807,221 @@ pub const GESTUREVISUALIZATION_RIGHTTAP: u32 = 16u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const GESTUREVISUALIZATION_TAP: u32 = 1u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type GET_ANCESTOR_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct GET_ANCESTOR_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GA_PARENT: GET_ANCESTOR_FLAGS = 1u32;
+pub const GA_PARENT: GET_ANCESTOR_FLAGS = GET_ANCESTOR_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GA_ROOT: GET_ANCESTOR_FLAGS = 2u32;
+pub const GA_ROOT: GET_ANCESTOR_FLAGS = GET_ANCESTOR_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GA_ROOTOWNER: GET_ANCESTOR_FLAGS = 3u32;
+pub const GA_ROOTOWNER: GET_ANCESTOR_FLAGS = GET_ANCESTOR_FLAGS(3u32);
+impl ::core::marker::Copy for GET_ANCESTOR_FLAGS {}
+impl ::core::clone::Clone for GET_ANCESTOR_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for GET_ANCESTOR_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GET_ANCESTOR_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GET_ANCESTOR_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for GET_ANCESTOR_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for GET_ANCESTOR_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for GET_ANCESTOR_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for GET_ANCESTOR_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for GET_ANCESTOR_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type GET_CLASS_LONG_INDEX = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct GET_CLASS_LONG_INDEX(pub i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GCW_ATOM: GET_CLASS_LONG_INDEX = -32i32;
+pub const GCW_ATOM: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-32i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GCL_CBCLSEXTRA: GET_CLASS_LONG_INDEX = -20i32;
+pub const GCL_CBCLSEXTRA: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-20i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GCL_CBWNDEXTRA: GET_CLASS_LONG_INDEX = -18i32;
+pub const GCL_CBWNDEXTRA: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-18i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GCL_HBRBACKGROUND: GET_CLASS_LONG_INDEX = -10i32;
+pub const GCL_HBRBACKGROUND: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-10i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GCL_HCURSOR: GET_CLASS_LONG_INDEX = -12i32;
+pub const GCL_HCURSOR: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-12i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GCL_HICON: GET_CLASS_LONG_INDEX = -14i32;
+pub const GCL_HICON: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-14i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GCL_HICONSM: GET_CLASS_LONG_INDEX = -34i32;
+pub const GCL_HICONSM: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-34i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GCL_HMODULE: GET_CLASS_LONG_INDEX = -16i32;
+pub const GCL_HMODULE: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-16i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GCL_MENUNAME: GET_CLASS_LONG_INDEX = -8i32;
+pub const GCL_MENUNAME: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-8i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GCL_STYLE: GET_CLASS_LONG_INDEX = -26i32;
+pub const GCL_STYLE: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-26i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GCL_WNDPROC: GET_CLASS_LONG_INDEX = -24i32;
+pub const GCL_WNDPROC: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-24i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GCLP_HBRBACKGROUND: GET_CLASS_LONG_INDEX = -10i32;
+pub const GCLP_HBRBACKGROUND: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-10i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GCLP_HCURSOR: GET_CLASS_LONG_INDEX = -12i32;
+pub const GCLP_HCURSOR: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-12i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GCLP_HICON: GET_CLASS_LONG_INDEX = -14i32;
+pub const GCLP_HICON: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-14i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GCLP_HICONSM: GET_CLASS_LONG_INDEX = -34i32;
+pub const GCLP_HICONSM: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-34i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GCLP_HMODULE: GET_CLASS_LONG_INDEX = -16i32;
+pub const GCLP_HMODULE: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-16i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GCLP_MENUNAME: GET_CLASS_LONG_INDEX = -8i32;
+pub const GCLP_MENUNAME: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-8i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GCLP_WNDPROC: GET_CLASS_LONG_INDEX = -24i32;
+pub const GCLP_WNDPROC: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-24i32);
+impl ::core::marker::Copy for GET_CLASS_LONG_INDEX {}
+impl ::core::clone::Clone for GET_CLASS_LONG_INDEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for GET_CLASS_LONG_INDEX {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GET_CLASS_LONG_INDEX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GET_CLASS_LONG_INDEX").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type GET_MENU_DEFAULT_ITEM_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct GET_MENU_DEFAULT_ITEM_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GMDI_GOINTOPOPUPS: GET_MENU_DEFAULT_ITEM_FLAGS = 2u32;
+pub const GMDI_GOINTOPOPUPS: GET_MENU_DEFAULT_ITEM_FLAGS = GET_MENU_DEFAULT_ITEM_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GMDI_USEDISABLED: GET_MENU_DEFAULT_ITEM_FLAGS = 1u32;
+pub const GMDI_USEDISABLED: GET_MENU_DEFAULT_ITEM_FLAGS = GET_MENU_DEFAULT_ITEM_FLAGS(1u32);
+impl ::core::marker::Copy for GET_MENU_DEFAULT_ITEM_FLAGS {}
+impl ::core::clone::Clone for GET_MENU_DEFAULT_ITEM_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for GET_MENU_DEFAULT_ITEM_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GET_MENU_DEFAULT_ITEM_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GET_MENU_DEFAULT_ITEM_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for GET_MENU_DEFAULT_ITEM_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for GET_MENU_DEFAULT_ITEM_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for GET_MENU_DEFAULT_ITEM_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for GET_MENU_DEFAULT_ITEM_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for GET_MENU_DEFAULT_ITEM_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type GET_WINDOW_CMD = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct GET_WINDOW_CMD(pub u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GW_CHILD: GET_WINDOW_CMD = 5u32;
+pub const GW_CHILD: GET_WINDOW_CMD = GET_WINDOW_CMD(5u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GW_ENABLEDPOPUP: GET_WINDOW_CMD = 6u32;
+pub const GW_ENABLEDPOPUP: GET_WINDOW_CMD = GET_WINDOW_CMD(6u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GW_HWNDFIRST: GET_WINDOW_CMD = 0u32;
+pub const GW_HWNDFIRST: GET_WINDOW_CMD = GET_WINDOW_CMD(0u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GW_HWNDLAST: GET_WINDOW_CMD = 1u32;
+pub const GW_HWNDLAST: GET_WINDOW_CMD = GET_WINDOW_CMD(1u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GW_HWNDNEXT: GET_WINDOW_CMD = 2u32;
+pub const GW_HWNDNEXT: GET_WINDOW_CMD = GET_WINDOW_CMD(2u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GW_HWNDPREV: GET_WINDOW_CMD = 3u32;
+pub const GW_HWNDPREV: GET_WINDOW_CMD = GET_WINDOW_CMD(3u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GW_OWNER: GET_WINDOW_CMD = 4u32;
+pub const GW_OWNER: GET_WINDOW_CMD = GET_WINDOW_CMD(4u32);
+impl ::core::marker::Copy for GET_WINDOW_CMD {}
+impl ::core::clone::Clone for GET_WINDOW_CMD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for GET_WINDOW_CMD {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GET_WINDOW_CMD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GET_WINDOW_CMD").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for GET_WINDOW_CMD {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for GET_WINDOW_CMD {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for GET_WINDOW_CMD {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for GET_WINDOW_CMD {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for GET_WINDOW_CMD {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const GF_BEGIN: u32 = 1u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
@@ -3519,17 +4079,61 @@ impl ::core::default::Default for GUITHREADINFO {
     }
 }
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type GUITHREADINFO_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct GUITHREADINFO_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GUI_CARETBLINKING: GUITHREADINFO_FLAGS = 1u32;
+pub const GUI_CARETBLINKING: GUITHREADINFO_FLAGS = GUITHREADINFO_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GUI_INMENUMODE: GUITHREADINFO_FLAGS = 4u32;
+pub const GUI_INMENUMODE: GUITHREADINFO_FLAGS = GUITHREADINFO_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GUI_INMOVESIZE: GUITHREADINFO_FLAGS = 2u32;
+pub const GUI_INMOVESIZE: GUITHREADINFO_FLAGS = GUITHREADINFO_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GUI_POPUPMENUMODE: GUITHREADINFO_FLAGS = 16u32;
+pub const GUI_POPUPMENUMODE: GUITHREADINFO_FLAGS = GUITHREADINFO_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GUI_SYSTEMMENUMODE: GUITHREADINFO_FLAGS = 8u32;
+pub const GUI_SYSTEMMENUMODE: GUITHREADINFO_FLAGS = GUITHREADINFO_FLAGS(8u32);
+impl ::core::marker::Copy for GUITHREADINFO_FLAGS {}
+impl ::core::clone::Clone for GUITHREADINFO_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for GUITHREADINFO_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GUITHREADINFO_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GUITHREADINFO_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for GUITHREADINFO_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for GUITHREADINFO_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for GUITHREADINFO_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for GUITHREADINFO_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for GUITHREADINFO_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const GUI_16BITTASK: u32 = 0u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
@@ -4911,11 +5515,27 @@ unsafe impl ::windows::core::Abi for HACCEL {
     type Abi = Self;
 }
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type HANDEDNESS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HANDEDNESS(pub i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const HANDEDNESS_LEFT: HANDEDNESS = 0i32;
+pub const HANDEDNESS_LEFT: HANDEDNESS = HANDEDNESS(0i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const HANDEDNESS_RIGHT: HANDEDNESS = 1i32;
+pub const HANDEDNESS_RIGHT: HANDEDNESS = HANDEDNESS(1i32);
+impl ::core::marker::Copy for HANDEDNESS {}
+impl ::core::clone::Clone for HANDEDNESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for HANDEDNESS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HANDEDNESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HANDEDNESS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5690,31 +6310,75 @@ pub const IDI_WINLOGO: super::super::Foundation::PWSTR = super::super::Foundatio
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const IMAGE_ENHMETAFILE: u32 = 3u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type IMAGE_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct IMAGE_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const LR_CREATEDIBSECTION: IMAGE_FLAGS = 8192u32;
+pub const LR_CREATEDIBSECTION: IMAGE_FLAGS = IMAGE_FLAGS(8192u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const LR_DEFAULTCOLOR: IMAGE_FLAGS = 0u32;
+pub const LR_DEFAULTCOLOR: IMAGE_FLAGS = IMAGE_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const LR_DEFAULTSIZE: IMAGE_FLAGS = 64u32;
+pub const LR_DEFAULTSIZE: IMAGE_FLAGS = IMAGE_FLAGS(64u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const LR_LOADFROMFILE: IMAGE_FLAGS = 16u32;
+pub const LR_LOADFROMFILE: IMAGE_FLAGS = IMAGE_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const LR_LOADMAP3DCOLORS: IMAGE_FLAGS = 4096u32;
+pub const LR_LOADMAP3DCOLORS: IMAGE_FLAGS = IMAGE_FLAGS(4096u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const LR_LOADTRANSPARENT: IMAGE_FLAGS = 32u32;
+pub const LR_LOADTRANSPARENT: IMAGE_FLAGS = IMAGE_FLAGS(32u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const LR_MONOCHROME: IMAGE_FLAGS = 1u32;
+pub const LR_MONOCHROME: IMAGE_FLAGS = IMAGE_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const LR_SHARED: IMAGE_FLAGS = 32768u32;
+pub const LR_SHARED: IMAGE_FLAGS = IMAGE_FLAGS(32768u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const LR_VGACOLOR: IMAGE_FLAGS = 128u32;
+pub const LR_VGACOLOR: IMAGE_FLAGS = IMAGE_FLAGS(128u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const LR_COPYDELETEORG: IMAGE_FLAGS = 8u32;
+pub const LR_COPYDELETEORG: IMAGE_FLAGS = IMAGE_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const LR_COPYFROMRESOURCE: IMAGE_FLAGS = 16384u32;
+pub const LR_COPYFROMRESOURCE: IMAGE_FLAGS = IMAGE_FLAGS(16384u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const LR_COPYRETURNORG: IMAGE_FLAGS = 4u32;
+pub const LR_COPYRETURNORG: IMAGE_FLAGS = IMAGE_FLAGS(4u32);
+impl ::core::marker::Copy for IMAGE_FLAGS {}
+impl ::core::clone::Clone for IMAGE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for IMAGE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IMAGE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMAGE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for IMAGE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for IMAGE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for IMAGE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for IMAGE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for IMAGE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const INDEXID_CONTAINER: u32 = 0u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
@@ -6251,17 +6915,61 @@ impl ::core::default::Default for KBDLLHOOKSTRUCT {
     }
 }
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type KBDLLHOOKSTRUCT_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct KBDLLHOOKSTRUCT_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const LLKHF_EXTENDED: KBDLLHOOKSTRUCT_FLAGS = 1u32;
+pub const LLKHF_EXTENDED: KBDLLHOOKSTRUCT_FLAGS = KBDLLHOOKSTRUCT_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const LLKHF_ALTDOWN: KBDLLHOOKSTRUCT_FLAGS = 32u32;
+pub const LLKHF_ALTDOWN: KBDLLHOOKSTRUCT_FLAGS = KBDLLHOOKSTRUCT_FLAGS(32u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const LLKHF_UP: KBDLLHOOKSTRUCT_FLAGS = 128u32;
+pub const LLKHF_UP: KBDLLHOOKSTRUCT_FLAGS = KBDLLHOOKSTRUCT_FLAGS(128u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const LLKHF_INJECTED: KBDLLHOOKSTRUCT_FLAGS = 16u32;
+pub const LLKHF_INJECTED: KBDLLHOOKSTRUCT_FLAGS = KBDLLHOOKSTRUCT_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const LLKHF_LOWER_IL_INJECTED: KBDLLHOOKSTRUCT_FLAGS = 2u32;
+pub const LLKHF_LOWER_IL_INJECTED: KBDLLHOOKSTRUCT_FLAGS = KBDLLHOOKSTRUCT_FLAGS(2u32);
+impl ::core::marker::Copy for KBDLLHOOKSTRUCT_FLAGS {}
+impl ::core::clone::Clone for KBDLLHOOKSTRUCT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for KBDLLHOOKSTRUCT_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KBDLLHOOKSTRUCT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KBDLLHOOKSTRUCT_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for KBDLLHOOKSTRUCT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for KBDLLHOOKSTRUCT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for KBDLLHOOKSTRUCT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for KBDLLHOOKSTRUCT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for KBDLLHOOKSTRUCT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const KF_ALTDOWN: u32 = 8192u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
@@ -6292,11 +7000,55 @@ pub unsafe fn KillTimer<'a, Param0: ::windows::core::IntoParam<'a, super::super:
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type LAYERED_WINDOW_ATTRIBUTES_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct LAYERED_WINDOW_ATTRIBUTES_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const LWA_ALPHA: LAYERED_WINDOW_ATTRIBUTES_FLAGS = 2u32;
+pub const LWA_ALPHA: LAYERED_WINDOW_ATTRIBUTES_FLAGS = LAYERED_WINDOW_ATTRIBUTES_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const LWA_COLORKEY: LAYERED_WINDOW_ATTRIBUTES_FLAGS = 1u32;
+pub const LWA_COLORKEY: LAYERED_WINDOW_ATTRIBUTES_FLAGS = LAYERED_WINDOW_ATTRIBUTES_FLAGS(1u32);
+impl ::core::marker::Copy for LAYERED_WINDOW_ATTRIBUTES_FLAGS {}
+impl ::core::clone::Clone for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LAYERED_WINDOW_ATTRIBUTES_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const LBN_DBLCLK: u32 = 2u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
@@ -6980,11 +7732,55 @@ impl ::core::default::Default for MENUGETOBJECTINFO {
     }
 }
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type MENUGETOBJECTINFO_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MENUGETOBJECTINFO_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MNGOF_BOTTOMGAP: MENUGETOBJECTINFO_FLAGS = 2u32;
+pub const MNGOF_BOTTOMGAP: MENUGETOBJECTINFO_FLAGS = MENUGETOBJECTINFO_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MNGOF_TOPGAP: MENUGETOBJECTINFO_FLAGS = 1u32;
+pub const MNGOF_TOPGAP: MENUGETOBJECTINFO_FLAGS = MENUGETOBJECTINFO_FLAGS(1u32);
+impl ::core::marker::Copy for MENUGETOBJECTINFO_FLAGS {}
+impl ::core::clone::Clone for MENUGETOBJECTINFO_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MENUGETOBJECTINFO_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MENUGETOBJECTINFO_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MENUGETOBJECTINFO_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for MENUGETOBJECTINFO_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for MENUGETOBJECTINFO_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for MENUGETOBJECTINFO_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for MENUGETOBJECTINFO_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for MENUGETOBJECTINFO_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Graphics_Gdi'*"]
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -7030,33 +7826,121 @@ impl ::core::default::Default for MENUINFO {
     }
 }
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type MENUINFO_MASK = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MENUINFO_MASK(pub u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MIM_APPLYTOSUBMENUS: MENUINFO_MASK = 2147483648u32;
+pub const MIM_APPLYTOSUBMENUS: MENUINFO_MASK = MENUINFO_MASK(2147483648u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MIM_BACKGROUND: MENUINFO_MASK = 2u32;
+pub const MIM_BACKGROUND: MENUINFO_MASK = MENUINFO_MASK(2u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MIM_HELPID: MENUINFO_MASK = 4u32;
+pub const MIM_HELPID: MENUINFO_MASK = MENUINFO_MASK(4u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MIM_MAXHEIGHT: MENUINFO_MASK = 1u32;
+pub const MIM_MAXHEIGHT: MENUINFO_MASK = MENUINFO_MASK(1u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MIM_MENUDATA: MENUINFO_MASK = 8u32;
+pub const MIM_MENUDATA: MENUINFO_MASK = MENUINFO_MASK(8u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MIM_STYLE: MENUINFO_MASK = 16u32;
+pub const MIM_STYLE: MENUINFO_MASK = MENUINFO_MASK(16u32);
+impl ::core::marker::Copy for MENUINFO_MASK {}
+impl ::core::clone::Clone for MENUINFO_MASK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MENUINFO_MASK {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MENUINFO_MASK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MENUINFO_MASK").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for MENUINFO_MASK {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for MENUINFO_MASK {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for MENUINFO_MASK {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for MENUINFO_MASK {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for MENUINFO_MASK {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type MENUINFO_STYLE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MENUINFO_STYLE(pub u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MNS_AUTODISMISS: MENUINFO_STYLE = 268435456u32;
+pub const MNS_AUTODISMISS: MENUINFO_STYLE = MENUINFO_STYLE(268435456u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MNS_CHECKORBMP: MENUINFO_STYLE = 67108864u32;
+pub const MNS_CHECKORBMP: MENUINFO_STYLE = MENUINFO_STYLE(67108864u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MNS_DRAGDROP: MENUINFO_STYLE = 536870912u32;
+pub const MNS_DRAGDROP: MENUINFO_STYLE = MENUINFO_STYLE(536870912u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MNS_MODELESS: MENUINFO_STYLE = 1073741824u32;
+pub const MNS_MODELESS: MENUINFO_STYLE = MENUINFO_STYLE(1073741824u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MNS_NOCHECK: MENUINFO_STYLE = 2147483648u32;
+pub const MNS_NOCHECK: MENUINFO_STYLE = MENUINFO_STYLE(2147483648u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MNS_NOTIFYBYPOS: MENUINFO_STYLE = 134217728u32;
+pub const MNS_NOTIFYBYPOS: MENUINFO_STYLE = MENUINFO_STYLE(134217728u32);
+impl ::core::marker::Copy for MENUINFO_STYLE {}
+impl ::core::clone::Clone for MENUINFO_STYLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MENUINFO_STYLE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MENUINFO_STYLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MENUINFO_STYLE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for MENUINFO_STYLE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for MENUINFO_STYLE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for MENUINFO_STYLE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for MENUINFO_STYLE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for MENUINFO_STYLE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
@@ -7219,225 +8103,461 @@ impl ::core::default::Default for MENUITEMTEMPLATEHEADER {
     }
 }
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type MENU_ITEM_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MENU_ITEM_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MF_BYCOMMAND: MENU_ITEM_FLAGS = 0u32;
+pub const MF_BYCOMMAND: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MF_BYPOSITION: MENU_ITEM_FLAGS = 1024u32;
+pub const MF_BYPOSITION: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(1024u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MF_BITMAP: MENU_ITEM_FLAGS = 4u32;
+pub const MF_BITMAP: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MF_CHECKED: MENU_ITEM_FLAGS = 8u32;
+pub const MF_CHECKED: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MF_DISABLED: MENU_ITEM_FLAGS = 2u32;
+pub const MF_DISABLED: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MF_ENABLED: MENU_ITEM_FLAGS = 0u32;
+pub const MF_ENABLED: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MF_GRAYED: MENU_ITEM_FLAGS = 1u32;
+pub const MF_GRAYED: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MF_MENUBARBREAK: MENU_ITEM_FLAGS = 32u32;
+pub const MF_MENUBARBREAK: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(32u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MF_MENUBREAK: MENU_ITEM_FLAGS = 64u32;
+pub const MF_MENUBREAK: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(64u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MF_OWNERDRAW: MENU_ITEM_FLAGS = 256u32;
+pub const MF_OWNERDRAW: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(256u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MF_POPUP: MENU_ITEM_FLAGS = 16u32;
+pub const MF_POPUP: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MF_SEPARATOR: MENU_ITEM_FLAGS = 2048u32;
+pub const MF_SEPARATOR: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(2048u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MF_STRING: MENU_ITEM_FLAGS = 0u32;
+pub const MF_STRING: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MF_UNCHECKED: MENU_ITEM_FLAGS = 0u32;
+pub const MF_UNCHECKED: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MF_INSERT: MENU_ITEM_FLAGS = 0u32;
+pub const MF_INSERT: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MF_CHANGE: MENU_ITEM_FLAGS = 128u32;
+pub const MF_CHANGE: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(128u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MF_APPEND: MENU_ITEM_FLAGS = 256u32;
+pub const MF_APPEND: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(256u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MF_DELETE: MENU_ITEM_FLAGS = 512u32;
+pub const MF_DELETE: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(512u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MF_REMOVE: MENU_ITEM_FLAGS = 4096u32;
+pub const MF_REMOVE: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(4096u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MF_USECHECKBITMAPS: MENU_ITEM_FLAGS = 512u32;
+pub const MF_USECHECKBITMAPS: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(512u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MF_UNHILITE: MENU_ITEM_FLAGS = 0u32;
+pub const MF_UNHILITE: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MF_HILITE: MENU_ITEM_FLAGS = 128u32;
+pub const MF_HILITE: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(128u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MF_DEFAULT: MENU_ITEM_FLAGS = 4096u32;
+pub const MF_DEFAULT: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(4096u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MF_SYSMENU: MENU_ITEM_FLAGS = 8192u32;
+pub const MF_SYSMENU: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(8192u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MF_HELP: MENU_ITEM_FLAGS = 16384u32;
+pub const MF_HELP: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(16384u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MF_RIGHTJUSTIFY: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(16384u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MF_MOUSESELECT: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(32768u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MF_END: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(128u32);
+impl ::core::marker::Copy for MENU_ITEM_FLAGS {}
+impl ::core::clone::Clone for MENU_ITEM_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MENU_ITEM_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MENU_ITEM_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MENU_ITEM_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for MENU_ITEM_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for MENU_ITEM_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for MENU_ITEM_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for MENU_ITEM_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for MENU_ITEM_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MENU_ITEM_MASK(pub u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MIIM_BITMAP: MENU_ITEM_MASK = MENU_ITEM_MASK(128u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MIIM_CHECKMARKS: MENU_ITEM_MASK = MENU_ITEM_MASK(8u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MIIM_DATA: MENU_ITEM_MASK = MENU_ITEM_MASK(32u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MIIM_FTYPE: MENU_ITEM_MASK = MENU_ITEM_MASK(256u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MIIM_ID: MENU_ITEM_MASK = MENU_ITEM_MASK(2u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MIIM_STATE: MENU_ITEM_MASK = MENU_ITEM_MASK(1u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MIIM_STRING: MENU_ITEM_MASK = MENU_ITEM_MASK(64u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MIIM_SUBMENU: MENU_ITEM_MASK = MENU_ITEM_MASK(4u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MIIM_TYPE: MENU_ITEM_MASK = MENU_ITEM_MASK(16u32);
+impl ::core::marker::Copy for MENU_ITEM_MASK {}
+impl ::core::clone::Clone for MENU_ITEM_MASK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MENU_ITEM_MASK {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MENU_ITEM_MASK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MENU_ITEM_MASK").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for MENU_ITEM_MASK {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for MENU_ITEM_MASK {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for MENU_ITEM_MASK {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for MENU_ITEM_MASK {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for MENU_ITEM_MASK {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MENU_ITEM_STATE(pub u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MFS_GRAYED: MENU_ITEM_STATE = MENU_ITEM_STATE(3u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MFS_DISABLED: MENU_ITEM_STATE = MENU_ITEM_STATE(3u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MFS_CHECKED: MENU_ITEM_STATE = MENU_ITEM_STATE(8u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MFS_HILITE: MENU_ITEM_STATE = MENU_ITEM_STATE(128u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MFS_ENABLED: MENU_ITEM_STATE = MENU_ITEM_STATE(0u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MFS_UNCHECKED: MENU_ITEM_STATE = MENU_ITEM_STATE(0u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MFS_UNHILITE: MENU_ITEM_STATE = MENU_ITEM_STATE(0u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MFS_DEFAULT: MENU_ITEM_STATE = MENU_ITEM_STATE(4096u32);
+impl ::core::marker::Copy for MENU_ITEM_STATE {}
+impl ::core::clone::Clone for MENU_ITEM_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MENU_ITEM_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MENU_ITEM_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MENU_ITEM_STATE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for MENU_ITEM_STATE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for MENU_ITEM_STATE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for MENU_ITEM_STATE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for MENU_ITEM_STATE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for MENU_ITEM_STATE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MENU_ITEM_TYPE(pub u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MFT_BITMAP: MENU_ITEM_TYPE = MENU_ITEM_TYPE(4u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MFT_MENUBARBREAK: MENU_ITEM_TYPE = MENU_ITEM_TYPE(32u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MFT_MENUBREAK: MENU_ITEM_TYPE = MENU_ITEM_TYPE(64u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MFT_OWNERDRAW: MENU_ITEM_TYPE = MENU_ITEM_TYPE(256u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MFT_RADIOCHECK: MENU_ITEM_TYPE = MENU_ITEM_TYPE(512u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MFT_RIGHTJUSTIFY: MENU_ITEM_TYPE = MENU_ITEM_TYPE(16384u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MFT_RIGHTORDER: MENU_ITEM_TYPE = MENU_ITEM_TYPE(8192u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MFT_SEPARATOR: MENU_ITEM_TYPE = MENU_ITEM_TYPE(2048u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MFT_STRING: MENU_ITEM_TYPE = MENU_ITEM_TYPE(0u32);
+impl ::core::marker::Copy for MENU_ITEM_TYPE {}
+impl ::core::clone::Clone for MENU_ITEM_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MENU_ITEM_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MENU_ITEM_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MENU_ITEM_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for MENU_ITEM_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for MENU_ITEM_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for MENU_ITEM_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for MENU_ITEM_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for MENU_ITEM_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MESSAGEBOX_RESULT(pub i32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const IDOK: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(1i32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const IDCANCEL: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(2i32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const IDABORT: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(3i32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const IDRETRY: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(4i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MF_RIGHTJUSTIFY: MENU_ITEM_FLAGS = 16384u32;
+pub const IDIGNORE: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(5i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MF_MOUSESELECT: MENU_ITEM_FLAGS = 32768u32;
+pub const IDYES: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(6i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MF_END: MENU_ITEM_FLAGS = 128u32;
+pub const IDNO: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(7i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type MENU_ITEM_MASK = u32;
+pub const IDCLOSE: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(8i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MIIM_BITMAP: MENU_ITEM_MASK = 128u32;
+pub const IDHELP: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(9i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MIIM_CHECKMARKS: MENU_ITEM_MASK = 8u32;
+pub const IDTRYAGAIN: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(10i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MIIM_DATA: MENU_ITEM_MASK = 32u32;
+pub const IDCONTINUE: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(11i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MIIM_FTYPE: MENU_ITEM_MASK = 256u32;
+pub const IDASYNC: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(32001i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MIIM_ID: MENU_ITEM_MASK = 2u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MIIM_STATE: MENU_ITEM_MASK = 1u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MIIM_STRING: MENU_ITEM_MASK = 64u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MIIM_SUBMENU: MENU_ITEM_MASK = 4u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MIIM_TYPE: MENU_ITEM_MASK = 16u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type MENU_ITEM_STATE = u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MFS_GRAYED: MENU_ITEM_STATE = 3u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MFS_DISABLED: MENU_ITEM_STATE = 3u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MFS_CHECKED: MENU_ITEM_STATE = 8u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MFS_HILITE: MENU_ITEM_STATE = 128u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MFS_ENABLED: MENU_ITEM_STATE = 0u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MFS_UNCHECKED: MENU_ITEM_STATE = 0u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MFS_UNHILITE: MENU_ITEM_STATE = 0u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MFS_DEFAULT: MENU_ITEM_STATE = 4096u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type MENU_ITEM_TYPE = u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MFT_BITMAP: MENU_ITEM_TYPE = 4u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MFT_MENUBARBREAK: MENU_ITEM_TYPE = 32u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MFT_MENUBREAK: MENU_ITEM_TYPE = 64u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MFT_OWNERDRAW: MENU_ITEM_TYPE = 256u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MFT_RADIOCHECK: MENU_ITEM_TYPE = 512u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MFT_RIGHTJUSTIFY: MENU_ITEM_TYPE = 16384u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MFT_RIGHTORDER: MENU_ITEM_TYPE = 8192u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MFT_SEPARATOR: MENU_ITEM_TYPE = 2048u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MFT_STRING: MENU_ITEM_TYPE = 0u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type MESSAGEBOX_RESULT = i32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const IDOK: MESSAGEBOX_RESULT = 1i32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const IDCANCEL: MESSAGEBOX_RESULT = 2i32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const IDABORT: MESSAGEBOX_RESULT = 3i32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const IDRETRY: MESSAGEBOX_RESULT = 4i32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const IDIGNORE: MESSAGEBOX_RESULT = 5i32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const IDYES: MESSAGEBOX_RESULT = 6i32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const IDNO: MESSAGEBOX_RESULT = 7i32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const IDCLOSE: MESSAGEBOX_RESULT = 8i32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const IDHELP: MESSAGEBOX_RESULT = 9i32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const IDTRYAGAIN: MESSAGEBOX_RESULT = 10i32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const IDCONTINUE: MESSAGEBOX_RESULT = 11i32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const IDASYNC: MESSAGEBOX_RESULT = 32001i32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const IDTIMEOUT: MESSAGEBOX_RESULT = 32000i32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type MESSAGEBOX_STYLE = u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MB_ABORTRETRYIGNORE: MESSAGEBOX_STYLE = 2u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MB_CANCELTRYCONTINUE: MESSAGEBOX_STYLE = 6u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MB_HELP: MESSAGEBOX_STYLE = 16384u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MB_OK: MESSAGEBOX_STYLE = 0u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MB_OKCANCEL: MESSAGEBOX_STYLE = 1u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MB_RETRYCANCEL: MESSAGEBOX_STYLE = 5u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MB_YESNO: MESSAGEBOX_STYLE = 4u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MB_YESNOCANCEL: MESSAGEBOX_STYLE = 3u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MB_ICONHAND: MESSAGEBOX_STYLE = 16u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MB_ICONQUESTION: MESSAGEBOX_STYLE = 32u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MB_ICONEXCLAMATION: MESSAGEBOX_STYLE = 48u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MB_ICONASTERISK: MESSAGEBOX_STYLE = 64u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MB_USERICON: MESSAGEBOX_STYLE = 128u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MB_ICONWARNING: MESSAGEBOX_STYLE = 48u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MB_ICONERROR: MESSAGEBOX_STYLE = 16u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MB_ICONINFORMATION: MESSAGEBOX_STYLE = 64u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MB_ICONSTOP: MESSAGEBOX_STYLE = 16u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MB_DEFBUTTON1: MESSAGEBOX_STYLE = 0u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MB_DEFBUTTON2: MESSAGEBOX_STYLE = 256u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MB_DEFBUTTON3: MESSAGEBOX_STYLE = 512u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MB_DEFBUTTON4: MESSAGEBOX_STYLE = 768u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MB_APPLMODAL: MESSAGEBOX_STYLE = 0u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MB_SYSTEMMODAL: MESSAGEBOX_STYLE = 4096u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MB_TASKMODAL: MESSAGEBOX_STYLE = 8192u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MB_NOFOCUS: MESSAGEBOX_STYLE = 32768u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MB_SETFOREGROUND: MESSAGEBOX_STYLE = 65536u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MB_DEFAULT_DESKTOP_ONLY: MESSAGEBOX_STYLE = 131072u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MB_TOPMOST: MESSAGEBOX_STYLE = 262144u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MB_RIGHT: MESSAGEBOX_STYLE = 524288u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MB_RTLREADING: MESSAGEBOX_STYLE = 1048576u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MB_SERVICE_NOTIFICATION: MESSAGEBOX_STYLE = 2097152u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MB_SERVICE_NOTIFICATION_NT3X: MESSAGEBOX_STYLE = 262144u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MB_TYPEMASK: MESSAGEBOX_STYLE = 15u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MB_ICONMASK: MESSAGEBOX_STYLE = 240u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MB_DEFMASK: MESSAGEBOX_STYLE = 3840u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MB_MODEMASK: MESSAGEBOX_STYLE = 12288u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MB_MISCMASK: MESSAGEBOX_STYLE = 49152u32;
+pub const IDTIMEOUT: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(32000i32);
+impl ::core::marker::Copy for MESSAGEBOX_RESULT {}
+impl ::core::clone::Clone for MESSAGEBOX_RESULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MESSAGEBOX_RESULT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MESSAGEBOX_RESULT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MESSAGEBOX_RESULT").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MESSAGEBOX_STYLE(pub u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MB_ABORTRETRYIGNORE: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(2u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MB_CANCELTRYCONTINUE: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(6u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MB_HELP: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(16384u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MB_OK: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(0u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MB_OKCANCEL: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(1u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MB_RETRYCANCEL: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(5u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MB_YESNO: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(4u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MB_YESNOCANCEL: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(3u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MB_ICONHAND: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(16u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MB_ICONQUESTION: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(32u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MB_ICONEXCLAMATION: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(48u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MB_ICONASTERISK: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(64u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MB_USERICON: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(128u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MB_ICONWARNING: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(48u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MB_ICONERROR: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(16u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MB_ICONINFORMATION: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(64u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MB_ICONSTOP: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(16u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MB_DEFBUTTON1: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(0u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MB_DEFBUTTON2: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(256u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MB_DEFBUTTON3: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(512u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MB_DEFBUTTON4: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(768u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MB_APPLMODAL: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(0u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MB_SYSTEMMODAL: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(4096u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MB_TASKMODAL: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(8192u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MB_NOFOCUS: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(32768u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MB_SETFOREGROUND: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(65536u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MB_DEFAULT_DESKTOP_ONLY: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(131072u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MB_TOPMOST: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(262144u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MB_RIGHT: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(524288u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MB_RTLREADING: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(1048576u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MB_SERVICE_NOTIFICATION: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(2097152u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MB_SERVICE_NOTIFICATION_NT3X: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(262144u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MB_TYPEMASK: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(15u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MB_ICONMASK: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(240u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MB_DEFMASK: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(3840u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MB_MODEMASK: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(12288u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const MB_MISCMASK: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(49152u32);
+impl ::core::marker::Copy for MESSAGEBOX_STYLE {}
+impl ::core::clone::Clone for MESSAGEBOX_STYLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MESSAGEBOX_STYLE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MESSAGEBOX_STYLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MESSAGEBOX_STYLE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for MESSAGEBOX_STYLE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for MESSAGEBOX_STYLE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for MESSAGEBOX_STYLE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for MESSAGEBOX_STYLE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for MESSAGEBOX_STYLE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub struct MESSAGE_RESOURCE_BLOCK {
@@ -7570,15 +8690,31 @@ impl ::core::default::Default for MINIMIZEDMETRICS {
     }
 }
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type MINIMIZEDMETRICS_ARRANGE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MINIMIZEDMETRICS_ARRANGE(pub i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const ARW_BOTTOMLEFT: MINIMIZEDMETRICS_ARRANGE = 0i32;
+pub const ARW_BOTTOMLEFT: MINIMIZEDMETRICS_ARRANGE = MINIMIZEDMETRICS_ARRANGE(0i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const ARW_BOTTOMRIGHT: MINIMIZEDMETRICS_ARRANGE = 1i32;
+pub const ARW_BOTTOMRIGHT: MINIMIZEDMETRICS_ARRANGE = MINIMIZEDMETRICS_ARRANGE(1i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const ARW_TOPLEFT: MINIMIZEDMETRICS_ARRANGE = 2i32;
+pub const ARW_TOPLEFT: MINIMIZEDMETRICS_ARRANGE = MINIMIZEDMETRICS_ARRANGE(2i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const ARW_TOPRIGHT: MINIMIZEDMETRICS_ARRANGE = 3i32;
+pub const ARW_TOPRIGHT: MINIMIZEDMETRICS_ARRANGE = MINIMIZEDMETRICS_ARRANGE(3i32);
+impl ::core::marker::Copy for MINIMIZEDMETRICS_ARRANGE {}
+impl ::core::clone::Clone for MINIMIZEDMETRICS_ARRANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MINIMIZEDMETRICS_ARRANGE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MINIMIZEDMETRICS_ARRANGE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MINIMIZEDMETRICS_ARRANGE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const MINIMUM_RESERVED_MANIFEST_RESOURCE_ID: u32 = 1u32;
 #[repr(C)]
@@ -7766,11 +8902,55 @@ impl ::core::default::Default for MOUSEHOOKSTRUCTEX {
     }
 }
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type MOUSEHOOKSTRUCTEX_MOUSE_DATA = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MOUSEHOOKSTRUCTEX_MOUSE_DATA(pub u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const XBUTTON1: MOUSEHOOKSTRUCTEX_MOUSE_DATA = 1u32;
+pub const XBUTTON1: MOUSEHOOKSTRUCTEX_MOUSE_DATA = MOUSEHOOKSTRUCTEX_MOUSE_DATA(1u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const XBUTTON2: MOUSEHOOKSTRUCTEX_MOUSE_DATA = 2u32;
+pub const XBUTTON2: MOUSEHOOKSTRUCTEX_MOUSE_DATA = MOUSEHOOKSTRUCTEX_MOUSE_DATA(2u32);
+impl ::core::marker::Copy for MOUSEHOOKSTRUCTEX_MOUSE_DATA {}
+impl ::core::clone::Clone for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MOUSEHOOKSTRUCTEX_MOUSE_DATA").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const MOUSEWHEEL_ROUTING_FOCUS: u32 = 0u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
@@ -7918,15 +9098,59 @@ impl ::core::default::Default for MSGBOXPARAMSW {
     }
 }
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type MSGFLTINFO_STATUS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MSGFLTINFO_STATUS(pub u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MSGFLTINFO_NONE: MSGFLTINFO_STATUS = 0u32;
+pub const MSGFLTINFO_NONE: MSGFLTINFO_STATUS = MSGFLTINFO_STATUS(0u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MSGFLTINFO_ALLOWED_HIGHER: MSGFLTINFO_STATUS = 3u32;
+pub const MSGFLTINFO_ALLOWED_HIGHER: MSGFLTINFO_STATUS = MSGFLTINFO_STATUS(3u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MSGFLTINFO_ALREADYALLOWED_FORWND: MSGFLTINFO_STATUS = 1u32;
+pub const MSGFLTINFO_ALREADYALLOWED_FORWND: MSGFLTINFO_STATUS = MSGFLTINFO_STATUS(1u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MSGFLTINFO_ALREADYDISALLOWED_FORWND: MSGFLTINFO_STATUS = 2u32;
+pub const MSGFLTINFO_ALREADYDISALLOWED_FORWND: MSGFLTINFO_STATUS = MSGFLTINFO_STATUS(2u32);
+impl ::core::marker::Copy for MSGFLTINFO_STATUS {}
+impl ::core::clone::Clone for MSGFLTINFO_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MSGFLTINFO_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MSGFLTINFO_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MSGFLTINFO_STATUS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for MSGFLTINFO_STATUS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for MSGFLTINFO_STATUS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for MSGFLTINFO_STATUS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for MSGFLTINFO_STATUS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for MSGFLTINFO_STATUS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const MSGF_DIALOGBOX: u32 = 0u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
@@ -7942,15 +9166,59 @@ pub const MSGF_SCROLLBAR: u32 = 5u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const MSGF_USER: u32 = 4096u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MWMO_NONE: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = 0u32;
+pub const MWMO_NONE: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MWMO_ALERTABLE: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = 2u32;
+pub const MWMO_ALERTABLE: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MWMO_INPUTAVAILABLE: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = 4u32;
+pub const MWMO_INPUTAVAILABLE: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MWMO_WAITALL: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = 1u32;
+pub const MWMO_WAITALL: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS(1u32);
+impl ::core::marker::Copy for MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {}
+impl ::core::clone::Clone for MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -8381,13 +9649,29 @@ pub unsafe fn MrmDumpPriFileInMemory<'a, Param0: ::windows::core::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type MrmDumpType = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MrmDumpType(pub i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MrmDumpType_Basic: MrmDumpType = 0i32;
+pub const MrmDumpType_Basic: MrmDumpType = MrmDumpType(0i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MrmDumpType_Detailed: MrmDumpType = 1i32;
+pub const MrmDumpType_Detailed: MrmDumpType = MrmDumpType(1i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MrmDumpType_Schema: MrmDumpType = 2i32;
+pub const MrmDumpType_Schema: MrmDumpType = MrmDumpType(2i32);
+impl ::core::marker::Copy for MrmDumpType {}
+impl ::core::clone::Clone for MrmDumpType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MrmDumpType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MrmDumpType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MrmDumpType").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 #[inline]
 pub unsafe fn MrmFreeMemory(data: *const u8) -> ::windows::core::Result<()> {
@@ -8494,29 +9778,77 @@ pub unsafe fn MrmIndexString<'a, Param0: ::windows::core::IntoParam<'a, MrmResou
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type MrmIndexerFlags = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MrmIndexerFlags(pub i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MrmIndexerFlagsNone: MrmIndexerFlags = 0i32;
+pub const MrmIndexerFlagsNone: MrmIndexerFlags = MrmIndexerFlags(0i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MrmIndexerFlagsAutoMerge: MrmIndexerFlags = 1i32;
+pub const MrmIndexerFlagsAutoMerge: MrmIndexerFlags = MrmIndexerFlags(1i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MrmIndexerFlagsCreateContentChecksum: MrmIndexerFlags = 2i32;
+pub const MrmIndexerFlagsCreateContentChecksum: MrmIndexerFlags = MrmIndexerFlags(2i32);
+impl ::core::marker::Copy for MrmIndexerFlags {}
+impl ::core::clone::Clone for MrmIndexerFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MrmIndexerFlags {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MrmIndexerFlags {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MrmIndexerFlags").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type MrmPackagingMode = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MrmPackagingMode(pub i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MrmPackagingModeStandaloneFile: MrmPackagingMode = 0i32;
+pub const MrmPackagingModeStandaloneFile: MrmPackagingMode = MrmPackagingMode(0i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MrmPackagingModeAutoSplit: MrmPackagingMode = 1i32;
+pub const MrmPackagingModeAutoSplit: MrmPackagingMode = MrmPackagingMode(1i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MrmPackagingModeResourcePack: MrmPackagingMode = 2i32;
+pub const MrmPackagingModeResourcePack: MrmPackagingMode = MrmPackagingMode(2i32);
+impl ::core::marker::Copy for MrmPackagingMode {}
+impl ::core::clone::Clone for MrmPackagingMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MrmPackagingMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MrmPackagingMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MrmPackagingMode").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type MrmPackagingOptions = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MrmPackagingOptions(pub i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MrmPackagingOptionsNone: MrmPackagingOptions = 0i32;
+pub const MrmPackagingOptionsNone: MrmPackagingOptions = MrmPackagingOptions(0i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MrmPackagingOptionsOmitSchemaFromResourcePacks: MrmPackagingOptions = 1i32;
+pub const MrmPackagingOptionsOmitSchemaFromResourcePacks: MrmPackagingOptions = MrmPackagingOptions(1i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MrmPackagingOptionsSplitLanguageVariants: MrmPackagingOptions = 2i32;
+pub const MrmPackagingOptionsSplitLanguageVariants: MrmPackagingOptions = MrmPackagingOptions(2i32);
+impl ::core::marker::Copy for MrmPackagingOptions {}
+impl ::core::clone::Clone for MrmPackagingOptions {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MrmPackagingOptions {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MrmPackagingOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MrmPackagingOptions").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -8533,13 +9865,29 @@ pub unsafe fn MrmPeekResourceIndexerMessages<'a, Param0: ::windows::core::IntoPa
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type MrmPlatformVersion = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MrmPlatformVersion(pub i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MrmPlatformVersion_Default: MrmPlatformVersion = 0i32;
+pub const MrmPlatformVersion_Default: MrmPlatformVersion = MrmPlatformVersion(0i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MrmPlatformVersion_Windows10_0_0_0: MrmPlatformVersion = 17432576i32;
+pub const MrmPlatformVersion_Windows10_0_0_0: MrmPlatformVersion = MrmPlatformVersion(17432576i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MrmPlatformVersion_Windows10_0_0_5: MrmPlatformVersion = 17432581i32;
+pub const MrmPlatformVersion_Windows10_0_0_5: MrmPlatformVersion = MrmPlatformVersion(17432581i32);
+impl ::core::marker::Copy for MrmPlatformVersion {}
+impl ::core::clone::Clone for MrmPlatformVersion {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MrmPlatformVersion {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MrmPlatformVersion {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MrmPlatformVersion").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub struct MrmResourceIndexerHandle {
@@ -8611,15 +9959,31 @@ impl ::core::default::Default for MrmResourceIndexerMessage {
     }
 }
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type MrmResourceIndexerMessageSeverity = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MrmResourceIndexerMessageSeverity(pub i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MrmResourceIndexerMessageSeverityVerbose: MrmResourceIndexerMessageSeverity = 0i32;
+pub const MrmResourceIndexerMessageSeverityVerbose: MrmResourceIndexerMessageSeverity = MrmResourceIndexerMessageSeverity(0i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MrmResourceIndexerMessageSeverityInfo: MrmResourceIndexerMessageSeverity = 1i32;
+pub const MrmResourceIndexerMessageSeverityInfo: MrmResourceIndexerMessageSeverity = MrmResourceIndexerMessageSeverity(1i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MrmResourceIndexerMessageSeverityWarning: MrmResourceIndexerMessageSeverity = 2i32;
+pub const MrmResourceIndexerMessageSeverityWarning: MrmResourceIndexerMessageSeverity = MrmResourceIndexerMessageSeverity(2i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MrmResourceIndexerMessageSeverityError: MrmResourceIndexerMessageSeverity = 3i32;
+pub const MrmResourceIndexerMessageSeverityError: MrmResourceIndexerMessageSeverity = MrmResourceIndexerMessageSeverity(3i32);
+impl ::core::marker::Copy for MrmResourceIndexerMessageSeverity {}
+impl ::core::clone::Clone for MrmResourceIndexerMessageSeverity {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MrmResourceIndexerMessageSeverity {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MrmResourceIndexerMessageSeverity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MrmResourceIndexerMessageSeverity").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -8856,35 +10220,51 @@ impl ::core::default::Default for NONCLIENTMETRICSW {
     }
 }
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type OBJECT_IDENTIFIER = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct OBJECT_IDENTIFIER(pub i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const OBJID_WINDOW: OBJECT_IDENTIFIER = 0i32;
+pub const OBJID_WINDOW: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(0i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const OBJID_SYSMENU: OBJECT_IDENTIFIER = -1i32;
+pub const OBJID_SYSMENU: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-1i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const OBJID_TITLEBAR: OBJECT_IDENTIFIER = -2i32;
+pub const OBJID_TITLEBAR: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-2i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const OBJID_MENU: OBJECT_IDENTIFIER = -3i32;
+pub const OBJID_MENU: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-3i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const OBJID_CLIENT: OBJECT_IDENTIFIER = -4i32;
+pub const OBJID_CLIENT: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-4i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const OBJID_VSCROLL: OBJECT_IDENTIFIER = -5i32;
+pub const OBJID_VSCROLL: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-5i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const OBJID_HSCROLL: OBJECT_IDENTIFIER = -6i32;
+pub const OBJID_HSCROLL: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-6i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const OBJID_SIZEGRIP: OBJECT_IDENTIFIER = -7i32;
+pub const OBJID_SIZEGRIP: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-7i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const OBJID_CARET: OBJECT_IDENTIFIER = -8i32;
+pub const OBJID_CARET: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-8i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const OBJID_CURSOR: OBJECT_IDENTIFIER = -9i32;
+pub const OBJID_CURSOR: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-9i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const OBJID_ALERT: OBJECT_IDENTIFIER = -10i32;
+pub const OBJID_ALERT: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-10i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const OBJID_SOUND: OBJECT_IDENTIFIER = -11i32;
+pub const OBJID_SOUND: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-11i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const OBJID_QUERYCLASSNAMEIDX: OBJECT_IDENTIFIER = -12i32;
+pub const OBJID_QUERYCLASSNAMEIDX: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-12i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const OBJID_NATIVEOM: OBJECT_IDENTIFIER = -16i32;
+pub const OBJID_NATIVEOM: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-16i32);
+impl ::core::marker::Copy for OBJECT_IDENTIFIER {}
+impl ::core::clone::Clone for OBJECT_IDENTIFIER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for OBJECT_IDENTIFIER {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OBJECT_IDENTIFIER {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OBJECT_IDENTIFIER").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const OBM_BTNCORNERS: u32 = 32758u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
@@ -9143,21 +10523,65 @@ pub const PDC_REMOVAL: u32 = 2u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const PDC_RESOLUTION: u32 = 512u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type PEEK_MESSAGE_REMOVE_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PEEK_MESSAGE_REMOVE_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const PM_NOREMOVE: PEEK_MESSAGE_REMOVE_TYPE = 0u32;
+pub const PM_NOREMOVE: PEEK_MESSAGE_REMOVE_TYPE = PEEK_MESSAGE_REMOVE_TYPE(0u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const PM_REMOVE: PEEK_MESSAGE_REMOVE_TYPE = 1u32;
+pub const PM_REMOVE: PEEK_MESSAGE_REMOVE_TYPE = PEEK_MESSAGE_REMOVE_TYPE(1u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const PM_NOYIELD: PEEK_MESSAGE_REMOVE_TYPE = 2u32;
+pub const PM_NOYIELD: PEEK_MESSAGE_REMOVE_TYPE = PEEK_MESSAGE_REMOVE_TYPE(2u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const PM_QS_INPUT: PEEK_MESSAGE_REMOVE_TYPE = 67567616u32;
+pub const PM_QS_INPUT: PEEK_MESSAGE_REMOVE_TYPE = PEEK_MESSAGE_REMOVE_TYPE(67567616u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const PM_QS_POSTMESSAGE: PEEK_MESSAGE_REMOVE_TYPE = 9961472u32;
+pub const PM_QS_POSTMESSAGE: PEEK_MESSAGE_REMOVE_TYPE = PEEK_MESSAGE_REMOVE_TYPE(9961472u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const PM_QS_PAINT: PEEK_MESSAGE_REMOVE_TYPE = 2097152u32;
+pub const PM_QS_PAINT: PEEK_MESSAGE_REMOVE_TYPE = PEEK_MESSAGE_REMOVE_TYPE(2097152u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const PM_QS_SENDMESSAGE: PEEK_MESSAGE_REMOVE_TYPE = 4194304u32;
+pub const PM_QS_SENDMESSAGE: PEEK_MESSAGE_REMOVE_TYPE = PEEK_MESSAGE_REMOVE_TYPE(4194304u32);
+impl ::core::marker::Copy for PEEK_MESSAGE_REMOVE_TYPE {}
+impl ::core::clone::Clone for PEEK_MESSAGE_REMOVE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PEEK_MESSAGE_REMOVE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PEEK_MESSAGE_REMOVE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PEEK_MESSAGE_REMOVE_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for PEEK_MESSAGE_REMOVE_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for PEEK_MESSAGE_REMOVE_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for PEEK_MESSAGE_REMOVE_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for PEEK_MESSAGE_REMOVE_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for PEEK_MESSAGE_REMOVE_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const PENARBITRATIONTYPE_FIS: u32 = 2u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
@@ -9201,17 +10625,33 @@ pub const PMB_ACTIVE: u32 = 1u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const POINTER_DEVICE_PRODUCT_STRING_MAX: u32 = 520u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type POINTER_INPUT_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct POINTER_INPUT_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const PT_POINTER: POINTER_INPUT_TYPE = 1i32;
+pub const PT_POINTER: POINTER_INPUT_TYPE = POINTER_INPUT_TYPE(1i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const PT_TOUCH: POINTER_INPUT_TYPE = 2i32;
+pub const PT_TOUCH: POINTER_INPUT_TYPE = POINTER_INPUT_TYPE(2i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const PT_PEN: POINTER_INPUT_TYPE = 3i32;
+pub const PT_PEN: POINTER_INPUT_TYPE = POINTER_INPUT_TYPE(3i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const PT_MOUSE: POINTER_INPUT_TYPE = 4i32;
+pub const PT_MOUSE: POINTER_INPUT_TYPE = POINTER_INPUT_TYPE(4i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const PT_TOUCHPAD: POINTER_INPUT_TYPE = 5i32;
+pub const PT_TOUCHPAD: POINTER_INPUT_TYPE = POINTER_INPUT_TYPE(5i32);
+impl ::core::marker::Copy for POINTER_INPUT_TYPE {}
+impl ::core::clone::Clone for POINTER_INPUT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for POINTER_INPUT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for POINTER_INPUT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("POINTER_INPUT_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const POINTER_MESSAGE_FLAG_CANCELED: u32 = 32768u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
@@ -9431,35 +10871,79 @@ pub const QS_POINTER: u32 = 4096u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const QS_TOUCH: u32 = 2048u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type QUEUE_STATUS_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct QUEUE_STATUS_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const QS_ALLEVENTS: QUEUE_STATUS_FLAGS = 1215u32;
+pub const QS_ALLEVENTS: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(1215u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const QS_ALLINPUT: QUEUE_STATUS_FLAGS = 1279u32;
+pub const QS_ALLINPUT: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(1279u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const QS_ALLPOSTMESSAGE: QUEUE_STATUS_FLAGS = 256u32;
+pub const QS_ALLPOSTMESSAGE: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(256u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const QS_HOTKEY: QUEUE_STATUS_FLAGS = 128u32;
+pub const QS_HOTKEY: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(128u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const QS_INPUT: QUEUE_STATUS_FLAGS = 1031u32;
+pub const QS_INPUT: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(1031u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const QS_KEY: QUEUE_STATUS_FLAGS = 1u32;
+pub const QS_KEY: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const QS_MOUSE: QUEUE_STATUS_FLAGS = 6u32;
+pub const QS_MOUSE: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(6u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const QS_MOUSEBUTTON: QUEUE_STATUS_FLAGS = 4u32;
+pub const QS_MOUSEBUTTON: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const QS_MOUSEMOVE: QUEUE_STATUS_FLAGS = 2u32;
+pub const QS_MOUSEMOVE: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const QS_PAINT: QUEUE_STATUS_FLAGS = 32u32;
+pub const QS_PAINT: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(32u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const QS_POSTMESSAGE: QUEUE_STATUS_FLAGS = 8u32;
+pub const QS_POSTMESSAGE: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const QS_RAWINPUT: QUEUE_STATUS_FLAGS = 1024u32;
+pub const QS_RAWINPUT: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(1024u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const QS_SENDMESSAGE: QUEUE_STATUS_FLAGS = 64u32;
+pub const QS_SENDMESSAGE: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(64u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const QS_TIMER: QUEUE_STATUS_FLAGS = 16u32;
+pub const QS_TIMER: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(16u32);
+impl ::core::marker::Copy for QUEUE_STATUS_FLAGS {}
+impl ::core::clone::Clone for QUEUE_STATUS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for QUEUE_STATUS_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for QUEUE_STATUS_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("QUEUE_STATUS_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for QUEUE_STATUS_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for QUEUE_STATUS_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for QUEUE_STATUS_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for QUEUE_STATUS_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for QUEUE_STATUS_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const RES_CURSOR: u32 = 2u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
@@ -9925,15 +11409,59 @@ impl ::core::default::Default for SCROLLBARINFO {
     }
 }
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type SCROLLBAR_CONSTANTS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SCROLLBAR_CONSTANTS(pub u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SB_CTL: SCROLLBAR_CONSTANTS = 2u32;
+pub const SB_CTL: SCROLLBAR_CONSTANTS = SCROLLBAR_CONSTANTS(2u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SB_HORZ: SCROLLBAR_CONSTANTS = 0u32;
+pub const SB_HORZ: SCROLLBAR_CONSTANTS = SCROLLBAR_CONSTANTS(0u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SB_VERT: SCROLLBAR_CONSTANTS = 1u32;
+pub const SB_VERT: SCROLLBAR_CONSTANTS = SCROLLBAR_CONSTANTS(1u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SB_BOTH: SCROLLBAR_CONSTANTS = 3u32;
+pub const SB_BOTH: SCROLLBAR_CONSTANTS = SCROLLBAR_CONSTANTS(3u32);
+impl ::core::marker::Copy for SCROLLBAR_CONSTANTS {}
+impl ::core::clone::Clone for SCROLLBAR_CONSTANTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SCROLLBAR_CONSTANTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SCROLLBAR_CONSTANTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SCROLLBAR_CONSTANTS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SCROLLBAR_CONSTANTS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SCROLLBAR_CONSTANTS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SCROLLBAR_CONSTANTS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SCROLLBAR_CONSTANTS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SCROLLBAR_CONSTANTS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub struct SCROLLINFO {
@@ -9971,19 +11499,63 @@ impl ::core::default::Default for SCROLLINFO {
     }
 }
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type SCROLLINFO_MASK = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SCROLLINFO_MASK(pub u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SIF_ALL: SCROLLINFO_MASK = 23u32;
+pub const SIF_ALL: SCROLLINFO_MASK = SCROLLINFO_MASK(23u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SIF_DISABLENOSCROLL: SCROLLINFO_MASK = 8u32;
+pub const SIF_DISABLENOSCROLL: SCROLLINFO_MASK = SCROLLINFO_MASK(8u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SIF_PAGE: SCROLLINFO_MASK = 2u32;
+pub const SIF_PAGE: SCROLLINFO_MASK = SCROLLINFO_MASK(2u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SIF_POS: SCROLLINFO_MASK = 4u32;
+pub const SIF_POS: SCROLLINFO_MASK = SCROLLINFO_MASK(4u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SIF_RANGE: SCROLLINFO_MASK = 1u32;
+pub const SIF_RANGE: SCROLLINFO_MASK = SCROLLINFO_MASK(1u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SIF_TRACKPOS: SCROLLINFO_MASK = 16u32;
+pub const SIF_TRACKPOS: SCROLLINFO_MASK = SCROLLINFO_MASK(16u32);
+impl ::core::marker::Copy for SCROLLINFO_MASK {}
+impl ::core::clone::Clone for SCROLLINFO_MASK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SCROLLINFO_MASK {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SCROLLINFO_MASK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SCROLLINFO_MASK").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SCROLLINFO_MASK {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SCROLLINFO_MASK {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SCROLLINFO_MASK {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SCROLLINFO_MASK {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SCROLLINFO_MASK {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const SC_ARRANGE: u32 = 61712u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
@@ -10030,51 +11602,139 @@ pub const SC_ZOOM: u32 = 61488u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type SENDASYNCPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: usize, param3: super::super::Foundation::LRESULT)>;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type SEND_MESSAGE_TIMEOUT_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SEND_MESSAGE_TIMEOUT_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SMTO_ABORTIFHUNG: SEND_MESSAGE_TIMEOUT_FLAGS = 2u32;
+pub const SMTO_ABORTIFHUNG: SEND_MESSAGE_TIMEOUT_FLAGS = SEND_MESSAGE_TIMEOUT_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SMTO_BLOCK: SEND_MESSAGE_TIMEOUT_FLAGS = 1u32;
+pub const SMTO_BLOCK: SEND_MESSAGE_TIMEOUT_FLAGS = SEND_MESSAGE_TIMEOUT_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SMTO_NORMAL: SEND_MESSAGE_TIMEOUT_FLAGS = 0u32;
+pub const SMTO_NORMAL: SEND_MESSAGE_TIMEOUT_FLAGS = SEND_MESSAGE_TIMEOUT_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SMTO_NOTIMEOUTIFNOTHUNG: SEND_MESSAGE_TIMEOUT_FLAGS = 8u32;
+pub const SMTO_NOTIMEOUTIFNOTHUNG: SEND_MESSAGE_TIMEOUT_FLAGS = SEND_MESSAGE_TIMEOUT_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SMTO_ERRORONEXIT: SEND_MESSAGE_TIMEOUT_FLAGS = 32u32;
+pub const SMTO_ERRORONEXIT: SEND_MESSAGE_TIMEOUT_FLAGS = SEND_MESSAGE_TIMEOUT_FLAGS(32u32);
+impl ::core::marker::Copy for SEND_MESSAGE_TIMEOUT_FLAGS {}
+impl ::core::clone::Clone for SEND_MESSAGE_TIMEOUT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SEND_MESSAGE_TIMEOUT_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SEND_MESSAGE_TIMEOUT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SEND_MESSAGE_TIMEOUT_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SEND_MESSAGE_TIMEOUT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SEND_MESSAGE_TIMEOUT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SEND_MESSAGE_TIMEOUT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SEND_MESSAGE_TIMEOUT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SEND_MESSAGE_TIMEOUT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type SET_WINDOW_POS_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SET_WINDOW_POS_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SWP_ASYNCWINDOWPOS: SET_WINDOW_POS_FLAGS = 16384u32;
+pub const SWP_ASYNCWINDOWPOS: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(16384u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SWP_DEFERERASE: SET_WINDOW_POS_FLAGS = 8192u32;
+pub const SWP_DEFERERASE: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(8192u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SWP_DRAWFRAME: SET_WINDOW_POS_FLAGS = 32u32;
+pub const SWP_DRAWFRAME: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(32u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SWP_FRAMECHANGED: SET_WINDOW_POS_FLAGS = 32u32;
+pub const SWP_FRAMECHANGED: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(32u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SWP_HIDEWINDOW: SET_WINDOW_POS_FLAGS = 128u32;
+pub const SWP_HIDEWINDOW: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(128u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SWP_NOACTIVATE: SET_WINDOW_POS_FLAGS = 16u32;
+pub const SWP_NOACTIVATE: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SWP_NOCOPYBITS: SET_WINDOW_POS_FLAGS = 256u32;
+pub const SWP_NOCOPYBITS: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(256u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SWP_NOMOVE: SET_WINDOW_POS_FLAGS = 2u32;
+pub const SWP_NOMOVE: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SWP_NOOWNERZORDER: SET_WINDOW_POS_FLAGS = 512u32;
+pub const SWP_NOOWNERZORDER: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(512u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SWP_NOREDRAW: SET_WINDOW_POS_FLAGS = 8u32;
+pub const SWP_NOREDRAW: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SWP_NOREPOSITION: SET_WINDOW_POS_FLAGS = 512u32;
+pub const SWP_NOREPOSITION: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(512u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SWP_NOSENDCHANGING: SET_WINDOW_POS_FLAGS = 1024u32;
+pub const SWP_NOSENDCHANGING: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(1024u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SWP_NOSIZE: SET_WINDOW_POS_FLAGS = 1u32;
+pub const SWP_NOSIZE: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SWP_NOZORDER: SET_WINDOW_POS_FLAGS = 4u32;
+pub const SWP_NOZORDER: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SWP_SHOWWINDOW: SET_WINDOW_POS_FLAGS = 64u32;
+pub const SWP_SHOWWINDOW: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(64u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SWP__NOOWNERZORDER: SET_WINDOW_POS_FLAGS = 512u32;
+pub const SWP__NOOWNERZORDER: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(512u32);
+impl ::core::marker::Copy for SET_WINDOW_POS_FLAGS {}
+impl ::core::clone::Clone for SET_WINDOW_POS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SET_WINDOW_POS_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SET_WINDOW_POS_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SET_WINDOW_POS_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SET_WINDOW_POS_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SET_WINDOW_POS_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SET_WINDOW_POS_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SET_WINDOW_POS_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SET_WINDOW_POS_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10123,53 +11783,97 @@ pub const SHOW_OPENNOACTIVATE: u32 = 4u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const SHOW_OPENWINDOW: u32 = 1u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type SHOW_WINDOW_CMD = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SHOW_WINDOW_CMD(pub u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SW_FORCEMINIMIZE: SHOW_WINDOW_CMD = 11u32;
+pub const SW_FORCEMINIMIZE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(11u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SW_HIDE: SHOW_WINDOW_CMD = 0u32;
+pub const SW_HIDE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(0u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SW_MAXIMIZE: SHOW_WINDOW_CMD = 3u32;
+pub const SW_MAXIMIZE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(3u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SW_MINIMIZE: SHOW_WINDOW_CMD = 6u32;
+pub const SW_MINIMIZE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(6u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SW_RESTORE: SHOW_WINDOW_CMD = 9u32;
+pub const SW_RESTORE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(9u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SW_SHOW: SHOW_WINDOW_CMD = 5u32;
+pub const SW_SHOW: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(5u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SW_SHOWDEFAULT: SHOW_WINDOW_CMD = 10u32;
+pub const SW_SHOWDEFAULT: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(10u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SW_SHOWMAXIMIZED: SHOW_WINDOW_CMD = 3u32;
+pub const SW_SHOWMAXIMIZED: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(3u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SW_SHOWMINIMIZED: SHOW_WINDOW_CMD = 2u32;
+pub const SW_SHOWMINIMIZED: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(2u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SW_SHOWMINNOACTIVE: SHOW_WINDOW_CMD = 7u32;
+pub const SW_SHOWMINNOACTIVE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(7u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SW_SHOWNA: SHOW_WINDOW_CMD = 8u32;
+pub const SW_SHOWNA: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(8u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SW_SHOWNOACTIVATE: SHOW_WINDOW_CMD = 4u32;
+pub const SW_SHOWNOACTIVATE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(4u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SW_SHOWNORMAL: SHOW_WINDOW_CMD = 1u32;
+pub const SW_SHOWNORMAL: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(1u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SW_NORMAL: SHOW_WINDOW_CMD = 1u32;
+pub const SW_NORMAL: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(1u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SW_MAX: SHOW_WINDOW_CMD = 11u32;
+pub const SW_MAX: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(11u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SW_PARENTCLOSING: SHOW_WINDOW_CMD = 1u32;
+pub const SW_PARENTCLOSING: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(1u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SW_OTHERZOOM: SHOW_WINDOW_CMD = 2u32;
+pub const SW_OTHERZOOM: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(2u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SW_PARENTOPENING: SHOW_WINDOW_CMD = 3u32;
+pub const SW_PARENTOPENING: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(3u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SW_OTHERUNZOOM: SHOW_WINDOW_CMD = 4u32;
+pub const SW_OTHERUNZOOM: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(4u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SW_SCROLLCHILDREN: SHOW_WINDOW_CMD = 1u32;
+pub const SW_SCROLLCHILDREN: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(1u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SW_INVALIDATE: SHOW_WINDOW_CMD = 2u32;
+pub const SW_INVALIDATE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(2u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SW_ERASE: SHOW_WINDOW_CMD = 4u32;
+pub const SW_ERASE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(4u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SW_SMOOTHSCROLL: SHOW_WINDOW_CMD = 16u32;
+pub const SW_SMOOTHSCROLL: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(16u32);
+impl ::core::marker::Copy for SHOW_WINDOW_CMD {}
+impl ::core::clone::Clone for SHOW_WINDOW_CMD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SHOW_WINDOW_CMD {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SHOW_WINDOW_CMD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SHOW_WINDOW_CMD").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SHOW_WINDOW_CMD {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SHOW_WINDOW_CMD {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SHOW_WINDOW_CMD {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SHOW_WINDOW_CMD {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SHOW_WINDOW_CMD {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const SIZEFULLSCREEN: u32 = 2u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
@@ -10424,793 +12128,1013 @@ impl ::core::default::Default for STYLESTRUCT {
     }
 }
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type SYSTEM_CURSOR_ID = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SYSTEM_CURSOR_ID(pub u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const OCR_APPSTARTING: SYSTEM_CURSOR_ID = 32650u32;
+pub const OCR_APPSTARTING: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32650u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const OCR_NORMAL: SYSTEM_CURSOR_ID = 32512u32;
+pub const OCR_NORMAL: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32512u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const OCR_CROSS: SYSTEM_CURSOR_ID = 32515u32;
+pub const OCR_CROSS: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32515u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const OCR_HAND: SYSTEM_CURSOR_ID = 32649u32;
+pub const OCR_HAND: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32649u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const OCR_HELP: SYSTEM_CURSOR_ID = 32651u32;
+pub const OCR_HELP: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32651u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const OCR_IBEAM: SYSTEM_CURSOR_ID = 32513u32;
+pub const OCR_IBEAM: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32513u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const OCR_NO: SYSTEM_CURSOR_ID = 32648u32;
+pub const OCR_NO: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32648u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const OCR_SIZEALL: SYSTEM_CURSOR_ID = 32646u32;
+pub const OCR_SIZEALL: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32646u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const OCR_SIZENESW: SYSTEM_CURSOR_ID = 32643u32;
+pub const OCR_SIZENESW: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32643u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const OCR_SIZENS: SYSTEM_CURSOR_ID = 32645u32;
+pub const OCR_SIZENS: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32645u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const OCR_SIZENWSE: SYSTEM_CURSOR_ID = 32642u32;
+pub const OCR_SIZENWSE: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32642u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const OCR_SIZEWE: SYSTEM_CURSOR_ID = 32644u32;
+pub const OCR_SIZEWE: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32644u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const OCR_UP: SYSTEM_CURSOR_ID = 32516u32;
+pub const OCR_UP: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32516u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const OCR_WAIT: SYSTEM_CURSOR_ID = 32514u32;
+pub const OCR_WAIT: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32514u32);
+impl ::core::marker::Copy for SYSTEM_CURSOR_ID {}
+impl ::core::clone::Clone for SYSTEM_CURSOR_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SYSTEM_CURSOR_ID {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SYSTEM_CURSOR_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SYSTEM_CURSOR_ID").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SYSTEM_CURSOR_ID {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SYSTEM_CURSOR_ID {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SYSTEM_CURSOR_ID {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SYSTEM_CURSOR_ID {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SYSTEM_CURSOR_ID {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type SYSTEM_METRICS_INDEX = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SYSTEM_METRICS_INDEX(pub u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_ARRANGE: SYSTEM_METRICS_INDEX = 56u32;
+pub const SM_ARRANGE: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(56u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CLEANBOOT: SYSTEM_METRICS_INDEX = 67u32;
+pub const SM_CLEANBOOT: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(67u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CMONITORS: SYSTEM_METRICS_INDEX = 80u32;
+pub const SM_CMONITORS: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(80u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CMOUSEBUTTONS: SYSTEM_METRICS_INDEX = 43u32;
+pub const SM_CMOUSEBUTTONS: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(43u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CONVERTIBLESLATEMODE: SYSTEM_METRICS_INDEX = 8195u32;
+pub const SM_CONVERTIBLESLATEMODE: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(8195u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CXBORDER: SYSTEM_METRICS_INDEX = 5u32;
+pub const SM_CXBORDER: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(5u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CXCURSOR: SYSTEM_METRICS_INDEX = 13u32;
+pub const SM_CXCURSOR: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(13u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CXDLGFRAME: SYSTEM_METRICS_INDEX = 7u32;
+pub const SM_CXDLGFRAME: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(7u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CXDOUBLECLK: SYSTEM_METRICS_INDEX = 36u32;
+pub const SM_CXDOUBLECLK: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(36u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CXDRAG: SYSTEM_METRICS_INDEX = 68u32;
+pub const SM_CXDRAG: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(68u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CXEDGE: SYSTEM_METRICS_INDEX = 45u32;
+pub const SM_CXEDGE: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(45u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CXFIXEDFRAME: SYSTEM_METRICS_INDEX = 7u32;
+pub const SM_CXFIXEDFRAME: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(7u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CXFOCUSBORDER: SYSTEM_METRICS_INDEX = 83u32;
+pub const SM_CXFOCUSBORDER: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(83u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CXFRAME: SYSTEM_METRICS_INDEX = 32u32;
+pub const SM_CXFRAME: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(32u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CXFULLSCREEN: SYSTEM_METRICS_INDEX = 16u32;
+pub const SM_CXFULLSCREEN: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(16u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CXHSCROLL: SYSTEM_METRICS_INDEX = 21u32;
+pub const SM_CXHSCROLL: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(21u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CXHTHUMB: SYSTEM_METRICS_INDEX = 10u32;
+pub const SM_CXHTHUMB: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(10u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CXICON: SYSTEM_METRICS_INDEX = 11u32;
+pub const SM_CXICON: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(11u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CXICONSPACING: SYSTEM_METRICS_INDEX = 38u32;
+pub const SM_CXICONSPACING: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(38u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CXMAXIMIZED: SYSTEM_METRICS_INDEX = 61u32;
+pub const SM_CXMAXIMIZED: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(61u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CXMAXTRACK: SYSTEM_METRICS_INDEX = 59u32;
+pub const SM_CXMAXTRACK: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(59u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CXMENUCHECK: SYSTEM_METRICS_INDEX = 71u32;
+pub const SM_CXMENUCHECK: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(71u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CXMENUSIZE: SYSTEM_METRICS_INDEX = 54u32;
+pub const SM_CXMENUSIZE: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(54u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CXMIN: SYSTEM_METRICS_INDEX = 28u32;
+pub const SM_CXMIN: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(28u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CXMINIMIZED: SYSTEM_METRICS_INDEX = 57u32;
+pub const SM_CXMINIMIZED: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(57u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CXMINSPACING: SYSTEM_METRICS_INDEX = 47u32;
+pub const SM_CXMINSPACING: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(47u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CXMINTRACK: SYSTEM_METRICS_INDEX = 34u32;
+pub const SM_CXMINTRACK: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(34u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CXPADDEDBORDER: SYSTEM_METRICS_INDEX = 92u32;
+pub const SM_CXPADDEDBORDER: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(92u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CXSCREEN: SYSTEM_METRICS_INDEX = 0u32;
+pub const SM_CXSCREEN: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(0u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CXSIZE: SYSTEM_METRICS_INDEX = 30u32;
+pub const SM_CXSIZE: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(30u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CXSIZEFRAME: SYSTEM_METRICS_INDEX = 32u32;
+pub const SM_CXSIZEFRAME: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(32u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CXSMICON: SYSTEM_METRICS_INDEX = 49u32;
+pub const SM_CXSMICON: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(49u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CXSMSIZE: SYSTEM_METRICS_INDEX = 52u32;
+pub const SM_CXSMSIZE: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(52u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CXVIRTUALSCREEN: SYSTEM_METRICS_INDEX = 78u32;
+pub const SM_CXVIRTUALSCREEN: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(78u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CXVSCROLL: SYSTEM_METRICS_INDEX = 2u32;
+pub const SM_CXVSCROLL: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(2u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CYBORDER: SYSTEM_METRICS_INDEX = 6u32;
+pub const SM_CYBORDER: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(6u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CYCAPTION: SYSTEM_METRICS_INDEX = 4u32;
+pub const SM_CYCAPTION: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(4u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CYCURSOR: SYSTEM_METRICS_INDEX = 14u32;
+pub const SM_CYCURSOR: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(14u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CYDLGFRAME: SYSTEM_METRICS_INDEX = 8u32;
+pub const SM_CYDLGFRAME: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(8u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CYDOUBLECLK: SYSTEM_METRICS_INDEX = 37u32;
+pub const SM_CYDOUBLECLK: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(37u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CYDRAG: SYSTEM_METRICS_INDEX = 69u32;
+pub const SM_CYDRAG: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(69u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CYEDGE: SYSTEM_METRICS_INDEX = 46u32;
+pub const SM_CYEDGE: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(46u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CYFIXEDFRAME: SYSTEM_METRICS_INDEX = 8u32;
+pub const SM_CYFIXEDFRAME: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(8u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CYFOCUSBORDER: SYSTEM_METRICS_INDEX = 84u32;
+pub const SM_CYFOCUSBORDER: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(84u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CYFRAME: SYSTEM_METRICS_INDEX = 33u32;
+pub const SM_CYFRAME: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(33u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CYFULLSCREEN: SYSTEM_METRICS_INDEX = 17u32;
+pub const SM_CYFULLSCREEN: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(17u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CYHSCROLL: SYSTEM_METRICS_INDEX = 3u32;
+pub const SM_CYHSCROLL: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(3u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CYICON: SYSTEM_METRICS_INDEX = 12u32;
+pub const SM_CYICON: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(12u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CYICONSPACING: SYSTEM_METRICS_INDEX = 39u32;
+pub const SM_CYICONSPACING: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(39u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CYKANJIWINDOW: SYSTEM_METRICS_INDEX = 18u32;
+pub const SM_CYKANJIWINDOW: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(18u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CYMAXIMIZED: SYSTEM_METRICS_INDEX = 62u32;
+pub const SM_CYMAXIMIZED: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(62u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CYMAXTRACK: SYSTEM_METRICS_INDEX = 60u32;
+pub const SM_CYMAXTRACK: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(60u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CYMENU: SYSTEM_METRICS_INDEX = 15u32;
+pub const SM_CYMENU: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(15u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CYMENUCHECK: SYSTEM_METRICS_INDEX = 72u32;
+pub const SM_CYMENUCHECK: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(72u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CYMENUSIZE: SYSTEM_METRICS_INDEX = 55u32;
+pub const SM_CYMENUSIZE: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(55u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CYMIN: SYSTEM_METRICS_INDEX = 29u32;
+pub const SM_CYMIN: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(29u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CYMINIMIZED: SYSTEM_METRICS_INDEX = 58u32;
+pub const SM_CYMINIMIZED: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(58u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CYMINSPACING: SYSTEM_METRICS_INDEX = 48u32;
+pub const SM_CYMINSPACING: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(48u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CYMINTRACK: SYSTEM_METRICS_INDEX = 35u32;
+pub const SM_CYMINTRACK: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(35u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CYSCREEN: SYSTEM_METRICS_INDEX = 1u32;
+pub const SM_CYSCREEN: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(1u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CYSIZE: SYSTEM_METRICS_INDEX = 31u32;
+pub const SM_CYSIZE: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(31u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CYSIZEFRAME: SYSTEM_METRICS_INDEX = 33u32;
+pub const SM_CYSIZEFRAME: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(33u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CYSMCAPTION: SYSTEM_METRICS_INDEX = 51u32;
+pub const SM_CYSMCAPTION: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(51u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CYSMICON: SYSTEM_METRICS_INDEX = 50u32;
+pub const SM_CYSMICON: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(50u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CYSMSIZE: SYSTEM_METRICS_INDEX = 53u32;
+pub const SM_CYSMSIZE: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(53u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CYVIRTUALSCREEN: SYSTEM_METRICS_INDEX = 79u32;
+pub const SM_CYVIRTUALSCREEN: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(79u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CYVSCROLL: SYSTEM_METRICS_INDEX = 20u32;
+pub const SM_CYVSCROLL: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(20u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_CYVTHUMB: SYSTEM_METRICS_INDEX = 9u32;
+pub const SM_CYVTHUMB: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(9u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_DBCSENABLED: SYSTEM_METRICS_INDEX = 42u32;
+pub const SM_DBCSENABLED: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(42u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_DEBUG: SYSTEM_METRICS_INDEX = 22u32;
+pub const SM_DEBUG: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(22u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_DIGITIZER: SYSTEM_METRICS_INDEX = 94u32;
+pub const SM_DIGITIZER: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(94u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_IMMENABLED: SYSTEM_METRICS_INDEX = 82u32;
+pub const SM_IMMENABLED: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(82u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_MAXIMUMTOUCHES: SYSTEM_METRICS_INDEX = 95u32;
+pub const SM_MAXIMUMTOUCHES: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(95u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_MEDIACENTER: SYSTEM_METRICS_INDEX = 87u32;
+pub const SM_MEDIACENTER: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(87u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_MENUDROPALIGNMENT: SYSTEM_METRICS_INDEX = 40u32;
+pub const SM_MENUDROPALIGNMENT: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(40u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_MIDEASTENABLED: SYSTEM_METRICS_INDEX = 74u32;
+pub const SM_MIDEASTENABLED: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(74u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_MOUSEPRESENT: SYSTEM_METRICS_INDEX = 19u32;
+pub const SM_MOUSEPRESENT: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(19u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_MOUSEHORIZONTALWHEELPRESENT: SYSTEM_METRICS_INDEX = 91u32;
+pub const SM_MOUSEHORIZONTALWHEELPRESENT: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(91u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_MOUSEWHEELPRESENT: SYSTEM_METRICS_INDEX = 75u32;
+pub const SM_MOUSEWHEELPRESENT: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(75u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_NETWORK: SYSTEM_METRICS_INDEX = 63u32;
+pub const SM_NETWORK: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(63u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_PENWINDOWS: SYSTEM_METRICS_INDEX = 41u32;
+pub const SM_PENWINDOWS: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(41u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_REMOTECONTROL: SYSTEM_METRICS_INDEX = 8193u32;
+pub const SM_REMOTECONTROL: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(8193u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_REMOTESESSION: SYSTEM_METRICS_INDEX = 4096u32;
+pub const SM_REMOTESESSION: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(4096u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_SAMEDISPLAYFORMAT: SYSTEM_METRICS_INDEX = 81u32;
+pub const SM_SAMEDISPLAYFORMAT: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(81u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_SECURE: SYSTEM_METRICS_INDEX = 44u32;
+pub const SM_SECURE: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(44u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_SERVERR2: SYSTEM_METRICS_INDEX = 89u32;
+pub const SM_SERVERR2: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(89u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_SHOWSOUNDS: SYSTEM_METRICS_INDEX = 70u32;
+pub const SM_SHOWSOUNDS: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(70u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_SHUTTINGDOWN: SYSTEM_METRICS_INDEX = 8192u32;
+pub const SM_SHUTTINGDOWN: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(8192u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_SLOWMACHINE: SYSTEM_METRICS_INDEX = 73u32;
+pub const SM_SLOWMACHINE: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(73u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_STARTER: SYSTEM_METRICS_INDEX = 88u32;
+pub const SM_STARTER: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(88u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_SWAPBUTTON: SYSTEM_METRICS_INDEX = 23u32;
+pub const SM_SWAPBUTTON: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(23u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_SYSTEMDOCKED_: SYSTEM_METRICS_INDEX = 8196u32;
+pub const SM_SYSTEMDOCKED_: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(8196u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_TABLETPC: SYSTEM_METRICS_INDEX = 86u32;
+pub const SM_TABLETPC: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(86u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_XVIRTUALSCREEN: SYSTEM_METRICS_INDEX = 76u32;
+pub const SM_XVIRTUALSCREEN: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(76u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SM_YVIRTUALSCREEN: SYSTEM_METRICS_INDEX = 77u32;
+pub const SM_YVIRTUALSCREEN: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(77u32);
+impl ::core::marker::Copy for SYSTEM_METRICS_INDEX {}
+impl ::core::clone::Clone for SYSTEM_METRICS_INDEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SYSTEM_METRICS_INDEX {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SYSTEM_METRICS_INDEX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SYSTEM_METRICS_INDEX").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SYSTEM_METRICS_INDEX {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SYSTEM_METRICS_INDEX {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SYSTEM_METRICS_INDEX {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SYSTEM_METRICS_INDEX {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SYSTEM_METRICS_INDEX {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type SYSTEM_PARAMETERS_INFO_ACTION = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SYSTEM_PARAMETERS_INFO_ACTION(pub u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETBEEP: SYSTEM_PARAMETERS_INFO_ACTION = 1u32;
+pub const SPI_GETBEEP: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(1u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETBEEP: SYSTEM_PARAMETERS_INFO_ACTION = 2u32;
+pub const SPI_SETBEEP: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(2u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETMOUSE: SYSTEM_PARAMETERS_INFO_ACTION = 3u32;
+pub const SPI_GETMOUSE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(3u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETMOUSE: SYSTEM_PARAMETERS_INFO_ACTION = 4u32;
+pub const SPI_SETMOUSE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETBORDER: SYSTEM_PARAMETERS_INFO_ACTION = 5u32;
+pub const SPI_GETBORDER: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(5u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETBORDER: SYSTEM_PARAMETERS_INFO_ACTION = 6u32;
+pub const SPI_SETBORDER: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(6u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETKEYBOARDSPEED: SYSTEM_PARAMETERS_INFO_ACTION = 10u32;
+pub const SPI_GETKEYBOARDSPEED: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(10u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETKEYBOARDSPEED: SYSTEM_PARAMETERS_INFO_ACTION = 11u32;
+pub const SPI_SETKEYBOARDSPEED: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(11u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_LANGDRIVER: SYSTEM_PARAMETERS_INFO_ACTION = 12u32;
+pub const SPI_LANGDRIVER: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(12u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_ICONHORIZONTALSPACING: SYSTEM_PARAMETERS_INFO_ACTION = 13u32;
+pub const SPI_ICONHORIZONTALSPACING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(13u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETSCREENSAVETIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 14u32;
+pub const SPI_GETSCREENSAVETIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(14u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETSCREENSAVETIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 15u32;
+pub const SPI_SETSCREENSAVETIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(15u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETSCREENSAVEACTIVE: SYSTEM_PARAMETERS_INFO_ACTION = 16u32;
+pub const SPI_GETSCREENSAVEACTIVE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(16u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETSCREENSAVEACTIVE: SYSTEM_PARAMETERS_INFO_ACTION = 17u32;
+pub const SPI_SETSCREENSAVEACTIVE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(17u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETGRIDGRANULARITY: SYSTEM_PARAMETERS_INFO_ACTION = 18u32;
+pub const SPI_GETGRIDGRANULARITY: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(18u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETGRIDGRANULARITY: SYSTEM_PARAMETERS_INFO_ACTION = 19u32;
+pub const SPI_SETGRIDGRANULARITY: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(19u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETDESKWALLPAPER: SYSTEM_PARAMETERS_INFO_ACTION = 20u32;
+pub const SPI_SETDESKWALLPAPER: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(20u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETDESKPATTERN: SYSTEM_PARAMETERS_INFO_ACTION = 21u32;
+pub const SPI_SETDESKPATTERN: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(21u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETKEYBOARDDELAY: SYSTEM_PARAMETERS_INFO_ACTION = 22u32;
+pub const SPI_GETKEYBOARDDELAY: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(22u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETKEYBOARDDELAY: SYSTEM_PARAMETERS_INFO_ACTION = 23u32;
+pub const SPI_SETKEYBOARDDELAY: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(23u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_ICONVERTICALSPACING: SYSTEM_PARAMETERS_INFO_ACTION = 24u32;
+pub const SPI_ICONVERTICALSPACING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(24u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETICONTITLEWRAP: SYSTEM_PARAMETERS_INFO_ACTION = 25u32;
+pub const SPI_GETICONTITLEWRAP: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(25u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETICONTITLEWRAP: SYSTEM_PARAMETERS_INFO_ACTION = 26u32;
+pub const SPI_SETICONTITLEWRAP: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(26u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETMENUDROPALIGNMENT: SYSTEM_PARAMETERS_INFO_ACTION = 27u32;
+pub const SPI_GETMENUDROPALIGNMENT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(27u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETMENUDROPALIGNMENT: SYSTEM_PARAMETERS_INFO_ACTION = 28u32;
+pub const SPI_SETMENUDROPALIGNMENT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(28u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETDOUBLECLKWIDTH: SYSTEM_PARAMETERS_INFO_ACTION = 29u32;
+pub const SPI_SETDOUBLECLKWIDTH: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(29u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETDOUBLECLKHEIGHT: SYSTEM_PARAMETERS_INFO_ACTION = 30u32;
+pub const SPI_SETDOUBLECLKHEIGHT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(30u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETICONTITLELOGFONT: SYSTEM_PARAMETERS_INFO_ACTION = 31u32;
+pub const SPI_GETICONTITLELOGFONT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(31u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETDOUBLECLICKTIME: SYSTEM_PARAMETERS_INFO_ACTION = 32u32;
+pub const SPI_SETDOUBLECLICKTIME: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(32u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETMOUSEBUTTONSWAP: SYSTEM_PARAMETERS_INFO_ACTION = 33u32;
+pub const SPI_SETMOUSEBUTTONSWAP: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(33u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETICONTITLELOGFONT: SYSTEM_PARAMETERS_INFO_ACTION = 34u32;
+pub const SPI_SETICONTITLELOGFONT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(34u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETFASTTASKSWITCH: SYSTEM_PARAMETERS_INFO_ACTION = 35u32;
+pub const SPI_GETFASTTASKSWITCH: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(35u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETFASTTASKSWITCH: SYSTEM_PARAMETERS_INFO_ACTION = 36u32;
+pub const SPI_SETFASTTASKSWITCH: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(36u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETDRAGFULLWINDOWS: SYSTEM_PARAMETERS_INFO_ACTION = 37u32;
+pub const SPI_SETDRAGFULLWINDOWS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(37u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETDRAGFULLWINDOWS: SYSTEM_PARAMETERS_INFO_ACTION = 38u32;
+pub const SPI_GETDRAGFULLWINDOWS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(38u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETNONCLIENTMETRICS: SYSTEM_PARAMETERS_INFO_ACTION = 41u32;
+pub const SPI_GETNONCLIENTMETRICS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(41u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETNONCLIENTMETRICS: SYSTEM_PARAMETERS_INFO_ACTION = 42u32;
+pub const SPI_SETNONCLIENTMETRICS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(42u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETMINIMIZEDMETRICS: SYSTEM_PARAMETERS_INFO_ACTION = 43u32;
+pub const SPI_GETMINIMIZEDMETRICS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(43u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETMINIMIZEDMETRICS: SYSTEM_PARAMETERS_INFO_ACTION = 44u32;
+pub const SPI_SETMINIMIZEDMETRICS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(44u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETICONMETRICS: SYSTEM_PARAMETERS_INFO_ACTION = 45u32;
+pub const SPI_GETICONMETRICS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(45u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETICONMETRICS: SYSTEM_PARAMETERS_INFO_ACTION = 46u32;
+pub const SPI_SETICONMETRICS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(46u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETWORKAREA: SYSTEM_PARAMETERS_INFO_ACTION = 47u32;
+pub const SPI_SETWORKAREA: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(47u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETWORKAREA: SYSTEM_PARAMETERS_INFO_ACTION = 48u32;
+pub const SPI_GETWORKAREA: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(48u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETPENWINDOWS: SYSTEM_PARAMETERS_INFO_ACTION = 49u32;
+pub const SPI_SETPENWINDOWS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(49u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETHIGHCONTRAST: SYSTEM_PARAMETERS_INFO_ACTION = 66u32;
+pub const SPI_GETHIGHCONTRAST: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(66u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETHIGHCONTRAST: SYSTEM_PARAMETERS_INFO_ACTION = 67u32;
+pub const SPI_SETHIGHCONTRAST: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(67u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETKEYBOARDPREF: SYSTEM_PARAMETERS_INFO_ACTION = 68u32;
+pub const SPI_GETKEYBOARDPREF: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(68u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETKEYBOARDPREF: SYSTEM_PARAMETERS_INFO_ACTION = 69u32;
+pub const SPI_SETKEYBOARDPREF: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(69u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETSCREENREADER: SYSTEM_PARAMETERS_INFO_ACTION = 70u32;
+pub const SPI_GETSCREENREADER: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(70u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETSCREENREADER: SYSTEM_PARAMETERS_INFO_ACTION = 71u32;
+pub const SPI_SETSCREENREADER: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(71u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = 72u32;
+pub const SPI_GETANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(72u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = 73u32;
+pub const SPI_SETANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(73u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETFONTSMOOTHING: SYSTEM_PARAMETERS_INFO_ACTION = 74u32;
+pub const SPI_GETFONTSMOOTHING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(74u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETFONTSMOOTHING: SYSTEM_PARAMETERS_INFO_ACTION = 75u32;
+pub const SPI_SETFONTSMOOTHING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(75u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETDRAGWIDTH: SYSTEM_PARAMETERS_INFO_ACTION = 76u32;
+pub const SPI_SETDRAGWIDTH: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(76u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETDRAGHEIGHT: SYSTEM_PARAMETERS_INFO_ACTION = 77u32;
+pub const SPI_SETDRAGHEIGHT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(77u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETHANDHELD: SYSTEM_PARAMETERS_INFO_ACTION = 78u32;
+pub const SPI_SETHANDHELD: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(78u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETLOWPOWERTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 79u32;
+pub const SPI_GETLOWPOWERTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(79u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETPOWEROFFTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 80u32;
+pub const SPI_GETPOWEROFFTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(80u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETLOWPOWERTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 81u32;
+pub const SPI_SETLOWPOWERTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(81u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETPOWEROFFTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 82u32;
+pub const SPI_SETPOWEROFFTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(82u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETLOWPOWERACTIVE: SYSTEM_PARAMETERS_INFO_ACTION = 83u32;
+pub const SPI_GETLOWPOWERACTIVE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(83u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETPOWEROFFACTIVE: SYSTEM_PARAMETERS_INFO_ACTION = 84u32;
+pub const SPI_GETPOWEROFFACTIVE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(84u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETLOWPOWERACTIVE: SYSTEM_PARAMETERS_INFO_ACTION = 85u32;
+pub const SPI_SETLOWPOWERACTIVE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(85u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETPOWEROFFACTIVE: SYSTEM_PARAMETERS_INFO_ACTION = 86u32;
+pub const SPI_SETPOWEROFFACTIVE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(86u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETCURSORS: SYSTEM_PARAMETERS_INFO_ACTION = 87u32;
+pub const SPI_SETCURSORS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(87u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETICONS: SYSTEM_PARAMETERS_INFO_ACTION = 88u32;
+pub const SPI_SETICONS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(88u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETDEFAULTINPUTLANG: SYSTEM_PARAMETERS_INFO_ACTION = 89u32;
+pub const SPI_GETDEFAULTINPUTLANG: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(89u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETDEFAULTINPUTLANG: SYSTEM_PARAMETERS_INFO_ACTION = 90u32;
+pub const SPI_SETDEFAULTINPUTLANG: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(90u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETLANGTOGGLE: SYSTEM_PARAMETERS_INFO_ACTION = 91u32;
+pub const SPI_SETLANGTOGGLE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(91u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETWINDOWSEXTENSION: SYSTEM_PARAMETERS_INFO_ACTION = 92u32;
+pub const SPI_GETWINDOWSEXTENSION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(92u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETMOUSETRAILS: SYSTEM_PARAMETERS_INFO_ACTION = 93u32;
+pub const SPI_SETMOUSETRAILS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(93u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETMOUSETRAILS: SYSTEM_PARAMETERS_INFO_ACTION = 94u32;
+pub const SPI_GETMOUSETRAILS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(94u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETSCREENSAVERRUNNING: SYSTEM_PARAMETERS_INFO_ACTION = 97u32;
+pub const SPI_SETSCREENSAVERRUNNING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(97u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SCREENSAVERRUNNING: SYSTEM_PARAMETERS_INFO_ACTION = 97u32;
+pub const SPI_SCREENSAVERRUNNING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(97u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETFILTERKEYS: SYSTEM_PARAMETERS_INFO_ACTION = 50u32;
+pub const SPI_GETFILTERKEYS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(50u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETFILTERKEYS: SYSTEM_PARAMETERS_INFO_ACTION = 51u32;
+pub const SPI_SETFILTERKEYS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(51u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETTOGGLEKEYS: SYSTEM_PARAMETERS_INFO_ACTION = 52u32;
+pub const SPI_GETTOGGLEKEYS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(52u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETTOGGLEKEYS: SYSTEM_PARAMETERS_INFO_ACTION = 53u32;
+pub const SPI_SETTOGGLEKEYS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(53u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETMOUSEKEYS: SYSTEM_PARAMETERS_INFO_ACTION = 54u32;
+pub const SPI_GETMOUSEKEYS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(54u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETMOUSEKEYS: SYSTEM_PARAMETERS_INFO_ACTION = 55u32;
+pub const SPI_SETMOUSEKEYS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(55u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETSHOWSOUNDS: SYSTEM_PARAMETERS_INFO_ACTION = 56u32;
+pub const SPI_GETSHOWSOUNDS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(56u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETSHOWSOUNDS: SYSTEM_PARAMETERS_INFO_ACTION = 57u32;
+pub const SPI_SETSHOWSOUNDS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(57u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETSTICKYKEYS: SYSTEM_PARAMETERS_INFO_ACTION = 58u32;
+pub const SPI_GETSTICKYKEYS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(58u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETSTICKYKEYS: SYSTEM_PARAMETERS_INFO_ACTION = 59u32;
+pub const SPI_SETSTICKYKEYS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(59u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETACCESSTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 60u32;
+pub const SPI_GETACCESSTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(60u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETACCESSTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 61u32;
+pub const SPI_SETACCESSTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(61u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETSERIALKEYS: SYSTEM_PARAMETERS_INFO_ACTION = 62u32;
+pub const SPI_GETSERIALKEYS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(62u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETSERIALKEYS: SYSTEM_PARAMETERS_INFO_ACTION = 63u32;
+pub const SPI_SETSERIALKEYS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(63u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETSOUNDSENTRY: SYSTEM_PARAMETERS_INFO_ACTION = 64u32;
+pub const SPI_GETSOUNDSENTRY: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(64u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETSOUNDSENTRY: SYSTEM_PARAMETERS_INFO_ACTION = 65u32;
+pub const SPI_SETSOUNDSENTRY: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(65u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETSNAPTODEFBUTTON: SYSTEM_PARAMETERS_INFO_ACTION = 95u32;
+pub const SPI_GETSNAPTODEFBUTTON: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(95u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETSNAPTODEFBUTTON: SYSTEM_PARAMETERS_INFO_ACTION = 96u32;
+pub const SPI_SETSNAPTODEFBUTTON: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(96u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETMOUSEHOVERWIDTH: SYSTEM_PARAMETERS_INFO_ACTION = 98u32;
+pub const SPI_GETMOUSEHOVERWIDTH: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(98u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETMOUSEHOVERWIDTH: SYSTEM_PARAMETERS_INFO_ACTION = 99u32;
+pub const SPI_SETMOUSEHOVERWIDTH: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(99u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETMOUSEHOVERHEIGHT: SYSTEM_PARAMETERS_INFO_ACTION = 100u32;
+pub const SPI_GETMOUSEHOVERHEIGHT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(100u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETMOUSEHOVERHEIGHT: SYSTEM_PARAMETERS_INFO_ACTION = 101u32;
+pub const SPI_SETMOUSEHOVERHEIGHT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(101u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETMOUSEHOVERTIME: SYSTEM_PARAMETERS_INFO_ACTION = 102u32;
+pub const SPI_GETMOUSEHOVERTIME: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(102u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETMOUSEHOVERTIME: SYSTEM_PARAMETERS_INFO_ACTION = 103u32;
+pub const SPI_SETMOUSEHOVERTIME: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(103u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETWHEELSCROLLLINES: SYSTEM_PARAMETERS_INFO_ACTION = 104u32;
+pub const SPI_GETWHEELSCROLLLINES: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(104u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETWHEELSCROLLLINES: SYSTEM_PARAMETERS_INFO_ACTION = 105u32;
+pub const SPI_SETWHEELSCROLLLINES: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(105u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETMENUSHOWDELAY: SYSTEM_PARAMETERS_INFO_ACTION = 106u32;
+pub const SPI_GETMENUSHOWDELAY: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(106u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETMENUSHOWDELAY: SYSTEM_PARAMETERS_INFO_ACTION = 107u32;
+pub const SPI_SETMENUSHOWDELAY: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(107u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETWHEELSCROLLCHARS: SYSTEM_PARAMETERS_INFO_ACTION = 108u32;
+pub const SPI_GETWHEELSCROLLCHARS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(108u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETWHEELSCROLLCHARS: SYSTEM_PARAMETERS_INFO_ACTION = 109u32;
+pub const SPI_SETWHEELSCROLLCHARS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(109u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETSHOWIMEUI: SYSTEM_PARAMETERS_INFO_ACTION = 110u32;
+pub const SPI_GETSHOWIMEUI: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(110u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETSHOWIMEUI: SYSTEM_PARAMETERS_INFO_ACTION = 111u32;
+pub const SPI_SETSHOWIMEUI: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(111u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETMOUSESPEED: SYSTEM_PARAMETERS_INFO_ACTION = 112u32;
+pub const SPI_GETMOUSESPEED: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(112u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETMOUSESPEED: SYSTEM_PARAMETERS_INFO_ACTION = 113u32;
+pub const SPI_SETMOUSESPEED: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(113u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETSCREENSAVERRUNNING: SYSTEM_PARAMETERS_INFO_ACTION = 114u32;
+pub const SPI_GETSCREENSAVERRUNNING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(114u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETDESKWALLPAPER: SYSTEM_PARAMETERS_INFO_ACTION = 115u32;
+pub const SPI_GETDESKWALLPAPER: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(115u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETAUDIODESCRIPTION: SYSTEM_PARAMETERS_INFO_ACTION = 116u32;
+pub const SPI_GETAUDIODESCRIPTION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(116u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETAUDIODESCRIPTION: SYSTEM_PARAMETERS_INFO_ACTION = 117u32;
+pub const SPI_SETAUDIODESCRIPTION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(117u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETSCREENSAVESECURE: SYSTEM_PARAMETERS_INFO_ACTION = 118u32;
+pub const SPI_GETSCREENSAVESECURE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(118u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETSCREENSAVESECURE: SYSTEM_PARAMETERS_INFO_ACTION = 119u32;
+pub const SPI_SETSCREENSAVESECURE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(119u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETHUNGAPPTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 120u32;
+pub const SPI_GETHUNGAPPTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(120u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETHUNGAPPTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 121u32;
+pub const SPI_SETHUNGAPPTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(121u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETWAITTOKILLTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 122u32;
+pub const SPI_GETWAITTOKILLTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(122u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETWAITTOKILLTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 123u32;
+pub const SPI_SETWAITTOKILLTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(123u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETWAITTOKILLSERVICETIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 124u32;
+pub const SPI_GETWAITTOKILLSERVICETIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(124u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETWAITTOKILLSERVICETIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 125u32;
+pub const SPI_SETWAITTOKILLSERVICETIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(125u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETMOUSEDOCKTHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = 126u32;
+pub const SPI_GETMOUSEDOCKTHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(126u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETMOUSEDOCKTHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = 127u32;
+pub const SPI_SETMOUSEDOCKTHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(127u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETPENDOCKTHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = 128u32;
+pub const SPI_GETPENDOCKTHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(128u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETPENDOCKTHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = 129u32;
+pub const SPI_SETPENDOCKTHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(129u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETWINARRANGING: SYSTEM_PARAMETERS_INFO_ACTION = 130u32;
+pub const SPI_GETWINARRANGING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(130u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETWINARRANGING: SYSTEM_PARAMETERS_INFO_ACTION = 131u32;
+pub const SPI_SETWINARRANGING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(131u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETMOUSEDRAGOUTTHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = 132u32;
+pub const SPI_GETMOUSEDRAGOUTTHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(132u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETMOUSEDRAGOUTTHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = 133u32;
+pub const SPI_SETMOUSEDRAGOUTTHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(133u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETPENDRAGOUTTHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = 134u32;
+pub const SPI_GETPENDRAGOUTTHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(134u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETPENDRAGOUTTHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = 135u32;
+pub const SPI_SETPENDRAGOUTTHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(135u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETMOUSESIDEMOVETHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = 136u32;
+pub const SPI_GETMOUSESIDEMOVETHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(136u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETMOUSESIDEMOVETHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = 137u32;
+pub const SPI_SETMOUSESIDEMOVETHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(137u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETPENSIDEMOVETHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = 138u32;
+pub const SPI_GETPENSIDEMOVETHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(138u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETPENSIDEMOVETHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = 139u32;
+pub const SPI_SETPENSIDEMOVETHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(139u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETDRAGFROMMAXIMIZE: SYSTEM_PARAMETERS_INFO_ACTION = 140u32;
+pub const SPI_GETDRAGFROMMAXIMIZE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(140u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETDRAGFROMMAXIMIZE: SYSTEM_PARAMETERS_INFO_ACTION = 141u32;
+pub const SPI_SETDRAGFROMMAXIMIZE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(141u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETSNAPSIZING: SYSTEM_PARAMETERS_INFO_ACTION = 142u32;
+pub const SPI_GETSNAPSIZING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(142u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETSNAPSIZING: SYSTEM_PARAMETERS_INFO_ACTION = 143u32;
+pub const SPI_SETSNAPSIZING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(143u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETDOCKMOVING: SYSTEM_PARAMETERS_INFO_ACTION = 144u32;
+pub const SPI_GETDOCKMOVING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(144u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETDOCKMOVING: SYSTEM_PARAMETERS_INFO_ACTION = 145u32;
+pub const SPI_SETDOCKMOVING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(145u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETTOUCHPREDICTIONPARAMETERS: SYSTEM_PARAMETERS_INFO_ACTION = 156u32;
+pub const SPI_GETTOUCHPREDICTIONPARAMETERS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(156u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETTOUCHPREDICTIONPARAMETERS: SYSTEM_PARAMETERS_INFO_ACTION = 157u32;
+pub const SPI_SETTOUCHPREDICTIONPARAMETERS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(157u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETLOGICALDPIOVERRIDE: SYSTEM_PARAMETERS_INFO_ACTION = 158u32;
+pub const SPI_GETLOGICALDPIOVERRIDE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(158u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETLOGICALDPIOVERRIDE: SYSTEM_PARAMETERS_INFO_ACTION = 159u32;
+pub const SPI_SETLOGICALDPIOVERRIDE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(159u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETMENURECT: SYSTEM_PARAMETERS_INFO_ACTION = 162u32;
+pub const SPI_GETMENURECT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(162u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETMENURECT: SYSTEM_PARAMETERS_INFO_ACTION = 163u32;
+pub const SPI_SETMENURECT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(163u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETACTIVEWINDOWTRACKING: SYSTEM_PARAMETERS_INFO_ACTION = 4096u32;
+pub const SPI_GETACTIVEWINDOWTRACKING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4096u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETACTIVEWINDOWTRACKING: SYSTEM_PARAMETERS_INFO_ACTION = 4097u32;
+pub const SPI_SETACTIVEWINDOWTRACKING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4097u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETMENUANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = 4098u32;
+pub const SPI_GETMENUANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4098u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETMENUANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = 4099u32;
+pub const SPI_SETMENUANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4099u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETCOMBOBOXANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = 4100u32;
+pub const SPI_GETCOMBOBOXANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4100u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETCOMBOBOXANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = 4101u32;
+pub const SPI_SETCOMBOBOXANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4101u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETLISTBOXSMOOTHSCROLLING: SYSTEM_PARAMETERS_INFO_ACTION = 4102u32;
+pub const SPI_GETLISTBOXSMOOTHSCROLLING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4102u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETLISTBOXSMOOTHSCROLLING: SYSTEM_PARAMETERS_INFO_ACTION = 4103u32;
+pub const SPI_SETLISTBOXSMOOTHSCROLLING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4103u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETGRADIENTCAPTIONS: SYSTEM_PARAMETERS_INFO_ACTION = 4104u32;
+pub const SPI_GETGRADIENTCAPTIONS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4104u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETGRADIENTCAPTIONS: SYSTEM_PARAMETERS_INFO_ACTION = 4105u32;
+pub const SPI_SETGRADIENTCAPTIONS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4105u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETKEYBOARDCUES: SYSTEM_PARAMETERS_INFO_ACTION = 4106u32;
+pub const SPI_GETKEYBOARDCUES: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4106u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETKEYBOARDCUES: SYSTEM_PARAMETERS_INFO_ACTION = 4107u32;
+pub const SPI_SETKEYBOARDCUES: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4107u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETMENUUNDERLINES: SYSTEM_PARAMETERS_INFO_ACTION = 4106u32;
+pub const SPI_GETMENUUNDERLINES: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4106u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETMENUUNDERLINES: SYSTEM_PARAMETERS_INFO_ACTION = 4107u32;
+pub const SPI_SETMENUUNDERLINES: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4107u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETACTIVEWNDTRKZORDER: SYSTEM_PARAMETERS_INFO_ACTION = 4108u32;
+pub const SPI_GETACTIVEWNDTRKZORDER: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4108u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETACTIVEWNDTRKZORDER: SYSTEM_PARAMETERS_INFO_ACTION = 4109u32;
+pub const SPI_SETACTIVEWNDTRKZORDER: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4109u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETHOTTRACKING: SYSTEM_PARAMETERS_INFO_ACTION = 4110u32;
+pub const SPI_GETHOTTRACKING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4110u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETHOTTRACKING: SYSTEM_PARAMETERS_INFO_ACTION = 4111u32;
+pub const SPI_SETHOTTRACKING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4111u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETMENUFADE: SYSTEM_PARAMETERS_INFO_ACTION = 4114u32;
+pub const SPI_GETMENUFADE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4114u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETMENUFADE: SYSTEM_PARAMETERS_INFO_ACTION = 4115u32;
+pub const SPI_SETMENUFADE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4115u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETSELECTIONFADE: SYSTEM_PARAMETERS_INFO_ACTION = 4116u32;
+pub const SPI_GETSELECTIONFADE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4116u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETSELECTIONFADE: SYSTEM_PARAMETERS_INFO_ACTION = 4117u32;
+pub const SPI_SETSELECTIONFADE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4117u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETTOOLTIPANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = 4118u32;
+pub const SPI_GETTOOLTIPANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4118u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETTOOLTIPANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = 4119u32;
+pub const SPI_SETTOOLTIPANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4119u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETTOOLTIPFADE: SYSTEM_PARAMETERS_INFO_ACTION = 4120u32;
+pub const SPI_GETTOOLTIPFADE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4120u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETTOOLTIPFADE: SYSTEM_PARAMETERS_INFO_ACTION = 4121u32;
+pub const SPI_SETTOOLTIPFADE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4121u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETCURSORSHADOW: SYSTEM_PARAMETERS_INFO_ACTION = 4122u32;
+pub const SPI_GETCURSORSHADOW: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4122u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETCURSORSHADOW: SYSTEM_PARAMETERS_INFO_ACTION = 4123u32;
+pub const SPI_SETCURSORSHADOW: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4123u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETMOUSESONAR: SYSTEM_PARAMETERS_INFO_ACTION = 4124u32;
+pub const SPI_GETMOUSESONAR: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4124u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETMOUSESONAR: SYSTEM_PARAMETERS_INFO_ACTION = 4125u32;
+pub const SPI_SETMOUSESONAR: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4125u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETMOUSECLICKLOCK: SYSTEM_PARAMETERS_INFO_ACTION = 4126u32;
+pub const SPI_GETMOUSECLICKLOCK: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4126u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETMOUSECLICKLOCK: SYSTEM_PARAMETERS_INFO_ACTION = 4127u32;
+pub const SPI_SETMOUSECLICKLOCK: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4127u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETMOUSEVANISH: SYSTEM_PARAMETERS_INFO_ACTION = 4128u32;
+pub const SPI_GETMOUSEVANISH: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4128u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETMOUSEVANISH: SYSTEM_PARAMETERS_INFO_ACTION = 4129u32;
+pub const SPI_SETMOUSEVANISH: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4129u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETFLATMENU: SYSTEM_PARAMETERS_INFO_ACTION = 4130u32;
+pub const SPI_GETFLATMENU: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4130u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETFLATMENU: SYSTEM_PARAMETERS_INFO_ACTION = 4131u32;
+pub const SPI_SETFLATMENU: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4131u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETDROPSHADOW: SYSTEM_PARAMETERS_INFO_ACTION = 4132u32;
+pub const SPI_GETDROPSHADOW: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4132u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETDROPSHADOW: SYSTEM_PARAMETERS_INFO_ACTION = 4133u32;
+pub const SPI_SETDROPSHADOW: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4133u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETBLOCKSENDINPUTRESETS: SYSTEM_PARAMETERS_INFO_ACTION = 4134u32;
+pub const SPI_GETBLOCKSENDINPUTRESETS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4134u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETBLOCKSENDINPUTRESETS: SYSTEM_PARAMETERS_INFO_ACTION = 4135u32;
+pub const SPI_SETBLOCKSENDINPUTRESETS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4135u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETUIEFFECTS: SYSTEM_PARAMETERS_INFO_ACTION = 4158u32;
+pub const SPI_GETUIEFFECTS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4158u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETUIEFFECTS: SYSTEM_PARAMETERS_INFO_ACTION = 4159u32;
+pub const SPI_SETUIEFFECTS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4159u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETDISABLEOVERLAPPEDCONTENT: SYSTEM_PARAMETERS_INFO_ACTION = 4160u32;
+pub const SPI_GETDISABLEOVERLAPPEDCONTENT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4160u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETDISABLEOVERLAPPEDCONTENT: SYSTEM_PARAMETERS_INFO_ACTION = 4161u32;
+pub const SPI_SETDISABLEOVERLAPPEDCONTENT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4161u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETCLIENTAREAANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = 4162u32;
+pub const SPI_GETCLIENTAREAANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4162u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETCLIENTAREAANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = 4163u32;
+pub const SPI_SETCLIENTAREAANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4163u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETCLEARTYPE: SYSTEM_PARAMETERS_INFO_ACTION = 4168u32;
+pub const SPI_GETCLEARTYPE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4168u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETCLEARTYPE: SYSTEM_PARAMETERS_INFO_ACTION = 4169u32;
+pub const SPI_SETCLEARTYPE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4169u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETSPEECHRECOGNITION: SYSTEM_PARAMETERS_INFO_ACTION = 4170u32;
+pub const SPI_GETSPEECHRECOGNITION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4170u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETSPEECHRECOGNITION: SYSTEM_PARAMETERS_INFO_ACTION = 4171u32;
+pub const SPI_SETSPEECHRECOGNITION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4171u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETCARETBROWSING: SYSTEM_PARAMETERS_INFO_ACTION = 4172u32;
+pub const SPI_GETCARETBROWSING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4172u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETCARETBROWSING: SYSTEM_PARAMETERS_INFO_ACTION = 4173u32;
+pub const SPI_SETCARETBROWSING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4173u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETTHREADLOCALINPUTSETTINGS: SYSTEM_PARAMETERS_INFO_ACTION = 4174u32;
+pub const SPI_GETTHREADLOCALINPUTSETTINGS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4174u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETTHREADLOCALINPUTSETTINGS: SYSTEM_PARAMETERS_INFO_ACTION = 4175u32;
+pub const SPI_SETTHREADLOCALINPUTSETTINGS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4175u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETSYSTEMLANGUAGEBAR: SYSTEM_PARAMETERS_INFO_ACTION = 4176u32;
+pub const SPI_GETSYSTEMLANGUAGEBAR: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4176u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETSYSTEMLANGUAGEBAR: SYSTEM_PARAMETERS_INFO_ACTION = 4177u32;
+pub const SPI_SETSYSTEMLANGUAGEBAR: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4177u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETFOREGROUNDLOCKTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 8192u32;
+pub const SPI_GETFOREGROUNDLOCKTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8192u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETFOREGROUNDLOCKTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 8193u32;
+pub const SPI_SETFOREGROUNDLOCKTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8193u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETACTIVEWNDTRKTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 8194u32;
+pub const SPI_GETACTIVEWNDTRKTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8194u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETACTIVEWNDTRKTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 8195u32;
+pub const SPI_SETACTIVEWNDTRKTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8195u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETFOREGROUNDFLASHCOUNT: SYSTEM_PARAMETERS_INFO_ACTION = 8196u32;
+pub const SPI_GETFOREGROUNDFLASHCOUNT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8196u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETFOREGROUNDFLASHCOUNT: SYSTEM_PARAMETERS_INFO_ACTION = 8197u32;
+pub const SPI_SETFOREGROUNDFLASHCOUNT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8197u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETCARETWIDTH: SYSTEM_PARAMETERS_INFO_ACTION = 8198u32;
+pub const SPI_GETCARETWIDTH: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8198u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETCARETWIDTH: SYSTEM_PARAMETERS_INFO_ACTION = 8199u32;
+pub const SPI_SETCARETWIDTH: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8199u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETMOUSECLICKLOCKTIME: SYSTEM_PARAMETERS_INFO_ACTION = 8200u32;
+pub const SPI_GETMOUSECLICKLOCKTIME: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8200u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETMOUSECLICKLOCKTIME: SYSTEM_PARAMETERS_INFO_ACTION = 8201u32;
+pub const SPI_SETMOUSECLICKLOCKTIME: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8201u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETFONTSMOOTHINGTYPE: SYSTEM_PARAMETERS_INFO_ACTION = 8202u32;
+pub const SPI_GETFONTSMOOTHINGTYPE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8202u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETFONTSMOOTHINGTYPE: SYSTEM_PARAMETERS_INFO_ACTION = 8203u32;
+pub const SPI_SETFONTSMOOTHINGTYPE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8203u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETFONTSMOOTHINGCONTRAST: SYSTEM_PARAMETERS_INFO_ACTION = 8204u32;
+pub const SPI_GETFONTSMOOTHINGCONTRAST: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8204u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETFONTSMOOTHINGCONTRAST: SYSTEM_PARAMETERS_INFO_ACTION = 8205u32;
+pub const SPI_SETFONTSMOOTHINGCONTRAST: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8205u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETFOCUSBORDERWIDTH: SYSTEM_PARAMETERS_INFO_ACTION = 8206u32;
+pub const SPI_GETFOCUSBORDERWIDTH: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8206u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETFOCUSBORDERWIDTH: SYSTEM_PARAMETERS_INFO_ACTION = 8207u32;
+pub const SPI_SETFOCUSBORDERWIDTH: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8207u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETFOCUSBORDERHEIGHT: SYSTEM_PARAMETERS_INFO_ACTION = 8208u32;
+pub const SPI_GETFOCUSBORDERHEIGHT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8208u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETFOCUSBORDERHEIGHT: SYSTEM_PARAMETERS_INFO_ACTION = 8209u32;
+pub const SPI_SETFOCUSBORDERHEIGHT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8209u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETFONTSMOOTHINGORIENTATION: SYSTEM_PARAMETERS_INFO_ACTION = 8210u32;
+pub const SPI_GETFONTSMOOTHINGORIENTATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8210u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETFONTSMOOTHINGORIENTATION: SYSTEM_PARAMETERS_INFO_ACTION = 8211u32;
+pub const SPI_SETFONTSMOOTHINGORIENTATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8211u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETMINIMUMHITRADIUS: SYSTEM_PARAMETERS_INFO_ACTION = 8212u32;
+pub const SPI_GETMINIMUMHITRADIUS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8212u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETMINIMUMHITRADIUS: SYSTEM_PARAMETERS_INFO_ACTION = 8213u32;
+pub const SPI_SETMINIMUMHITRADIUS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8213u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETMESSAGEDURATION: SYSTEM_PARAMETERS_INFO_ACTION = 8214u32;
+pub const SPI_GETMESSAGEDURATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8214u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETMESSAGEDURATION: SYSTEM_PARAMETERS_INFO_ACTION = 8215u32;
+pub const SPI_SETMESSAGEDURATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8215u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETCONTACTVISUALIZATION: SYSTEM_PARAMETERS_INFO_ACTION = 8216u32;
+pub const SPI_GETCONTACTVISUALIZATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8216u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETCONTACTVISUALIZATION: SYSTEM_PARAMETERS_INFO_ACTION = 8217u32;
+pub const SPI_SETCONTACTVISUALIZATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8217u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETGESTUREVISUALIZATION: SYSTEM_PARAMETERS_INFO_ACTION = 8218u32;
+pub const SPI_GETGESTUREVISUALIZATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8218u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETGESTUREVISUALIZATION: SYSTEM_PARAMETERS_INFO_ACTION = 8219u32;
+pub const SPI_SETGESTUREVISUALIZATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8219u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETMOUSEWHEELROUTING: SYSTEM_PARAMETERS_INFO_ACTION = 8220u32;
+pub const SPI_GETMOUSEWHEELROUTING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8220u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETMOUSEWHEELROUTING: SYSTEM_PARAMETERS_INFO_ACTION = 8221u32;
+pub const SPI_SETMOUSEWHEELROUTING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8221u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETPENVISUALIZATION: SYSTEM_PARAMETERS_INFO_ACTION = 8222u32;
+pub const SPI_GETPENVISUALIZATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8222u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETPENVISUALIZATION: SYSTEM_PARAMETERS_INFO_ACTION = 8223u32;
+pub const SPI_SETPENVISUALIZATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8223u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETPENARBITRATIONTYPE: SYSTEM_PARAMETERS_INFO_ACTION = 8224u32;
+pub const SPI_GETPENARBITRATIONTYPE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8224u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETPENARBITRATIONTYPE: SYSTEM_PARAMETERS_INFO_ACTION = 8225u32;
+pub const SPI_SETPENARBITRATIONTYPE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8225u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETCARETTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 8226u32;
+pub const SPI_GETCARETTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8226u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETCARETTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 8227u32;
+pub const SPI_SETCARETTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8227u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_GETHANDEDNESS: SYSTEM_PARAMETERS_INFO_ACTION = 8228u32;
+pub const SPI_GETHANDEDNESS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8228u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPI_SETHANDEDNESS: SYSTEM_PARAMETERS_INFO_ACTION = 8229u32;
+pub const SPI_SETHANDEDNESS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8229u32);
+impl ::core::marker::Copy for SYSTEM_PARAMETERS_INFO_ACTION {}
+impl ::core::clone::Clone for SYSTEM_PARAMETERS_INFO_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SYSTEM_PARAMETERS_INFO_ACTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SYSTEM_PARAMETERS_INFO_ACTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SYSTEM_PARAMETERS_INFO_ACTION").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SYSTEM_PARAMETERS_INFO_ACTION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SYSTEM_PARAMETERS_INFO_ACTION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SYSTEM_PARAMETERS_INFO_ACTION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SYSTEM_PARAMETERS_INFO_ACTION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SYSTEM_PARAMETERS_INFO_ACTION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPIF_UPDATEINIFILE: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS = 1u32;
+pub const SPIF_UPDATEINIFILE: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS = SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPIF_SENDCHANGE: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS = 2u32;
+pub const SPIF_SENDCHANGE: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS = SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const SPIF_SENDWININICHANGE: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS = 2u32;
+pub const SPIF_SENDWININICHANGE: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS = SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS(2u32);
+impl ::core::marker::Copy for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {}
+impl ::core::clone::Clone for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type SYS_COLOR_INDEX = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SYS_COLOR_INDEX(pub u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const COLOR_3DDKSHADOW: SYS_COLOR_INDEX = 21u32;
+pub const COLOR_3DDKSHADOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(21u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const COLOR_3DFACE: SYS_COLOR_INDEX = 15u32;
+pub const COLOR_3DFACE: SYS_COLOR_INDEX = SYS_COLOR_INDEX(15u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const COLOR_3DHIGHLIGHT: SYS_COLOR_INDEX = 20u32;
+pub const COLOR_3DHIGHLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const COLOR_3DHILIGHT: SYS_COLOR_INDEX = 20u32;
+pub const COLOR_3DHILIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const COLOR_3DLIGHT: SYS_COLOR_INDEX = 22u32;
+pub const COLOR_3DLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(22u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const COLOR_3DSHADOW: SYS_COLOR_INDEX = 16u32;
+pub const COLOR_3DSHADOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(16u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const COLOR_ACTIVEBORDER: SYS_COLOR_INDEX = 10u32;
+pub const COLOR_ACTIVEBORDER: SYS_COLOR_INDEX = SYS_COLOR_INDEX(10u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const COLOR_ACTIVECAPTION: SYS_COLOR_INDEX = 2u32;
+pub const COLOR_ACTIVECAPTION: SYS_COLOR_INDEX = SYS_COLOR_INDEX(2u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const COLOR_APPWORKSPACE: SYS_COLOR_INDEX = 12u32;
+pub const COLOR_APPWORKSPACE: SYS_COLOR_INDEX = SYS_COLOR_INDEX(12u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const COLOR_BACKGROUND: SYS_COLOR_INDEX = 1u32;
+pub const COLOR_BACKGROUND: SYS_COLOR_INDEX = SYS_COLOR_INDEX(1u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const COLOR_BTNFACE: SYS_COLOR_INDEX = 15u32;
+pub const COLOR_BTNFACE: SYS_COLOR_INDEX = SYS_COLOR_INDEX(15u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const _COLOR_BTNHIGHLIGHT: SYS_COLOR_INDEX = 20u32;
+pub const _COLOR_BTNHIGHLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const _COLOR_BTNHILIGHT: SYS_COLOR_INDEX = 20u32;
+pub const _COLOR_BTNHILIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const COLOR_BTNSHADOW: SYS_COLOR_INDEX = 16u32;
+pub const COLOR_BTNSHADOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(16u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const COLOR_BTNTEXT: SYS_COLOR_INDEX = 18u32;
+pub const COLOR_BTNTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(18u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const COLOR_CAPTIONTEXT: SYS_COLOR_INDEX = 9u32;
+pub const COLOR_CAPTIONTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(9u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const COLOR_DESKTOP: SYS_COLOR_INDEX = 1u32;
+pub const COLOR_DESKTOP: SYS_COLOR_INDEX = SYS_COLOR_INDEX(1u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const COLOR_GRADIENTACTIVECAPTION: SYS_COLOR_INDEX = 27u32;
+pub const COLOR_GRADIENTACTIVECAPTION: SYS_COLOR_INDEX = SYS_COLOR_INDEX(27u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const COLOR_GRADIENTINACTIVECAPTION: SYS_COLOR_INDEX = 28u32;
+pub const COLOR_GRADIENTINACTIVECAPTION: SYS_COLOR_INDEX = SYS_COLOR_INDEX(28u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const COLOR_GRAYTEXT: SYS_COLOR_INDEX = 17u32;
+pub const COLOR_GRAYTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(17u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const COLOR_HIGHLIGHT: SYS_COLOR_INDEX = 13u32;
+pub const COLOR_HIGHLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(13u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const COLOR_HIGHLIGHTTEXT: SYS_COLOR_INDEX = 14u32;
+pub const COLOR_HIGHLIGHTTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(14u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const COLOR_HOTLIGHT: SYS_COLOR_INDEX = 26u32;
+pub const COLOR_HOTLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(26u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const COLOR_INACTIVEBORDER: SYS_COLOR_INDEX = 11u32;
+pub const COLOR_INACTIVEBORDER: SYS_COLOR_INDEX = SYS_COLOR_INDEX(11u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const COLOR_INACTIVECAPTION: SYS_COLOR_INDEX = 3u32;
+pub const COLOR_INACTIVECAPTION: SYS_COLOR_INDEX = SYS_COLOR_INDEX(3u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const COLOR_INACTIVECAPTIONTEXT: SYS_COLOR_INDEX = 19u32;
+pub const COLOR_INACTIVECAPTIONTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(19u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const COLOR_INFOBK: SYS_COLOR_INDEX = 24u32;
+pub const COLOR_INFOBK: SYS_COLOR_INDEX = SYS_COLOR_INDEX(24u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const COLOR_INFOTEXT: SYS_COLOR_INDEX = 23u32;
+pub const COLOR_INFOTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(23u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const COLOR_MENU: SYS_COLOR_INDEX = 4u32;
+pub const COLOR_MENU: SYS_COLOR_INDEX = SYS_COLOR_INDEX(4u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const COLOR_MENUHILIGHT: SYS_COLOR_INDEX = 29u32;
+pub const COLOR_MENUHILIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(29u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const COLOR_MENUBAR: SYS_COLOR_INDEX = 30u32;
+pub const COLOR_MENUBAR: SYS_COLOR_INDEX = SYS_COLOR_INDEX(30u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const COLOR_MENUTEXT: SYS_COLOR_INDEX = 7u32;
+pub const COLOR_MENUTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(7u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const COLOR_SCROLLBAR: SYS_COLOR_INDEX = 0u32;
+pub const COLOR_SCROLLBAR: SYS_COLOR_INDEX = SYS_COLOR_INDEX(0u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const COLOR_WINDOW: SYS_COLOR_INDEX = 5u32;
+pub const COLOR_WINDOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(5u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const COLOR_WINDOWFRAME: SYS_COLOR_INDEX = 6u32;
+pub const COLOR_WINDOWFRAME: SYS_COLOR_INDEX = SYS_COLOR_INDEX(6u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const COLOR_WINDOWTEXT: SYS_COLOR_INDEX = 8u32;
+pub const COLOR_WINDOWTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(8u32);
+impl ::core::marker::Copy for SYS_COLOR_INDEX {}
+impl ::core::clone::Clone for SYS_COLOR_INDEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SYS_COLOR_INDEX {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SYS_COLOR_INDEX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SYS_COLOR_INDEX").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SYS_COLOR_INDEX {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SYS_COLOR_INDEX {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SYS_COLOR_INDEX {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SYS_COLOR_INDEX {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SYS_COLOR_INDEX {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
@@ -12249,11 +14173,55 @@ pub unsafe fn SystemParametersInfoW(uiaction: SYSTEM_PARAMETERS_INFO_ACTION, uip
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type TILE_WINDOWS_HOW = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TILE_WINDOWS_HOW(pub u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MDITILE_HORIZONTAL: TILE_WINDOWS_HOW = 1u32;
+pub const MDITILE_HORIZONTAL: TILE_WINDOWS_HOW = TILE_WINDOWS_HOW(1u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MDITILE_VERTICAL: TILE_WINDOWS_HOW = 0u32;
+pub const MDITILE_VERTICAL: TILE_WINDOWS_HOW = TILE_WINDOWS_HOW(0u32);
+impl ::core::marker::Copy for TILE_WINDOWS_HOW {}
+impl ::core::clone::Clone for TILE_WINDOWS_HOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TILE_WINDOWS_HOW {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TILE_WINDOWS_HOW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TILE_WINDOWS_HOW").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for TILE_WINDOWS_HOW {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for TILE_WINDOWS_HOW {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for TILE_WINDOWS_HOW {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for TILE_WINDOWS_HOW {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for TILE_WINDOWS_HOW {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type TIMERPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: usize, param3: u32)>;
@@ -12434,47 +14402,91 @@ impl ::core::default::Default for TPMPARAMS {
     }
 }
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type TRACK_POPUP_MENU_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TRACK_POPUP_MENU_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const TPM_LEFTBUTTON: TRACK_POPUP_MENU_FLAGS = 0u32;
+pub const TPM_LEFTBUTTON: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const TPM_RIGHTBUTTON: TRACK_POPUP_MENU_FLAGS = 2u32;
+pub const TPM_RIGHTBUTTON: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const TPM_LEFTALIGN: TRACK_POPUP_MENU_FLAGS = 0u32;
+pub const TPM_LEFTALIGN: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const TPM_CENTERALIGN: TRACK_POPUP_MENU_FLAGS = 4u32;
+pub const TPM_CENTERALIGN: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const TPM_RIGHTALIGN: TRACK_POPUP_MENU_FLAGS = 8u32;
+pub const TPM_RIGHTALIGN: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const TPM_TOPALIGN: TRACK_POPUP_MENU_FLAGS = 0u32;
+pub const TPM_TOPALIGN: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const TPM_VCENTERALIGN: TRACK_POPUP_MENU_FLAGS = 16u32;
+pub const TPM_VCENTERALIGN: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const TPM_BOTTOMALIGN: TRACK_POPUP_MENU_FLAGS = 32u32;
+pub const TPM_BOTTOMALIGN: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(32u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const TPM_HORIZONTAL: TRACK_POPUP_MENU_FLAGS = 0u32;
+pub const TPM_HORIZONTAL: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const TPM_VERTICAL: TRACK_POPUP_MENU_FLAGS = 64u32;
+pub const TPM_VERTICAL: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(64u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const TPM_NONOTIFY: TRACK_POPUP_MENU_FLAGS = 128u32;
+pub const TPM_NONOTIFY: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(128u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const TPM_RETURNCMD: TRACK_POPUP_MENU_FLAGS = 256u32;
+pub const TPM_RETURNCMD: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(256u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const TPM_RECURSE: TRACK_POPUP_MENU_FLAGS = 1u32;
+pub const TPM_RECURSE: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const TPM_HORPOSANIMATION: TRACK_POPUP_MENU_FLAGS = 1024u32;
+pub const TPM_HORPOSANIMATION: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(1024u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const TPM_HORNEGANIMATION: TRACK_POPUP_MENU_FLAGS = 2048u32;
+pub const TPM_HORNEGANIMATION: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(2048u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const TPM_VERPOSANIMATION: TRACK_POPUP_MENU_FLAGS = 4096u32;
+pub const TPM_VERPOSANIMATION: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(4096u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const TPM_VERNEGANIMATION: TRACK_POPUP_MENU_FLAGS = 8192u32;
+pub const TPM_VERNEGANIMATION: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(8192u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const TPM_NOANIMATION: TRACK_POPUP_MENU_FLAGS = 16384u32;
+pub const TPM_NOANIMATION: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(16384u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const TPM_LAYOUTRTL: TRACK_POPUP_MENU_FLAGS = 32768u32;
+pub const TPM_LAYOUTRTL: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(32768u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const TPM_WORKAREA: TRACK_POPUP_MENU_FLAGS = 65536u32;
+pub const TPM_WORKAREA: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(65536u32);
+impl ::core::marker::Copy for TRACK_POPUP_MENU_FLAGS {}
+impl ::core::clone::Clone for TRACK_POPUP_MENU_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TRACK_POPUP_MENU_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TRACK_POPUP_MENU_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TRACK_POPUP_MENU_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for TRACK_POPUP_MENU_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for TRACK_POPUP_MENU_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for TRACK_POPUP_MENU_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for TRACK_POPUP_MENU_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for TRACK_POPUP_MENU_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -12677,15 +14689,59 @@ impl ::core::default::Default for UPDATELAYEREDWINDOWINFO {
     }
 }
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type UPDATE_LAYERED_WINDOW_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct UPDATE_LAYERED_WINDOW_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const ULW_ALPHA: UPDATE_LAYERED_WINDOW_FLAGS = 2u32;
+pub const ULW_ALPHA: UPDATE_LAYERED_WINDOW_FLAGS = UPDATE_LAYERED_WINDOW_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const ULW_COLORKEY: UPDATE_LAYERED_WINDOW_FLAGS = 1u32;
+pub const ULW_COLORKEY: UPDATE_LAYERED_WINDOW_FLAGS = UPDATE_LAYERED_WINDOW_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const ULW_OPAQUE: UPDATE_LAYERED_WINDOW_FLAGS = 4u32;
+pub const ULW_OPAQUE: UPDATE_LAYERED_WINDOW_FLAGS = UPDATE_LAYERED_WINDOW_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const ULW_EX_NORESIZE: UPDATE_LAYERED_WINDOW_FLAGS = 8u32;
+pub const ULW_EX_NORESIZE: UPDATE_LAYERED_WINDOW_FLAGS = UPDATE_LAYERED_WINDOW_FLAGS(8u32);
+impl ::core::marker::Copy for UPDATE_LAYERED_WINDOW_FLAGS {}
+impl ::core::clone::Clone for UPDATE_LAYERED_WINDOW_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for UPDATE_LAYERED_WINDOW_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UPDATE_LAYERED_WINDOW_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UPDATE_LAYERED_WINDOW_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for UPDATE_LAYERED_WINDOW_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for UPDATE_LAYERED_WINDOW_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for UPDATE_LAYERED_WINDOW_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for UPDATE_LAYERED_WINDOW_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for UPDATE_LAYERED_WINDOW_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const USER_DEFAULT_SCREEN_DPI: u32 = 96u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
@@ -12891,13 +14947,57 @@ impl ::core::default::Default for WINDOWPLACEMENT {
     }
 }
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type WINDOWPLACEMENT_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WINDOWPLACEMENT_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WPF_ASYNCWINDOWPLACEMENT: WINDOWPLACEMENT_FLAGS = 4u32;
+pub const WPF_ASYNCWINDOWPLACEMENT: WINDOWPLACEMENT_FLAGS = WINDOWPLACEMENT_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WPF_RESTORETOMAXIMIZED: WINDOWPLACEMENT_FLAGS = 2u32;
+pub const WPF_RESTORETOMAXIMIZED: WINDOWPLACEMENT_FLAGS = WINDOWPLACEMENT_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WPF_SETMINPOSITION: WINDOWPLACEMENT_FLAGS = 1u32;
+pub const WPF_SETMINPOSITION: WINDOWPLACEMENT_FLAGS = WINDOWPLACEMENT_FLAGS(1u32);
+impl ::core::marker::Copy for WINDOWPLACEMENT_FLAGS {}
+impl ::core::clone::Clone for WINDOWPLACEMENT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINDOWPLACEMENT_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WINDOWPLACEMENT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WINDOWPLACEMENT_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WINDOWPLACEMENT_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WINDOWPLACEMENT_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WINDOWPLACEMENT_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WINDOWPLACEMENT_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WINDOWPLACEMENT_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -12943,193 +15043,401 @@ impl ::core::default::Default for WINDOWPOS {
     }
 }
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type WINDOWS_HOOK_ID = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WINDOWS_HOOK_ID(pub i32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const WH_CALLWNDPROC: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(4i32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const WH_CALLWNDPROCRET: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(12i32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const WH_CBT: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(5i32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const WH_DEBUG: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(9i32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const WH_FOREGROUNDIDLE: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(11i32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const WH_GETMESSAGE: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(3i32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const WH_JOURNALPLAYBACK: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(1i32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const WH_JOURNALRECORD: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(0i32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const WH_KEYBOARD: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(2i32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const WH_KEYBOARD_LL: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(13i32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const WH_MOUSE: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(7i32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const WH_MOUSE_LL: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(14i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WH_CALLWNDPROC: WINDOWS_HOOK_ID = 4i32;
+pub const WH_MSGFILTER: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(-1i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WH_CALLWNDPROCRET: WINDOWS_HOOK_ID = 12i32;
+pub const WH_SHELL: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(10i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WH_CBT: WINDOWS_HOOK_ID = 5i32;
+pub const WH_SYSMSGFILTER: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(6i32);
+impl ::core::marker::Copy for WINDOWS_HOOK_ID {}
+impl ::core::clone::Clone for WINDOWS_HOOK_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINDOWS_HOOK_ID {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WINDOWS_HOOK_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WINDOWS_HOOK_ID").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WH_DEBUG: WINDOWS_HOOK_ID = 9i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WINDOW_DISPLAY_AFFINITY(pub u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WH_FOREGROUNDIDLE: WINDOWS_HOOK_ID = 11i32;
+pub const WDA_NONE: WINDOW_DISPLAY_AFFINITY = WINDOW_DISPLAY_AFFINITY(0u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WH_GETMESSAGE: WINDOWS_HOOK_ID = 3i32;
+pub const WDA_MONITOR: WINDOW_DISPLAY_AFFINITY = WINDOW_DISPLAY_AFFINITY(1u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WH_JOURNALPLAYBACK: WINDOWS_HOOK_ID = 1i32;
+pub const WDA_EXCLUDEFROMCAPTURE: WINDOW_DISPLAY_AFFINITY = WINDOW_DISPLAY_AFFINITY(17u32);
+impl ::core::marker::Copy for WINDOW_DISPLAY_AFFINITY {}
+impl ::core::clone::Clone for WINDOW_DISPLAY_AFFINITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINDOW_DISPLAY_AFFINITY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WINDOW_DISPLAY_AFFINITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WINDOW_DISPLAY_AFFINITY").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WINDOW_DISPLAY_AFFINITY {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WINDOW_DISPLAY_AFFINITY {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WINDOW_DISPLAY_AFFINITY {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WINDOW_DISPLAY_AFFINITY {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WINDOW_DISPLAY_AFFINITY {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WINDOW_EX_STYLE(pub u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WH_JOURNALRECORD: WINDOWS_HOOK_ID = 0i32;
+pub const WS_EX_DLGMODALFRAME: WINDOW_EX_STYLE = WINDOW_EX_STYLE(1u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WH_KEYBOARD: WINDOWS_HOOK_ID = 2i32;
+pub const WS_EX_NOPARENTNOTIFY: WINDOW_EX_STYLE = WINDOW_EX_STYLE(4u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WH_KEYBOARD_LL: WINDOWS_HOOK_ID = 13i32;
+pub const WS_EX_TOPMOST: WINDOW_EX_STYLE = WINDOW_EX_STYLE(8u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WH_MOUSE: WINDOWS_HOOK_ID = 7i32;
+pub const WS_EX_ACCEPTFILES: WINDOW_EX_STYLE = WINDOW_EX_STYLE(16u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WH_MOUSE_LL: WINDOWS_HOOK_ID = 14i32;
+pub const WS_EX_TRANSPARENT: WINDOW_EX_STYLE = WINDOW_EX_STYLE(32u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WH_MSGFILTER: WINDOWS_HOOK_ID = -1i32;
+pub const WS_EX_MDICHILD: WINDOW_EX_STYLE = WINDOW_EX_STYLE(64u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WH_SHELL: WINDOWS_HOOK_ID = 10i32;
+pub const WS_EX_TOOLWINDOW: WINDOW_EX_STYLE = WINDOW_EX_STYLE(128u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WH_SYSMSGFILTER: WINDOWS_HOOK_ID = 6i32;
+pub const WS_EX_WINDOWEDGE: WINDOW_EX_STYLE = WINDOW_EX_STYLE(256u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type WINDOW_DISPLAY_AFFINITY = u32;
+pub const WS_EX_CLIENTEDGE: WINDOW_EX_STYLE = WINDOW_EX_STYLE(512u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WDA_NONE: WINDOW_DISPLAY_AFFINITY = 0u32;
+pub const WS_EX_CONTEXTHELP: WINDOW_EX_STYLE = WINDOW_EX_STYLE(1024u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WDA_MONITOR: WINDOW_DISPLAY_AFFINITY = 1u32;
+pub const WS_EX_RIGHT: WINDOW_EX_STYLE = WINDOW_EX_STYLE(4096u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WDA_EXCLUDEFROMCAPTURE: WINDOW_DISPLAY_AFFINITY = 17u32;
+pub const WS_EX_LEFT: WINDOW_EX_STYLE = WINDOW_EX_STYLE(0u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type WINDOW_EX_STYLE = u32;
+pub const WS_EX_RTLREADING: WINDOW_EX_STYLE = WINDOW_EX_STYLE(8192u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_EX_DLGMODALFRAME: WINDOW_EX_STYLE = 1u32;
+pub const WS_EX_LTRREADING: WINDOW_EX_STYLE = WINDOW_EX_STYLE(0u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_EX_NOPARENTNOTIFY: WINDOW_EX_STYLE = 4u32;
+pub const WS_EX_LEFTSCROLLBAR: WINDOW_EX_STYLE = WINDOW_EX_STYLE(16384u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_EX_TOPMOST: WINDOW_EX_STYLE = 8u32;
+pub const WS_EX_RIGHTSCROLLBAR: WINDOW_EX_STYLE = WINDOW_EX_STYLE(0u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_EX_ACCEPTFILES: WINDOW_EX_STYLE = 16u32;
+pub const WS_EX_CONTROLPARENT: WINDOW_EX_STYLE = WINDOW_EX_STYLE(65536u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_EX_TRANSPARENT: WINDOW_EX_STYLE = 32u32;
+pub const WS_EX_STATICEDGE: WINDOW_EX_STYLE = WINDOW_EX_STYLE(131072u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_EX_MDICHILD: WINDOW_EX_STYLE = 64u32;
+pub const WS_EX_APPWINDOW: WINDOW_EX_STYLE = WINDOW_EX_STYLE(262144u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_EX_TOOLWINDOW: WINDOW_EX_STYLE = 128u32;
+pub const WS_EX_OVERLAPPEDWINDOW: WINDOW_EX_STYLE = WINDOW_EX_STYLE(768u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_EX_WINDOWEDGE: WINDOW_EX_STYLE = 256u32;
+pub const WS_EX_PALETTEWINDOW: WINDOW_EX_STYLE = WINDOW_EX_STYLE(392u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_EX_CLIENTEDGE: WINDOW_EX_STYLE = 512u32;
+pub const WS_EX_LAYERED: WINDOW_EX_STYLE = WINDOW_EX_STYLE(524288u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_EX_CONTEXTHELP: WINDOW_EX_STYLE = 1024u32;
+pub const WS_EX_NOINHERITLAYOUT: WINDOW_EX_STYLE = WINDOW_EX_STYLE(1048576u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_EX_RIGHT: WINDOW_EX_STYLE = 4096u32;
+pub const WS_EX_NOREDIRECTIONBITMAP: WINDOW_EX_STYLE = WINDOW_EX_STYLE(2097152u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_EX_LEFT: WINDOW_EX_STYLE = 0u32;
+pub const WS_EX_LAYOUTRTL: WINDOW_EX_STYLE = WINDOW_EX_STYLE(4194304u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_EX_RTLREADING: WINDOW_EX_STYLE = 8192u32;
+pub const WS_EX_COMPOSITED: WINDOW_EX_STYLE = WINDOW_EX_STYLE(33554432u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_EX_LTRREADING: WINDOW_EX_STYLE = 0u32;
+pub const WS_EX_NOACTIVATE: WINDOW_EX_STYLE = WINDOW_EX_STYLE(134217728u32);
+impl ::core::marker::Copy for WINDOW_EX_STYLE {}
+impl ::core::clone::Clone for WINDOW_EX_STYLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINDOW_EX_STYLE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WINDOW_EX_STYLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WINDOW_EX_STYLE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WINDOW_EX_STYLE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WINDOW_EX_STYLE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WINDOW_EX_STYLE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WINDOW_EX_STYLE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WINDOW_EX_STYLE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WINDOW_LONG_PTR_INDEX(pub i32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const GWL_EXSTYLE: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-20i32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const GWLP_HINSTANCE: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-6i32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const GWLP_HWNDPARENT: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-8i32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const GWLP_ID: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-12i32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const GWL_STYLE: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-16i32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const GWLP_USERDATA: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-21i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_EX_LEFTSCROLLBAR: WINDOW_EX_STYLE = 16384u32;
+pub const GWLP_WNDPROC: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-4i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_EX_RIGHTSCROLLBAR: WINDOW_EX_STYLE = 0u32;
+pub const GWL_HINSTANCE: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-6i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_EX_CONTROLPARENT: WINDOW_EX_STYLE = 65536u32;
+pub const GWL_ID: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-12i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_EX_STATICEDGE: WINDOW_EX_STYLE = 131072u32;
+pub const GWL_USERDATA: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-21i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_EX_APPWINDOW: WINDOW_EX_STYLE = 262144u32;
+pub const GWL_WNDPROC: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-4i32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_EX_OVERLAPPEDWINDOW: WINDOW_EX_STYLE = 768u32;
+pub const GWL_HWNDPARENT: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-8i32);
+impl ::core::marker::Copy for WINDOW_LONG_PTR_INDEX {}
+impl ::core::clone::Clone for WINDOW_LONG_PTR_INDEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINDOW_LONG_PTR_INDEX {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WINDOW_LONG_PTR_INDEX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WINDOW_LONG_PTR_INDEX").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_EX_PALETTEWINDOW: WINDOW_EX_STYLE = 392u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WINDOW_MESSAGE_FILTER_ACTION(pub u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_EX_LAYERED: WINDOW_EX_STYLE = 524288u32;
+pub const MSGFLT_ALLOW: WINDOW_MESSAGE_FILTER_ACTION = WINDOW_MESSAGE_FILTER_ACTION(1u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_EX_NOINHERITLAYOUT: WINDOW_EX_STYLE = 1048576u32;
+pub const MSGFLT_DISALLOW: WINDOW_MESSAGE_FILTER_ACTION = WINDOW_MESSAGE_FILTER_ACTION(2u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_EX_NOREDIRECTIONBITMAP: WINDOW_EX_STYLE = 2097152u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_EX_LAYOUTRTL: WINDOW_EX_STYLE = 4194304u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_EX_COMPOSITED: WINDOW_EX_STYLE = 33554432u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_EX_NOACTIVATE: WINDOW_EX_STYLE = 134217728u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type WINDOW_LONG_PTR_INDEX = i32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GWL_EXSTYLE: WINDOW_LONG_PTR_INDEX = -20i32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GWLP_HINSTANCE: WINDOW_LONG_PTR_INDEX = -6i32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GWLP_HWNDPARENT: WINDOW_LONG_PTR_INDEX = -8i32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GWLP_ID: WINDOW_LONG_PTR_INDEX = -12i32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GWL_STYLE: WINDOW_LONG_PTR_INDEX = -16i32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GWLP_USERDATA: WINDOW_LONG_PTR_INDEX = -21i32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GWLP_WNDPROC: WINDOW_LONG_PTR_INDEX = -4i32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GWL_HINSTANCE: WINDOW_LONG_PTR_INDEX = -6i32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GWL_ID: WINDOW_LONG_PTR_INDEX = -12i32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GWL_USERDATA: WINDOW_LONG_PTR_INDEX = -21i32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GWL_WNDPROC: WINDOW_LONG_PTR_INDEX = -4i32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const GWL_HWNDPARENT: WINDOW_LONG_PTR_INDEX = -8i32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type WINDOW_MESSAGE_FILTER_ACTION = u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MSGFLT_ALLOW: WINDOW_MESSAGE_FILTER_ACTION = 1u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MSGFLT_DISALLOW: WINDOW_MESSAGE_FILTER_ACTION = 2u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const MSGFLT_RESET: WINDOW_MESSAGE_FILTER_ACTION = 0u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type WINDOW_STYLE = u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_OVERLAPPED: WINDOW_STYLE = 0u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_POPUP: WINDOW_STYLE = 2147483648u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_CHILD: WINDOW_STYLE = 1073741824u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_MINIMIZE: WINDOW_STYLE = 536870912u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_VISIBLE: WINDOW_STYLE = 268435456u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_DISABLED: WINDOW_STYLE = 134217728u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_CLIPSIBLINGS: WINDOW_STYLE = 67108864u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_CLIPCHILDREN: WINDOW_STYLE = 33554432u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_MAXIMIZE: WINDOW_STYLE = 16777216u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_CAPTION: WINDOW_STYLE = 12582912u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_BORDER: WINDOW_STYLE = 8388608u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_DLGFRAME: WINDOW_STYLE = 4194304u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_VSCROLL: WINDOW_STYLE = 2097152u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_HSCROLL: WINDOW_STYLE = 1048576u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_SYSMENU: WINDOW_STYLE = 524288u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_THICKFRAME: WINDOW_STYLE = 262144u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_GROUP: WINDOW_STYLE = 131072u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_TABSTOP: WINDOW_STYLE = 65536u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_MINIMIZEBOX: WINDOW_STYLE = 131072u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_MAXIMIZEBOX: WINDOW_STYLE = 65536u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_TILED: WINDOW_STYLE = 0u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_ICONIC: WINDOW_STYLE = 536870912u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_SIZEBOX: WINDOW_STYLE = 262144u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_TILEDWINDOW: WINDOW_STYLE = 13565952u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_OVERLAPPEDWINDOW: WINDOW_STYLE = 13565952u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_POPUPWINDOW: WINDOW_STYLE = 2156396544u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_CHILDWINDOW: WINDOW_STYLE = 1073741824u32;
-#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const WS_ACTIVECAPTION: WINDOW_STYLE = 1u32;
+pub const MSGFLT_RESET: WINDOW_MESSAGE_FILTER_ACTION = WINDOW_MESSAGE_FILTER_ACTION(0u32);
+impl ::core::marker::Copy for WINDOW_MESSAGE_FILTER_ACTION {}
+impl ::core::clone::Clone for WINDOW_MESSAGE_FILTER_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINDOW_MESSAGE_FILTER_ACTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WINDOW_MESSAGE_FILTER_ACTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WINDOW_MESSAGE_FILTER_ACTION").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WINDOW_MESSAGE_FILTER_ACTION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WINDOW_MESSAGE_FILTER_ACTION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WINDOW_MESSAGE_FILTER_ACTION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WINDOW_MESSAGE_FILTER_ACTION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WINDOW_MESSAGE_FILTER_ACTION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WINDOW_STYLE(pub u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const WS_OVERLAPPED: WINDOW_STYLE = WINDOW_STYLE(0u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const WS_POPUP: WINDOW_STYLE = WINDOW_STYLE(2147483648u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const WS_CHILD: WINDOW_STYLE = WINDOW_STYLE(1073741824u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const WS_MINIMIZE: WINDOW_STYLE = WINDOW_STYLE(536870912u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const WS_VISIBLE: WINDOW_STYLE = WINDOW_STYLE(268435456u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const WS_DISABLED: WINDOW_STYLE = WINDOW_STYLE(134217728u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const WS_CLIPSIBLINGS: WINDOW_STYLE = WINDOW_STYLE(67108864u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const WS_CLIPCHILDREN: WINDOW_STYLE = WINDOW_STYLE(33554432u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const WS_MAXIMIZE: WINDOW_STYLE = WINDOW_STYLE(16777216u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const WS_CAPTION: WINDOW_STYLE = WINDOW_STYLE(12582912u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const WS_BORDER: WINDOW_STYLE = WINDOW_STYLE(8388608u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const WS_DLGFRAME: WINDOW_STYLE = WINDOW_STYLE(4194304u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const WS_VSCROLL: WINDOW_STYLE = WINDOW_STYLE(2097152u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const WS_HSCROLL: WINDOW_STYLE = WINDOW_STYLE(1048576u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const WS_SYSMENU: WINDOW_STYLE = WINDOW_STYLE(524288u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const WS_THICKFRAME: WINDOW_STYLE = WINDOW_STYLE(262144u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const WS_GROUP: WINDOW_STYLE = WINDOW_STYLE(131072u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const WS_TABSTOP: WINDOW_STYLE = WINDOW_STYLE(65536u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const WS_MINIMIZEBOX: WINDOW_STYLE = WINDOW_STYLE(131072u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const WS_MAXIMIZEBOX: WINDOW_STYLE = WINDOW_STYLE(65536u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const WS_TILED: WINDOW_STYLE = WINDOW_STYLE(0u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const WS_ICONIC: WINDOW_STYLE = WINDOW_STYLE(536870912u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const WS_SIZEBOX: WINDOW_STYLE = WINDOW_STYLE(262144u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const WS_TILEDWINDOW: WINDOW_STYLE = WINDOW_STYLE(13565952u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const WS_OVERLAPPEDWINDOW: WINDOW_STYLE = WINDOW_STYLE(13565952u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const WS_POPUPWINDOW: WINDOW_STYLE = WINDOW_STYLE(2156396544u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const WS_CHILDWINDOW: WINDOW_STYLE = WINDOW_STYLE(1073741824u32);
+#[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
+pub const WS_ACTIVECAPTION: WINDOW_STYLE = WINDOW_STYLE(1u32);
+impl ::core::marker::Copy for WINDOW_STYLE {}
+impl ::core::clone::Clone for WINDOW_STYLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINDOW_STYLE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WINDOW_STYLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WINDOW_STYLE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WINDOW_STYLE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WINDOW_STYLE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WINDOW_STYLE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WINDOW_STYLE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WINDOW_STYLE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
 pub const WINEVENT_INCONTEXT: u32 = 4u32;
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
@@ -13891,33 +16199,77 @@ impl ::core::default::Default for WNDCLASSW {
     }
 }
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub type WNDCLASS_STYLES = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WNDCLASS_STYLES(pub u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const CS_VREDRAW: WNDCLASS_STYLES = 1u32;
+pub const CS_VREDRAW: WNDCLASS_STYLES = WNDCLASS_STYLES(1u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const CS_HREDRAW: WNDCLASS_STYLES = 2u32;
+pub const CS_HREDRAW: WNDCLASS_STYLES = WNDCLASS_STYLES(2u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const CS_DBLCLKS: WNDCLASS_STYLES = 8u32;
+pub const CS_DBLCLKS: WNDCLASS_STYLES = WNDCLASS_STYLES(8u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const CS_OWNDC: WNDCLASS_STYLES = 32u32;
+pub const CS_OWNDC: WNDCLASS_STYLES = WNDCLASS_STYLES(32u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const CS_CLASSDC: WNDCLASS_STYLES = 64u32;
+pub const CS_CLASSDC: WNDCLASS_STYLES = WNDCLASS_STYLES(64u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const CS_PARENTDC: WNDCLASS_STYLES = 128u32;
+pub const CS_PARENTDC: WNDCLASS_STYLES = WNDCLASS_STYLES(128u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const CS_NOCLOSE: WNDCLASS_STYLES = 512u32;
+pub const CS_NOCLOSE: WNDCLASS_STYLES = WNDCLASS_STYLES(512u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const CS_SAVEBITS: WNDCLASS_STYLES = 2048u32;
+pub const CS_SAVEBITS: WNDCLASS_STYLES = WNDCLASS_STYLES(2048u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const CS_BYTEALIGNCLIENT: WNDCLASS_STYLES = 4096u32;
+pub const CS_BYTEALIGNCLIENT: WNDCLASS_STYLES = WNDCLASS_STYLES(4096u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const CS_BYTEALIGNWINDOW: WNDCLASS_STYLES = 8192u32;
+pub const CS_BYTEALIGNWINDOW: WNDCLASS_STYLES = WNDCLASS_STYLES(8192u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const CS_GLOBALCLASS: WNDCLASS_STYLES = 16384u32;
+pub const CS_GLOBALCLASS: WNDCLASS_STYLES = WNDCLASS_STYLES(16384u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const CS_IME: WNDCLASS_STYLES = 65536u32;
+pub const CS_IME: WNDCLASS_STYLES = WNDCLASS_STYLES(65536u32);
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging'*"]
-pub const CS_DROPSHADOW: WNDCLASS_STYLES = 131072u32;
+pub const CS_DROPSHADOW: WNDCLASS_STYLES = WNDCLASS_STYLES(131072u32);
+impl ::core::marker::Copy for WNDCLASS_STYLES {}
+impl ::core::clone::Clone for WNDCLASS_STYLES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WNDCLASS_STYLES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WNDCLASS_STYLES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WNDCLASS_STYLES").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WNDCLASS_STYLES {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WNDCLASS_STYLES {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WNDCLASS_STYLES {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WNDCLASS_STYLES {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WNDCLASS_STYLES {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_WindowsAndMessaging', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WNDENUMPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;

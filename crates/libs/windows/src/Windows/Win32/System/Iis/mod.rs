@@ -769,25 +769,57 @@ pub const FP_MD_ID_BEGIN_RESERVED: u32 = 32768u32;
 #[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const FP_MD_ID_END_RESERVED: u32 = 36863u32;
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub type FTP_ACCESS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FTP_ACCESS(pub i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const FTP_ACCESS_NONE: FTP_ACCESS = 0i32;
+pub const FTP_ACCESS_NONE: FTP_ACCESS = FTP_ACCESS(0i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const FTP_ACCESS_READ: FTP_ACCESS = 1i32;
+pub const FTP_ACCESS_READ: FTP_ACCESS = FTP_ACCESS(1i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const FTP_ACCESS_WRITE: FTP_ACCESS = 2i32;
+pub const FTP_ACCESS_WRITE: FTP_ACCESS = FTP_ACCESS(2i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const FTP_ACCESS_READ_WRITE: FTP_ACCESS = 3i32;
+pub const FTP_ACCESS_READ_WRITE: FTP_ACCESS = FTP_ACCESS(3i32);
+impl ::core::marker::Copy for FTP_ACCESS {}
+impl ::core::clone::Clone for FTP_ACCESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FTP_ACCESS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FTP_ACCESS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FTP_ACCESS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub type FTP_PROCESS_STATUS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FTP_PROCESS_STATUS(pub i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const FTP_PROCESS_CONTINUE: FTP_PROCESS_STATUS = 0i32;
+pub const FTP_PROCESS_CONTINUE: FTP_PROCESS_STATUS = FTP_PROCESS_STATUS(0i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const FTP_PROCESS_CLOSE_SESSION: FTP_PROCESS_STATUS = 1i32;
+pub const FTP_PROCESS_CLOSE_SESSION: FTP_PROCESS_STATUS = FTP_PROCESS_STATUS(1i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const FTP_PROCESS_TERMINATE_SESSION: FTP_PROCESS_STATUS = 2i32;
+pub const FTP_PROCESS_TERMINATE_SESSION: FTP_PROCESS_STATUS = FTP_PROCESS_STATUS(2i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const FTP_PROCESS_REJECT_COMMAND: FTP_PROCESS_STATUS = 3i32;
+pub const FTP_PROCESS_REJECT_COMMAND: FTP_PROCESS_STATUS = FTP_PROCESS_STATUS(3i32);
+impl ::core::marker::Copy for FTP_PROCESS_STATUS {}
+impl ::core::clone::Clone for FTP_PROCESS_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FTP_PROCESS_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FTP_PROCESS_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FTP_PROCESS_STATUS").field(&self.0).finish()
+    }
+}
 pub const FtpProvider: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70bdc667_33b2_45f0_ac52_c3ca46f7a656);
 pub const GUID_IIS_ALL_TRACE_PROVIDERS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000000_0000_0000_0000_000000000000);
 pub const GUID_IIS_ASPNET_TRACE_PROVIDER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaff081fe_0247_4275_9c4e_021f3dc1da35);
@@ -2173,31 +2205,47 @@ pub const HTTP_TRACE_LEVEL_END: u32 = 7u32;
 #[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const HTTP_TRACE_LEVEL_START: u32 = 6u32;
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub type HTTP_TRACE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HTTP_TRACE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const HTTP_TRACE_TYPE_BYTE: HTTP_TRACE_TYPE = 17i32;
+pub const HTTP_TRACE_TYPE_BYTE: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(17i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const HTTP_TRACE_TYPE_USHORT: HTTP_TRACE_TYPE = 18i32;
+pub const HTTP_TRACE_TYPE_USHORT: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(18i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const HTTP_TRACE_TYPE_ULONG: HTTP_TRACE_TYPE = 19i32;
+pub const HTTP_TRACE_TYPE_ULONG: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(19i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const HTTP_TRACE_TYPE_ULONGLONG: HTTP_TRACE_TYPE = 21i32;
+pub const HTTP_TRACE_TYPE_ULONGLONG: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(21i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const HTTP_TRACE_TYPE_CHAR: HTTP_TRACE_TYPE = 16i32;
+pub const HTTP_TRACE_TYPE_CHAR: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(16i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const HTTP_TRACE_TYPE_SHORT: HTTP_TRACE_TYPE = 2i32;
+pub const HTTP_TRACE_TYPE_SHORT: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(2i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const HTTP_TRACE_TYPE_LONG: HTTP_TRACE_TYPE = 3i32;
+pub const HTTP_TRACE_TYPE_LONG: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(3i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const HTTP_TRACE_TYPE_LONGLONG: HTTP_TRACE_TYPE = 20i32;
+pub const HTTP_TRACE_TYPE_LONGLONG: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(20i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const HTTP_TRACE_TYPE_LPCWSTR: HTTP_TRACE_TYPE = 31i32;
+pub const HTTP_TRACE_TYPE_LPCWSTR: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(31i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const HTTP_TRACE_TYPE_LPCSTR: HTTP_TRACE_TYPE = 30i32;
+pub const HTTP_TRACE_TYPE_LPCSTR: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(30i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const HTTP_TRACE_TYPE_LPCGUID: HTTP_TRACE_TYPE = 72i32;
+pub const HTTP_TRACE_TYPE_LPCGUID: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(72i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const HTTP_TRACE_TYPE_BOOL: HTTP_TRACE_TYPE = 11i32;
+pub const HTTP_TRACE_TYPE_BOOL: HTTP_TRACE_TYPE = HTTP_TRACE_TYPE(11i32);
+impl ::core::marker::Copy for HTTP_TRACE_TYPE {}
+impl ::core::clone::Clone for HTTP_TRACE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for HTTP_TRACE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HTTP_TRACE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HTTP_TRACE_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Iis', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -5215,21 +5263,37 @@ pub const MD_WEB_SVC_EXT_RESTRICTION_LIST: u32 = 2168u32;
 #[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const MD_WIN32_ERROR: u32 = 1099u32;
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub type METADATATYPES = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct METADATATYPES(pub i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const ALL_METADATA: METADATATYPES = 0i32;
+pub const ALL_METADATA: METADATATYPES = METADATATYPES(0i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const DWORD_METADATA: METADATATYPES = 1i32;
+pub const DWORD_METADATA: METADATATYPES = METADATATYPES(1i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const STRING_METADATA: METADATATYPES = 2i32;
+pub const STRING_METADATA: METADATATYPES = METADATATYPES(2i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const BINARY_METADATA: METADATATYPES = 3i32;
+pub const BINARY_METADATA: METADATATYPES = METADATATYPES(3i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const EXPANDSZ_METADATA: METADATATYPES = 4i32;
+pub const EXPANDSZ_METADATA: METADATATYPES = METADATATYPES(4i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const MULTISZ_METADATA: METADATATYPES = 5i32;
+pub const MULTISZ_METADATA: METADATATYPES = METADATATYPES(5i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const INVALID_END_METADATA: METADATATYPES = 6i32;
+pub const INVALID_END_METADATA: METADATATYPES = METADATATYPES(6i32);
+impl ::core::marker::Copy for METADATATYPES {}
+impl ::core::clone::Clone for METADATATYPES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for METADATATYPES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for METADATATYPES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("METADATATYPES").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const METADATA_DONT_EXPAND: u32 = 512u32;
 #[repr(C)]
@@ -5653,45 +5717,93 @@ pub const SF_NOTIFY_SEND_RESPONSE: u32 = 64u32;
 #[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const SF_NOTIFY_URL_MAP: u32 = 4096u32;
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub type SF_PROPERTY_IIS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SF_PROPERTY_IIS(pub i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const SF_PROPERTY_SSL_CTXT: SF_PROPERTY_IIS = 0i32;
+pub const SF_PROPERTY_SSL_CTXT: SF_PROPERTY_IIS = SF_PROPERTY_IIS(0i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const SF_PROPERTY_INSTANCE_NUM_ID: SF_PROPERTY_IIS = 1i32;
+pub const SF_PROPERTY_INSTANCE_NUM_ID: SF_PROPERTY_IIS = SF_PROPERTY_IIS(1i32);
+impl ::core::marker::Copy for SF_PROPERTY_IIS {}
+impl ::core::clone::Clone for SF_PROPERTY_IIS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SF_PROPERTY_IIS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SF_PROPERTY_IIS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SF_PROPERTY_IIS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub type SF_REQ_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SF_REQ_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const SF_REQ_SEND_RESPONSE_HEADER: SF_REQ_TYPE = 0i32;
+pub const SF_REQ_SEND_RESPONSE_HEADER: SF_REQ_TYPE = SF_REQ_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const SF_REQ_ADD_HEADERS_ON_DENIAL: SF_REQ_TYPE = 1i32;
+pub const SF_REQ_ADD_HEADERS_ON_DENIAL: SF_REQ_TYPE = SF_REQ_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const SF_REQ_SET_NEXT_READ_SIZE: SF_REQ_TYPE = 2i32;
+pub const SF_REQ_SET_NEXT_READ_SIZE: SF_REQ_TYPE = SF_REQ_TYPE(2i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const SF_REQ_SET_PROXY_INFO: SF_REQ_TYPE = 3i32;
+pub const SF_REQ_SET_PROXY_INFO: SF_REQ_TYPE = SF_REQ_TYPE(3i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const SF_REQ_GET_CONNID: SF_REQ_TYPE = 4i32;
+pub const SF_REQ_GET_CONNID: SF_REQ_TYPE = SF_REQ_TYPE(4i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const SF_REQ_SET_CERTIFICATE_INFO: SF_REQ_TYPE = 5i32;
+pub const SF_REQ_SET_CERTIFICATE_INFO: SF_REQ_TYPE = SF_REQ_TYPE(5i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const SF_REQ_GET_PROPERTY: SF_REQ_TYPE = 6i32;
+pub const SF_REQ_GET_PROPERTY: SF_REQ_TYPE = SF_REQ_TYPE(6i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const SF_REQ_NORMALIZE_URL: SF_REQ_TYPE = 7i32;
+pub const SF_REQ_NORMALIZE_URL: SF_REQ_TYPE = SF_REQ_TYPE(7i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const SF_REQ_DISABLE_NOTIFICATIONS: SF_REQ_TYPE = 8i32;
+pub const SF_REQ_DISABLE_NOTIFICATIONS: SF_REQ_TYPE = SF_REQ_TYPE(8i32);
+impl ::core::marker::Copy for SF_REQ_TYPE {}
+impl ::core::clone::Clone for SF_REQ_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SF_REQ_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SF_REQ_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SF_REQ_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub type SF_STATUS_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SF_STATUS_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const SF_STATUS_REQ_FINISHED: SF_STATUS_TYPE = 134217728i32;
+pub const SF_STATUS_REQ_FINISHED: SF_STATUS_TYPE = SF_STATUS_TYPE(134217728i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const SF_STATUS_REQ_FINISHED_KEEP_CONN: SF_STATUS_TYPE = 134217729i32;
+pub const SF_STATUS_REQ_FINISHED_KEEP_CONN: SF_STATUS_TYPE = SF_STATUS_TYPE(134217729i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const SF_STATUS_REQ_NEXT_NOTIFICATION: SF_STATUS_TYPE = 134217730i32;
+pub const SF_STATUS_REQ_NEXT_NOTIFICATION: SF_STATUS_TYPE = SF_STATUS_TYPE(134217730i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const SF_STATUS_REQ_HANDLED_NOTIFICATION: SF_STATUS_TYPE = 134217731i32;
+pub const SF_STATUS_REQ_HANDLED_NOTIFICATION: SF_STATUS_TYPE = SF_STATUS_TYPE(134217731i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const SF_STATUS_REQ_ERROR: SF_STATUS_TYPE = 134217732i32;
+pub const SF_STATUS_REQ_ERROR: SF_STATUS_TYPE = SF_STATUS_TYPE(134217732i32);
 #[doc = "*Required features: 'Win32_System_Iis'*"]
-pub const SF_STATUS_REQ_READ_NEXT: SF_STATUS_TYPE = 134217733i32;
+pub const SF_STATUS_REQ_READ_NEXT: SF_STATUS_TYPE = SF_STATUS_TYPE(134217733i32);
+impl ::core::marker::Copy for SF_STATUS_TYPE {}
+impl ::core::clone::Clone for SF_STATUS_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SF_STATUS_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SF_STATUS_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SF_STATUS_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const SMTP_MD_ID_BEGIN_RESERVED: u32 = 36864u32;
 #[doc = "*Required features: 'Win32_System_Iis'*"]

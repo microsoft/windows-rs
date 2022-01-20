@@ -3801,17 +3801,33 @@ pub struct IOfflineFilesTransparentCacheInfo_Vtbl {
     IsTransparentlyCached: usize,
 }
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub type OFFLINEFILES_CACHING_MODE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct OFFLINEFILES_CACHING_MODE(pub i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_CACHING_MODE_NONE: OFFLINEFILES_CACHING_MODE = 0i32;
+pub const OFFLINEFILES_CACHING_MODE_NONE: OFFLINEFILES_CACHING_MODE = OFFLINEFILES_CACHING_MODE(0i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_CACHING_MODE_NOCACHING: OFFLINEFILES_CACHING_MODE = 1i32;
+pub const OFFLINEFILES_CACHING_MODE_NOCACHING: OFFLINEFILES_CACHING_MODE = OFFLINEFILES_CACHING_MODE(1i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_CACHING_MODE_MANUAL: OFFLINEFILES_CACHING_MODE = 2i32;
+pub const OFFLINEFILES_CACHING_MODE_MANUAL: OFFLINEFILES_CACHING_MODE = OFFLINEFILES_CACHING_MODE(2i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_CACHING_MODE_AUTO_DOC: OFFLINEFILES_CACHING_MODE = 3i32;
+pub const OFFLINEFILES_CACHING_MODE_AUTO_DOC: OFFLINEFILES_CACHING_MODE = OFFLINEFILES_CACHING_MODE(3i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_CACHING_MODE_AUTO_PROGANDDOC: OFFLINEFILES_CACHING_MODE = 4i32;
+pub const OFFLINEFILES_CACHING_MODE_AUTO_PROGANDDOC: OFFLINEFILES_CACHING_MODE = OFFLINEFILES_CACHING_MODE(4i32);
+impl ::core::marker::Copy for OFFLINEFILES_CACHING_MODE {}
+impl ::core::clone::Clone for OFFLINEFILES_CACHING_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for OFFLINEFILES_CACHING_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OFFLINEFILES_CACHING_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OFFLINEFILES_CACHING_MODE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
 pub const OFFLINEFILES_CHANGES_LOCAL_ATTRIBUTES: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
@@ -3827,31 +3843,63 @@ pub const OFFLINEFILES_CHANGES_REMOTE_SIZE: u32 = 8u32;
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
 pub const OFFLINEFILES_CHANGES_REMOTE_TIME: u32 = 32u32;
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub type OFFLINEFILES_COMPARE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct OFFLINEFILES_COMPARE(pub i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_COMPARE_EQ: OFFLINEFILES_COMPARE = 0i32;
+pub const OFFLINEFILES_COMPARE_EQ: OFFLINEFILES_COMPARE = OFFLINEFILES_COMPARE(0i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_COMPARE_NEQ: OFFLINEFILES_COMPARE = 1i32;
+pub const OFFLINEFILES_COMPARE_NEQ: OFFLINEFILES_COMPARE = OFFLINEFILES_COMPARE(1i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_COMPARE_LT: OFFLINEFILES_COMPARE = 2i32;
+pub const OFFLINEFILES_COMPARE_LT: OFFLINEFILES_COMPARE = OFFLINEFILES_COMPARE(2i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_COMPARE_GT: OFFLINEFILES_COMPARE = 3i32;
+pub const OFFLINEFILES_COMPARE_GT: OFFLINEFILES_COMPARE = OFFLINEFILES_COMPARE(3i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_COMPARE_LTE: OFFLINEFILES_COMPARE = 4i32;
+pub const OFFLINEFILES_COMPARE_LTE: OFFLINEFILES_COMPARE = OFFLINEFILES_COMPARE(4i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_COMPARE_GTE: OFFLINEFILES_COMPARE = 5i32;
+pub const OFFLINEFILES_COMPARE_GTE: OFFLINEFILES_COMPARE = OFFLINEFILES_COMPARE(5i32);
+impl ::core::marker::Copy for OFFLINEFILES_COMPARE {}
+impl ::core::clone::Clone for OFFLINEFILES_COMPARE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for OFFLINEFILES_COMPARE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OFFLINEFILES_COMPARE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OFFLINEFILES_COMPARE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub type OFFLINEFILES_CONNECT_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct OFFLINEFILES_CONNECT_STATE(pub i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_CONNECT_STATE_UNKNOWN: OFFLINEFILES_CONNECT_STATE = 0i32;
+pub const OFFLINEFILES_CONNECT_STATE_UNKNOWN: OFFLINEFILES_CONNECT_STATE = OFFLINEFILES_CONNECT_STATE(0i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_CONNECT_STATE_OFFLINE: OFFLINEFILES_CONNECT_STATE = 1i32;
+pub const OFFLINEFILES_CONNECT_STATE_OFFLINE: OFFLINEFILES_CONNECT_STATE = OFFLINEFILES_CONNECT_STATE(1i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_CONNECT_STATE_ONLINE: OFFLINEFILES_CONNECT_STATE = 2i32;
+pub const OFFLINEFILES_CONNECT_STATE_ONLINE: OFFLINEFILES_CONNECT_STATE = OFFLINEFILES_CONNECT_STATE(2i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_CONNECT_STATE_TRANSPARENTLY_CACHED: OFFLINEFILES_CONNECT_STATE = 3i32;
+pub const OFFLINEFILES_CONNECT_STATE_TRANSPARENTLY_CACHED: OFFLINEFILES_CONNECT_STATE = OFFLINEFILES_CONNECT_STATE(3i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_CONNECT_STATE_PARTLY_TRANSPARENTLY_CACHED: OFFLINEFILES_CONNECT_STATE = 4i32;
+pub const OFFLINEFILES_CONNECT_STATE_PARTLY_TRANSPARENTLY_CACHED: OFFLINEFILES_CONNECT_STATE = OFFLINEFILES_CONNECT_STATE(4i32);
+impl ::core::marker::Copy for OFFLINEFILES_CONNECT_STATE {}
+impl ::core::clone::Clone for OFFLINEFILES_CONNECT_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for OFFLINEFILES_CONNECT_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OFFLINEFILES_CONNECT_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OFFLINEFILES_CONNECT_STATE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
 pub const OFFLINEFILES_DELETE_FLAG_ADMIN: u32 = 2147483648u32;
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
@@ -3875,95 +3923,127 @@ pub const OFFLINEFILES_ENUM_FLAT: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
 pub const OFFLINEFILES_ENUM_FLAT_FILESONLY: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub type OFFLINEFILES_EVENTS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct OFFLINEFILES_EVENTS(pub i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_EVENT_CACHEMOVED: OFFLINEFILES_EVENTS = 0i32;
+pub const OFFLINEFILES_EVENT_CACHEMOVED: OFFLINEFILES_EVENTS = OFFLINEFILES_EVENTS(0i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_EVENT_CACHEISFULL: OFFLINEFILES_EVENTS = 1i32;
+pub const OFFLINEFILES_EVENT_CACHEISFULL: OFFLINEFILES_EVENTS = OFFLINEFILES_EVENTS(1i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_EVENT_CACHEISCORRUPTED: OFFLINEFILES_EVENTS = 2i32;
+pub const OFFLINEFILES_EVENT_CACHEISCORRUPTED: OFFLINEFILES_EVENTS = OFFLINEFILES_EVENTS(2i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_EVENT_ENABLED: OFFLINEFILES_EVENTS = 3i32;
+pub const OFFLINEFILES_EVENT_ENABLED: OFFLINEFILES_EVENTS = OFFLINEFILES_EVENTS(3i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_EVENT_ENCRYPTIONCHANGED: OFFLINEFILES_EVENTS = 4i32;
+pub const OFFLINEFILES_EVENT_ENCRYPTIONCHANGED: OFFLINEFILES_EVENTS = OFFLINEFILES_EVENTS(4i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_EVENT_SYNCBEGIN: OFFLINEFILES_EVENTS = 5i32;
+pub const OFFLINEFILES_EVENT_SYNCBEGIN: OFFLINEFILES_EVENTS = OFFLINEFILES_EVENTS(5i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_EVENT_SYNCFILERESULT: OFFLINEFILES_EVENTS = 6i32;
+pub const OFFLINEFILES_EVENT_SYNCFILERESULT: OFFLINEFILES_EVENTS = OFFLINEFILES_EVENTS(6i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_EVENT_SYNCCONFLICTRECADDED: OFFLINEFILES_EVENTS = 7i32;
+pub const OFFLINEFILES_EVENT_SYNCCONFLICTRECADDED: OFFLINEFILES_EVENTS = OFFLINEFILES_EVENTS(7i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_EVENT_SYNCCONFLICTRECUPDATED: OFFLINEFILES_EVENTS = 8i32;
+pub const OFFLINEFILES_EVENT_SYNCCONFLICTRECUPDATED: OFFLINEFILES_EVENTS = OFFLINEFILES_EVENTS(8i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_EVENT_SYNCCONFLICTRECREMOVED: OFFLINEFILES_EVENTS = 9i32;
+pub const OFFLINEFILES_EVENT_SYNCCONFLICTRECREMOVED: OFFLINEFILES_EVENTS = OFFLINEFILES_EVENTS(9i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_EVENT_SYNCEND: OFFLINEFILES_EVENTS = 10i32;
+pub const OFFLINEFILES_EVENT_SYNCEND: OFFLINEFILES_EVENTS = OFFLINEFILES_EVENTS(10i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_EVENT_BACKGROUNDSYNCBEGIN: OFFLINEFILES_EVENTS = 11i32;
+pub const OFFLINEFILES_EVENT_BACKGROUNDSYNCBEGIN: OFFLINEFILES_EVENTS = OFFLINEFILES_EVENTS(11i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_EVENT_BACKGROUNDSYNCEND: OFFLINEFILES_EVENTS = 12i32;
+pub const OFFLINEFILES_EVENT_BACKGROUNDSYNCEND: OFFLINEFILES_EVENTS = OFFLINEFILES_EVENTS(12i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_EVENT_NETTRANSPORTARRIVED: OFFLINEFILES_EVENTS = 13i32;
+pub const OFFLINEFILES_EVENT_NETTRANSPORTARRIVED: OFFLINEFILES_EVENTS = OFFLINEFILES_EVENTS(13i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_EVENT_NONETTRANSPORTS: OFFLINEFILES_EVENTS = 14i32;
+pub const OFFLINEFILES_EVENT_NONETTRANSPORTS: OFFLINEFILES_EVENTS = OFFLINEFILES_EVENTS(14i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_EVENT_ITEMDISCONNECTED: OFFLINEFILES_EVENTS = 15i32;
+pub const OFFLINEFILES_EVENT_ITEMDISCONNECTED: OFFLINEFILES_EVENTS = OFFLINEFILES_EVENTS(15i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_EVENT_ITEMRECONNECTED: OFFLINEFILES_EVENTS = 16i32;
+pub const OFFLINEFILES_EVENT_ITEMRECONNECTED: OFFLINEFILES_EVENTS = OFFLINEFILES_EVENTS(16i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_EVENT_ITEMAVAILABLEOFFLINE: OFFLINEFILES_EVENTS = 17i32;
+pub const OFFLINEFILES_EVENT_ITEMAVAILABLEOFFLINE: OFFLINEFILES_EVENTS = OFFLINEFILES_EVENTS(17i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_EVENT_ITEMNOTAVAILABLEOFFLINE: OFFLINEFILES_EVENTS = 18i32;
+pub const OFFLINEFILES_EVENT_ITEMNOTAVAILABLEOFFLINE: OFFLINEFILES_EVENTS = OFFLINEFILES_EVENTS(18i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_EVENT_ITEMPINNED: OFFLINEFILES_EVENTS = 19i32;
+pub const OFFLINEFILES_EVENT_ITEMPINNED: OFFLINEFILES_EVENTS = OFFLINEFILES_EVENTS(19i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_EVENT_ITEMNOTPINNED: OFFLINEFILES_EVENTS = 20i32;
+pub const OFFLINEFILES_EVENT_ITEMNOTPINNED: OFFLINEFILES_EVENTS = OFFLINEFILES_EVENTS(20i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_EVENT_ITEMMODIFIED: OFFLINEFILES_EVENTS = 21i32;
+pub const OFFLINEFILES_EVENT_ITEMMODIFIED: OFFLINEFILES_EVENTS = OFFLINEFILES_EVENTS(21i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_EVENT_ITEMADDEDTOCACHE: OFFLINEFILES_EVENTS = 22i32;
+pub const OFFLINEFILES_EVENT_ITEMADDEDTOCACHE: OFFLINEFILES_EVENTS = OFFLINEFILES_EVENTS(22i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_EVENT_ITEMDELETEDFROMCACHE: OFFLINEFILES_EVENTS = 23i32;
+pub const OFFLINEFILES_EVENT_ITEMDELETEDFROMCACHE: OFFLINEFILES_EVENTS = OFFLINEFILES_EVENTS(23i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_EVENT_ITEMRENAMED: OFFLINEFILES_EVENTS = 24i32;
+pub const OFFLINEFILES_EVENT_ITEMRENAMED: OFFLINEFILES_EVENTS = OFFLINEFILES_EVENTS(24i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_EVENT_DATALOST: OFFLINEFILES_EVENTS = 25i32;
+pub const OFFLINEFILES_EVENT_DATALOST: OFFLINEFILES_EVENTS = OFFLINEFILES_EVENTS(25i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_EVENT_PING: OFFLINEFILES_EVENTS = 26i32;
+pub const OFFLINEFILES_EVENT_PING: OFFLINEFILES_EVENTS = OFFLINEFILES_EVENTS(26i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_EVENT_ITEMRECONNECTBEGIN: OFFLINEFILES_EVENTS = 27i32;
+pub const OFFLINEFILES_EVENT_ITEMRECONNECTBEGIN: OFFLINEFILES_EVENTS = OFFLINEFILES_EVENTS(27i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_EVENT_ITEMRECONNECTEND: OFFLINEFILES_EVENTS = 28i32;
+pub const OFFLINEFILES_EVENT_ITEMRECONNECTEND: OFFLINEFILES_EVENTS = OFFLINEFILES_EVENTS(28i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_EVENT_CACHEEVICTBEGIN: OFFLINEFILES_EVENTS = 29i32;
+pub const OFFLINEFILES_EVENT_CACHEEVICTBEGIN: OFFLINEFILES_EVENTS = OFFLINEFILES_EVENTS(29i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_EVENT_CACHEEVICTEND: OFFLINEFILES_EVENTS = 30i32;
+pub const OFFLINEFILES_EVENT_CACHEEVICTEND: OFFLINEFILES_EVENTS = OFFLINEFILES_EVENTS(30i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_EVENT_POLICYCHANGEDETECTED: OFFLINEFILES_EVENTS = 31i32;
+pub const OFFLINEFILES_EVENT_POLICYCHANGEDETECTED: OFFLINEFILES_EVENTS = OFFLINEFILES_EVENTS(31i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_EVENT_PREFERENCECHANGEDETECTED: OFFLINEFILES_EVENTS = 32i32;
+pub const OFFLINEFILES_EVENT_PREFERENCECHANGEDETECTED: OFFLINEFILES_EVENTS = OFFLINEFILES_EVENTS(32i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_EVENT_SETTINGSCHANGESAPPLIED: OFFLINEFILES_EVENTS = 33i32;
+pub const OFFLINEFILES_EVENT_SETTINGSCHANGESAPPLIED: OFFLINEFILES_EVENTS = OFFLINEFILES_EVENTS(33i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_EVENT_TRANSPARENTCACHEITEMNOTIFY: OFFLINEFILES_EVENTS = 34i32;
+pub const OFFLINEFILES_EVENT_TRANSPARENTCACHEITEMNOTIFY: OFFLINEFILES_EVENTS = OFFLINEFILES_EVENTS(34i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_EVENT_PREFETCHFILEBEGIN: OFFLINEFILES_EVENTS = 35i32;
+pub const OFFLINEFILES_EVENT_PREFETCHFILEBEGIN: OFFLINEFILES_EVENTS = OFFLINEFILES_EVENTS(35i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_EVENT_PREFETCHFILEEND: OFFLINEFILES_EVENTS = 36i32;
+pub const OFFLINEFILES_EVENT_PREFETCHFILEEND: OFFLINEFILES_EVENTS = OFFLINEFILES_EVENTS(36i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_EVENT_PREFETCHCLOSEHANDLEBEGIN: OFFLINEFILES_EVENTS = 37i32;
+pub const OFFLINEFILES_EVENT_PREFETCHCLOSEHANDLEBEGIN: OFFLINEFILES_EVENTS = OFFLINEFILES_EVENTS(37i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_EVENT_PREFETCHCLOSEHANDLEEND: OFFLINEFILES_EVENTS = 38i32;
+pub const OFFLINEFILES_EVENT_PREFETCHCLOSEHANDLEEND: OFFLINEFILES_EVENTS = OFFLINEFILES_EVENTS(38i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_NUM_EVENTS: OFFLINEFILES_EVENTS = 39i32;
+pub const OFFLINEFILES_NUM_EVENTS: OFFLINEFILES_EVENTS = OFFLINEFILES_EVENTS(39i32);
+impl ::core::marker::Copy for OFFLINEFILES_EVENTS {}
+impl ::core::clone::Clone for OFFLINEFILES_EVENTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for OFFLINEFILES_EVENTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OFFLINEFILES_EVENTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OFFLINEFILES_EVENTS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub type OFFLINEFILES_ITEM_COPY = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct OFFLINEFILES_ITEM_COPY(pub i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_ITEM_COPY_LOCAL: OFFLINEFILES_ITEM_COPY = 0i32;
+pub const OFFLINEFILES_ITEM_COPY_LOCAL: OFFLINEFILES_ITEM_COPY = OFFLINEFILES_ITEM_COPY(0i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_ITEM_COPY_REMOTE: OFFLINEFILES_ITEM_COPY = 1i32;
+pub const OFFLINEFILES_ITEM_COPY_REMOTE: OFFLINEFILES_ITEM_COPY = OFFLINEFILES_ITEM_COPY(1i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_ITEM_COPY_ORIGINAL: OFFLINEFILES_ITEM_COPY = 2i32;
+pub const OFFLINEFILES_ITEM_COPY_ORIGINAL: OFFLINEFILES_ITEM_COPY = OFFLINEFILES_ITEM_COPY(2i32);
+impl ::core::marker::Copy for OFFLINEFILES_ITEM_COPY {}
+impl ::core::clone::Clone for OFFLINEFILES_ITEM_COPY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for OFFLINEFILES_ITEM_COPY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OFFLINEFILES_ITEM_COPY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OFFLINEFILES_ITEM_COPY").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
 pub const OFFLINEFILES_ITEM_FILTER_FLAG_CREATED: u32 = 8u32;
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
@@ -4031,59 +4111,139 @@ pub const OFFLINEFILES_ITEM_QUERY_REMOTEDIRTYBYTECOUNT: u32 = 8u32;
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
 pub const OFFLINEFILES_ITEM_QUERY_REMOTEINFO: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub type OFFLINEFILES_ITEM_TIME = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct OFFLINEFILES_ITEM_TIME(pub i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_ITEM_TIME_CREATION: OFFLINEFILES_ITEM_TIME = 0i32;
+pub const OFFLINEFILES_ITEM_TIME_CREATION: OFFLINEFILES_ITEM_TIME = OFFLINEFILES_ITEM_TIME(0i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_ITEM_TIME_LASTACCESS: OFFLINEFILES_ITEM_TIME = 1i32;
+pub const OFFLINEFILES_ITEM_TIME_LASTACCESS: OFFLINEFILES_ITEM_TIME = OFFLINEFILES_ITEM_TIME(1i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_ITEM_TIME_LASTWRITE: OFFLINEFILES_ITEM_TIME = 2i32;
+pub const OFFLINEFILES_ITEM_TIME_LASTWRITE: OFFLINEFILES_ITEM_TIME = OFFLINEFILES_ITEM_TIME(2i32);
+impl ::core::marker::Copy for OFFLINEFILES_ITEM_TIME {}
+impl ::core::clone::Clone for OFFLINEFILES_ITEM_TIME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for OFFLINEFILES_ITEM_TIME {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OFFLINEFILES_ITEM_TIME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OFFLINEFILES_ITEM_TIME").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub type OFFLINEFILES_ITEM_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct OFFLINEFILES_ITEM_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_ITEM_TYPE_FILE: OFFLINEFILES_ITEM_TYPE = 0i32;
+pub const OFFLINEFILES_ITEM_TYPE_FILE: OFFLINEFILES_ITEM_TYPE = OFFLINEFILES_ITEM_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_ITEM_TYPE_DIRECTORY: OFFLINEFILES_ITEM_TYPE = 1i32;
+pub const OFFLINEFILES_ITEM_TYPE_DIRECTORY: OFFLINEFILES_ITEM_TYPE = OFFLINEFILES_ITEM_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_ITEM_TYPE_SHARE: OFFLINEFILES_ITEM_TYPE = 2i32;
+pub const OFFLINEFILES_ITEM_TYPE_SHARE: OFFLINEFILES_ITEM_TYPE = OFFLINEFILES_ITEM_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_ITEM_TYPE_SERVER: OFFLINEFILES_ITEM_TYPE = 3i32;
+pub const OFFLINEFILES_ITEM_TYPE_SERVER: OFFLINEFILES_ITEM_TYPE = OFFLINEFILES_ITEM_TYPE(3i32);
+impl ::core::marker::Copy for OFFLINEFILES_ITEM_TYPE {}
+impl ::core::clone::Clone for OFFLINEFILES_ITEM_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for OFFLINEFILES_ITEM_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OFFLINEFILES_ITEM_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OFFLINEFILES_ITEM_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub type OFFLINEFILES_OFFLINE_REASON = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct OFFLINEFILES_OFFLINE_REASON(pub i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_OFFLINE_REASON_UNKNOWN: OFFLINEFILES_OFFLINE_REASON = 0i32;
+pub const OFFLINEFILES_OFFLINE_REASON_UNKNOWN: OFFLINEFILES_OFFLINE_REASON = OFFLINEFILES_OFFLINE_REASON(0i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_OFFLINE_REASON_NOT_APPLICABLE: OFFLINEFILES_OFFLINE_REASON = 1i32;
+pub const OFFLINEFILES_OFFLINE_REASON_NOT_APPLICABLE: OFFLINEFILES_OFFLINE_REASON = OFFLINEFILES_OFFLINE_REASON(1i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_OFFLINE_REASON_CONNECTION_FORCED: OFFLINEFILES_OFFLINE_REASON = 2i32;
+pub const OFFLINEFILES_OFFLINE_REASON_CONNECTION_FORCED: OFFLINEFILES_OFFLINE_REASON = OFFLINEFILES_OFFLINE_REASON(2i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_OFFLINE_REASON_CONNECTION_SLOW: OFFLINEFILES_OFFLINE_REASON = 3i32;
+pub const OFFLINEFILES_OFFLINE_REASON_CONNECTION_SLOW: OFFLINEFILES_OFFLINE_REASON = OFFLINEFILES_OFFLINE_REASON(3i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_OFFLINE_REASON_CONNECTION_ERROR: OFFLINEFILES_OFFLINE_REASON = 4i32;
+pub const OFFLINEFILES_OFFLINE_REASON_CONNECTION_ERROR: OFFLINEFILES_OFFLINE_REASON = OFFLINEFILES_OFFLINE_REASON(4i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_OFFLINE_REASON_ITEM_VERSION_CONFLICT: OFFLINEFILES_OFFLINE_REASON = 5i32;
+pub const OFFLINEFILES_OFFLINE_REASON_ITEM_VERSION_CONFLICT: OFFLINEFILES_OFFLINE_REASON = OFFLINEFILES_OFFLINE_REASON(5i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_OFFLINE_REASON_ITEM_SUSPENDED: OFFLINEFILES_OFFLINE_REASON = 6i32;
+pub const OFFLINEFILES_OFFLINE_REASON_ITEM_SUSPENDED: OFFLINEFILES_OFFLINE_REASON = OFFLINEFILES_OFFLINE_REASON(6i32);
+impl ::core::marker::Copy for OFFLINEFILES_OFFLINE_REASON {}
+impl ::core::clone::Clone for OFFLINEFILES_OFFLINE_REASON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for OFFLINEFILES_OFFLINE_REASON {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OFFLINEFILES_OFFLINE_REASON {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OFFLINEFILES_OFFLINE_REASON").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub type OFFLINEFILES_OP_RESPONSE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct OFFLINEFILES_OP_RESPONSE(pub i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_OP_CONTINUE: OFFLINEFILES_OP_RESPONSE = 0i32;
+pub const OFFLINEFILES_OP_CONTINUE: OFFLINEFILES_OP_RESPONSE = OFFLINEFILES_OP_RESPONSE(0i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_OP_RETRY: OFFLINEFILES_OP_RESPONSE = 1i32;
+pub const OFFLINEFILES_OP_RETRY: OFFLINEFILES_OP_RESPONSE = OFFLINEFILES_OP_RESPONSE(1i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_OP_ABORT: OFFLINEFILES_OP_RESPONSE = 2i32;
+pub const OFFLINEFILES_OP_ABORT: OFFLINEFILES_OP_RESPONSE = OFFLINEFILES_OP_RESPONSE(2i32);
+impl ::core::marker::Copy for OFFLINEFILES_OP_RESPONSE {}
+impl ::core::clone::Clone for OFFLINEFILES_OP_RESPONSE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for OFFLINEFILES_OP_RESPONSE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OFFLINEFILES_OP_RESPONSE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OFFLINEFILES_OP_RESPONSE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub type OFFLINEFILES_PATHFILTER_MATCH = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct OFFLINEFILES_PATHFILTER_MATCH(pub i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_PATHFILTER_SELF: OFFLINEFILES_PATHFILTER_MATCH = 0i32;
+pub const OFFLINEFILES_PATHFILTER_SELF: OFFLINEFILES_PATHFILTER_MATCH = OFFLINEFILES_PATHFILTER_MATCH(0i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_PATHFILTER_CHILD: OFFLINEFILES_PATHFILTER_MATCH = 1i32;
+pub const OFFLINEFILES_PATHFILTER_CHILD: OFFLINEFILES_PATHFILTER_MATCH = OFFLINEFILES_PATHFILTER_MATCH(1i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_PATHFILTER_DESCENDENT: OFFLINEFILES_PATHFILTER_MATCH = 2i32;
+pub const OFFLINEFILES_PATHFILTER_DESCENDENT: OFFLINEFILES_PATHFILTER_MATCH = OFFLINEFILES_PATHFILTER_MATCH(2i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_PATHFILTER_SELFORCHILD: OFFLINEFILES_PATHFILTER_MATCH = 3i32;
+pub const OFFLINEFILES_PATHFILTER_SELFORCHILD: OFFLINEFILES_PATHFILTER_MATCH = OFFLINEFILES_PATHFILTER_MATCH(3i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_PATHFILTER_SELFORDESCENDENT: OFFLINEFILES_PATHFILTER_MATCH = 4i32;
+pub const OFFLINEFILES_PATHFILTER_SELFORDESCENDENT: OFFLINEFILES_PATHFILTER_MATCH = OFFLINEFILES_PATHFILTER_MATCH(4i32);
+impl ::core::marker::Copy for OFFLINEFILES_PATHFILTER_MATCH {}
+impl ::core::clone::Clone for OFFLINEFILES_PATHFILTER_MATCH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for OFFLINEFILES_PATHFILTER_MATCH {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OFFLINEFILES_PATHFILTER_MATCH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OFFLINEFILES_PATHFILTER_MATCH").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
 pub const OFFLINEFILES_PINLINKTARGETS_ALWAYS: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
@@ -4117,37 +4277,69 @@ pub const OFFLINEFILES_SETTING_SCOPE_COMPUTER: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
 pub const OFFLINEFILES_SETTING_SCOPE_USER: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub type OFFLINEFILES_SETTING_VALUE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct OFFLINEFILES_SETTING_VALUE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SETTING_VALUE_UI4: OFFLINEFILES_SETTING_VALUE_TYPE = 0i32;
+pub const OFFLINEFILES_SETTING_VALUE_UI4: OFFLINEFILES_SETTING_VALUE_TYPE = OFFLINEFILES_SETTING_VALUE_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SETTING_VALUE_BSTR: OFFLINEFILES_SETTING_VALUE_TYPE = 1i32;
+pub const OFFLINEFILES_SETTING_VALUE_BSTR: OFFLINEFILES_SETTING_VALUE_TYPE = OFFLINEFILES_SETTING_VALUE_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SETTING_VALUE_BSTR_DBLNULTERM: OFFLINEFILES_SETTING_VALUE_TYPE = 2i32;
+pub const OFFLINEFILES_SETTING_VALUE_BSTR_DBLNULTERM: OFFLINEFILES_SETTING_VALUE_TYPE = OFFLINEFILES_SETTING_VALUE_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SETTING_VALUE_2DIM_ARRAY_BSTR_UI4: OFFLINEFILES_SETTING_VALUE_TYPE = 3i32;
+pub const OFFLINEFILES_SETTING_VALUE_2DIM_ARRAY_BSTR_UI4: OFFLINEFILES_SETTING_VALUE_TYPE = OFFLINEFILES_SETTING_VALUE_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SETTING_VALUE_2DIM_ARRAY_BSTR_BSTR: OFFLINEFILES_SETTING_VALUE_TYPE = 4i32;
+pub const OFFLINEFILES_SETTING_VALUE_2DIM_ARRAY_BSTR_BSTR: OFFLINEFILES_SETTING_VALUE_TYPE = OFFLINEFILES_SETTING_VALUE_TYPE(4i32);
+impl ::core::marker::Copy for OFFLINEFILES_SETTING_VALUE_TYPE {}
+impl ::core::clone::Clone for OFFLINEFILES_SETTING_VALUE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for OFFLINEFILES_SETTING_VALUE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OFFLINEFILES_SETTING_VALUE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OFFLINEFILES_SETTING_VALUE_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub type OFFLINEFILES_SYNC_CONFLICT_RESOLVE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct OFFLINEFILES_SYNC_CONFLICT_RESOLVE(pub i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_CONFLICT_RESOLVE_NONE: OFFLINEFILES_SYNC_CONFLICT_RESOLVE = 0i32;
+pub const OFFLINEFILES_SYNC_CONFLICT_RESOLVE_NONE: OFFLINEFILES_SYNC_CONFLICT_RESOLVE = OFFLINEFILES_SYNC_CONFLICT_RESOLVE(0i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_CONFLICT_RESOLVE_KEEPLOCAL: OFFLINEFILES_SYNC_CONFLICT_RESOLVE = 1i32;
+pub const OFFLINEFILES_SYNC_CONFLICT_RESOLVE_KEEPLOCAL: OFFLINEFILES_SYNC_CONFLICT_RESOLVE = OFFLINEFILES_SYNC_CONFLICT_RESOLVE(1i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_CONFLICT_RESOLVE_KEEPREMOTE: OFFLINEFILES_SYNC_CONFLICT_RESOLVE = 2i32;
+pub const OFFLINEFILES_SYNC_CONFLICT_RESOLVE_KEEPREMOTE: OFFLINEFILES_SYNC_CONFLICT_RESOLVE = OFFLINEFILES_SYNC_CONFLICT_RESOLVE(2i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_CONFLICT_RESOLVE_KEEPALLCHANGES: OFFLINEFILES_SYNC_CONFLICT_RESOLVE = 3i32;
+pub const OFFLINEFILES_SYNC_CONFLICT_RESOLVE_KEEPALLCHANGES: OFFLINEFILES_SYNC_CONFLICT_RESOLVE = OFFLINEFILES_SYNC_CONFLICT_RESOLVE(3i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_CONFLICT_RESOLVE_KEEPLATEST: OFFLINEFILES_SYNC_CONFLICT_RESOLVE = 4i32;
+pub const OFFLINEFILES_SYNC_CONFLICT_RESOLVE_KEEPLATEST: OFFLINEFILES_SYNC_CONFLICT_RESOLVE = OFFLINEFILES_SYNC_CONFLICT_RESOLVE(4i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_CONFLICT_RESOLVE_LOG: OFFLINEFILES_SYNC_CONFLICT_RESOLVE = 5i32;
+pub const OFFLINEFILES_SYNC_CONFLICT_RESOLVE_LOG: OFFLINEFILES_SYNC_CONFLICT_RESOLVE = OFFLINEFILES_SYNC_CONFLICT_RESOLVE(5i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_CONFLICT_RESOLVE_SKIP: OFFLINEFILES_SYNC_CONFLICT_RESOLVE = 6i32;
+pub const OFFLINEFILES_SYNC_CONFLICT_RESOLVE_SKIP: OFFLINEFILES_SYNC_CONFLICT_RESOLVE = OFFLINEFILES_SYNC_CONFLICT_RESOLVE(6i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_CONFLICT_ABORT: OFFLINEFILES_SYNC_CONFLICT_RESOLVE = 7i32;
+pub const OFFLINEFILES_SYNC_CONFLICT_ABORT: OFFLINEFILES_SYNC_CONFLICT_RESOLVE = OFFLINEFILES_SYNC_CONFLICT_RESOLVE(7i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_CONFLICT_RESOLVE_NUMCODES: OFFLINEFILES_SYNC_CONFLICT_RESOLVE = 8i32;
+pub const OFFLINEFILES_SYNC_CONFLICT_RESOLVE_NUMCODES: OFFLINEFILES_SYNC_CONFLICT_RESOLVE = OFFLINEFILES_SYNC_CONFLICT_RESOLVE(8i32);
+impl ::core::marker::Copy for OFFLINEFILES_SYNC_CONFLICT_RESOLVE {}
+impl ::core::clone::Clone for OFFLINEFILES_SYNC_CONFLICT_RESOLVE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for OFFLINEFILES_SYNC_CONFLICT_RESOLVE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OFFLINEFILES_SYNC_CONFLICT_RESOLVE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OFFLINEFILES_SYNC_CONFLICT_RESOLVE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
 pub const OFFLINEFILES_SYNC_CONTROL_CR_DEFAULT: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
@@ -4201,135 +4393,167 @@ pub const OFFLINEFILES_SYNC_ITEM_CHANGE_NONE: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
 pub const OFFLINEFILES_SYNC_ITEM_CHANGE_WRITETIME: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub type OFFLINEFILES_SYNC_OPERATION = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct OFFLINEFILES_SYNC_OPERATION(pub i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_OPERATION_CREATE_COPY_ON_SERVER: OFFLINEFILES_SYNC_OPERATION = 0i32;
+pub const OFFLINEFILES_SYNC_OPERATION_CREATE_COPY_ON_SERVER: OFFLINEFILES_SYNC_OPERATION = OFFLINEFILES_SYNC_OPERATION(0i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_OPERATION_CREATE_COPY_ON_CLIENT: OFFLINEFILES_SYNC_OPERATION = 1i32;
+pub const OFFLINEFILES_SYNC_OPERATION_CREATE_COPY_ON_CLIENT: OFFLINEFILES_SYNC_OPERATION = OFFLINEFILES_SYNC_OPERATION(1i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_OPERATION_SYNC_TO_SERVER: OFFLINEFILES_SYNC_OPERATION = 2i32;
+pub const OFFLINEFILES_SYNC_OPERATION_SYNC_TO_SERVER: OFFLINEFILES_SYNC_OPERATION = OFFLINEFILES_SYNC_OPERATION(2i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_OPERATION_SYNC_TO_CLIENT: OFFLINEFILES_SYNC_OPERATION = 3i32;
+pub const OFFLINEFILES_SYNC_OPERATION_SYNC_TO_CLIENT: OFFLINEFILES_SYNC_OPERATION = OFFLINEFILES_SYNC_OPERATION(3i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_OPERATION_DELETE_SERVER_COPY: OFFLINEFILES_SYNC_OPERATION = 4i32;
+pub const OFFLINEFILES_SYNC_OPERATION_DELETE_SERVER_COPY: OFFLINEFILES_SYNC_OPERATION = OFFLINEFILES_SYNC_OPERATION(4i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_OPERATION_DELETE_CLIENT_COPY: OFFLINEFILES_SYNC_OPERATION = 5i32;
+pub const OFFLINEFILES_SYNC_OPERATION_DELETE_CLIENT_COPY: OFFLINEFILES_SYNC_OPERATION = OFFLINEFILES_SYNC_OPERATION(5i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_OPERATION_PIN: OFFLINEFILES_SYNC_OPERATION = 6i32;
+pub const OFFLINEFILES_SYNC_OPERATION_PIN: OFFLINEFILES_SYNC_OPERATION = OFFLINEFILES_SYNC_OPERATION(6i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_OPERATION_PREPARE: OFFLINEFILES_SYNC_OPERATION = 7i32;
+pub const OFFLINEFILES_SYNC_OPERATION_PREPARE: OFFLINEFILES_SYNC_OPERATION = OFFLINEFILES_SYNC_OPERATION(7i32);
+impl ::core::marker::Copy for OFFLINEFILES_SYNC_OPERATION {}
+impl ::core::clone::Clone for OFFLINEFILES_SYNC_OPERATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for OFFLINEFILES_SYNC_OPERATION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OFFLINEFILES_SYNC_OPERATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OFFLINEFILES_SYNC_OPERATION").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub type OFFLINEFILES_SYNC_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct OFFLINEFILES_SYNC_STATE(pub i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_Stable: OFFLINEFILES_SYNC_STATE = 0i32;
+pub const OFFLINEFILES_SYNC_STATE_Stable: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(0i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_FileOnClient_DirOnServer: OFFLINEFILES_SYNC_STATE = 1i32;
+pub const OFFLINEFILES_SYNC_STATE_FileOnClient_DirOnServer: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(1i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_FileOnClient_NoServerCopy: OFFLINEFILES_SYNC_STATE = 2i32;
+pub const OFFLINEFILES_SYNC_STATE_FileOnClient_NoServerCopy: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(2i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_DirOnClient_FileOnServer: OFFLINEFILES_SYNC_STATE = 3i32;
+pub const OFFLINEFILES_SYNC_STATE_DirOnClient_FileOnServer: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(3i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_DirOnClient_FileChangedOnServer: OFFLINEFILES_SYNC_STATE = 4i32;
+pub const OFFLINEFILES_SYNC_STATE_DirOnClient_FileChangedOnServer: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(4i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_DirOnClient_NoServerCopy: OFFLINEFILES_SYNC_STATE = 5i32;
+pub const OFFLINEFILES_SYNC_STATE_DirOnClient_NoServerCopy: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(5i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_FileCreatedOnClient_NoServerCopy: OFFLINEFILES_SYNC_STATE = 6i32;
+pub const OFFLINEFILES_SYNC_STATE_FileCreatedOnClient_NoServerCopy: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(6i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_FileCreatedOnClient_FileChangedOnServer: OFFLINEFILES_SYNC_STATE = 7i32;
+pub const OFFLINEFILES_SYNC_STATE_FileCreatedOnClient_FileChangedOnServer: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(7i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_FileCreatedOnClient_DirChangedOnServer: OFFLINEFILES_SYNC_STATE = 8i32;
+pub const OFFLINEFILES_SYNC_STATE_FileCreatedOnClient_DirChangedOnServer: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(8i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_FileCreatedOnClient_FileOnServer: OFFLINEFILES_SYNC_STATE = 9i32;
+pub const OFFLINEFILES_SYNC_STATE_FileCreatedOnClient_FileOnServer: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(9i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_FileCreatedOnClient_DirOnServer: OFFLINEFILES_SYNC_STATE = 10i32;
+pub const OFFLINEFILES_SYNC_STATE_FileCreatedOnClient_DirOnServer: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(10i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_FileCreatedOnClient_DeletedOnServer: OFFLINEFILES_SYNC_STATE = 11i32;
+pub const OFFLINEFILES_SYNC_STATE_FileCreatedOnClient_DeletedOnServer: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(11i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_FileChangedOnClient_ChangedOnServer: OFFLINEFILES_SYNC_STATE = 12i32;
+pub const OFFLINEFILES_SYNC_STATE_FileChangedOnClient_ChangedOnServer: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(12i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_FileChangedOnClient_DirOnServer: OFFLINEFILES_SYNC_STATE = 13i32;
+pub const OFFLINEFILES_SYNC_STATE_FileChangedOnClient_DirOnServer: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(13i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_FileChangedOnClient_DirChangedOnServer: OFFLINEFILES_SYNC_STATE = 14i32;
+pub const OFFLINEFILES_SYNC_STATE_FileChangedOnClient_DirChangedOnServer: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(14i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_FileChangedOnClient_DeletedOnServer: OFFLINEFILES_SYNC_STATE = 15i32;
+pub const OFFLINEFILES_SYNC_STATE_FileChangedOnClient_DeletedOnServer: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(15i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_FileSparseOnClient_ChangedOnServer: OFFLINEFILES_SYNC_STATE = 16i32;
+pub const OFFLINEFILES_SYNC_STATE_FileSparseOnClient_ChangedOnServer: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(16i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_FileSparseOnClient_DeletedOnServer: OFFLINEFILES_SYNC_STATE = 17i32;
+pub const OFFLINEFILES_SYNC_STATE_FileSparseOnClient_DeletedOnServer: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(17i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_FileSparseOnClient_DirOnServer: OFFLINEFILES_SYNC_STATE = 18i32;
+pub const OFFLINEFILES_SYNC_STATE_FileSparseOnClient_DirOnServer: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(18i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_FileSparseOnClient_DirChangedOnServer: OFFLINEFILES_SYNC_STATE = 19i32;
+pub const OFFLINEFILES_SYNC_STATE_FileSparseOnClient_DirChangedOnServer: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(19i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_DirCreatedOnClient_NoServerCopy: OFFLINEFILES_SYNC_STATE = 20i32;
+pub const OFFLINEFILES_SYNC_STATE_DirCreatedOnClient_NoServerCopy: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(20i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_DirCreatedOnClient_DirOnServer: OFFLINEFILES_SYNC_STATE = 21i32;
+pub const OFFLINEFILES_SYNC_STATE_DirCreatedOnClient_DirOnServer: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(21i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_DirCreatedOnClient_FileOnServer: OFFLINEFILES_SYNC_STATE = 22i32;
+pub const OFFLINEFILES_SYNC_STATE_DirCreatedOnClient_FileOnServer: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(22i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_DirCreatedOnClient_FileChangedOnServer: OFFLINEFILES_SYNC_STATE = 23i32;
+pub const OFFLINEFILES_SYNC_STATE_DirCreatedOnClient_FileChangedOnServer: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(23i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_DirCreatedOnClient_DirChangedOnServer: OFFLINEFILES_SYNC_STATE = 24i32;
+pub const OFFLINEFILES_SYNC_STATE_DirCreatedOnClient_DirChangedOnServer: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(24i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_DirCreatedOnClient_DeletedOnServer: OFFLINEFILES_SYNC_STATE = 25i32;
+pub const OFFLINEFILES_SYNC_STATE_DirCreatedOnClient_DeletedOnServer: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(25i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_DirChangedOnClient_FileOnServer: OFFLINEFILES_SYNC_STATE = 26i32;
+pub const OFFLINEFILES_SYNC_STATE_DirChangedOnClient_FileOnServer: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(26i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_DirChangedOnClient_FileChangedOnServer: OFFLINEFILES_SYNC_STATE = 27i32;
+pub const OFFLINEFILES_SYNC_STATE_DirChangedOnClient_FileChangedOnServer: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(27i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_DirChangedOnClient_ChangedOnServer: OFFLINEFILES_SYNC_STATE = 28i32;
+pub const OFFLINEFILES_SYNC_STATE_DirChangedOnClient_ChangedOnServer: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(28i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_DirChangedOnClient_DeletedOnServer: OFFLINEFILES_SYNC_STATE = 29i32;
+pub const OFFLINEFILES_SYNC_STATE_DirChangedOnClient_DeletedOnServer: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(29i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_NoClientCopy_FileOnServer: OFFLINEFILES_SYNC_STATE = 30i32;
+pub const OFFLINEFILES_SYNC_STATE_NoClientCopy_FileOnServer: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(30i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_NoClientCopy_DirOnServer: OFFLINEFILES_SYNC_STATE = 31i32;
+pub const OFFLINEFILES_SYNC_STATE_NoClientCopy_DirOnServer: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(31i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_NoClientCopy_FileChangedOnServer: OFFLINEFILES_SYNC_STATE = 32i32;
+pub const OFFLINEFILES_SYNC_STATE_NoClientCopy_FileChangedOnServer: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(32i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_NoClientCopy_DirChangedOnServer: OFFLINEFILES_SYNC_STATE = 33i32;
+pub const OFFLINEFILES_SYNC_STATE_NoClientCopy_DirChangedOnServer: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(33i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_DeletedOnClient_FileOnServer: OFFLINEFILES_SYNC_STATE = 34i32;
+pub const OFFLINEFILES_SYNC_STATE_DeletedOnClient_FileOnServer: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(34i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_DeletedOnClient_DirOnServer: OFFLINEFILES_SYNC_STATE = 35i32;
+pub const OFFLINEFILES_SYNC_STATE_DeletedOnClient_DirOnServer: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(35i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_DeletedOnClient_FileChangedOnServer: OFFLINEFILES_SYNC_STATE = 36i32;
+pub const OFFLINEFILES_SYNC_STATE_DeletedOnClient_FileChangedOnServer: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(36i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_DeletedOnClient_DirChangedOnServer: OFFLINEFILES_SYNC_STATE = 37i32;
+pub const OFFLINEFILES_SYNC_STATE_DeletedOnClient_DirChangedOnServer: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(37i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_FileSparseOnClient: OFFLINEFILES_SYNC_STATE = 38i32;
+pub const OFFLINEFILES_SYNC_STATE_FileSparseOnClient: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(38i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_FileChangedOnClient: OFFLINEFILES_SYNC_STATE = 39i32;
+pub const OFFLINEFILES_SYNC_STATE_FileChangedOnClient: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(39i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_FileRenamedOnClient: OFFLINEFILES_SYNC_STATE = 40i32;
+pub const OFFLINEFILES_SYNC_STATE_FileRenamedOnClient: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(40i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_DirSparseOnClient: OFFLINEFILES_SYNC_STATE = 41i32;
+pub const OFFLINEFILES_SYNC_STATE_DirSparseOnClient: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(41i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_DirChangedOnClient: OFFLINEFILES_SYNC_STATE = 42i32;
+pub const OFFLINEFILES_SYNC_STATE_DirChangedOnClient: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(42i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_DirRenamedOnClient: OFFLINEFILES_SYNC_STATE = 43i32;
+pub const OFFLINEFILES_SYNC_STATE_DirRenamedOnClient: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(43i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_FileChangedOnServer: OFFLINEFILES_SYNC_STATE = 44i32;
+pub const OFFLINEFILES_SYNC_STATE_FileChangedOnServer: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(44i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_FileRenamedOnServer: OFFLINEFILES_SYNC_STATE = 45i32;
+pub const OFFLINEFILES_SYNC_STATE_FileRenamedOnServer: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(45i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_FileDeletedOnServer: OFFLINEFILES_SYNC_STATE = 46i32;
+pub const OFFLINEFILES_SYNC_STATE_FileDeletedOnServer: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(46i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_DirChangedOnServer: OFFLINEFILES_SYNC_STATE = 47i32;
+pub const OFFLINEFILES_SYNC_STATE_DirChangedOnServer: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(47i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_DirRenamedOnServer: OFFLINEFILES_SYNC_STATE = 48i32;
+pub const OFFLINEFILES_SYNC_STATE_DirRenamedOnServer: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(48i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_DirDeletedOnServer: OFFLINEFILES_SYNC_STATE = 49i32;
+pub const OFFLINEFILES_SYNC_STATE_DirDeletedOnServer: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(49i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_FileReplacedAndDeletedOnClient_FileOnServer: OFFLINEFILES_SYNC_STATE = 50i32;
+pub const OFFLINEFILES_SYNC_STATE_FileReplacedAndDeletedOnClient_FileOnServer: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(50i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_FileReplacedAndDeletedOnClient_FileChangedOnServer: OFFLINEFILES_SYNC_STATE = 51i32;
+pub const OFFLINEFILES_SYNC_STATE_FileReplacedAndDeletedOnClient_FileChangedOnServer: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(51i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_FileReplacedAndDeletedOnClient_DirOnServer: OFFLINEFILES_SYNC_STATE = 52i32;
+pub const OFFLINEFILES_SYNC_STATE_FileReplacedAndDeletedOnClient_DirOnServer: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(52i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_FileReplacedAndDeletedOnClient_DirChangedOnServer: OFFLINEFILES_SYNC_STATE = 53i32;
+pub const OFFLINEFILES_SYNC_STATE_FileReplacedAndDeletedOnClient_DirChangedOnServer: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(53i32);
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
-pub const OFFLINEFILES_SYNC_STATE_NUMSTATES: OFFLINEFILES_SYNC_STATE = 54i32;
+pub const OFFLINEFILES_SYNC_STATE_NUMSTATES: OFFLINEFILES_SYNC_STATE = OFFLINEFILES_SYNC_STATE(54i32);
+impl ::core::marker::Copy for OFFLINEFILES_SYNC_STATE {}
+impl ::core::clone::Clone for OFFLINEFILES_SYNC_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for OFFLINEFILES_SYNC_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OFFLINEFILES_SYNC_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OFFLINEFILES_SYNC_STATE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]
 pub const OFFLINEFILES_SYNC_STATE_LOCAL_KNOWN: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Storage_OfflineFiles'*"]

@@ -83,9 +83,25 @@ pub unsafe fn DMOUnregister(clsiddmo: *const ::windows::core::GUID, guidcategory
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
-pub type DMO_ENUM_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DMO_ENUM_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
-pub const DMO_ENUMF_INCLUDE_KEYED: DMO_ENUM_FLAGS = 1i32;
+pub const DMO_ENUMF_INCLUDE_KEYED: DMO_ENUM_FLAGS = DMO_ENUM_FLAGS(1i32);
+impl ::core::marker::Copy for DMO_ENUM_FLAGS {}
+impl ::core::clone::Clone for DMO_ENUM_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DMO_ENUM_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DMO_ENUM_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DMO_ENUM_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
 pub const DMO_E_INVALIDSTREAMINDEX: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220991i32);
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
@@ -216,9 +232,25 @@ impl ::core::default::Default for DMO_PARTIAL_MEDIATYPE {
     }
 }
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
-pub type DMO_REGISTER_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DMO_REGISTER_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
-pub const DMO_REGISTERF_IS_KEYED: DMO_REGISTER_FLAGS = 1i32;
+pub const DMO_REGISTERF_IS_KEYED: DMO_REGISTER_FLAGS = DMO_REGISTER_FLAGS(1i32);
+impl ::core::marker::Copy for DMO_REGISTER_FLAGS {}
+impl ::core::clone::Clone for DMO_REGISTER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DMO_REGISTER_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DMO_REGISTER_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DMO_REGISTER_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
 #[repr(transparent)]
 pub struct IDMOQualityControl(::windows::core::IUnknown);
@@ -844,76 +876,236 @@ pub unsafe fn MoInitMediaType(pmt: *mut DMO_MEDIA_TYPE, cbformat: u32) -> ::wind
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
-pub type _DMO_INPLACE_PROCESS_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct _DMO_INPLACE_PROCESS_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
-pub const DMO_INPLACE_NORMAL: _DMO_INPLACE_PROCESS_FLAGS = 0i32;
+pub const DMO_INPLACE_NORMAL: _DMO_INPLACE_PROCESS_FLAGS = _DMO_INPLACE_PROCESS_FLAGS(0i32);
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
-pub const DMO_INPLACE_ZERO: _DMO_INPLACE_PROCESS_FLAGS = 1i32;
+pub const DMO_INPLACE_ZERO: _DMO_INPLACE_PROCESS_FLAGS = _DMO_INPLACE_PROCESS_FLAGS(1i32);
+impl ::core::marker::Copy for _DMO_INPLACE_PROCESS_FLAGS {}
+impl ::core::clone::Clone for _DMO_INPLACE_PROCESS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for _DMO_INPLACE_PROCESS_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for _DMO_INPLACE_PROCESS_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_DMO_INPLACE_PROCESS_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
-pub type _DMO_INPUT_DATA_BUFFER_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct _DMO_INPUT_DATA_BUFFER_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
-pub const DMO_INPUT_DATA_BUFFERF_SYNCPOINT: _DMO_INPUT_DATA_BUFFER_FLAGS = 1i32;
+pub const DMO_INPUT_DATA_BUFFERF_SYNCPOINT: _DMO_INPUT_DATA_BUFFER_FLAGS = _DMO_INPUT_DATA_BUFFER_FLAGS(1i32);
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
-pub const DMO_INPUT_DATA_BUFFERF_TIME: _DMO_INPUT_DATA_BUFFER_FLAGS = 2i32;
+pub const DMO_INPUT_DATA_BUFFERF_TIME: _DMO_INPUT_DATA_BUFFER_FLAGS = _DMO_INPUT_DATA_BUFFER_FLAGS(2i32);
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
-pub const DMO_INPUT_DATA_BUFFERF_TIMELENGTH: _DMO_INPUT_DATA_BUFFER_FLAGS = 4i32;
+pub const DMO_INPUT_DATA_BUFFERF_TIMELENGTH: _DMO_INPUT_DATA_BUFFER_FLAGS = _DMO_INPUT_DATA_BUFFER_FLAGS(4i32);
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
-pub const DMO_INPUT_DATA_BUFFERF_DISCONTINUITY: _DMO_INPUT_DATA_BUFFER_FLAGS = 8i32;
+pub const DMO_INPUT_DATA_BUFFERF_DISCONTINUITY: _DMO_INPUT_DATA_BUFFER_FLAGS = _DMO_INPUT_DATA_BUFFER_FLAGS(8i32);
+impl ::core::marker::Copy for _DMO_INPUT_DATA_BUFFER_FLAGS {}
+impl ::core::clone::Clone for _DMO_INPUT_DATA_BUFFER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for _DMO_INPUT_DATA_BUFFER_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for _DMO_INPUT_DATA_BUFFER_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_DMO_INPUT_DATA_BUFFER_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
-pub type _DMO_INPUT_STATUS_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct _DMO_INPUT_STATUS_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
-pub const DMO_INPUT_STATUSF_ACCEPT_DATA: _DMO_INPUT_STATUS_FLAGS = 1i32;
+pub const DMO_INPUT_STATUSF_ACCEPT_DATA: _DMO_INPUT_STATUS_FLAGS = _DMO_INPUT_STATUS_FLAGS(1i32);
+impl ::core::marker::Copy for _DMO_INPUT_STATUS_FLAGS {}
+impl ::core::clone::Clone for _DMO_INPUT_STATUS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for _DMO_INPUT_STATUS_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for _DMO_INPUT_STATUS_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_DMO_INPUT_STATUS_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
-pub type _DMO_INPUT_STREAM_INFO_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct _DMO_INPUT_STREAM_INFO_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
-pub const DMO_INPUT_STREAMF_WHOLE_SAMPLES: _DMO_INPUT_STREAM_INFO_FLAGS = 1i32;
+pub const DMO_INPUT_STREAMF_WHOLE_SAMPLES: _DMO_INPUT_STREAM_INFO_FLAGS = _DMO_INPUT_STREAM_INFO_FLAGS(1i32);
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
-pub const DMO_INPUT_STREAMF_SINGLE_SAMPLE_PER_BUFFER: _DMO_INPUT_STREAM_INFO_FLAGS = 2i32;
+pub const DMO_INPUT_STREAMF_SINGLE_SAMPLE_PER_BUFFER: _DMO_INPUT_STREAM_INFO_FLAGS = _DMO_INPUT_STREAM_INFO_FLAGS(2i32);
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
-pub const DMO_INPUT_STREAMF_FIXED_SAMPLE_SIZE: _DMO_INPUT_STREAM_INFO_FLAGS = 4i32;
+pub const DMO_INPUT_STREAMF_FIXED_SAMPLE_SIZE: _DMO_INPUT_STREAM_INFO_FLAGS = _DMO_INPUT_STREAM_INFO_FLAGS(4i32);
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
-pub const DMO_INPUT_STREAMF_HOLDS_BUFFERS: _DMO_INPUT_STREAM_INFO_FLAGS = 8i32;
+pub const DMO_INPUT_STREAMF_HOLDS_BUFFERS: _DMO_INPUT_STREAM_INFO_FLAGS = _DMO_INPUT_STREAM_INFO_FLAGS(8i32);
+impl ::core::marker::Copy for _DMO_INPUT_STREAM_INFO_FLAGS {}
+impl ::core::clone::Clone for _DMO_INPUT_STREAM_INFO_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for _DMO_INPUT_STREAM_INFO_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for _DMO_INPUT_STREAM_INFO_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_DMO_INPUT_STREAM_INFO_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
-pub type _DMO_OUTPUT_DATA_BUFFER_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct _DMO_OUTPUT_DATA_BUFFER_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
-pub const DMO_OUTPUT_DATA_BUFFERF_SYNCPOINT: _DMO_OUTPUT_DATA_BUFFER_FLAGS = 1i32;
+pub const DMO_OUTPUT_DATA_BUFFERF_SYNCPOINT: _DMO_OUTPUT_DATA_BUFFER_FLAGS = _DMO_OUTPUT_DATA_BUFFER_FLAGS(1i32);
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
-pub const DMO_OUTPUT_DATA_BUFFERF_TIME: _DMO_OUTPUT_DATA_BUFFER_FLAGS = 2i32;
+pub const DMO_OUTPUT_DATA_BUFFERF_TIME: _DMO_OUTPUT_DATA_BUFFER_FLAGS = _DMO_OUTPUT_DATA_BUFFER_FLAGS(2i32);
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
-pub const DMO_OUTPUT_DATA_BUFFERF_TIMELENGTH: _DMO_OUTPUT_DATA_BUFFER_FLAGS = 4i32;
+pub const DMO_OUTPUT_DATA_BUFFERF_TIMELENGTH: _DMO_OUTPUT_DATA_BUFFER_FLAGS = _DMO_OUTPUT_DATA_BUFFER_FLAGS(4i32);
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
-pub const DMO_OUTPUT_DATA_BUFFERF_DISCONTINUITY: _DMO_OUTPUT_DATA_BUFFER_FLAGS = 8i32;
+pub const DMO_OUTPUT_DATA_BUFFERF_DISCONTINUITY: _DMO_OUTPUT_DATA_BUFFER_FLAGS = _DMO_OUTPUT_DATA_BUFFER_FLAGS(8i32);
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
-pub const DMO_OUTPUT_DATA_BUFFERF_INCOMPLETE: _DMO_OUTPUT_DATA_BUFFER_FLAGS = 16777216i32;
+pub const DMO_OUTPUT_DATA_BUFFERF_INCOMPLETE: _DMO_OUTPUT_DATA_BUFFER_FLAGS = _DMO_OUTPUT_DATA_BUFFER_FLAGS(16777216i32);
+impl ::core::marker::Copy for _DMO_OUTPUT_DATA_BUFFER_FLAGS {}
+impl ::core::clone::Clone for _DMO_OUTPUT_DATA_BUFFER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for _DMO_OUTPUT_DATA_BUFFER_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for _DMO_OUTPUT_DATA_BUFFER_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_DMO_OUTPUT_DATA_BUFFER_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
-pub type _DMO_OUTPUT_STREAM_INFO_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct _DMO_OUTPUT_STREAM_INFO_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
-pub const DMO_OUTPUT_STREAMF_WHOLE_SAMPLES: _DMO_OUTPUT_STREAM_INFO_FLAGS = 1i32;
+pub const DMO_OUTPUT_STREAMF_WHOLE_SAMPLES: _DMO_OUTPUT_STREAM_INFO_FLAGS = _DMO_OUTPUT_STREAM_INFO_FLAGS(1i32);
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
-pub const DMO_OUTPUT_STREAMF_SINGLE_SAMPLE_PER_BUFFER: _DMO_OUTPUT_STREAM_INFO_FLAGS = 2i32;
+pub const DMO_OUTPUT_STREAMF_SINGLE_SAMPLE_PER_BUFFER: _DMO_OUTPUT_STREAM_INFO_FLAGS = _DMO_OUTPUT_STREAM_INFO_FLAGS(2i32);
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
-pub const DMO_OUTPUT_STREAMF_FIXED_SAMPLE_SIZE: _DMO_OUTPUT_STREAM_INFO_FLAGS = 4i32;
+pub const DMO_OUTPUT_STREAMF_FIXED_SAMPLE_SIZE: _DMO_OUTPUT_STREAM_INFO_FLAGS = _DMO_OUTPUT_STREAM_INFO_FLAGS(4i32);
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
-pub const DMO_OUTPUT_STREAMF_DISCARDABLE: _DMO_OUTPUT_STREAM_INFO_FLAGS = 8i32;
+pub const DMO_OUTPUT_STREAMF_DISCARDABLE: _DMO_OUTPUT_STREAM_INFO_FLAGS = _DMO_OUTPUT_STREAM_INFO_FLAGS(8i32);
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
-pub const DMO_OUTPUT_STREAMF_OPTIONAL: _DMO_OUTPUT_STREAM_INFO_FLAGS = 16i32;
+pub const DMO_OUTPUT_STREAMF_OPTIONAL: _DMO_OUTPUT_STREAM_INFO_FLAGS = _DMO_OUTPUT_STREAM_INFO_FLAGS(16i32);
+impl ::core::marker::Copy for _DMO_OUTPUT_STREAM_INFO_FLAGS {}
+impl ::core::clone::Clone for _DMO_OUTPUT_STREAM_INFO_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for _DMO_OUTPUT_STREAM_INFO_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for _DMO_OUTPUT_STREAM_INFO_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_DMO_OUTPUT_STREAM_INFO_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
-pub type _DMO_PROCESS_OUTPUT_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct _DMO_PROCESS_OUTPUT_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
-pub const DMO_PROCESS_OUTPUT_DISCARD_WHEN_NO_BUFFER: _DMO_PROCESS_OUTPUT_FLAGS = 1i32;
+pub const DMO_PROCESS_OUTPUT_DISCARD_WHEN_NO_BUFFER: _DMO_PROCESS_OUTPUT_FLAGS = _DMO_PROCESS_OUTPUT_FLAGS(1i32);
+impl ::core::marker::Copy for _DMO_PROCESS_OUTPUT_FLAGS {}
+impl ::core::clone::Clone for _DMO_PROCESS_OUTPUT_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for _DMO_PROCESS_OUTPUT_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for _DMO_PROCESS_OUTPUT_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_DMO_PROCESS_OUTPUT_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
-pub type _DMO_QUALITY_STATUS_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct _DMO_QUALITY_STATUS_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
-pub const DMO_QUALITY_STATUS_ENABLED: _DMO_QUALITY_STATUS_FLAGS = 1i32;
+pub const DMO_QUALITY_STATUS_ENABLED: _DMO_QUALITY_STATUS_FLAGS = _DMO_QUALITY_STATUS_FLAGS(1i32);
+impl ::core::marker::Copy for _DMO_QUALITY_STATUS_FLAGS {}
+impl ::core::clone::Clone for _DMO_QUALITY_STATUS_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for _DMO_QUALITY_STATUS_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for _DMO_QUALITY_STATUS_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_DMO_QUALITY_STATUS_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
-pub type _DMO_SET_TYPE_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct _DMO_SET_TYPE_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
-pub const DMO_SET_TYPEF_TEST_ONLY: _DMO_SET_TYPE_FLAGS = 1i32;
+pub const DMO_SET_TYPEF_TEST_ONLY: _DMO_SET_TYPE_FLAGS = _DMO_SET_TYPE_FLAGS(1i32);
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
-pub const DMO_SET_TYPEF_CLEAR: _DMO_SET_TYPE_FLAGS = 2i32;
+pub const DMO_SET_TYPEF_CLEAR: _DMO_SET_TYPE_FLAGS = _DMO_SET_TYPE_FLAGS(2i32);
+impl ::core::marker::Copy for _DMO_SET_TYPE_FLAGS {}
+impl ::core::clone::Clone for _DMO_SET_TYPE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for _DMO_SET_TYPE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for _DMO_SET_TYPE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_DMO_SET_TYPE_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
-pub type _DMO_VIDEO_OUTPUT_STREAM_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct _DMO_VIDEO_OUTPUT_STREAM_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_Media_DxMediaObjects'*"]
-pub const DMO_VOSF_NEEDS_PREVIOUS_SAMPLE: _DMO_VIDEO_OUTPUT_STREAM_FLAGS = 1i32;
+pub const DMO_VOSF_NEEDS_PREVIOUS_SAMPLE: _DMO_VIDEO_OUTPUT_STREAM_FLAGS = _DMO_VIDEO_OUTPUT_STREAM_FLAGS(1i32);
+impl ::core::marker::Copy for _DMO_VIDEO_OUTPUT_STREAM_FLAGS {}
+impl ::core::clone::Clone for _DMO_VIDEO_OUTPUT_STREAM_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for _DMO_VIDEO_OUTPUT_STREAM_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for _DMO_VIDEO_OUTPUT_STREAM_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_DMO_VIDEO_OUTPUT_STREAM_FLAGS").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

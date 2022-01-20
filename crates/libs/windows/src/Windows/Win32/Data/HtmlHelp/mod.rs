@@ -746,17 +746,33 @@ impl ::core::default::Default for HH_GLOBAL_PROPERTY {
     }
 }
 #[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
-pub type HH_GPROPID = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HH_GPROPID(pub i32);
 #[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
-pub const HH_GPROPID_SINGLETHREAD: HH_GPROPID = 1i32;
+pub const HH_GPROPID_SINGLETHREAD: HH_GPROPID = HH_GPROPID(1i32);
 #[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
-pub const HH_GPROPID_TOOLBAR_MARGIN: HH_GPROPID = 2i32;
+pub const HH_GPROPID_TOOLBAR_MARGIN: HH_GPROPID = HH_GPROPID(2i32);
 #[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
-pub const HH_GPROPID_UI_LANGUAGE: HH_GPROPID = 3i32;
+pub const HH_GPROPID_UI_LANGUAGE: HH_GPROPID = HH_GPROPID(3i32);
 #[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
-pub const HH_GPROPID_CURRENT_SUBSET: HH_GPROPID = 4i32;
+pub const HH_GPROPID_CURRENT_SUBSET: HH_GPROPID = HH_GPROPID(4i32);
 #[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
-pub const HH_GPROPID_CONTENT_LANGUAGE: HH_GPROPID = 5i32;
+pub const HH_GPROPID_CONTENT_LANGUAGE: HH_GPROPID = HH_GPROPID(5i32);
+impl ::core::marker::Copy for HH_GPROPID {}
+impl ::core::clone::Clone for HH_GPROPID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for HH_GPROPID {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HH_GPROPID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HH_GPROPID").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const HH_HELP_CONTEXT: u32 = 15u32;
 #[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
@@ -2025,13 +2041,29 @@ pub const MAX_COLUMNS: u32 = 256u32;
 #[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub type PFNCOLHEAPFREE = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void) -> i32>;
 #[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
-pub type PRIORITY = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PRIORITY(pub i32);
 #[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
-pub const PRIORITY_LOW: PRIORITY = 0i32;
+pub const PRIORITY_LOW: PRIORITY = PRIORITY(0i32);
 #[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
-pub const PRIORITY_NORMAL: PRIORITY = 1i32;
+pub const PRIORITY_NORMAL: PRIORITY = PRIORITY(1i32);
 #[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
-pub const PRIORITY_HIGH: PRIORITY = 2i32;
+pub const PRIORITY_HIGH: PRIORITY = PRIORITY(2i32);
+impl ::core::marker::Copy for PRIORITY {}
+impl ::core::clone::Clone for PRIORITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PRIORITY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PRIORITY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PRIORITY").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const PROP_ADD: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
@@ -2110,8 +2142,52 @@ pub const TYPE_STRING: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
 pub const TYPE_VALUE: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
-pub type WORD_WHEEL_OPEN_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WORD_WHEEL_OPEN_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Data_HtmlHelp'*"]
-pub const ITWW_OPEN_CONNECT: WORD_WHEEL_OPEN_FLAGS = 0u32;
+pub const ITWW_OPEN_CONNECT: WORD_WHEEL_OPEN_FLAGS = WORD_WHEEL_OPEN_FLAGS(0u32);
+impl ::core::marker::Copy for WORD_WHEEL_OPEN_FLAGS {}
+impl ::core::clone::Clone for WORD_WHEEL_OPEN_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WORD_WHEEL_OPEN_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WORD_WHEEL_OPEN_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WORD_WHEEL_OPEN_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for WORD_WHEEL_OPEN_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for WORD_WHEEL_OPEN_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for WORD_WHEEL_OPEN_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for WORD_WHEEL_OPEN_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for WORD_WHEEL_OPEN_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

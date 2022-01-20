@@ -26,73 +26,137 @@ pub const FAXDEVRECEIVE_SIZE: u32 = 4096u32;
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub const FAXDEVREPORTSTATUS_SIZE: u32 = 4096u32;
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub type FAXROUTE_ENABLE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FAXROUTE_ENABLE(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const QUERY_STATUS: FAXROUTE_ENABLE = -1i32;
+pub const QUERY_STATUS: FAXROUTE_ENABLE = FAXROUTE_ENABLE(-1i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const STATUS_DISABLE: FAXROUTE_ENABLE = 0i32;
+pub const STATUS_DISABLE: FAXROUTE_ENABLE = FAXROUTE_ENABLE(0i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const STATUS_ENABLE: FAXROUTE_ENABLE = 1i32;
+pub const STATUS_ENABLE: FAXROUTE_ENABLE = FAXROUTE_ENABLE(1i32);
+impl ::core::marker::Copy for FAXROUTE_ENABLE {}
+impl ::core::clone::Clone for FAXROUTE_ENABLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FAXROUTE_ENABLE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FAXROUTE_ENABLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FAXROUTE_ENABLE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub type FAX_ACCESS_RIGHTS_ENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FAX_ACCESS_RIGHTS_ENUM(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const farSUBMIT_LOW: FAX_ACCESS_RIGHTS_ENUM = 1i32;
+pub const farSUBMIT_LOW: FAX_ACCESS_RIGHTS_ENUM = FAX_ACCESS_RIGHTS_ENUM(1i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const farSUBMIT_NORMAL: FAX_ACCESS_RIGHTS_ENUM = 2i32;
+pub const farSUBMIT_NORMAL: FAX_ACCESS_RIGHTS_ENUM = FAX_ACCESS_RIGHTS_ENUM(2i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const farSUBMIT_HIGH: FAX_ACCESS_RIGHTS_ENUM = 4i32;
+pub const farSUBMIT_HIGH: FAX_ACCESS_RIGHTS_ENUM = FAX_ACCESS_RIGHTS_ENUM(4i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const farQUERY_JOBS: FAX_ACCESS_RIGHTS_ENUM = 8i32;
+pub const farQUERY_JOBS: FAX_ACCESS_RIGHTS_ENUM = FAX_ACCESS_RIGHTS_ENUM(8i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const farMANAGE_JOBS: FAX_ACCESS_RIGHTS_ENUM = 16i32;
+pub const farMANAGE_JOBS: FAX_ACCESS_RIGHTS_ENUM = FAX_ACCESS_RIGHTS_ENUM(16i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const farQUERY_CONFIG: FAX_ACCESS_RIGHTS_ENUM = 32i32;
+pub const farQUERY_CONFIG: FAX_ACCESS_RIGHTS_ENUM = FAX_ACCESS_RIGHTS_ENUM(32i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const farMANAGE_CONFIG: FAX_ACCESS_RIGHTS_ENUM = 64i32;
+pub const farMANAGE_CONFIG: FAX_ACCESS_RIGHTS_ENUM = FAX_ACCESS_RIGHTS_ENUM(64i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const farQUERY_IN_ARCHIVE: FAX_ACCESS_RIGHTS_ENUM = 128i32;
+pub const farQUERY_IN_ARCHIVE: FAX_ACCESS_RIGHTS_ENUM = FAX_ACCESS_RIGHTS_ENUM(128i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const farMANAGE_IN_ARCHIVE: FAX_ACCESS_RIGHTS_ENUM = 256i32;
+pub const farMANAGE_IN_ARCHIVE: FAX_ACCESS_RIGHTS_ENUM = FAX_ACCESS_RIGHTS_ENUM(256i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const farQUERY_OUT_ARCHIVE: FAX_ACCESS_RIGHTS_ENUM = 512i32;
+pub const farQUERY_OUT_ARCHIVE: FAX_ACCESS_RIGHTS_ENUM = FAX_ACCESS_RIGHTS_ENUM(512i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const farMANAGE_OUT_ARCHIVE: FAX_ACCESS_RIGHTS_ENUM = 1024i32;
+pub const farMANAGE_OUT_ARCHIVE: FAX_ACCESS_RIGHTS_ENUM = FAX_ACCESS_RIGHTS_ENUM(1024i32);
+impl ::core::marker::Copy for FAX_ACCESS_RIGHTS_ENUM {}
+impl ::core::clone::Clone for FAX_ACCESS_RIGHTS_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FAX_ACCESS_RIGHTS_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FAX_ACCESS_RIGHTS_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FAX_ACCESS_RIGHTS_ENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub type FAX_ACCESS_RIGHTS_ENUM_2 = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FAX_ACCESS_RIGHTS_ENUM_2(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const far2SUBMIT_LOW: FAX_ACCESS_RIGHTS_ENUM_2 = 1i32;
+pub const far2SUBMIT_LOW: FAX_ACCESS_RIGHTS_ENUM_2 = FAX_ACCESS_RIGHTS_ENUM_2(1i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const far2SUBMIT_NORMAL: FAX_ACCESS_RIGHTS_ENUM_2 = 2i32;
+pub const far2SUBMIT_NORMAL: FAX_ACCESS_RIGHTS_ENUM_2 = FAX_ACCESS_RIGHTS_ENUM_2(2i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const far2SUBMIT_HIGH: FAX_ACCESS_RIGHTS_ENUM_2 = 4i32;
+pub const far2SUBMIT_HIGH: FAX_ACCESS_RIGHTS_ENUM_2 = FAX_ACCESS_RIGHTS_ENUM_2(4i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const far2QUERY_OUT_JOBS: FAX_ACCESS_RIGHTS_ENUM_2 = 8i32;
+pub const far2QUERY_OUT_JOBS: FAX_ACCESS_RIGHTS_ENUM_2 = FAX_ACCESS_RIGHTS_ENUM_2(8i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const far2MANAGE_OUT_JOBS: FAX_ACCESS_RIGHTS_ENUM_2 = 16i32;
+pub const far2MANAGE_OUT_JOBS: FAX_ACCESS_RIGHTS_ENUM_2 = FAX_ACCESS_RIGHTS_ENUM_2(16i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const far2QUERY_CONFIG: FAX_ACCESS_RIGHTS_ENUM_2 = 32i32;
+pub const far2QUERY_CONFIG: FAX_ACCESS_RIGHTS_ENUM_2 = FAX_ACCESS_RIGHTS_ENUM_2(32i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const far2MANAGE_CONFIG: FAX_ACCESS_RIGHTS_ENUM_2 = 64i32;
+pub const far2MANAGE_CONFIG: FAX_ACCESS_RIGHTS_ENUM_2 = FAX_ACCESS_RIGHTS_ENUM_2(64i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const far2QUERY_ARCHIVES: FAX_ACCESS_RIGHTS_ENUM_2 = 128i32;
+pub const far2QUERY_ARCHIVES: FAX_ACCESS_RIGHTS_ENUM_2 = FAX_ACCESS_RIGHTS_ENUM_2(128i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const far2MANAGE_ARCHIVES: FAX_ACCESS_RIGHTS_ENUM_2 = 256i32;
+pub const far2MANAGE_ARCHIVES: FAX_ACCESS_RIGHTS_ENUM_2 = FAX_ACCESS_RIGHTS_ENUM_2(256i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const far2MANAGE_RECEIVE_FOLDER: FAX_ACCESS_RIGHTS_ENUM_2 = 512i32;
+pub const far2MANAGE_RECEIVE_FOLDER: FAX_ACCESS_RIGHTS_ENUM_2 = FAX_ACCESS_RIGHTS_ENUM_2(512i32);
+impl ::core::marker::Copy for FAX_ACCESS_RIGHTS_ENUM_2 {}
+impl ::core::clone::Clone for FAX_ACCESS_RIGHTS_ENUM_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FAX_ACCESS_RIGHTS_ENUM_2 {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FAX_ACCESS_RIGHTS_ENUM_2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FAX_ACCESS_RIGHTS_ENUM_2").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub type FAX_ACCOUNT_EVENTS_TYPE_ENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FAX_ACCOUNT_EVENTS_TYPE_ENUM(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const faetNONE: FAX_ACCOUNT_EVENTS_TYPE_ENUM = 0i32;
+pub const faetNONE: FAX_ACCOUNT_EVENTS_TYPE_ENUM = FAX_ACCOUNT_EVENTS_TYPE_ENUM(0i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const faetIN_QUEUE: FAX_ACCOUNT_EVENTS_TYPE_ENUM = 1i32;
+pub const faetIN_QUEUE: FAX_ACCOUNT_EVENTS_TYPE_ENUM = FAX_ACCOUNT_EVENTS_TYPE_ENUM(1i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const faetOUT_QUEUE: FAX_ACCOUNT_EVENTS_TYPE_ENUM = 2i32;
+pub const faetOUT_QUEUE: FAX_ACCOUNT_EVENTS_TYPE_ENUM = FAX_ACCOUNT_EVENTS_TYPE_ENUM(2i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const faetIN_ARCHIVE: FAX_ACCOUNT_EVENTS_TYPE_ENUM = 4i32;
+pub const faetIN_ARCHIVE: FAX_ACCOUNT_EVENTS_TYPE_ENUM = FAX_ACCOUNT_EVENTS_TYPE_ENUM(4i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const faetOUT_ARCHIVE: FAX_ACCOUNT_EVENTS_TYPE_ENUM = 8i32;
+pub const faetOUT_ARCHIVE: FAX_ACCOUNT_EVENTS_TYPE_ENUM = FAX_ACCOUNT_EVENTS_TYPE_ENUM(8i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const faetFXSSVC_ENDED: FAX_ACCOUNT_EVENTS_TYPE_ENUM = 16i32;
+pub const faetFXSSVC_ENDED: FAX_ACCOUNT_EVENTS_TYPE_ENUM = FAX_ACCOUNT_EVENTS_TYPE_ENUM(16i32);
+impl ::core::marker::Copy for FAX_ACCOUNT_EVENTS_TYPE_ENUM {}
+impl ::core::clone::Clone for FAX_ACCOUNT_EVENTS_TYPE_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FAX_ACCOUNT_EVENTS_TYPE_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FAX_ACCOUNT_EVENTS_TYPE_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FAX_ACCOUNT_EVENTS_TYPE_ENUM").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -498,21 +562,53 @@ impl ::core::default::Default for FAX_COVERPAGE_INFOW {
     }
 }
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub type FAX_COVERPAGE_TYPE_ENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FAX_COVERPAGE_TYPE_ENUM(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fcptNONE: FAX_COVERPAGE_TYPE_ENUM = 0i32;
+pub const fcptNONE: FAX_COVERPAGE_TYPE_ENUM = FAX_COVERPAGE_TYPE_ENUM(0i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fcptLOCAL: FAX_COVERPAGE_TYPE_ENUM = 1i32;
+pub const fcptLOCAL: FAX_COVERPAGE_TYPE_ENUM = FAX_COVERPAGE_TYPE_ENUM(1i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fcptSERVER: FAX_COVERPAGE_TYPE_ENUM = 2i32;
+pub const fcptSERVER: FAX_COVERPAGE_TYPE_ENUM = FAX_COVERPAGE_TYPE_ENUM(2i32);
+impl ::core::marker::Copy for FAX_COVERPAGE_TYPE_ENUM {}
+impl ::core::clone::Clone for FAX_COVERPAGE_TYPE_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FAX_COVERPAGE_TYPE_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FAX_COVERPAGE_TYPE_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FAX_COVERPAGE_TYPE_ENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub type FAX_DEVICE_RECEIVE_MODE_ENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FAX_DEVICE_RECEIVE_MODE_ENUM(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fdrmNO_ANSWER: FAX_DEVICE_RECEIVE_MODE_ENUM = 0i32;
+pub const fdrmNO_ANSWER: FAX_DEVICE_RECEIVE_MODE_ENUM = FAX_DEVICE_RECEIVE_MODE_ENUM(0i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fdrmAUTO_ANSWER: FAX_DEVICE_RECEIVE_MODE_ENUM = 1i32;
+pub const fdrmAUTO_ANSWER: FAX_DEVICE_RECEIVE_MODE_ENUM = FAX_DEVICE_RECEIVE_MODE_ENUM(1i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fdrmMANUAL_ANSWER: FAX_DEVICE_RECEIVE_MODE_ENUM = 2i32;
+pub const fdrmMANUAL_ANSWER: FAX_DEVICE_RECEIVE_MODE_ENUM = FAX_DEVICE_RECEIVE_MODE_ENUM(2i32);
+impl ::core::marker::Copy for FAX_DEVICE_RECEIVE_MODE_ENUM {}
+impl ::core::clone::Clone for FAX_DEVICE_RECEIVE_MODE_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FAX_DEVICE_RECEIVE_MODE_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FAX_DEVICE_RECEIVE_MODE_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FAX_DEVICE_RECEIVE_MODE_ENUM").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -716,63 +812,175 @@ impl ::core::default::Default for FAX_DEV_STATUS {
     }
 }
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub type FAX_ENUM_DELIVERY_REPORT_TYPES = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FAX_ENUM_DELIVERY_REPORT_TYPES(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const DRT_NONE: FAX_ENUM_DELIVERY_REPORT_TYPES = 0i32;
+pub const DRT_NONE: FAX_ENUM_DELIVERY_REPORT_TYPES = FAX_ENUM_DELIVERY_REPORT_TYPES(0i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const DRT_EMAIL: FAX_ENUM_DELIVERY_REPORT_TYPES = 1i32;
+pub const DRT_EMAIL: FAX_ENUM_DELIVERY_REPORT_TYPES = FAX_ENUM_DELIVERY_REPORT_TYPES(1i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const DRT_INBOX: FAX_ENUM_DELIVERY_REPORT_TYPES = 2i32;
+pub const DRT_INBOX: FAX_ENUM_DELIVERY_REPORT_TYPES = FAX_ENUM_DELIVERY_REPORT_TYPES(2i32);
+impl ::core::marker::Copy for FAX_ENUM_DELIVERY_REPORT_TYPES {}
+impl ::core::clone::Clone for FAX_ENUM_DELIVERY_REPORT_TYPES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FAX_ENUM_DELIVERY_REPORT_TYPES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FAX_ENUM_DELIVERY_REPORT_TYPES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FAX_ENUM_DELIVERY_REPORT_TYPES").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub type FAX_ENUM_DEVICE_ID_SOURCE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FAX_ENUM_DEVICE_ID_SOURCE(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const DEV_ID_SRC_FAX: FAX_ENUM_DEVICE_ID_SOURCE = 0i32;
+pub const DEV_ID_SRC_FAX: FAX_ENUM_DEVICE_ID_SOURCE = FAX_ENUM_DEVICE_ID_SOURCE(0i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const DEV_ID_SRC_TAPI: FAX_ENUM_DEVICE_ID_SOURCE = 1i32;
+pub const DEV_ID_SRC_TAPI: FAX_ENUM_DEVICE_ID_SOURCE = FAX_ENUM_DEVICE_ID_SOURCE(1i32);
+impl ::core::marker::Copy for FAX_ENUM_DEVICE_ID_SOURCE {}
+impl ::core::clone::Clone for FAX_ENUM_DEVICE_ID_SOURCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FAX_ENUM_DEVICE_ID_SOURCE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FAX_ENUM_DEVICE_ID_SOURCE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FAX_ENUM_DEVICE_ID_SOURCE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub type FAX_ENUM_JOB_COMMANDS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FAX_ENUM_JOB_COMMANDS(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const JC_UNKNOWN: FAX_ENUM_JOB_COMMANDS = 0i32;
+pub const JC_UNKNOWN: FAX_ENUM_JOB_COMMANDS = FAX_ENUM_JOB_COMMANDS(0i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const JC_DELETE: FAX_ENUM_JOB_COMMANDS = 1i32;
+pub const JC_DELETE: FAX_ENUM_JOB_COMMANDS = FAX_ENUM_JOB_COMMANDS(1i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const JC_PAUSE: FAX_ENUM_JOB_COMMANDS = 2i32;
+pub const JC_PAUSE: FAX_ENUM_JOB_COMMANDS = FAX_ENUM_JOB_COMMANDS(2i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const JC_RESUME: FAX_ENUM_JOB_COMMANDS = 3i32;
+pub const JC_RESUME: FAX_ENUM_JOB_COMMANDS = FAX_ENUM_JOB_COMMANDS(3i32);
+impl ::core::marker::Copy for FAX_ENUM_JOB_COMMANDS {}
+impl ::core::clone::Clone for FAX_ENUM_JOB_COMMANDS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FAX_ENUM_JOB_COMMANDS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FAX_ENUM_JOB_COMMANDS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FAX_ENUM_JOB_COMMANDS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub type FAX_ENUM_JOB_SEND_ATTRIBUTES = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FAX_ENUM_JOB_SEND_ATTRIBUTES(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const JSA_NOW: FAX_ENUM_JOB_SEND_ATTRIBUTES = 0i32;
+pub const JSA_NOW: FAX_ENUM_JOB_SEND_ATTRIBUTES = FAX_ENUM_JOB_SEND_ATTRIBUTES(0i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const JSA_SPECIFIC_TIME: FAX_ENUM_JOB_SEND_ATTRIBUTES = 1i32;
+pub const JSA_SPECIFIC_TIME: FAX_ENUM_JOB_SEND_ATTRIBUTES = FAX_ENUM_JOB_SEND_ATTRIBUTES(1i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const JSA_DISCOUNT_PERIOD: FAX_ENUM_JOB_SEND_ATTRIBUTES = 2i32;
+pub const JSA_DISCOUNT_PERIOD: FAX_ENUM_JOB_SEND_ATTRIBUTES = FAX_ENUM_JOB_SEND_ATTRIBUTES(2i32);
+impl ::core::marker::Copy for FAX_ENUM_JOB_SEND_ATTRIBUTES {}
+impl ::core::clone::Clone for FAX_ENUM_JOB_SEND_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FAX_ENUM_JOB_SEND_ATTRIBUTES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FAX_ENUM_JOB_SEND_ATTRIBUTES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FAX_ENUM_JOB_SEND_ATTRIBUTES").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub type FAX_ENUM_LOG_CATEGORIES = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FAX_ENUM_LOG_CATEGORIES(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const FAXLOG_CATEGORY_INIT: FAX_ENUM_LOG_CATEGORIES = 1i32;
+pub const FAXLOG_CATEGORY_INIT: FAX_ENUM_LOG_CATEGORIES = FAX_ENUM_LOG_CATEGORIES(1i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const FAXLOG_CATEGORY_OUTBOUND: FAX_ENUM_LOG_CATEGORIES = 2i32;
+pub const FAXLOG_CATEGORY_OUTBOUND: FAX_ENUM_LOG_CATEGORIES = FAX_ENUM_LOG_CATEGORIES(2i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const FAXLOG_CATEGORY_INBOUND: FAX_ENUM_LOG_CATEGORIES = 3i32;
+pub const FAXLOG_CATEGORY_INBOUND: FAX_ENUM_LOG_CATEGORIES = FAX_ENUM_LOG_CATEGORIES(3i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const FAXLOG_CATEGORY_UNKNOWN: FAX_ENUM_LOG_CATEGORIES = 4i32;
+pub const FAXLOG_CATEGORY_UNKNOWN: FAX_ENUM_LOG_CATEGORIES = FAX_ENUM_LOG_CATEGORIES(4i32);
+impl ::core::marker::Copy for FAX_ENUM_LOG_CATEGORIES {}
+impl ::core::clone::Clone for FAX_ENUM_LOG_CATEGORIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FAX_ENUM_LOG_CATEGORIES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FAX_ENUM_LOG_CATEGORIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FAX_ENUM_LOG_CATEGORIES").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub type FAX_ENUM_LOG_LEVELS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FAX_ENUM_LOG_LEVELS(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const FAXLOG_LEVEL_NONE: FAX_ENUM_LOG_LEVELS = 0i32;
+pub const FAXLOG_LEVEL_NONE: FAX_ENUM_LOG_LEVELS = FAX_ENUM_LOG_LEVELS(0i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const FAXLOG_LEVEL_MIN: FAX_ENUM_LOG_LEVELS = 1i32;
+pub const FAXLOG_LEVEL_MIN: FAX_ENUM_LOG_LEVELS = FAX_ENUM_LOG_LEVELS(1i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const FAXLOG_LEVEL_MED: FAX_ENUM_LOG_LEVELS = 2i32;
+pub const FAXLOG_LEVEL_MED: FAX_ENUM_LOG_LEVELS = FAX_ENUM_LOG_LEVELS(2i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const FAXLOG_LEVEL_MAX: FAX_ENUM_LOG_LEVELS = 3i32;
+pub const FAXLOG_LEVEL_MAX: FAX_ENUM_LOG_LEVELS = FAX_ENUM_LOG_LEVELS(3i32);
+impl ::core::marker::Copy for FAX_ENUM_LOG_LEVELS {}
+impl ::core::clone::Clone for FAX_ENUM_LOG_LEVELS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FAX_ENUM_LOG_LEVELS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FAX_ENUM_LOG_LEVELS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FAX_ENUM_LOG_LEVELS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub type FAX_ENUM_PORT_OPEN_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FAX_ENUM_PORT_OPEN_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const PORT_OPEN_QUERY: FAX_ENUM_PORT_OPEN_TYPE = 1i32;
+pub const PORT_OPEN_QUERY: FAX_ENUM_PORT_OPEN_TYPE = FAX_ENUM_PORT_OPEN_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const PORT_OPEN_MODIFY: FAX_ENUM_PORT_OPEN_TYPE = 2i32;
+pub const PORT_OPEN_MODIFY: FAX_ENUM_PORT_OPEN_TYPE = FAX_ENUM_PORT_OPEN_TYPE(2i32);
+impl ::core::marker::Copy for FAX_ENUM_PORT_OPEN_TYPE {}
+impl ::core::clone::Clone for FAX_ENUM_PORT_OPEN_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FAX_ENUM_PORT_OPEN_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FAX_ENUM_PORT_OPEN_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FAX_ENUM_PORT_OPEN_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub const FAX_ERR_BAD_GROUP_CONFIGURATION: i32 = 7003i32;
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
@@ -1002,15 +1210,31 @@ impl ::core::default::Default for FAX_GLOBAL_ROUTING_INFOW {
     }
 }
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub type FAX_GROUP_STATUS_ENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FAX_GROUP_STATUS_ENUM(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fgsALL_DEV_VALID: FAX_GROUP_STATUS_ENUM = 0i32;
+pub const fgsALL_DEV_VALID: FAX_GROUP_STATUS_ENUM = FAX_GROUP_STATUS_ENUM(0i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fgsEMPTY: FAX_GROUP_STATUS_ENUM = 1i32;
+pub const fgsEMPTY: FAX_GROUP_STATUS_ENUM = FAX_GROUP_STATUS_ENUM(1i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fgsALL_DEV_NOT_VALID: FAX_GROUP_STATUS_ENUM = 2i32;
+pub const fgsALL_DEV_NOT_VALID: FAX_GROUP_STATUS_ENUM = FAX_GROUP_STATUS_ENUM(2i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fgsSOME_DEV_NOT_VALID: FAX_GROUP_STATUS_ENUM = 3i32;
+pub const fgsSOME_DEV_NOT_VALID: FAX_GROUP_STATUS_ENUM = FAX_GROUP_STATUS_ENUM(3i32);
+impl ::core::marker::Copy for FAX_GROUP_STATUS_ENUM {}
+impl ::core::clone::Clone for FAX_GROUP_STATUS_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FAX_GROUP_STATUS_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FAX_GROUP_STATUS_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FAX_GROUP_STATUS_ENUM").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1168,67 +1392,99 @@ impl ::core::default::Default for FAX_JOB_ENTRYW {
     }
 }
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub type FAX_JOB_EXTENDED_STATUS_ENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FAX_JOB_EXTENDED_STATUS_ENUM(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fjesNONE: FAX_JOB_EXTENDED_STATUS_ENUM = 0i32;
+pub const fjesNONE: FAX_JOB_EXTENDED_STATUS_ENUM = FAX_JOB_EXTENDED_STATUS_ENUM(0i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fjesDISCONNECTED: FAX_JOB_EXTENDED_STATUS_ENUM = 1i32;
+pub const fjesDISCONNECTED: FAX_JOB_EXTENDED_STATUS_ENUM = FAX_JOB_EXTENDED_STATUS_ENUM(1i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fjesINITIALIZING: FAX_JOB_EXTENDED_STATUS_ENUM = 2i32;
+pub const fjesINITIALIZING: FAX_JOB_EXTENDED_STATUS_ENUM = FAX_JOB_EXTENDED_STATUS_ENUM(2i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fjesDIALING: FAX_JOB_EXTENDED_STATUS_ENUM = 3i32;
+pub const fjesDIALING: FAX_JOB_EXTENDED_STATUS_ENUM = FAX_JOB_EXTENDED_STATUS_ENUM(3i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fjesTRANSMITTING: FAX_JOB_EXTENDED_STATUS_ENUM = 4i32;
+pub const fjesTRANSMITTING: FAX_JOB_EXTENDED_STATUS_ENUM = FAX_JOB_EXTENDED_STATUS_ENUM(4i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fjesANSWERED: FAX_JOB_EXTENDED_STATUS_ENUM = 5i32;
+pub const fjesANSWERED: FAX_JOB_EXTENDED_STATUS_ENUM = FAX_JOB_EXTENDED_STATUS_ENUM(5i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fjesRECEIVING: FAX_JOB_EXTENDED_STATUS_ENUM = 6i32;
+pub const fjesRECEIVING: FAX_JOB_EXTENDED_STATUS_ENUM = FAX_JOB_EXTENDED_STATUS_ENUM(6i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fjesLINE_UNAVAILABLE: FAX_JOB_EXTENDED_STATUS_ENUM = 7i32;
+pub const fjesLINE_UNAVAILABLE: FAX_JOB_EXTENDED_STATUS_ENUM = FAX_JOB_EXTENDED_STATUS_ENUM(7i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fjesBUSY: FAX_JOB_EXTENDED_STATUS_ENUM = 8i32;
+pub const fjesBUSY: FAX_JOB_EXTENDED_STATUS_ENUM = FAX_JOB_EXTENDED_STATUS_ENUM(8i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fjesNO_ANSWER: FAX_JOB_EXTENDED_STATUS_ENUM = 9i32;
+pub const fjesNO_ANSWER: FAX_JOB_EXTENDED_STATUS_ENUM = FAX_JOB_EXTENDED_STATUS_ENUM(9i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fjesBAD_ADDRESS: FAX_JOB_EXTENDED_STATUS_ENUM = 10i32;
+pub const fjesBAD_ADDRESS: FAX_JOB_EXTENDED_STATUS_ENUM = FAX_JOB_EXTENDED_STATUS_ENUM(10i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fjesNO_DIAL_TONE: FAX_JOB_EXTENDED_STATUS_ENUM = 11i32;
+pub const fjesNO_DIAL_TONE: FAX_JOB_EXTENDED_STATUS_ENUM = FAX_JOB_EXTENDED_STATUS_ENUM(11i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fjesFATAL_ERROR: FAX_JOB_EXTENDED_STATUS_ENUM = 12i32;
+pub const fjesFATAL_ERROR: FAX_JOB_EXTENDED_STATUS_ENUM = FAX_JOB_EXTENDED_STATUS_ENUM(12i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fjesCALL_DELAYED: FAX_JOB_EXTENDED_STATUS_ENUM = 13i32;
+pub const fjesCALL_DELAYED: FAX_JOB_EXTENDED_STATUS_ENUM = FAX_JOB_EXTENDED_STATUS_ENUM(13i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fjesCALL_BLACKLISTED: FAX_JOB_EXTENDED_STATUS_ENUM = 14i32;
+pub const fjesCALL_BLACKLISTED: FAX_JOB_EXTENDED_STATUS_ENUM = FAX_JOB_EXTENDED_STATUS_ENUM(14i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fjesNOT_FAX_CALL: FAX_JOB_EXTENDED_STATUS_ENUM = 15i32;
+pub const fjesNOT_FAX_CALL: FAX_JOB_EXTENDED_STATUS_ENUM = FAX_JOB_EXTENDED_STATUS_ENUM(15i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fjesPARTIALLY_RECEIVED: FAX_JOB_EXTENDED_STATUS_ENUM = 16i32;
+pub const fjesPARTIALLY_RECEIVED: FAX_JOB_EXTENDED_STATUS_ENUM = FAX_JOB_EXTENDED_STATUS_ENUM(16i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fjesHANDLED: FAX_JOB_EXTENDED_STATUS_ENUM = 17i32;
+pub const fjesHANDLED: FAX_JOB_EXTENDED_STATUS_ENUM = FAX_JOB_EXTENDED_STATUS_ENUM(17i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fjesCALL_COMPLETED: FAX_JOB_EXTENDED_STATUS_ENUM = 18i32;
+pub const fjesCALL_COMPLETED: FAX_JOB_EXTENDED_STATUS_ENUM = FAX_JOB_EXTENDED_STATUS_ENUM(18i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fjesCALL_ABORTED: FAX_JOB_EXTENDED_STATUS_ENUM = 19i32;
+pub const fjesCALL_ABORTED: FAX_JOB_EXTENDED_STATUS_ENUM = FAX_JOB_EXTENDED_STATUS_ENUM(19i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fjesPROPRIETARY: FAX_JOB_EXTENDED_STATUS_ENUM = 16777216i32;
+pub const fjesPROPRIETARY: FAX_JOB_EXTENDED_STATUS_ENUM = FAX_JOB_EXTENDED_STATUS_ENUM(16777216i32);
+impl ::core::marker::Copy for FAX_JOB_EXTENDED_STATUS_ENUM {}
+impl ::core::clone::Clone for FAX_JOB_EXTENDED_STATUS_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FAX_JOB_EXTENDED_STATUS_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FAX_JOB_EXTENDED_STATUS_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FAX_JOB_EXTENDED_STATUS_ENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub const FAX_JOB_MANAGE: u32 = 64u32;
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub type FAX_JOB_OPERATIONS_ENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FAX_JOB_OPERATIONS_ENUM(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fjoVIEW: FAX_JOB_OPERATIONS_ENUM = 1i32;
+pub const fjoVIEW: FAX_JOB_OPERATIONS_ENUM = FAX_JOB_OPERATIONS_ENUM(1i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fjoPAUSE: FAX_JOB_OPERATIONS_ENUM = 2i32;
+pub const fjoPAUSE: FAX_JOB_OPERATIONS_ENUM = FAX_JOB_OPERATIONS_ENUM(2i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fjoRESUME: FAX_JOB_OPERATIONS_ENUM = 4i32;
+pub const fjoRESUME: FAX_JOB_OPERATIONS_ENUM = FAX_JOB_OPERATIONS_ENUM(4i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fjoRESTART: FAX_JOB_OPERATIONS_ENUM = 8i32;
+pub const fjoRESTART: FAX_JOB_OPERATIONS_ENUM = FAX_JOB_OPERATIONS_ENUM(8i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fjoDELETE: FAX_JOB_OPERATIONS_ENUM = 16i32;
+pub const fjoDELETE: FAX_JOB_OPERATIONS_ENUM = FAX_JOB_OPERATIONS_ENUM(16i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fjoRECIPIENT_INFO: FAX_JOB_OPERATIONS_ENUM = 32i32;
+pub const fjoRECIPIENT_INFO: FAX_JOB_OPERATIONS_ENUM = FAX_JOB_OPERATIONS_ENUM(32i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fjoSENDER_INFO: FAX_JOB_OPERATIONS_ENUM = 64i32;
+pub const fjoSENDER_INFO: FAX_JOB_OPERATIONS_ENUM = FAX_JOB_OPERATIONS_ENUM(64i32);
+impl ::core::marker::Copy for FAX_JOB_OPERATIONS_ENUM {}
+impl ::core::clone::Clone for FAX_JOB_OPERATIONS_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FAX_JOB_OPERATIONS_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FAX_JOB_OPERATIONS_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FAX_JOB_OPERATIONS_ENUM").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1368,39 +1624,71 @@ impl ::core::default::Default for FAX_JOB_PARAMW {
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub const FAX_JOB_QUERY: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub type FAX_JOB_STATUS_ENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FAX_JOB_STATUS_ENUM(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fjsPENDING: FAX_JOB_STATUS_ENUM = 1i32;
+pub const fjsPENDING: FAX_JOB_STATUS_ENUM = FAX_JOB_STATUS_ENUM(1i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fjsINPROGRESS: FAX_JOB_STATUS_ENUM = 2i32;
+pub const fjsINPROGRESS: FAX_JOB_STATUS_ENUM = FAX_JOB_STATUS_ENUM(2i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fjsFAILED: FAX_JOB_STATUS_ENUM = 8i32;
+pub const fjsFAILED: FAX_JOB_STATUS_ENUM = FAX_JOB_STATUS_ENUM(8i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fjsPAUSED: FAX_JOB_STATUS_ENUM = 16i32;
+pub const fjsPAUSED: FAX_JOB_STATUS_ENUM = FAX_JOB_STATUS_ENUM(16i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fjsNOLINE: FAX_JOB_STATUS_ENUM = 32i32;
+pub const fjsNOLINE: FAX_JOB_STATUS_ENUM = FAX_JOB_STATUS_ENUM(32i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fjsRETRYING: FAX_JOB_STATUS_ENUM = 64i32;
+pub const fjsRETRYING: FAX_JOB_STATUS_ENUM = FAX_JOB_STATUS_ENUM(64i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fjsRETRIES_EXCEEDED: FAX_JOB_STATUS_ENUM = 128i32;
+pub const fjsRETRIES_EXCEEDED: FAX_JOB_STATUS_ENUM = FAX_JOB_STATUS_ENUM(128i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fjsCOMPLETED: FAX_JOB_STATUS_ENUM = 256i32;
+pub const fjsCOMPLETED: FAX_JOB_STATUS_ENUM = FAX_JOB_STATUS_ENUM(256i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fjsCANCELED: FAX_JOB_STATUS_ENUM = 512i32;
+pub const fjsCANCELED: FAX_JOB_STATUS_ENUM = FAX_JOB_STATUS_ENUM(512i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fjsCANCELING: FAX_JOB_STATUS_ENUM = 1024i32;
+pub const fjsCANCELING: FAX_JOB_STATUS_ENUM = FAX_JOB_STATUS_ENUM(1024i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fjsROUTING: FAX_JOB_STATUS_ENUM = 2048i32;
+pub const fjsROUTING: FAX_JOB_STATUS_ENUM = FAX_JOB_STATUS_ENUM(2048i32);
+impl ::core::marker::Copy for FAX_JOB_STATUS_ENUM {}
+impl ::core::clone::Clone for FAX_JOB_STATUS_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FAX_JOB_STATUS_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FAX_JOB_STATUS_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FAX_JOB_STATUS_ENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub const FAX_JOB_SUBMIT: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub type FAX_JOB_TYPE_ENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FAX_JOB_TYPE_ENUM(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fjtSEND: FAX_JOB_TYPE_ENUM = 0i32;
+pub const fjtSEND: FAX_JOB_TYPE_ENUM = FAX_JOB_TYPE_ENUM(0i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fjtRECEIVE: FAX_JOB_TYPE_ENUM = 1i32;
+pub const fjtRECEIVE: FAX_JOB_TYPE_ENUM = FAX_JOB_TYPE_ENUM(1i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fjtROUTING: FAX_JOB_TYPE_ENUM = 2i32;
+pub const fjtROUTING: FAX_JOB_TYPE_ENUM = FAX_JOB_TYPE_ENUM(2i32);
+impl ::core::marker::Copy for FAX_JOB_TYPE_ENUM {}
+impl ::core::clone::Clone for FAX_JOB_TYPE_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FAX_JOB_TYPE_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FAX_JOB_TYPE_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FAX_JOB_TYPE_ENUM").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1482,15 +1770,31 @@ impl ::core::default::Default for FAX_LOG_CATEGORYW {
     }
 }
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub type FAX_LOG_LEVEL_ENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FAX_LOG_LEVEL_ENUM(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fllNONE: FAX_LOG_LEVEL_ENUM = 0i32;
+pub const fllNONE: FAX_LOG_LEVEL_ENUM = FAX_LOG_LEVEL_ENUM(0i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fllMIN: FAX_LOG_LEVEL_ENUM = 1i32;
+pub const fllMIN: FAX_LOG_LEVEL_ENUM = FAX_LOG_LEVEL_ENUM(1i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fllMED: FAX_LOG_LEVEL_ENUM = 2i32;
+pub const fllMED: FAX_LOG_LEVEL_ENUM = FAX_LOG_LEVEL_ENUM(2i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fllMAX: FAX_LOG_LEVEL_ENUM = 3i32;
+pub const fllMAX: FAX_LOG_LEVEL_ENUM = FAX_LOG_LEVEL_ENUM(3i32);
+impl ::core::marker::Copy for FAX_LOG_LEVEL_ENUM {}
+impl ::core::clone::Clone for FAX_LOG_LEVEL_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FAX_LOG_LEVEL_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FAX_LOG_LEVEL_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FAX_LOG_LEVEL_ENUM").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1708,37 +2012,85 @@ impl ::core::default::Default for FAX_PRINT_INFOW {
     }
 }
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub type FAX_PRIORITY_TYPE_ENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FAX_PRIORITY_TYPE_ENUM(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fptLOW: FAX_PRIORITY_TYPE_ENUM = 0i32;
+pub const fptLOW: FAX_PRIORITY_TYPE_ENUM = FAX_PRIORITY_TYPE_ENUM(0i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fptNORMAL: FAX_PRIORITY_TYPE_ENUM = 1i32;
+pub const fptNORMAL: FAX_PRIORITY_TYPE_ENUM = FAX_PRIORITY_TYPE_ENUM(1i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fptHIGH: FAX_PRIORITY_TYPE_ENUM = 2i32;
+pub const fptHIGH: FAX_PRIORITY_TYPE_ENUM = FAX_PRIORITY_TYPE_ENUM(2i32);
+impl ::core::marker::Copy for FAX_PRIORITY_TYPE_ENUM {}
+impl ::core::clone::Clone for FAX_PRIORITY_TYPE_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FAX_PRIORITY_TYPE_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FAX_PRIORITY_TYPE_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FAX_PRIORITY_TYPE_ENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub type FAX_PROVIDER_STATUS_ENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FAX_PROVIDER_STATUS_ENUM(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fpsSUCCESS: FAX_PROVIDER_STATUS_ENUM = 0i32;
+pub const fpsSUCCESS: FAX_PROVIDER_STATUS_ENUM = FAX_PROVIDER_STATUS_ENUM(0i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fpsSERVER_ERROR: FAX_PROVIDER_STATUS_ENUM = 1i32;
+pub const fpsSERVER_ERROR: FAX_PROVIDER_STATUS_ENUM = FAX_PROVIDER_STATUS_ENUM(1i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fpsBAD_GUID: FAX_PROVIDER_STATUS_ENUM = 2i32;
+pub const fpsBAD_GUID: FAX_PROVIDER_STATUS_ENUM = FAX_PROVIDER_STATUS_ENUM(2i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fpsBAD_VERSION: FAX_PROVIDER_STATUS_ENUM = 3i32;
+pub const fpsBAD_VERSION: FAX_PROVIDER_STATUS_ENUM = FAX_PROVIDER_STATUS_ENUM(3i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fpsCANT_LOAD: FAX_PROVIDER_STATUS_ENUM = 4i32;
+pub const fpsCANT_LOAD: FAX_PROVIDER_STATUS_ENUM = FAX_PROVIDER_STATUS_ENUM(4i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fpsCANT_LINK: FAX_PROVIDER_STATUS_ENUM = 5i32;
+pub const fpsCANT_LINK: FAX_PROVIDER_STATUS_ENUM = FAX_PROVIDER_STATUS_ENUM(5i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fpsCANT_INIT: FAX_PROVIDER_STATUS_ENUM = 6i32;
+pub const fpsCANT_INIT: FAX_PROVIDER_STATUS_ENUM = FAX_PROVIDER_STATUS_ENUM(6i32);
+impl ::core::marker::Copy for FAX_PROVIDER_STATUS_ENUM {}
+impl ::core::clone::Clone for FAX_PROVIDER_STATUS_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FAX_PROVIDER_STATUS_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FAX_PROVIDER_STATUS_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FAX_PROVIDER_STATUS_ENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub type FAX_RECEIPT_TYPE_ENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FAX_RECEIPT_TYPE_ENUM(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const frtNONE: FAX_RECEIPT_TYPE_ENUM = 0i32;
+pub const frtNONE: FAX_RECEIPT_TYPE_ENUM = FAX_RECEIPT_TYPE_ENUM(0i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const frtMAIL: FAX_RECEIPT_TYPE_ENUM = 1i32;
+pub const frtMAIL: FAX_RECEIPT_TYPE_ENUM = FAX_RECEIPT_TYPE_ENUM(1i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const frtMSGBOX: FAX_RECEIPT_TYPE_ENUM = 4i32;
+pub const frtMSGBOX: FAX_RECEIPT_TYPE_ENUM = FAX_RECEIPT_TYPE_ENUM(4i32);
+impl ::core::marker::Copy for FAX_RECEIPT_TYPE_ENUM {}
+impl ::core::clone::Clone for FAX_RECEIPT_TYPE_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FAX_RECEIPT_TYPE_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FAX_RECEIPT_TYPE_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FAX_RECEIPT_TYPE_ENUM").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1985,29 +2337,77 @@ impl ::core::default::Default for FAX_ROUTING_METHODW {
     }
 }
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub type FAX_ROUTING_RULE_CODE_ENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FAX_ROUTING_RULE_CODE_ENUM(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const frrcANY_CODE: FAX_ROUTING_RULE_CODE_ENUM = 0i32;
+pub const frrcANY_CODE: FAX_ROUTING_RULE_CODE_ENUM = FAX_ROUTING_RULE_CODE_ENUM(0i32);
+impl ::core::marker::Copy for FAX_ROUTING_RULE_CODE_ENUM {}
+impl ::core::clone::Clone for FAX_ROUTING_RULE_CODE_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FAX_ROUTING_RULE_CODE_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FAX_ROUTING_RULE_CODE_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FAX_ROUTING_RULE_CODE_ENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub type FAX_RULE_STATUS_ENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FAX_RULE_STATUS_ENUM(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const frsVALID: FAX_RULE_STATUS_ENUM = 0i32;
+pub const frsVALID: FAX_RULE_STATUS_ENUM = FAX_RULE_STATUS_ENUM(0i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const frsEMPTY_GROUP: FAX_RULE_STATUS_ENUM = 1i32;
+pub const frsEMPTY_GROUP: FAX_RULE_STATUS_ENUM = FAX_RULE_STATUS_ENUM(1i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const frsALL_GROUP_DEV_NOT_VALID: FAX_RULE_STATUS_ENUM = 2i32;
+pub const frsALL_GROUP_DEV_NOT_VALID: FAX_RULE_STATUS_ENUM = FAX_RULE_STATUS_ENUM(2i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const frsSOME_GROUP_DEV_NOT_VALID: FAX_RULE_STATUS_ENUM = 3i32;
+pub const frsSOME_GROUP_DEV_NOT_VALID: FAX_RULE_STATUS_ENUM = FAX_RULE_STATUS_ENUM(3i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const frsBAD_DEVICE: FAX_RULE_STATUS_ENUM = 4i32;
+pub const frsBAD_DEVICE: FAX_RULE_STATUS_ENUM = FAX_RULE_STATUS_ENUM(4i32);
+impl ::core::marker::Copy for FAX_RULE_STATUS_ENUM {}
+impl ::core::clone::Clone for FAX_RULE_STATUS_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FAX_RULE_STATUS_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FAX_RULE_STATUS_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FAX_RULE_STATUS_ENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub type FAX_SCHEDULE_TYPE_ENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FAX_SCHEDULE_TYPE_ENUM(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fstNOW: FAX_SCHEDULE_TYPE_ENUM = 0i32;
+pub const fstNOW: FAX_SCHEDULE_TYPE_ENUM = FAX_SCHEDULE_TYPE_ENUM(0i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fstSPECIFIC_TIME: FAX_SCHEDULE_TYPE_ENUM = 1i32;
+pub const fstSPECIFIC_TIME: FAX_SCHEDULE_TYPE_ENUM = FAX_SCHEDULE_TYPE_ENUM(1i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fstDISCOUNT_PERIOD: FAX_SCHEDULE_TYPE_ENUM = 2i32;
+pub const fstDISCOUNT_PERIOD: FAX_SCHEDULE_TYPE_ENUM = FAX_SCHEDULE_TYPE_ENUM(2i32);
+impl ::core::marker::Copy for FAX_SCHEDULE_TYPE_ENUM {}
+impl ::core::clone::Clone for FAX_SCHEDULE_TYPE_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FAX_SCHEDULE_TYPE_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FAX_SCHEDULE_TYPE_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FAX_SCHEDULE_TYPE_ENUM").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2055,47 +2455,95 @@ impl ::core::default::Default for FAX_SEND {
     }
 }
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub type FAX_SERVER_APIVERSION_ENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FAX_SERVER_APIVERSION_ENUM(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fsAPI_VERSION_0: FAX_SERVER_APIVERSION_ENUM = 0i32;
+pub const fsAPI_VERSION_0: FAX_SERVER_APIVERSION_ENUM = FAX_SERVER_APIVERSION_ENUM(0i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fsAPI_VERSION_1: FAX_SERVER_APIVERSION_ENUM = 65536i32;
+pub const fsAPI_VERSION_1: FAX_SERVER_APIVERSION_ENUM = FAX_SERVER_APIVERSION_ENUM(65536i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fsAPI_VERSION_2: FAX_SERVER_APIVERSION_ENUM = 131072i32;
+pub const fsAPI_VERSION_2: FAX_SERVER_APIVERSION_ENUM = FAX_SERVER_APIVERSION_ENUM(131072i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fsAPI_VERSION_3: FAX_SERVER_APIVERSION_ENUM = 196608i32;
+pub const fsAPI_VERSION_3: FAX_SERVER_APIVERSION_ENUM = FAX_SERVER_APIVERSION_ENUM(196608i32);
+impl ::core::marker::Copy for FAX_SERVER_APIVERSION_ENUM {}
+impl ::core::clone::Clone for FAX_SERVER_APIVERSION_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FAX_SERVER_APIVERSION_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FAX_SERVER_APIVERSION_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FAX_SERVER_APIVERSION_ENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub type FAX_SERVER_EVENTS_TYPE_ENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FAX_SERVER_EVENTS_TYPE_ENUM(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fsetNONE: FAX_SERVER_EVENTS_TYPE_ENUM = 0i32;
+pub const fsetNONE: FAX_SERVER_EVENTS_TYPE_ENUM = FAX_SERVER_EVENTS_TYPE_ENUM(0i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fsetIN_QUEUE: FAX_SERVER_EVENTS_TYPE_ENUM = 1i32;
+pub const fsetIN_QUEUE: FAX_SERVER_EVENTS_TYPE_ENUM = FAX_SERVER_EVENTS_TYPE_ENUM(1i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fsetOUT_QUEUE: FAX_SERVER_EVENTS_TYPE_ENUM = 2i32;
+pub const fsetOUT_QUEUE: FAX_SERVER_EVENTS_TYPE_ENUM = FAX_SERVER_EVENTS_TYPE_ENUM(2i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fsetCONFIG: FAX_SERVER_EVENTS_TYPE_ENUM = 4i32;
+pub const fsetCONFIG: FAX_SERVER_EVENTS_TYPE_ENUM = FAX_SERVER_EVENTS_TYPE_ENUM(4i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fsetACTIVITY: FAX_SERVER_EVENTS_TYPE_ENUM = 8i32;
+pub const fsetACTIVITY: FAX_SERVER_EVENTS_TYPE_ENUM = FAX_SERVER_EVENTS_TYPE_ENUM(8i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fsetQUEUE_STATE: FAX_SERVER_EVENTS_TYPE_ENUM = 16i32;
+pub const fsetQUEUE_STATE: FAX_SERVER_EVENTS_TYPE_ENUM = FAX_SERVER_EVENTS_TYPE_ENUM(16i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fsetIN_ARCHIVE: FAX_SERVER_EVENTS_TYPE_ENUM = 32i32;
+pub const fsetIN_ARCHIVE: FAX_SERVER_EVENTS_TYPE_ENUM = FAX_SERVER_EVENTS_TYPE_ENUM(32i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fsetOUT_ARCHIVE: FAX_SERVER_EVENTS_TYPE_ENUM = 64i32;
+pub const fsetOUT_ARCHIVE: FAX_SERVER_EVENTS_TYPE_ENUM = FAX_SERVER_EVENTS_TYPE_ENUM(64i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fsetFXSSVC_ENDED: FAX_SERVER_EVENTS_TYPE_ENUM = 128i32;
+pub const fsetFXSSVC_ENDED: FAX_SERVER_EVENTS_TYPE_ENUM = FAX_SERVER_EVENTS_TYPE_ENUM(128i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fsetDEVICE_STATUS: FAX_SERVER_EVENTS_TYPE_ENUM = 256i32;
+pub const fsetDEVICE_STATUS: FAX_SERVER_EVENTS_TYPE_ENUM = FAX_SERVER_EVENTS_TYPE_ENUM(256i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fsetINCOMING_CALL: FAX_SERVER_EVENTS_TYPE_ENUM = 512i32;
+pub const fsetINCOMING_CALL: FAX_SERVER_EVENTS_TYPE_ENUM = FAX_SERVER_EVENTS_TYPE_ENUM(512i32);
+impl ::core::marker::Copy for FAX_SERVER_EVENTS_TYPE_ENUM {}
+impl ::core::clone::Clone for FAX_SERVER_EVENTS_TYPE_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FAX_SERVER_EVENTS_TYPE_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FAX_SERVER_EVENTS_TYPE_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FAX_SERVER_EVENTS_TYPE_ENUM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub type FAX_SMTP_AUTHENTICATION_TYPE_ENUM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct FAX_SMTP_AUTHENTICATION_TYPE_ENUM(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fsatANONYMOUS: FAX_SMTP_AUTHENTICATION_TYPE_ENUM = 0i32;
+pub const fsatANONYMOUS: FAX_SMTP_AUTHENTICATION_TYPE_ENUM = FAX_SMTP_AUTHENTICATION_TYPE_ENUM(0i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fsatBASIC: FAX_SMTP_AUTHENTICATION_TYPE_ENUM = 1i32;
+pub const fsatBASIC: FAX_SMTP_AUTHENTICATION_TYPE_ENUM = FAX_SMTP_AUTHENTICATION_TYPE_ENUM(1i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const fsatNTLM: FAX_SMTP_AUTHENTICATION_TYPE_ENUM = 2i32;
+pub const fsatNTLM: FAX_SMTP_AUTHENTICATION_TYPE_ENUM = FAX_SMTP_AUTHENTICATION_TYPE_ENUM(2i32);
+impl ::core::marker::Copy for FAX_SMTP_AUTHENTICATION_TYPE_ENUM {}
+impl ::core::clone::Clone for FAX_SMTP_AUTHENTICATION_TYPE_ENUM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FAX_SMTP_AUTHENTICATION_TYPE_ENUM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for FAX_SMTP_AUTHENTICATION_TYPE_ENUM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FAX_SMTP_AUTHENTICATION_TYPE_ENUM").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub struct FAX_TIME {
@@ -15431,15 +15879,31 @@ impl ::core::default::Default for STI_DEVICE_INFORMATIONW {
     }
 }
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub type STI_DEVICE_MJ_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct STI_DEVICE_MJ_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const StiDeviceTypeDefault: STI_DEVICE_MJ_TYPE = 0i32;
+pub const StiDeviceTypeDefault: STI_DEVICE_MJ_TYPE = STI_DEVICE_MJ_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const StiDeviceTypeScanner: STI_DEVICE_MJ_TYPE = 1i32;
+pub const StiDeviceTypeScanner: STI_DEVICE_MJ_TYPE = STI_DEVICE_MJ_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const StiDeviceTypeDigitalCamera: STI_DEVICE_MJ_TYPE = 2i32;
+pub const StiDeviceTypeDigitalCamera: STI_DEVICE_MJ_TYPE = STI_DEVICE_MJ_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const StiDeviceTypeStreamingVideo: STI_DEVICE_MJ_TYPE = 3i32;
+pub const StiDeviceTypeStreamingVideo: STI_DEVICE_MJ_TYPE = STI_DEVICE_MJ_TYPE(3i32);
+impl ::core::marker::Copy for STI_DEVICE_MJ_TYPE {}
+impl ::core::clone::Clone for STI_DEVICE_MJ_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for STI_DEVICE_MJ_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for STI_DEVICE_MJ_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("STI_DEVICE_MJ_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
 pub struct STI_DEVICE_STATUS {
@@ -15746,9 +16210,25 @@ pub unsafe fn SendToFaxRecipient<'a, Param1: ::windows::core::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub type SendToMode = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SendToMode(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Fax'*"]
-pub const SEND_TO_FAX_RECIPIENT_ATTACHMENT: SendToMode = 0i32;
+pub const SEND_TO_FAX_RECIPIENT_ATTACHMENT: SendToMode = SendToMode(0i32);
+impl ::core::marker::Copy for SendToMode {}
+impl ::core::clone::Clone for SendToMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SendToMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SendToMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SendToMode").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Fax', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]

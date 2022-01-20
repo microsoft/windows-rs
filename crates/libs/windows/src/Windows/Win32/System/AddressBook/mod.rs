@@ -1310,13 +1310,29 @@ pub unsafe fn FtgRegisterIdleRoutine(lpfnidle: PFNIDLE, lpvidleparam: *mut ::cor
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_System_AddressBook'*"]
-pub type Gender = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct Gender(pub i32);
 #[doc = "*Required features: 'Win32_System_AddressBook'*"]
-pub const genderUnspecified: Gender = 0i32;
+pub const genderUnspecified: Gender = Gender(0i32);
 #[doc = "*Required features: 'Win32_System_AddressBook'*"]
-pub const genderFemale: Gender = 1i32;
+pub const genderFemale: Gender = Gender(1i32);
 #[doc = "*Required features: 'Win32_System_AddressBook'*"]
-pub const genderMale: Gender = 2i32;
+pub const genderMale: Gender = Gender(2i32);
+impl ::core::marker::Copy for Gender {}
+impl ::core::clone::Clone for Gender {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for Gender {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for Gender {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Gender").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_AddressBook'*"]
 #[inline]
 pub unsafe fn HrAddColumns<'a, Param0: ::windows::core::IntoParam<'a, IMAPITable>>(lptbl: Param0, lpproptagcolumnsnew: *mut SPropTagArray, lpallocatebuffer: LPALLOCATEBUFFER, lpfreebuffer: LPFREEBUFFER) -> ::windows::core::Result<()> {

@@ -2192,13 +2192,29 @@ pub struct IStorage_Vtbl {
     Stat: usize,
 }
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub type LOCKTYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct LOCKTYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const LOCK_WRITE: LOCKTYPE = 1i32;
+pub const LOCK_WRITE: LOCKTYPE = LOCKTYPE(1i32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const LOCK_EXCLUSIVE: LOCKTYPE = 2i32;
+pub const LOCK_EXCLUSIVE: LOCKTYPE = LOCKTYPE(2i32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const LOCK_ONLYONCE: LOCKTYPE = 4i32;
+pub const LOCK_ONLYONCE: LOCKTYPE = LOCKTYPE(4i32);
+impl ::core::marker::Copy for LOCKTYPE {}
+impl ::core::clone::Clone for LOCKTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for LOCKTYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LOCKTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LOCKTYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub struct OLESTREAM {
@@ -2369,27 +2385,43 @@ pub const PIDMSI_SOURCE: i32 = 4i32;
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDMSI_STATUS: i32 = 7i32;
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub type PIDMSI_STATUS_VALUE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PIDMSI_STATUS_VALUE(pub i32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const PIDMSI_STATUS_NORMAL: PIDMSI_STATUS_VALUE = 0i32;
+pub const PIDMSI_STATUS_NORMAL: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(0i32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const PIDMSI_STATUS_NEW: PIDMSI_STATUS_VALUE = 1i32;
+pub const PIDMSI_STATUS_NEW: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(1i32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const PIDMSI_STATUS_PRELIM: PIDMSI_STATUS_VALUE = 2i32;
+pub const PIDMSI_STATUS_PRELIM: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(2i32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const PIDMSI_STATUS_DRAFT: PIDMSI_STATUS_VALUE = 3i32;
+pub const PIDMSI_STATUS_DRAFT: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(3i32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const PIDMSI_STATUS_INPROGRESS: PIDMSI_STATUS_VALUE = 4i32;
+pub const PIDMSI_STATUS_INPROGRESS: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(4i32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const PIDMSI_STATUS_EDIT: PIDMSI_STATUS_VALUE = 5i32;
+pub const PIDMSI_STATUS_EDIT: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(5i32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const PIDMSI_STATUS_REVIEW: PIDMSI_STATUS_VALUE = 6i32;
+pub const PIDMSI_STATUS_REVIEW: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(6i32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const PIDMSI_STATUS_PROOF: PIDMSI_STATUS_VALUE = 7i32;
+pub const PIDMSI_STATUS_PROOF: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(7i32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const PIDMSI_STATUS_FINAL: PIDMSI_STATUS_VALUE = 8i32;
+pub const PIDMSI_STATUS_FINAL: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(8i32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const PIDMSI_STATUS_OTHER: PIDMSI_STATUS_VALUE = 32767i32;
+pub const PIDMSI_STATUS_OTHER: PIDMSI_STATUS_VALUE = PIDMSI_STATUS_VALUE(32767i32);
+impl ::core::marker::Copy for PIDMSI_STATUS_VALUE {}
+impl ::core::clone::Clone for PIDMSI_STATUS_VALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PIDMSI_STATUS_VALUE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PIDMSI_STATUS_VALUE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PIDMSI_STATUS_VALUE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const PIDMSI_SUPPLIER: i32 = 3i32;
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
@@ -2576,11 +2608,55 @@ impl ::core::default::Default for PROPSPEC_0 {
     }
 }
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub type PROPSPEC_KIND = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PROPSPEC_KIND(pub u32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const PRSPEC_LPWSTR: PROPSPEC_KIND = 0u32;
+pub const PRSPEC_LPWSTR: PROPSPEC_KIND = PROPSPEC_KIND(0u32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const PRSPEC_PROPID: PROPSPEC_KIND = 1u32;
+pub const PRSPEC_PROPID: PROPSPEC_KIND = PROPSPEC_KIND(1u32);
+impl ::core::marker::Copy for PROPSPEC_KIND {}
+impl ::core::clone::Clone for PROPSPEC_KIND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PROPSPEC_KIND {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PROPSPEC_KIND {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PROPSPEC_KIND").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for PROPSPEC_KIND {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for PROPSPEC_KIND {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for PROPSPEC_KIND {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for PROPSPEC_KIND {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for PROPSPEC_KIND {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2935,13 +3011,29 @@ impl ::core::default::Default for SERIALIZEDPROPERTYVALUE {
     }
 }
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub type STATFLAG = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct STATFLAG(pub i32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STATFLAG_DEFAULT: STATFLAG = 0i32;
+pub const STATFLAG_DEFAULT: STATFLAG = STATFLAG(0i32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STATFLAG_NONAME: STATFLAG = 1i32;
+pub const STATFLAG_NONAME: STATFLAG = STATFLAG(1i32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STATFLAG_NOOPEN: STATFLAG = 2i32;
+pub const STATFLAG_NOOPEN: STATFLAG = STATFLAG(2i32);
+impl ::core::marker::Copy for STATFLAG {}
+impl ::core::clone::Clone for STATFLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for STATFLAG {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for STATFLAG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("STATFLAG").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3027,77 +3119,225 @@ impl ::core::default::Default for STATPROPSTG {
     }
 }
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub type STGC = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct STGC(pub u32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGC_DEFAULT: STGC = 0u32;
+pub const STGC_DEFAULT: STGC = STGC(0u32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGC_OVERWRITE: STGC = 1u32;
+pub const STGC_OVERWRITE: STGC = STGC(1u32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGC_ONLYIFCURRENT: STGC = 2u32;
+pub const STGC_ONLYIFCURRENT: STGC = STGC(2u32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGC_DANGEROUSLYCOMMITMERELYTODISKCACHE: STGC = 4u32;
+pub const STGC_DANGEROUSLYCOMMITMERELYTODISKCACHE: STGC = STGC(4u32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGC_CONSOLIDATE: STGC = 8u32;
+pub const STGC_CONSOLIDATE: STGC = STGC(8u32);
+impl ::core::marker::Copy for STGC {}
+impl ::core::clone::Clone for STGC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for STGC {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for STGC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("STGC").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for STGC {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for STGC {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for STGC {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for STGC {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for STGC {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub type STGFMT = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct STGFMT(pub u32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGFMT_STORAGE: STGFMT = 0u32;
+pub const STGFMT_STORAGE: STGFMT = STGFMT(0u32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGFMT_NATIVE: STGFMT = 1u32;
+pub const STGFMT_NATIVE: STGFMT = STGFMT(1u32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGFMT_FILE: STGFMT = 3u32;
+pub const STGFMT_FILE: STGFMT = STGFMT(3u32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGFMT_ANY: STGFMT = 4u32;
+pub const STGFMT_ANY: STGFMT = STGFMT(4u32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGFMT_DOCFILE: STGFMT = 5u32;
+pub const STGFMT_DOCFILE: STGFMT = STGFMT(5u32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGFMT_DOCUMENT: STGFMT = 0u32;
+pub const STGFMT_DOCUMENT: STGFMT = STGFMT(0u32);
+impl ::core::marker::Copy for STGFMT {}
+impl ::core::clone::Clone for STGFMT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for STGFMT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for STGFMT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("STGFMT").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for STGFMT {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for STGFMT {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for STGFMT {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for STGFMT {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for STGFMT {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub type STGM = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct STGM(pub u32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_DIRECT: STGM = 0u32;
+pub const STGM_DIRECT: STGM = STGM(0u32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_TRANSACTED: STGM = 65536u32;
+pub const STGM_TRANSACTED: STGM = STGM(65536u32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_SIMPLE: STGM = 134217728u32;
+pub const STGM_SIMPLE: STGM = STGM(134217728u32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_READ: STGM = 0u32;
+pub const STGM_READ: STGM = STGM(0u32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_WRITE: STGM = 1u32;
+pub const STGM_WRITE: STGM = STGM(1u32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_READWRITE: STGM = 2u32;
+pub const STGM_READWRITE: STGM = STGM(2u32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_SHARE_DENY_NONE: STGM = 64u32;
+pub const STGM_SHARE_DENY_NONE: STGM = STGM(64u32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_SHARE_DENY_READ: STGM = 48u32;
+pub const STGM_SHARE_DENY_READ: STGM = STGM(48u32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_SHARE_DENY_WRITE: STGM = 32u32;
+pub const STGM_SHARE_DENY_WRITE: STGM = STGM(32u32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_SHARE_EXCLUSIVE: STGM = 16u32;
+pub const STGM_SHARE_EXCLUSIVE: STGM = STGM(16u32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_PRIORITY: STGM = 262144u32;
+pub const STGM_PRIORITY: STGM = STGM(262144u32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_DELETEONRELEASE: STGM = 67108864u32;
+pub const STGM_DELETEONRELEASE: STGM = STGM(67108864u32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_NOSCRATCH: STGM = 1048576u32;
+pub const STGM_NOSCRATCH: STGM = STGM(1048576u32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_CREATE: STGM = 4096u32;
+pub const STGM_CREATE: STGM = STGM(4096u32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_CONVERT: STGM = 131072u32;
+pub const STGM_CONVERT: STGM = STGM(131072u32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_FAILIFTHERE: STGM = 0u32;
+pub const STGM_FAILIFTHERE: STGM = STGM(0u32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_NOSNAPSHOT: STGM = 2097152u32;
+pub const STGM_NOSNAPSHOT: STGM = STGM(2097152u32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_DIRECT_SWMR: STGM = 4194304u32;
+pub const STGM_DIRECT_SWMR: STGM = STGM(4194304u32);
+impl ::core::marker::Copy for STGM {}
+impl ::core::clone::Clone for STGM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for STGM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for STGM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("STGM").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for STGM {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for STGM {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for STGM {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for STGM {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for STGM {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub type STGMOVE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct STGMOVE(pub i32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGMOVE_MOVE: STGMOVE = 0i32;
+pub const STGMOVE_MOVE: STGMOVE = STGMOVE(0i32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGMOVE_COPY: STGMOVE = 1i32;
+pub const STGMOVE_COPY: STGMOVE = STGMOVE(1i32);
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGMOVE_SHALLOWCOPY: STGMOVE = 2i32;
+pub const STGMOVE_SHALLOWCOPY: STGMOVE = STGMOVE(2i32);
+impl ::core::marker::Copy for STGMOVE {}
+impl ::core::clone::Clone for STGMOVE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for STGMOVE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for STGMOVE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("STGMOVE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]

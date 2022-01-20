@@ -1,54 +1,86 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub type ATTRIBUTE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ATTRIBUTE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const AT_INVALID: ATTRIBUTE_TYPE = 0i32;
+pub const AT_INVALID: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const AT_BOOLEAN: ATTRIBUTE_TYPE = 1i32;
+pub const AT_BOOLEAN: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const AT_INT8: ATTRIBUTE_TYPE = 2i32;
+pub const AT_INT8: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const AT_UINT8: ATTRIBUTE_TYPE = 3i32;
+pub const AT_UINT8: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(3i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const AT_INT16: ATTRIBUTE_TYPE = 4i32;
+pub const AT_INT16: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(4i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const AT_UINT16: ATTRIBUTE_TYPE = 5i32;
+pub const AT_UINT16: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(5i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const AT_INT32: ATTRIBUTE_TYPE = 6i32;
+pub const AT_INT32: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(6i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const AT_UINT32: ATTRIBUTE_TYPE = 7i32;
+pub const AT_UINT32: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(7i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const AT_INT64: ATTRIBUTE_TYPE = 8i32;
+pub const AT_INT64: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(8i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const AT_UINT64: ATTRIBUTE_TYPE = 9i32;
+pub const AT_UINT64: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(9i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const AT_STRING: ATTRIBUTE_TYPE = 10i32;
+pub const AT_STRING: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(10i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const AT_GUID: ATTRIBUTE_TYPE = 11i32;
+pub const AT_GUID: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(11i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const AT_LIFE_TIME: ATTRIBUTE_TYPE = 12i32;
+pub const AT_LIFE_TIME: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(12i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const AT_SOCKADDR: ATTRIBUTE_TYPE = 13i32;
+pub const AT_SOCKADDR: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(13i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const AT_OCTET_STRING: ATTRIBUTE_TYPE = 14i32;
+pub const AT_OCTET_STRING: ATTRIBUTE_TYPE = ATTRIBUTE_TYPE(14i32);
+impl ::core::marker::Copy for ATTRIBUTE_TYPE {}
+impl ::core::clone::Clone for ATTRIBUTE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ATTRIBUTE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ATTRIBUTE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ATTRIBUTE_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const DF_IMPERSONATION: u32 = 2147483648u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const DF_TRACELESS: u32 = 1073741824u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub type DIAGNOSIS_STATUS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DIAGNOSIS_STATUS(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const DS_NOT_IMPLEMENTED: DIAGNOSIS_STATUS = 0i32;
+pub const DS_NOT_IMPLEMENTED: DIAGNOSIS_STATUS = DIAGNOSIS_STATUS(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const DS_CONFIRMED: DIAGNOSIS_STATUS = 1i32;
+pub const DS_CONFIRMED: DIAGNOSIS_STATUS = DIAGNOSIS_STATUS(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const DS_REJECTED: DIAGNOSIS_STATUS = 2i32;
+pub const DS_REJECTED: DIAGNOSIS_STATUS = DIAGNOSIS_STATUS(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const DS_INDETERMINATE: DIAGNOSIS_STATUS = 3i32;
+pub const DS_INDETERMINATE: DIAGNOSIS_STATUS = DIAGNOSIS_STATUS(3i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const DS_DEFERRED: DIAGNOSIS_STATUS = 4i32;
+pub const DS_DEFERRED: DIAGNOSIS_STATUS = DIAGNOSIS_STATUS(4i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const DS_PASSTHROUGH: DIAGNOSIS_STATUS = 5i32;
+pub const DS_PASSTHROUGH: DIAGNOSIS_STATUS = DIAGNOSIS_STATUS(5i32);
+impl ::core::marker::Copy for DIAGNOSIS_STATUS {}
+impl ::core::clone::Clone for DIAGNOSIS_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DIAGNOSIS_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DIAGNOSIS_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DIAGNOSIS_STATUS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1093,21 +1125,37 @@ impl ::core::default::Default for OCTET_STRING {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub type PROBLEM_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PROBLEM_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const PT_INVALID: PROBLEM_TYPE = 0i32;
+pub const PT_INVALID: PROBLEM_TYPE = PROBLEM_TYPE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const PT_LOW_HEALTH: PROBLEM_TYPE = 1i32;
+pub const PT_LOW_HEALTH: PROBLEM_TYPE = PROBLEM_TYPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const PT_LOWER_HEALTH: PROBLEM_TYPE = 2i32;
+pub const PT_LOWER_HEALTH: PROBLEM_TYPE = PROBLEM_TYPE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const PT_DOWN_STREAM_HEALTH: PROBLEM_TYPE = 4i32;
+pub const PT_DOWN_STREAM_HEALTH: PROBLEM_TYPE = PROBLEM_TYPE(4i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const PT_HIGH_UTILIZATION: PROBLEM_TYPE = 8i32;
+pub const PT_HIGH_UTILIZATION: PROBLEM_TYPE = PROBLEM_TYPE(8i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const PT_HIGHER_UTILIZATION: PROBLEM_TYPE = 16i32;
+pub const PT_HIGHER_UTILIZATION: PROBLEM_TYPE = PROBLEM_TYPE(16i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const PT_UP_STREAM_UTILIZATION: PROBLEM_TYPE = 32i32;
+pub const PT_UP_STREAM_UTILIZATION: PROBLEM_TYPE = PROBLEM_TYPE(32i32);
+impl ::core::marker::Copy for PROBLEM_TYPE {}
+impl ::core::clone::Clone for PROBLEM_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PROBLEM_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PROBLEM_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PROBLEM_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const RCF_ISCONFIRMED: u32 = 2u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
@@ -1115,35 +1163,83 @@ pub const RCF_ISLEAF: u32 = 1u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const RCF_ISTHIRDPARTY: u32 = 4u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub type REPAIR_RISK = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct REPAIR_RISK(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const RR_NOROLLBACK: REPAIR_RISK = 0i32;
+pub const RR_NOROLLBACK: REPAIR_RISK = REPAIR_RISK(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const RR_ROLLBACK: REPAIR_RISK = 1i32;
+pub const RR_ROLLBACK: REPAIR_RISK = REPAIR_RISK(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const RR_NORISK: REPAIR_RISK = 2i32;
+pub const RR_NORISK: REPAIR_RISK = REPAIR_RISK(2i32);
+impl ::core::marker::Copy for REPAIR_RISK {}
+impl ::core::clone::Clone for REPAIR_RISK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for REPAIR_RISK {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for REPAIR_RISK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("REPAIR_RISK").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub type REPAIR_SCOPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct REPAIR_SCOPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const RS_SYSTEM: REPAIR_SCOPE = 0i32;
+pub const RS_SYSTEM: REPAIR_SCOPE = REPAIR_SCOPE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const RS_USER: REPAIR_SCOPE = 1i32;
+pub const RS_USER: REPAIR_SCOPE = REPAIR_SCOPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const RS_APPLICATION: REPAIR_SCOPE = 2i32;
+pub const RS_APPLICATION: REPAIR_SCOPE = REPAIR_SCOPE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const RS_PROCESS: REPAIR_SCOPE = 3i32;
+pub const RS_PROCESS: REPAIR_SCOPE = REPAIR_SCOPE(3i32);
+impl ::core::marker::Copy for REPAIR_SCOPE {}
+impl ::core::clone::Clone for REPAIR_SCOPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for REPAIR_SCOPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for REPAIR_SCOPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("REPAIR_SCOPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub type REPAIR_STATUS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct REPAIR_STATUS(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const RS_NOT_IMPLEMENTED: REPAIR_STATUS = 0i32;
+pub const RS_NOT_IMPLEMENTED: REPAIR_STATUS = REPAIR_STATUS(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const RS_REPAIRED: REPAIR_STATUS = 1i32;
+pub const RS_REPAIRED: REPAIR_STATUS = REPAIR_STATUS(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const RS_UNREPAIRED: REPAIR_STATUS = 2i32;
+pub const RS_UNREPAIRED: REPAIR_STATUS = REPAIR_STATUS(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const RS_DEFERRED: REPAIR_STATUS = 3i32;
+pub const RS_DEFERRED: REPAIR_STATUS = REPAIR_STATUS(3i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const RS_USER_ACTION: REPAIR_STATUS = 4i32;
+pub const RS_USER_ACTION: REPAIR_STATUS = REPAIR_STATUS(4i32);
+impl ::core::marker::Copy for REPAIR_STATUS {}
+impl ::core::clone::Clone for REPAIR_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for REPAIR_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for REPAIR_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("REPAIR_STATUS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
 pub const RF_CONTACT_ADMIN: u32 = 131072u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
@@ -1328,17 +1424,33 @@ impl ::core::default::Default for ShellCommandInfo {
     }
 }
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub type UI_INFO_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct UI_INFO_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const UIT_INVALID: UI_INFO_TYPE = 0i32;
+pub const UIT_INVALID: UI_INFO_TYPE = UI_INFO_TYPE(0i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const UIT_NONE: UI_INFO_TYPE = 1i32;
+pub const UIT_NONE: UI_INFO_TYPE = UI_INFO_TYPE(1i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const UIT_SHELL_COMMAND: UI_INFO_TYPE = 2i32;
+pub const UIT_SHELL_COMMAND: UI_INFO_TYPE = UI_INFO_TYPE(2i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const UIT_HELP_PANE: UI_INFO_TYPE = 3i32;
+pub const UIT_HELP_PANE: UI_INFO_TYPE = UI_INFO_TYPE(3i32);
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework'*"]
-pub const UIT_DUI: UI_INFO_TYPE = 4i32;
+pub const UIT_DUI: UI_INFO_TYPE = UI_INFO_TYPE(4i32);
+impl ::core::marker::Copy for UI_INFO_TYPE {}
+impl ::core::clone::Clone for UI_INFO_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for UI_INFO_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UI_INFO_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UI_INFO_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_NetworkManagement_NetworkDiagnosticsFramework', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]

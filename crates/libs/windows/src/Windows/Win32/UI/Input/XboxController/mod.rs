@@ -295,71 +295,87 @@ impl ::core::default::Default for XINPUT_VIBRATION {
     }
 }
 #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
-pub type XINPUT_VIRTUAL_KEY = u16;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XINPUT_VIRTUAL_KEY(pub u16);
 #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
-pub const VK_PAD_A: XINPUT_VIRTUAL_KEY = 22528u16;
+pub const VK_PAD_A: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22528u16);
 #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
-pub const VK_PAD_B: XINPUT_VIRTUAL_KEY = 22529u16;
+pub const VK_PAD_B: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22529u16);
 #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
-pub const VK_PAD_X: XINPUT_VIRTUAL_KEY = 22530u16;
+pub const VK_PAD_X: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22530u16);
 #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
-pub const VK_PAD_Y: XINPUT_VIRTUAL_KEY = 22531u16;
+pub const VK_PAD_Y: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22531u16);
 #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
-pub const VK_PAD_RSHOULDER: XINPUT_VIRTUAL_KEY = 22532u16;
+pub const VK_PAD_RSHOULDER: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22532u16);
 #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
-pub const VK_PAD_LSHOULDER: XINPUT_VIRTUAL_KEY = 22533u16;
+pub const VK_PAD_LSHOULDER: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22533u16);
 #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
-pub const VK_PAD_LTRIGGER: XINPUT_VIRTUAL_KEY = 22534u16;
+pub const VK_PAD_LTRIGGER: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22534u16);
 #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
-pub const VK_PAD_RTRIGGER: XINPUT_VIRTUAL_KEY = 22535u16;
+pub const VK_PAD_RTRIGGER: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22535u16);
 #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
-pub const VK_PAD_DPAD_UP: XINPUT_VIRTUAL_KEY = 22544u16;
+pub const VK_PAD_DPAD_UP: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22544u16);
 #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
-pub const VK_PAD_DPAD_DOWN: XINPUT_VIRTUAL_KEY = 22545u16;
+pub const VK_PAD_DPAD_DOWN: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22545u16);
 #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
-pub const VK_PAD_DPAD_LEFT: XINPUT_VIRTUAL_KEY = 22546u16;
+pub const VK_PAD_DPAD_LEFT: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22546u16);
 #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
-pub const VK_PAD_DPAD_RIGHT: XINPUT_VIRTUAL_KEY = 22547u16;
+pub const VK_PAD_DPAD_RIGHT: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22547u16);
 #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
-pub const VK_PAD_START: XINPUT_VIRTUAL_KEY = 22548u16;
+pub const VK_PAD_START: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22548u16);
 #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
-pub const VK_PAD_BACK: XINPUT_VIRTUAL_KEY = 22549u16;
+pub const VK_PAD_BACK: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22549u16);
 #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
-pub const VK_PAD_LTHUMB_PRESS: XINPUT_VIRTUAL_KEY = 22550u16;
+pub const VK_PAD_LTHUMB_PRESS: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22550u16);
 #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
-pub const VK_PAD_RTHUMB_PRESS: XINPUT_VIRTUAL_KEY = 22551u16;
+pub const VK_PAD_RTHUMB_PRESS: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22551u16);
 #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
-pub const VK_PAD_LTHUMB_UP: XINPUT_VIRTUAL_KEY = 22560u16;
+pub const VK_PAD_LTHUMB_UP: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22560u16);
 #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
-pub const VK_PAD_LTHUMB_DOWN: XINPUT_VIRTUAL_KEY = 22561u16;
+pub const VK_PAD_LTHUMB_DOWN: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22561u16);
 #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
-pub const VK_PAD_LTHUMB_RIGHT: XINPUT_VIRTUAL_KEY = 22562u16;
+pub const VK_PAD_LTHUMB_RIGHT: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22562u16);
 #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
-pub const VK_PAD_LTHUMB_LEFT: XINPUT_VIRTUAL_KEY = 22563u16;
+pub const VK_PAD_LTHUMB_LEFT: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22563u16);
 #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
-pub const VK_PAD_LTHUMB_UPLEFT: XINPUT_VIRTUAL_KEY = 22564u16;
+pub const VK_PAD_LTHUMB_UPLEFT: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22564u16);
 #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
-pub const VK_PAD_LTHUMB_UPRIGHT: XINPUT_VIRTUAL_KEY = 22565u16;
+pub const VK_PAD_LTHUMB_UPRIGHT: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22565u16);
 #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
-pub const VK_PAD_LTHUMB_DOWNRIGHT: XINPUT_VIRTUAL_KEY = 22566u16;
+pub const VK_PAD_LTHUMB_DOWNRIGHT: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22566u16);
 #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
-pub const VK_PAD_LTHUMB_DOWNLEFT: XINPUT_VIRTUAL_KEY = 22567u16;
+pub const VK_PAD_LTHUMB_DOWNLEFT: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22567u16);
 #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
-pub const VK_PAD_RTHUMB_UP: XINPUT_VIRTUAL_KEY = 22576u16;
+pub const VK_PAD_RTHUMB_UP: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22576u16);
 #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
-pub const VK_PAD_RTHUMB_DOWN: XINPUT_VIRTUAL_KEY = 22577u16;
+pub const VK_PAD_RTHUMB_DOWN: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22577u16);
 #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
-pub const VK_PAD_RTHUMB_RIGHT: XINPUT_VIRTUAL_KEY = 22578u16;
+pub const VK_PAD_RTHUMB_RIGHT: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22578u16);
 #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
-pub const VK_PAD_RTHUMB_LEFT: XINPUT_VIRTUAL_KEY = 22579u16;
+pub const VK_PAD_RTHUMB_LEFT: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22579u16);
 #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
-pub const VK_PAD_RTHUMB_UPLEFT: XINPUT_VIRTUAL_KEY = 22580u16;
+pub const VK_PAD_RTHUMB_UPLEFT: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22580u16);
 #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
-pub const VK_PAD_RTHUMB_UPRIGHT: XINPUT_VIRTUAL_KEY = 22581u16;
+pub const VK_PAD_RTHUMB_UPRIGHT: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22581u16);
 #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
-pub const VK_PAD_RTHUMB_DOWNRIGHT: XINPUT_VIRTUAL_KEY = 22582u16;
+pub const VK_PAD_RTHUMB_DOWNRIGHT: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22582u16);
 #[doc = "*Required features: 'Win32_UI_Input_XboxController'*"]
-pub const VK_PAD_RTHUMB_DOWNLEFT: XINPUT_VIRTUAL_KEY = 22583u16;
+pub const VK_PAD_RTHUMB_DOWNLEFT: XINPUT_VIRTUAL_KEY = XINPUT_VIRTUAL_KEY(22583u16);
+impl ::core::marker::Copy for XINPUT_VIRTUAL_KEY {}
+impl ::core::clone::Clone for XINPUT_VIRTUAL_KEY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XINPUT_VIRTUAL_KEY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XINPUT_VIRTUAL_KEY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XINPUT_VIRTUAL_KEY").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_UI_Input_XboxController', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]

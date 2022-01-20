@@ -492,23 +492,111 @@ pub const GCS_RESULTREADSTR: u32 = 512u32;
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const GCS_RESULTSTR: u32 = 2048u32;
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub type GET_CONVERSION_LIST_FLAG = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct GET_CONVERSION_LIST_FLAG(pub u32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const GCL_CONVERSION: GET_CONVERSION_LIST_FLAG = 1u32;
+pub const GCL_CONVERSION: GET_CONVERSION_LIST_FLAG = GET_CONVERSION_LIST_FLAG(1u32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const GCL_REVERSECONVERSION: GET_CONVERSION_LIST_FLAG = 2u32;
+pub const GCL_REVERSECONVERSION: GET_CONVERSION_LIST_FLAG = GET_CONVERSION_LIST_FLAG(2u32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const GCL_REVERSE_LENGTH: GET_CONVERSION_LIST_FLAG = 3u32;
+pub const GCL_REVERSE_LENGTH: GET_CONVERSION_LIST_FLAG = GET_CONVERSION_LIST_FLAG(3u32);
+impl ::core::marker::Copy for GET_CONVERSION_LIST_FLAG {}
+impl ::core::clone::Clone for GET_CONVERSION_LIST_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for GET_CONVERSION_LIST_FLAG {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GET_CONVERSION_LIST_FLAG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GET_CONVERSION_LIST_FLAG").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for GET_CONVERSION_LIST_FLAG {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for GET_CONVERSION_LIST_FLAG {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for GET_CONVERSION_LIST_FLAG {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for GET_CONVERSION_LIST_FLAG {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for GET_CONVERSION_LIST_FLAG {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub type GET_GUIDE_LINE_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct GET_GUIDE_LINE_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const GGL_LEVEL: GET_GUIDE_LINE_TYPE = 1u32;
+pub const GGL_LEVEL: GET_GUIDE_LINE_TYPE = GET_GUIDE_LINE_TYPE(1u32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const GGL_INDEX: GET_GUIDE_LINE_TYPE = 2u32;
+pub const GGL_INDEX: GET_GUIDE_LINE_TYPE = GET_GUIDE_LINE_TYPE(2u32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const GGL_STRING: GET_GUIDE_LINE_TYPE = 3u32;
+pub const GGL_STRING: GET_GUIDE_LINE_TYPE = GET_GUIDE_LINE_TYPE(3u32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const GGL_PRIVATE: GET_GUIDE_LINE_TYPE = 4u32;
+pub const GGL_PRIVATE: GET_GUIDE_LINE_TYPE = GET_GUIDE_LINE_TYPE(4u32);
+impl ::core::marker::Copy for GET_GUIDE_LINE_TYPE {}
+impl ::core::clone::Clone for GET_GUIDE_LINE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for GET_GUIDE_LINE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GET_GUIDE_LINE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GET_GUIDE_LINE_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for GET_GUIDE_LINE_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for GET_GUIDE_LINE_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for GET_GUIDE_LINE_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for GET_GUIDE_LINE_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for GET_GUIDE_LINE_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const GL_ID_CANNOTSAVE: u32 = 17u32;
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
@@ -4007,61 +4095,77 @@ pub const IMEFAREASTINFO_TYPE_DEFAULT: u32 = 0u32;
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IMEFAREASTINFO_TYPE_READING: u32 = 1u32;
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub type IMEFMT = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct IMEFMT(pub i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_UNKNOWN: IMEFMT = 0i32;
+pub const IFED_UNKNOWN: IMEFMT = IMEFMT(0i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_MSIME2_BIN_SYSTEM: IMEFMT = 1i32;
+pub const IFED_MSIME2_BIN_SYSTEM: IMEFMT = IMEFMT(1i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_MSIME2_BIN_USER: IMEFMT = 2i32;
+pub const IFED_MSIME2_BIN_USER: IMEFMT = IMEFMT(2i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_MSIME2_TEXT_USER: IMEFMT = 3i32;
+pub const IFED_MSIME2_TEXT_USER: IMEFMT = IMEFMT(3i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_MSIME95_BIN_SYSTEM: IMEFMT = 4i32;
+pub const IFED_MSIME95_BIN_SYSTEM: IMEFMT = IMEFMT(4i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_MSIME95_BIN_USER: IMEFMT = 5i32;
+pub const IFED_MSIME95_BIN_USER: IMEFMT = IMEFMT(5i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_MSIME95_TEXT_USER: IMEFMT = 6i32;
+pub const IFED_MSIME95_TEXT_USER: IMEFMT = IMEFMT(6i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_MSIME97_BIN_SYSTEM: IMEFMT = 7i32;
+pub const IFED_MSIME97_BIN_SYSTEM: IMEFMT = IMEFMT(7i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_MSIME97_BIN_USER: IMEFMT = 8i32;
+pub const IFED_MSIME97_BIN_USER: IMEFMT = IMEFMT(8i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_MSIME97_TEXT_USER: IMEFMT = 9i32;
+pub const IFED_MSIME97_TEXT_USER: IMEFMT = IMEFMT(9i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_MSIME98_BIN_SYSTEM: IMEFMT = 10i32;
+pub const IFED_MSIME98_BIN_SYSTEM: IMEFMT = IMEFMT(10i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_MSIME98_BIN_USER: IMEFMT = 11i32;
+pub const IFED_MSIME98_BIN_USER: IMEFMT = IMEFMT(11i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_MSIME98_TEXT_USER: IMEFMT = 12i32;
+pub const IFED_MSIME98_TEXT_USER: IMEFMT = IMEFMT(12i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_ACTIVE_DICT: IMEFMT = 13i32;
+pub const IFED_ACTIVE_DICT: IMEFMT = IMEFMT(13i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_ATOK9: IMEFMT = 14i32;
+pub const IFED_ATOK9: IMEFMT = IMEFMT(14i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_ATOK10: IMEFMT = 15i32;
+pub const IFED_ATOK10: IMEFMT = IMEFMT(15i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_NEC_AI_: IMEFMT = 16i32;
+pub const IFED_NEC_AI_: IMEFMT = IMEFMT(16i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_WX_II: IMEFMT = 17i32;
+pub const IFED_WX_II: IMEFMT = IMEFMT(17i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_WX_III: IMEFMT = 18i32;
+pub const IFED_WX_III: IMEFMT = IMEFMT(18i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_VJE_20: IMEFMT = 19i32;
+pub const IFED_VJE_20: IMEFMT = IMEFMT(19i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_MSIME98_SYSTEM_CE: IMEFMT = 20i32;
+pub const IFED_MSIME98_SYSTEM_CE: IMEFMT = IMEFMT(20i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_MSIME_BIN_SYSTEM: IMEFMT = 21i32;
+pub const IFED_MSIME_BIN_SYSTEM: IMEFMT = IMEFMT(21i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_MSIME_BIN_USER: IMEFMT = 22i32;
+pub const IFED_MSIME_BIN_USER: IMEFMT = IMEFMT(22i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_MSIME_TEXT_USER: IMEFMT = 23i32;
+pub const IFED_MSIME_TEXT_USER: IMEFMT = IMEFMT(23i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_PIME2_BIN_USER: IMEFMT = 24i32;
+pub const IFED_PIME2_BIN_USER: IMEFMT = IMEFMT(24i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_PIME2_BIN_SYSTEM: IMEFMT = 25i32;
+pub const IFED_PIME2_BIN_SYSTEM: IMEFMT = IMEFMT(25i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_PIME2_BIN_STANDARD_SYSTEM: IMEFMT = 26i32;
+pub const IFED_PIME2_BIN_STANDARD_SYSTEM: IMEFMT = IMEFMT(26i32);
+impl ::core::marker::Copy for IMEFMT {}
+impl ::core::clone::Clone for IMEFMT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for IMEFMT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IMEFMT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMEFMT").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub struct IMEINFO {
@@ -4677,65 +4781,97 @@ pub const IMEPN_SIZECHANGING: u32 = 262u32;
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IMEPN_USER: u32 = 356u32;
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub type IMEREG = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct IMEREG(pub i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_REG_HEAD: IMEREG = 0i32;
+pub const IFED_REG_HEAD: IMEREG = IMEREG(0i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_REG_TAIL: IMEREG = 1i32;
+pub const IFED_REG_TAIL: IMEREG = IMEREG(1i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_REG_DEL: IMEREG = 2i32;
+pub const IFED_REG_DEL: IMEREG = IMEREG(2i32);
+impl ::core::marker::Copy for IMEREG {}
+impl ::core::clone::Clone for IMEREG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for IMEREG {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IMEREG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMEREG").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub type IMEREL = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct IMEREL(pub i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_REL_NONE: IMEREL = 0i32;
+pub const IFED_REL_NONE: IMEREL = IMEREL(0i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_REL_NO: IMEREL = 1i32;
+pub const IFED_REL_NO: IMEREL = IMEREL(1i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_REL_GA: IMEREL = 2i32;
+pub const IFED_REL_GA: IMEREL = IMEREL(2i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_REL_WO: IMEREL = 3i32;
+pub const IFED_REL_WO: IMEREL = IMEREL(3i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_REL_NI: IMEREL = 4i32;
+pub const IFED_REL_NI: IMEREL = IMEREL(4i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_REL_DE: IMEREL = 5i32;
+pub const IFED_REL_DE: IMEREL = IMEREL(5i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_REL_YORI: IMEREL = 6i32;
+pub const IFED_REL_YORI: IMEREL = IMEREL(6i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_REL_KARA: IMEREL = 7i32;
+pub const IFED_REL_KARA: IMEREL = IMEREL(7i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_REL_MADE: IMEREL = 8i32;
+pub const IFED_REL_MADE: IMEREL = IMEREL(8i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_REL_HE: IMEREL = 9i32;
+pub const IFED_REL_HE: IMEREL = IMEREL(9i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_REL_TO: IMEREL = 10i32;
+pub const IFED_REL_TO: IMEREL = IMEREL(10i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_REL_IDEOM: IMEREL = 11i32;
+pub const IFED_REL_IDEOM: IMEREL = IMEREL(11i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_REL_FUKU_YOUGEN: IMEREL = 12i32;
+pub const IFED_REL_FUKU_YOUGEN: IMEREL = IMEREL(12i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_REL_KEIYOU_YOUGEN: IMEREL = 13i32;
+pub const IFED_REL_KEIYOU_YOUGEN: IMEREL = IMEREL(13i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_REL_KEIDOU1_YOUGEN: IMEREL = 14i32;
+pub const IFED_REL_KEIDOU1_YOUGEN: IMEREL = IMEREL(14i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_REL_KEIDOU2_YOUGEN: IMEREL = 15i32;
+pub const IFED_REL_KEIDOU2_YOUGEN: IMEREL = IMEREL(15i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_REL_TAIGEN: IMEREL = 16i32;
+pub const IFED_REL_TAIGEN: IMEREL = IMEREL(16i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_REL_YOUGEN: IMEREL = 17i32;
+pub const IFED_REL_YOUGEN: IMEREL = IMEREL(17i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_REL_RENTAI_MEI: IMEREL = 18i32;
+pub const IFED_REL_RENTAI_MEI: IMEREL = IMEREL(18i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_REL_RENSOU: IMEREL = 19i32;
+pub const IFED_REL_RENSOU: IMEREL = IMEREL(19i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_REL_KEIYOU_TO_YOUGEN: IMEREL = 20i32;
+pub const IFED_REL_KEIYOU_TO_YOUGEN: IMEREL = IMEREL(20i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_REL_KEIYOU_TARU_YOUGEN: IMEREL = 21i32;
+pub const IFED_REL_KEIYOU_TARU_YOUGEN: IMEREL = IMEREL(21i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_REL_UNKNOWN1: IMEREL = 22i32;
+pub const IFED_REL_UNKNOWN1: IMEREL = IMEREL(22i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_REL_UNKNOWN2: IMEREL = 23i32;
+pub const IFED_REL_UNKNOWN2: IMEREL = IMEREL(23i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_REL_ALL: IMEREL = 24i32;
+pub const IFED_REL_ALL: IMEREL = IMEREL(24i32);
+impl ::core::marker::Copy for IMEREL {}
+impl ::core::clone::Clone for IMEREL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for IMEREL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IMEREL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMEREL").field(&self.0).finish()
+    }
+}
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -4855,17 +4991,33 @@ impl ::core::default::Default for IMESTRINGCANDIDATEINFO {
     }
 }
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub type IMEUCT = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct IMEUCT(pub i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_UCT_NONE: IMEUCT = 0i32;
+pub const IFED_UCT_NONE: IMEUCT = IMEUCT(0i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_UCT_STRING_SJIS: IMEUCT = 1i32;
+pub const IFED_UCT_STRING_SJIS: IMEUCT = IMEUCT(1i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_UCT_STRING_UNICODE: IMEUCT = 2i32;
+pub const IFED_UCT_STRING_UNICODE: IMEUCT = IMEUCT(2i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_UCT_USER_DEFINED: IMEUCT = 3i32;
+pub const IFED_UCT_USER_DEFINED: IMEUCT = IMEUCT(3i32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IFED_UCT_MAX: IMEUCT = 4i32;
+pub const IFED_UCT_MAX: IMEUCT = IMEUCT(4i32);
+impl ::core::marker::Copy for IMEUCT {}
+impl ::core::clone::Clone for IMEUCT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for IMEUCT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IMEUCT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMEUCT").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IMEVER_0310: u32 = 196618u32;
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
@@ -5067,45 +5219,89 @@ pub const IME_KHOTKEY_HANJACONVERT: u32 = 81u32;
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IME_KHOTKEY_SHAPE_TOGGLE: u32 = 80u32;
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub type IME_PAD_REQUEST_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct IME_PAD_REQUEST_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IMEPADREQ_INSERTSTRING: IME_PAD_REQUEST_FLAGS = 4097u32;
+pub const IMEPADREQ_INSERTSTRING: IME_PAD_REQUEST_FLAGS = IME_PAD_REQUEST_FLAGS(4097u32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IMEPADREQ_SENDCONTROL: IME_PAD_REQUEST_FLAGS = 4100u32;
+pub const IMEPADREQ_SENDCONTROL: IME_PAD_REQUEST_FLAGS = IME_PAD_REQUEST_FLAGS(4100u32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IMEPADREQ_SETAPPLETSIZE: IME_PAD_REQUEST_FLAGS = 4104u32;
+pub const IMEPADREQ_SETAPPLETSIZE: IME_PAD_REQUEST_FLAGS = IME_PAD_REQUEST_FLAGS(4104u32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IMEPADREQ_GETCOMPOSITIONSTRING: IME_PAD_REQUEST_FLAGS = 4102u32;
+pub const IMEPADREQ_GETCOMPOSITIONSTRING: IME_PAD_REQUEST_FLAGS = IME_PAD_REQUEST_FLAGS(4102u32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IMEPADREQ_GETCOMPOSITIONSTRINGINFO: IME_PAD_REQUEST_FLAGS = 4108u32;
+pub const IMEPADREQ_GETCOMPOSITIONSTRINGINFO: IME_PAD_REQUEST_FLAGS = IME_PAD_REQUEST_FLAGS(4108u32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IMEPADREQ_DELETESTRING: IME_PAD_REQUEST_FLAGS = 4112u32;
+pub const IMEPADREQ_DELETESTRING: IME_PAD_REQUEST_FLAGS = IME_PAD_REQUEST_FLAGS(4112u32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IMEPADREQ_CHANGESTRING: IME_PAD_REQUEST_FLAGS = 4113u32;
+pub const IMEPADREQ_CHANGESTRING: IME_PAD_REQUEST_FLAGS = IME_PAD_REQUEST_FLAGS(4113u32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IMEPADREQ_GETAPPLHWND: IME_PAD_REQUEST_FLAGS = 4116u32;
+pub const IMEPADREQ_GETAPPLHWND: IME_PAD_REQUEST_FLAGS = IME_PAD_REQUEST_FLAGS(4116u32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IMEPADREQ_FORCEIMEPADWINDOWSHOW: IME_PAD_REQUEST_FLAGS = 4117u32;
+pub const IMEPADREQ_FORCEIMEPADWINDOWSHOW: IME_PAD_REQUEST_FLAGS = IME_PAD_REQUEST_FLAGS(4117u32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IMEPADREQ_POSTMODALNOTIFY: IME_PAD_REQUEST_FLAGS = 4118u32;
+pub const IMEPADREQ_POSTMODALNOTIFY: IME_PAD_REQUEST_FLAGS = IME_PAD_REQUEST_FLAGS(4118u32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IMEPADREQ_GETDEFAULTUILANGID: IME_PAD_REQUEST_FLAGS = 4119u32;
+pub const IMEPADREQ_GETDEFAULTUILANGID: IME_PAD_REQUEST_FLAGS = IME_PAD_REQUEST_FLAGS(4119u32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IMEPADREQ_GETAPPLETUISTYLE: IME_PAD_REQUEST_FLAGS = 4121u32;
+pub const IMEPADREQ_GETAPPLETUISTYLE: IME_PAD_REQUEST_FLAGS = IME_PAD_REQUEST_FLAGS(4121u32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IMEPADREQ_SETAPPLETUISTYLE: IME_PAD_REQUEST_FLAGS = 4122u32;
+pub const IMEPADREQ_SETAPPLETUISTYLE: IME_PAD_REQUEST_FLAGS = IME_PAD_REQUEST_FLAGS(4122u32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IMEPADREQ_ISAPPLETACTIVE: IME_PAD_REQUEST_FLAGS = 4123u32;
+pub const IMEPADREQ_ISAPPLETACTIVE: IME_PAD_REQUEST_FLAGS = IME_PAD_REQUEST_FLAGS(4123u32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IMEPADREQ_ISIMEPADWINDOWVISIBLE: IME_PAD_REQUEST_FLAGS = 4124u32;
+pub const IMEPADREQ_ISIMEPADWINDOWVISIBLE: IME_PAD_REQUEST_FLAGS = IME_PAD_REQUEST_FLAGS(4124u32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IMEPADREQ_SETAPPLETMINMAXSIZE: IME_PAD_REQUEST_FLAGS = 4125u32;
+pub const IMEPADREQ_SETAPPLETMINMAXSIZE: IME_PAD_REQUEST_FLAGS = IME_PAD_REQUEST_FLAGS(4125u32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IMEPADREQ_GETCONVERSIONSTATUS: IME_PAD_REQUEST_FLAGS = 4126u32;
+pub const IMEPADREQ_GETCONVERSIONSTATUS: IME_PAD_REQUEST_FLAGS = IME_PAD_REQUEST_FLAGS(4126u32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IMEPADREQ_GETVERSION: IME_PAD_REQUEST_FLAGS = 4127u32;
+pub const IMEPADREQ_GETVERSION: IME_PAD_REQUEST_FLAGS = IME_PAD_REQUEST_FLAGS(4127u32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const IMEPADREQ_GETCURRENTIMEINFO: IME_PAD_REQUEST_FLAGS = 4128u32;
+pub const IMEPADREQ_GETCURRENTIMEINFO: IME_PAD_REQUEST_FLAGS = IME_PAD_REQUEST_FLAGS(4128u32);
+impl ::core::marker::Copy for IME_PAD_REQUEST_FLAGS {}
+impl ::core::clone::Clone for IME_PAD_REQUEST_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for IME_PAD_REQUEST_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for IME_PAD_REQUEST_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IME_PAD_REQUEST_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for IME_PAD_REQUEST_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for IME_PAD_REQUEST_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for IME_PAD_REQUEST_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for IME_PAD_REQUEST_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for IME_PAD_REQUEST_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const IME_PROP_ACCEPT_WIDE_VKEY: u32 = 32u32;
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
@@ -7117,33 +7313,121 @@ pub const NI_CONTEXTUPDATED: u32 = 3u32;
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const NI_FINALIZECONVERSIONRESULT: u32 = 20u32;
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub type NOTIFY_IME_ACTION = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NOTIFY_IME_ACTION(pub u32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const NI_CHANGECANDIDATELIST: NOTIFY_IME_ACTION = 19u32;
+pub const NI_CHANGECANDIDATELIST: NOTIFY_IME_ACTION = NOTIFY_IME_ACTION(19u32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const NI_CLOSECANDIDATE: NOTIFY_IME_ACTION = 17u32;
+pub const NI_CLOSECANDIDATE: NOTIFY_IME_ACTION = NOTIFY_IME_ACTION(17u32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const NI_COMPOSITIONSTR: NOTIFY_IME_ACTION = 21u32;
+pub const NI_COMPOSITIONSTR: NOTIFY_IME_ACTION = NOTIFY_IME_ACTION(21u32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const NI_IMEMENUSELECTED: NOTIFY_IME_ACTION = 24u32;
+pub const NI_IMEMENUSELECTED: NOTIFY_IME_ACTION = NOTIFY_IME_ACTION(24u32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const NI_OPENCANDIDATE: NOTIFY_IME_ACTION = 16u32;
+pub const NI_OPENCANDIDATE: NOTIFY_IME_ACTION = NOTIFY_IME_ACTION(16u32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const NI_SELECTCANDIDATESTR: NOTIFY_IME_ACTION = 18u32;
+pub const NI_SELECTCANDIDATESTR: NOTIFY_IME_ACTION = NOTIFY_IME_ACTION(18u32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const NI_SETCANDIDATE_PAGESIZE: NOTIFY_IME_ACTION = 23u32;
+pub const NI_SETCANDIDATE_PAGESIZE: NOTIFY_IME_ACTION = NOTIFY_IME_ACTION(23u32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const NI_SETCANDIDATE_PAGESTART: NOTIFY_IME_ACTION = 22u32;
+pub const NI_SETCANDIDATE_PAGESTART: NOTIFY_IME_ACTION = NOTIFY_IME_ACTION(22u32);
+impl ::core::marker::Copy for NOTIFY_IME_ACTION {}
+impl ::core::clone::Clone for NOTIFY_IME_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NOTIFY_IME_ACTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NOTIFY_IME_ACTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NOTIFY_IME_ACTION").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for NOTIFY_IME_ACTION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for NOTIFY_IME_ACTION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for NOTIFY_IME_ACTION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for NOTIFY_IME_ACTION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for NOTIFY_IME_ACTION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub type NOTIFY_IME_INDEX = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct NOTIFY_IME_INDEX(pub u32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const CPS_CANCEL: NOTIFY_IME_INDEX = 4u32;
+pub const CPS_CANCEL: NOTIFY_IME_INDEX = NOTIFY_IME_INDEX(4u32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const CPS_COMPLETE: NOTIFY_IME_INDEX = 1u32;
+pub const CPS_COMPLETE: NOTIFY_IME_INDEX = NOTIFY_IME_INDEX(1u32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const CPS_CONVERT: NOTIFY_IME_INDEX = 2u32;
+pub const CPS_CONVERT: NOTIFY_IME_INDEX = NOTIFY_IME_INDEX(2u32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const CPS_REVERT: NOTIFY_IME_INDEX = 3u32;
+pub const CPS_REVERT: NOTIFY_IME_INDEX = NOTIFY_IME_INDEX(3u32);
+impl ::core::marker::Copy for NOTIFY_IME_INDEX {}
+impl ::core::clone::Clone for NOTIFY_IME_INDEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NOTIFY_IME_INDEX {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for NOTIFY_IME_INDEX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NOTIFY_IME_INDEX").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for NOTIFY_IME_INDEX {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for NOTIFY_IME_INDEX {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for NOTIFY_IME_INDEX {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for NOTIFY_IME_INDEX {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for NOTIFY_IME_INDEX {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFNLOG = ::core::option::Option<unsafe extern "system" fn(param0: *mut IMEDP, param1: ::windows::core::HRESULT) -> super::super::super::Foundation::BOOL>;
@@ -7311,17 +7595,61 @@ pub const SELECT_CAP_CONVERSION: u32 = 1u32;
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const SELECT_CAP_SENTENCE: u32 = 2u32;
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub type SET_COMPOSITION_STRING_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SET_COMPOSITION_STRING_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const SCS_SETSTR: SET_COMPOSITION_STRING_TYPE = 9u32;
+pub const SCS_SETSTR: SET_COMPOSITION_STRING_TYPE = SET_COMPOSITION_STRING_TYPE(9u32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const SCS_CHANGEATTR: SET_COMPOSITION_STRING_TYPE = 18u32;
+pub const SCS_CHANGEATTR: SET_COMPOSITION_STRING_TYPE = SET_COMPOSITION_STRING_TYPE(18u32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const SCS_CHANGECLAUSE: SET_COMPOSITION_STRING_TYPE = 36u32;
+pub const SCS_CHANGECLAUSE: SET_COMPOSITION_STRING_TYPE = SET_COMPOSITION_STRING_TYPE(36u32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const SCS_SETRECONVERTSTRING: SET_COMPOSITION_STRING_TYPE = 65536u32;
+pub const SCS_SETRECONVERTSTRING: SET_COMPOSITION_STRING_TYPE = SET_COMPOSITION_STRING_TYPE(65536u32);
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
-pub const SCS_QUERYRECONVERTSTRING: SET_COMPOSITION_STRING_TYPE = 131072u32;
+pub const SCS_QUERYRECONVERTSTRING: SET_COMPOSITION_STRING_TYPE = SET_COMPOSITION_STRING_TYPE(131072u32);
+impl ::core::marker::Copy for SET_COMPOSITION_STRING_TYPE {}
+impl ::core::clone::Clone for SET_COMPOSITION_STRING_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SET_COMPOSITION_STRING_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SET_COMPOSITION_STRING_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SET_COMPOSITION_STRING_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SET_COMPOSITION_STRING_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SET_COMPOSITION_STRING_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SET_COMPOSITION_STRING_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SET_COMPOSITION_STRING_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SET_COMPOSITION_STRING_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
 pub const SHOWIMEPAD_CATEGORY: u32 = 1u32;
 #[doc = "*Required features: 'Win32_UI_Input_Ime'*"]

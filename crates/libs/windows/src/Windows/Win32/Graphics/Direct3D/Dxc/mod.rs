@@ -11,41 +11,101 @@ pub const CLSID_DxcOptimizer: ::windows::core::GUID = ::windows::core::GUID::fro
 pub const CLSID_DxcPdbUtils: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54621dfb_f2ce_457e_ae8c_ec355faeec7c);
 pub const CLSID_DxcValidator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ca3e215_f728_4cf3_8cdd_88af917587a1);
 #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
-pub type DXC_CP = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DXC_CP(pub u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
-pub const DXC_CP_ACP: DXC_CP = 0u32;
+pub const DXC_CP_ACP: DXC_CP = DXC_CP(0u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
-pub const DXC_CP_UTF16: DXC_CP = 1200u32;
+pub const DXC_CP_UTF16: DXC_CP = DXC_CP(1200u32);
 #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
-pub const DXC_CP_UTF8: DXC_CP = 65001u32;
+pub const DXC_CP_UTF8: DXC_CP = DXC_CP(65001u32);
+impl ::core::marker::Copy for DXC_CP {}
+impl ::core::clone::Clone for DXC_CP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DXC_CP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DXC_CP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DXC_CP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for DXC_CP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DXC_CP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DXC_CP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DXC_CP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DXC_CP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub const DXC_HASHFLAG_INCLUDES_SOURCE: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
-pub type DXC_OUT_KIND = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DXC_OUT_KIND(pub i32);
 #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
-pub const DXC_OUT_NONE: DXC_OUT_KIND = 0i32;
+pub const DXC_OUT_NONE: DXC_OUT_KIND = DXC_OUT_KIND(0i32);
 #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
-pub const DXC_OUT_OBJECT: DXC_OUT_KIND = 1i32;
+pub const DXC_OUT_OBJECT: DXC_OUT_KIND = DXC_OUT_KIND(1i32);
 #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
-pub const DXC_OUT_ERRORS: DXC_OUT_KIND = 2i32;
+pub const DXC_OUT_ERRORS: DXC_OUT_KIND = DXC_OUT_KIND(2i32);
 #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
-pub const DXC_OUT_PDB: DXC_OUT_KIND = 3i32;
+pub const DXC_OUT_PDB: DXC_OUT_KIND = DXC_OUT_KIND(3i32);
 #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
-pub const DXC_OUT_SHADER_HASH: DXC_OUT_KIND = 4i32;
+pub const DXC_OUT_SHADER_HASH: DXC_OUT_KIND = DXC_OUT_KIND(4i32);
 #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
-pub const DXC_OUT_DISASSEMBLY: DXC_OUT_KIND = 5i32;
+pub const DXC_OUT_DISASSEMBLY: DXC_OUT_KIND = DXC_OUT_KIND(5i32);
 #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
-pub const DXC_OUT_HLSL: DXC_OUT_KIND = 6i32;
+pub const DXC_OUT_HLSL: DXC_OUT_KIND = DXC_OUT_KIND(6i32);
 #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
-pub const DXC_OUT_TEXT: DXC_OUT_KIND = 7i32;
+pub const DXC_OUT_TEXT: DXC_OUT_KIND = DXC_OUT_KIND(7i32);
 #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
-pub const DXC_OUT_REFLECTION: DXC_OUT_KIND = 8i32;
+pub const DXC_OUT_REFLECTION: DXC_OUT_KIND = DXC_OUT_KIND(8i32);
 #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
-pub const DXC_OUT_ROOT_SIGNATURE: DXC_OUT_KIND = 9i32;
+pub const DXC_OUT_ROOT_SIGNATURE: DXC_OUT_KIND = DXC_OUT_KIND(9i32);
 #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
-pub const DXC_OUT_EXTRA_OUTPUTS: DXC_OUT_KIND = 10i32;
+pub const DXC_OUT_EXTRA_OUTPUTS: DXC_OUT_KIND = DXC_OUT_KIND(10i32);
 #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
-pub const DXC_OUT_FORCE_DWORD: DXC_OUT_KIND = -1i32;
+pub const DXC_OUT_FORCE_DWORD: DXC_OUT_KIND = DXC_OUT_KIND(-1i32);
+impl ::core::marker::Copy for DXC_OUT_KIND {}
+impl ::core::clone::Clone for DXC_OUT_KIND {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DXC_OUT_KIND {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DXC_OUT_KIND {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DXC_OUT_KIND").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]

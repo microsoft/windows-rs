@@ -1095,33 +1095,49 @@ pub const DOMDocument: ::windows::core::GUID = ::windows::core::GUID::from_u128(
 pub const DOMDocument60: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88d96a05_f192_11d4_a65f_0040963251e5);
 pub const DOMFreeThreadedDocument: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf91_7b36_11d2_b20e_00c04f983e60);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub type DOMNodeType = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DOMNodeType(pub i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const NODE_INVALID: DOMNodeType = 0i32;
+pub const NODE_INVALID: DOMNodeType = DOMNodeType(0i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const NODE_ELEMENT: DOMNodeType = 1i32;
+pub const NODE_ELEMENT: DOMNodeType = DOMNodeType(1i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const NODE_ATTRIBUTE: DOMNodeType = 2i32;
+pub const NODE_ATTRIBUTE: DOMNodeType = DOMNodeType(2i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const NODE_TEXT: DOMNodeType = 3i32;
+pub const NODE_TEXT: DOMNodeType = DOMNodeType(3i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const NODE_CDATA_SECTION: DOMNodeType = 4i32;
+pub const NODE_CDATA_SECTION: DOMNodeType = DOMNodeType(4i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const NODE_ENTITY_REFERENCE: DOMNodeType = 5i32;
+pub const NODE_ENTITY_REFERENCE: DOMNodeType = DOMNodeType(5i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const NODE_ENTITY: DOMNodeType = 6i32;
+pub const NODE_ENTITY: DOMNodeType = DOMNodeType(6i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const NODE_PROCESSING_INSTRUCTION: DOMNodeType = 7i32;
+pub const NODE_PROCESSING_INSTRUCTION: DOMNodeType = DOMNodeType(7i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const NODE_COMMENT: DOMNodeType = 8i32;
+pub const NODE_COMMENT: DOMNodeType = DOMNodeType(8i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const NODE_DOCUMENT: DOMNodeType = 9i32;
+pub const NODE_DOCUMENT: DOMNodeType = DOMNodeType(9i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const NODE_DOCUMENT_TYPE: DOMNodeType = 10i32;
+pub const NODE_DOCUMENT_TYPE: DOMNodeType = DOMNodeType(10i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const NODE_DOCUMENT_FRAGMENT: DOMNodeType = 11i32;
+pub const NODE_DOCUMENT_FRAGMENT: DOMNodeType = DOMNodeType(11i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const NODE_NOTATION: DOMNodeType = 12i32;
+pub const NODE_NOTATION: DOMNodeType = DOMNodeType(12i32);
+impl ::core::marker::Copy for DOMNodeType {}
+impl ::core::clone::Clone for DOMNodeType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DOMNodeType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DOMNodeType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DOMNodeType").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const E_XML_BUFFERTOOSMALL: i32 = -1072897498i32;
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
@@ -20087,262 +20103,438 @@ pub const MXXMLWriter60: ::windows::core::GUID = ::windows::core::GUID::from_u12
 pub const SAXAttributes60: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88d96a0e_f192_11d4_a65f_0040963251e5);
 pub const SAXXMLReader60: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88d96a0c_f192_11d4_a65f_0040963251e5);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub type SCHEMACONTENTTYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SCHEMACONTENTTYPE(pub i32);
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
+pub const SCHEMACONTENTTYPE_EMPTY: SCHEMACONTENTTYPE = SCHEMACONTENTTYPE(0i32);
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
+pub const SCHEMACONTENTTYPE_TEXTONLY: SCHEMACONTENTTYPE = SCHEMACONTENTTYPE(1i32);
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
+pub const SCHEMACONTENTTYPE_ELEMENTONLY: SCHEMACONTENTTYPE = SCHEMACONTENTTYPE(2i32);
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
+pub const SCHEMACONTENTTYPE_MIXED: SCHEMACONTENTTYPE = SCHEMACONTENTTYPE(3i32);
+impl ::core::marker::Copy for SCHEMACONTENTTYPE {}
+impl ::core::clone::Clone for SCHEMACONTENTTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SCHEMACONTENTTYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SCHEMACONTENTTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SCHEMACONTENTTYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SCHEMADERIVATIONMETHOD(pub i32);
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
+pub const SCHEMADERIVATIONMETHOD_EMPTY: SCHEMADERIVATIONMETHOD = SCHEMADERIVATIONMETHOD(0i32);
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
+pub const SCHEMADERIVATIONMETHOD_SUBSTITUTION: SCHEMADERIVATIONMETHOD = SCHEMADERIVATIONMETHOD(1i32);
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
+pub const SCHEMADERIVATIONMETHOD_EXTENSION: SCHEMADERIVATIONMETHOD = SCHEMADERIVATIONMETHOD(2i32);
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
+pub const SCHEMADERIVATIONMETHOD_RESTRICTION: SCHEMADERIVATIONMETHOD = SCHEMADERIVATIONMETHOD(4i32);
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
+pub const SCHEMADERIVATIONMETHOD_LIST: SCHEMADERIVATIONMETHOD = SCHEMADERIVATIONMETHOD(8i32);
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
+pub const SCHEMADERIVATIONMETHOD_UNION: SCHEMADERIVATIONMETHOD = SCHEMADERIVATIONMETHOD(16i32);
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
+pub const SCHEMADERIVATIONMETHOD_ALL: SCHEMADERIVATIONMETHOD = SCHEMADERIVATIONMETHOD(255i32);
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
+pub const SCHEMADERIVATIONMETHOD_NONE: SCHEMADERIVATIONMETHOD = SCHEMADERIVATIONMETHOD(256i32);
+impl ::core::marker::Copy for SCHEMADERIVATIONMETHOD {}
+impl ::core::clone::Clone for SCHEMADERIVATIONMETHOD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SCHEMADERIVATIONMETHOD {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SCHEMADERIVATIONMETHOD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SCHEMADERIVATIONMETHOD").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SCHEMAPROCESSCONTENTS(pub i32);
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
+pub const SCHEMAPROCESSCONTENTS_NONE: SCHEMAPROCESSCONTENTS = SCHEMAPROCESSCONTENTS(0i32);
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
+pub const SCHEMAPROCESSCONTENTS_SKIP: SCHEMAPROCESSCONTENTS = SCHEMAPROCESSCONTENTS(1i32);
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
+pub const SCHEMAPROCESSCONTENTS_LAX: SCHEMAPROCESSCONTENTS = SCHEMAPROCESSCONTENTS(2i32);
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
+pub const SCHEMAPROCESSCONTENTS_STRICT: SCHEMAPROCESSCONTENTS = SCHEMAPROCESSCONTENTS(3i32);
+impl ::core::marker::Copy for SCHEMAPROCESSCONTENTS {}
+impl ::core::clone::Clone for SCHEMAPROCESSCONTENTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SCHEMAPROCESSCONTENTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SCHEMAPROCESSCONTENTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SCHEMAPROCESSCONTENTS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SCHEMATYPEVARIETY(pub i32);
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
+pub const SCHEMATYPEVARIETY_NONE: SCHEMATYPEVARIETY = SCHEMATYPEVARIETY(-1i32);
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
+pub const SCHEMATYPEVARIETY_ATOMIC: SCHEMATYPEVARIETY = SCHEMATYPEVARIETY(0i32);
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
+pub const SCHEMATYPEVARIETY_LIST: SCHEMATYPEVARIETY = SCHEMATYPEVARIETY(1i32);
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
+pub const SCHEMATYPEVARIETY_UNION: SCHEMATYPEVARIETY = SCHEMATYPEVARIETY(2i32);
+impl ::core::marker::Copy for SCHEMATYPEVARIETY {}
+impl ::core::clone::Clone for SCHEMATYPEVARIETY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SCHEMATYPEVARIETY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SCHEMATYPEVARIETY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SCHEMATYPEVARIETY").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SCHEMAUSE(pub i32);
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
+pub const SCHEMAUSE_OPTIONAL: SCHEMAUSE = SCHEMAUSE(0i32);
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
+pub const SCHEMAUSE_PROHIBITED: SCHEMAUSE = SCHEMAUSE(1i32);
+#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
+pub const SCHEMAUSE_REQUIRED: SCHEMAUSE = SCHEMAUSE(2i32);
+impl ::core::marker::Copy for SCHEMAUSE {}
+impl ::core::clone::Clone for SCHEMAUSE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SCHEMAUSE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SCHEMAUSE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SCHEMAUSE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SCHEMACONTENTTYPE_EMPTY: SCHEMACONTENTTYPE = 0i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SCHEMAWHITESPACE(pub i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SCHEMACONTENTTYPE_TEXTONLY: SCHEMACONTENTTYPE = 1i32;
+pub const SCHEMAWHITESPACE_NONE: SCHEMAWHITESPACE = SCHEMAWHITESPACE(-1i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SCHEMACONTENTTYPE_ELEMENTONLY: SCHEMACONTENTTYPE = 2i32;
+pub const SCHEMAWHITESPACE_PRESERVE: SCHEMAWHITESPACE = SCHEMAWHITESPACE(0i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SCHEMACONTENTTYPE_MIXED: SCHEMACONTENTTYPE = 3i32;
+pub const SCHEMAWHITESPACE_REPLACE: SCHEMAWHITESPACE = SCHEMAWHITESPACE(1i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub type SCHEMADERIVATIONMETHOD = i32;
+pub const SCHEMAWHITESPACE_COLLAPSE: SCHEMAWHITESPACE = SCHEMAWHITESPACE(2i32);
+impl ::core::marker::Copy for SCHEMAWHITESPACE {}
+impl ::core::clone::Clone for SCHEMAWHITESPACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SCHEMAWHITESPACE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SCHEMAWHITESPACE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SCHEMAWHITESPACE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SCHEMADERIVATIONMETHOD_EMPTY: SCHEMADERIVATIONMETHOD = 0i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SERVERXMLHTTP_OPTION(pub i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SCHEMADERIVATIONMETHOD_SUBSTITUTION: SCHEMADERIVATIONMETHOD = 1i32;
+pub const SXH_OPTION_URL: SERVERXMLHTTP_OPTION = SERVERXMLHTTP_OPTION(-1i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SCHEMADERIVATIONMETHOD_EXTENSION: SCHEMADERIVATIONMETHOD = 2i32;
+pub const SXH_OPTION_URL_CODEPAGE: SERVERXMLHTTP_OPTION = SERVERXMLHTTP_OPTION(0i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SCHEMADERIVATIONMETHOD_RESTRICTION: SCHEMADERIVATIONMETHOD = 4i32;
+pub const SXH_OPTION_ESCAPE_PERCENT_IN_URL: SERVERXMLHTTP_OPTION = SERVERXMLHTTP_OPTION(1i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SCHEMADERIVATIONMETHOD_LIST: SCHEMADERIVATIONMETHOD = 8i32;
+pub const SXH_OPTION_IGNORE_SERVER_SSL_CERT_ERROR_FLAGS: SERVERXMLHTTP_OPTION = SERVERXMLHTTP_OPTION(2i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SCHEMADERIVATIONMETHOD_UNION: SCHEMADERIVATIONMETHOD = 16i32;
+pub const SXH_OPTION_SELECT_CLIENT_SSL_CERT: SERVERXMLHTTP_OPTION = SERVERXMLHTTP_OPTION(3i32);
+impl ::core::marker::Copy for SERVERXMLHTTP_OPTION {}
+impl ::core::clone::Clone for SERVERXMLHTTP_OPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SERVERXMLHTTP_OPTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SERVERXMLHTTP_OPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SERVERXMLHTTP_OPTION").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SCHEMADERIVATIONMETHOD_ALL: SCHEMADERIVATIONMETHOD = 255i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SOMITEMTYPE(pub i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SCHEMADERIVATIONMETHOD_NONE: SCHEMADERIVATIONMETHOD = 256i32;
+pub const SOMITEM_SCHEMA: SOMITEMTYPE = SOMITEMTYPE(4096i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub type SCHEMAPROCESSCONTENTS = i32;
+pub const SOMITEM_ATTRIBUTE: SOMITEMTYPE = SOMITEMTYPE(4097i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SCHEMAPROCESSCONTENTS_NONE: SCHEMAPROCESSCONTENTS = 0i32;
+pub const SOMITEM_ATTRIBUTEGROUP: SOMITEMTYPE = SOMITEMTYPE(4098i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SCHEMAPROCESSCONTENTS_SKIP: SCHEMAPROCESSCONTENTS = 1i32;
+pub const SOMITEM_NOTATION: SOMITEMTYPE = SOMITEMTYPE(4099i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SCHEMAPROCESSCONTENTS_LAX: SCHEMAPROCESSCONTENTS = 2i32;
+pub const SOMITEM_ANNOTATION: SOMITEMTYPE = SOMITEMTYPE(4100i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SCHEMAPROCESSCONTENTS_STRICT: SCHEMAPROCESSCONTENTS = 3i32;
+pub const SOMITEM_IDENTITYCONSTRAINT: SOMITEMTYPE = SOMITEMTYPE(4352i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub type SCHEMATYPEVARIETY = i32;
+pub const SOMITEM_KEY: SOMITEMTYPE = SOMITEMTYPE(4353i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SCHEMATYPEVARIETY_NONE: SCHEMATYPEVARIETY = -1i32;
+pub const SOMITEM_KEYREF: SOMITEMTYPE = SOMITEMTYPE(4354i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SCHEMATYPEVARIETY_ATOMIC: SCHEMATYPEVARIETY = 0i32;
+pub const SOMITEM_UNIQUE: SOMITEMTYPE = SOMITEMTYPE(4355i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SCHEMATYPEVARIETY_LIST: SCHEMATYPEVARIETY = 1i32;
+pub const SOMITEM_ANYTYPE: SOMITEMTYPE = SOMITEMTYPE(8192i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SCHEMATYPEVARIETY_UNION: SCHEMATYPEVARIETY = 2i32;
+pub const SOMITEM_DATATYPE: SOMITEMTYPE = SOMITEMTYPE(8448i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub type SCHEMAUSE = i32;
+pub const SOMITEM_DATATYPE_ANYTYPE: SOMITEMTYPE = SOMITEMTYPE(8449i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SCHEMAUSE_OPTIONAL: SCHEMAUSE = 0i32;
+pub const SOMITEM_DATATYPE_ANYURI: SOMITEMTYPE = SOMITEMTYPE(8450i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SCHEMAUSE_PROHIBITED: SCHEMAUSE = 1i32;
+pub const SOMITEM_DATATYPE_BASE64BINARY: SOMITEMTYPE = SOMITEMTYPE(8451i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SCHEMAUSE_REQUIRED: SCHEMAUSE = 2i32;
+pub const SOMITEM_DATATYPE_BOOLEAN: SOMITEMTYPE = SOMITEMTYPE(8452i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub type SCHEMAWHITESPACE = i32;
+pub const SOMITEM_DATATYPE_BYTE: SOMITEMTYPE = SOMITEMTYPE(8453i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SCHEMAWHITESPACE_NONE: SCHEMAWHITESPACE = -1i32;
+pub const SOMITEM_DATATYPE_DATE: SOMITEMTYPE = SOMITEMTYPE(8454i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SCHEMAWHITESPACE_PRESERVE: SCHEMAWHITESPACE = 0i32;
+pub const SOMITEM_DATATYPE_DATETIME: SOMITEMTYPE = SOMITEMTYPE(8455i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SCHEMAWHITESPACE_REPLACE: SCHEMAWHITESPACE = 1i32;
+pub const SOMITEM_DATATYPE_DAY: SOMITEMTYPE = SOMITEMTYPE(8456i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SCHEMAWHITESPACE_COLLAPSE: SCHEMAWHITESPACE = 2i32;
+pub const SOMITEM_DATATYPE_DECIMAL: SOMITEMTYPE = SOMITEMTYPE(8457i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub type SERVERXMLHTTP_OPTION = i32;
+pub const SOMITEM_DATATYPE_DOUBLE: SOMITEMTYPE = SOMITEMTYPE(8458i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SXH_OPTION_URL: SERVERXMLHTTP_OPTION = -1i32;
+pub const SOMITEM_DATATYPE_DURATION: SOMITEMTYPE = SOMITEMTYPE(8459i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SXH_OPTION_URL_CODEPAGE: SERVERXMLHTTP_OPTION = 0i32;
+pub const SOMITEM_DATATYPE_ENTITIES: SOMITEMTYPE = SOMITEMTYPE(8460i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SXH_OPTION_ESCAPE_PERCENT_IN_URL: SERVERXMLHTTP_OPTION = 1i32;
+pub const SOMITEM_DATATYPE_ENTITY: SOMITEMTYPE = SOMITEMTYPE(8461i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SXH_OPTION_IGNORE_SERVER_SSL_CERT_ERROR_FLAGS: SERVERXMLHTTP_OPTION = 2i32;
+pub const SOMITEM_DATATYPE_FLOAT: SOMITEMTYPE = SOMITEMTYPE(8462i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SXH_OPTION_SELECT_CLIENT_SSL_CERT: SERVERXMLHTTP_OPTION = 3i32;
+pub const SOMITEM_DATATYPE_HEXBINARY: SOMITEMTYPE = SOMITEMTYPE(8463i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub type SOMITEMTYPE = i32;
+pub const SOMITEM_DATATYPE_ID: SOMITEMTYPE = SOMITEMTYPE(8464i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_SCHEMA: SOMITEMTYPE = 4096i32;
+pub const SOMITEM_DATATYPE_IDREF: SOMITEMTYPE = SOMITEMTYPE(8465i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_ATTRIBUTE: SOMITEMTYPE = 4097i32;
+pub const SOMITEM_DATATYPE_IDREFS: SOMITEMTYPE = SOMITEMTYPE(8466i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_ATTRIBUTEGROUP: SOMITEMTYPE = 4098i32;
+pub const SOMITEM_DATATYPE_INT: SOMITEMTYPE = SOMITEMTYPE(8467i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_NOTATION: SOMITEMTYPE = 4099i32;
+pub const SOMITEM_DATATYPE_INTEGER: SOMITEMTYPE = SOMITEMTYPE(8468i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_ANNOTATION: SOMITEMTYPE = 4100i32;
+pub const SOMITEM_DATATYPE_LANGUAGE: SOMITEMTYPE = SOMITEMTYPE(8469i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_IDENTITYCONSTRAINT: SOMITEMTYPE = 4352i32;
+pub const SOMITEM_DATATYPE_LONG: SOMITEMTYPE = SOMITEMTYPE(8470i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_KEY: SOMITEMTYPE = 4353i32;
+pub const SOMITEM_DATATYPE_MONTH: SOMITEMTYPE = SOMITEMTYPE(8471i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_KEYREF: SOMITEMTYPE = 4354i32;
+pub const SOMITEM_DATATYPE_MONTHDAY: SOMITEMTYPE = SOMITEMTYPE(8472i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_UNIQUE: SOMITEMTYPE = 4355i32;
+pub const SOMITEM_DATATYPE_NAME: SOMITEMTYPE = SOMITEMTYPE(8473i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_ANYTYPE: SOMITEMTYPE = 8192i32;
+pub const SOMITEM_DATATYPE_NCNAME: SOMITEMTYPE = SOMITEMTYPE(8474i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE: SOMITEMTYPE = 8448i32;
+pub const SOMITEM_DATATYPE_NEGATIVEINTEGER: SOMITEMTYPE = SOMITEMTYPE(8475i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_ANYTYPE: SOMITEMTYPE = 8449i32;
+pub const SOMITEM_DATATYPE_NMTOKEN: SOMITEMTYPE = SOMITEMTYPE(8476i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_ANYURI: SOMITEMTYPE = 8450i32;
+pub const SOMITEM_DATATYPE_NMTOKENS: SOMITEMTYPE = SOMITEMTYPE(8477i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_BASE64BINARY: SOMITEMTYPE = 8451i32;
+pub const SOMITEM_DATATYPE_NONNEGATIVEINTEGER: SOMITEMTYPE = SOMITEMTYPE(8478i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_BOOLEAN: SOMITEMTYPE = 8452i32;
+pub const SOMITEM_DATATYPE_NONPOSITIVEINTEGER: SOMITEMTYPE = SOMITEMTYPE(8479i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_BYTE: SOMITEMTYPE = 8453i32;
+pub const SOMITEM_DATATYPE_NORMALIZEDSTRING: SOMITEMTYPE = SOMITEMTYPE(8480i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_DATE: SOMITEMTYPE = 8454i32;
+pub const SOMITEM_DATATYPE_NOTATION: SOMITEMTYPE = SOMITEMTYPE(8481i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_DATETIME: SOMITEMTYPE = 8455i32;
+pub const SOMITEM_DATATYPE_POSITIVEINTEGER: SOMITEMTYPE = SOMITEMTYPE(8482i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_DAY: SOMITEMTYPE = 8456i32;
+pub const SOMITEM_DATATYPE_QNAME: SOMITEMTYPE = SOMITEMTYPE(8483i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_DECIMAL: SOMITEMTYPE = 8457i32;
+pub const SOMITEM_DATATYPE_SHORT: SOMITEMTYPE = SOMITEMTYPE(8484i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_DOUBLE: SOMITEMTYPE = 8458i32;
+pub const SOMITEM_DATATYPE_STRING: SOMITEMTYPE = SOMITEMTYPE(8485i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_DURATION: SOMITEMTYPE = 8459i32;
+pub const SOMITEM_DATATYPE_TIME: SOMITEMTYPE = SOMITEMTYPE(8486i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_ENTITIES: SOMITEMTYPE = 8460i32;
+pub const SOMITEM_DATATYPE_TOKEN: SOMITEMTYPE = SOMITEMTYPE(8487i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_ENTITY: SOMITEMTYPE = 8461i32;
+pub const SOMITEM_DATATYPE_UNSIGNEDBYTE: SOMITEMTYPE = SOMITEMTYPE(8488i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_FLOAT: SOMITEMTYPE = 8462i32;
+pub const SOMITEM_DATATYPE_UNSIGNEDINT: SOMITEMTYPE = SOMITEMTYPE(8489i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_HEXBINARY: SOMITEMTYPE = 8463i32;
+pub const SOMITEM_DATATYPE_UNSIGNEDLONG: SOMITEMTYPE = SOMITEMTYPE(8490i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_ID: SOMITEMTYPE = 8464i32;
+pub const SOMITEM_DATATYPE_UNSIGNEDSHORT: SOMITEMTYPE = SOMITEMTYPE(8491i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_IDREF: SOMITEMTYPE = 8465i32;
+pub const SOMITEM_DATATYPE_YEAR: SOMITEMTYPE = SOMITEMTYPE(8492i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_IDREFS: SOMITEMTYPE = 8466i32;
+pub const SOMITEM_DATATYPE_YEARMONTH: SOMITEMTYPE = SOMITEMTYPE(8493i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_INT: SOMITEMTYPE = 8467i32;
+pub const SOMITEM_DATATYPE_ANYSIMPLETYPE: SOMITEMTYPE = SOMITEMTYPE(8703i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_INTEGER: SOMITEMTYPE = 8468i32;
+pub const SOMITEM_SIMPLETYPE: SOMITEMTYPE = SOMITEMTYPE(8704i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_LANGUAGE: SOMITEMTYPE = 8469i32;
+pub const SOMITEM_COMPLEXTYPE: SOMITEMTYPE = SOMITEMTYPE(9216i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_LONG: SOMITEMTYPE = 8470i32;
+pub const SOMITEM_PARTICLE: SOMITEMTYPE = SOMITEMTYPE(16384i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_MONTH: SOMITEMTYPE = 8471i32;
+pub const SOMITEM_ANY: SOMITEMTYPE = SOMITEMTYPE(16385i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_MONTHDAY: SOMITEMTYPE = 8472i32;
+pub const SOMITEM_ANYATTRIBUTE: SOMITEMTYPE = SOMITEMTYPE(16386i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_NAME: SOMITEMTYPE = 8473i32;
+pub const SOMITEM_ELEMENT: SOMITEMTYPE = SOMITEMTYPE(16387i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_NCNAME: SOMITEMTYPE = 8474i32;
+pub const SOMITEM_GROUP: SOMITEMTYPE = SOMITEMTYPE(16640i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_NEGATIVEINTEGER: SOMITEMTYPE = 8475i32;
+pub const SOMITEM_ALL: SOMITEMTYPE = SOMITEMTYPE(16641i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_NMTOKEN: SOMITEMTYPE = 8476i32;
+pub const SOMITEM_CHOICE: SOMITEMTYPE = SOMITEMTYPE(16642i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_NMTOKENS: SOMITEMTYPE = 8477i32;
+pub const SOMITEM_SEQUENCE: SOMITEMTYPE = SOMITEMTYPE(16643i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_NONNEGATIVEINTEGER: SOMITEMTYPE = 8478i32;
+pub const SOMITEM_EMPTYPARTICLE: SOMITEMTYPE = SOMITEMTYPE(16644i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_NONPOSITIVEINTEGER: SOMITEMTYPE = 8479i32;
+pub const SOMITEM_NULL: SOMITEMTYPE = SOMITEMTYPE(2048i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_NORMALIZEDSTRING: SOMITEMTYPE = 8480i32;
+pub const SOMITEM_NULL_TYPE: SOMITEMTYPE = SOMITEMTYPE(10240i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_NOTATION: SOMITEMTYPE = 8481i32;
+pub const SOMITEM_NULL_ANY: SOMITEMTYPE = SOMITEMTYPE(18433i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_POSITIVEINTEGER: SOMITEMTYPE = 8482i32;
+pub const SOMITEM_NULL_ANYATTRIBUTE: SOMITEMTYPE = SOMITEMTYPE(18434i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_QNAME: SOMITEMTYPE = 8483i32;
+pub const SOMITEM_NULL_ELEMENT: SOMITEMTYPE = SOMITEMTYPE(18435i32);
+impl ::core::marker::Copy for SOMITEMTYPE {}
+impl ::core::clone::Clone for SOMITEMTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SOMITEMTYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SOMITEMTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SOMITEMTYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_SHORT: SOMITEMTYPE = 8484i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SXH_PROXY_SETTING(pub i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_STRING: SOMITEMTYPE = 8485i32;
+pub const SXH_PROXY_SET_DEFAULT: SXH_PROXY_SETTING = SXH_PROXY_SETTING(0i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_TIME: SOMITEMTYPE = 8486i32;
+pub const SXH_PROXY_SET_PRECONFIG: SXH_PROXY_SETTING = SXH_PROXY_SETTING(0i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_TOKEN: SOMITEMTYPE = 8487i32;
+pub const SXH_PROXY_SET_DIRECT: SXH_PROXY_SETTING = SXH_PROXY_SETTING(1i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_UNSIGNEDBYTE: SOMITEMTYPE = 8488i32;
+pub const SXH_PROXY_SET_PROXY: SXH_PROXY_SETTING = SXH_PROXY_SETTING(2i32);
+impl ::core::marker::Copy for SXH_PROXY_SETTING {}
+impl ::core::clone::Clone for SXH_PROXY_SETTING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SXH_PROXY_SETTING {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SXH_PROXY_SETTING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SXH_PROXY_SETTING").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_UNSIGNEDINT: SOMITEMTYPE = 8489i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SXH_SERVER_CERT_OPTION(pub i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_UNSIGNEDLONG: SOMITEMTYPE = 8490i32;
+pub const SXH_SERVER_CERT_IGNORE_UNKNOWN_CA: SXH_SERVER_CERT_OPTION = SXH_SERVER_CERT_OPTION(256i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_UNSIGNEDSHORT: SOMITEMTYPE = 8491i32;
+pub const SXH_SERVER_CERT_IGNORE_WRONG_USAGE: SXH_SERVER_CERT_OPTION = SXH_SERVER_CERT_OPTION(512i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_YEAR: SOMITEMTYPE = 8492i32;
+pub const SXH_SERVER_CERT_IGNORE_CERT_CN_INVALID: SXH_SERVER_CERT_OPTION = SXH_SERVER_CERT_OPTION(4096i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_YEARMONTH: SOMITEMTYPE = 8493i32;
+pub const SXH_SERVER_CERT_IGNORE_CERT_DATE_INVALID: SXH_SERVER_CERT_OPTION = SXH_SERVER_CERT_OPTION(8192i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_DATATYPE_ANYSIMPLETYPE: SOMITEMTYPE = 8703i32;
-#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_SIMPLETYPE: SOMITEMTYPE = 8704i32;
-#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_COMPLEXTYPE: SOMITEMTYPE = 9216i32;
-#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_PARTICLE: SOMITEMTYPE = 16384i32;
-#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_ANY: SOMITEMTYPE = 16385i32;
-#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_ANYATTRIBUTE: SOMITEMTYPE = 16386i32;
-#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_ELEMENT: SOMITEMTYPE = 16387i32;
-#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_GROUP: SOMITEMTYPE = 16640i32;
-#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_ALL: SOMITEMTYPE = 16641i32;
-#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_CHOICE: SOMITEMTYPE = 16642i32;
-#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_SEQUENCE: SOMITEMTYPE = 16643i32;
-#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_EMPTYPARTICLE: SOMITEMTYPE = 16644i32;
-#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_NULL: SOMITEMTYPE = 2048i32;
-#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_NULL_TYPE: SOMITEMTYPE = 10240i32;
-#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_NULL_ANY: SOMITEMTYPE = 18433i32;
-#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_NULL_ANYATTRIBUTE: SOMITEMTYPE = 18434i32;
-#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SOMITEM_NULL_ELEMENT: SOMITEMTYPE = 18435i32;
-#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub type SXH_PROXY_SETTING = i32;
-#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SXH_PROXY_SET_DEFAULT: SXH_PROXY_SETTING = 0i32;
-#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SXH_PROXY_SET_PRECONFIG: SXH_PROXY_SETTING = 0i32;
-#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SXH_PROXY_SET_DIRECT: SXH_PROXY_SETTING = 1i32;
-#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SXH_PROXY_SET_PROXY: SXH_PROXY_SETTING = 2i32;
-#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub type SXH_SERVER_CERT_OPTION = i32;
-#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SXH_SERVER_CERT_IGNORE_UNKNOWN_CA: SXH_SERVER_CERT_OPTION = 256i32;
-#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SXH_SERVER_CERT_IGNORE_WRONG_USAGE: SXH_SERVER_CERT_OPTION = 512i32;
-#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SXH_SERVER_CERT_IGNORE_CERT_CN_INVALID: SXH_SERVER_CERT_OPTION = 4096i32;
-#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SXH_SERVER_CERT_IGNORE_CERT_DATE_INVALID: SXH_SERVER_CERT_OPTION = 8192i32;
-#[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const SXH_SERVER_CERT_IGNORE_ALL_SERVER_ERRORS: SXH_SERVER_CERT_OPTION = 13056i32;
+pub const SXH_SERVER_CERT_IGNORE_ALL_SERVER_ERRORS: SXH_SERVER_CERT_OPTION = SXH_SERVER_CERT_OPTION(13056i32);
+impl ::core::marker::Copy for SXH_SERVER_CERT_OPTION {}
+impl ::core::clone::Clone for SXH_SERVER_CERT_OPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SXH_SERVER_CERT_OPTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SXH_SERVER_CERT_OPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SXH_SERVER_CERT_OPTION").field(&self.0).finish()
+    }
+}
 pub const ServerXMLHTTP60: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88d96a0b_f192_11d4_a65f_0040963251e5);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub type XHR_AUTH = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XHR_AUTH(pub i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_AUTH_ALL: XHR_AUTH = 0i32;
+pub const XHR_AUTH_ALL: XHR_AUTH = XHR_AUTH(0i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_AUTH_NONE: XHR_AUTH = 1i32;
+pub const XHR_AUTH_NONE: XHR_AUTH = XHR_AUTH(1i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_AUTH_PROXY: XHR_AUTH = 2i32;
+pub const XHR_AUTH_PROXY: XHR_AUTH = XHR_AUTH(2i32);
+impl ::core::marker::Copy for XHR_AUTH {}
+impl ::core::clone::Clone for XHR_AUTH {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XHR_AUTH {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XHR_AUTH {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XHR_AUTH").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub struct XHR_CERT {
@@ -20375,29 +20567,117 @@ impl ::core::default::Default for XHR_CERT {
     }
 }
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub type XHR_CERT_ERROR_FLAG = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XHR_CERT_ERROR_FLAG(pub u32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_CERT_ERROR_REVOCATION_FAILED: XHR_CERT_ERROR_FLAG = 8388608u32;
+pub const XHR_CERT_ERROR_REVOCATION_FAILED: XHR_CERT_ERROR_FLAG = XHR_CERT_ERROR_FLAG(8388608u32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_CERT_ERROR_UNKNOWN_CA: XHR_CERT_ERROR_FLAG = 16777216u32;
+pub const XHR_CERT_ERROR_UNKNOWN_CA: XHR_CERT_ERROR_FLAG = XHR_CERT_ERROR_FLAG(16777216u32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_CERT_ERROR_CERT_CN_INVALID: XHR_CERT_ERROR_FLAG = 33554432u32;
+pub const XHR_CERT_ERROR_CERT_CN_INVALID: XHR_CERT_ERROR_FLAG = XHR_CERT_ERROR_FLAG(33554432u32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_CERT_ERROR_CERT_DATE_INVALID: XHR_CERT_ERROR_FLAG = 67108864u32;
+pub const XHR_CERT_ERROR_CERT_DATE_INVALID: XHR_CERT_ERROR_FLAG = XHR_CERT_ERROR_FLAG(67108864u32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_CERT_ERROR_ALL_SERVER_ERRORS: XHR_CERT_ERROR_FLAG = 125829120u32;
+pub const XHR_CERT_ERROR_ALL_SERVER_ERRORS: XHR_CERT_ERROR_FLAG = XHR_CERT_ERROR_FLAG(125829120u32);
+impl ::core::marker::Copy for XHR_CERT_ERROR_FLAG {}
+impl ::core::clone::Clone for XHR_CERT_ERROR_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XHR_CERT_ERROR_FLAG {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XHR_CERT_ERROR_FLAG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XHR_CERT_ERROR_FLAG").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for XHR_CERT_ERROR_FLAG {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for XHR_CERT_ERROR_FLAG {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for XHR_CERT_ERROR_FLAG {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for XHR_CERT_ERROR_FLAG {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for XHR_CERT_ERROR_FLAG {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub type XHR_CERT_IGNORE_FLAG = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XHR_CERT_IGNORE_FLAG(pub u32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_CERT_IGNORE_REVOCATION_FAILED: XHR_CERT_IGNORE_FLAG = 128u32;
+pub const XHR_CERT_IGNORE_REVOCATION_FAILED: XHR_CERT_IGNORE_FLAG = XHR_CERT_IGNORE_FLAG(128u32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_CERT_IGNORE_UNKNOWN_CA: XHR_CERT_IGNORE_FLAG = 256u32;
+pub const XHR_CERT_IGNORE_UNKNOWN_CA: XHR_CERT_IGNORE_FLAG = XHR_CERT_IGNORE_FLAG(256u32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_CERT_IGNORE_CERT_CN_INVALID: XHR_CERT_IGNORE_FLAG = 4096u32;
+pub const XHR_CERT_IGNORE_CERT_CN_INVALID: XHR_CERT_IGNORE_FLAG = XHR_CERT_IGNORE_FLAG(4096u32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_CERT_IGNORE_CERT_DATE_INVALID: XHR_CERT_IGNORE_FLAG = 8192u32;
+pub const XHR_CERT_IGNORE_CERT_DATE_INVALID: XHR_CERT_IGNORE_FLAG = XHR_CERT_IGNORE_FLAG(8192u32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_CERT_IGNORE_ALL_SERVER_ERRORS: XHR_CERT_IGNORE_FLAG = 12672u32;
+pub const XHR_CERT_IGNORE_ALL_SERVER_ERRORS: XHR_CERT_IGNORE_FLAG = XHR_CERT_IGNORE_FLAG(12672u32);
+impl ::core::marker::Copy for XHR_CERT_IGNORE_FLAG {}
+impl ::core::clone::Clone for XHR_CERT_IGNORE_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XHR_CERT_IGNORE_FLAG {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XHR_CERT_IGNORE_FLAG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XHR_CERT_IGNORE_FLAG").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for XHR_CERT_IGNORE_FLAG {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for XHR_CERT_IGNORE_FLAG {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for XHR_CERT_IGNORE_FLAG {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for XHR_CERT_IGNORE_FLAG {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for XHR_CERT_IGNORE_FLAG {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -20442,79 +20722,143 @@ impl ::core::default::Default for XHR_COOKIE {
     }
 }
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub type XHR_COOKIE_FLAG = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XHR_COOKIE_FLAG(pub i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_COOKIE_IS_SECURE: XHR_COOKIE_FLAG = 1i32;
+pub const XHR_COOKIE_IS_SECURE: XHR_COOKIE_FLAG = XHR_COOKIE_FLAG(1i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_COOKIE_IS_SESSION: XHR_COOKIE_FLAG = 2i32;
+pub const XHR_COOKIE_IS_SESSION: XHR_COOKIE_FLAG = XHR_COOKIE_FLAG(2i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_COOKIE_THIRD_PARTY: XHR_COOKIE_FLAG = 16i32;
+pub const XHR_COOKIE_THIRD_PARTY: XHR_COOKIE_FLAG = XHR_COOKIE_FLAG(16i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_COOKIE_PROMPT_REQUIRED: XHR_COOKIE_FLAG = 32i32;
+pub const XHR_COOKIE_PROMPT_REQUIRED: XHR_COOKIE_FLAG = XHR_COOKIE_FLAG(32i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_COOKIE_EVALUATE_P3P: XHR_COOKIE_FLAG = 64i32;
+pub const XHR_COOKIE_EVALUATE_P3P: XHR_COOKIE_FLAG = XHR_COOKIE_FLAG(64i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_COOKIE_APPLY_P3P: XHR_COOKIE_FLAG = 128i32;
+pub const XHR_COOKIE_APPLY_P3P: XHR_COOKIE_FLAG = XHR_COOKIE_FLAG(128i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_COOKIE_P3P_ENABLED: XHR_COOKIE_FLAG = 256i32;
+pub const XHR_COOKIE_P3P_ENABLED: XHR_COOKIE_FLAG = XHR_COOKIE_FLAG(256i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_COOKIE_IS_RESTRICTED: XHR_COOKIE_FLAG = 512i32;
+pub const XHR_COOKIE_IS_RESTRICTED: XHR_COOKIE_FLAG = XHR_COOKIE_FLAG(512i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_COOKIE_IE6: XHR_COOKIE_FLAG = 1024i32;
+pub const XHR_COOKIE_IE6: XHR_COOKIE_FLAG = XHR_COOKIE_FLAG(1024i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_COOKIE_IS_LEGACY: XHR_COOKIE_FLAG = 2048i32;
+pub const XHR_COOKIE_IS_LEGACY: XHR_COOKIE_FLAG = XHR_COOKIE_FLAG(2048i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_COOKIE_NON_SCRIPT: XHR_COOKIE_FLAG = 4096i32;
+pub const XHR_COOKIE_NON_SCRIPT: XHR_COOKIE_FLAG = XHR_COOKIE_FLAG(4096i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_COOKIE_HTTPONLY: XHR_COOKIE_FLAG = 8192i32;
+pub const XHR_COOKIE_HTTPONLY: XHR_COOKIE_FLAG = XHR_COOKIE_FLAG(8192i32);
+impl ::core::marker::Copy for XHR_COOKIE_FLAG {}
+impl ::core::clone::Clone for XHR_COOKIE_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XHR_COOKIE_FLAG {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XHR_COOKIE_FLAG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XHR_COOKIE_FLAG").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub type XHR_COOKIE_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XHR_COOKIE_STATE(pub i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_COOKIE_STATE_UNKNOWN: XHR_COOKIE_STATE = 0i32;
+pub const XHR_COOKIE_STATE_UNKNOWN: XHR_COOKIE_STATE = XHR_COOKIE_STATE(0i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_COOKIE_STATE_ACCEPT: XHR_COOKIE_STATE = 1i32;
+pub const XHR_COOKIE_STATE_ACCEPT: XHR_COOKIE_STATE = XHR_COOKIE_STATE(1i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_COOKIE_STATE_PROMPT: XHR_COOKIE_STATE = 2i32;
+pub const XHR_COOKIE_STATE_PROMPT: XHR_COOKIE_STATE = XHR_COOKIE_STATE(2i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_COOKIE_STATE_LEASH: XHR_COOKIE_STATE = 3i32;
+pub const XHR_COOKIE_STATE_LEASH: XHR_COOKIE_STATE = XHR_COOKIE_STATE(3i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_COOKIE_STATE_DOWNGRADE: XHR_COOKIE_STATE = 4i32;
+pub const XHR_COOKIE_STATE_DOWNGRADE: XHR_COOKIE_STATE = XHR_COOKIE_STATE(4i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_COOKIE_STATE_REJECT: XHR_COOKIE_STATE = 5i32;
+pub const XHR_COOKIE_STATE_REJECT: XHR_COOKIE_STATE = XHR_COOKIE_STATE(5i32);
+impl ::core::marker::Copy for XHR_COOKIE_STATE {}
+impl ::core::clone::Clone for XHR_COOKIE_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XHR_COOKIE_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XHR_COOKIE_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XHR_COOKIE_STATE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub type XHR_CRED_PROMPT = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XHR_CRED_PROMPT(pub i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_CRED_PROMPT_ALL: XHR_CRED_PROMPT = 0i32;
+pub const XHR_CRED_PROMPT_ALL: XHR_CRED_PROMPT = XHR_CRED_PROMPT(0i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_CRED_PROMPT_NONE: XHR_CRED_PROMPT = 1i32;
+pub const XHR_CRED_PROMPT_NONE: XHR_CRED_PROMPT = XHR_CRED_PROMPT(1i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_CRED_PROMPT_PROXY: XHR_CRED_PROMPT = 2i32;
+pub const XHR_CRED_PROMPT_PROXY: XHR_CRED_PROMPT = XHR_CRED_PROMPT(2i32);
+impl ::core::marker::Copy for XHR_CRED_PROMPT {}
+impl ::core::clone::Clone for XHR_CRED_PROMPT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XHR_CRED_PROMPT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XHR_CRED_PROMPT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XHR_CRED_PROMPT").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub type XHR_PROPERTY = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XHR_PROPERTY(pub i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_PROP_NO_CRED_PROMPT: XHR_PROPERTY = 0i32;
+pub const XHR_PROP_NO_CRED_PROMPT: XHR_PROPERTY = XHR_PROPERTY(0i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_PROP_NO_AUTH: XHR_PROPERTY = 1i32;
+pub const XHR_PROP_NO_AUTH: XHR_PROPERTY = XHR_PROPERTY(1i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_PROP_TIMEOUT: XHR_PROPERTY = 2i32;
+pub const XHR_PROP_TIMEOUT: XHR_PROPERTY = XHR_PROPERTY(2i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_PROP_NO_DEFAULT_HEADERS: XHR_PROPERTY = 3i32;
+pub const XHR_PROP_NO_DEFAULT_HEADERS: XHR_PROPERTY = XHR_PROPERTY(3i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_PROP_REPORT_REDIRECT_STATUS: XHR_PROPERTY = 4i32;
+pub const XHR_PROP_REPORT_REDIRECT_STATUS: XHR_PROPERTY = XHR_PROPERTY(4i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_PROP_NO_CACHE: XHR_PROPERTY = 5i32;
+pub const XHR_PROP_NO_CACHE: XHR_PROPERTY = XHR_PROPERTY(5i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_PROP_EXTENDED_ERROR: XHR_PROPERTY = 6i32;
+pub const XHR_PROP_EXTENDED_ERROR: XHR_PROPERTY = XHR_PROPERTY(6i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_PROP_QUERY_STRING_UTF8: XHR_PROPERTY = 7i32;
+pub const XHR_PROP_QUERY_STRING_UTF8: XHR_PROPERTY = XHR_PROPERTY(7i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_PROP_IGNORE_CERT_ERRORS: XHR_PROPERTY = 8i32;
+pub const XHR_PROP_IGNORE_CERT_ERRORS: XHR_PROPERTY = XHR_PROPERTY(8i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_PROP_ONDATA_THRESHOLD: XHR_PROPERTY = 9i32;
+pub const XHR_PROP_ONDATA_THRESHOLD: XHR_PROPERTY = XHR_PROPERTY(9i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_PROP_SET_ENTERPRISEID: XHR_PROPERTY = 10i32;
+pub const XHR_PROP_SET_ENTERPRISEID: XHR_PROPERTY = XHR_PROPERTY(10i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XHR_PROP_MAX_CONNECTIONS: XHR_PROPERTY = 11i32;
+pub const XHR_PROP_MAX_CONNECTIONS: XHR_PROPERTY = XHR_PROPERTY(11i32);
+impl ::core::marker::Copy for XHR_PROPERTY {}
+impl ::core::clone::Clone for XHR_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XHR_PROPERTY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XHR_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XHR_PROPERTY").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
 pub const XHR_PROP_ONDATA_ALWAYS: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
@@ -20630,21 +20974,37 @@ pub struct XMLDOMDocumentEvents_Vtbl {
 pub const XMLDSOControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x550dda30_0541_11d2_9ca9_0060b0ec3d39);
 pub const XMLDocument: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcfc399af_d876_11d0_9c10_00c04fc99c8e);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub type XMLEMEM_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XMLEMEM_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XMLELEMTYPE_ELEMENT: XMLEMEM_TYPE = 0i32;
+pub const XMLELEMTYPE_ELEMENT: XMLEMEM_TYPE = XMLEMEM_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XMLELEMTYPE_TEXT: XMLEMEM_TYPE = 1i32;
+pub const XMLELEMTYPE_TEXT: XMLEMEM_TYPE = XMLEMEM_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XMLELEMTYPE_COMMENT: XMLEMEM_TYPE = 2i32;
+pub const XMLELEMTYPE_COMMENT: XMLEMEM_TYPE = XMLEMEM_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XMLELEMTYPE_DOCUMENT: XMLEMEM_TYPE = 3i32;
+pub const XMLELEMTYPE_DOCUMENT: XMLEMEM_TYPE = XMLEMEM_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XMLELEMTYPE_DTD: XMLEMEM_TYPE = 4i32;
+pub const XMLELEMTYPE_DTD: XMLEMEM_TYPE = XMLEMEM_TYPE(4i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XMLELEMTYPE_PI: XMLEMEM_TYPE = 5i32;
+pub const XMLELEMTYPE_PI: XMLEMEM_TYPE = XMLEMEM_TYPE(5i32);
 #[doc = "*Required features: 'Win32_Data_Xml_MsXml'*"]
-pub const XMLELEMTYPE_OTHER: XMLEMEM_TYPE = 6i32;
+pub const XMLELEMTYPE_OTHER: XMLEMEM_TYPE = XMLEMEM_TYPE(6i32);
+impl ::core::marker::Copy for XMLEMEM_TYPE {}
+impl ::core::clone::Clone for XMLEMEM_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XMLEMEM_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XMLEMEM_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XMLEMEM_TYPE").field(&self.0).finish()
+    }
+}
 pub const XMLHTTP60: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88d96a0a_f192_11d4_a65f_0040963251e5);
 pub const XMLHTTPRequest: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed8c108e_4349_11d2_91a4_00c04f7969e8);
 pub const XMLSchemaCache60: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88d96a07_f192_11d4_a65f_0040963251e5);

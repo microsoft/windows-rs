@@ -2434,17 +2434,33 @@ pub struct IUPnPServices_Vtbl {
     Item: usize,
 }
 #[doc = "*Required features: 'Win32_Devices_Enumeration_Pnp'*"]
-pub type SW_DEVICE_CAPABILITIES = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SW_DEVICE_CAPABILITIES(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Enumeration_Pnp'*"]
-pub const SWDeviceCapabilitiesNone: SW_DEVICE_CAPABILITIES = 0i32;
+pub const SWDeviceCapabilitiesNone: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(0i32);
 #[doc = "*Required features: 'Win32_Devices_Enumeration_Pnp'*"]
-pub const SWDeviceCapabilitiesRemovable: SW_DEVICE_CAPABILITIES = 1i32;
+pub const SWDeviceCapabilitiesRemovable: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(1i32);
 #[doc = "*Required features: 'Win32_Devices_Enumeration_Pnp'*"]
-pub const SWDeviceCapabilitiesSilentInstall: SW_DEVICE_CAPABILITIES = 2i32;
+pub const SWDeviceCapabilitiesSilentInstall: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(2i32);
 #[doc = "*Required features: 'Win32_Devices_Enumeration_Pnp'*"]
-pub const SWDeviceCapabilitiesNoDisplayInUI: SW_DEVICE_CAPABILITIES = 4i32;
+pub const SWDeviceCapabilitiesNoDisplayInUI: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(4i32);
 #[doc = "*Required features: 'Win32_Devices_Enumeration_Pnp'*"]
-pub const SWDeviceCapabilitiesDriverRequired: SW_DEVICE_CAPABILITIES = 8i32;
+pub const SWDeviceCapabilitiesDriverRequired: SW_DEVICE_CAPABILITIES = SW_DEVICE_CAPABILITIES(8i32);
+impl ::core::marker::Copy for SW_DEVICE_CAPABILITIES {}
+impl ::core::clone::Clone for SW_DEVICE_CAPABILITIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SW_DEVICE_CAPABILITIES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SW_DEVICE_CAPABILITIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SW_DEVICE_CAPABILITIES").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Enumeration_Pnp', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type SW_DEVICE_CREATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hswdevice: HSWDEVICE, createresult: ::windows::core::HRESULT, pcontext: *const ::core::ffi::c_void, pszdeviceinstanceid: super::super::super::Foundation::PWSTR)>;
@@ -2495,13 +2511,29 @@ impl ::core::default::Default for SW_DEVICE_CREATE_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_Devices_Enumeration_Pnp'*"]
-pub type SW_DEVICE_LIFETIME = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SW_DEVICE_LIFETIME(pub i32);
 #[doc = "*Required features: 'Win32_Devices_Enumeration_Pnp'*"]
-pub const SWDeviceLifetimeHandle: SW_DEVICE_LIFETIME = 0i32;
+pub const SWDeviceLifetimeHandle: SW_DEVICE_LIFETIME = SW_DEVICE_LIFETIME(0i32);
 #[doc = "*Required features: 'Win32_Devices_Enumeration_Pnp'*"]
-pub const SWDeviceLifetimeParentPresent: SW_DEVICE_LIFETIME = 1i32;
+pub const SWDeviceLifetimeParentPresent: SW_DEVICE_LIFETIME = SW_DEVICE_LIFETIME(1i32);
 #[doc = "*Required features: 'Win32_Devices_Enumeration_Pnp'*"]
-pub const SWDeviceLifetimeMax: SW_DEVICE_LIFETIME = 2i32;
+pub const SWDeviceLifetimeMax: SW_DEVICE_LIFETIME = SW_DEVICE_LIFETIME(2i32);
+impl ::core::marker::Copy for SW_DEVICE_LIFETIME {}
+impl ::core::clone::Clone for SW_DEVICE_LIFETIME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SW_DEVICE_LIFETIME {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SW_DEVICE_LIFETIME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SW_DEVICE_LIFETIME").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Devices_Enumeration_Pnp'*"]
 #[inline]
 pub unsafe fn SwDeviceClose<'a, Param0: ::windows::core::IntoParam<'a, HSWDEVICE>>(hswdevice: Param0) {

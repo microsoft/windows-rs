@@ -1,109 +1,269 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub type AddServiceFlag = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct AddServiceFlag(pub i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const asfAllowPendingRegistration: AddServiceFlag = 1i32;
+pub const asfAllowPendingRegistration: AddServiceFlag = AddServiceFlag(1i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const asfAllowOnlineRegistration: AddServiceFlag = 2i32;
+pub const asfAllowOnlineRegistration: AddServiceFlag = AddServiceFlag(2i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const asfRegisterServiceWithAU: AddServiceFlag = 4i32;
+pub const asfRegisterServiceWithAU: AddServiceFlag = AddServiceFlag(4i32);
+impl ::core::marker::Copy for AddServiceFlag {}
+impl ::core::clone::Clone for AddServiceFlag {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for AddServiceFlag {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AddServiceFlag {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AddServiceFlag").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub type AutoDownloadMode = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct AutoDownloadMode(pub i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const adLetWindowsUpdateDecide: AutoDownloadMode = 0i32;
+pub const adLetWindowsUpdateDecide: AutoDownloadMode = AutoDownloadMode(0i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const adNeverAutoDownload: AutoDownloadMode = 1i32;
+pub const adNeverAutoDownload: AutoDownloadMode = AutoDownloadMode(1i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const adAlwaysAutoDownload: AutoDownloadMode = 2i32;
+pub const adAlwaysAutoDownload: AutoDownloadMode = AutoDownloadMode(2i32);
+impl ::core::marker::Copy for AutoDownloadMode {}
+impl ::core::clone::Clone for AutoDownloadMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for AutoDownloadMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AutoDownloadMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutoDownloadMode").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub type AutoSelectionMode = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct AutoSelectionMode(pub i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const asLetWindowsUpdateDecide: AutoSelectionMode = 0i32;
+pub const asLetWindowsUpdateDecide: AutoSelectionMode = AutoSelectionMode(0i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const asAutoSelectIfDownloaded: AutoSelectionMode = 1i32;
+pub const asAutoSelectIfDownloaded: AutoSelectionMode = AutoSelectionMode(1i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const asNeverAutoSelect: AutoSelectionMode = 2i32;
+pub const asNeverAutoSelect: AutoSelectionMode = AutoSelectionMode(2i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const asAlwaysAutoSelect: AutoSelectionMode = 3i32;
+pub const asAlwaysAutoSelect: AutoSelectionMode = AutoSelectionMode(3i32);
+impl ::core::marker::Copy for AutoSelectionMode {}
+impl ::core::clone::Clone for AutoSelectionMode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for AutoSelectionMode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AutoSelectionMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutoSelectionMode").field(&self.0).finish()
+    }
+}
 pub const AutomaticUpdates: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfe18e9c_6d87_4450_b37c_e02f0b373803);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub type AutomaticUpdatesNotificationLevel = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct AutomaticUpdatesNotificationLevel(pub i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const aunlNotConfigured: AutomaticUpdatesNotificationLevel = 0i32;
+pub const aunlNotConfigured: AutomaticUpdatesNotificationLevel = AutomaticUpdatesNotificationLevel(0i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const aunlDisabled: AutomaticUpdatesNotificationLevel = 1i32;
+pub const aunlDisabled: AutomaticUpdatesNotificationLevel = AutomaticUpdatesNotificationLevel(1i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const aunlNotifyBeforeDownload: AutomaticUpdatesNotificationLevel = 2i32;
+pub const aunlNotifyBeforeDownload: AutomaticUpdatesNotificationLevel = AutomaticUpdatesNotificationLevel(2i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const aunlNotifyBeforeInstallation: AutomaticUpdatesNotificationLevel = 3i32;
+pub const aunlNotifyBeforeInstallation: AutomaticUpdatesNotificationLevel = AutomaticUpdatesNotificationLevel(3i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const aunlScheduledInstallation: AutomaticUpdatesNotificationLevel = 4i32;
+pub const aunlScheduledInstallation: AutomaticUpdatesNotificationLevel = AutomaticUpdatesNotificationLevel(4i32);
+impl ::core::marker::Copy for AutomaticUpdatesNotificationLevel {}
+impl ::core::clone::Clone for AutomaticUpdatesNotificationLevel {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for AutomaticUpdatesNotificationLevel {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AutomaticUpdatesNotificationLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomaticUpdatesNotificationLevel").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub type AutomaticUpdatesPermissionType = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct AutomaticUpdatesPermissionType(pub i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const auptSetNotificationLevel: AutomaticUpdatesPermissionType = 1i32;
+pub const auptSetNotificationLevel: AutomaticUpdatesPermissionType = AutomaticUpdatesPermissionType(1i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const auptDisableAutomaticUpdates: AutomaticUpdatesPermissionType = 2i32;
+pub const auptDisableAutomaticUpdates: AutomaticUpdatesPermissionType = AutomaticUpdatesPermissionType(2i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const auptSetIncludeRecommendedUpdates: AutomaticUpdatesPermissionType = 3i32;
+pub const auptSetIncludeRecommendedUpdates: AutomaticUpdatesPermissionType = AutomaticUpdatesPermissionType(3i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const auptSetFeaturedUpdatesEnabled: AutomaticUpdatesPermissionType = 4i32;
+pub const auptSetFeaturedUpdatesEnabled: AutomaticUpdatesPermissionType = AutomaticUpdatesPermissionType(4i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const auptSetNonAdministratorsElevated: AutomaticUpdatesPermissionType = 5i32;
+pub const auptSetNonAdministratorsElevated: AutomaticUpdatesPermissionType = AutomaticUpdatesPermissionType(5i32);
+impl ::core::marker::Copy for AutomaticUpdatesPermissionType {}
+impl ::core::clone::Clone for AutomaticUpdatesPermissionType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for AutomaticUpdatesPermissionType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AutomaticUpdatesPermissionType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomaticUpdatesPermissionType").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub type AutomaticUpdatesScheduledInstallationDay = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct AutomaticUpdatesScheduledInstallationDay(pub i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const ausidEveryDay: AutomaticUpdatesScheduledInstallationDay = 0i32;
+pub const ausidEveryDay: AutomaticUpdatesScheduledInstallationDay = AutomaticUpdatesScheduledInstallationDay(0i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const ausidEverySunday: AutomaticUpdatesScheduledInstallationDay = 1i32;
+pub const ausidEverySunday: AutomaticUpdatesScheduledInstallationDay = AutomaticUpdatesScheduledInstallationDay(1i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const ausidEveryMonday: AutomaticUpdatesScheduledInstallationDay = 2i32;
+pub const ausidEveryMonday: AutomaticUpdatesScheduledInstallationDay = AutomaticUpdatesScheduledInstallationDay(2i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const ausidEveryTuesday: AutomaticUpdatesScheduledInstallationDay = 3i32;
+pub const ausidEveryTuesday: AutomaticUpdatesScheduledInstallationDay = AutomaticUpdatesScheduledInstallationDay(3i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const ausidEveryWednesday: AutomaticUpdatesScheduledInstallationDay = 4i32;
+pub const ausidEveryWednesday: AutomaticUpdatesScheduledInstallationDay = AutomaticUpdatesScheduledInstallationDay(4i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const ausidEveryThursday: AutomaticUpdatesScheduledInstallationDay = 5i32;
+pub const ausidEveryThursday: AutomaticUpdatesScheduledInstallationDay = AutomaticUpdatesScheduledInstallationDay(5i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const ausidEveryFriday: AutomaticUpdatesScheduledInstallationDay = 6i32;
+pub const ausidEveryFriday: AutomaticUpdatesScheduledInstallationDay = AutomaticUpdatesScheduledInstallationDay(6i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const ausidEverySaturday: AutomaticUpdatesScheduledInstallationDay = 7i32;
+pub const ausidEverySaturday: AutomaticUpdatesScheduledInstallationDay = AutomaticUpdatesScheduledInstallationDay(7i32);
+impl ::core::marker::Copy for AutomaticUpdatesScheduledInstallationDay {}
+impl ::core::clone::Clone for AutomaticUpdatesScheduledInstallationDay {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for AutomaticUpdatesScheduledInstallationDay {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AutomaticUpdatesScheduledInstallationDay {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomaticUpdatesScheduledInstallationDay").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub type AutomaticUpdatesUserType = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct AutomaticUpdatesUserType(pub i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const auutCurrentUser: AutomaticUpdatesUserType = 1i32;
+pub const auutCurrentUser: AutomaticUpdatesUserType = AutomaticUpdatesUserType(1i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const auutLocalAdministrator: AutomaticUpdatesUserType = 2i32;
+pub const auutLocalAdministrator: AutomaticUpdatesUserType = AutomaticUpdatesUserType(2i32);
+impl ::core::marker::Copy for AutomaticUpdatesUserType {}
+impl ::core::clone::Clone for AutomaticUpdatesUserType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for AutomaticUpdatesUserType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AutomaticUpdatesUserType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutomaticUpdatesUserType").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub type DeploymentAction = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DeploymentAction(pub i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const daNone: DeploymentAction = 0i32;
+pub const daNone: DeploymentAction = DeploymentAction(0i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const daInstallation: DeploymentAction = 1i32;
+pub const daInstallation: DeploymentAction = DeploymentAction(1i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const daUninstallation: DeploymentAction = 2i32;
+pub const daUninstallation: DeploymentAction = DeploymentAction(2i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const daDetection: DeploymentAction = 3i32;
+pub const daDetection: DeploymentAction = DeploymentAction(3i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const daOptionalInstallation: DeploymentAction = 4i32;
+pub const daOptionalInstallation: DeploymentAction = DeploymentAction(4i32);
+impl ::core::marker::Copy for DeploymentAction {}
+impl ::core::clone::Clone for DeploymentAction {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DeploymentAction {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DeploymentAction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeploymentAction").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub type DownloadPhase = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DownloadPhase(pub i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const dphInitializing: DownloadPhase = 1i32;
+pub const dphInitializing: DownloadPhase = DownloadPhase(1i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const dphDownloading: DownloadPhase = 2i32;
+pub const dphDownloading: DownloadPhase = DownloadPhase(2i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const dphVerifying: DownloadPhase = 3i32;
+pub const dphVerifying: DownloadPhase = DownloadPhase(3i32);
+impl ::core::marker::Copy for DownloadPhase {}
+impl ::core::clone::Clone for DownloadPhase {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DownloadPhase {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DownloadPhase {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DownloadPhase").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub type DownloadPriority = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DownloadPriority(pub i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const dpLow: DownloadPriority = 1i32;
+pub const dpLow: DownloadPriority = DownloadPriority(1i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const dpNormal: DownloadPriority = 2i32;
+pub const dpNormal: DownloadPriority = DownloadPriority(2i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const dpHigh: DownloadPriority = 3i32;
+pub const dpHigh: DownloadPriority = DownloadPriority(3i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const dpExtraHigh: DownloadPriority = 4i32;
+pub const dpExtraHigh: DownloadPriority = DownloadPriority(4i32);
+impl ::core::marker::Copy for DownloadPriority {}
+impl ::core::clone::Clone for DownloadPriority {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DownloadPriority {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DownloadPriority {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DownloadPriority").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_UpdateAgent', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 #[repr(transparent)]
@@ -15392,60 +15552,140 @@ pub struct IWindowsUpdateAgentInfo_Vtbl {
 }
 pub const InstallationAgent: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x317e92fc_1679_46fd_a0b5_f08914dd8623);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub type InstallationImpact = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct InstallationImpact(pub i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const iiNormal: InstallationImpact = 0i32;
+pub const iiNormal: InstallationImpact = InstallationImpact(0i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const iiMinor: InstallationImpact = 1i32;
+pub const iiMinor: InstallationImpact = InstallationImpact(1i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const iiRequiresExclusiveHandling: InstallationImpact = 2i32;
+pub const iiRequiresExclusiveHandling: InstallationImpact = InstallationImpact(2i32);
+impl ::core::marker::Copy for InstallationImpact {}
+impl ::core::clone::Clone for InstallationImpact {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for InstallationImpact {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for InstallationImpact {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InstallationImpact").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub type InstallationRebootBehavior = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct InstallationRebootBehavior(pub i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const irbNeverReboots: InstallationRebootBehavior = 0i32;
+pub const irbNeverReboots: InstallationRebootBehavior = InstallationRebootBehavior(0i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const irbAlwaysRequiresReboot: InstallationRebootBehavior = 1i32;
+pub const irbAlwaysRequiresReboot: InstallationRebootBehavior = InstallationRebootBehavior(1i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const irbCanRequestReboot: InstallationRebootBehavior = 2i32;
+pub const irbCanRequestReboot: InstallationRebootBehavior = InstallationRebootBehavior(2i32);
+impl ::core::marker::Copy for InstallationRebootBehavior {}
+impl ::core::clone::Clone for InstallationRebootBehavior {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for InstallationRebootBehavior {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for InstallationRebootBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InstallationRebootBehavior").field(&self.0).finish()
+    }
+}
 pub const LIBID_WUApiLib: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb596cc9f_56e5_419e_a622_e01bb457431e);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub type OperationResultCode = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct OperationResultCode(pub i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const orcNotStarted: OperationResultCode = 0i32;
+pub const orcNotStarted: OperationResultCode = OperationResultCode(0i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const orcInProgress: OperationResultCode = 1i32;
+pub const orcInProgress: OperationResultCode = OperationResultCode(1i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const orcSucceeded: OperationResultCode = 2i32;
+pub const orcSucceeded: OperationResultCode = OperationResultCode(2i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const orcSucceededWithErrors: OperationResultCode = 3i32;
+pub const orcSucceededWithErrors: OperationResultCode = OperationResultCode(3i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const orcFailed: OperationResultCode = 4i32;
+pub const orcFailed: OperationResultCode = OperationResultCode(4i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const orcAborted: OperationResultCode = 5i32;
+pub const orcAborted: OperationResultCode = OperationResultCode(5i32);
+impl ::core::marker::Copy for OperationResultCode {}
+impl ::core::clone::Clone for OperationResultCode {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for OperationResultCode {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OperationResultCode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OperationResultCode").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub type SearchScope = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SearchScope(pub i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const searchScopeDefault: SearchScope = 0i32;
+pub const searchScopeDefault: SearchScope = SearchScope(0i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const searchScopeMachineOnly: SearchScope = 1i32;
+pub const searchScopeMachineOnly: SearchScope = SearchScope(1i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const searchScopeCurrentUserOnly: SearchScope = 2i32;
+pub const searchScopeCurrentUserOnly: SearchScope = SearchScope(2i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const searchScopeMachineAndCurrentUser: SearchScope = 3i32;
+pub const searchScopeMachineAndCurrentUser: SearchScope = SearchScope(3i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const searchScopeMachineAndAllUsers: SearchScope = 4i32;
+pub const searchScopeMachineAndAllUsers: SearchScope = SearchScope(4i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const searchScopeAllUsers: SearchScope = 5i32;
+pub const searchScopeAllUsers: SearchScope = SearchScope(5i32);
+impl ::core::marker::Copy for SearchScope {}
+impl ::core::clone::Clone for SearchScope {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SearchScope {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SearchScope {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SearchScope").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub type ServerSelection = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ServerSelection(pub i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const ssDefault: ServerSelection = 0i32;
+pub const ssDefault: ServerSelection = ServerSelection(0i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const ssManagedServer: ServerSelection = 1i32;
+pub const ssManagedServer: ServerSelection = ServerSelection(1i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const ssWindowsUpdate: ServerSelection = 2i32;
+pub const ssWindowsUpdate: ServerSelection = ServerSelection(2i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const ssOthers: ServerSelection = 3i32;
+pub const ssOthers: ServerSelection = ServerSelection(3i32);
+impl ::core::marker::Copy for ServerSelection {}
+impl ::core::clone::Clone for ServerSelection {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ServerSelection {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ServerSelection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ServerSelection").field(&self.0).finish()
+    }
+}
 pub const StringCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72c97d74_7c3b_40ae_b77d_abdb22eba6fb);
 pub const SystemInformation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc01b9ba0_bea7_41ba_b604_d0a36f469133);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
@@ -15453,47 +15693,143 @@ pub const UPDATE_LOCKDOWN_WEBSITE_ACCESS: u32 = 1u32;
 pub const UpdateCollection: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13639463_00db_4646_803d_528026140d88);
 pub const UpdateDownloader: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5baf654a_5a07_4264_a255_9ff54c7151e7);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub type UpdateExceptionContext = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct UpdateExceptionContext(pub i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const uecGeneral: UpdateExceptionContext = 1i32;
+pub const uecGeneral: UpdateExceptionContext = UpdateExceptionContext(1i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const uecWindowsDriver: UpdateExceptionContext = 2i32;
+pub const uecWindowsDriver: UpdateExceptionContext = UpdateExceptionContext(2i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const uecWindowsInstaller: UpdateExceptionContext = 3i32;
+pub const uecWindowsInstaller: UpdateExceptionContext = UpdateExceptionContext(3i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const uecSearchIncomplete: UpdateExceptionContext = 4i32;
+pub const uecSearchIncomplete: UpdateExceptionContext = UpdateExceptionContext(4i32);
+impl ::core::marker::Copy for UpdateExceptionContext {}
+impl ::core::clone::Clone for UpdateExceptionContext {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for UpdateExceptionContext {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UpdateExceptionContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UpdateExceptionContext").field(&self.0).finish()
+    }
+}
 pub const UpdateInstaller: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2e0fe7f_d23e_48e1_93c0_6fa8cc346474);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub type UpdateLockdownOption = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct UpdateLockdownOption(pub i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const uloForWebsiteAccess: UpdateLockdownOption = 1i32;
+pub const uloForWebsiteAccess: UpdateLockdownOption = UpdateLockdownOption(1i32);
+impl ::core::marker::Copy for UpdateLockdownOption {}
+impl ::core::clone::Clone for UpdateLockdownOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for UpdateLockdownOption {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UpdateLockdownOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UpdateLockdownOption").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub type UpdateOperation = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct UpdateOperation(pub i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const uoInstallation: UpdateOperation = 1i32;
+pub const uoInstallation: UpdateOperation = UpdateOperation(1i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const uoUninstallation: UpdateOperation = 2i32;
+pub const uoUninstallation: UpdateOperation = UpdateOperation(2i32);
+impl ::core::marker::Copy for UpdateOperation {}
+impl ::core::clone::Clone for UpdateOperation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for UpdateOperation {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UpdateOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UpdateOperation").field(&self.0).finish()
+    }
+}
 pub const UpdateSearcher: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb699e5e8_67ff_4177_88b0_3684a3388bfb);
 pub const UpdateServiceManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8d253d9_89a4_4daa_87b6_1168369f0b21);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub type UpdateServiceOption = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct UpdateServiceOption(pub i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const usoNonVolatileService: UpdateServiceOption = 1i32;
+pub const usoNonVolatileService: UpdateServiceOption = UpdateServiceOption(1i32);
+impl ::core::marker::Copy for UpdateServiceOption {}
+impl ::core::clone::Clone for UpdateServiceOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for UpdateServiceOption {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UpdateServiceOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UpdateServiceOption").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub type UpdateServiceRegistrationState = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct UpdateServiceRegistrationState(pub i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const usrsNotRegistered: UpdateServiceRegistrationState = 1i32;
+pub const usrsNotRegistered: UpdateServiceRegistrationState = UpdateServiceRegistrationState(1i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const usrsRegistrationPending: UpdateServiceRegistrationState = 2i32;
+pub const usrsRegistrationPending: UpdateServiceRegistrationState = UpdateServiceRegistrationState(2i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const usrsRegistered: UpdateServiceRegistrationState = 3i32;
+pub const usrsRegistered: UpdateServiceRegistrationState = UpdateServiceRegistrationState(3i32);
+impl ::core::marker::Copy for UpdateServiceRegistrationState {}
+impl ::core::clone::Clone for UpdateServiceRegistrationState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for UpdateServiceRegistrationState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UpdateServiceRegistrationState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UpdateServiceRegistrationState").field(&self.0).finish()
+    }
+}
 pub const UpdateSession: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4cb43d7f_7eee_4906_8698_60da1c38f2fe);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub type UpdateType = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct UpdateType(pub i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const utSoftware: UpdateType = 1i32;
+pub const utSoftware: UpdateType = UpdateType(1i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
-pub const utDriver: UpdateType = 2i32;
+pub const utDriver: UpdateType = UpdateType(2i32);
+impl ::core::marker::Copy for UpdateType {}
+impl ::core::clone::Clone for UpdateType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for UpdateType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UpdateType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UpdateType").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]
 pub const WU_E_ALL_UPDATES_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2145124318i32);
 #[doc = "*Required features: 'Win32_System_UpdateAgent'*"]

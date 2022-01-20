@@ -8722,145 +8722,273 @@ pub const RTCTR_TLS: u32 = 4u32;
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTCTR_UDP: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub type RTC_ACE_SCOPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RTC_ACE_SCOPE(pub i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCAS_SCOPE_USER: RTC_ACE_SCOPE = RTC_ACE_SCOPE(0i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCAS_SCOPE_DOMAIN: RTC_ACE_SCOPE = RTC_ACE_SCOPE(1i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCAS_SCOPE_ALL: RTC_ACE_SCOPE = RTC_ACE_SCOPE(2i32);
+impl ::core::marker::Copy for RTC_ACE_SCOPE {}
+impl ::core::clone::Clone for RTC_ACE_SCOPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTC_ACE_SCOPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RTC_ACE_SCOPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RTC_ACE_SCOPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RTC_ANSWER_MODE(pub i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCAM_OFFER_SESSION_EVENT: RTC_ANSWER_MODE = RTC_ANSWER_MODE(0i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCAM_AUTOMATICALLY_ACCEPT: RTC_ANSWER_MODE = RTC_ANSWER_MODE(1i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCAM_AUTOMATICALLY_REJECT: RTC_ANSWER_MODE = RTC_ANSWER_MODE(2i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCAM_NOT_SUPPORTED: RTC_ANSWER_MODE = RTC_ANSWER_MODE(3i32);
+impl ::core::marker::Copy for RTC_ANSWER_MODE {}
+impl ::core::clone::Clone for RTC_ANSWER_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTC_ANSWER_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RTC_ANSWER_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RTC_ANSWER_MODE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RTC_AUDIO_DEVICE(pub i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCAD_SPEAKER: RTC_AUDIO_DEVICE = RTC_AUDIO_DEVICE(0i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCAD_MICROPHONE: RTC_AUDIO_DEVICE = RTC_AUDIO_DEVICE(1i32);
+impl ::core::marker::Copy for RTC_AUDIO_DEVICE {}
+impl ::core::clone::Clone for RTC_AUDIO_DEVICE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTC_AUDIO_DEVICE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RTC_AUDIO_DEVICE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RTC_AUDIO_DEVICE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RTC_BUDDY_EVENT_TYPE(pub i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCBET_BUDDY_ADD: RTC_BUDDY_EVENT_TYPE = RTC_BUDDY_EVENT_TYPE(0i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCBET_BUDDY_REMOVE: RTC_BUDDY_EVENT_TYPE = RTC_BUDDY_EVENT_TYPE(1i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCBET_BUDDY_UPDATE: RTC_BUDDY_EVENT_TYPE = RTC_BUDDY_EVENT_TYPE(2i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCBET_BUDDY_STATE_CHANGE: RTC_BUDDY_EVENT_TYPE = RTC_BUDDY_EVENT_TYPE(3i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCBET_BUDDY_ROAMED: RTC_BUDDY_EVENT_TYPE = RTC_BUDDY_EVENT_TYPE(4i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCBET_BUDDY_SUBSCRIBED: RTC_BUDDY_EVENT_TYPE = RTC_BUDDY_EVENT_TYPE(5i32);
+impl ::core::marker::Copy for RTC_BUDDY_EVENT_TYPE {}
+impl ::core::clone::Clone for RTC_BUDDY_EVENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTC_BUDDY_EVENT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RTC_BUDDY_EVENT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RTC_BUDDY_EVENT_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCAS_SCOPE_USER: RTC_ACE_SCOPE = 0i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RTC_BUDDY_SUBSCRIPTION_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCAS_SCOPE_DOMAIN: RTC_ACE_SCOPE = 1i32;
+pub const RTCBT_SUBSCRIBED: RTC_BUDDY_SUBSCRIPTION_TYPE = RTC_BUDDY_SUBSCRIPTION_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCAS_SCOPE_ALL: RTC_ACE_SCOPE = 2i32;
+pub const RTCBT_ALWAYS_OFFLINE: RTC_BUDDY_SUBSCRIPTION_TYPE = RTC_BUDDY_SUBSCRIPTION_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub type RTC_ANSWER_MODE = i32;
+pub const RTCBT_ALWAYS_ONLINE: RTC_BUDDY_SUBSCRIPTION_TYPE = RTC_BUDDY_SUBSCRIPTION_TYPE(2i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCAM_OFFER_SESSION_EVENT: RTC_ANSWER_MODE = 0i32;
+pub const RTCBT_POLL: RTC_BUDDY_SUBSCRIPTION_TYPE = RTC_BUDDY_SUBSCRIPTION_TYPE(3i32);
+impl ::core::marker::Copy for RTC_BUDDY_SUBSCRIPTION_TYPE {}
+impl ::core::clone::Clone for RTC_BUDDY_SUBSCRIPTION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTC_BUDDY_SUBSCRIPTION_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RTC_BUDDY_SUBSCRIPTION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RTC_BUDDY_SUBSCRIPTION_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCAM_AUTOMATICALLY_ACCEPT: RTC_ANSWER_MODE = 1i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RTC_CLIENT_EVENT_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCAM_AUTOMATICALLY_REJECT: RTC_ANSWER_MODE = 2i32;
+pub const RTCCET_VOLUME_CHANGE: RTC_CLIENT_EVENT_TYPE = RTC_CLIENT_EVENT_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCAM_NOT_SUPPORTED: RTC_ANSWER_MODE = 3i32;
+pub const RTCCET_DEVICE_CHANGE: RTC_CLIENT_EVENT_TYPE = RTC_CLIENT_EVENT_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub type RTC_AUDIO_DEVICE = i32;
+pub const RTCCET_NETWORK_QUALITY_CHANGE: RTC_CLIENT_EVENT_TYPE = RTC_CLIENT_EVENT_TYPE(2i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCAD_SPEAKER: RTC_AUDIO_DEVICE = 0i32;
+pub const RTCCET_ASYNC_CLEANUP_DONE: RTC_CLIENT_EVENT_TYPE = RTC_CLIENT_EVENT_TYPE(3i32);
+impl ::core::marker::Copy for RTC_CLIENT_EVENT_TYPE {}
+impl ::core::clone::Clone for RTC_CLIENT_EVENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTC_CLIENT_EVENT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RTC_CLIENT_EVENT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RTC_CLIENT_EVENT_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCAD_MICROPHONE: RTC_AUDIO_DEVICE = 1i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RTC_DTMF(pub i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub type RTC_BUDDY_EVENT_TYPE = i32;
+pub const RTC_DTMF_0: RTC_DTMF = RTC_DTMF(0i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCBET_BUDDY_ADD: RTC_BUDDY_EVENT_TYPE = 0i32;
+pub const RTC_DTMF_1: RTC_DTMF = RTC_DTMF(1i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCBET_BUDDY_REMOVE: RTC_BUDDY_EVENT_TYPE = 1i32;
+pub const RTC_DTMF_2: RTC_DTMF = RTC_DTMF(2i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCBET_BUDDY_UPDATE: RTC_BUDDY_EVENT_TYPE = 2i32;
+pub const RTC_DTMF_3: RTC_DTMF = RTC_DTMF(3i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCBET_BUDDY_STATE_CHANGE: RTC_BUDDY_EVENT_TYPE = 3i32;
+pub const RTC_DTMF_4: RTC_DTMF = RTC_DTMF(4i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCBET_BUDDY_ROAMED: RTC_BUDDY_EVENT_TYPE = 4i32;
+pub const RTC_DTMF_5: RTC_DTMF = RTC_DTMF(5i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCBET_BUDDY_SUBSCRIBED: RTC_BUDDY_EVENT_TYPE = 5i32;
+pub const RTC_DTMF_6: RTC_DTMF = RTC_DTMF(6i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub type RTC_BUDDY_SUBSCRIPTION_TYPE = i32;
+pub const RTC_DTMF_7: RTC_DTMF = RTC_DTMF(7i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCBT_SUBSCRIBED: RTC_BUDDY_SUBSCRIPTION_TYPE = 0i32;
+pub const RTC_DTMF_8: RTC_DTMF = RTC_DTMF(8i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCBT_ALWAYS_OFFLINE: RTC_BUDDY_SUBSCRIPTION_TYPE = 1i32;
+pub const RTC_DTMF_9: RTC_DTMF = RTC_DTMF(9i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCBT_ALWAYS_ONLINE: RTC_BUDDY_SUBSCRIPTION_TYPE = 2i32;
+pub const RTC_DTMF_STAR: RTC_DTMF = RTC_DTMF(10i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCBT_POLL: RTC_BUDDY_SUBSCRIPTION_TYPE = 3i32;
+pub const RTC_DTMF_POUND: RTC_DTMF = RTC_DTMF(11i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub type RTC_CLIENT_EVENT_TYPE = i32;
+pub const RTC_DTMF_A: RTC_DTMF = RTC_DTMF(12i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCCET_VOLUME_CHANGE: RTC_CLIENT_EVENT_TYPE = 0i32;
+pub const RTC_DTMF_B: RTC_DTMF = RTC_DTMF(13i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCCET_DEVICE_CHANGE: RTC_CLIENT_EVENT_TYPE = 1i32;
+pub const RTC_DTMF_C: RTC_DTMF = RTC_DTMF(14i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCCET_NETWORK_QUALITY_CHANGE: RTC_CLIENT_EVENT_TYPE = 2i32;
+pub const RTC_DTMF_D: RTC_DTMF = RTC_DTMF(15i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCCET_ASYNC_CLEANUP_DONE: RTC_CLIENT_EVENT_TYPE = 3i32;
+pub const RTC_DTMF_FLASH: RTC_DTMF = RTC_DTMF(16i32);
+impl ::core::marker::Copy for RTC_DTMF {}
+impl ::core::clone::Clone for RTC_DTMF {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTC_DTMF {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RTC_DTMF {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RTC_DTMF").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub type RTC_DTMF = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RTC_EVENT(pub i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTC_DTMF_0: RTC_DTMF = 0i32;
+pub const RTCE_CLIENT: RTC_EVENT = RTC_EVENT(0i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTC_DTMF_1: RTC_DTMF = 1i32;
+pub const RTCE_REGISTRATION_STATE_CHANGE: RTC_EVENT = RTC_EVENT(1i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTC_DTMF_2: RTC_DTMF = 2i32;
+pub const RTCE_SESSION_STATE_CHANGE: RTC_EVENT = RTC_EVENT(2i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTC_DTMF_3: RTC_DTMF = 3i32;
+pub const RTCE_SESSION_OPERATION_COMPLETE: RTC_EVENT = RTC_EVENT(3i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTC_DTMF_4: RTC_DTMF = 4i32;
+pub const RTCE_PARTICIPANT_STATE_CHANGE: RTC_EVENT = RTC_EVENT(4i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTC_DTMF_5: RTC_DTMF = 5i32;
+pub const RTCE_MEDIA: RTC_EVENT = RTC_EVENT(5i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTC_DTMF_6: RTC_DTMF = 6i32;
+pub const RTCE_INTENSITY: RTC_EVENT = RTC_EVENT(6i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTC_DTMF_7: RTC_DTMF = 7i32;
+pub const RTCE_MESSAGING: RTC_EVENT = RTC_EVENT(7i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTC_DTMF_8: RTC_DTMF = 8i32;
+pub const RTCE_BUDDY: RTC_EVENT = RTC_EVENT(8i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTC_DTMF_9: RTC_DTMF = 9i32;
+pub const RTCE_WATCHER: RTC_EVENT = RTC_EVENT(9i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTC_DTMF_STAR: RTC_DTMF = 10i32;
+pub const RTCE_PROFILE: RTC_EVENT = RTC_EVENT(10i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTC_DTMF_POUND: RTC_DTMF = 11i32;
+pub const RTCE_USERSEARCH: RTC_EVENT = RTC_EVENT(11i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTC_DTMF_A: RTC_DTMF = 12i32;
+pub const RTCE_INFO: RTC_EVENT = RTC_EVENT(12i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTC_DTMF_B: RTC_DTMF = 13i32;
+pub const RTCE_GROUP: RTC_EVENT = RTC_EVENT(13i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTC_DTMF_C: RTC_DTMF = 14i32;
+pub const RTCE_MEDIA_REQUEST: RTC_EVENT = RTC_EVENT(14i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTC_DTMF_D: RTC_DTMF = 15i32;
+pub const RTCE_ROAMING: RTC_EVENT = RTC_EVENT(15i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTC_DTMF_FLASH: RTC_DTMF = 16i32;
+pub const RTCE_PRESENCE_PROPERTY: RTC_EVENT = RTC_EVENT(16i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub type RTC_EVENT = i32;
+pub const RTCE_PRESENCE_DATA: RTC_EVENT = RTC_EVENT(17i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCE_CLIENT: RTC_EVENT = 0i32;
+pub const RTCE_PRESENCE_STATUS: RTC_EVENT = RTC_EVENT(18i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCE_REGISTRATION_STATE_CHANGE: RTC_EVENT = 1i32;
+pub const RTCE_SESSION_REFER_STATUS: RTC_EVENT = RTC_EVENT(19i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCE_SESSION_STATE_CHANGE: RTC_EVENT = 2i32;
+pub const RTCE_SESSION_REFERRED: RTC_EVENT = RTC_EVENT(20i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCE_SESSION_OPERATION_COMPLETE: RTC_EVENT = 3i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCE_PARTICIPANT_STATE_CHANGE: RTC_EVENT = 4i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCE_MEDIA: RTC_EVENT = 5i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCE_INTENSITY: RTC_EVENT = 6i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCE_MESSAGING: RTC_EVENT = 7i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCE_BUDDY: RTC_EVENT = 8i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCE_WATCHER: RTC_EVENT = 9i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCE_PROFILE: RTC_EVENT = 10i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCE_USERSEARCH: RTC_EVENT = 11i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCE_INFO: RTC_EVENT = 12i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCE_GROUP: RTC_EVENT = 13i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCE_MEDIA_REQUEST: RTC_EVENT = 14i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCE_ROAMING: RTC_EVENT = 15i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCE_PRESENCE_PROPERTY: RTC_EVENT = 16i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCE_PRESENCE_DATA: RTC_EVENT = 17i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCE_PRESENCE_STATUS: RTC_EVENT = 18i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCE_SESSION_REFER_STATUS: RTC_EVENT = 19i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCE_SESSION_REFERRED: RTC_EVENT = 20i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCE_REINVITE: RTC_EVENT = 21i32;
+pub const RTCE_REINVITE: RTC_EVENT = RTC_EVENT(21i32);
+impl ::core::marker::Copy for RTC_EVENT {}
+impl ::core::clone::Clone for RTC_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTC_EVENT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RTC_EVENT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RTC_EVENT").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_ANOTHER_MEDIA_SESSION_ACTIVE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885961i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
@@ -9236,355 +9364,851 @@ pub const RTC_E_TOO_SMALL_EXPIRES_VALUE: ::windows::core::HRESULT = ::windows::c
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_E_UDP_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2131885954i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub type RTC_GROUP_EVENT_TYPE = i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCGET_GROUP_ADD: RTC_GROUP_EVENT_TYPE = 0i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCGET_GROUP_REMOVE: RTC_GROUP_EVENT_TYPE = 1i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCGET_GROUP_UPDATE: RTC_GROUP_EVENT_TYPE = 2i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCGET_GROUP_BUDDY_ADD: RTC_GROUP_EVENT_TYPE = 3i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCGET_GROUP_BUDDY_REMOVE: RTC_GROUP_EVENT_TYPE = 4i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCGET_GROUP_ROAMED: RTC_GROUP_EVENT_TYPE = 5i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub type RTC_LISTEN_MODE = i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCLM_NONE: RTC_LISTEN_MODE = 0i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCLM_DYNAMIC: RTC_LISTEN_MODE = 1i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCLM_BOTH: RTC_LISTEN_MODE = 2i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub type RTC_MEDIA_EVENT_REASON = i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCMER_NORMAL: RTC_MEDIA_EVENT_REASON = 0i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCMER_HOLD: RTC_MEDIA_EVENT_REASON = 1i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCMER_TIMEOUT: RTC_MEDIA_EVENT_REASON = 2i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCMER_BAD_DEVICE: RTC_MEDIA_EVENT_REASON = 3i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCMER_NO_PORT: RTC_MEDIA_EVENT_REASON = 4i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCMER_PORT_MAPPING_FAILED: RTC_MEDIA_EVENT_REASON = 5i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCMER_REMOTE_REQUEST: RTC_MEDIA_EVENT_REASON = 6i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub type RTC_MEDIA_EVENT_TYPE = i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCMET_STOPPED: RTC_MEDIA_EVENT_TYPE = 0i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCMET_STARTED: RTC_MEDIA_EVENT_TYPE = 1i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCMET_FAILED: RTC_MEDIA_EVENT_TYPE = 2i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub type RTC_MESSAGING_EVENT_TYPE = i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCMSET_MESSAGE: RTC_MESSAGING_EVENT_TYPE = 0i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCMSET_STATUS: RTC_MESSAGING_EVENT_TYPE = 1i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub type RTC_MESSAGING_USER_STATUS = i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCMUS_IDLE: RTC_MESSAGING_USER_STATUS = 0i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCMUS_TYPING: RTC_MESSAGING_USER_STATUS = 1i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub type RTC_OFFER_WATCHER_MODE = i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCOWM_OFFER_WATCHER_EVENT: RTC_OFFER_WATCHER_MODE = 0i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCOWM_AUTOMATICALLY_ADD_WATCHER: RTC_OFFER_WATCHER_MODE = 1i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub type RTC_PARTICIPANT_STATE = i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCPS_IDLE: RTC_PARTICIPANT_STATE = 0i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCPS_PENDING: RTC_PARTICIPANT_STATE = 1i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCPS_INCOMING: RTC_PARTICIPANT_STATE = 2i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCPS_ANSWERING: RTC_PARTICIPANT_STATE = 3i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCPS_INPROGRESS: RTC_PARTICIPANT_STATE = 4i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCPS_ALERTING: RTC_PARTICIPANT_STATE = 5i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCPS_CONNECTED: RTC_PARTICIPANT_STATE = 6i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCPS_DISCONNECTING: RTC_PARTICIPANT_STATE = 7i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCPS_DISCONNECTED: RTC_PARTICIPANT_STATE = 8i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub type RTC_PORT_TYPE = i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCPT_AUDIO_RTP: RTC_PORT_TYPE = 0i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCPT_AUDIO_RTCP: RTC_PORT_TYPE = 1i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCPT_VIDEO_RTP: RTC_PORT_TYPE = 2i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCPT_VIDEO_RTCP: RTC_PORT_TYPE = 3i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCPT_SIP: RTC_PORT_TYPE = 4i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub type RTC_PRESENCE_PROPERTY = i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCPP_PHONENUMBER: RTC_PRESENCE_PROPERTY = 0i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCPP_DISPLAYNAME: RTC_PRESENCE_PROPERTY = 1i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCPP_EMAIL: RTC_PRESENCE_PROPERTY = 2i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCPP_DEVICE_NAME: RTC_PRESENCE_PROPERTY = 3i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCPP_MULTIPLE: RTC_PRESENCE_PROPERTY = 4i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub type RTC_PRESENCE_STATUS = i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCXS_PRESENCE_OFFLINE: RTC_PRESENCE_STATUS = 0i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCXS_PRESENCE_ONLINE: RTC_PRESENCE_STATUS = 1i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCXS_PRESENCE_AWAY: RTC_PRESENCE_STATUS = 2i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCXS_PRESENCE_IDLE: RTC_PRESENCE_STATUS = 3i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCXS_PRESENCE_BUSY: RTC_PRESENCE_STATUS = 4i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCXS_PRESENCE_BE_RIGHT_BACK: RTC_PRESENCE_STATUS = 5i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCXS_PRESENCE_ON_THE_PHONE: RTC_PRESENCE_STATUS = 6i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCXS_PRESENCE_OUT_TO_LUNCH: RTC_PRESENCE_STATUS = 7i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub type RTC_PRIVACY_MODE = i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCPM_BLOCK_LIST_EXCLUDED: RTC_PRIVACY_MODE = 0i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCPM_ALLOW_LIST_ONLY: RTC_PRIVACY_MODE = 1i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub type RTC_PROFILE_EVENT_TYPE = i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCPFET_PROFILE_GET: RTC_PROFILE_EVENT_TYPE = 0i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCPFET_PROFILE_UPDATE: RTC_PROFILE_EVENT_TYPE = 1i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub type RTC_PROVIDER_URI = i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCPU_URIHOMEPAGE: RTC_PROVIDER_URI = 0i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCPU_URIHELPDESK: RTC_PROVIDER_URI = 1i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCPU_URIPERSONALACCOUNT: RTC_PROVIDER_URI = 2i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCPU_URIDISPLAYDURINGCALL: RTC_PROVIDER_URI = 3i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCPU_URIDISPLAYDURINGIDLE: RTC_PROVIDER_URI = 4i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub type RTC_REGISTRATION_STATE = i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCRS_NOT_REGISTERED: RTC_REGISTRATION_STATE = 0i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCRS_REGISTERING: RTC_REGISTRATION_STATE = 1i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCRS_REGISTERED: RTC_REGISTRATION_STATE = 2i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCRS_REJECTED: RTC_REGISTRATION_STATE = 3i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCRS_UNREGISTERING: RTC_REGISTRATION_STATE = 4i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCRS_ERROR: RTC_REGISTRATION_STATE = 5i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCRS_LOGGED_OFF: RTC_REGISTRATION_STATE = 6i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCRS_LOCAL_PA_LOGGED_OFF: RTC_REGISTRATION_STATE = 7i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCRS_REMOTE_PA_LOGGED_OFF: RTC_REGISTRATION_STATE = 8i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub type RTC_REINVITE_STATE = i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCRIN_INCOMING: RTC_REINVITE_STATE = 0i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCRIN_SUCCEEDED: RTC_REINVITE_STATE = 1i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCRIN_FAIL: RTC_REINVITE_STATE = 2i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub type RTC_RING_TYPE = i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCRT_PHONE: RTC_RING_TYPE = 0i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCRT_MESSAGE: RTC_RING_TYPE = 1i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCRT_RINGBACK: RTC_RING_TYPE = 2i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub type RTC_ROAMING_EVENT_TYPE = i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCRET_BUDDY_ROAMING: RTC_ROAMING_EVENT_TYPE = 0i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCRET_WATCHER_ROAMING: RTC_ROAMING_EVENT_TYPE = 1i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCRET_PRESENCE_ROAMING: RTC_ROAMING_EVENT_TYPE = 2i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCRET_PROFILE_ROAMING: RTC_ROAMING_EVENT_TYPE = 3i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCRET_WPENDING_ROAMING: RTC_ROAMING_EVENT_TYPE = 4i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub type RTC_SECURITY_LEVEL = i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCSECL_UNSUPPORTED: RTC_SECURITY_LEVEL = 1i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCSECL_SUPPORTED: RTC_SECURITY_LEVEL = 2i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCSECL_REQUIRED: RTC_SECURITY_LEVEL = 3i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub type RTC_SECURITY_TYPE = i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCSECT_AUDIO_VIDEO_MEDIA_ENCRYPTION: RTC_SECURITY_TYPE = 0i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCSECT_T120_MEDIA_ENCRYPTION: RTC_SECURITY_TYPE = 1i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub type RTC_SESSION_REFER_STATUS = i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCSRS_REFERRING: RTC_SESSION_REFER_STATUS = 0i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCSRS_ACCEPTED: RTC_SESSION_REFER_STATUS = 1i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCSRS_ERROR: RTC_SESSION_REFER_STATUS = 2i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCSRS_REJECTED: RTC_SESSION_REFER_STATUS = 3i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCSRS_DROPPED: RTC_SESSION_REFER_STATUS = 4i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCSRS_DONE: RTC_SESSION_REFER_STATUS = 5i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub type RTC_SESSION_STATE = i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCSS_IDLE: RTC_SESSION_STATE = 0i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCSS_INCOMING: RTC_SESSION_STATE = 1i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCSS_ANSWERING: RTC_SESSION_STATE = 2i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCSS_INPROGRESS: RTC_SESSION_STATE = 3i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCSS_CONNECTED: RTC_SESSION_STATE = 4i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCSS_DISCONNECTED: RTC_SESSION_STATE = 5i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCSS_HOLD: RTC_SESSION_STATE = 6i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCSS_REFER: RTC_SESSION_STATE = 7i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub type RTC_SESSION_TYPE = i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCST_PC_TO_PC: RTC_SESSION_TYPE = 0i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCST_PC_TO_PHONE: RTC_SESSION_TYPE = 1i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCST_PHONE_TO_PHONE: RTC_SESSION_TYPE = 2i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCST_IM: RTC_SESSION_TYPE = 3i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCST_MULTIPARTY_IM: RTC_SESSION_TYPE = 4i32;
-#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCST_APPLICATION: RTC_SESSION_TYPE = 5i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RTC_GROUP_EVENT_TYPE(pub i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCGET_GROUP_ADD: RTC_GROUP_EVENT_TYPE = RTC_GROUP_EVENT_TYPE(0i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCGET_GROUP_REMOVE: RTC_GROUP_EVENT_TYPE = RTC_GROUP_EVENT_TYPE(1i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCGET_GROUP_UPDATE: RTC_GROUP_EVENT_TYPE = RTC_GROUP_EVENT_TYPE(2i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCGET_GROUP_BUDDY_ADD: RTC_GROUP_EVENT_TYPE = RTC_GROUP_EVENT_TYPE(3i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCGET_GROUP_BUDDY_REMOVE: RTC_GROUP_EVENT_TYPE = RTC_GROUP_EVENT_TYPE(4i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCGET_GROUP_ROAMED: RTC_GROUP_EVENT_TYPE = RTC_GROUP_EVENT_TYPE(5i32);
+impl ::core::marker::Copy for RTC_GROUP_EVENT_TYPE {}
+impl ::core::clone::Clone for RTC_GROUP_EVENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTC_GROUP_EVENT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RTC_GROUP_EVENT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RTC_GROUP_EVENT_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RTC_LISTEN_MODE(pub i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCLM_NONE: RTC_LISTEN_MODE = RTC_LISTEN_MODE(0i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCLM_DYNAMIC: RTC_LISTEN_MODE = RTC_LISTEN_MODE(1i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCLM_BOTH: RTC_LISTEN_MODE = RTC_LISTEN_MODE(2i32);
+impl ::core::marker::Copy for RTC_LISTEN_MODE {}
+impl ::core::clone::Clone for RTC_LISTEN_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTC_LISTEN_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RTC_LISTEN_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RTC_LISTEN_MODE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RTC_MEDIA_EVENT_REASON(pub i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCMER_NORMAL: RTC_MEDIA_EVENT_REASON = RTC_MEDIA_EVENT_REASON(0i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCMER_HOLD: RTC_MEDIA_EVENT_REASON = RTC_MEDIA_EVENT_REASON(1i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCMER_TIMEOUT: RTC_MEDIA_EVENT_REASON = RTC_MEDIA_EVENT_REASON(2i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCMER_BAD_DEVICE: RTC_MEDIA_EVENT_REASON = RTC_MEDIA_EVENT_REASON(3i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCMER_NO_PORT: RTC_MEDIA_EVENT_REASON = RTC_MEDIA_EVENT_REASON(4i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCMER_PORT_MAPPING_FAILED: RTC_MEDIA_EVENT_REASON = RTC_MEDIA_EVENT_REASON(5i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCMER_REMOTE_REQUEST: RTC_MEDIA_EVENT_REASON = RTC_MEDIA_EVENT_REASON(6i32);
+impl ::core::marker::Copy for RTC_MEDIA_EVENT_REASON {}
+impl ::core::clone::Clone for RTC_MEDIA_EVENT_REASON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTC_MEDIA_EVENT_REASON {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RTC_MEDIA_EVENT_REASON {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RTC_MEDIA_EVENT_REASON").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RTC_MEDIA_EVENT_TYPE(pub i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCMET_STOPPED: RTC_MEDIA_EVENT_TYPE = RTC_MEDIA_EVENT_TYPE(0i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCMET_STARTED: RTC_MEDIA_EVENT_TYPE = RTC_MEDIA_EVENT_TYPE(1i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCMET_FAILED: RTC_MEDIA_EVENT_TYPE = RTC_MEDIA_EVENT_TYPE(2i32);
+impl ::core::marker::Copy for RTC_MEDIA_EVENT_TYPE {}
+impl ::core::clone::Clone for RTC_MEDIA_EVENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTC_MEDIA_EVENT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RTC_MEDIA_EVENT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RTC_MEDIA_EVENT_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RTC_MESSAGING_EVENT_TYPE(pub i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCMSET_MESSAGE: RTC_MESSAGING_EVENT_TYPE = RTC_MESSAGING_EVENT_TYPE(0i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCMSET_STATUS: RTC_MESSAGING_EVENT_TYPE = RTC_MESSAGING_EVENT_TYPE(1i32);
+impl ::core::marker::Copy for RTC_MESSAGING_EVENT_TYPE {}
+impl ::core::clone::Clone for RTC_MESSAGING_EVENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTC_MESSAGING_EVENT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RTC_MESSAGING_EVENT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RTC_MESSAGING_EVENT_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RTC_MESSAGING_USER_STATUS(pub i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCMUS_IDLE: RTC_MESSAGING_USER_STATUS = RTC_MESSAGING_USER_STATUS(0i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCMUS_TYPING: RTC_MESSAGING_USER_STATUS = RTC_MESSAGING_USER_STATUS(1i32);
+impl ::core::marker::Copy for RTC_MESSAGING_USER_STATUS {}
+impl ::core::clone::Clone for RTC_MESSAGING_USER_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTC_MESSAGING_USER_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RTC_MESSAGING_USER_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RTC_MESSAGING_USER_STATUS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RTC_OFFER_WATCHER_MODE(pub i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCOWM_OFFER_WATCHER_EVENT: RTC_OFFER_WATCHER_MODE = RTC_OFFER_WATCHER_MODE(0i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCOWM_AUTOMATICALLY_ADD_WATCHER: RTC_OFFER_WATCHER_MODE = RTC_OFFER_WATCHER_MODE(1i32);
+impl ::core::marker::Copy for RTC_OFFER_WATCHER_MODE {}
+impl ::core::clone::Clone for RTC_OFFER_WATCHER_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTC_OFFER_WATCHER_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RTC_OFFER_WATCHER_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RTC_OFFER_WATCHER_MODE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RTC_PARTICIPANT_STATE(pub i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCPS_IDLE: RTC_PARTICIPANT_STATE = RTC_PARTICIPANT_STATE(0i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCPS_PENDING: RTC_PARTICIPANT_STATE = RTC_PARTICIPANT_STATE(1i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCPS_INCOMING: RTC_PARTICIPANT_STATE = RTC_PARTICIPANT_STATE(2i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCPS_ANSWERING: RTC_PARTICIPANT_STATE = RTC_PARTICIPANT_STATE(3i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCPS_INPROGRESS: RTC_PARTICIPANT_STATE = RTC_PARTICIPANT_STATE(4i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCPS_ALERTING: RTC_PARTICIPANT_STATE = RTC_PARTICIPANT_STATE(5i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCPS_CONNECTED: RTC_PARTICIPANT_STATE = RTC_PARTICIPANT_STATE(6i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCPS_DISCONNECTING: RTC_PARTICIPANT_STATE = RTC_PARTICIPANT_STATE(7i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCPS_DISCONNECTED: RTC_PARTICIPANT_STATE = RTC_PARTICIPANT_STATE(8i32);
+impl ::core::marker::Copy for RTC_PARTICIPANT_STATE {}
+impl ::core::clone::Clone for RTC_PARTICIPANT_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTC_PARTICIPANT_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RTC_PARTICIPANT_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RTC_PARTICIPANT_STATE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RTC_PORT_TYPE(pub i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCPT_AUDIO_RTP: RTC_PORT_TYPE = RTC_PORT_TYPE(0i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCPT_AUDIO_RTCP: RTC_PORT_TYPE = RTC_PORT_TYPE(1i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCPT_VIDEO_RTP: RTC_PORT_TYPE = RTC_PORT_TYPE(2i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCPT_VIDEO_RTCP: RTC_PORT_TYPE = RTC_PORT_TYPE(3i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCPT_SIP: RTC_PORT_TYPE = RTC_PORT_TYPE(4i32);
+impl ::core::marker::Copy for RTC_PORT_TYPE {}
+impl ::core::clone::Clone for RTC_PORT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTC_PORT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RTC_PORT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RTC_PORT_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RTC_PRESENCE_PROPERTY(pub i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCPP_PHONENUMBER: RTC_PRESENCE_PROPERTY = RTC_PRESENCE_PROPERTY(0i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCPP_DISPLAYNAME: RTC_PRESENCE_PROPERTY = RTC_PRESENCE_PROPERTY(1i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCPP_EMAIL: RTC_PRESENCE_PROPERTY = RTC_PRESENCE_PROPERTY(2i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCPP_DEVICE_NAME: RTC_PRESENCE_PROPERTY = RTC_PRESENCE_PROPERTY(3i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCPP_MULTIPLE: RTC_PRESENCE_PROPERTY = RTC_PRESENCE_PROPERTY(4i32);
+impl ::core::marker::Copy for RTC_PRESENCE_PROPERTY {}
+impl ::core::clone::Clone for RTC_PRESENCE_PROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTC_PRESENCE_PROPERTY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RTC_PRESENCE_PROPERTY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RTC_PRESENCE_PROPERTY").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RTC_PRESENCE_STATUS(pub i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCXS_PRESENCE_OFFLINE: RTC_PRESENCE_STATUS = RTC_PRESENCE_STATUS(0i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCXS_PRESENCE_ONLINE: RTC_PRESENCE_STATUS = RTC_PRESENCE_STATUS(1i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCXS_PRESENCE_AWAY: RTC_PRESENCE_STATUS = RTC_PRESENCE_STATUS(2i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCXS_PRESENCE_IDLE: RTC_PRESENCE_STATUS = RTC_PRESENCE_STATUS(3i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCXS_PRESENCE_BUSY: RTC_PRESENCE_STATUS = RTC_PRESENCE_STATUS(4i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCXS_PRESENCE_BE_RIGHT_BACK: RTC_PRESENCE_STATUS = RTC_PRESENCE_STATUS(5i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCXS_PRESENCE_ON_THE_PHONE: RTC_PRESENCE_STATUS = RTC_PRESENCE_STATUS(6i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCXS_PRESENCE_OUT_TO_LUNCH: RTC_PRESENCE_STATUS = RTC_PRESENCE_STATUS(7i32);
+impl ::core::marker::Copy for RTC_PRESENCE_STATUS {}
+impl ::core::clone::Clone for RTC_PRESENCE_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTC_PRESENCE_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RTC_PRESENCE_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RTC_PRESENCE_STATUS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RTC_PRIVACY_MODE(pub i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCPM_BLOCK_LIST_EXCLUDED: RTC_PRIVACY_MODE = RTC_PRIVACY_MODE(0i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCPM_ALLOW_LIST_ONLY: RTC_PRIVACY_MODE = RTC_PRIVACY_MODE(1i32);
+impl ::core::marker::Copy for RTC_PRIVACY_MODE {}
+impl ::core::clone::Clone for RTC_PRIVACY_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTC_PRIVACY_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RTC_PRIVACY_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RTC_PRIVACY_MODE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RTC_PROFILE_EVENT_TYPE(pub i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCPFET_PROFILE_GET: RTC_PROFILE_EVENT_TYPE = RTC_PROFILE_EVENT_TYPE(0i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCPFET_PROFILE_UPDATE: RTC_PROFILE_EVENT_TYPE = RTC_PROFILE_EVENT_TYPE(1i32);
+impl ::core::marker::Copy for RTC_PROFILE_EVENT_TYPE {}
+impl ::core::clone::Clone for RTC_PROFILE_EVENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTC_PROFILE_EVENT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RTC_PROFILE_EVENT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RTC_PROFILE_EVENT_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RTC_PROVIDER_URI(pub i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCPU_URIHOMEPAGE: RTC_PROVIDER_URI = RTC_PROVIDER_URI(0i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCPU_URIHELPDESK: RTC_PROVIDER_URI = RTC_PROVIDER_URI(1i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCPU_URIPERSONALACCOUNT: RTC_PROVIDER_URI = RTC_PROVIDER_URI(2i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCPU_URIDISPLAYDURINGCALL: RTC_PROVIDER_URI = RTC_PROVIDER_URI(3i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCPU_URIDISPLAYDURINGIDLE: RTC_PROVIDER_URI = RTC_PROVIDER_URI(4i32);
+impl ::core::marker::Copy for RTC_PROVIDER_URI {}
+impl ::core::clone::Clone for RTC_PROVIDER_URI {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTC_PROVIDER_URI {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RTC_PROVIDER_URI {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RTC_PROVIDER_URI").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RTC_REGISTRATION_STATE(pub i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCRS_NOT_REGISTERED: RTC_REGISTRATION_STATE = RTC_REGISTRATION_STATE(0i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCRS_REGISTERING: RTC_REGISTRATION_STATE = RTC_REGISTRATION_STATE(1i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCRS_REGISTERED: RTC_REGISTRATION_STATE = RTC_REGISTRATION_STATE(2i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCRS_REJECTED: RTC_REGISTRATION_STATE = RTC_REGISTRATION_STATE(3i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCRS_UNREGISTERING: RTC_REGISTRATION_STATE = RTC_REGISTRATION_STATE(4i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCRS_ERROR: RTC_REGISTRATION_STATE = RTC_REGISTRATION_STATE(5i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCRS_LOGGED_OFF: RTC_REGISTRATION_STATE = RTC_REGISTRATION_STATE(6i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCRS_LOCAL_PA_LOGGED_OFF: RTC_REGISTRATION_STATE = RTC_REGISTRATION_STATE(7i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCRS_REMOTE_PA_LOGGED_OFF: RTC_REGISTRATION_STATE = RTC_REGISTRATION_STATE(8i32);
+impl ::core::marker::Copy for RTC_REGISTRATION_STATE {}
+impl ::core::clone::Clone for RTC_REGISTRATION_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTC_REGISTRATION_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RTC_REGISTRATION_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RTC_REGISTRATION_STATE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RTC_REINVITE_STATE(pub i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCRIN_INCOMING: RTC_REINVITE_STATE = RTC_REINVITE_STATE(0i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCRIN_SUCCEEDED: RTC_REINVITE_STATE = RTC_REINVITE_STATE(1i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCRIN_FAIL: RTC_REINVITE_STATE = RTC_REINVITE_STATE(2i32);
+impl ::core::marker::Copy for RTC_REINVITE_STATE {}
+impl ::core::clone::Clone for RTC_REINVITE_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTC_REINVITE_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RTC_REINVITE_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RTC_REINVITE_STATE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RTC_RING_TYPE(pub i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCRT_PHONE: RTC_RING_TYPE = RTC_RING_TYPE(0i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCRT_MESSAGE: RTC_RING_TYPE = RTC_RING_TYPE(1i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCRT_RINGBACK: RTC_RING_TYPE = RTC_RING_TYPE(2i32);
+impl ::core::marker::Copy for RTC_RING_TYPE {}
+impl ::core::clone::Clone for RTC_RING_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTC_RING_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RTC_RING_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RTC_RING_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RTC_ROAMING_EVENT_TYPE(pub i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCRET_BUDDY_ROAMING: RTC_ROAMING_EVENT_TYPE = RTC_ROAMING_EVENT_TYPE(0i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCRET_WATCHER_ROAMING: RTC_ROAMING_EVENT_TYPE = RTC_ROAMING_EVENT_TYPE(1i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCRET_PRESENCE_ROAMING: RTC_ROAMING_EVENT_TYPE = RTC_ROAMING_EVENT_TYPE(2i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCRET_PROFILE_ROAMING: RTC_ROAMING_EVENT_TYPE = RTC_ROAMING_EVENT_TYPE(3i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCRET_WPENDING_ROAMING: RTC_ROAMING_EVENT_TYPE = RTC_ROAMING_EVENT_TYPE(4i32);
+impl ::core::marker::Copy for RTC_ROAMING_EVENT_TYPE {}
+impl ::core::clone::Clone for RTC_ROAMING_EVENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTC_ROAMING_EVENT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RTC_ROAMING_EVENT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RTC_ROAMING_EVENT_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RTC_SECURITY_LEVEL(pub i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCSECL_UNSUPPORTED: RTC_SECURITY_LEVEL = RTC_SECURITY_LEVEL(1i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCSECL_SUPPORTED: RTC_SECURITY_LEVEL = RTC_SECURITY_LEVEL(2i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCSECL_REQUIRED: RTC_SECURITY_LEVEL = RTC_SECURITY_LEVEL(3i32);
+impl ::core::marker::Copy for RTC_SECURITY_LEVEL {}
+impl ::core::clone::Clone for RTC_SECURITY_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTC_SECURITY_LEVEL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RTC_SECURITY_LEVEL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RTC_SECURITY_LEVEL").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RTC_SECURITY_TYPE(pub i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCSECT_AUDIO_VIDEO_MEDIA_ENCRYPTION: RTC_SECURITY_TYPE = RTC_SECURITY_TYPE(0i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCSECT_T120_MEDIA_ENCRYPTION: RTC_SECURITY_TYPE = RTC_SECURITY_TYPE(1i32);
+impl ::core::marker::Copy for RTC_SECURITY_TYPE {}
+impl ::core::clone::Clone for RTC_SECURITY_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTC_SECURITY_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RTC_SECURITY_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RTC_SECURITY_TYPE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RTC_SESSION_REFER_STATUS(pub i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCSRS_REFERRING: RTC_SESSION_REFER_STATUS = RTC_SESSION_REFER_STATUS(0i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCSRS_ACCEPTED: RTC_SESSION_REFER_STATUS = RTC_SESSION_REFER_STATUS(1i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCSRS_ERROR: RTC_SESSION_REFER_STATUS = RTC_SESSION_REFER_STATUS(2i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCSRS_REJECTED: RTC_SESSION_REFER_STATUS = RTC_SESSION_REFER_STATUS(3i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCSRS_DROPPED: RTC_SESSION_REFER_STATUS = RTC_SESSION_REFER_STATUS(4i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCSRS_DONE: RTC_SESSION_REFER_STATUS = RTC_SESSION_REFER_STATUS(5i32);
+impl ::core::marker::Copy for RTC_SESSION_REFER_STATUS {}
+impl ::core::clone::Clone for RTC_SESSION_REFER_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTC_SESSION_REFER_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RTC_SESSION_REFER_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RTC_SESSION_REFER_STATUS").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RTC_SESSION_STATE(pub i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCSS_IDLE: RTC_SESSION_STATE = RTC_SESSION_STATE(0i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCSS_INCOMING: RTC_SESSION_STATE = RTC_SESSION_STATE(1i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCSS_ANSWERING: RTC_SESSION_STATE = RTC_SESSION_STATE(2i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCSS_INPROGRESS: RTC_SESSION_STATE = RTC_SESSION_STATE(3i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCSS_CONNECTED: RTC_SESSION_STATE = RTC_SESSION_STATE(4i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCSS_DISCONNECTED: RTC_SESSION_STATE = RTC_SESSION_STATE(5i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCSS_HOLD: RTC_SESSION_STATE = RTC_SESSION_STATE(6i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCSS_REFER: RTC_SESSION_STATE = RTC_SESSION_STATE(7i32);
+impl ::core::marker::Copy for RTC_SESSION_STATE {}
+impl ::core::clone::Clone for RTC_SESSION_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTC_SESSION_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RTC_SESSION_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RTC_SESSION_STATE").field(&self.0).finish()
+    }
+}
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RTC_SESSION_TYPE(pub i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCST_PC_TO_PC: RTC_SESSION_TYPE = RTC_SESSION_TYPE(0i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCST_PC_TO_PHONE: RTC_SESSION_TYPE = RTC_SESSION_TYPE(1i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCST_PHONE_TO_PHONE: RTC_SESSION_TYPE = RTC_SESSION_TYPE(2i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCST_IM: RTC_SESSION_TYPE = RTC_SESSION_TYPE(3i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCST_MULTIPARTY_IM: RTC_SESSION_TYPE = RTC_SESSION_TYPE(4i32);
+#[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
+pub const RTCST_APPLICATION: RTC_SESSION_TYPE = RTC_SESSION_TYPE(5i32);
+impl ::core::marker::Copy for RTC_SESSION_TYPE {}
+impl ::core::clone::Clone for RTC_SESSION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTC_SESSION_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RTC_SESSION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RTC_SESSION_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const RTC_S_ROAMING_NOT_SUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(15597633i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub type RTC_T120_APPLET = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RTC_T120_APPLET(pub i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCTA_WHITEBOARD: RTC_T120_APPLET = 0i32;
+pub const RTCTA_WHITEBOARD: RTC_T120_APPLET = RTC_T120_APPLET(0i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCTA_APPSHARING: RTC_T120_APPLET = 1i32;
+pub const RTCTA_APPSHARING: RTC_T120_APPLET = RTC_T120_APPLET(1i32);
+impl ::core::marker::Copy for RTC_T120_APPLET {}
+impl ::core::clone::Clone for RTC_T120_APPLET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTC_T120_APPLET {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RTC_T120_APPLET {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RTC_T120_APPLET").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub type RTC_TERMINATE_REASON = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RTC_TERMINATE_REASON(pub i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCTR_NORMAL: RTC_TERMINATE_REASON = 0i32;
+pub const RTCTR_NORMAL: RTC_TERMINATE_REASON = RTC_TERMINATE_REASON(0i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCTR_DND: RTC_TERMINATE_REASON = 1i32;
+pub const RTCTR_DND: RTC_TERMINATE_REASON = RTC_TERMINATE_REASON(1i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCTR_BUSY: RTC_TERMINATE_REASON = 2i32;
+pub const RTCTR_BUSY: RTC_TERMINATE_REASON = RTC_TERMINATE_REASON(2i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCTR_REJECT: RTC_TERMINATE_REASON = 3i32;
+pub const RTCTR_REJECT: RTC_TERMINATE_REASON = RTC_TERMINATE_REASON(3i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCTR_TIMEOUT: RTC_TERMINATE_REASON = 4i32;
+pub const RTCTR_TIMEOUT: RTC_TERMINATE_REASON = RTC_TERMINATE_REASON(4i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCTR_SHUTDOWN: RTC_TERMINATE_REASON = 5i32;
+pub const RTCTR_SHUTDOWN: RTC_TERMINATE_REASON = RTC_TERMINATE_REASON(5i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCTR_INSUFFICIENT_SECURITY_LEVEL: RTC_TERMINATE_REASON = 6i32;
+pub const RTCTR_INSUFFICIENT_SECURITY_LEVEL: RTC_TERMINATE_REASON = RTC_TERMINATE_REASON(6i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCTR_NOT_SUPPORTED: RTC_TERMINATE_REASON = 7i32;
+pub const RTCTR_NOT_SUPPORTED: RTC_TERMINATE_REASON = RTC_TERMINATE_REASON(7i32);
+impl ::core::marker::Copy for RTC_TERMINATE_REASON {}
+impl ::core::clone::Clone for RTC_TERMINATE_REASON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTC_TERMINATE_REASON {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RTC_TERMINATE_REASON {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RTC_TERMINATE_REASON").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub type RTC_USER_SEARCH_COLUMN = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RTC_USER_SEARCH_COLUMN(pub i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCUSC_URI: RTC_USER_SEARCH_COLUMN = 0i32;
+pub const RTCUSC_URI: RTC_USER_SEARCH_COLUMN = RTC_USER_SEARCH_COLUMN(0i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCUSC_DISPLAYNAME: RTC_USER_SEARCH_COLUMN = 1i32;
+pub const RTCUSC_DISPLAYNAME: RTC_USER_SEARCH_COLUMN = RTC_USER_SEARCH_COLUMN(1i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCUSC_TITLE: RTC_USER_SEARCH_COLUMN = 2i32;
+pub const RTCUSC_TITLE: RTC_USER_SEARCH_COLUMN = RTC_USER_SEARCH_COLUMN(2i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCUSC_OFFICE: RTC_USER_SEARCH_COLUMN = 3i32;
+pub const RTCUSC_OFFICE: RTC_USER_SEARCH_COLUMN = RTC_USER_SEARCH_COLUMN(3i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCUSC_PHONE: RTC_USER_SEARCH_COLUMN = 4i32;
+pub const RTCUSC_PHONE: RTC_USER_SEARCH_COLUMN = RTC_USER_SEARCH_COLUMN(4i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCUSC_COMPANY: RTC_USER_SEARCH_COLUMN = 5i32;
+pub const RTCUSC_COMPANY: RTC_USER_SEARCH_COLUMN = RTC_USER_SEARCH_COLUMN(5i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCUSC_CITY: RTC_USER_SEARCH_COLUMN = 6i32;
+pub const RTCUSC_CITY: RTC_USER_SEARCH_COLUMN = RTC_USER_SEARCH_COLUMN(6i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCUSC_STATE: RTC_USER_SEARCH_COLUMN = 7i32;
+pub const RTCUSC_STATE: RTC_USER_SEARCH_COLUMN = RTC_USER_SEARCH_COLUMN(7i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCUSC_COUNTRY: RTC_USER_SEARCH_COLUMN = 8i32;
+pub const RTCUSC_COUNTRY: RTC_USER_SEARCH_COLUMN = RTC_USER_SEARCH_COLUMN(8i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCUSC_EMAIL: RTC_USER_SEARCH_COLUMN = 9i32;
+pub const RTCUSC_EMAIL: RTC_USER_SEARCH_COLUMN = RTC_USER_SEARCH_COLUMN(9i32);
+impl ::core::marker::Copy for RTC_USER_SEARCH_COLUMN {}
+impl ::core::clone::Clone for RTC_USER_SEARCH_COLUMN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTC_USER_SEARCH_COLUMN {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RTC_USER_SEARCH_COLUMN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RTC_USER_SEARCH_COLUMN").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub type RTC_USER_SEARCH_PREFERENCE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RTC_USER_SEARCH_PREFERENCE(pub i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCUSP_MAX_MATCHES: RTC_USER_SEARCH_PREFERENCE = 0i32;
+pub const RTCUSP_MAX_MATCHES: RTC_USER_SEARCH_PREFERENCE = RTC_USER_SEARCH_PREFERENCE(0i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCUSP_TIME_LIMIT: RTC_USER_SEARCH_PREFERENCE = 1i32;
+pub const RTCUSP_TIME_LIMIT: RTC_USER_SEARCH_PREFERENCE = RTC_USER_SEARCH_PREFERENCE(1i32);
+impl ::core::marker::Copy for RTC_USER_SEARCH_PREFERENCE {}
+impl ::core::clone::Clone for RTC_USER_SEARCH_PREFERENCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTC_USER_SEARCH_PREFERENCE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RTC_USER_SEARCH_PREFERENCE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RTC_USER_SEARCH_PREFERENCE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub type RTC_VIDEO_DEVICE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RTC_VIDEO_DEVICE(pub i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCVD_RECEIVE: RTC_VIDEO_DEVICE = 0i32;
+pub const RTCVD_RECEIVE: RTC_VIDEO_DEVICE = RTC_VIDEO_DEVICE(0i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCVD_PREVIEW: RTC_VIDEO_DEVICE = 1i32;
+pub const RTCVD_PREVIEW: RTC_VIDEO_DEVICE = RTC_VIDEO_DEVICE(1i32);
+impl ::core::marker::Copy for RTC_VIDEO_DEVICE {}
+impl ::core::clone::Clone for RTC_VIDEO_DEVICE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTC_VIDEO_DEVICE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RTC_VIDEO_DEVICE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RTC_VIDEO_DEVICE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub type RTC_WATCHER_EVENT_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RTC_WATCHER_EVENT_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCWET_WATCHER_ADD: RTC_WATCHER_EVENT_TYPE = 0i32;
+pub const RTCWET_WATCHER_ADD: RTC_WATCHER_EVENT_TYPE = RTC_WATCHER_EVENT_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCWET_WATCHER_REMOVE: RTC_WATCHER_EVENT_TYPE = 1i32;
+pub const RTCWET_WATCHER_REMOVE: RTC_WATCHER_EVENT_TYPE = RTC_WATCHER_EVENT_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCWET_WATCHER_UPDATE: RTC_WATCHER_EVENT_TYPE = 2i32;
+pub const RTCWET_WATCHER_UPDATE: RTC_WATCHER_EVENT_TYPE = RTC_WATCHER_EVENT_TYPE(2i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCWET_WATCHER_OFFERING: RTC_WATCHER_EVENT_TYPE = 3i32;
+pub const RTCWET_WATCHER_OFFERING: RTC_WATCHER_EVENT_TYPE = RTC_WATCHER_EVENT_TYPE(3i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCWET_WATCHER_ROAMED: RTC_WATCHER_EVENT_TYPE = 4i32;
+pub const RTCWET_WATCHER_ROAMED: RTC_WATCHER_EVENT_TYPE = RTC_WATCHER_EVENT_TYPE(4i32);
+impl ::core::marker::Copy for RTC_WATCHER_EVENT_TYPE {}
+impl ::core::clone::Clone for RTC_WATCHER_EVENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTC_WATCHER_EVENT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RTC_WATCHER_EVENT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RTC_WATCHER_EVENT_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub type RTC_WATCHER_MATCH_MODE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RTC_WATCHER_MATCH_MODE(pub i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCWMM_EXACT_MATCH: RTC_WATCHER_MATCH_MODE = 0i32;
+pub const RTCWMM_EXACT_MATCH: RTC_WATCHER_MATCH_MODE = RTC_WATCHER_MATCH_MODE(0i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCWMM_BEST_ACE_MATCH: RTC_WATCHER_MATCH_MODE = 1i32;
+pub const RTCWMM_BEST_ACE_MATCH: RTC_WATCHER_MATCH_MODE = RTC_WATCHER_MATCH_MODE(1i32);
+impl ::core::marker::Copy for RTC_WATCHER_MATCH_MODE {}
+impl ::core::clone::Clone for RTC_WATCHER_MATCH_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTC_WATCHER_MATCH_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RTC_WATCHER_MATCH_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RTC_WATCHER_MATCH_MODE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub type RTC_WATCHER_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct RTC_WATCHER_STATE(pub i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCWS_UNKNOWN: RTC_WATCHER_STATE = 0i32;
+pub const RTCWS_UNKNOWN: RTC_WATCHER_STATE = RTC_WATCHER_STATE(0i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCWS_OFFERING: RTC_WATCHER_STATE = 1i32;
+pub const RTCWS_OFFERING: RTC_WATCHER_STATE = RTC_WATCHER_STATE(1i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCWS_ALLOWED: RTC_WATCHER_STATE = 2i32;
+pub const RTCWS_ALLOWED: RTC_WATCHER_STATE = RTC_WATCHER_STATE(2i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCWS_BLOCKED: RTC_WATCHER_STATE = 3i32;
+pub const RTCWS_BLOCKED: RTC_WATCHER_STATE = RTC_WATCHER_STATE(3i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCWS_DENIED: RTC_WATCHER_STATE = 4i32;
+pub const RTCWS_DENIED: RTC_WATCHER_STATE = RTC_WATCHER_STATE(4i32);
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
-pub const RTCWS_PROMPT: RTC_WATCHER_STATE = 5i32;
+pub const RTCWS_PROMPT: RTC_WATCHER_STATE = RTC_WATCHER_STATE(5i32);
+impl ::core::marker::Copy for RTC_WATCHER_STATE {}
+impl ::core::clone::Clone for RTC_WATCHER_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTC_WATCHER_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for RTC_WATCHER_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RTC_WATCHER_STATE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_RealTimeCommunications'*"]
 pub const STATUS_SEVERITY_RTC_ERROR: u32 = 2u32;
 #[repr(C)]

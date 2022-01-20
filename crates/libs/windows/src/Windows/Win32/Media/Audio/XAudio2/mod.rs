@@ -416,13 +416,29 @@ impl ::core::default::Default for HrtfDirectivityCone {
     }
 }
 #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
-pub type HrtfDirectivityType = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HrtfDirectivityType(pub i32);
 #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
-pub const OmniDirectional: HrtfDirectivityType = 0i32;
+pub const OmniDirectional: HrtfDirectivityType = HrtfDirectivityType(0i32);
 #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
-pub const Cardioid: HrtfDirectivityType = 1i32;
+pub const Cardioid: HrtfDirectivityType = HrtfDirectivityType(1i32);
 #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
-pub const Cone: HrtfDirectivityType = 2i32;
+pub const Cone: HrtfDirectivityType = HrtfDirectivityType(2i32);
+impl ::core::marker::Copy for HrtfDirectivityType {}
+impl ::core::clone::Clone for HrtfDirectivityType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for HrtfDirectivityType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HrtfDirectivityType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HrtfDirectivityType").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
 pub struct HrtfDistanceDecay {
@@ -458,21 +474,53 @@ impl ::core::default::Default for HrtfDistanceDecay {
     }
 }
 #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
-pub type HrtfDistanceDecayType = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HrtfDistanceDecayType(pub i32);
 #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
-pub const NaturalDecay: HrtfDistanceDecayType = 0i32;
+pub const NaturalDecay: HrtfDistanceDecayType = HrtfDistanceDecayType(0i32);
 #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
-pub const CustomDecay: HrtfDistanceDecayType = 1i32;
+pub const CustomDecay: HrtfDistanceDecayType = HrtfDistanceDecayType(1i32);
+impl ::core::marker::Copy for HrtfDistanceDecayType {}
+impl ::core::clone::Clone for HrtfDistanceDecayType {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for HrtfDistanceDecayType {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HrtfDistanceDecayType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HrtfDistanceDecayType").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
-pub type HrtfEnvironment = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct HrtfEnvironment(pub i32);
 #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
-pub const Small: HrtfEnvironment = 0i32;
+pub const Small: HrtfEnvironment = HrtfEnvironment(0i32);
 #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
-pub const Medium: HrtfEnvironment = 1i32;
+pub const Medium: HrtfEnvironment = HrtfEnvironment(1i32);
 #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
-pub const Large: HrtfEnvironment = 2i32;
+pub const Large: HrtfEnvironment = HrtfEnvironment(2i32);
 #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
-pub const Outdoors: HrtfEnvironment = 3i32;
+pub const Outdoors: HrtfEnvironment = HrtfEnvironment(3i32);
+impl ::core::marker::Copy for HrtfEnvironment {}
+impl ::core::clone::Clone for HrtfEnvironment {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for HrtfEnvironment {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for HrtfEnvironment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HrtfEnvironment").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
 pub struct HrtfOrientation {
@@ -1721,11 +1769,27 @@ pub const X3DAUDIO_PI: f32 = 3.1415927f32;
 #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
 pub const X3DAUDIO_SPEED_OF_SOUND: f32 = 343.5f32;
 #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
-pub type XAPO_BUFFER_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XAPO_BUFFER_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
-pub const XAPO_BUFFER_SILENT: XAPO_BUFFER_FLAGS = 0i32;
+pub const XAPO_BUFFER_SILENT: XAPO_BUFFER_FLAGS = XAPO_BUFFER_FLAGS(0i32);
 #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
-pub const XAPO_BUFFER_VALID: XAPO_BUFFER_FLAGS = 1i32;
+pub const XAPO_BUFFER_VALID: XAPO_BUFFER_FLAGS = XAPO_BUFFER_FLAGS(1i32);
+impl ::core::marker::Copy for XAPO_BUFFER_FLAGS {}
+impl ::core::clone::Clone for XAPO_BUFFER_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XAPO_BUFFER_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XAPO_BUFFER_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XAPO_BUFFER_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
 pub const XAPO_E_FORMAT_UNSUPPORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2003369983i32);
 #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
@@ -2299,19 +2363,35 @@ impl ::core::default::Default for XAUDIO2_FILTER_PARAMETERS {
     }
 }
 #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
-pub type XAUDIO2_FILTER_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XAUDIO2_FILTER_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
-pub const LowPassFilter: XAUDIO2_FILTER_TYPE = 0i32;
+pub const LowPassFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
-pub const BandPassFilter: XAUDIO2_FILTER_TYPE = 1i32;
+pub const BandPassFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
-pub const HighPassFilter: XAUDIO2_FILTER_TYPE = 2i32;
+pub const HighPassFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
-pub const NotchFilter: XAUDIO2_FILTER_TYPE = 3i32;
+pub const NotchFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
-pub const LowPassOnePoleFilter: XAUDIO2_FILTER_TYPE = 4i32;
+pub const LowPassOnePoleFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(4i32);
 #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
-pub const HighPassOnePoleFilter: XAUDIO2_FILTER_TYPE = 5i32;
+pub const HighPassOnePoleFilter: XAUDIO2_FILTER_TYPE = XAUDIO2_FILTER_TYPE(5i32);
+impl ::core::marker::Copy for XAUDIO2_FILTER_TYPE {}
+impl ::core::clone::Clone for XAUDIO2_FILTER_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XAUDIO2_FILTER_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XAUDIO2_FILTER_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XAUDIO2_FILTER_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]
 pub const XAUDIO2_LOG_API_CALLS: u32 = 16u32;
 #[doc = "*Required features: 'Win32_Media_Audio_XAudio2'*"]

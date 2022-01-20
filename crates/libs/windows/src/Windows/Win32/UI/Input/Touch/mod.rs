@@ -62,23 +62,67 @@ impl ::core::default::Default for GESTURECONFIG {
     }
 }
 #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
-pub type GESTURECONFIG_ID = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct GESTURECONFIG_ID(pub u32);
 #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
-pub const GID_BEGIN: GESTURECONFIG_ID = 1u32;
+pub const GID_BEGIN: GESTURECONFIG_ID = GESTURECONFIG_ID(1u32);
 #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
-pub const GID_END: GESTURECONFIG_ID = 2u32;
+pub const GID_END: GESTURECONFIG_ID = GESTURECONFIG_ID(2u32);
 #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
-pub const GID_ZOOM: GESTURECONFIG_ID = 3u32;
+pub const GID_ZOOM: GESTURECONFIG_ID = GESTURECONFIG_ID(3u32);
 #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
-pub const GID_PAN: GESTURECONFIG_ID = 4u32;
+pub const GID_PAN: GESTURECONFIG_ID = GESTURECONFIG_ID(4u32);
 #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
-pub const GID_ROTATE: GESTURECONFIG_ID = 5u32;
+pub const GID_ROTATE: GESTURECONFIG_ID = GESTURECONFIG_ID(5u32);
 #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
-pub const GID_TWOFINGERTAP: GESTURECONFIG_ID = 6u32;
+pub const GID_TWOFINGERTAP: GESTURECONFIG_ID = GESTURECONFIG_ID(6u32);
 #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
-pub const GID_PRESSANDTAP: GESTURECONFIG_ID = 7u32;
+pub const GID_PRESSANDTAP: GESTURECONFIG_ID = GESTURECONFIG_ID(7u32);
 #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
-pub const GID_ROLLOVER: GESTURECONFIG_ID = 7u32;
+pub const GID_ROLLOVER: GESTURECONFIG_ID = GESTURECONFIG_ID(7u32);
+impl ::core::marker::Copy for GESTURECONFIG_ID {}
+impl ::core::clone::Clone for GESTURECONFIG_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for GESTURECONFIG_ID {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GESTURECONFIG_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GESTURECONFIG_ID").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for GESTURECONFIG_ID {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for GESTURECONFIG_ID {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for GESTURECONFIG_ID {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for GESTURECONFIG_ID {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for GESTURECONFIG_ID {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_Input_Touch', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -803,26 +847,86 @@ pub unsafe fn IsTouchWindow<'a, Param0: ::windows::core::IntoParam<'a, super::su
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
-pub type MANIPULATION_PROCESSOR_MANIPULATIONS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MANIPULATION_PROCESSOR_MANIPULATIONS(pub i32);
 #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
-pub const MANIPULATION_NONE: MANIPULATION_PROCESSOR_MANIPULATIONS = 0i32;
+pub const MANIPULATION_NONE: MANIPULATION_PROCESSOR_MANIPULATIONS = MANIPULATION_PROCESSOR_MANIPULATIONS(0i32);
 #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
-pub const MANIPULATION_TRANSLATE_X: MANIPULATION_PROCESSOR_MANIPULATIONS = 1i32;
+pub const MANIPULATION_TRANSLATE_X: MANIPULATION_PROCESSOR_MANIPULATIONS = MANIPULATION_PROCESSOR_MANIPULATIONS(1i32);
 #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
-pub const MANIPULATION_TRANSLATE_Y: MANIPULATION_PROCESSOR_MANIPULATIONS = 2i32;
+pub const MANIPULATION_TRANSLATE_Y: MANIPULATION_PROCESSOR_MANIPULATIONS = MANIPULATION_PROCESSOR_MANIPULATIONS(2i32);
 #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
-pub const MANIPULATION_SCALE: MANIPULATION_PROCESSOR_MANIPULATIONS = 4i32;
+pub const MANIPULATION_SCALE: MANIPULATION_PROCESSOR_MANIPULATIONS = MANIPULATION_PROCESSOR_MANIPULATIONS(4i32);
 #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
-pub const MANIPULATION_ROTATE: MANIPULATION_PROCESSOR_MANIPULATIONS = 8i32;
+pub const MANIPULATION_ROTATE: MANIPULATION_PROCESSOR_MANIPULATIONS = MANIPULATION_PROCESSOR_MANIPULATIONS(8i32);
 #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
-pub const MANIPULATION_ALL: MANIPULATION_PROCESSOR_MANIPULATIONS = 15i32;
+pub const MANIPULATION_ALL: MANIPULATION_PROCESSOR_MANIPULATIONS = MANIPULATION_PROCESSOR_MANIPULATIONS(15i32);
+impl ::core::marker::Copy for MANIPULATION_PROCESSOR_MANIPULATIONS {}
+impl ::core::clone::Clone for MANIPULATION_PROCESSOR_MANIPULATIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MANIPULATION_PROCESSOR_MANIPULATIONS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MANIPULATION_PROCESSOR_MANIPULATIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MANIPULATION_PROCESSOR_MANIPULATIONS").field(&self.0).finish()
+    }
+}
 pub const ManipulationProcessor: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x597d4fb0_47fd_4aff_89b9_c6cfae8cf08e);
 #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
-pub type REGISTER_TOUCH_WINDOW_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct REGISTER_TOUCH_WINDOW_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
-pub const TWF_FINETOUCH: REGISTER_TOUCH_WINDOW_FLAGS = 1u32;
+pub const TWF_FINETOUCH: REGISTER_TOUCH_WINDOW_FLAGS = REGISTER_TOUCH_WINDOW_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
-pub const TWF_WANTPALM: REGISTER_TOUCH_WINDOW_FLAGS = 2u32;
+pub const TWF_WANTPALM: REGISTER_TOUCH_WINDOW_FLAGS = REGISTER_TOUCH_WINDOW_FLAGS(2u32);
+impl ::core::marker::Copy for REGISTER_TOUCH_WINDOW_FLAGS {}
+impl ::core::clone::Clone for REGISTER_TOUCH_WINDOW_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for REGISTER_TOUCH_WINDOW_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for REGISTER_TOUCH_WINDOW_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("REGISTER_TOUCH_WINDOW_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for REGISTER_TOUCH_WINDOW_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for REGISTER_TOUCH_WINDOW_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for REGISTER_TOUCH_WINDOW_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for REGISTER_TOUCH_WINDOW_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for REGISTER_TOUCH_WINDOW_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_Input_Touch', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -854,23 +958,67 @@ pub unsafe fn SetGestureConfig<'a, Param0: ::windows::core::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
-pub type TOUCHEVENTF_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TOUCHEVENTF_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
-pub const TOUCHEVENTF_MOVE: TOUCHEVENTF_FLAGS = 1u32;
+pub const TOUCHEVENTF_MOVE: TOUCHEVENTF_FLAGS = TOUCHEVENTF_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
-pub const TOUCHEVENTF_DOWN: TOUCHEVENTF_FLAGS = 2u32;
+pub const TOUCHEVENTF_DOWN: TOUCHEVENTF_FLAGS = TOUCHEVENTF_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
-pub const TOUCHEVENTF_UP: TOUCHEVENTF_FLAGS = 4u32;
+pub const TOUCHEVENTF_UP: TOUCHEVENTF_FLAGS = TOUCHEVENTF_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
-pub const TOUCHEVENTF_INRANGE: TOUCHEVENTF_FLAGS = 8u32;
+pub const TOUCHEVENTF_INRANGE: TOUCHEVENTF_FLAGS = TOUCHEVENTF_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
-pub const TOUCHEVENTF_PRIMARY: TOUCHEVENTF_FLAGS = 16u32;
+pub const TOUCHEVENTF_PRIMARY: TOUCHEVENTF_FLAGS = TOUCHEVENTF_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
-pub const TOUCHEVENTF_NOCOALESCE: TOUCHEVENTF_FLAGS = 32u32;
+pub const TOUCHEVENTF_NOCOALESCE: TOUCHEVENTF_FLAGS = TOUCHEVENTF_FLAGS(32u32);
 #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
-pub const TOUCHEVENTF_PEN: TOUCHEVENTF_FLAGS = 64u32;
+pub const TOUCHEVENTF_PEN: TOUCHEVENTF_FLAGS = TOUCHEVENTF_FLAGS(64u32);
 #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
-pub const TOUCHEVENTF_PALM: TOUCHEVENTF_FLAGS = 128u32;
+pub const TOUCHEVENTF_PALM: TOUCHEVENTF_FLAGS = TOUCHEVENTF_FLAGS(128u32);
+impl ::core::marker::Copy for TOUCHEVENTF_FLAGS {}
+impl ::core::clone::Clone for TOUCHEVENTF_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TOUCHEVENTF_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TOUCHEVENTF_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TOUCHEVENTF_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for TOUCHEVENTF_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for TOUCHEVENTF_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for TOUCHEVENTF_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for TOUCHEVENTF_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for TOUCHEVENTF_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_UI_Input_Touch', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -919,13 +1067,57 @@ impl ::core::default::Default for TOUCHINPUT {
     }
 }
 #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
-pub type TOUCHINPUTMASKF_MASK = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TOUCHINPUTMASKF_MASK(pub u32);
 #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
-pub const TOUCHINPUTMASKF_TIMEFROMSYSTEM: TOUCHINPUTMASKF_MASK = 1u32;
+pub const TOUCHINPUTMASKF_TIMEFROMSYSTEM: TOUCHINPUTMASKF_MASK = TOUCHINPUTMASKF_MASK(1u32);
 #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
-pub const TOUCHINPUTMASKF_EXTRAINFO: TOUCHINPUTMASKF_MASK = 2u32;
+pub const TOUCHINPUTMASKF_EXTRAINFO: TOUCHINPUTMASKF_MASK = TOUCHINPUTMASKF_MASK(2u32);
 #[doc = "*Required features: 'Win32_UI_Input_Touch'*"]
-pub const TOUCHINPUTMASKF_CONTACTAREA: TOUCHINPUTMASKF_MASK = 4u32;
+pub const TOUCHINPUTMASKF_CONTACTAREA: TOUCHINPUTMASKF_MASK = TOUCHINPUTMASKF_MASK(4u32);
+impl ::core::marker::Copy for TOUCHINPUTMASKF_MASK {}
+impl ::core::clone::Clone for TOUCHINPUTMASKF_MASK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TOUCHINPUTMASKF_MASK {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TOUCHINPUTMASKF_MASK {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TOUCHINPUTMASKF_MASK").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for TOUCHINPUTMASKF_MASK {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for TOUCHINPUTMASKF_MASK {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for TOUCHINPUTMASKF_MASK {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for TOUCHINPUTMASKF_MASK {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for TOUCHINPUTMASKF_MASK {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_Input_Touch', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]

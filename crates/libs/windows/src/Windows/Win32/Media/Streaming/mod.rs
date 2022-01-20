@@ -654,19 +654,51 @@ pub struct IMFDeviceTransformCallback_Vtbl {
     OnBufferSent: usize,
 }
 #[doc = "*Required features: 'Win32_Media_Streaming'*"]
-pub type MF_MEDIASOURCE_STATUS_INFO = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MF_MEDIASOURCE_STATUS_INFO(pub i32);
 #[doc = "*Required features: 'Win32_Media_Streaming'*"]
-pub const MF_MEDIASOURCE_STATUS_INFO_FULLYSUPPORTED: MF_MEDIASOURCE_STATUS_INFO = 0i32;
+pub const MF_MEDIASOURCE_STATUS_INFO_FULLYSUPPORTED: MF_MEDIASOURCE_STATUS_INFO = MF_MEDIASOURCE_STATUS_INFO(0i32);
 #[doc = "*Required features: 'Win32_Media_Streaming'*"]
-pub const MF_MEDIASOURCE_STATUS_INFO_UNKNOWN: MF_MEDIASOURCE_STATUS_INFO = 1i32;
+pub const MF_MEDIASOURCE_STATUS_INFO_UNKNOWN: MF_MEDIASOURCE_STATUS_INFO = MF_MEDIASOURCE_STATUS_INFO(1i32);
+impl ::core::marker::Copy for MF_MEDIASOURCE_STATUS_INFO {}
+impl ::core::clone::Clone for MF_MEDIASOURCE_STATUS_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MF_MEDIASOURCE_STATUS_INFO {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MF_MEDIASOURCE_STATUS_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MF_MEDIASOURCE_STATUS_INFO").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Media_Streaming'*"]
-pub type MF_TRANSFER_VIDEO_FRAME_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct MF_TRANSFER_VIDEO_FRAME_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_Media_Streaming'*"]
-pub const MF_TRANSFER_VIDEO_FRAME_DEFAULT: MF_TRANSFER_VIDEO_FRAME_FLAGS = 0i32;
+pub const MF_TRANSFER_VIDEO_FRAME_DEFAULT: MF_TRANSFER_VIDEO_FRAME_FLAGS = MF_TRANSFER_VIDEO_FRAME_FLAGS(0i32);
 #[doc = "*Required features: 'Win32_Media_Streaming'*"]
-pub const MF_TRANSFER_VIDEO_FRAME_STRETCH: MF_TRANSFER_VIDEO_FRAME_FLAGS = 1i32;
+pub const MF_TRANSFER_VIDEO_FRAME_STRETCH: MF_TRANSFER_VIDEO_FRAME_FLAGS = MF_TRANSFER_VIDEO_FRAME_FLAGS(1i32);
 #[doc = "*Required features: 'Win32_Media_Streaming'*"]
-pub const MF_TRANSFER_VIDEO_FRAME_IGNORE_PAR: MF_TRANSFER_VIDEO_FRAME_FLAGS = 2i32;
+pub const MF_TRANSFER_VIDEO_FRAME_IGNORE_PAR: MF_TRANSFER_VIDEO_FRAME_FLAGS = MF_TRANSFER_VIDEO_FRAME_FLAGS(2i32);
+impl ::core::marker::Copy for MF_TRANSFER_VIDEO_FRAME_FLAGS {}
+impl ::core::clone::Clone for MF_TRANSFER_VIDEO_FRAME_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MF_TRANSFER_VIDEO_FRAME_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for MF_TRANSFER_VIDEO_FRAME_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MF_TRANSFER_VIDEO_FRAME_FLAGS").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Media_Streaming'*"]
 pub struct MetadataTimeStamps {

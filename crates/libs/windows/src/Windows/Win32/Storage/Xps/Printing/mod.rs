@@ -405,15 +405,31 @@ pub struct IXpsPrintJobStream_Vtbl {
     pub Close: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
-pub type PrintDocumentPackageCompletion = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PrintDocumentPackageCompletion(pub i32);
 #[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
-pub const PrintDocumentPackageCompletion_InProgress: PrintDocumentPackageCompletion = 0i32;
+pub const PrintDocumentPackageCompletion_InProgress: PrintDocumentPackageCompletion = PrintDocumentPackageCompletion(0i32);
 #[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
-pub const PrintDocumentPackageCompletion_Completed: PrintDocumentPackageCompletion = 1i32;
+pub const PrintDocumentPackageCompletion_Completed: PrintDocumentPackageCompletion = PrintDocumentPackageCompletion(1i32);
 #[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
-pub const PrintDocumentPackageCompletion_Canceled: PrintDocumentPackageCompletion = 2i32;
+pub const PrintDocumentPackageCompletion_Canceled: PrintDocumentPackageCompletion = PrintDocumentPackageCompletion(2i32);
 #[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
-pub const PrintDocumentPackageCompletion_Failed: PrintDocumentPackageCompletion = 3i32;
+pub const PrintDocumentPackageCompletion_Failed: PrintDocumentPackageCompletion = PrintDocumentPackageCompletion(3i32);
+impl ::core::marker::Copy for PrintDocumentPackageCompletion {}
+impl ::core::clone::Clone for PrintDocumentPackageCompletion {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PrintDocumentPackageCompletion {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PrintDocumentPackageCompletion {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PrintDocumentPackageCompletion").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
 pub struct PrintDocumentPackageStatus {
@@ -493,15 +509,31 @@ pub unsafe fn StartXpsPrintJob1<'a, Param0: ::windows::core::IntoParam<'a, super
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
-pub type XPS_JOB_COMPLETION = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XPS_JOB_COMPLETION(pub i32);
 #[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
-pub const XPS_JOB_IN_PROGRESS: XPS_JOB_COMPLETION = 0i32;
+pub const XPS_JOB_IN_PROGRESS: XPS_JOB_COMPLETION = XPS_JOB_COMPLETION(0i32);
 #[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
-pub const XPS_JOB_COMPLETED: XPS_JOB_COMPLETION = 1i32;
+pub const XPS_JOB_COMPLETED: XPS_JOB_COMPLETION = XPS_JOB_COMPLETION(1i32);
 #[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
-pub const XPS_JOB_CANCELLED: XPS_JOB_COMPLETION = 2i32;
+pub const XPS_JOB_CANCELLED: XPS_JOB_COMPLETION = XPS_JOB_COMPLETION(2i32);
 #[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
-pub const XPS_JOB_FAILED: XPS_JOB_COMPLETION = 3i32;
+pub const XPS_JOB_FAILED: XPS_JOB_COMPLETION = XPS_JOB_COMPLETION(3i32);
+impl ::core::marker::Copy for XPS_JOB_COMPLETION {}
+impl ::core::clone::Clone for XPS_JOB_COMPLETION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XPS_JOB_COMPLETION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XPS_JOB_COMPLETION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XPS_JOB_COMPLETION").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
 pub struct XPS_JOB_STATUS {

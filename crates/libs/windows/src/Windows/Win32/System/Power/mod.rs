@@ -188,15 +188,31 @@ impl ::core::default::Default for BATTERY_CHARGING_SOURCE_INFORMATION {
     }
 }
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub type BATTERY_CHARGING_SOURCE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct BATTERY_CHARGING_SOURCE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const BatteryChargingSourceType_AC: BATTERY_CHARGING_SOURCE_TYPE = 1i32;
+pub const BatteryChargingSourceType_AC: BATTERY_CHARGING_SOURCE_TYPE = BATTERY_CHARGING_SOURCE_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const BatteryChargingSourceType_USB: BATTERY_CHARGING_SOURCE_TYPE = 2i32;
+pub const BatteryChargingSourceType_USB: BATTERY_CHARGING_SOURCE_TYPE = BATTERY_CHARGING_SOURCE_TYPE(2i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const BatteryChargingSourceType_Wireless: BATTERY_CHARGING_SOURCE_TYPE = 3i32;
+pub const BatteryChargingSourceType_Wireless: BATTERY_CHARGING_SOURCE_TYPE = BATTERY_CHARGING_SOURCE_TYPE(3i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const BatteryChargingSourceType_Max: BATTERY_CHARGING_SOURCE_TYPE = 4i32;
+pub const BatteryChargingSourceType_Max: BATTERY_CHARGING_SOURCE_TYPE = BATTERY_CHARGING_SOURCE_TYPE(4i32);
+impl ::core::marker::Copy for BATTERY_CHARGING_SOURCE_TYPE {}
+impl ::core::clone::Clone for BATTERY_CHARGING_SOURCE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BATTERY_CHARGING_SOURCE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BATTERY_CHARGING_SOURCE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BATTERY_CHARGING_SOURCE_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Power'*"]
 pub const BATTERY_CLASS_MAJOR_VERSION: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Power'*"]
@@ -321,25 +337,41 @@ impl ::core::default::Default for BATTERY_QUERY_INFORMATION {
     }
 }
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub type BATTERY_QUERY_INFORMATION_LEVEL = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct BATTERY_QUERY_INFORMATION_LEVEL(pub i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const BatteryInformation: BATTERY_QUERY_INFORMATION_LEVEL = 0i32;
+pub const BatteryInformation: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(0i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const BatteryGranularityInformation: BATTERY_QUERY_INFORMATION_LEVEL = 1i32;
+pub const BatteryGranularityInformation: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(1i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const BatteryTemperature: BATTERY_QUERY_INFORMATION_LEVEL = 2i32;
+pub const BatteryTemperature: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(2i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const BatteryEstimatedTime: BATTERY_QUERY_INFORMATION_LEVEL = 3i32;
+pub const BatteryEstimatedTime: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(3i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const BatteryDeviceName: BATTERY_QUERY_INFORMATION_LEVEL = 4i32;
+pub const BatteryDeviceName: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(4i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const BatteryManufactureDate: BATTERY_QUERY_INFORMATION_LEVEL = 5i32;
+pub const BatteryManufactureDate: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(5i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const BatteryManufactureName: BATTERY_QUERY_INFORMATION_LEVEL = 6i32;
+pub const BatteryManufactureName: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(6i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const BatteryUniqueID: BATTERY_QUERY_INFORMATION_LEVEL = 7i32;
+pub const BatteryUniqueID: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(7i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const BatterySerialNumber: BATTERY_QUERY_INFORMATION_LEVEL = 8i32;
+pub const BatterySerialNumber: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(8i32);
+impl ::core::marker::Copy for BATTERY_QUERY_INFORMATION_LEVEL {}
+impl ::core::clone::Clone for BATTERY_QUERY_INFORMATION_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BATTERY_QUERY_INFORMATION_LEVEL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BATTERY_QUERY_INFORMATION_LEVEL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BATTERY_QUERY_INFORMATION_LEVEL").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Power'*"]
 pub struct BATTERY_REPORTING_SCALE {
@@ -415,19 +447,35 @@ impl ::core::default::Default for BATTERY_SET_INFORMATION {
     }
 }
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub type BATTERY_SET_INFORMATION_LEVEL = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct BATTERY_SET_INFORMATION_LEVEL(pub i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const BatteryCriticalBias: BATTERY_SET_INFORMATION_LEVEL = 0i32;
+pub const BatteryCriticalBias: BATTERY_SET_INFORMATION_LEVEL = BATTERY_SET_INFORMATION_LEVEL(0i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const BatteryCharge: BATTERY_SET_INFORMATION_LEVEL = 1i32;
+pub const BatteryCharge: BATTERY_SET_INFORMATION_LEVEL = BATTERY_SET_INFORMATION_LEVEL(1i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const BatteryDischarge: BATTERY_SET_INFORMATION_LEVEL = 2i32;
+pub const BatteryDischarge: BATTERY_SET_INFORMATION_LEVEL = BATTERY_SET_INFORMATION_LEVEL(2i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const BatteryChargingSource: BATTERY_SET_INFORMATION_LEVEL = 3i32;
+pub const BatteryChargingSource: BATTERY_SET_INFORMATION_LEVEL = BATTERY_SET_INFORMATION_LEVEL(3i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const BatteryChargerId: BATTERY_SET_INFORMATION_LEVEL = 4i32;
+pub const BatteryChargerId: BATTERY_SET_INFORMATION_LEVEL = BATTERY_SET_INFORMATION_LEVEL(4i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const BatteryChargerStatus: BATTERY_SET_INFORMATION_LEVEL = 5i32;
+pub const BatteryChargerStatus: BATTERY_SET_INFORMATION_LEVEL = BATTERY_SET_INFORMATION_LEVEL(5i32);
+impl ::core::marker::Copy for BATTERY_SET_INFORMATION_LEVEL {}
+impl ::core::clone::Clone for BATTERY_SET_INFORMATION_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BATTERY_SET_INFORMATION_LEVEL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BATTERY_SET_INFORMATION_LEVEL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BATTERY_SET_INFORMATION_LEVEL").field(&self.0).finish()
+    }
+}
 pub const BATTERY_STATIC_DATA_WMI_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05e1e463_e4e2_4ea9_80cb_9bd4b3ca0655);
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Power'*"]
@@ -672,19 +720,35 @@ impl ::core::default::Default for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
     }
 }
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub type DEVICE_POWER_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DEVICE_POWER_STATE(pub i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PowerDeviceUnspecified: DEVICE_POWER_STATE = 0i32;
+pub const PowerDeviceUnspecified: DEVICE_POWER_STATE = DEVICE_POWER_STATE(0i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PowerDeviceD0: DEVICE_POWER_STATE = 1i32;
+pub const PowerDeviceD0: DEVICE_POWER_STATE = DEVICE_POWER_STATE(1i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PowerDeviceD1: DEVICE_POWER_STATE = 2i32;
+pub const PowerDeviceD1: DEVICE_POWER_STATE = DEVICE_POWER_STATE(2i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PowerDeviceD2: DEVICE_POWER_STATE = 3i32;
+pub const PowerDeviceD2: DEVICE_POWER_STATE = DEVICE_POWER_STATE(3i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PowerDeviceD3: DEVICE_POWER_STATE = 4i32;
+pub const PowerDeviceD3: DEVICE_POWER_STATE = DEVICE_POWER_STATE(4i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PowerDeviceMaximum: DEVICE_POWER_STATE = 5i32;
+pub const PowerDeviceMaximum: DEVICE_POWER_STATE = DEVICE_POWER_STATE(5i32);
+impl ::core::marker::Copy for DEVICE_POWER_STATE {}
+impl ::core::clone::Clone for DEVICE_POWER_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DEVICE_POWER_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DEVICE_POWER_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DEVICE_POWER_STATE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Power', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -761,21 +825,37 @@ pub unsafe fn DevicePowerSetDeviceState<'a, Param0: ::windows::core::IntoParam<'
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub type EFFECTIVE_POWER_MODE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct EFFECTIVE_POWER_MODE(pub i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const EffectivePowerModeBatterySaver: EFFECTIVE_POWER_MODE = 0i32;
+pub const EffectivePowerModeBatterySaver: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(0i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const EffectivePowerModeBetterBattery: EFFECTIVE_POWER_MODE = 1i32;
+pub const EffectivePowerModeBetterBattery: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(1i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const EffectivePowerModeBalanced: EFFECTIVE_POWER_MODE = 2i32;
+pub const EffectivePowerModeBalanced: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(2i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const EffectivePowerModeHighPerformance: EFFECTIVE_POWER_MODE = 3i32;
+pub const EffectivePowerModeHighPerformance: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(3i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const EffectivePowerModeMaxPerformance: EFFECTIVE_POWER_MODE = 4i32;
+pub const EffectivePowerModeMaxPerformance: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(4i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const EffectivePowerModeGameMode: EFFECTIVE_POWER_MODE = 5i32;
+pub const EffectivePowerModeGameMode: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(5i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const EffectivePowerModeMixedReality: EFFECTIVE_POWER_MODE = 6i32;
+pub const EffectivePowerModeMixedReality: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(6i32);
+impl ::core::marker::Copy for EFFECTIVE_POWER_MODE {}
+impl ::core::clone::Clone for EFFECTIVE_POWER_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for EFFECTIVE_POWER_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EFFECTIVE_POWER_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EFFECTIVE_POWER_MODE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Power'*"]
 pub type EFFECTIVE_POWER_MODE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(mode: EFFECTIVE_POWER_MODE, context: *const ::core::ffi::c_void)>;
 #[doc = "*Required features: 'Win32_System_Power'*"]
@@ -876,9 +956,25 @@ impl ::core::default::Default for EMI_MEASUREMENT_DATA_V2 {
     }
 }
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub type EMI_MEASUREMENT_UNIT = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct EMI_MEASUREMENT_UNIT(pub i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const EmiMeasurementUnitPicowattHours: EMI_MEASUREMENT_UNIT = 0i32;
+pub const EmiMeasurementUnitPicowattHours: EMI_MEASUREMENT_UNIT = EMI_MEASUREMENT_UNIT(0i32);
+impl ::core::marker::Copy for EMI_MEASUREMENT_UNIT {}
+impl ::core::clone::Clone for EMI_MEASUREMENT_UNIT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for EMI_MEASUREMENT_UNIT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EMI_MEASUREMENT_UNIT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EMI_MEASUREMENT_UNIT").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Power'*"]
 pub struct EMI_METADATA_SIZE {
@@ -1015,17 +1111,61 @@ pub const EMI_VERSION_V1: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Power'*"]
 pub const EMI_VERSION_V2: u32 = 2u32;
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub type EXECUTION_STATE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct EXECUTION_STATE(pub u32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ES_AWAYMODE_REQUIRED: EXECUTION_STATE = 64u32;
+pub const ES_AWAYMODE_REQUIRED: EXECUTION_STATE = EXECUTION_STATE(64u32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ES_CONTINUOUS: EXECUTION_STATE = 2147483648u32;
+pub const ES_CONTINUOUS: EXECUTION_STATE = EXECUTION_STATE(2147483648u32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ES_DISPLAY_REQUIRED: EXECUTION_STATE = 2u32;
+pub const ES_DISPLAY_REQUIRED: EXECUTION_STATE = EXECUTION_STATE(2u32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ES_SYSTEM_REQUIRED: EXECUTION_STATE = 1u32;
+pub const ES_SYSTEM_REQUIRED: EXECUTION_STATE = EXECUTION_STATE(1u32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ES_USER_PRESENT: EXECUTION_STATE = 4u32;
+pub const ES_USER_PRESENT: EXECUTION_STATE = EXECUTION_STATE(4u32);
+impl ::core::marker::Copy for EXECUTION_STATE {}
+impl ::core::clone::Clone for EXECUTION_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for EXECUTION_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for EXECUTION_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EXECUTION_STATE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for EXECUTION_STATE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for EXECUTION_STATE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for EXECUTION_STATE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for EXECUTION_STATE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for EXECUTION_STATE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Power'*"]
 pub const EnableMultiBatteryDisplay: u32 = 2u32;
 #[doc = "*Required features: 'Win32_System_Power'*"]
@@ -1439,11 +1579,27 @@ pub unsafe fn IsSystemResumeAutomatic() -> super::super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub type LATENCY_TIME = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct LATENCY_TIME(pub i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const LT_DONT_CARE: LATENCY_TIME = 0i32;
+pub const LT_DONT_CARE: LATENCY_TIME = LATENCY_TIME(0i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const LT_LOWEST_LATENCY: LATENCY_TIME = 1i32;
+pub const LT_LOWEST_LATENCY: LATENCY_TIME = LATENCY_TIME(1i32);
+impl ::core::marker::Copy for LATENCY_TIME {}
+impl ::core::clone::Clone for LATENCY_TIME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for LATENCY_TIME {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for LATENCY_TIME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LATENCY_TIME").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Power'*"]
 pub struct MACHINE_POWER_POLICY {
@@ -1595,25 +1751,41 @@ impl ::core::default::Default for POWERBROADCAST_SETTING {
     }
 }
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub type POWER_ACTION = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct POWER_ACTION(pub i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PowerActionNone: POWER_ACTION = 0i32;
+pub const PowerActionNone: POWER_ACTION = POWER_ACTION(0i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PowerActionReserved: POWER_ACTION = 1i32;
+pub const PowerActionReserved: POWER_ACTION = POWER_ACTION(1i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PowerActionSleep: POWER_ACTION = 2i32;
+pub const PowerActionSleep: POWER_ACTION = POWER_ACTION(2i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PowerActionHibernate: POWER_ACTION = 3i32;
+pub const PowerActionHibernate: POWER_ACTION = POWER_ACTION(3i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PowerActionShutdown: POWER_ACTION = 4i32;
+pub const PowerActionShutdown: POWER_ACTION = POWER_ACTION(4i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PowerActionShutdownReset: POWER_ACTION = 5i32;
+pub const PowerActionShutdownReset: POWER_ACTION = POWER_ACTION(5i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PowerActionShutdownOff: POWER_ACTION = 6i32;
+pub const PowerActionShutdownOff: POWER_ACTION = POWER_ACTION(6i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PowerActionWarmEject: POWER_ACTION = 7i32;
+pub const PowerActionWarmEject: POWER_ACTION = POWER_ACTION(7i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PowerActionDisplayOff: POWER_ACTION = 8i32;
+pub const PowerActionDisplayOff: POWER_ACTION = POWER_ACTION(8i32);
+impl ::core::marker::Copy for POWER_ACTION {}
+impl ::core::clone::Clone for POWER_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for POWER_ACTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for POWER_ACTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("POWER_ACTION").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Power'*"]
 pub struct POWER_ACTION_POLICY {
@@ -1647,307 +1819,443 @@ impl ::core::default::Default for POWER_ACTION_POLICY {
     }
 }
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub type POWER_ACTION_POLICY_EVENT_CODE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct POWER_ACTION_POLICY_EVENT_CODE(pub u32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const POWER_FORCE_TRIGGER_RESET: POWER_ACTION_POLICY_EVENT_CODE = 2147483648u32;
+pub const POWER_FORCE_TRIGGER_RESET: POWER_ACTION_POLICY_EVENT_CODE = POWER_ACTION_POLICY_EVENT_CODE(2147483648u32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const POWER_LEVEL_USER_NOTIFY_EXEC: POWER_ACTION_POLICY_EVENT_CODE = 4u32;
+pub const POWER_LEVEL_USER_NOTIFY_EXEC: POWER_ACTION_POLICY_EVENT_CODE = POWER_ACTION_POLICY_EVENT_CODE(4u32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const POWER_LEVEL_USER_NOTIFY_SOUND: POWER_ACTION_POLICY_EVENT_CODE = 2u32;
+pub const POWER_LEVEL_USER_NOTIFY_SOUND: POWER_ACTION_POLICY_EVENT_CODE = POWER_ACTION_POLICY_EVENT_CODE(2u32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const POWER_LEVEL_USER_NOTIFY_TEXT: POWER_ACTION_POLICY_EVENT_CODE = 1u32;
+pub const POWER_LEVEL_USER_NOTIFY_TEXT: POWER_ACTION_POLICY_EVENT_CODE = POWER_ACTION_POLICY_EVENT_CODE(1u32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const POWER_USER_NOTIFY_BUTTON: POWER_ACTION_POLICY_EVENT_CODE = 8u32;
+pub const POWER_USER_NOTIFY_BUTTON: POWER_ACTION_POLICY_EVENT_CODE = POWER_ACTION_POLICY_EVENT_CODE(8u32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const POWER_USER_NOTIFY_SHUTDOWN: POWER_ACTION_POLICY_EVENT_CODE = 16u32;
+pub const POWER_USER_NOTIFY_SHUTDOWN: POWER_ACTION_POLICY_EVENT_CODE = POWER_ACTION_POLICY_EVENT_CODE(16u32);
+impl ::core::marker::Copy for POWER_ACTION_POLICY_EVENT_CODE {}
+impl ::core::clone::Clone for POWER_ACTION_POLICY_EVENT_CODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for POWER_ACTION_POLICY_EVENT_CODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for POWER_ACTION_POLICY_EVENT_CODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("POWER_ACTION_POLICY_EVENT_CODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for POWER_ACTION_POLICY_EVENT_CODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for POWER_ACTION_POLICY_EVENT_CODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for POWER_ACTION_POLICY_EVENT_CODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for POWER_ACTION_POLICY_EVENT_CODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for POWER_ACTION_POLICY_EVENT_CODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Power'*"]
 pub const POWER_ATTRIBUTE_HIDE: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Power'*"]
 pub const POWER_ATTRIBUTE_SHOW_AOAC: u32 = 2u32;
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub type POWER_DATA_ACCESSOR = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct POWER_DATA_ACCESSOR(pub i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ACCESS_AC_POWER_SETTING_INDEX: POWER_DATA_ACCESSOR = 0i32;
+pub const ACCESS_AC_POWER_SETTING_INDEX: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(0i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ACCESS_DC_POWER_SETTING_INDEX: POWER_DATA_ACCESSOR = 1i32;
+pub const ACCESS_DC_POWER_SETTING_INDEX: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(1i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ACCESS_FRIENDLY_NAME: POWER_DATA_ACCESSOR = 2i32;
+pub const ACCESS_FRIENDLY_NAME: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(2i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ACCESS_DESCRIPTION: POWER_DATA_ACCESSOR = 3i32;
+pub const ACCESS_DESCRIPTION: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(3i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ACCESS_POSSIBLE_POWER_SETTING: POWER_DATA_ACCESSOR = 4i32;
+pub const ACCESS_POSSIBLE_POWER_SETTING: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(4i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ACCESS_POSSIBLE_POWER_SETTING_FRIENDLY_NAME: POWER_DATA_ACCESSOR = 5i32;
+pub const ACCESS_POSSIBLE_POWER_SETTING_FRIENDLY_NAME: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(5i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ACCESS_POSSIBLE_POWER_SETTING_DESCRIPTION: POWER_DATA_ACCESSOR = 6i32;
+pub const ACCESS_POSSIBLE_POWER_SETTING_DESCRIPTION: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(6i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ACCESS_DEFAULT_AC_POWER_SETTING: POWER_DATA_ACCESSOR = 7i32;
+pub const ACCESS_DEFAULT_AC_POWER_SETTING: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(7i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ACCESS_DEFAULT_DC_POWER_SETTING: POWER_DATA_ACCESSOR = 8i32;
+pub const ACCESS_DEFAULT_DC_POWER_SETTING: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(8i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ACCESS_POSSIBLE_VALUE_MIN: POWER_DATA_ACCESSOR = 9i32;
+pub const ACCESS_POSSIBLE_VALUE_MIN: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(9i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ACCESS_POSSIBLE_VALUE_MAX: POWER_DATA_ACCESSOR = 10i32;
+pub const ACCESS_POSSIBLE_VALUE_MAX: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(10i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ACCESS_POSSIBLE_VALUE_INCREMENT: POWER_DATA_ACCESSOR = 11i32;
+pub const ACCESS_POSSIBLE_VALUE_INCREMENT: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(11i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ACCESS_POSSIBLE_VALUE_UNITS: POWER_DATA_ACCESSOR = 12i32;
+pub const ACCESS_POSSIBLE_VALUE_UNITS: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(12i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ACCESS_ICON_RESOURCE: POWER_DATA_ACCESSOR = 13i32;
+pub const ACCESS_ICON_RESOURCE: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(13i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ACCESS_DEFAULT_SECURITY_DESCRIPTOR: POWER_DATA_ACCESSOR = 14i32;
+pub const ACCESS_DEFAULT_SECURITY_DESCRIPTOR: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(14i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ACCESS_ATTRIBUTES: POWER_DATA_ACCESSOR = 15i32;
+pub const ACCESS_ATTRIBUTES: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(15i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ACCESS_SCHEME: POWER_DATA_ACCESSOR = 16i32;
+pub const ACCESS_SCHEME: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(16i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ACCESS_SUBGROUP: POWER_DATA_ACCESSOR = 17i32;
+pub const ACCESS_SUBGROUP: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(17i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ACCESS_INDIVIDUAL_SETTING: POWER_DATA_ACCESSOR = 18i32;
+pub const ACCESS_INDIVIDUAL_SETTING: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(18i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ACCESS_ACTIVE_SCHEME: POWER_DATA_ACCESSOR = 19i32;
+pub const ACCESS_ACTIVE_SCHEME: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(19i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ACCESS_CREATE_SCHEME: POWER_DATA_ACCESSOR = 20i32;
+pub const ACCESS_CREATE_SCHEME: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(20i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ACCESS_AC_POWER_SETTING_MAX: POWER_DATA_ACCESSOR = 21i32;
+pub const ACCESS_AC_POWER_SETTING_MAX: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(21i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ACCESS_DC_POWER_SETTING_MAX: POWER_DATA_ACCESSOR = 22i32;
+pub const ACCESS_DC_POWER_SETTING_MAX: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(22i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ACCESS_AC_POWER_SETTING_MIN: POWER_DATA_ACCESSOR = 23i32;
+pub const ACCESS_AC_POWER_SETTING_MIN: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(23i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ACCESS_DC_POWER_SETTING_MIN: POWER_DATA_ACCESSOR = 24i32;
+pub const ACCESS_DC_POWER_SETTING_MIN: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(24i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ACCESS_PROFILE: POWER_DATA_ACCESSOR = 25i32;
+pub const ACCESS_PROFILE: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(25i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ACCESS_OVERLAY_SCHEME: POWER_DATA_ACCESSOR = 26i32;
+pub const ACCESS_OVERLAY_SCHEME: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(26i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ACCESS_ACTIVE_OVERLAY_SCHEME: POWER_DATA_ACCESSOR = 27i32;
+pub const ACCESS_ACTIVE_OVERLAY_SCHEME: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(27i32);
+impl ::core::marker::Copy for POWER_DATA_ACCESSOR {}
+impl ::core::clone::Clone for POWER_DATA_ACCESSOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for POWER_DATA_ACCESSOR {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for POWER_DATA_ACCESSOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("POWER_DATA_ACCESSOR").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub type POWER_INFORMATION_LEVEL = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct POWER_INFORMATION_LEVEL(pub i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const SystemPowerPolicyAc: POWER_INFORMATION_LEVEL = 0i32;
+pub const SystemPowerPolicyAc: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(0i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const SystemPowerPolicyDc: POWER_INFORMATION_LEVEL = 1i32;
+pub const SystemPowerPolicyDc: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(1i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const VerifySystemPolicyAc: POWER_INFORMATION_LEVEL = 2i32;
+pub const VerifySystemPolicyAc: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(2i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const VerifySystemPolicyDc: POWER_INFORMATION_LEVEL = 3i32;
+pub const VerifySystemPolicyDc: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(3i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const SystemPowerCapabilities: POWER_INFORMATION_LEVEL = 4i32;
+pub const SystemPowerCapabilities: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(4i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const SystemBatteryState: POWER_INFORMATION_LEVEL = 5i32;
+pub const SystemBatteryState: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(5i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const SystemPowerStateHandler: POWER_INFORMATION_LEVEL = 6i32;
+pub const SystemPowerStateHandler: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(6i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ProcessorStateHandler: POWER_INFORMATION_LEVEL = 7i32;
+pub const ProcessorStateHandler: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(7i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const SystemPowerPolicyCurrent: POWER_INFORMATION_LEVEL = 8i32;
+pub const SystemPowerPolicyCurrent: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(8i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const AdministratorPowerPolicy: POWER_INFORMATION_LEVEL = 9i32;
+pub const AdministratorPowerPolicy: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(9i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const SystemReserveHiberFile: POWER_INFORMATION_LEVEL = 10i32;
+pub const SystemReserveHiberFile: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(10i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ProcessorInformation: POWER_INFORMATION_LEVEL = 11i32;
+pub const ProcessorInformation: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(11i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const SystemPowerInformation: POWER_INFORMATION_LEVEL = 12i32;
+pub const SystemPowerInformation: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(12i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ProcessorStateHandler2: POWER_INFORMATION_LEVEL = 13i32;
+pub const ProcessorStateHandler2: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(13i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const LastWakeTime: POWER_INFORMATION_LEVEL = 14i32;
+pub const LastWakeTime: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(14i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const LastSleepTime: POWER_INFORMATION_LEVEL = 15i32;
+pub const LastSleepTime: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(15i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const SystemExecutionState: POWER_INFORMATION_LEVEL = 16i32;
+pub const SystemExecutionState: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(16i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const SystemPowerStateNotifyHandler: POWER_INFORMATION_LEVEL = 17i32;
+pub const SystemPowerStateNotifyHandler: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(17i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ProcessorPowerPolicyAc: POWER_INFORMATION_LEVEL = 18i32;
+pub const ProcessorPowerPolicyAc: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(18i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ProcessorPowerPolicyDc: POWER_INFORMATION_LEVEL = 19i32;
+pub const ProcessorPowerPolicyDc: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(19i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const VerifyProcessorPowerPolicyAc: POWER_INFORMATION_LEVEL = 20i32;
+pub const VerifyProcessorPowerPolicyAc: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(20i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const VerifyProcessorPowerPolicyDc: POWER_INFORMATION_LEVEL = 21i32;
+pub const VerifyProcessorPowerPolicyDc: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(21i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ProcessorPowerPolicyCurrent: POWER_INFORMATION_LEVEL = 22i32;
+pub const ProcessorPowerPolicyCurrent: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(22i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const SystemPowerStateLogging: POWER_INFORMATION_LEVEL = 23i32;
+pub const SystemPowerStateLogging: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(23i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const SystemPowerLoggingEntry: POWER_INFORMATION_LEVEL = 24i32;
+pub const SystemPowerLoggingEntry: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(24i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const SetPowerSettingValue: POWER_INFORMATION_LEVEL = 25i32;
+pub const SetPowerSettingValue: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(25i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const NotifyUserPowerSetting: POWER_INFORMATION_LEVEL = 26i32;
+pub const NotifyUserPowerSetting: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(26i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PowerInformationLevelUnused0: POWER_INFORMATION_LEVEL = 27i32;
+pub const PowerInformationLevelUnused0: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(27i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const SystemMonitorHiberBootPowerOff: POWER_INFORMATION_LEVEL = 28i32;
+pub const SystemMonitorHiberBootPowerOff: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(28i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const SystemVideoState: POWER_INFORMATION_LEVEL = 29i32;
+pub const SystemVideoState: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(29i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const TraceApplicationPowerMessage: POWER_INFORMATION_LEVEL = 30i32;
+pub const TraceApplicationPowerMessage: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(30i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const TraceApplicationPowerMessageEnd: POWER_INFORMATION_LEVEL = 31i32;
+pub const TraceApplicationPowerMessageEnd: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(31i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ProcessorPerfStates: POWER_INFORMATION_LEVEL = 32i32;
+pub const ProcessorPerfStates: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(32i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ProcessorIdleStates: POWER_INFORMATION_LEVEL = 33i32;
+pub const ProcessorIdleStates: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(33i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ProcessorCap: POWER_INFORMATION_LEVEL = 34i32;
+pub const ProcessorCap: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(34i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const SystemWakeSource: POWER_INFORMATION_LEVEL = 35i32;
+pub const SystemWakeSource: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(35i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const SystemHiberFileInformation: POWER_INFORMATION_LEVEL = 36i32;
+pub const SystemHiberFileInformation: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(36i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const TraceServicePowerMessage: POWER_INFORMATION_LEVEL = 37i32;
+pub const TraceServicePowerMessage: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(37i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ProcessorLoad: POWER_INFORMATION_LEVEL = 38i32;
+pub const ProcessorLoad: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(38i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PowerShutdownNotification: POWER_INFORMATION_LEVEL = 39i32;
+pub const PowerShutdownNotification: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(39i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const MonitorCapabilities: POWER_INFORMATION_LEVEL = 40i32;
+pub const MonitorCapabilities: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(40i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const SessionPowerInit: POWER_INFORMATION_LEVEL = 41i32;
+pub const SessionPowerInit: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(41i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const SessionDisplayState: POWER_INFORMATION_LEVEL = 42i32;
+pub const SessionDisplayState: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(42i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PowerRequestCreate: POWER_INFORMATION_LEVEL = 43i32;
+pub const PowerRequestCreate: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(43i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PowerRequestAction: POWER_INFORMATION_LEVEL = 44i32;
+pub const PowerRequestAction: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(44i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const GetPowerRequestList: POWER_INFORMATION_LEVEL = 45i32;
+pub const GetPowerRequestList: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(45i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ProcessorInformationEx: POWER_INFORMATION_LEVEL = 46i32;
+pub const ProcessorInformationEx: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(46i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const NotifyUserModeLegacyPowerEvent: POWER_INFORMATION_LEVEL = 47i32;
+pub const NotifyUserModeLegacyPowerEvent: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(47i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const GroupPark: POWER_INFORMATION_LEVEL = 48i32;
+pub const GroupPark: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(48i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ProcessorIdleDomains: POWER_INFORMATION_LEVEL = 49i32;
+pub const ProcessorIdleDomains: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(49i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const WakeTimerList: POWER_INFORMATION_LEVEL = 50i32;
+pub const WakeTimerList: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(50i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const SystemHiberFileSize: POWER_INFORMATION_LEVEL = 51i32;
+pub const SystemHiberFileSize: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(51i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ProcessorIdleStatesHv: POWER_INFORMATION_LEVEL = 52i32;
+pub const ProcessorIdleStatesHv: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(52i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ProcessorPerfStatesHv: POWER_INFORMATION_LEVEL = 53i32;
+pub const ProcessorPerfStatesHv: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(53i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ProcessorPerfCapHv: POWER_INFORMATION_LEVEL = 54i32;
+pub const ProcessorPerfCapHv: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(54i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ProcessorSetIdle: POWER_INFORMATION_LEVEL = 55i32;
+pub const ProcessorSetIdle: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(55i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const LogicalProcessorIdling: POWER_INFORMATION_LEVEL = 56i32;
+pub const LogicalProcessorIdling: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(56i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const UserPresence: POWER_INFORMATION_LEVEL = 57i32;
+pub const UserPresence: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(57i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PowerSettingNotificationName: POWER_INFORMATION_LEVEL = 58i32;
+pub const PowerSettingNotificationName: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(58i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const GetPowerSettingValue: POWER_INFORMATION_LEVEL = 59i32;
+pub const GetPowerSettingValue: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(59i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const IdleResiliency: POWER_INFORMATION_LEVEL = 60i32;
+pub const IdleResiliency: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(60i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const SessionRITState: POWER_INFORMATION_LEVEL = 61i32;
+pub const SessionRITState: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(61i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const SessionConnectNotification: POWER_INFORMATION_LEVEL = 62i32;
+pub const SessionConnectNotification: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(62i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const SessionPowerCleanup: POWER_INFORMATION_LEVEL = 63i32;
+pub const SessionPowerCleanup: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(63i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const SessionLockState: POWER_INFORMATION_LEVEL = 64i32;
+pub const SessionLockState: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(64i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const SystemHiberbootState: POWER_INFORMATION_LEVEL = 65i32;
+pub const SystemHiberbootState: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(65i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PlatformInformation: POWER_INFORMATION_LEVEL = 66i32;
+pub const PlatformInformation: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(66i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PdcInvocation: POWER_INFORMATION_LEVEL = 67i32;
+pub const PdcInvocation: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(67i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const MonitorInvocation: POWER_INFORMATION_LEVEL = 68i32;
+pub const MonitorInvocation: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(68i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const FirmwareTableInformationRegistered: POWER_INFORMATION_LEVEL = 69i32;
+pub const FirmwareTableInformationRegistered: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(69i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const SetShutdownSelectedTime: POWER_INFORMATION_LEVEL = 70i32;
+pub const SetShutdownSelectedTime: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(70i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const SuspendResumeInvocation: POWER_INFORMATION_LEVEL = 71i32;
+pub const SuspendResumeInvocation: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(71i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PlmPowerRequestCreate: POWER_INFORMATION_LEVEL = 72i32;
+pub const PlmPowerRequestCreate: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(72i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ScreenOff: POWER_INFORMATION_LEVEL = 73i32;
+pub const ScreenOff: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(73i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const CsDeviceNotification: POWER_INFORMATION_LEVEL = 74i32;
+pub const CsDeviceNotification: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(74i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PlatformRole: POWER_INFORMATION_LEVEL = 75i32;
+pub const PlatformRole: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(75i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const LastResumePerformance: POWER_INFORMATION_LEVEL = 76i32;
+pub const LastResumePerformance: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(76i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const DisplayBurst: POWER_INFORMATION_LEVEL = 77i32;
+pub const DisplayBurst: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(77i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ExitLatencySamplingPercentage: POWER_INFORMATION_LEVEL = 78i32;
+pub const ExitLatencySamplingPercentage: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(78i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const RegisterSpmPowerSettings: POWER_INFORMATION_LEVEL = 79i32;
+pub const RegisterSpmPowerSettings: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(79i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PlatformIdleStates: POWER_INFORMATION_LEVEL = 80i32;
+pub const PlatformIdleStates: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(80i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ProcessorIdleVeto: POWER_INFORMATION_LEVEL = 81i32;
+pub const ProcessorIdleVeto: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(81i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PlatformIdleVeto: POWER_INFORMATION_LEVEL = 82i32;
+pub const PlatformIdleVeto: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(82i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const SystemBatteryStatePrecise: POWER_INFORMATION_LEVEL = 83i32;
+pub const SystemBatteryStatePrecise: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(83i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ThermalEvent: POWER_INFORMATION_LEVEL = 84i32;
+pub const ThermalEvent: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(84i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PowerRequestActionInternal: POWER_INFORMATION_LEVEL = 85i32;
+pub const PowerRequestActionInternal: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(85i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const BatteryDeviceState: POWER_INFORMATION_LEVEL = 86i32;
+pub const BatteryDeviceState: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(86i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PowerInformationInternal: POWER_INFORMATION_LEVEL = 87i32;
+pub const PowerInformationInternal: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(87i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const ThermalStandby: POWER_INFORMATION_LEVEL = 88i32;
+pub const ThermalStandby: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(88i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const SystemHiberFileType: POWER_INFORMATION_LEVEL = 89i32;
+pub const SystemHiberFileType: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(89i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PhysicalPowerButtonPress: POWER_INFORMATION_LEVEL = 90i32;
+pub const PhysicalPowerButtonPress: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(90i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const QueryPotentialDripsConstraint: POWER_INFORMATION_LEVEL = 91i32;
+pub const QueryPotentialDripsConstraint: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(91i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const EnergyTrackerCreate: POWER_INFORMATION_LEVEL = 92i32;
+pub const EnergyTrackerCreate: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(92i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const EnergyTrackerQuery: POWER_INFORMATION_LEVEL = 93i32;
+pub const EnergyTrackerQuery: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(93i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const UpdateBlackBoxRecorder: POWER_INFORMATION_LEVEL = 94i32;
+pub const UpdateBlackBoxRecorder: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(94i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const SessionAllowExternalDmaDevices: POWER_INFORMATION_LEVEL = 95i32;
+pub const SessionAllowExternalDmaDevices: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(95i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const SendSuspendResumeNotification: POWER_INFORMATION_LEVEL = 96i32;
+pub const SendSuspendResumeNotification: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(96i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PowerInformationLevelMaximum: POWER_INFORMATION_LEVEL = 97i32;
+pub const PowerInformationLevelMaximum: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(97i32);
+impl ::core::marker::Copy for POWER_INFORMATION_LEVEL {}
+impl ::core::clone::Clone for POWER_INFORMATION_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for POWER_INFORMATION_LEVEL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for POWER_INFORMATION_LEVEL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("POWER_INFORMATION_LEVEL").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub type POWER_PLATFORM_ROLE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct POWER_PLATFORM_ROLE(pub i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PlatformRoleUnspecified: POWER_PLATFORM_ROLE = 0i32;
+pub const PlatformRoleUnspecified: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(0i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PlatformRoleDesktop: POWER_PLATFORM_ROLE = 1i32;
+pub const PlatformRoleDesktop: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(1i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PlatformRoleMobile: POWER_PLATFORM_ROLE = 2i32;
+pub const PlatformRoleMobile: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(2i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PlatformRoleWorkstation: POWER_PLATFORM_ROLE = 3i32;
+pub const PlatformRoleWorkstation: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(3i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PlatformRoleEnterpriseServer: POWER_PLATFORM_ROLE = 4i32;
+pub const PlatformRoleEnterpriseServer: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(4i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PlatformRoleSOHOServer: POWER_PLATFORM_ROLE = 5i32;
+pub const PlatformRoleSOHOServer: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(5i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PlatformRoleAppliancePC: POWER_PLATFORM_ROLE = 6i32;
+pub const PlatformRoleAppliancePC: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(6i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PlatformRolePerformanceServer: POWER_PLATFORM_ROLE = 7i32;
+pub const PlatformRolePerformanceServer: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(7i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PlatformRoleSlate: POWER_PLATFORM_ROLE = 8i32;
+pub const PlatformRoleSlate: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(8i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PlatformRoleMaximum: POWER_PLATFORM_ROLE = 9i32;
+pub const PlatformRoleMaximum: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(9i32);
+impl ::core::marker::Copy for POWER_PLATFORM_ROLE {}
+impl ::core::clone::Clone for POWER_PLATFORM_ROLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for POWER_PLATFORM_ROLE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for POWER_PLATFORM_ROLE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("POWER_PLATFORM_ROLE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub type POWER_PLATFORM_ROLE_VERSION = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct POWER_PLATFORM_ROLE_VERSION(pub u32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const POWER_PLATFORM_ROLE_V1: POWER_PLATFORM_ROLE_VERSION = 1u32;
+pub const POWER_PLATFORM_ROLE_V1: POWER_PLATFORM_ROLE_VERSION = POWER_PLATFORM_ROLE_VERSION(1u32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const POWER_PLATFORM_ROLE_V2: POWER_PLATFORM_ROLE_VERSION = 2u32;
+pub const POWER_PLATFORM_ROLE_V2: POWER_PLATFORM_ROLE_VERSION = POWER_PLATFORM_ROLE_VERSION(2u32);
+impl ::core::marker::Copy for POWER_PLATFORM_ROLE_VERSION {}
+impl ::core::clone::Clone for POWER_PLATFORM_ROLE_VERSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for POWER_PLATFORM_ROLE_VERSION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for POWER_PLATFORM_ROLE_VERSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("POWER_PLATFORM_ROLE_VERSION").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for POWER_PLATFORM_ROLE_VERSION {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for POWER_PLATFORM_ROLE_VERSION {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for POWER_PLATFORM_ROLE_VERSION {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for POWER_PLATFORM_ROLE_VERSION {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for POWER_PLATFORM_ROLE_VERSION {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Power', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -1988,23 +2296,83 @@ impl ::core::default::Default for POWER_POLICY {
     }
 }
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub type POWER_REQUEST_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct POWER_REQUEST_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PowerRequestDisplayRequired: POWER_REQUEST_TYPE = 0i32;
+pub const PowerRequestDisplayRequired: POWER_REQUEST_TYPE = POWER_REQUEST_TYPE(0i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PowerRequestSystemRequired: POWER_REQUEST_TYPE = 1i32;
+pub const PowerRequestSystemRequired: POWER_REQUEST_TYPE = POWER_REQUEST_TYPE(1i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PowerRequestAwayModeRequired: POWER_REQUEST_TYPE = 2i32;
+pub const PowerRequestAwayModeRequired: POWER_REQUEST_TYPE = POWER_REQUEST_TYPE(2i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PowerRequestExecutionRequired: POWER_REQUEST_TYPE = 3i32;
+pub const PowerRequestExecutionRequired: POWER_REQUEST_TYPE = POWER_REQUEST_TYPE(3i32);
+impl ::core::marker::Copy for POWER_REQUEST_TYPE {}
+impl ::core::clone::Clone for POWER_REQUEST_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for POWER_REQUEST_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for POWER_REQUEST_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("POWER_REQUEST_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub type POWER_SETTING_REGISTER_NOTIFICATION_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct POWER_SETTING_REGISTER_NOTIFICATION_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const DEVICE_NOTIFY_SERVICE_HANDLE: POWER_SETTING_REGISTER_NOTIFICATION_FLAGS = 1u32;
+pub const DEVICE_NOTIFY_SERVICE_HANDLE: POWER_SETTING_REGISTER_NOTIFICATION_FLAGS = POWER_SETTING_REGISTER_NOTIFICATION_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const DEVICE_NOTIFY_CALLBACK: POWER_SETTING_REGISTER_NOTIFICATION_FLAGS = 2u32;
+pub const DEVICE_NOTIFY_CALLBACK: POWER_SETTING_REGISTER_NOTIFICATION_FLAGS = POWER_SETTING_REGISTER_NOTIFICATION_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const DEVICE_NOTIFY_WINDOW_HANDLE: POWER_SETTING_REGISTER_NOTIFICATION_FLAGS = 0u32;
+pub const DEVICE_NOTIFY_WINDOW_HANDLE: POWER_SETTING_REGISTER_NOTIFICATION_FLAGS = POWER_SETTING_REGISTER_NOTIFICATION_FLAGS(0u32);
+impl ::core::marker::Copy for POWER_SETTING_REGISTER_NOTIFICATION_FLAGS {}
+impl ::core::clone::Clone for POWER_SETTING_REGISTER_NOTIFICATION_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for POWER_SETTING_REGISTER_NOTIFICATION_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for POWER_SETTING_REGISTER_NOTIFICATION_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("POWER_SETTING_REGISTER_NOTIFICATION_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for POWER_SETTING_REGISTER_NOTIFICATION_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for POWER_SETTING_REGISTER_NOTIFICATION_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for POWER_SETTING_REGISTER_NOTIFICATION_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for POWER_SETTING_REGISTER_NOTIFICATION_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for POWER_SETTING_REGISTER_NOTIFICATION_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_Power', 'Win32_UI_Shell_PropertiesSystem'*"]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PROCESSOR_NUMBER_PKEY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x5724c81d_d5af_4c1f_a103_a06e28f204c6), pid: 1u32 };
@@ -3357,15 +3725,31 @@ impl ::core::default::Default for SYSTEM_POWER_CAPABILITIES {
     }
 }
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub type SYSTEM_POWER_CONDITION = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SYSTEM_POWER_CONDITION(pub i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PoAc: SYSTEM_POWER_CONDITION = 0i32;
+pub const PoAc: SYSTEM_POWER_CONDITION = SYSTEM_POWER_CONDITION(0i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PoDc: SYSTEM_POWER_CONDITION = 1i32;
+pub const PoDc: SYSTEM_POWER_CONDITION = SYSTEM_POWER_CONDITION(1i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PoHot: SYSTEM_POWER_CONDITION = 2i32;
+pub const PoHot: SYSTEM_POWER_CONDITION = SYSTEM_POWER_CONDITION(2i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PoConditionMaximum: SYSTEM_POWER_CONDITION = 3i32;
+pub const PoConditionMaximum: SYSTEM_POWER_CONDITION = SYSTEM_POWER_CONDITION(3i32);
+impl ::core::marker::Copy for SYSTEM_POWER_CONDITION {}
+impl ::core::clone::Clone for SYSTEM_POWER_CONDITION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SYSTEM_POWER_CONDITION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SYSTEM_POWER_CONDITION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SYSTEM_POWER_CONDITION").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Power', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -3503,23 +3887,39 @@ impl ::core::default::Default for SYSTEM_POWER_POLICY {
     }
 }
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub type SYSTEM_POWER_STATE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SYSTEM_POWER_STATE(pub i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PowerSystemUnspecified: SYSTEM_POWER_STATE = 0i32;
+pub const PowerSystemUnspecified: SYSTEM_POWER_STATE = SYSTEM_POWER_STATE(0i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PowerSystemWorking: SYSTEM_POWER_STATE = 1i32;
+pub const PowerSystemWorking: SYSTEM_POWER_STATE = SYSTEM_POWER_STATE(1i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PowerSystemSleeping1: SYSTEM_POWER_STATE = 2i32;
+pub const PowerSystemSleeping1: SYSTEM_POWER_STATE = SYSTEM_POWER_STATE(2i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PowerSystemSleeping2: SYSTEM_POWER_STATE = 3i32;
+pub const PowerSystemSleeping2: SYSTEM_POWER_STATE = SYSTEM_POWER_STATE(3i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PowerSystemSleeping3: SYSTEM_POWER_STATE = 4i32;
+pub const PowerSystemSleeping3: SYSTEM_POWER_STATE = SYSTEM_POWER_STATE(4i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PowerSystemHibernate: SYSTEM_POWER_STATE = 5i32;
+pub const PowerSystemHibernate: SYSTEM_POWER_STATE = SYSTEM_POWER_STATE(5i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PowerSystemShutdown: SYSTEM_POWER_STATE = 6i32;
+pub const PowerSystemShutdown: SYSTEM_POWER_STATE = SYSTEM_POWER_STATE(6i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const PowerSystemMaximum: SYSTEM_POWER_STATE = 7i32;
+pub const PowerSystemMaximum: SYSTEM_POWER_STATE = SYSTEM_POWER_STATE(7i32);
+impl ::core::marker::Copy for SYSTEM_POWER_STATE {}
+impl ::core::clone::Clone for SYSTEM_POWER_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SYSTEM_POWER_STATE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SYSTEM_POWER_STATE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SYSTEM_POWER_STATE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Power'*"]
 pub struct SYSTEM_POWER_STATUS {
@@ -3826,13 +4226,29 @@ pub const UNKNOWN_RATE: u32 = 2147483648u32;
 #[doc = "*Required features: 'Win32_System_Power'*"]
 pub const UNKNOWN_VOLTAGE: u32 = 4294967295u32;
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub type USB_CHARGER_PORT = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct USB_CHARGER_PORT(pub i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const UsbChargerPort_Legacy: USB_CHARGER_PORT = 0i32;
+pub const UsbChargerPort_Legacy: USB_CHARGER_PORT = USB_CHARGER_PORT(0i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const UsbChargerPort_TypeC: USB_CHARGER_PORT = 1i32;
+pub const UsbChargerPort_TypeC: USB_CHARGER_PORT = USB_CHARGER_PORT(1i32);
 #[doc = "*Required features: 'Win32_System_Power'*"]
-pub const UsbChargerPort_Max: USB_CHARGER_PORT = 2i32;
+pub const UsbChargerPort_Max: USB_CHARGER_PORT = USB_CHARGER_PORT(2i32);
+impl ::core::marker::Copy for USB_CHARGER_PORT {}
+impl ::core::clone::Clone for USB_CHARGER_PORT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for USB_CHARGER_PORT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for USB_CHARGER_PORT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("USB_CHARGER_PORT").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Power', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]

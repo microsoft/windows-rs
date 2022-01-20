@@ -20,67 +20,111 @@ pub unsafe fn AbortDoc<'a, Param0: ::windows::core::IntoParam<'a, super::super::
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub type DEVICE_CAPABILITIES = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DEVICE_CAPABILITIES(pub u32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const DC_BINNAMES: DEVICE_CAPABILITIES = 12u32;
+pub const DC_BINNAMES: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(12u32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const DC_BINS: DEVICE_CAPABILITIES = 6u32;
+pub const DC_BINS: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(6u32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const DC_COLLATE: DEVICE_CAPABILITIES = 22u32;
+pub const DC_COLLATE: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(22u32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const DC_COLORDEVICE: DEVICE_CAPABILITIES = 32u32;
+pub const DC_COLORDEVICE: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(32u32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const DC_COPIES: DEVICE_CAPABILITIES = 18u32;
+pub const DC_COPIES: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(18u32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const DC_DRIVER: DEVICE_CAPABILITIES = 11u32;
+pub const DC_DRIVER: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(11u32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const DC_DUPLEX: DEVICE_CAPABILITIES = 7u32;
+pub const DC_DUPLEX: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(7u32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const DC_ENUMRESOLUTIONS: DEVICE_CAPABILITIES = 13u32;
+pub const DC_ENUMRESOLUTIONS: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(13u32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const DC_EXTRA: DEVICE_CAPABILITIES = 9u32;
+pub const DC_EXTRA: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(9u32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const DC_FIELDS: DEVICE_CAPABILITIES = 1u32;
+pub const DC_FIELDS: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(1u32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const DC_FILEDEPENDENCIES: DEVICE_CAPABILITIES = 14u32;
+pub const DC_FILEDEPENDENCIES: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(14u32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const DC_MAXEXTENT: DEVICE_CAPABILITIES = 5u32;
+pub const DC_MAXEXTENT: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(5u32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const DC_MEDIAREADY: DEVICE_CAPABILITIES = 29u32;
+pub const DC_MEDIAREADY: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(29u32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const DC_MEDIATYPENAMES: DEVICE_CAPABILITIES = 34u32;
+pub const DC_MEDIATYPENAMES: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(34u32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const DC_MEDIATYPES: DEVICE_CAPABILITIES = 35u32;
+pub const DC_MEDIATYPES: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(35u32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const DC_MINEXTENT: DEVICE_CAPABILITIES = 4u32;
+pub const DC_MINEXTENT: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(4u32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const DC_ORIENTATION: DEVICE_CAPABILITIES = 17u32;
+pub const DC_ORIENTATION: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(17u32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const DC_NUP: DEVICE_CAPABILITIES = 33u32;
+pub const DC_NUP: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(33u32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const DC_PAPERNAMES: DEVICE_CAPABILITIES = 16u32;
+pub const DC_PAPERNAMES: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(16u32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const DC_PAPERS: DEVICE_CAPABILITIES = 2u32;
+pub const DC_PAPERS: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(2u32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const DC_PAPERSIZE: DEVICE_CAPABILITIES = 3u32;
+pub const DC_PAPERSIZE: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(3u32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const DC_PERSONALITY: DEVICE_CAPABILITIES = 25u32;
+pub const DC_PERSONALITY: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(25u32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const DC_PRINTERMEM: DEVICE_CAPABILITIES = 28u32;
+pub const DC_PRINTERMEM: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(28u32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const DC_PRINTRATE: DEVICE_CAPABILITIES = 26u32;
+pub const DC_PRINTRATE: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(26u32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const DC_PRINTRATEPPM: DEVICE_CAPABILITIES = 31u32;
+pub const DC_PRINTRATEPPM: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(31u32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const DC_PRINTRATEUNIT: DEVICE_CAPABILITIES = 27u32;
+pub const DC_PRINTRATEUNIT: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(27u32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const DC_SIZE: DEVICE_CAPABILITIES = 8u32;
+pub const DC_SIZE: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(8u32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const DC_STAPLE: DEVICE_CAPABILITIES = 30u32;
+pub const DC_STAPLE: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(30u32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const DC_TRUETYPE: DEVICE_CAPABILITIES = 15u32;
+pub const DC_TRUETYPE: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(15u32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const DC_VERSION: DEVICE_CAPABILITIES = 10u32;
+pub const DC_VERSION: DEVICE_CAPABILITIES = DEVICE_CAPABILITIES(10u32);
+impl ::core::marker::Copy for DEVICE_CAPABILITIES {}
+impl ::core::clone::Clone for DEVICE_CAPABILITIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DEVICE_CAPABILITIES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DEVICE_CAPABILITIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DEVICE_CAPABILITIES").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for DEVICE_CAPABILITIES {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for DEVICE_CAPABILITIES {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for DEVICE_CAPABILITIES {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for DEVICE_CAPABILITIES {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for DEVICE_CAPABILITIES {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -10248,9 +10292,53 @@ pub struct IXpsSigningOptions_Vtbl {
     pub SetFlags: unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flags: XPS_SIGN_FLAGS) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub type PRINT_WINDOW_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PRINT_WINDOW_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const PW_CLIENTONLY: PRINT_WINDOW_FLAGS = 1u32;
+pub const PW_CLIENTONLY: PRINT_WINDOW_FLAGS = PRINT_WINDOW_FLAGS(1u32);
+impl ::core::marker::Copy for PRINT_WINDOW_FLAGS {}
+impl ::core::clone::Clone for PRINT_WINDOW_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PRINT_WINDOW_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PRINT_WINDOW_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PRINT_WINDOW_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for PRINT_WINDOW_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for PRINT_WINDOW_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for PRINT_WINDOW_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for PRINT_WINDOW_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for PRINT_WINDOW_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub struct PSFEATURE_CUSTPAPER {
@@ -10357,69 +10445,113 @@ impl ::core::default::Default for PSINJECTDATA {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub type PSINJECT_POINT = u16;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct PSINJECT_POINT(pub u16);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const PSINJECT_BEGINSTREAM: PSINJECT_POINT = 1u16;
+pub const PSINJECT_BEGINSTREAM: PSINJECT_POINT = PSINJECT_POINT(1u16);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const PSINJECT_PSADOBE: PSINJECT_POINT = 2u16;
+pub const PSINJECT_PSADOBE: PSINJECT_POINT = PSINJECT_POINT(2u16);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const PSINJECT_PAGESATEND: PSINJECT_POINT = 3u16;
+pub const PSINJECT_PAGESATEND: PSINJECT_POINT = PSINJECT_POINT(3u16);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const PSINJECT_PAGES: PSINJECT_POINT = 4u16;
+pub const PSINJECT_PAGES: PSINJECT_POINT = PSINJECT_POINT(4u16);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const PSINJECT_DOCNEEDEDRES: PSINJECT_POINT = 5u16;
+pub const PSINJECT_DOCNEEDEDRES: PSINJECT_POINT = PSINJECT_POINT(5u16);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const PSINJECT_DOCSUPPLIEDRES: PSINJECT_POINT = 6u16;
+pub const PSINJECT_DOCSUPPLIEDRES: PSINJECT_POINT = PSINJECT_POINT(6u16);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const PSINJECT_PAGEORDER: PSINJECT_POINT = 7u16;
+pub const PSINJECT_PAGEORDER: PSINJECT_POINT = PSINJECT_POINT(7u16);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const PSINJECT_ORIENTATION: PSINJECT_POINT = 8u16;
+pub const PSINJECT_ORIENTATION: PSINJECT_POINT = PSINJECT_POINT(8u16);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const PSINJECT_BOUNDINGBOX: PSINJECT_POINT = 9u16;
+pub const PSINJECT_BOUNDINGBOX: PSINJECT_POINT = PSINJECT_POINT(9u16);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const PSINJECT_DOCUMENTPROCESSCOLORS: PSINJECT_POINT = 10u16;
+pub const PSINJECT_DOCUMENTPROCESSCOLORS: PSINJECT_POINT = PSINJECT_POINT(10u16);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const PSINJECT_COMMENTS: PSINJECT_POINT = 11u16;
+pub const PSINJECT_COMMENTS: PSINJECT_POINT = PSINJECT_POINT(11u16);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const PSINJECT_BEGINDEFAULTS: PSINJECT_POINT = 12u16;
+pub const PSINJECT_BEGINDEFAULTS: PSINJECT_POINT = PSINJECT_POINT(12u16);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const PSINJECT_ENDDEFAULTS: PSINJECT_POINT = 13u16;
+pub const PSINJECT_ENDDEFAULTS: PSINJECT_POINT = PSINJECT_POINT(13u16);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const PSINJECT_BEGINPROLOG: PSINJECT_POINT = 14u16;
+pub const PSINJECT_BEGINPROLOG: PSINJECT_POINT = PSINJECT_POINT(14u16);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const PSINJECT_ENDPROLOG: PSINJECT_POINT = 15u16;
+pub const PSINJECT_ENDPROLOG: PSINJECT_POINT = PSINJECT_POINT(15u16);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const PSINJECT_BEGINSETUP: PSINJECT_POINT = 16u16;
+pub const PSINJECT_BEGINSETUP: PSINJECT_POINT = PSINJECT_POINT(16u16);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const PSINJECT_ENDSETUP: PSINJECT_POINT = 17u16;
+pub const PSINJECT_ENDSETUP: PSINJECT_POINT = PSINJECT_POINT(17u16);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const PSINJECT_TRAILER: PSINJECT_POINT = 18u16;
+pub const PSINJECT_TRAILER: PSINJECT_POINT = PSINJECT_POINT(18u16);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const PSINJECT_EOF: PSINJECT_POINT = 19u16;
+pub const PSINJECT_EOF: PSINJECT_POINT = PSINJECT_POINT(19u16);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const PSINJECT_ENDSTREAM: PSINJECT_POINT = 20u16;
+pub const PSINJECT_ENDSTREAM: PSINJECT_POINT = PSINJECT_POINT(20u16);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const PSINJECT_DOCUMENTPROCESSCOLORSATEND: PSINJECT_POINT = 21u16;
+pub const PSINJECT_DOCUMENTPROCESSCOLORSATEND: PSINJECT_POINT = PSINJECT_POINT(21u16);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const PSINJECT_PAGENUMBER: PSINJECT_POINT = 100u16;
+pub const PSINJECT_PAGENUMBER: PSINJECT_POINT = PSINJECT_POINT(100u16);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const PSINJECT_BEGINPAGESETUP: PSINJECT_POINT = 101u16;
+pub const PSINJECT_BEGINPAGESETUP: PSINJECT_POINT = PSINJECT_POINT(101u16);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const PSINJECT_ENDPAGESETUP: PSINJECT_POINT = 102u16;
+pub const PSINJECT_ENDPAGESETUP: PSINJECT_POINT = PSINJECT_POINT(102u16);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const PSINJECT_PAGETRAILER: PSINJECT_POINT = 103u16;
+pub const PSINJECT_PAGETRAILER: PSINJECT_POINT = PSINJECT_POINT(103u16);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const PSINJECT_PLATECOLOR: PSINJECT_POINT = 104u16;
+pub const PSINJECT_PLATECOLOR: PSINJECT_POINT = PSINJECT_POINT(104u16);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const PSINJECT_SHOWPAGE: PSINJECT_POINT = 105u16;
+pub const PSINJECT_SHOWPAGE: PSINJECT_POINT = PSINJECT_POINT(105u16);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const PSINJECT_PAGEBBOX: PSINJECT_POINT = 106u16;
+pub const PSINJECT_PAGEBBOX: PSINJECT_POINT = PSINJECT_POINT(106u16);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const PSINJECT_ENDPAGECOMMENTS: PSINJECT_POINT = 107u16;
+pub const PSINJECT_ENDPAGECOMMENTS: PSINJECT_POINT = PSINJECT_POINT(107u16);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const PSINJECT_VMSAVE: PSINJECT_POINT = 200u16;
+pub const PSINJECT_VMSAVE: PSINJECT_POINT = PSINJECT_POINT(200u16);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const PSINJECT_VMRESTORE: PSINJECT_POINT = 201u16;
+pub const PSINJECT_VMRESTORE: PSINJECT_POINT = PSINJECT_POINT(201u16);
+impl ::core::marker::Copy for PSINJECT_POINT {}
+impl ::core::clone::Clone for PSINJECT_POINT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PSINJECT_POINT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for PSINJECT_POINT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PSINJECT_POINT").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for PSINJECT_POINT {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for PSINJECT_POINT {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for PSINJECT_POINT {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for PSINJECT_POINT {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for PSINJECT_POINT {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_Xps', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
@@ -10646,19 +10778,51 @@ impl ::core::default::Default for XPS_COLOR_0_2 {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub type XPS_COLOR_INTERPOLATION = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XPS_COLOR_INTERPOLATION(pub i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_COLOR_INTERPOLATION_SCRGBLINEAR: XPS_COLOR_INTERPOLATION = 1i32;
+pub const XPS_COLOR_INTERPOLATION_SCRGBLINEAR: XPS_COLOR_INTERPOLATION = XPS_COLOR_INTERPOLATION(1i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_COLOR_INTERPOLATION_SRGBLINEAR: XPS_COLOR_INTERPOLATION = 2i32;
+pub const XPS_COLOR_INTERPOLATION_SRGBLINEAR: XPS_COLOR_INTERPOLATION = XPS_COLOR_INTERPOLATION(2i32);
+impl ::core::marker::Copy for XPS_COLOR_INTERPOLATION {}
+impl ::core::clone::Clone for XPS_COLOR_INTERPOLATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XPS_COLOR_INTERPOLATION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XPS_COLOR_INTERPOLATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XPS_COLOR_INTERPOLATION").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub type XPS_COLOR_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XPS_COLOR_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_COLOR_TYPE_SRGB: XPS_COLOR_TYPE = 1i32;
+pub const XPS_COLOR_TYPE_SRGB: XPS_COLOR_TYPE = XPS_COLOR_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_COLOR_TYPE_SCRGB: XPS_COLOR_TYPE = 2i32;
+pub const XPS_COLOR_TYPE_SCRGB: XPS_COLOR_TYPE = XPS_COLOR_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_COLOR_TYPE_CONTEXT: XPS_COLOR_TYPE = 3i32;
+pub const XPS_COLOR_TYPE_CONTEXT: XPS_COLOR_TYPE = XPS_COLOR_TYPE(3i32);
+impl ::core::marker::Copy for XPS_COLOR_TYPE {}
+impl ::core::clone::Clone for XPS_COLOR_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XPS_COLOR_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XPS_COLOR_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XPS_COLOR_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub struct XPS_DASH {
@@ -10691,23 +10855,55 @@ impl ::core::default::Default for XPS_DASH {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub type XPS_DASH_CAP = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XPS_DASH_CAP(pub i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_DASH_CAP_FLAT: XPS_DASH_CAP = 1i32;
+pub const XPS_DASH_CAP_FLAT: XPS_DASH_CAP = XPS_DASH_CAP(1i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_DASH_CAP_ROUND: XPS_DASH_CAP = 2i32;
+pub const XPS_DASH_CAP_ROUND: XPS_DASH_CAP = XPS_DASH_CAP(2i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_DASH_CAP_SQUARE: XPS_DASH_CAP = 3i32;
+pub const XPS_DASH_CAP_SQUARE: XPS_DASH_CAP = XPS_DASH_CAP(3i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_DASH_CAP_TRIANGLE: XPS_DASH_CAP = 4i32;
+pub const XPS_DASH_CAP_TRIANGLE: XPS_DASH_CAP = XPS_DASH_CAP(4i32);
+impl ::core::marker::Copy for XPS_DASH_CAP {}
+impl ::core::clone::Clone for XPS_DASH_CAP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XPS_DASH_CAP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XPS_DASH_CAP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XPS_DASH_CAP").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub type XPS_DOCUMENT_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XPS_DOCUMENT_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_DOCUMENT_TYPE_UNSPECIFIED: XPS_DOCUMENT_TYPE = 1i32;
+pub const XPS_DOCUMENT_TYPE_UNSPECIFIED: XPS_DOCUMENT_TYPE = XPS_DOCUMENT_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_DOCUMENT_TYPE_XPS: XPS_DOCUMENT_TYPE = 2i32;
+pub const XPS_DOCUMENT_TYPE_XPS: XPS_DOCUMENT_TYPE = XPS_DOCUMENT_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_DOCUMENT_TYPE_OPENXPS: XPS_DOCUMENT_TYPE = 3i32;
+pub const XPS_DOCUMENT_TYPE_OPENXPS: XPS_DOCUMENT_TYPE = XPS_DOCUMENT_TYPE(3i32);
+impl ::core::marker::Copy for XPS_DOCUMENT_TYPE {}
+impl ::core::clone::Clone for XPS_DOCUMENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XPS_DOCUMENT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XPS_DOCUMENT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XPS_DOCUMENT_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_ABSOLUTE_REFERENCE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108159i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
@@ -10879,21 +11075,53 @@ pub const XPS_E_VISUAL_CIRCULAR_REF: ::windows::core::HRESULT = ::windows::core:
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub const XPS_E_XKEY_ATTR_PRESENT_OUTSIDE_RES_DICT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142108672i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub type XPS_FILL_RULE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XPS_FILL_RULE(pub i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_FILL_RULE_EVENODD: XPS_FILL_RULE = 1i32;
+pub const XPS_FILL_RULE_EVENODD: XPS_FILL_RULE = XPS_FILL_RULE(1i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_FILL_RULE_NONZERO: XPS_FILL_RULE = 2i32;
+pub const XPS_FILL_RULE_NONZERO: XPS_FILL_RULE = XPS_FILL_RULE(2i32);
+impl ::core::marker::Copy for XPS_FILL_RULE {}
+impl ::core::clone::Clone for XPS_FILL_RULE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XPS_FILL_RULE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XPS_FILL_RULE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XPS_FILL_RULE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub type XPS_FONT_EMBEDDING = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XPS_FONT_EMBEDDING(pub i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_FONT_EMBEDDING_NORMAL: XPS_FONT_EMBEDDING = 1i32;
+pub const XPS_FONT_EMBEDDING_NORMAL: XPS_FONT_EMBEDDING = XPS_FONT_EMBEDDING(1i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_FONT_EMBEDDING_OBFUSCATED: XPS_FONT_EMBEDDING = 2i32;
+pub const XPS_FONT_EMBEDDING_OBFUSCATED: XPS_FONT_EMBEDDING = XPS_FONT_EMBEDDING(2i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_FONT_EMBEDDING_RESTRICTED: XPS_FONT_EMBEDDING = 3i32;
+pub const XPS_FONT_EMBEDDING_RESTRICTED: XPS_FONT_EMBEDDING = XPS_FONT_EMBEDDING(3i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_FONT_EMBEDDING_RESTRICTED_UNOBFUSCATED: XPS_FONT_EMBEDDING = 4i32;
+pub const XPS_FONT_EMBEDDING_RESTRICTED_UNOBFUSCATED: XPS_FONT_EMBEDDING = XPS_FONT_EMBEDDING(4i32);
+impl ::core::marker::Copy for XPS_FONT_EMBEDDING {}
+impl ::core::clone::Clone for XPS_FONT_EMBEDDING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XPS_FONT_EMBEDDING {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XPS_FONT_EMBEDDING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XPS_FONT_EMBEDDING").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub struct XPS_GLYPH_INDEX {
@@ -10961,41 +11189,105 @@ impl ::core::default::Default for XPS_GLYPH_MAPPING {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub type XPS_IMAGE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XPS_IMAGE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_IMAGE_TYPE_JPEG: XPS_IMAGE_TYPE = 1i32;
+pub const XPS_IMAGE_TYPE_JPEG: XPS_IMAGE_TYPE = XPS_IMAGE_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_IMAGE_TYPE_PNG: XPS_IMAGE_TYPE = 2i32;
+pub const XPS_IMAGE_TYPE_PNG: XPS_IMAGE_TYPE = XPS_IMAGE_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_IMAGE_TYPE_TIFF: XPS_IMAGE_TYPE = 3i32;
+pub const XPS_IMAGE_TYPE_TIFF: XPS_IMAGE_TYPE = XPS_IMAGE_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_IMAGE_TYPE_WDP: XPS_IMAGE_TYPE = 4i32;
+pub const XPS_IMAGE_TYPE_WDP: XPS_IMAGE_TYPE = XPS_IMAGE_TYPE(4i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_IMAGE_TYPE_JXR: XPS_IMAGE_TYPE = 5i32;
+pub const XPS_IMAGE_TYPE_JXR: XPS_IMAGE_TYPE = XPS_IMAGE_TYPE(5i32);
+impl ::core::marker::Copy for XPS_IMAGE_TYPE {}
+impl ::core::clone::Clone for XPS_IMAGE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XPS_IMAGE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XPS_IMAGE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XPS_IMAGE_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub type XPS_INTERLEAVING = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XPS_INTERLEAVING(pub i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_INTERLEAVING_OFF: XPS_INTERLEAVING = 1i32;
+pub const XPS_INTERLEAVING_OFF: XPS_INTERLEAVING = XPS_INTERLEAVING(1i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_INTERLEAVING_ON: XPS_INTERLEAVING = 2i32;
+pub const XPS_INTERLEAVING_ON: XPS_INTERLEAVING = XPS_INTERLEAVING(2i32);
+impl ::core::marker::Copy for XPS_INTERLEAVING {}
+impl ::core::clone::Clone for XPS_INTERLEAVING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XPS_INTERLEAVING {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XPS_INTERLEAVING {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XPS_INTERLEAVING").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub type XPS_LINE_CAP = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XPS_LINE_CAP(pub i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_LINE_CAP_FLAT: XPS_LINE_CAP = 1i32;
+pub const XPS_LINE_CAP_FLAT: XPS_LINE_CAP = XPS_LINE_CAP(1i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_LINE_CAP_ROUND: XPS_LINE_CAP = 2i32;
+pub const XPS_LINE_CAP_ROUND: XPS_LINE_CAP = XPS_LINE_CAP(2i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_LINE_CAP_SQUARE: XPS_LINE_CAP = 3i32;
+pub const XPS_LINE_CAP_SQUARE: XPS_LINE_CAP = XPS_LINE_CAP(3i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_LINE_CAP_TRIANGLE: XPS_LINE_CAP = 4i32;
+pub const XPS_LINE_CAP_TRIANGLE: XPS_LINE_CAP = XPS_LINE_CAP(4i32);
+impl ::core::marker::Copy for XPS_LINE_CAP {}
+impl ::core::clone::Clone for XPS_LINE_CAP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XPS_LINE_CAP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XPS_LINE_CAP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XPS_LINE_CAP").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub type XPS_LINE_JOIN = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XPS_LINE_JOIN(pub i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_LINE_JOIN_MITER: XPS_LINE_JOIN = 1i32;
+pub const XPS_LINE_JOIN_MITER: XPS_LINE_JOIN = XPS_LINE_JOIN(1i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_LINE_JOIN_BEVEL: XPS_LINE_JOIN = 2i32;
+pub const XPS_LINE_JOIN_BEVEL: XPS_LINE_JOIN = XPS_LINE_JOIN(2i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_LINE_JOIN_ROUND: XPS_LINE_JOIN = 3i32;
+pub const XPS_LINE_JOIN_ROUND: XPS_LINE_JOIN = XPS_LINE_JOIN(3i32);
+impl ::core::marker::Copy for XPS_LINE_JOIN {}
+impl ::core::clone::Clone for XPS_LINE_JOIN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XPS_LINE_JOIN {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XPS_LINE_JOIN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XPS_LINE_JOIN").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub struct XPS_MATRIX {
@@ -11032,27 +11324,43 @@ impl ::core::default::Default for XPS_MATRIX {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub type XPS_OBJECT_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XPS_OBJECT_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_OBJECT_TYPE_CANVAS: XPS_OBJECT_TYPE = 1i32;
+pub const XPS_OBJECT_TYPE_CANVAS: XPS_OBJECT_TYPE = XPS_OBJECT_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_OBJECT_TYPE_GLYPHS: XPS_OBJECT_TYPE = 2i32;
+pub const XPS_OBJECT_TYPE_GLYPHS: XPS_OBJECT_TYPE = XPS_OBJECT_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_OBJECT_TYPE_PATH: XPS_OBJECT_TYPE = 3i32;
+pub const XPS_OBJECT_TYPE_PATH: XPS_OBJECT_TYPE = XPS_OBJECT_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_OBJECT_TYPE_MATRIX_TRANSFORM: XPS_OBJECT_TYPE = 4i32;
+pub const XPS_OBJECT_TYPE_MATRIX_TRANSFORM: XPS_OBJECT_TYPE = XPS_OBJECT_TYPE(4i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_OBJECT_TYPE_GEOMETRY: XPS_OBJECT_TYPE = 5i32;
+pub const XPS_OBJECT_TYPE_GEOMETRY: XPS_OBJECT_TYPE = XPS_OBJECT_TYPE(5i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_OBJECT_TYPE_SOLID_COLOR_BRUSH: XPS_OBJECT_TYPE = 6i32;
+pub const XPS_OBJECT_TYPE_SOLID_COLOR_BRUSH: XPS_OBJECT_TYPE = XPS_OBJECT_TYPE(6i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_OBJECT_TYPE_IMAGE_BRUSH: XPS_OBJECT_TYPE = 7i32;
+pub const XPS_OBJECT_TYPE_IMAGE_BRUSH: XPS_OBJECT_TYPE = XPS_OBJECT_TYPE(7i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_OBJECT_TYPE_LINEAR_GRADIENT_BRUSH: XPS_OBJECT_TYPE = 8i32;
+pub const XPS_OBJECT_TYPE_LINEAR_GRADIENT_BRUSH: XPS_OBJECT_TYPE = XPS_OBJECT_TYPE(8i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_OBJECT_TYPE_RADIAL_GRADIENT_BRUSH: XPS_OBJECT_TYPE = 9i32;
+pub const XPS_OBJECT_TYPE_RADIAL_GRADIENT_BRUSH: XPS_OBJECT_TYPE = XPS_OBJECT_TYPE(9i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_OBJECT_TYPE_VISUAL_BRUSH: XPS_OBJECT_TYPE = 10i32;
+pub const XPS_OBJECT_TYPE_VISUAL_BRUSH: XPS_OBJECT_TYPE = XPS_OBJECT_TYPE(10i32);
+impl ::core::marker::Copy for XPS_OBJECT_TYPE {}
+impl ::core::clone::Clone for XPS_OBJECT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XPS_OBJECT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XPS_OBJECT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XPS_OBJECT_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub struct XPS_POINT {
@@ -11118,61 +11426,141 @@ impl ::core::default::Default for XPS_RECT {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub type XPS_SEGMENT_STROKE_PATTERN = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XPS_SEGMENT_STROKE_PATTERN(pub i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_SEGMENT_STROKE_PATTERN_ALL: XPS_SEGMENT_STROKE_PATTERN = 1i32;
+pub const XPS_SEGMENT_STROKE_PATTERN_ALL: XPS_SEGMENT_STROKE_PATTERN = XPS_SEGMENT_STROKE_PATTERN(1i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_SEGMENT_STROKE_PATTERN_NONE: XPS_SEGMENT_STROKE_PATTERN = 2i32;
+pub const XPS_SEGMENT_STROKE_PATTERN_NONE: XPS_SEGMENT_STROKE_PATTERN = XPS_SEGMENT_STROKE_PATTERN(2i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_SEGMENT_STROKE_PATTERN_MIXED: XPS_SEGMENT_STROKE_PATTERN = 3i32;
+pub const XPS_SEGMENT_STROKE_PATTERN_MIXED: XPS_SEGMENT_STROKE_PATTERN = XPS_SEGMENT_STROKE_PATTERN(3i32);
+impl ::core::marker::Copy for XPS_SEGMENT_STROKE_PATTERN {}
+impl ::core::clone::Clone for XPS_SEGMENT_STROKE_PATTERN {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XPS_SEGMENT_STROKE_PATTERN {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XPS_SEGMENT_STROKE_PATTERN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XPS_SEGMENT_STROKE_PATTERN").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub type XPS_SEGMENT_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XPS_SEGMENT_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_SEGMENT_TYPE_ARC_LARGE_CLOCKWISE: XPS_SEGMENT_TYPE = 1i32;
+pub const XPS_SEGMENT_TYPE_ARC_LARGE_CLOCKWISE: XPS_SEGMENT_TYPE = XPS_SEGMENT_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_SEGMENT_TYPE_ARC_LARGE_COUNTERCLOCKWISE: XPS_SEGMENT_TYPE = 2i32;
+pub const XPS_SEGMENT_TYPE_ARC_LARGE_COUNTERCLOCKWISE: XPS_SEGMENT_TYPE = XPS_SEGMENT_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_SEGMENT_TYPE_ARC_SMALL_CLOCKWISE: XPS_SEGMENT_TYPE = 3i32;
+pub const XPS_SEGMENT_TYPE_ARC_SMALL_CLOCKWISE: XPS_SEGMENT_TYPE = XPS_SEGMENT_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_SEGMENT_TYPE_ARC_SMALL_COUNTERCLOCKWISE: XPS_SEGMENT_TYPE = 4i32;
+pub const XPS_SEGMENT_TYPE_ARC_SMALL_COUNTERCLOCKWISE: XPS_SEGMENT_TYPE = XPS_SEGMENT_TYPE(4i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_SEGMENT_TYPE_BEZIER: XPS_SEGMENT_TYPE = 5i32;
+pub const XPS_SEGMENT_TYPE_BEZIER: XPS_SEGMENT_TYPE = XPS_SEGMENT_TYPE(5i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_SEGMENT_TYPE_LINE: XPS_SEGMENT_TYPE = 6i32;
+pub const XPS_SEGMENT_TYPE_LINE: XPS_SEGMENT_TYPE = XPS_SEGMENT_TYPE(6i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_SEGMENT_TYPE_QUADRATIC_BEZIER: XPS_SEGMENT_TYPE = 7i32;
+pub const XPS_SEGMENT_TYPE_QUADRATIC_BEZIER: XPS_SEGMENT_TYPE = XPS_SEGMENT_TYPE(7i32);
+impl ::core::marker::Copy for XPS_SEGMENT_TYPE {}
+impl ::core::clone::Clone for XPS_SEGMENT_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XPS_SEGMENT_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XPS_SEGMENT_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XPS_SEGMENT_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub type XPS_SIGNATURE_STATUS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XPS_SIGNATURE_STATUS(pub i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_SIGNATURE_STATUS_INCOMPLIANT: XPS_SIGNATURE_STATUS = 1i32;
+pub const XPS_SIGNATURE_STATUS_INCOMPLIANT: XPS_SIGNATURE_STATUS = XPS_SIGNATURE_STATUS(1i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_SIGNATURE_STATUS_INCOMPLETE: XPS_SIGNATURE_STATUS = 2i32;
+pub const XPS_SIGNATURE_STATUS_INCOMPLETE: XPS_SIGNATURE_STATUS = XPS_SIGNATURE_STATUS(2i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_SIGNATURE_STATUS_BROKEN: XPS_SIGNATURE_STATUS = 3i32;
+pub const XPS_SIGNATURE_STATUS_BROKEN: XPS_SIGNATURE_STATUS = XPS_SIGNATURE_STATUS(3i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_SIGNATURE_STATUS_QUESTIONABLE: XPS_SIGNATURE_STATUS = 4i32;
+pub const XPS_SIGNATURE_STATUS_QUESTIONABLE: XPS_SIGNATURE_STATUS = XPS_SIGNATURE_STATUS(4i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_SIGNATURE_STATUS_VALID: XPS_SIGNATURE_STATUS = 5i32;
+pub const XPS_SIGNATURE_STATUS_VALID: XPS_SIGNATURE_STATUS = XPS_SIGNATURE_STATUS(5i32);
+impl ::core::marker::Copy for XPS_SIGNATURE_STATUS {}
+impl ::core::clone::Clone for XPS_SIGNATURE_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XPS_SIGNATURE_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XPS_SIGNATURE_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XPS_SIGNATURE_STATUS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub type XPS_SIGN_FLAGS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XPS_SIGN_FLAGS(pub i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_SIGN_FLAGS_NONE: XPS_SIGN_FLAGS = 0i32;
+pub const XPS_SIGN_FLAGS_NONE: XPS_SIGN_FLAGS = XPS_SIGN_FLAGS(0i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_SIGN_FLAGS_IGNORE_MARKUP_COMPATIBILITY: XPS_SIGN_FLAGS = 1i32;
+pub const XPS_SIGN_FLAGS_IGNORE_MARKUP_COMPATIBILITY: XPS_SIGN_FLAGS = XPS_SIGN_FLAGS(1i32);
+impl ::core::marker::Copy for XPS_SIGN_FLAGS {}
+impl ::core::clone::Clone for XPS_SIGN_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XPS_SIGN_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XPS_SIGN_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XPS_SIGN_FLAGS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub type XPS_SIGN_POLICY = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XPS_SIGN_POLICY(pub i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_SIGN_POLICY_NONE: XPS_SIGN_POLICY = 0i32;
+pub const XPS_SIGN_POLICY_NONE: XPS_SIGN_POLICY = XPS_SIGN_POLICY(0i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_SIGN_POLICY_CORE_PROPERTIES: XPS_SIGN_POLICY = 1i32;
+pub const XPS_SIGN_POLICY_CORE_PROPERTIES: XPS_SIGN_POLICY = XPS_SIGN_POLICY(1i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_SIGN_POLICY_SIGNATURE_RELATIONSHIPS: XPS_SIGN_POLICY = 2i32;
+pub const XPS_SIGN_POLICY_SIGNATURE_RELATIONSHIPS: XPS_SIGN_POLICY = XPS_SIGN_POLICY(2i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_SIGN_POLICY_PRINT_TICKET: XPS_SIGN_POLICY = 4i32;
+pub const XPS_SIGN_POLICY_PRINT_TICKET: XPS_SIGN_POLICY = XPS_SIGN_POLICY(4i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_SIGN_POLICY_DISCARD_CONTROL: XPS_SIGN_POLICY = 8i32;
+pub const XPS_SIGN_POLICY_DISCARD_CONTROL: XPS_SIGN_POLICY = XPS_SIGN_POLICY(8i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_SIGN_POLICY_ALL: XPS_SIGN_POLICY = 15i32;
+pub const XPS_SIGN_POLICY_ALL: XPS_SIGN_POLICY = XPS_SIGN_POLICY(15i32);
+impl ::core::marker::Copy for XPS_SIGN_POLICY {}
+impl ::core::clone::Clone for XPS_SIGN_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XPS_SIGN_POLICY {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XPS_SIGN_POLICY {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XPS_SIGN_POLICY").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
 pub struct XPS_SIZE {
@@ -11205,45 +11593,109 @@ impl ::core::default::Default for XPS_SIZE {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub type XPS_SPREAD_METHOD = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XPS_SPREAD_METHOD(pub i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_SPREAD_METHOD_PAD: XPS_SPREAD_METHOD = 1i32;
+pub const XPS_SPREAD_METHOD_PAD: XPS_SPREAD_METHOD = XPS_SPREAD_METHOD(1i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_SPREAD_METHOD_REFLECT: XPS_SPREAD_METHOD = 2i32;
+pub const XPS_SPREAD_METHOD_REFLECT: XPS_SPREAD_METHOD = XPS_SPREAD_METHOD(2i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_SPREAD_METHOD_REPEAT: XPS_SPREAD_METHOD = 3i32;
+pub const XPS_SPREAD_METHOD_REPEAT: XPS_SPREAD_METHOD = XPS_SPREAD_METHOD(3i32);
+impl ::core::marker::Copy for XPS_SPREAD_METHOD {}
+impl ::core::clone::Clone for XPS_SPREAD_METHOD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XPS_SPREAD_METHOD {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XPS_SPREAD_METHOD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XPS_SPREAD_METHOD").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub type XPS_STYLE_SIMULATION = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XPS_STYLE_SIMULATION(pub i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_STYLE_SIMULATION_NONE: XPS_STYLE_SIMULATION = 1i32;
+pub const XPS_STYLE_SIMULATION_NONE: XPS_STYLE_SIMULATION = XPS_STYLE_SIMULATION(1i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_STYLE_SIMULATION_ITALIC: XPS_STYLE_SIMULATION = 2i32;
+pub const XPS_STYLE_SIMULATION_ITALIC: XPS_STYLE_SIMULATION = XPS_STYLE_SIMULATION(2i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_STYLE_SIMULATION_BOLD: XPS_STYLE_SIMULATION = 3i32;
+pub const XPS_STYLE_SIMULATION_BOLD: XPS_STYLE_SIMULATION = XPS_STYLE_SIMULATION(3i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_STYLE_SIMULATION_BOLDITALIC: XPS_STYLE_SIMULATION = 4i32;
+pub const XPS_STYLE_SIMULATION_BOLDITALIC: XPS_STYLE_SIMULATION = XPS_STYLE_SIMULATION(4i32);
+impl ::core::marker::Copy for XPS_STYLE_SIMULATION {}
+impl ::core::clone::Clone for XPS_STYLE_SIMULATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XPS_STYLE_SIMULATION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XPS_STYLE_SIMULATION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XPS_STYLE_SIMULATION").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub type XPS_THUMBNAIL_SIZE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XPS_THUMBNAIL_SIZE(pub i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_THUMBNAIL_SIZE_VERYSMALL: XPS_THUMBNAIL_SIZE = 1i32;
+pub const XPS_THUMBNAIL_SIZE_VERYSMALL: XPS_THUMBNAIL_SIZE = XPS_THUMBNAIL_SIZE(1i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_THUMBNAIL_SIZE_SMALL: XPS_THUMBNAIL_SIZE = 2i32;
+pub const XPS_THUMBNAIL_SIZE_SMALL: XPS_THUMBNAIL_SIZE = XPS_THUMBNAIL_SIZE(2i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_THUMBNAIL_SIZE_MEDIUM: XPS_THUMBNAIL_SIZE = 3i32;
+pub const XPS_THUMBNAIL_SIZE_MEDIUM: XPS_THUMBNAIL_SIZE = XPS_THUMBNAIL_SIZE(3i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_THUMBNAIL_SIZE_LARGE: XPS_THUMBNAIL_SIZE = 4i32;
+pub const XPS_THUMBNAIL_SIZE_LARGE: XPS_THUMBNAIL_SIZE = XPS_THUMBNAIL_SIZE(4i32);
+impl ::core::marker::Copy for XPS_THUMBNAIL_SIZE {}
+impl ::core::clone::Clone for XPS_THUMBNAIL_SIZE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XPS_THUMBNAIL_SIZE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XPS_THUMBNAIL_SIZE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XPS_THUMBNAIL_SIZE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub type XPS_TILE_MODE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XPS_TILE_MODE(pub i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_TILE_MODE_NONE: XPS_TILE_MODE = 1i32;
+pub const XPS_TILE_MODE_NONE: XPS_TILE_MODE = XPS_TILE_MODE(1i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_TILE_MODE_TILE: XPS_TILE_MODE = 2i32;
+pub const XPS_TILE_MODE_TILE: XPS_TILE_MODE = XPS_TILE_MODE(2i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_TILE_MODE_FLIPX: XPS_TILE_MODE = 3i32;
+pub const XPS_TILE_MODE_FLIPX: XPS_TILE_MODE = XPS_TILE_MODE(3i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_TILE_MODE_FLIPY: XPS_TILE_MODE = 4i32;
+pub const XPS_TILE_MODE_FLIPY: XPS_TILE_MODE = XPS_TILE_MODE(4i32);
 #[doc = "*Required features: 'Win32_Storage_Xps'*"]
-pub const XPS_TILE_MODE_FLIPXY: XPS_TILE_MODE = 5i32;
+pub const XPS_TILE_MODE_FLIPXY: XPS_TILE_MODE = XPS_TILE_MODE(5i32);
+impl ::core::marker::Copy for XPS_TILE_MODE {}
+impl ::core::clone::Clone for XPS_TILE_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XPS_TILE_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XPS_TILE_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XPS_TILE_MODE").field(&self.0).finish()
+    }
+}
 pub const XpsOMObjectFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe974d26d_3d9b_4d47_88cc_3872f2dc3585);
 pub const XpsOMThumbnailGenerator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e4a23e2_b969_4761_be35_1a8ced58e323);
 pub const XpsSignatureManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb0c43320_2315_44a2_b70a_0943a140a8ee);

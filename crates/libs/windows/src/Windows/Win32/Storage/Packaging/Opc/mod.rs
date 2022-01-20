@@ -3167,33 +3167,81 @@ pub struct IOpcUri_Vtbl {
     CombinePartUri: usize,
 }
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-pub type OPC_CANONICALIZATION_METHOD = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct OPC_CANONICALIZATION_METHOD(pub i32);
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-pub const OPC_CANONICALIZATION_NONE: OPC_CANONICALIZATION_METHOD = 0i32;
+pub const OPC_CANONICALIZATION_NONE: OPC_CANONICALIZATION_METHOD = OPC_CANONICALIZATION_METHOD(0i32);
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-pub const OPC_CANONICALIZATION_C14N: OPC_CANONICALIZATION_METHOD = 1i32;
+pub const OPC_CANONICALIZATION_C14N: OPC_CANONICALIZATION_METHOD = OPC_CANONICALIZATION_METHOD(1i32);
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-pub const OPC_CANONICALIZATION_C14N_WITH_COMMENTS: OPC_CANONICALIZATION_METHOD = 2i32;
+pub const OPC_CANONICALIZATION_C14N_WITH_COMMENTS: OPC_CANONICALIZATION_METHOD = OPC_CANONICALIZATION_METHOD(2i32);
+impl ::core::marker::Copy for OPC_CANONICALIZATION_METHOD {}
+impl ::core::clone::Clone for OPC_CANONICALIZATION_METHOD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for OPC_CANONICALIZATION_METHOD {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OPC_CANONICALIZATION_METHOD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OPC_CANONICALIZATION_METHOD").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-pub type OPC_CERTIFICATE_EMBEDDING_OPTION = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct OPC_CERTIFICATE_EMBEDDING_OPTION(pub i32);
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-pub const OPC_CERTIFICATE_IN_CERTIFICATE_PART: OPC_CERTIFICATE_EMBEDDING_OPTION = 0i32;
+pub const OPC_CERTIFICATE_IN_CERTIFICATE_PART: OPC_CERTIFICATE_EMBEDDING_OPTION = OPC_CERTIFICATE_EMBEDDING_OPTION(0i32);
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-pub const OPC_CERTIFICATE_IN_SIGNATURE_PART: OPC_CERTIFICATE_EMBEDDING_OPTION = 1i32;
+pub const OPC_CERTIFICATE_IN_SIGNATURE_PART: OPC_CERTIFICATE_EMBEDDING_OPTION = OPC_CERTIFICATE_EMBEDDING_OPTION(1i32);
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-pub const OPC_CERTIFICATE_NOT_EMBEDDED: OPC_CERTIFICATE_EMBEDDING_OPTION = 2i32;
+pub const OPC_CERTIFICATE_NOT_EMBEDDED: OPC_CERTIFICATE_EMBEDDING_OPTION = OPC_CERTIFICATE_EMBEDDING_OPTION(2i32);
+impl ::core::marker::Copy for OPC_CERTIFICATE_EMBEDDING_OPTION {}
+impl ::core::clone::Clone for OPC_CERTIFICATE_EMBEDDING_OPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for OPC_CERTIFICATE_EMBEDDING_OPTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OPC_CERTIFICATE_EMBEDDING_OPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OPC_CERTIFICATE_EMBEDDING_OPTION").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-pub type OPC_COMPRESSION_OPTIONS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct OPC_COMPRESSION_OPTIONS(pub i32);
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-pub const OPC_COMPRESSION_NONE: OPC_COMPRESSION_OPTIONS = -1i32;
+pub const OPC_COMPRESSION_NONE: OPC_COMPRESSION_OPTIONS = OPC_COMPRESSION_OPTIONS(-1i32);
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-pub const OPC_COMPRESSION_NORMAL: OPC_COMPRESSION_OPTIONS = 0i32;
+pub const OPC_COMPRESSION_NORMAL: OPC_COMPRESSION_OPTIONS = OPC_COMPRESSION_OPTIONS(0i32);
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-pub const OPC_COMPRESSION_MAXIMUM: OPC_COMPRESSION_OPTIONS = 1i32;
+pub const OPC_COMPRESSION_MAXIMUM: OPC_COMPRESSION_OPTIONS = OPC_COMPRESSION_OPTIONS(1i32);
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-pub const OPC_COMPRESSION_FAST: OPC_COMPRESSION_OPTIONS = 2i32;
+pub const OPC_COMPRESSION_FAST: OPC_COMPRESSION_OPTIONS = OPC_COMPRESSION_OPTIONS(2i32);
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-pub const OPC_COMPRESSION_SUPERFAST: OPC_COMPRESSION_OPTIONS = 3i32;
+pub const OPC_COMPRESSION_SUPERFAST: OPC_COMPRESSION_OPTIONS = OPC_COMPRESSION_OPTIONS(3i32);
+impl ::core::marker::Copy for OPC_COMPRESSION_OPTIONS {}
+impl ::core::clone::Clone for OPC_COMPRESSION_OPTIONS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for OPC_COMPRESSION_OPTIONS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OPC_COMPRESSION_OPTIONS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OPC_COMPRESSION_OPTIONS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_CONFLICTING_SETTINGS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142175212i32);
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
@@ -3399,63 +3447,247 @@ pub const OPC_E_ZIP_REQUIRES_64_BIT: ::windows::core::HRESULT = ::windows::core:
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
 pub const OPC_E_ZIP_UNSUPPORTEDARCHIVE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2142171128i32);
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-pub type OPC_READ_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct OPC_READ_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-pub const OPC_READ_DEFAULT: OPC_READ_FLAGS = 0u32;
+pub const OPC_READ_DEFAULT: OPC_READ_FLAGS = OPC_READ_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-pub const OPC_VALIDATE_ON_LOAD: OPC_READ_FLAGS = 1u32;
+pub const OPC_VALIDATE_ON_LOAD: OPC_READ_FLAGS = OPC_READ_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-pub const OPC_CACHE_ON_ACCESS: OPC_READ_FLAGS = 2u32;
+pub const OPC_CACHE_ON_ACCESS: OPC_READ_FLAGS = OPC_READ_FLAGS(2u32);
+impl ::core::marker::Copy for OPC_READ_FLAGS {}
+impl ::core::clone::Clone for OPC_READ_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for OPC_READ_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OPC_READ_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OPC_READ_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for OPC_READ_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for OPC_READ_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for OPC_READ_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for OPC_READ_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for OPC_READ_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-pub type OPC_RELATIONSHIPS_SIGNING_OPTION = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct OPC_RELATIONSHIPS_SIGNING_OPTION(pub i32);
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-pub const OPC_RELATIONSHIP_SIGN_USING_SELECTORS: OPC_RELATIONSHIPS_SIGNING_OPTION = 0i32;
+pub const OPC_RELATIONSHIP_SIGN_USING_SELECTORS: OPC_RELATIONSHIPS_SIGNING_OPTION = OPC_RELATIONSHIPS_SIGNING_OPTION(0i32);
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-pub const OPC_RELATIONSHIP_SIGN_PART: OPC_RELATIONSHIPS_SIGNING_OPTION = 1i32;
+pub const OPC_RELATIONSHIP_SIGN_PART: OPC_RELATIONSHIPS_SIGNING_OPTION = OPC_RELATIONSHIPS_SIGNING_OPTION(1i32);
+impl ::core::marker::Copy for OPC_RELATIONSHIPS_SIGNING_OPTION {}
+impl ::core::clone::Clone for OPC_RELATIONSHIPS_SIGNING_OPTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for OPC_RELATIONSHIPS_SIGNING_OPTION {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OPC_RELATIONSHIPS_SIGNING_OPTION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OPC_RELATIONSHIPS_SIGNING_OPTION").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-pub type OPC_RELATIONSHIP_SELECTOR = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct OPC_RELATIONSHIP_SELECTOR(pub i32);
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-pub const OPC_RELATIONSHIP_SELECT_BY_ID: OPC_RELATIONSHIP_SELECTOR = 0i32;
+pub const OPC_RELATIONSHIP_SELECT_BY_ID: OPC_RELATIONSHIP_SELECTOR = OPC_RELATIONSHIP_SELECTOR(0i32);
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-pub const OPC_RELATIONSHIP_SELECT_BY_TYPE: OPC_RELATIONSHIP_SELECTOR = 1i32;
+pub const OPC_RELATIONSHIP_SELECT_BY_TYPE: OPC_RELATIONSHIP_SELECTOR = OPC_RELATIONSHIP_SELECTOR(1i32);
+impl ::core::marker::Copy for OPC_RELATIONSHIP_SELECTOR {}
+impl ::core::clone::Clone for OPC_RELATIONSHIP_SELECTOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for OPC_RELATIONSHIP_SELECTOR {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OPC_RELATIONSHIP_SELECTOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OPC_RELATIONSHIP_SELECTOR").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-pub type OPC_SIGNATURE_TIME_FORMAT = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct OPC_SIGNATURE_TIME_FORMAT(pub i32);
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-pub const OPC_SIGNATURE_TIME_FORMAT_MILLISECONDS: OPC_SIGNATURE_TIME_FORMAT = 0i32;
+pub const OPC_SIGNATURE_TIME_FORMAT_MILLISECONDS: OPC_SIGNATURE_TIME_FORMAT = OPC_SIGNATURE_TIME_FORMAT(0i32);
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-pub const OPC_SIGNATURE_TIME_FORMAT_SECONDS: OPC_SIGNATURE_TIME_FORMAT = 1i32;
+pub const OPC_SIGNATURE_TIME_FORMAT_SECONDS: OPC_SIGNATURE_TIME_FORMAT = OPC_SIGNATURE_TIME_FORMAT(1i32);
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-pub const OPC_SIGNATURE_TIME_FORMAT_MINUTES: OPC_SIGNATURE_TIME_FORMAT = 2i32;
+pub const OPC_SIGNATURE_TIME_FORMAT_MINUTES: OPC_SIGNATURE_TIME_FORMAT = OPC_SIGNATURE_TIME_FORMAT(2i32);
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-pub const OPC_SIGNATURE_TIME_FORMAT_DAYS: OPC_SIGNATURE_TIME_FORMAT = 3i32;
+pub const OPC_SIGNATURE_TIME_FORMAT_DAYS: OPC_SIGNATURE_TIME_FORMAT = OPC_SIGNATURE_TIME_FORMAT(3i32);
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-pub const OPC_SIGNATURE_TIME_FORMAT_MONTHS: OPC_SIGNATURE_TIME_FORMAT = 4i32;
+pub const OPC_SIGNATURE_TIME_FORMAT_MONTHS: OPC_SIGNATURE_TIME_FORMAT = OPC_SIGNATURE_TIME_FORMAT(4i32);
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-pub const OPC_SIGNATURE_TIME_FORMAT_YEARS: OPC_SIGNATURE_TIME_FORMAT = 5i32;
+pub const OPC_SIGNATURE_TIME_FORMAT_YEARS: OPC_SIGNATURE_TIME_FORMAT = OPC_SIGNATURE_TIME_FORMAT(5i32);
+impl ::core::marker::Copy for OPC_SIGNATURE_TIME_FORMAT {}
+impl ::core::clone::Clone for OPC_SIGNATURE_TIME_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for OPC_SIGNATURE_TIME_FORMAT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OPC_SIGNATURE_TIME_FORMAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OPC_SIGNATURE_TIME_FORMAT").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-pub type OPC_SIGNATURE_VALIDATION_RESULT = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct OPC_SIGNATURE_VALIDATION_RESULT(pub i32);
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-pub const OPC_SIGNATURE_VALID: OPC_SIGNATURE_VALIDATION_RESULT = 0i32;
+pub const OPC_SIGNATURE_VALID: OPC_SIGNATURE_VALIDATION_RESULT = OPC_SIGNATURE_VALIDATION_RESULT(0i32);
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-pub const OPC_SIGNATURE_INVALID: OPC_SIGNATURE_VALIDATION_RESULT = -1i32;
+pub const OPC_SIGNATURE_INVALID: OPC_SIGNATURE_VALIDATION_RESULT = OPC_SIGNATURE_VALIDATION_RESULT(-1i32);
+impl ::core::marker::Copy for OPC_SIGNATURE_VALIDATION_RESULT {}
+impl ::core::clone::Clone for OPC_SIGNATURE_VALIDATION_RESULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for OPC_SIGNATURE_VALIDATION_RESULT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OPC_SIGNATURE_VALIDATION_RESULT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OPC_SIGNATURE_VALIDATION_RESULT").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-pub type OPC_STREAM_IO_MODE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct OPC_STREAM_IO_MODE(pub i32);
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-pub const OPC_STREAM_IO_READ: OPC_STREAM_IO_MODE = 1i32;
+pub const OPC_STREAM_IO_READ: OPC_STREAM_IO_MODE = OPC_STREAM_IO_MODE(1i32);
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-pub const OPC_STREAM_IO_WRITE: OPC_STREAM_IO_MODE = 2i32;
+pub const OPC_STREAM_IO_WRITE: OPC_STREAM_IO_MODE = OPC_STREAM_IO_MODE(2i32);
+impl ::core::marker::Copy for OPC_STREAM_IO_MODE {}
+impl ::core::clone::Clone for OPC_STREAM_IO_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for OPC_STREAM_IO_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OPC_STREAM_IO_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OPC_STREAM_IO_MODE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-pub type OPC_URI_TARGET_MODE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct OPC_URI_TARGET_MODE(pub i32);
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-pub const OPC_URI_TARGET_MODE_INTERNAL: OPC_URI_TARGET_MODE = 0i32;
+pub const OPC_URI_TARGET_MODE_INTERNAL: OPC_URI_TARGET_MODE = OPC_URI_TARGET_MODE(0i32);
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-pub const OPC_URI_TARGET_MODE_EXTERNAL: OPC_URI_TARGET_MODE = 1i32;
+pub const OPC_URI_TARGET_MODE_EXTERNAL: OPC_URI_TARGET_MODE = OPC_URI_TARGET_MODE(1i32);
+impl ::core::marker::Copy for OPC_URI_TARGET_MODE {}
+impl ::core::clone::Clone for OPC_URI_TARGET_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for OPC_URI_TARGET_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OPC_URI_TARGET_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OPC_URI_TARGET_MODE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-pub type OPC_WRITE_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct OPC_WRITE_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-pub const OPC_WRITE_DEFAULT: OPC_WRITE_FLAGS = 0u32;
+pub const OPC_WRITE_DEFAULT: OPC_WRITE_FLAGS = OPC_WRITE_FLAGS(0u32);
 #[doc = "*Required features: 'Win32_Storage_Packaging_Opc'*"]
-pub const OPC_WRITE_FORCE_ZIP32: OPC_WRITE_FLAGS = 1u32;
+pub const OPC_WRITE_FORCE_ZIP32: OPC_WRITE_FLAGS = OPC_WRITE_FLAGS(1u32);
+impl ::core::marker::Copy for OPC_WRITE_FLAGS {}
+impl ::core::clone::Clone for OPC_WRITE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for OPC_WRITE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for OPC_WRITE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OPC_WRITE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for OPC_WRITE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for OPC_WRITE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for OPC_WRITE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for OPC_WRITE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for OPC_WRITE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 pub const OpcFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b2d6ba0_9f3e_4f27_920b_313cc426a39e);
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

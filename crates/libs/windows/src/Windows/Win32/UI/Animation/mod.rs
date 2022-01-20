@@ -2693,23 +2693,83 @@ pub const UIAnimationTransitionFactory2: ::windows::core::GUID = ::windows::core
 pub const UIAnimationTransitionLibrary: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d6322ad_aa85_4ef5_a828_86d71067d145);
 pub const UIAnimationTransitionLibrary2: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x812f944a_c5c8_4cd9_b0a6_b3da802f228d);
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub type UI_ANIMATION_DEPENDENCIES = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct UI_ANIMATION_DEPENDENCIES(pub u32);
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub const UI_ANIMATION_DEPENDENCY_NONE: UI_ANIMATION_DEPENDENCIES = 0u32;
+pub const UI_ANIMATION_DEPENDENCY_NONE: UI_ANIMATION_DEPENDENCIES = UI_ANIMATION_DEPENDENCIES(0u32);
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub const UI_ANIMATION_DEPENDENCY_INTERMEDIATE_VALUES: UI_ANIMATION_DEPENDENCIES = 1u32;
+pub const UI_ANIMATION_DEPENDENCY_INTERMEDIATE_VALUES: UI_ANIMATION_DEPENDENCIES = UI_ANIMATION_DEPENDENCIES(1u32);
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub const UI_ANIMATION_DEPENDENCY_FINAL_VALUE: UI_ANIMATION_DEPENDENCIES = 2u32;
+pub const UI_ANIMATION_DEPENDENCY_FINAL_VALUE: UI_ANIMATION_DEPENDENCIES = UI_ANIMATION_DEPENDENCIES(2u32);
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub const UI_ANIMATION_DEPENDENCY_FINAL_VELOCITY: UI_ANIMATION_DEPENDENCIES = 4u32;
+pub const UI_ANIMATION_DEPENDENCY_FINAL_VELOCITY: UI_ANIMATION_DEPENDENCIES = UI_ANIMATION_DEPENDENCIES(4u32);
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub const UI_ANIMATION_DEPENDENCY_DURATION: UI_ANIMATION_DEPENDENCIES = 8u32;
+pub const UI_ANIMATION_DEPENDENCY_DURATION: UI_ANIMATION_DEPENDENCIES = UI_ANIMATION_DEPENDENCIES(8u32);
+impl ::core::marker::Copy for UI_ANIMATION_DEPENDENCIES {}
+impl ::core::clone::Clone for UI_ANIMATION_DEPENDENCIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for UI_ANIMATION_DEPENDENCIES {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UI_ANIMATION_DEPENDENCIES {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UI_ANIMATION_DEPENDENCIES").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for UI_ANIMATION_DEPENDENCIES {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for UI_ANIMATION_DEPENDENCIES {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for UI_ANIMATION_DEPENDENCIES {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for UI_ANIMATION_DEPENDENCIES {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for UI_ANIMATION_DEPENDENCIES {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub type UI_ANIMATION_IDLE_BEHAVIOR = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct UI_ANIMATION_IDLE_BEHAVIOR(pub i32);
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub const UI_ANIMATION_IDLE_BEHAVIOR_CONTINUE: UI_ANIMATION_IDLE_BEHAVIOR = 0i32;
+pub const UI_ANIMATION_IDLE_BEHAVIOR_CONTINUE: UI_ANIMATION_IDLE_BEHAVIOR = UI_ANIMATION_IDLE_BEHAVIOR(0i32);
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub const UI_ANIMATION_IDLE_BEHAVIOR_DISABLE: UI_ANIMATION_IDLE_BEHAVIOR = 1i32;
+pub const UI_ANIMATION_IDLE_BEHAVIOR_DISABLE: UI_ANIMATION_IDLE_BEHAVIOR = UI_ANIMATION_IDLE_BEHAVIOR(1i32);
+impl ::core::marker::Copy for UI_ANIMATION_IDLE_BEHAVIOR {}
+impl ::core::clone::Clone for UI_ANIMATION_IDLE_BEHAVIOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for UI_ANIMATION_IDLE_BEHAVIOR {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UI_ANIMATION_IDLE_BEHAVIOR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UI_ANIMATION_IDLE_BEHAVIOR").field(&self.0).finish()
+    }
+}
 #[repr(transparent)]
 #[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
 pub struct UI_ANIMATION_KEYFRAME(pub isize);
@@ -2745,25 +2805,73 @@ unsafe impl ::windows::core::Abi for UI_ANIMATION_KEYFRAME {
     type Abi = Self;
 }
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub type UI_ANIMATION_MANAGER_STATUS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct UI_ANIMATION_MANAGER_STATUS(pub i32);
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub const UI_ANIMATION_MANAGER_IDLE: UI_ANIMATION_MANAGER_STATUS = 0i32;
+pub const UI_ANIMATION_MANAGER_IDLE: UI_ANIMATION_MANAGER_STATUS = UI_ANIMATION_MANAGER_STATUS(0i32);
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub const UI_ANIMATION_MANAGER_BUSY: UI_ANIMATION_MANAGER_STATUS = 1i32;
+pub const UI_ANIMATION_MANAGER_BUSY: UI_ANIMATION_MANAGER_STATUS = UI_ANIMATION_MANAGER_STATUS(1i32);
+impl ::core::marker::Copy for UI_ANIMATION_MANAGER_STATUS {}
+impl ::core::clone::Clone for UI_ANIMATION_MANAGER_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for UI_ANIMATION_MANAGER_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UI_ANIMATION_MANAGER_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UI_ANIMATION_MANAGER_STATUS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub type UI_ANIMATION_MODE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct UI_ANIMATION_MODE(pub i32);
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub const UI_ANIMATION_MODE_DISABLED: UI_ANIMATION_MODE = 0i32;
+pub const UI_ANIMATION_MODE_DISABLED: UI_ANIMATION_MODE = UI_ANIMATION_MODE(0i32);
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub const UI_ANIMATION_MODE_SYSTEM_DEFAULT: UI_ANIMATION_MODE = 1i32;
+pub const UI_ANIMATION_MODE_SYSTEM_DEFAULT: UI_ANIMATION_MODE = UI_ANIMATION_MODE(1i32);
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub const UI_ANIMATION_MODE_ENABLED: UI_ANIMATION_MODE = 2i32;
+pub const UI_ANIMATION_MODE_ENABLED: UI_ANIMATION_MODE = UI_ANIMATION_MODE(2i32);
+impl ::core::marker::Copy for UI_ANIMATION_MODE {}
+impl ::core::clone::Clone for UI_ANIMATION_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for UI_ANIMATION_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UI_ANIMATION_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UI_ANIMATION_MODE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub type UI_ANIMATION_PRIORITY_EFFECT = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct UI_ANIMATION_PRIORITY_EFFECT(pub i32);
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub const UI_ANIMATION_PRIORITY_EFFECT_FAILURE: UI_ANIMATION_PRIORITY_EFFECT = 0i32;
+pub const UI_ANIMATION_PRIORITY_EFFECT_FAILURE: UI_ANIMATION_PRIORITY_EFFECT = UI_ANIMATION_PRIORITY_EFFECT(0i32);
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub const UI_ANIMATION_PRIORITY_EFFECT_DELAY: UI_ANIMATION_PRIORITY_EFFECT = 1i32;
+pub const UI_ANIMATION_PRIORITY_EFFECT_DELAY: UI_ANIMATION_PRIORITY_EFFECT = UI_ANIMATION_PRIORITY_EFFECT(1i32);
+impl ::core::marker::Copy for UI_ANIMATION_PRIORITY_EFFECT {}
+impl ::core::clone::Clone for UI_ANIMATION_PRIORITY_EFFECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for UI_ANIMATION_PRIORITY_EFFECT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UI_ANIMATION_PRIORITY_EFFECT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UI_ANIMATION_PRIORITY_EFFECT").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_REPEAT_INDEFINITELY: i32 = -1i32;
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
@@ -2771,70 +2879,182 @@ pub const UI_ANIMATION_REPEAT_INDEFINITELY_CONCLUDE_AT_END: i32 = -1i32;
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_REPEAT_INDEFINITELY_CONCLUDE_AT_START: i32 = -2i32;
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub type UI_ANIMATION_REPEAT_MODE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct UI_ANIMATION_REPEAT_MODE(pub i32);
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub const UI_ANIMATION_REPEAT_MODE_NORMAL: UI_ANIMATION_REPEAT_MODE = 0i32;
+pub const UI_ANIMATION_REPEAT_MODE_NORMAL: UI_ANIMATION_REPEAT_MODE = UI_ANIMATION_REPEAT_MODE(0i32);
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub const UI_ANIMATION_REPEAT_MODE_ALTERNATE: UI_ANIMATION_REPEAT_MODE = 1i32;
+pub const UI_ANIMATION_REPEAT_MODE_ALTERNATE: UI_ANIMATION_REPEAT_MODE = UI_ANIMATION_REPEAT_MODE(1i32);
+impl ::core::marker::Copy for UI_ANIMATION_REPEAT_MODE {}
+impl ::core::clone::Clone for UI_ANIMATION_REPEAT_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for UI_ANIMATION_REPEAT_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UI_ANIMATION_REPEAT_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UI_ANIMATION_REPEAT_MODE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub type UI_ANIMATION_ROUNDING_MODE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct UI_ANIMATION_ROUNDING_MODE(pub i32);
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub const UI_ANIMATION_ROUNDING_NEAREST: UI_ANIMATION_ROUNDING_MODE = 0i32;
+pub const UI_ANIMATION_ROUNDING_NEAREST: UI_ANIMATION_ROUNDING_MODE = UI_ANIMATION_ROUNDING_MODE(0i32);
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub const UI_ANIMATION_ROUNDING_FLOOR: UI_ANIMATION_ROUNDING_MODE = 1i32;
+pub const UI_ANIMATION_ROUNDING_FLOOR: UI_ANIMATION_ROUNDING_MODE = UI_ANIMATION_ROUNDING_MODE(1i32);
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub const UI_ANIMATION_ROUNDING_CEILING: UI_ANIMATION_ROUNDING_MODE = 2i32;
+pub const UI_ANIMATION_ROUNDING_CEILING: UI_ANIMATION_ROUNDING_MODE = UI_ANIMATION_ROUNDING_MODE(2i32);
+impl ::core::marker::Copy for UI_ANIMATION_ROUNDING_MODE {}
+impl ::core::clone::Clone for UI_ANIMATION_ROUNDING_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for UI_ANIMATION_ROUNDING_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UI_ANIMATION_ROUNDING_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UI_ANIMATION_ROUNDING_MODE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub type UI_ANIMATION_SCHEDULING_RESULT = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct UI_ANIMATION_SCHEDULING_RESULT(pub i32);
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub const UI_ANIMATION_SCHEDULING_UNEXPECTED_FAILURE: UI_ANIMATION_SCHEDULING_RESULT = 0i32;
+pub const UI_ANIMATION_SCHEDULING_UNEXPECTED_FAILURE: UI_ANIMATION_SCHEDULING_RESULT = UI_ANIMATION_SCHEDULING_RESULT(0i32);
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub const UI_ANIMATION_SCHEDULING_INSUFFICIENT_PRIORITY: UI_ANIMATION_SCHEDULING_RESULT = 1i32;
+pub const UI_ANIMATION_SCHEDULING_INSUFFICIENT_PRIORITY: UI_ANIMATION_SCHEDULING_RESULT = UI_ANIMATION_SCHEDULING_RESULT(1i32);
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub const UI_ANIMATION_SCHEDULING_ALREADY_SCHEDULED: UI_ANIMATION_SCHEDULING_RESULT = 2i32;
+pub const UI_ANIMATION_SCHEDULING_ALREADY_SCHEDULED: UI_ANIMATION_SCHEDULING_RESULT = UI_ANIMATION_SCHEDULING_RESULT(2i32);
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub const UI_ANIMATION_SCHEDULING_SUCCEEDED: UI_ANIMATION_SCHEDULING_RESULT = 3i32;
+pub const UI_ANIMATION_SCHEDULING_SUCCEEDED: UI_ANIMATION_SCHEDULING_RESULT = UI_ANIMATION_SCHEDULING_RESULT(3i32);
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub const UI_ANIMATION_SCHEDULING_DEFERRED: UI_ANIMATION_SCHEDULING_RESULT = 4i32;
+pub const UI_ANIMATION_SCHEDULING_DEFERRED: UI_ANIMATION_SCHEDULING_RESULT = UI_ANIMATION_SCHEDULING_RESULT(4i32);
+impl ::core::marker::Copy for UI_ANIMATION_SCHEDULING_RESULT {}
+impl ::core::clone::Clone for UI_ANIMATION_SCHEDULING_RESULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for UI_ANIMATION_SCHEDULING_RESULT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UI_ANIMATION_SCHEDULING_RESULT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UI_ANIMATION_SCHEDULING_RESULT").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_SECONDS_EVENTUALLY: i32 = -1i32;
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
 pub const UI_ANIMATION_SECONDS_INFINITE: i32 = -1i32;
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub type UI_ANIMATION_SLOPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct UI_ANIMATION_SLOPE(pub i32);
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub const UI_ANIMATION_SLOPE_INCREASING: UI_ANIMATION_SLOPE = 0i32;
+pub const UI_ANIMATION_SLOPE_INCREASING: UI_ANIMATION_SLOPE = UI_ANIMATION_SLOPE(0i32);
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub const UI_ANIMATION_SLOPE_DECREASING: UI_ANIMATION_SLOPE = 1i32;
+pub const UI_ANIMATION_SLOPE_DECREASING: UI_ANIMATION_SLOPE = UI_ANIMATION_SLOPE(1i32);
+impl ::core::marker::Copy for UI_ANIMATION_SLOPE {}
+impl ::core::clone::Clone for UI_ANIMATION_SLOPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for UI_ANIMATION_SLOPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UI_ANIMATION_SLOPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UI_ANIMATION_SLOPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub type UI_ANIMATION_STORYBOARD_STATUS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct UI_ANIMATION_STORYBOARD_STATUS(pub i32);
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub const UI_ANIMATION_STORYBOARD_BUILDING: UI_ANIMATION_STORYBOARD_STATUS = 0i32;
+pub const UI_ANIMATION_STORYBOARD_BUILDING: UI_ANIMATION_STORYBOARD_STATUS = UI_ANIMATION_STORYBOARD_STATUS(0i32);
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub const UI_ANIMATION_STORYBOARD_SCHEDULED: UI_ANIMATION_STORYBOARD_STATUS = 1i32;
+pub const UI_ANIMATION_STORYBOARD_SCHEDULED: UI_ANIMATION_STORYBOARD_STATUS = UI_ANIMATION_STORYBOARD_STATUS(1i32);
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub const UI_ANIMATION_STORYBOARD_CANCELLED: UI_ANIMATION_STORYBOARD_STATUS = 2i32;
+pub const UI_ANIMATION_STORYBOARD_CANCELLED: UI_ANIMATION_STORYBOARD_STATUS = UI_ANIMATION_STORYBOARD_STATUS(2i32);
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub const UI_ANIMATION_STORYBOARD_PLAYING: UI_ANIMATION_STORYBOARD_STATUS = 3i32;
+pub const UI_ANIMATION_STORYBOARD_PLAYING: UI_ANIMATION_STORYBOARD_STATUS = UI_ANIMATION_STORYBOARD_STATUS(3i32);
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub const UI_ANIMATION_STORYBOARD_TRUNCATED: UI_ANIMATION_STORYBOARD_STATUS = 4i32;
+pub const UI_ANIMATION_STORYBOARD_TRUNCATED: UI_ANIMATION_STORYBOARD_STATUS = UI_ANIMATION_STORYBOARD_STATUS(4i32);
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub const UI_ANIMATION_STORYBOARD_FINISHED: UI_ANIMATION_STORYBOARD_STATUS = 5i32;
+pub const UI_ANIMATION_STORYBOARD_FINISHED: UI_ANIMATION_STORYBOARD_STATUS = UI_ANIMATION_STORYBOARD_STATUS(5i32);
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub const UI_ANIMATION_STORYBOARD_READY: UI_ANIMATION_STORYBOARD_STATUS = 6i32;
+pub const UI_ANIMATION_STORYBOARD_READY: UI_ANIMATION_STORYBOARD_STATUS = UI_ANIMATION_STORYBOARD_STATUS(6i32);
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub const UI_ANIMATION_STORYBOARD_INSUFFICIENT_PRIORITY: UI_ANIMATION_STORYBOARD_STATUS = 7i32;
+pub const UI_ANIMATION_STORYBOARD_INSUFFICIENT_PRIORITY: UI_ANIMATION_STORYBOARD_STATUS = UI_ANIMATION_STORYBOARD_STATUS(7i32);
+impl ::core::marker::Copy for UI_ANIMATION_STORYBOARD_STATUS {}
+impl ::core::clone::Clone for UI_ANIMATION_STORYBOARD_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for UI_ANIMATION_STORYBOARD_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UI_ANIMATION_STORYBOARD_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UI_ANIMATION_STORYBOARD_STATUS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub type UI_ANIMATION_TIMER_CLIENT_STATUS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct UI_ANIMATION_TIMER_CLIENT_STATUS(pub i32);
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub const UI_ANIMATION_TIMER_CLIENT_IDLE: UI_ANIMATION_TIMER_CLIENT_STATUS = 0i32;
+pub const UI_ANIMATION_TIMER_CLIENT_IDLE: UI_ANIMATION_TIMER_CLIENT_STATUS = UI_ANIMATION_TIMER_CLIENT_STATUS(0i32);
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub const UI_ANIMATION_TIMER_CLIENT_BUSY: UI_ANIMATION_TIMER_CLIENT_STATUS = 1i32;
+pub const UI_ANIMATION_TIMER_CLIENT_BUSY: UI_ANIMATION_TIMER_CLIENT_STATUS = UI_ANIMATION_TIMER_CLIENT_STATUS(1i32);
+impl ::core::marker::Copy for UI_ANIMATION_TIMER_CLIENT_STATUS {}
+impl ::core::clone::Clone for UI_ANIMATION_TIMER_CLIENT_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for UI_ANIMATION_TIMER_CLIENT_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UI_ANIMATION_TIMER_CLIENT_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UI_ANIMATION_TIMER_CLIENT_STATUS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub type UI_ANIMATION_UPDATE_RESULT = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct UI_ANIMATION_UPDATE_RESULT(pub i32);
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub const UI_ANIMATION_UPDATE_NO_CHANGE: UI_ANIMATION_UPDATE_RESULT = 0i32;
+pub const UI_ANIMATION_UPDATE_NO_CHANGE: UI_ANIMATION_UPDATE_RESULT = UI_ANIMATION_UPDATE_RESULT(0i32);
 #[doc = "*Required features: 'Win32_UI_Animation'*"]
-pub const UI_ANIMATION_UPDATE_VARIABLES_CHANGED: UI_ANIMATION_UPDATE_RESULT = 1i32;
+pub const UI_ANIMATION_UPDATE_VARIABLES_CHANGED: UI_ANIMATION_UPDATE_RESULT = UI_ANIMATION_UPDATE_RESULT(1i32);
+impl ::core::marker::Copy for UI_ANIMATION_UPDATE_RESULT {}
+impl ::core::clone::Clone for UI_ANIMATION_UPDATE_RESULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for UI_ANIMATION_UPDATE_RESULT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for UI_ANIMATION_UPDATE_RESULT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UI_ANIMATION_UPDATE_RESULT").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "implement")]
 ::core::include!("impl.rs");

@@ -60,37 +60,101 @@ pub unsafe fn CheckGamingPrivilegeWithUIForUser<'a, Param0: ::windows::core::Int
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub type GAMESTATS_OPEN_RESULT = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct GAMESTATS_OPEN_RESULT(pub i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const GAMESTATS_OPEN_CREATED: GAMESTATS_OPEN_RESULT = 0i32;
+pub const GAMESTATS_OPEN_CREATED: GAMESTATS_OPEN_RESULT = GAMESTATS_OPEN_RESULT(0i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const GAMESTATS_OPEN_OPENED: GAMESTATS_OPEN_RESULT = 1i32;
+pub const GAMESTATS_OPEN_OPENED: GAMESTATS_OPEN_RESULT = GAMESTATS_OPEN_RESULT(1i32);
+impl ::core::marker::Copy for GAMESTATS_OPEN_RESULT {}
+impl ::core::clone::Clone for GAMESTATS_OPEN_RESULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for GAMESTATS_OPEN_RESULT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GAMESTATS_OPEN_RESULT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GAMESTATS_OPEN_RESULT").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub type GAMESTATS_OPEN_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct GAMESTATS_OPEN_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const GAMESTATS_OPEN_OPENORCREATE: GAMESTATS_OPEN_TYPE = 0i32;
+pub const GAMESTATS_OPEN_OPENORCREATE: GAMESTATS_OPEN_TYPE = GAMESTATS_OPEN_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const GAMESTATS_OPEN_OPENONLY: GAMESTATS_OPEN_TYPE = 1i32;
+pub const GAMESTATS_OPEN_OPENONLY: GAMESTATS_OPEN_TYPE = GAMESTATS_OPEN_TYPE(1i32);
+impl ::core::marker::Copy for GAMESTATS_OPEN_TYPE {}
+impl ::core::clone::Clone for GAMESTATS_OPEN_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for GAMESTATS_OPEN_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GAMESTATS_OPEN_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GAMESTATS_OPEN_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub type GAME_INSTALL_SCOPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct GAME_INSTALL_SCOPE(pub i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const GIS_NOT_INSTALLED: GAME_INSTALL_SCOPE = 1i32;
+pub const GIS_NOT_INSTALLED: GAME_INSTALL_SCOPE = GAME_INSTALL_SCOPE(1i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const GIS_CURRENT_USER: GAME_INSTALL_SCOPE = 2i32;
+pub const GIS_CURRENT_USER: GAME_INSTALL_SCOPE = GAME_INSTALL_SCOPE(2i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const GIS_ALL_USERS: GAME_INSTALL_SCOPE = 3i32;
+pub const GIS_ALL_USERS: GAME_INSTALL_SCOPE = GAME_INSTALL_SCOPE(3i32);
+impl ::core::marker::Copy for GAME_INSTALL_SCOPE {}
+impl ::core::clone::Clone for GAME_INSTALL_SCOPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for GAME_INSTALL_SCOPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GAME_INSTALL_SCOPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GAME_INSTALL_SCOPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub type GAMING_DEVICE_DEVICE_ID = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct GAMING_DEVICE_DEVICE_ID(pub i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const GAMING_DEVICE_DEVICE_ID_NONE: GAMING_DEVICE_DEVICE_ID = 0i32;
+pub const GAMING_DEVICE_DEVICE_ID_NONE: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(0i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const GAMING_DEVICE_DEVICE_ID_XBOX_ONE: GAMING_DEVICE_DEVICE_ID = 1988865574i32;
+pub const GAMING_DEVICE_DEVICE_ID_XBOX_ONE: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(1988865574i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const GAMING_DEVICE_DEVICE_ID_XBOX_ONE_S: GAMING_DEVICE_DEVICE_ID = 712204761i32;
+pub const GAMING_DEVICE_DEVICE_ID_XBOX_ONE_S: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(712204761i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const GAMING_DEVICE_DEVICE_ID_XBOX_ONE_X: GAMING_DEVICE_DEVICE_ID = 1523980231i32;
+pub const GAMING_DEVICE_DEVICE_ID_XBOX_ONE_X: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(1523980231i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const GAMING_DEVICE_DEVICE_ID_XBOX_ONE_X_DEVKIT: GAMING_DEVICE_DEVICE_ID = 284675555i32;
+pub const GAMING_DEVICE_DEVICE_ID_XBOX_ONE_X_DEVKIT: GAMING_DEVICE_DEVICE_ID = GAMING_DEVICE_DEVICE_ID(284675555i32);
+impl ::core::marker::Copy for GAMING_DEVICE_DEVICE_ID {}
+impl ::core::clone::Clone for GAMING_DEVICE_DEVICE_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for GAMING_DEVICE_DEVICE_ID {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GAMING_DEVICE_DEVICE_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GAMING_DEVICE_DEVICE_ID").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Gaming'*"]
 pub struct GAMING_DEVICE_MODEL_INFORMATION {
@@ -123,11 +187,27 @@ impl ::core::default::Default for GAMING_DEVICE_MODEL_INFORMATION {
     }
 }
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub type GAMING_DEVICE_VENDOR_ID = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct GAMING_DEVICE_VENDOR_ID(pub i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const GAMING_DEVICE_VENDOR_ID_NONE: GAMING_DEVICE_VENDOR_ID = 0i32;
+pub const GAMING_DEVICE_VENDOR_ID_NONE: GAMING_DEVICE_VENDOR_ID = GAMING_DEVICE_VENDOR_ID(0i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const GAMING_DEVICE_VENDOR_ID_MICROSOFT: GAMING_DEVICE_VENDOR_ID = -1024700366i32;
+pub const GAMING_DEVICE_VENDOR_ID_MICROSOFT: GAMING_DEVICE_VENDOR_ID = GAMING_DEVICE_VENDOR_ID(-1024700366i32);
+impl ::core::marker::Copy for GAMING_DEVICE_VENDOR_ID {}
+impl ::core::clone::Clone for GAMING_DEVICE_VENDOR_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for GAMING_DEVICE_VENDOR_ID {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for GAMING_DEVICE_VENDOR_ID {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GAMING_DEVICE_VENDOR_ID").field(&self.0).finish()
+    }
+}
 pub const GameExplorer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a5ea990_3034_4d6f_9128_01f3c61022bc);
 pub const GameStatistics: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdbc85a2c_c0dc_4961_b6e2_d28b62c11ad4);
 #[doc = "*Required features: 'Win32_Gaming'*"]
@@ -982,51 +1062,67 @@ pub struct IXblIdpAuthTokenResult2_Vtbl {
     GetUniqueModernGamertag: usize,
 }
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub type KnownGamingPrivileges = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct KnownGamingPrivileges(pub i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const XPRIVILEGE_BROADCAST: KnownGamingPrivileges = 190i32;
+pub const XPRIVILEGE_BROADCAST: KnownGamingPrivileges = KnownGamingPrivileges(190i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const XPRIVILEGE_VIEW_FRIENDS_LIST: KnownGamingPrivileges = 197i32;
+pub const XPRIVILEGE_VIEW_FRIENDS_LIST: KnownGamingPrivileges = KnownGamingPrivileges(197i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const XPRIVILEGE_GAME_DVR: KnownGamingPrivileges = 198i32;
+pub const XPRIVILEGE_GAME_DVR: KnownGamingPrivileges = KnownGamingPrivileges(198i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const XPRIVILEGE_SHARE_KINECT_CONTENT: KnownGamingPrivileges = 199i32;
+pub const XPRIVILEGE_SHARE_KINECT_CONTENT: KnownGamingPrivileges = KnownGamingPrivileges(199i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const XPRIVILEGE_MULTIPLAYER_PARTIES: KnownGamingPrivileges = 203i32;
+pub const XPRIVILEGE_MULTIPLAYER_PARTIES: KnownGamingPrivileges = KnownGamingPrivileges(203i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const XPRIVILEGE_COMMUNICATION_VOICE_INGAME: KnownGamingPrivileges = 205i32;
+pub const XPRIVILEGE_COMMUNICATION_VOICE_INGAME: KnownGamingPrivileges = KnownGamingPrivileges(205i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const XPRIVILEGE_COMMUNICATION_VOICE_SKYPE: KnownGamingPrivileges = 206i32;
+pub const XPRIVILEGE_COMMUNICATION_VOICE_SKYPE: KnownGamingPrivileges = KnownGamingPrivileges(206i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const XPRIVILEGE_CLOUD_GAMING_MANAGE_SESSION: KnownGamingPrivileges = 207i32;
+pub const XPRIVILEGE_CLOUD_GAMING_MANAGE_SESSION: KnownGamingPrivileges = KnownGamingPrivileges(207i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const XPRIVILEGE_CLOUD_GAMING_JOIN_SESSION: KnownGamingPrivileges = 208i32;
+pub const XPRIVILEGE_CLOUD_GAMING_JOIN_SESSION: KnownGamingPrivileges = KnownGamingPrivileges(208i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const XPRIVILEGE_CLOUD_SAVED_GAMES: KnownGamingPrivileges = 209i32;
+pub const XPRIVILEGE_CLOUD_SAVED_GAMES: KnownGamingPrivileges = KnownGamingPrivileges(209i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const XPRIVILEGE_SHARE_CONTENT: KnownGamingPrivileges = 211i32;
+pub const XPRIVILEGE_SHARE_CONTENT: KnownGamingPrivileges = KnownGamingPrivileges(211i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const XPRIVILEGE_PREMIUM_CONTENT: KnownGamingPrivileges = 214i32;
+pub const XPRIVILEGE_PREMIUM_CONTENT: KnownGamingPrivileges = KnownGamingPrivileges(214i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const XPRIVILEGE_SUBSCRIPTION_CONTENT: KnownGamingPrivileges = 219i32;
+pub const XPRIVILEGE_SUBSCRIPTION_CONTENT: KnownGamingPrivileges = KnownGamingPrivileges(219i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const XPRIVILEGE_SOCIAL_NETWORK_SHARING: KnownGamingPrivileges = 220i32;
+pub const XPRIVILEGE_SOCIAL_NETWORK_SHARING: KnownGamingPrivileges = KnownGamingPrivileges(220i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const XPRIVILEGE_PREMIUM_VIDEO: KnownGamingPrivileges = 224i32;
+pub const XPRIVILEGE_PREMIUM_VIDEO: KnownGamingPrivileges = KnownGamingPrivileges(224i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const XPRIVILEGE_VIDEO_COMMUNICATIONS: KnownGamingPrivileges = 235i32;
+pub const XPRIVILEGE_VIDEO_COMMUNICATIONS: KnownGamingPrivileges = KnownGamingPrivileges(235i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const XPRIVILEGE_PURCHASE_CONTENT: KnownGamingPrivileges = 245i32;
+pub const XPRIVILEGE_PURCHASE_CONTENT: KnownGamingPrivileges = KnownGamingPrivileges(245i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const XPRIVILEGE_USER_CREATED_CONTENT: KnownGamingPrivileges = 247i32;
+pub const XPRIVILEGE_USER_CREATED_CONTENT: KnownGamingPrivileges = KnownGamingPrivileges(247i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const XPRIVILEGE_PROFILE_VIEWING: KnownGamingPrivileges = 249i32;
+pub const XPRIVILEGE_PROFILE_VIEWING: KnownGamingPrivileges = KnownGamingPrivileges(249i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const XPRIVILEGE_COMMUNICATIONS: KnownGamingPrivileges = 252i32;
+pub const XPRIVILEGE_COMMUNICATIONS: KnownGamingPrivileges = KnownGamingPrivileges(252i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const XPRIVILEGE_MULTIPLAYER_SESSIONS: KnownGamingPrivileges = 254i32;
+pub const XPRIVILEGE_MULTIPLAYER_SESSIONS: KnownGamingPrivileges = KnownGamingPrivileges(254i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const XPRIVILEGE_ADD_FRIEND: KnownGamingPrivileges = 255i32;
+pub const XPRIVILEGE_ADD_FRIEND: KnownGamingPrivileges = KnownGamingPrivileges(255i32);
+impl ::core::marker::Copy for KnownGamingPrivileges {}
+impl ::core::clone::Clone for KnownGamingPrivileges {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for KnownGamingPrivileges {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for KnownGamingPrivileges {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KnownGamingPrivileges").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Gaming'*"]
 pub type PlayerPickerUICompletionRoutine = ::core::option::Option<unsafe extern "system" fn(returncode: ::windows::core::HRESULT, context: *const ::core::ffi::c_void, selectedxuids: *const ::windows::core::HSTRING, selectedxuidscount: usize)>;
 #[doc = "*Required features: 'Win32_Gaming', 'Win32_Foundation'*"]
@@ -1354,25 +1450,41 @@ pub unsafe fn TryCancelPendingGameUI() -> super::Foundation::BOOL {
     unimplemented!("Unsupported target OS");
 }
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub type XBL_IDP_AUTH_TOKEN_STATUS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XBL_IDP_AUTH_TOKEN_STATUS(pub i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const XBL_IDP_AUTH_TOKEN_STATUS_SUCCESS: XBL_IDP_AUTH_TOKEN_STATUS = 0i32;
+pub const XBL_IDP_AUTH_TOKEN_STATUS_SUCCESS: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(0i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const XBL_IDP_AUTH_TOKEN_STATUS_OFFLINE_SUCCESS: XBL_IDP_AUTH_TOKEN_STATUS = 1i32;
+pub const XBL_IDP_AUTH_TOKEN_STATUS_OFFLINE_SUCCESS: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(1i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const XBL_IDP_AUTH_TOKEN_STATUS_NO_ACCOUNT_SET: XBL_IDP_AUTH_TOKEN_STATUS = 2i32;
+pub const XBL_IDP_AUTH_TOKEN_STATUS_NO_ACCOUNT_SET: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(2i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const XBL_IDP_AUTH_TOKEN_STATUS_LOAD_MSA_ACCOUNT_FAILED: XBL_IDP_AUTH_TOKEN_STATUS = 3i32;
+pub const XBL_IDP_AUTH_TOKEN_STATUS_LOAD_MSA_ACCOUNT_FAILED: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(3i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const XBL_IDP_AUTH_TOKEN_STATUS_XBOX_VETO: XBL_IDP_AUTH_TOKEN_STATUS = 4i32;
+pub const XBL_IDP_AUTH_TOKEN_STATUS_XBOX_VETO: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(4i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const XBL_IDP_AUTH_TOKEN_STATUS_MSA_INTERRUPT: XBL_IDP_AUTH_TOKEN_STATUS = 5i32;
+pub const XBL_IDP_AUTH_TOKEN_STATUS_MSA_INTERRUPT: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(5i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const XBL_IDP_AUTH_TOKEN_STATUS_OFFLINE_NO_CONSENT: XBL_IDP_AUTH_TOKEN_STATUS = 6i32;
+pub const XBL_IDP_AUTH_TOKEN_STATUS_OFFLINE_NO_CONSENT: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(6i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const XBL_IDP_AUTH_TOKEN_STATUS_VIEW_NOT_SET: XBL_IDP_AUTH_TOKEN_STATUS = 7i32;
+pub const XBL_IDP_AUTH_TOKEN_STATUS_VIEW_NOT_SET: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(7i32);
 #[doc = "*Required features: 'Win32_Gaming'*"]
-pub const XBL_IDP_AUTH_TOKEN_STATUS_UNKNOWN: XBL_IDP_AUTH_TOKEN_STATUS = -1i32;
+pub const XBL_IDP_AUTH_TOKEN_STATUS_UNKNOWN: XBL_IDP_AUTH_TOKEN_STATUS = XBL_IDP_AUTH_TOKEN_STATUS(-1i32);
+impl ::core::marker::Copy for XBL_IDP_AUTH_TOKEN_STATUS {}
+impl ::core::clone::Clone for XBL_IDP_AUTH_TOKEN_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XBL_IDP_AUTH_TOKEN_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XBL_IDP_AUTH_TOKEN_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XBL_IDP_AUTH_TOKEN_STATUS").field(&self.0).finish()
+    }
+}
 pub const XblIdpAuthManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce23534b_56d8_4978_86a2_7ee570640468);
 pub const XblIdpAuthTokenResult: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f493441_744a_410c_ae2b_9a22f7c7731f);
 #[cfg(feature = "implement")]

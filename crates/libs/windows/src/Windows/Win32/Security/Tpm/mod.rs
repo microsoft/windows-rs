@@ -444,83 +444,131 @@ pub struct ITpmVirtualSmartCardManagerStatusCallback_Vtbl {
 }
 pub const RemoteTpmVirtualSmartCardManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x152ea2a8_70dc_4c59_8b2a_32aa3ca0dcac);
 #[doc = "*Required features: 'Win32_Security_Tpm'*"]
-pub type TPMVSCMGR_ERROR = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TPMVSCMGR_ERROR(pub i32);
 #[doc = "*Required features: 'Win32_Security_Tpm'*"]
-pub const TPMVSCMGR_ERROR_IMPERSONATION: TPMVSCMGR_ERROR = 0i32;
+pub const TPMVSCMGR_ERROR_IMPERSONATION: TPMVSCMGR_ERROR = TPMVSCMGR_ERROR(0i32);
 #[doc = "*Required features: 'Win32_Security_Tpm'*"]
-pub const TPMVSCMGR_ERROR_PIN_COMPLEXITY: TPMVSCMGR_ERROR = 1i32;
+pub const TPMVSCMGR_ERROR_PIN_COMPLEXITY: TPMVSCMGR_ERROR = TPMVSCMGR_ERROR(1i32);
 #[doc = "*Required features: 'Win32_Security_Tpm'*"]
-pub const TPMVSCMGR_ERROR_READER_COUNT_LIMIT: TPMVSCMGR_ERROR = 2i32;
+pub const TPMVSCMGR_ERROR_READER_COUNT_LIMIT: TPMVSCMGR_ERROR = TPMVSCMGR_ERROR(2i32);
 #[doc = "*Required features: 'Win32_Security_Tpm'*"]
-pub const TPMVSCMGR_ERROR_TERMINAL_SERVICES_SESSION: TPMVSCMGR_ERROR = 3i32;
+pub const TPMVSCMGR_ERROR_TERMINAL_SERVICES_SESSION: TPMVSCMGR_ERROR = TPMVSCMGR_ERROR(3i32);
 #[doc = "*Required features: 'Win32_Security_Tpm'*"]
-pub const TPMVSCMGR_ERROR_VTPMSMARTCARD_INITIALIZE: TPMVSCMGR_ERROR = 4i32;
+pub const TPMVSCMGR_ERROR_VTPMSMARTCARD_INITIALIZE: TPMVSCMGR_ERROR = TPMVSCMGR_ERROR(4i32);
 #[doc = "*Required features: 'Win32_Security_Tpm'*"]
-pub const TPMVSCMGR_ERROR_VTPMSMARTCARD_CREATE: TPMVSCMGR_ERROR = 5i32;
+pub const TPMVSCMGR_ERROR_VTPMSMARTCARD_CREATE: TPMVSCMGR_ERROR = TPMVSCMGR_ERROR(5i32);
 #[doc = "*Required features: 'Win32_Security_Tpm'*"]
-pub const TPMVSCMGR_ERROR_VTPMSMARTCARD_DESTROY: TPMVSCMGR_ERROR = 6i32;
+pub const TPMVSCMGR_ERROR_VTPMSMARTCARD_DESTROY: TPMVSCMGR_ERROR = TPMVSCMGR_ERROR(6i32);
 #[doc = "*Required features: 'Win32_Security_Tpm'*"]
-pub const TPMVSCMGR_ERROR_VGIDSSIMULATOR_INITIALIZE: TPMVSCMGR_ERROR = 7i32;
+pub const TPMVSCMGR_ERROR_VGIDSSIMULATOR_INITIALIZE: TPMVSCMGR_ERROR = TPMVSCMGR_ERROR(7i32);
 #[doc = "*Required features: 'Win32_Security_Tpm'*"]
-pub const TPMVSCMGR_ERROR_VGIDSSIMULATOR_CREATE: TPMVSCMGR_ERROR = 8i32;
+pub const TPMVSCMGR_ERROR_VGIDSSIMULATOR_CREATE: TPMVSCMGR_ERROR = TPMVSCMGR_ERROR(8i32);
 #[doc = "*Required features: 'Win32_Security_Tpm'*"]
-pub const TPMVSCMGR_ERROR_VGIDSSIMULATOR_DESTROY: TPMVSCMGR_ERROR = 9i32;
+pub const TPMVSCMGR_ERROR_VGIDSSIMULATOR_DESTROY: TPMVSCMGR_ERROR = TPMVSCMGR_ERROR(9i32);
 #[doc = "*Required features: 'Win32_Security_Tpm'*"]
-pub const TPMVSCMGR_ERROR_VGIDSSIMULATOR_WRITE_PROPERTY: TPMVSCMGR_ERROR = 10i32;
+pub const TPMVSCMGR_ERROR_VGIDSSIMULATOR_WRITE_PROPERTY: TPMVSCMGR_ERROR = TPMVSCMGR_ERROR(10i32);
 #[doc = "*Required features: 'Win32_Security_Tpm'*"]
-pub const TPMVSCMGR_ERROR_VGIDSSIMULATOR_READ_PROPERTY: TPMVSCMGR_ERROR = 11i32;
+pub const TPMVSCMGR_ERROR_VGIDSSIMULATOR_READ_PROPERTY: TPMVSCMGR_ERROR = TPMVSCMGR_ERROR(11i32);
 #[doc = "*Required features: 'Win32_Security_Tpm'*"]
-pub const TPMVSCMGR_ERROR_VREADER_INITIALIZE: TPMVSCMGR_ERROR = 12i32;
+pub const TPMVSCMGR_ERROR_VREADER_INITIALIZE: TPMVSCMGR_ERROR = TPMVSCMGR_ERROR(12i32);
 #[doc = "*Required features: 'Win32_Security_Tpm'*"]
-pub const TPMVSCMGR_ERROR_VREADER_CREATE: TPMVSCMGR_ERROR = 13i32;
+pub const TPMVSCMGR_ERROR_VREADER_CREATE: TPMVSCMGR_ERROR = TPMVSCMGR_ERROR(13i32);
 #[doc = "*Required features: 'Win32_Security_Tpm'*"]
-pub const TPMVSCMGR_ERROR_VREADER_DESTROY: TPMVSCMGR_ERROR = 14i32;
+pub const TPMVSCMGR_ERROR_VREADER_DESTROY: TPMVSCMGR_ERROR = TPMVSCMGR_ERROR(14i32);
 #[doc = "*Required features: 'Win32_Security_Tpm'*"]
-pub const TPMVSCMGR_ERROR_GENERATE_LOCATE_READER: TPMVSCMGR_ERROR = 15i32;
+pub const TPMVSCMGR_ERROR_GENERATE_LOCATE_READER: TPMVSCMGR_ERROR = TPMVSCMGR_ERROR(15i32);
 #[doc = "*Required features: 'Win32_Security_Tpm'*"]
-pub const TPMVSCMGR_ERROR_GENERATE_FILESYSTEM: TPMVSCMGR_ERROR = 16i32;
+pub const TPMVSCMGR_ERROR_GENERATE_FILESYSTEM: TPMVSCMGR_ERROR = TPMVSCMGR_ERROR(16i32);
 #[doc = "*Required features: 'Win32_Security_Tpm'*"]
-pub const TPMVSCMGR_ERROR_CARD_CREATE: TPMVSCMGR_ERROR = 17i32;
+pub const TPMVSCMGR_ERROR_CARD_CREATE: TPMVSCMGR_ERROR = TPMVSCMGR_ERROR(17i32);
 #[doc = "*Required features: 'Win32_Security_Tpm'*"]
-pub const TPMVSCMGR_ERROR_CARD_DESTROY: TPMVSCMGR_ERROR = 18i32;
+pub const TPMVSCMGR_ERROR_CARD_DESTROY: TPMVSCMGR_ERROR = TPMVSCMGR_ERROR(18i32);
+impl ::core::marker::Copy for TPMVSCMGR_ERROR {}
+impl ::core::clone::Clone for TPMVSCMGR_ERROR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TPMVSCMGR_ERROR {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TPMVSCMGR_ERROR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TPMVSCMGR_ERROR").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Tpm'*"]
-pub type TPMVSCMGR_STATUS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TPMVSCMGR_STATUS(pub i32);
 #[doc = "*Required features: 'Win32_Security_Tpm'*"]
-pub const TPMVSCMGR_STATUS_VTPMSMARTCARD_INITIALIZING: TPMVSCMGR_STATUS = 0i32;
+pub const TPMVSCMGR_STATUS_VTPMSMARTCARD_INITIALIZING: TPMVSCMGR_STATUS = TPMVSCMGR_STATUS(0i32);
 #[doc = "*Required features: 'Win32_Security_Tpm'*"]
-pub const TPMVSCMGR_STATUS_VTPMSMARTCARD_CREATING: TPMVSCMGR_STATUS = 1i32;
+pub const TPMVSCMGR_STATUS_VTPMSMARTCARD_CREATING: TPMVSCMGR_STATUS = TPMVSCMGR_STATUS(1i32);
 #[doc = "*Required features: 'Win32_Security_Tpm'*"]
-pub const TPMVSCMGR_STATUS_VTPMSMARTCARD_DESTROYING: TPMVSCMGR_STATUS = 2i32;
+pub const TPMVSCMGR_STATUS_VTPMSMARTCARD_DESTROYING: TPMVSCMGR_STATUS = TPMVSCMGR_STATUS(2i32);
 #[doc = "*Required features: 'Win32_Security_Tpm'*"]
-pub const TPMVSCMGR_STATUS_VGIDSSIMULATOR_INITIALIZING: TPMVSCMGR_STATUS = 3i32;
+pub const TPMVSCMGR_STATUS_VGIDSSIMULATOR_INITIALIZING: TPMVSCMGR_STATUS = TPMVSCMGR_STATUS(3i32);
 #[doc = "*Required features: 'Win32_Security_Tpm'*"]
-pub const TPMVSCMGR_STATUS_VGIDSSIMULATOR_CREATING: TPMVSCMGR_STATUS = 4i32;
+pub const TPMVSCMGR_STATUS_VGIDSSIMULATOR_CREATING: TPMVSCMGR_STATUS = TPMVSCMGR_STATUS(4i32);
 #[doc = "*Required features: 'Win32_Security_Tpm'*"]
-pub const TPMVSCMGR_STATUS_VGIDSSIMULATOR_DESTROYING: TPMVSCMGR_STATUS = 5i32;
+pub const TPMVSCMGR_STATUS_VGIDSSIMULATOR_DESTROYING: TPMVSCMGR_STATUS = TPMVSCMGR_STATUS(5i32);
 #[doc = "*Required features: 'Win32_Security_Tpm'*"]
-pub const TPMVSCMGR_STATUS_VREADER_INITIALIZING: TPMVSCMGR_STATUS = 6i32;
+pub const TPMVSCMGR_STATUS_VREADER_INITIALIZING: TPMVSCMGR_STATUS = TPMVSCMGR_STATUS(6i32);
 #[doc = "*Required features: 'Win32_Security_Tpm'*"]
-pub const TPMVSCMGR_STATUS_VREADER_CREATING: TPMVSCMGR_STATUS = 7i32;
+pub const TPMVSCMGR_STATUS_VREADER_CREATING: TPMVSCMGR_STATUS = TPMVSCMGR_STATUS(7i32);
 #[doc = "*Required features: 'Win32_Security_Tpm'*"]
-pub const TPMVSCMGR_STATUS_VREADER_DESTROYING: TPMVSCMGR_STATUS = 8i32;
+pub const TPMVSCMGR_STATUS_VREADER_DESTROYING: TPMVSCMGR_STATUS = TPMVSCMGR_STATUS(8i32);
 #[doc = "*Required features: 'Win32_Security_Tpm'*"]
-pub const TPMVSCMGR_STATUS_GENERATE_WAITING: TPMVSCMGR_STATUS = 9i32;
+pub const TPMVSCMGR_STATUS_GENERATE_WAITING: TPMVSCMGR_STATUS = TPMVSCMGR_STATUS(9i32);
 #[doc = "*Required features: 'Win32_Security_Tpm'*"]
-pub const TPMVSCMGR_STATUS_GENERATE_AUTHENTICATING: TPMVSCMGR_STATUS = 10i32;
+pub const TPMVSCMGR_STATUS_GENERATE_AUTHENTICATING: TPMVSCMGR_STATUS = TPMVSCMGR_STATUS(10i32);
 #[doc = "*Required features: 'Win32_Security_Tpm'*"]
-pub const TPMVSCMGR_STATUS_GENERATE_RUNNING: TPMVSCMGR_STATUS = 11i32;
+pub const TPMVSCMGR_STATUS_GENERATE_RUNNING: TPMVSCMGR_STATUS = TPMVSCMGR_STATUS(11i32);
 #[doc = "*Required features: 'Win32_Security_Tpm'*"]
-pub const TPMVSCMGR_STATUS_CARD_CREATED: TPMVSCMGR_STATUS = 12i32;
+pub const TPMVSCMGR_STATUS_CARD_CREATED: TPMVSCMGR_STATUS = TPMVSCMGR_STATUS(12i32);
 #[doc = "*Required features: 'Win32_Security_Tpm'*"]
-pub const TPMVSCMGR_STATUS_CARD_DESTROYED: TPMVSCMGR_STATUS = 13i32;
+pub const TPMVSCMGR_STATUS_CARD_DESTROYED: TPMVSCMGR_STATUS = TPMVSCMGR_STATUS(13i32);
+impl ::core::marker::Copy for TPMVSCMGR_STATUS {}
+impl ::core::clone::Clone for TPMVSCMGR_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TPMVSCMGR_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TPMVSCMGR_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TPMVSCMGR_STATUS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Tpm'*"]
-pub type TPMVSC_ATTESTATION_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TPMVSC_ATTESTATION_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Security_Tpm'*"]
-pub const TPMVSC_ATTESTATION_NONE: TPMVSC_ATTESTATION_TYPE = 0i32;
+pub const TPMVSC_ATTESTATION_NONE: TPMVSC_ATTESTATION_TYPE = TPMVSC_ATTESTATION_TYPE(0i32);
 #[doc = "*Required features: 'Win32_Security_Tpm'*"]
-pub const TPMVSC_ATTESTATION_AIK_ONLY: TPMVSC_ATTESTATION_TYPE = 1i32;
+pub const TPMVSC_ATTESTATION_AIK_ONLY: TPMVSC_ATTESTATION_TYPE = TPMVSC_ATTESTATION_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Security_Tpm'*"]
-pub const TPMVSC_ATTESTATION_AIK_AND_CERTIFICATE: TPMVSC_ATTESTATION_TYPE = 2i32;
+pub const TPMVSC_ATTESTATION_AIK_AND_CERTIFICATE: TPMVSC_ATTESTATION_TYPE = TPMVSC_ATTESTATION_TYPE(2i32);
+impl ::core::marker::Copy for TPMVSC_ATTESTATION_TYPE {}
+impl ::core::clone::Clone for TPMVSC_ATTESTATION_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TPMVSC_ATTESTATION_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TPMVSC_ATTESTATION_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TPMVSC_ATTESTATION_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Security_Tpm'*"]
 pub const TPMVSC_DEFAULT_ADMIN_ALGORITHM_ID: u32 = 130u32;
 pub const TpmVirtualSmartCardManager: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16a18e86_7f6e_4c20_ad89_4ffc0db7a96a);

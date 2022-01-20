@@ -1,36 +1,124 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'Win32_System_StationsAndDesktops'*"]
-pub type BROADCAST_SYSTEM_MESSAGE_FLAGS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct BROADCAST_SYSTEM_MESSAGE_FLAGS(pub u32);
 #[doc = "*Required features: 'Win32_System_StationsAndDesktops'*"]
-pub const BSF_ALLOWSFW: BROADCAST_SYSTEM_MESSAGE_FLAGS = 128u32;
+pub const BSF_ALLOWSFW: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(128u32);
 #[doc = "*Required features: 'Win32_System_StationsAndDesktops'*"]
-pub const BSF_FLUSHDISK: BROADCAST_SYSTEM_MESSAGE_FLAGS = 4u32;
+pub const BSF_FLUSHDISK: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(4u32);
 #[doc = "*Required features: 'Win32_System_StationsAndDesktops'*"]
-pub const BSF_FORCEIFHUNG: BROADCAST_SYSTEM_MESSAGE_FLAGS = 32u32;
+pub const BSF_FORCEIFHUNG: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(32u32);
 #[doc = "*Required features: 'Win32_System_StationsAndDesktops'*"]
-pub const BSF_IGNORECURRENTTASK: BROADCAST_SYSTEM_MESSAGE_FLAGS = 2u32;
+pub const BSF_IGNORECURRENTTASK: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(2u32);
 #[doc = "*Required features: 'Win32_System_StationsAndDesktops'*"]
-pub const BSF_NOHANG: BROADCAST_SYSTEM_MESSAGE_FLAGS = 8u32;
+pub const BSF_NOHANG: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(8u32);
 #[doc = "*Required features: 'Win32_System_StationsAndDesktops'*"]
-pub const BSF_NOTIMEOUTIFNOTHUNG: BROADCAST_SYSTEM_MESSAGE_FLAGS = 64u32;
+pub const BSF_NOTIMEOUTIFNOTHUNG: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(64u32);
 #[doc = "*Required features: 'Win32_System_StationsAndDesktops'*"]
-pub const BSF_POSTMESSAGE: BROADCAST_SYSTEM_MESSAGE_FLAGS = 16u32;
+pub const BSF_POSTMESSAGE: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(16u32);
 #[doc = "*Required features: 'Win32_System_StationsAndDesktops'*"]
-pub const BSF_QUERY: BROADCAST_SYSTEM_MESSAGE_FLAGS = 1u32;
+pub const BSF_QUERY: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(1u32);
 #[doc = "*Required features: 'Win32_System_StationsAndDesktops'*"]
-pub const BSF_SENDNOTIFYMESSAGE: BROADCAST_SYSTEM_MESSAGE_FLAGS = 256u32;
+pub const BSF_SENDNOTIFYMESSAGE: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(256u32);
 #[doc = "*Required features: 'Win32_System_StationsAndDesktops'*"]
-pub const BSF_LUID: BROADCAST_SYSTEM_MESSAGE_FLAGS = 1024u32;
+pub const BSF_LUID: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(1024u32);
 #[doc = "*Required features: 'Win32_System_StationsAndDesktops'*"]
-pub const BSF_RETURNHDESK: BROADCAST_SYSTEM_MESSAGE_FLAGS = 512u32;
+pub const BSF_RETURNHDESK: BROADCAST_SYSTEM_MESSAGE_FLAGS = BROADCAST_SYSTEM_MESSAGE_FLAGS(512u32);
+impl ::core::marker::Copy for BROADCAST_SYSTEM_MESSAGE_FLAGS {}
+impl ::core::clone::Clone for BROADCAST_SYSTEM_MESSAGE_FLAGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BROADCAST_SYSTEM_MESSAGE_FLAGS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BROADCAST_SYSTEM_MESSAGE_FLAGS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BROADCAST_SYSTEM_MESSAGE_FLAGS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for BROADCAST_SYSTEM_MESSAGE_FLAGS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for BROADCAST_SYSTEM_MESSAGE_FLAGS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for BROADCAST_SYSTEM_MESSAGE_FLAGS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for BROADCAST_SYSTEM_MESSAGE_FLAGS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for BROADCAST_SYSTEM_MESSAGE_FLAGS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_StationsAndDesktops'*"]
-pub type BROADCAST_SYSTEM_MESSAGE_INFO = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct BROADCAST_SYSTEM_MESSAGE_INFO(pub u32);
 #[doc = "*Required features: 'Win32_System_StationsAndDesktops'*"]
-pub const BSM_ALLCOMPONENTS: BROADCAST_SYSTEM_MESSAGE_INFO = 0u32;
+pub const BSM_ALLCOMPONENTS: BROADCAST_SYSTEM_MESSAGE_INFO = BROADCAST_SYSTEM_MESSAGE_INFO(0u32);
 #[doc = "*Required features: 'Win32_System_StationsAndDesktops'*"]
-pub const BSM_ALLDESKTOPS: BROADCAST_SYSTEM_MESSAGE_INFO = 16u32;
+pub const BSM_ALLDESKTOPS: BROADCAST_SYSTEM_MESSAGE_INFO = BROADCAST_SYSTEM_MESSAGE_INFO(16u32);
 #[doc = "*Required features: 'Win32_System_StationsAndDesktops'*"]
-pub const BSM_APPLICATIONS: BROADCAST_SYSTEM_MESSAGE_INFO = 8u32;
+pub const BSM_APPLICATIONS: BROADCAST_SYSTEM_MESSAGE_INFO = BROADCAST_SYSTEM_MESSAGE_INFO(8u32);
+impl ::core::marker::Copy for BROADCAST_SYSTEM_MESSAGE_INFO {}
+impl ::core::clone::Clone for BROADCAST_SYSTEM_MESSAGE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BROADCAST_SYSTEM_MESSAGE_INFO {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for BROADCAST_SYSTEM_MESSAGE_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BROADCAST_SYSTEM_MESSAGE_INFO").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for BROADCAST_SYSTEM_MESSAGE_INFO {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for BROADCAST_SYSTEM_MESSAGE_INFO {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for BROADCAST_SYSTEM_MESSAGE_INFO {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for BROADCAST_SYSTEM_MESSAGE_INFO {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for BROADCAST_SYSTEM_MESSAGE_INFO {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_StationsAndDesktops', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -650,19 +738,63 @@ impl ::core::default::Default for USEROBJECTFLAGS {
     }
 }
 #[doc = "*Required features: 'Win32_System_StationsAndDesktops'*"]
-pub type USER_OBJECT_INFORMATION_INDEX = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct USER_OBJECT_INFORMATION_INDEX(pub u32);
 #[doc = "*Required features: 'Win32_System_StationsAndDesktops'*"]
-pub const UOI_FLAGS: USER_OBJECT_INFORMATION_INDEX = 1u32;
+pub const UOI_FLAGS: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(1u32);
 #[doc = "*Required features: 'Win32_System_StationsAndDesktops'*"]
-pub const UOI_HEAPSIZE: USER_OBJECT_INFORMATION_INDEX = 5u32;
+pub const UOI_HEAPSIZE: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(5u32);
 #[doc = "*Required features: 'Win32_System_StationsAndDesktops'*"]
-pub const UOI_IO: USER_OBJECT_INFORMATION_INDEX = 6u32;
+pub const UOI_IO: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(6u32);
 #[doc = "*Required features: 'Win32_System_StationsAndDesktops'*"]
-pub const UOI_NAME: USER_OBJECT_INFORMATION_INDEX = 2u32;
+pub const UOI_NAME: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(2u32);
 #[doc = "*Required features: 'Win32_System_StationsAndDesktops'*"]
-pub const UOI_TYPE: USER_OBJECT_INFORMATION_INDEX = 3u32;
+pub const UOI_TYPE: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(3u32);
 #[doc = "*Required features: 'Win32_System_StationsAndDesktops'*"]
-pub const UOI_USER_SID: USER_OBJECT_INFORMATION_INDEX = 4u32;
+pub const UOI_USER_SID: USER_OBJECT_INFORMATION_INDEX = USER_OBJECT_INFORMATION_INDEX(4u32);
+impl ::core::marker::Copy for USER_OBJECT_INFORMATION_INDEX {}
+impl ::core::clone::Clone for USER_OBJECT_INFORMATION_INDEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for USER_OBJECT_INFORMATION_INDEX {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for USER_OBJECT_INFORMATION_INDEX {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("USER_OBJECT_INFORMATION_INDEX").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for USER_OBJECT_INFORMATION_INDEX {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for USER_OBJECT_INFORMATION_INDEX {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for USER_OBJECT_INFORMATION_INDEX {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for USER_OBJECT_INFORMATION_INDEX {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for USER_OBJECT_INFORMATION_INDEX {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_System_StationsAndDesktops', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WINSTAENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;

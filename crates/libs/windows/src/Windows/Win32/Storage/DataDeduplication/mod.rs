@@ -31,11 +31,27 @@ impl ::core::default::Default for DDP_FILE_EXTENT {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-pub type DEDUP_BACKUP_SUPPORT_PARAM_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DEDUP_BACKUP_SUPPORT_PARAM_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-pub const DEDUP_RECONSTRUCT_UNOPTIMIZED: DEDUP_BACKUP_SUPPORT_PARAM_TYPE = 1i32;
+pub const DEDUP_RECONSTRUCT_UNOPTIMIZED: DEDUP_BACKUP_SUPPORT_PARAM_TYPE = DEDUP_BACKUP_SUPPORT_PARAM_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-pub const DEDUP_RECONSTRUCT_OPTIMIZED: DEDUP_BACKUP_SUPPORT_PARAM_TYPE = 2i32;
+pub const DEDUP_RECONSTRUCT_OPTIMIZED: DEDUP_BACKUP_SUPPORT_PARAM_TYPE = DEDUP_BACKUP_SUPPORT_PARAM_TYPE(2i32);
+impl ::core::marker::Copy for DEDUP_BACKUP_SUPPORT_PARAM_TYPE {}
+impl ::core::clone::Clone for DEDUP_BACKUP_SUPPORT_PARAM_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DEDUP_BACKUP_SUPPORT_PARAM_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DEDUP_BACKUP_SUPPORT_PARAM_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DEDUP_BACKUP_SUPPORT_PARAM_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
 pub const DEDUP_CHUNKLIB_MAX_CHUNKS_ENUM: u32 = 1024u32;
 #[repr(C)]
@@ -104,17 +120,33 @@ impl ::core::default::Default for DEDUP_CONTAINER_EXTENT {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-pub type DEDUP_SET_PARAM_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DEDUP_SET_PARAM_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-pub const DEDUP_PT_MinChunkSizeBytes: DEDUP_SET_PARAM_TYPE = 1i32;
+pub const DEDUP_PT_MinChunkSizeBytes: DEDUP_SET_PARAM_TYPE = DEDUP_SET_PARAM_TYPE(1i32);
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-pub const DEDUP_PT_MaxChunkSizeBytes: DEDUP_SET_PARAM_TYPE = 2i32;
+pub const DEDUP_PT_MaxChunkSizeBytes: DEDUP_SET_PARAM_TYPE = DEDUP_SET_PARAM_TYPE(2i32);
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-pub const DEDUP_PT_AvgChunkSizeBytes: DEDUP_SET_PARAM_TYPE = 3i32;
+pub const DEDUP_PT_AvgChunkSizeBytes: DEDUP_SET_PARAM_TYPE = DEDUP_SET_PARAM_TYPE(3i32);
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-pub const DEDUP_PT_InvariantChunking: DEDUP_SET_PARAM_TYPE = 4i32;
+pub const DEDUP_PT_InvariantChunking: DEDUP_SET_PARAM_TYPE = DEDUP_SET_PARAM_TYPE(4i32);
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-pub const DEDUP_PT_DisableStrongHashComputation: DEDUP_SET_PARAM_TYPE = 5i32;
+pub const DEDUP_PT_DisableStrongHashComputation: DEDUP_SET_PARAM_TYPE = DEDUP_SET_PARAM_TYPE(5i32);
+impl ::core::marker::Copy for DEDUP_SET_PARAM_TYPE {}
+impl ::core::clone::Clone for DEDUP_SET_PARAM_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DEDUP_SET_PARAM_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DEDUP_SET_PARAM_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DEDUP_SET_PARAM_TYPE").field(&self.0).finish()
+    }
+}
 pub const DedupBackupSupport: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73d6b2ad_2984_4715_b2e3_924c149744dd);
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
@@ -150,62 +182,158 @@ impl ::core::default::Default for DedupChunk {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-pub type DedupChunkFlags = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DedupChunkFlags(pub i32);
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-pub const DedupChunkFlags_None: DedupChunkFlags = 0i32;
+pub const DedupChunkFlags_None: DedupChunkFlags = DedupChunkFlags(0i32);
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-pub const DedupChunkFlags_Compressed: DedupChunkFlags = 1i32;
+pub const DedupChunkFlags_Compressed: DedupChunkFlags = DedupChunkFlags(1i32);
+impl ::core::marker::Copy for DedupChunkFlags {}
+impl ::core::clone::Clone for DedupChunkFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DedupChunkFlags {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DedupChunkFlags {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DedupChunkFlags").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-pub type DedupChunkingAlgorithm = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DedupChunkingAlgorithm(pub i32);
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-pub const DedupChunkingAlgorithm_Unknonwn: DedupChunkingAlgorithm = 0i32;
+pub const DedupChunkingAlgorithm_Unknonwn: DedupChunkingAlgorithm = DedupChunkingAlgorithm(0i32);
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-pub const DedupChunkingAlgorithm_V1: DedupChunkingAlgorithm = 1i32;
+pub const DedupChunkingAlgorithm_V1: DedupChunkingAlgorithm = DedupChunkingAlgorithm(1i32);
+impl ::core::marker::Copy for DedupChunkingAlgorithm {}
+impl ::core::clone::Clone for DedupChunkingAlgorithm {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DedupChunkingAlgorithm {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DedupChunkingAlgorithm {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DedupChunkingAlgorithm").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-pub type DedupCompressionAlgorithm = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DedupCompressionAlgorithm(pub i32);
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-pub const DedupCompressionAlgorithm_Unknonwn: DedupCompressionAlgorithm = 0i32;
+pub const DedupCompressionAlgorithm_Unknonwn: DedupCompressionAlgorithm = DedupCompressionAlgorithm(0i32);
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-pub const DedupCompressionAlgorithm_Xpress: DedupCompressionAlgorithm = 1i32;
+pub const DedupCompressionAlgorithm_Xpress: DedupCompressionAlgorithm = DedupCompressionAlgorithm(1i32);
+impl ::core::marker::Copy for DedupCompressionAlgorithm {}
+impl ::core::clone::Clone for DedupCompressionAlgorithm {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DedupCompressionAlgorithm {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DedupCompressionAlgorithm {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DedupCompressionAlgorithm").field(&self.0).finish()
+    }
+}
 pub const DedupDataPort: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f107207_1829_48b2_a64b_e61f8e0d9acb);
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-pub type DedupDataPortManagerOption = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DedupDataPortManagerOption(pub i32);
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-pub const DedupDataPortManagerOption_None: DedupDataPortManagerOption = 0i32;
+pub const DedupDataPortManagerOption_None: DedupDataPortManagerOption = DedupDataPortManagerOption(0i32);
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-pub const DedupDataPortManagerOption_AutoStart: DedupDataPortManagerOption = 1i32;
+pub const DedupDataPortManagerOption_AutoStart: DedupDataPortManagerOption = DedupDataPortManagerOption(1i32);
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-pub const DedupDataPortManagerOption_SkipReconciliation: DedupDataPortManagerOption = 2i32;
+pub const DedupDataPortManagerOption_SkipReconciliation: DedupDataPortManagerOption = DedupDataPortManagerOption(2i32);
+impl ::core::marker::Copy for DedupDataPortManagerOption {}
+impl ::core::clone::Clone for DedupDataPortManagerOption {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DedupDataPortManagerOption {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DedupDataPortManagerOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DedupDataPortManagerOption").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-pub type DedupDataPortRequestStatus = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DedupDataPortRequestStatus(pub i32);
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-pub const DedupDataPortRequestStatus_Unknown: DedupDataPortRequestStatus = 0i32;
+pub const DedupDataPortRequestStatus_Unknown: DedupDataPortRequestStatus = DedupDataPortRequestStatus(0i32);
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-pub const DedupDataPortRequestStatus_Queued: DedupDataPortRequestStatus = 1i32;
+pub const DedupDataPortRequestStatus_Queued: DedupDataPortRequestStatus = DedupDataPortRequestStatus(1i32);
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-pub const DedupDataPortRequestStatus_Processing: DedupDataPortRequestStatus = 2i32;
+pub const DedupDataPortRequestStatus_Processing: DedupDataPortRequestStatus = DedupDataPortRequestStatus(2i32);
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-pub const DedupDataPortRequestStatus_Partial: DedupDataPortRequestStatus = 3i32;
+pub const DedupDataPortRequestStatus_Partial: DedupDataPortRequestStatus = DedupDataPortRequestStatus(3i32);
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-pub const DedupDataPortRequestStatus_Complete: DedupDataPortRequestStatus = 4i32;
+pub const DedupDataPortRequestStatus_Complete: DedupDataPortRequestStatus = DedupDataPortRequestStatus(4i32);
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-pub const DedupDataPortRequestStatus_Failed: DedupDataPortRequestStatus = 5i32;
+pub const DedupDataPortRequestStatus_Failed: DedupDataPortRequestStatus = DedupDataPortRequestStatus(5i32);
+impl ::core::marker::Copy for DedupDataPortRequestStatus {}
+impl ::core::clone::Clone for DedupDataPortRequestStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DedupDataPortRequestStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DedupDataPortRequestStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DedupDataPortRequestStatus").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-pub type DedupDataPortVolumeStatus = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DedupDataPortVolumeStatus(pub i32);
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-pub const DedupDataPortVolumeStatus_Unknown: DedupDataPortVolumeStatus = 0i32;
+pub const DedupDataPortVolumeStatus_Unknown: DedupDataPortVolumeStatus = DedupDataPortVolumeStatus(0i32);
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-pub const DedupDataPortVolumeStatus_NotEnabled: DedupDataPortVolumeStatus = 1i32;
+pub const DedupDataPortVolumeStatus_NotEnabled: DedupDataPortVolumeStatus = DedupDataPortVolumeStatus(1i32);
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-pub const DedupDataPortVolumeStatus_NotAvailable: DedupDataPortVolumeStatus = 2i32;
+pub const DedupDataPortVolumeStatus_NotAvailable: DedupDataPortVolumeStatus = DedupDataPortVolumeStatus(2i32);
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-pub const DedupDataPortVolumeStatus_Initializing: DedupDataPortVolumeStatus = 3i32;
+pub const DedupDataPortVolumeStatus_Initializing: DedupDataPortVolumeStatus = DedupDataPortVolumeStatus(3i32);
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-pub const DedupDataPortVolumeStatus_Ready: DedupDataPortVolumeStatus = 4i32;
+pub const DedupDataPortVolumeStatus_Ready: DedupDataPortVolumeStatus = DedupDataPortVolumeStatus(4i32);
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-pub const DedupDataPortVolumeStatus_Maintenance: DedupDataPortVolumeStatus = 5i32;
+pub const DedupDataPortVolumeStatus_Maintenance: DedupDataPortVolumeStatus = DedupDataPortVolumeStatus(5i32);
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-pub const DedupDataPortVolumeStatus_Shutdown: DedupDataPortVolumeStatus = 6i32;
+pub const DedupDataPortVolumeStatus_Shutdown: DedupDataPortVolumeStatus = DedupDataPortVolumeStatus(6i32);
+impl ::core::marker::Copy for DedupDataPortVolumeStatus {}
+impl ::core::clone::Clone for DedupDataPortVolumeStatus {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DedupDataPortVolumeStatus {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DedupDataPortVolumeStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DedupDataPortVolumeStatus").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
 pub struct DedupHash {
@@ -237,11 +365,27 @@ impl ::core::default::Default for DedupHash {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-pub type DedupHashingAlgorithm = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DedupHashingAlgorithm(pub i32);
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-pub const DedupHashingAlgorithm_Unknonwn: DedupHashingAlgorithm = 0i32;
+pub const DedupHashingAlgorithm_Unknonwn: DedupHashingAlgorithm = DedupHashingAlgorithm(0i32);
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication'*"]
-pub const DedupHashingAlgorithm_V1: DedupHashingAlgorithm = 1i32;
+pub const DedupHashingAlgorithm_V1: DedupHashingAlgorithm = DedupHashingAlgorithm(1i32);
+impl ::core::marker::Copy for DedupHashingAlgorithm {}
+impl ::core::clone::Clone for DedupHashingAlgorithm {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DedupHashingAlgorithm {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DedupHashingAlgorithm {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DedupHashingAlgorithm").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_DataDeduplication', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]

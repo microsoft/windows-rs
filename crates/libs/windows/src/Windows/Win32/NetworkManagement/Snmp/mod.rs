@@ -287,13 +287,57 @@ pub const SNMP_ACCESS_READ_ONLY: u32 = 2u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
 pub const SNMP_ACCESS_READ_WRITE: u32 = 3u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub type SNMP_API_TRANSLATE_MODE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SNMP_API_TRANSLATE_MODE(pub u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMPAPI_TRANSLATED: SNMP_API_TRANSLATE_MODE = 0u32;
+pub const SNMPAPI_TRANSLATED: SNMP_API_TRANSLATE_MODE = SNMP_API_TRANSLATE_MODE(0u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMPAPI_UNTRANSLATED_V1: SNMP_API_TRANSLATE_MODE = 1u32;
+pub const SNMPAPI_UNTRANSLATED_V1: SNMP_API_TRANSLATE_MODE = SNMP_API_TRANSLATE_MODE(1u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMPAPI_UNTRANSLATED_V2: SNMP_API_TRANSLATE_MODE = 2u32;
+pub const SNMPAPI_UNTRANSLATED_V2: SNMP_API_TRANSLATE_MODE = SNMP_API_TRANSLATE_MODE(2u32);
+impl ::core::marker::Copy for SNMP_API_TRANSLATE_MODE {}
+impl ::core::clone::Clone for SNMP_API_TRANSLATE_MODE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SNMP_API_TRANSLATE_MODE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SNMP_API_TRANSLATE_MODE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SNMP_API_TRANSLATE_MODE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SNMP_API_TRANSLATE_MODE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SNMP_API_TRANSLATE_MODE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SNMP_API_TRANSLATE_MODE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SNMP_API_TRANSLATE_MODE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SNMP_API_TRANSLATE_MODE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
 pub const SNMP_AUTHAPI_INVALID_MSG_TYPE: u32 = 31u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
@@ -311,129 +355,349 @@ pub const SNMP_BERAPI_OVERFLOW: u32 = 12u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
 pub const SNMP_BERAPI_SHORT_BUFFER: u32 = 13u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub type SNMP_ERROR = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SNMP_ERROR(pub u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_ERROR_NOERROR: SNMP_ERROR = 0u32;
+pub const SNMP_ERROR_NOERROR: SNMP_ERROR = SNMP_ERROR(0u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_ERROR_TOOBIG: SNMP_ERROR = 1u32;
+pub const SNMP_ERROR_TOOBIG: SNMP_ERROR = SNMP_ERROR(1u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_ERROR_NOSUCHNAME: SNMP_ERROR = 2u32;
+pub const SNMP_ERROR_NOSUCHNAME: SNMP_ERROR = SNMP_ERROR(2u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_ERROR_BADVALUE: SNMP_ERROR = 3u32;
+pub const SNMP_ERROR_BADVALUE: SNMP_ERROR = SNMP_ERROR(3u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_ERROR_READONLY: SNMP_ERROR = 4u32;
+pub const SNMP_ERROR_READONLY: SNMP_ERROR = SNMP_ERROR(4u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_ERROR_GENERR: SNMP_ERROR = 5u32;
+pub const SNMP_ERROR_GENERR: SNMP_ERROR = SNMP_ERROR(5u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_ERROR_NOACCESS: SNMP_ERROR = 6u32;
+pub const SNMP_ERROR_NOACCESS: SNMP_ERROR = SNMP_ERROR(6u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_ERROR_WRONGTYPE: SNMP_ERROR = 7u32;
+pub const SNMP_ERROR_WRONGTYPE: SNMP_ERROR = SNMP_ERROR(7u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_ERROR_WRONGLENGTH: SNMP_ERROR = 8u32;
+pub const SNMP_ERROR_WRONGLENGTH: SNMP_ERROR = SNMP_ERROR(8u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_ERROR_WRONGENCODING: SNMP_ERROR = 9u32;
+pub const SNMP_ERROR_WRONGENCODING: SNMP_ERROR = SNMP_ERROR(9u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_ERROR_WRONGVALUE: SNMP_ERROR = 10u32;
+pub const SNMP_ERROR_WRONGVALUE: SNMP_ERROR = SNMP_ERROR(10u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_ERROR_NOCREATION: SNMP_ERROR = 11u32;
+pub const SNMP_ERROR_NOCREATION: SNMP_ERROR = SNMP_ERROR(11u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_ERROR_INCONSISTENTVALUE: SNMP_ERROR = 12u32;
+pub const SNMP_ERROR_INCONSISTENTVALUE: SNMP_ERROR = SNMP_ERROR(12u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_ERROR_RESOURCEUNAVAILABLE: SNMP_ERROR = 13u32;
+pub const SNMP_ERROR_RESOURCEUNAVAILABLE: SNMP_ERROR = SNMP_ERROR(13u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_ERROR_COMMITFAILED: SNMP_ERROR = 14u32;
+pub const SNMP_ERROR_COMMITFAILED: SNMP_ERROR = SNMP_ERROR(14u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_ERROR_UNDOFAILED: SNMP_ERROR = 15u32;
+pub const SNMP_ERROR_UNDOFAILED: SNMP_ERROR = SNMP_ERROR(15u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_ERROR_AUTHORIZATIONERROR: SNMP_ERROR = 16u32;
+pub const SNMP_ERROR_AUTHORIZATIONERROR: SNMP_ERROR = SNMP_ERROR(16u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_ERROR_NOTWRITABLE: SNMP_ERROR = 17u32;
+pub const SNMP_ERROR_NOTWRITABLE: SNMP_ERROR = SNMP_ERROR(17u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_ERROR_INCONSISTENTNAME: SNMP_ERROR = 18u32;
+pub const SNMP_ERROR_INCONSISTENTNAME: SNMP_ERROR = SNMP_ERROR(18u32);
+impl ::core::marker::Copy for SNMP_ERROR {}
+impl ::core::clone::Clone for SNMP_ERROR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SNMP_ERROR {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SNMP_ERROR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SNMP_ERROR").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SNMP_ERROR {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SNMP_ERROR {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SNMP_ERROR {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SNMP_ERROR {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SNMP_ERROR {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub type SNMP_ERROR_STATUS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SNMP_ERROR_STATUS(pub u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_ERRORSTATUS_NOERROR: SNMP_ERROR_STATUS = 0u32;
+pub const SNMP_ERRORSTATUS_NOERROR: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(0u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_ERRORSTATUS_TOOBIG: SNMP_ERROR_STATUS = 1u32;
+pub const SNMP_ERRORSTATUS_TOOBIG: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(1u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_ERRORSTATUS_NOSUCHNAME: SNMP_ERROR_STATUS = 2u32;
+pub const SNMP_ERRORSTATUS_NOSUCHNAME: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(2u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_ERRORSTATUS_BADVALUE: SNMP_ERROR_STATUS = 3u32;
+pub const SNMP_ERRORSTATUS_BADVALUE: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(3u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_ERRORSTATUS_READONLY: SNMP_ERROR_STATUS = 4u32;
+pub const SNMP_ERRORSTATUS_READONLY: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(4u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_ERRORSTATUS_GENERR: SNMP_ERROR_STATUS = 5u32;
+pub const SNMP_ERRORSTATUS_GENERR: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(5u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_ERRORSTATUS_NOACCESS: SNMP_ERROR_STATUS = 6u32;
+pub const SNMP_ERRORSTATUS_NOACCESS: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(6u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_ERRORSTATUS_WRONGTYPE: SNMP_ERROR_STATUS = 7u32;
+pub const SNMP_ERRORSTATUS_WRONGTYPE: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(7u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_ERRORSTATUS_WRONGLENGTH: SNMP_ERROR_STATUS = 8u32;
+pub const SNMP_ERRORSTATUS_WRONGLENGTH: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(8u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_ERRORSTATUS_WRONGENCODING: SNMP_ERROR_STATUS = 9u32;
+pub const SNMP_ERRORSTATUS_WRONGENCODING: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(9u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_ERRORSTATUS_WRONGVALUE: SNMP_ERROR_STATUS = 10u32;
+pub const SNMP_ERRORSTATUS_WRONGVALUE: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(10u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_ERRORSTATUS_NOCREATION: SNMP_ERROR_STATUS = 11u32;
+pub const SNMP_ERRORSTATUS_NOCREATION: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(11u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_ERRORSTATUS_INCONSISTENTVALUE: SNMP_ERROR_STATUS = 12u32;
+pub const SNMP_ERRORSTATUS_INCONSISTENTVALUE: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(12u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_ERRORSTATUS_RESOURCEUNAVAILABLE: SNMP_ERROR_STATUS = 13u32;
+pub const SNMP_ERRORSTATUS_RESOURCEUNAVAILABLE: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(13u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_ERRORSTATUS_COMMITFAILED: SNMP_ERROR_STATUS = 14u32;
+pub const SNMP_ERRORSTATUS_COMMITFAILED: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(14u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_ERRORSTATUS_UNDOFAILED: SNMP_ERROR_STATUS = 15u32;
+pub const SNMP_ERRORSTATUS_UNDOFAILED: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(15u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_ERRORSTATUS_AUTHORIZATIONERROR: SNMP_ERROR_STATUS = 16u32;
+pub const SNMP_ERRORSTATUS_AUTHORIZATIONERROR: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(16u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_ERRORSTATUS_NOTWRITABLE: SNMP_ERROR_STATUS = 17u32;
+pub const SNMP_ERRORSTATUS_NOTWRITABLE: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(17u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_ERRORSTATUS_INCONSISTENTNAME: SNMP_ERROR_STATUS = 18u32;
+pub const SNMP_ERRORSTATUS_INCONSISTENTNAME: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(18u32);
+impl ::core::marker::Copy for SNMP_ERROR_STATUS {}
+impl ::core::clone::Clone for SNMP_ERROR_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SNMP_ERROR_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SNMP_ERROR_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SNMP_ERROR_STATUS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SNMP_ERROR_STATUS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SNMP_ERROR_STATUS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SNMP_ERROR_STATUS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SNMP_ERROR_STATUS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SNMP_ERROR_STATUS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub type SNMP_EXTENSION_REQUEST_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SNMP_EXTENSION_REQUEST_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_EXTENSION_GET: SNMP_EXTENSION_REQUEST_TYPE = 160u32;
+pub const SNMP_EXTENSION_GET: SNMP_EXTENSION_REQUEST_TYPE = SNMP_EXTENSION_REQUEST_TYPE(160u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_EXTENSION_GET_NEXT: SNMP_EXTENSION_REQUEST_TYPE = 161u32;
+pub const SNMP_EXTENSION_GET_NEXT: SNMP_EXTENSION_REQUEST_TYPE = SNMP_EXTENSION_REQUEST_TYPE(161u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_EXTENSION_SET_TEST: SNMP_EXTENSION_REQUEST_TYPE = 224u32;
+pub const SNMP_EXTENSION_SET_TEST: SNMP_EXTENSION_REQUEST_TYPE = SNMP_EXTENSION_REQUEST_TYPE(224u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_EXTENSION_SET_COMMIT: SNMP_EXTENSION_REQUEST_TYPE = 163u32;
+pub const SNMP_EXTENSION_SET_COMMIT: SNMP_EXTENSION_REQUEST_TYPE = SNMP_EXTENSION_REQUEST_TYPE(163u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_EXTENSION_SET_UNDO: SNMP_EXTENSION_REQUEST_TYPE = 225u32;
+pub const SNMP_EXTENSION_SET_UNDO: SNMP_EXTENSION_REQUEST_TYPE = SNMP_EXTENSION_REQUEST_TYPE(225u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_EXTENSION_SET_CLEANUP: SNMP_EXTENSION_REQUEST_TYPE = 226u32;
+pub const SNMP_EXTENSION_SET_CLEANUP: SNMP_EXTENSION_REQUEST_TYPE = SNMP_EXTENSION_REQUEST_TYPE(226u32);
+impl ::core::marker::Copy for SNMP_EXTENSION_REQUEST_TYPE {}
+impl ::core::clone::Clone for SNMP_EXTENSION_REQUEST_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SNMP_EXTENSION_REQUEST_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SNMP_EXTENSION_REQUEST_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SNMP_EXTENSION_REQUEST_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SNMP_EXTENSION_REQUEST_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SNMP_EXTENSION_REQUEST_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SNMP_EXTENSION_REQUEST_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SNMP_EXTENSION_REQUEST_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SNMP_EXTENSION_REQUEST_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub type SNMP_GENERICTRAP = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SNMP_GENERICTRAP(pub u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_GENERICTRAP_COLDSTART: SNMP_GENERICTRAP = 0u32;
+pub const SNMP_GENERICTRAP_COLDSTART: SNMP_GENERICTRAP = SNMP_GENERICTRAP(0u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_GENERICTRAP_WARMSTART: SNMP_GENERICTRAP = 1u32;
+pub const SNMP_GENERICTRAP_WARMSTART: SNMP_GENERICTRAP = SNMP_GENERICTRAP(1u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_GENERICTRAP_LINKDOWN: SNMP_GENERICTRAP = 2u32;
+pub const SNMP_GENERICTRAP_LINKDOWN: SNMP_GENERICTRAP = SNMP_GENERICTRAP(2u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_GENERICTRAP_LINKUP: SNMP_GENERICTRAP = 3u32;
+pub const SNMP_GENERICTRAP_LINKUP: SNMP_GENERICTRAP = SNMP_GENERICTRAP(3u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_GENERICTRAP_AUTHFAILURE: SNMP_GENERICTRAP = 4u32;
+pub const SNMP_GENERICTRAP_AUTHFAILURE: SNMP_GENERICTRAP = SNMP_GENERICTRAP(4u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_GENERICTRAP_EGPNEIGHLOSS: SNMP_GENERICTRAP = 5u32;
+pub const SNMP_GENERICTRAP_EGPNEIGHLOSS: SNMP_GENERICTRAP = SNMP_GENERICTRAP(5u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_GENERICTRAP_ENTERSPECIFIC: SNMP_GENERICTRAP = 6u32;
+pub const SNMP_GENERICTRAP_ENTERSPECIFIC: SNMP_GENERICTRAP = SNMP_GENERICTRAP(6u32);
+impl ::core::marker::Copy for SNMP_GENERICTRAP {}
+impl ::core::clone::Clone for SNMP_GENERICTRAP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SNMP_GENERICTRAP {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SNMP_GENERICTRAP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SNMP_GENERICTRAP").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SNMP_GENERICTRAP {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SNMP_GENERICTRAP {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SNMP_GENERICTRAP {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SNMP_GENERICTRAP {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SNMP_GENERICTRAP {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub type SNMP_LOG = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SNMP_LOG(pub u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_LOG_SILENT: SNMP_LOG = 0u32;
+pub const SNMP_LOG_SILENT: SNMP_LOG = SNMP_LOG(0u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_LOG_FATAL: SNMP_LOG = 1u32;
+pub const SNMP_LOG_FATAL: SNMP_LOG = SNMP_LOG(1u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_LOG_ERROR: SNMP_LOG = 2u32;
+pub const SNMP_LOG_ERROR: SNMP_LOG = SNMP_LOG(2u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_LOG_WARNING: SNMP_LOG = 3u32;
+pub const SNMP_LOG_WARNING: SNMP_LOG = SNMP_LOG(3u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_LOG_TRACE: SNMP_LOG = 4u32;
+pub const SNMP_LOG_TRACE: SNMP_LOG = SNMP_LOG(4u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_LOG_VERBOSE: SNMP_LOG = 5u32;
+pub const SNMP_LOG_VERBOSE: SNMP_LOG = SNMP_LOG(5u32);
+impl ::core::marker::Copy for SNMP_LOG {}
+impl ::core::clone::Clone for SNMP_LOG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SNMP_LOG {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SNMP_LOG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SNMP_LOG").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SNMP_LOG {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SNMP_LOG {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SNMP_LOG {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SNMP_LOG {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SNMP_LOG {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
 pub const SNMP_MAX_OID_LEN: u32 = 128u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
@@ -457,13 +721,57 @@ pub const SNMP_MGMTAPI_TRAP_DUPINIT: u32 = 43u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
 pub const SNMP_MGMTAPI_TRAP_ERRORS: u32 = 42u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub type SNMP_OUTPUT_LOG_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SNMP_OUTPUT_LOG_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_OUTPUT_TO_CONSOLE: SNMP_OUTPUT_LOG_TYPE = 1u32;
+pub const SNMP_OUTPUT_TO_CONSOLE: SNMP_OUTPUT_LOG_TYPE = SNMP_OUTPUT_LOG_TYPE(1u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_OUTPUT_TO_LOGFILE: SNMP_OUTPUT_LOG_TYPE = 2u32;
+pub const SNMP_OUTPUT_TO_LOGFILE: SNMP_OUTPUT_LOG_TYPE = SNMP_OUTPUT_LOG_TYPE(2u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_OUTPUT_TO_DEBUGGER: SNMP_OUTPUT_LOG_TYPE = 8u32;
+pub const SNMP_OUTPUT_TO_DEBUGGER: SNMP_OUTPUT_LOG_TYPE = SNMP_OUTPUT_LOG_TYPE(8u32);
+impl ::core::marker::Copy for SNMP_OUTPUT_LOG_TYPE {}
+impl ::core::clone::Clone for SNMP_OUTPUT_LOG_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SNMP_OUTPUT_LOG_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SNMP_OUTPUT_LOG_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SNMP_OUTPUT_LOG_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SNMP_OUTPUT_LOG_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SNMP_OUTPUT_LOG_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SNMP_OUTPUT_LOG_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SNMP_OUTPUT_LOG_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SNMP_OUTPUT_LOG_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
 pub const SNMP_OUTPUT_TO_EVENTLOG: u32 = 4u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
@@ -473,25 +781,113 @@ pub const SNMP_PDUAPI_INVALID_GT: u32 = 22u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
 pub const SNMP_PDUAPI_UNRECOGNIZED_PDU: u32 = 20u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub type SNMP_PDU_TYPE = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SNMP_PDU_TYPE(pub u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_PDU_GET: SNMP_PDU_TYPE = 160u32;
+pub const SNMP_PDU_GET: SNMP_PDU_TYPE = SNMP_PDU_TYPE(160u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_PDU_GETNEXT: SNMP_PDU_TYPE = 161u32;
+pub const SNMP_PDU_GETNEXT: SNMP_PDU_TYPE = SNMP_PDU_TYPE(161u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_PDU_RESPONSE: SNMP_PDU_TYPE = 162u32;
+pub const SNMP_PDU_RESPONSE: SNMP_PDU_TYPE = SNMP_PDU_TYPE(162u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_PDU_SET: SNMP_PDU_TYPE = 163u32;
+pub const SNMP_PDU_SET: SNMP_PDU_TYPE = SNMP_PDU_TYPE(163u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_PDU_GETBULK: SNMP_PDU_TYPE = 165u32;
+pub const SNMP_PDU_GETBULK: SNMP_PDU_TYPE = SNMP_PDU_TYPE(165u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMP_PDU_TRAP: SNMP_PDU_TYPE = 167u32;
+pub const SNMP_PDU_TRAP: SNMP_PDU_TYPE = SNMP_PDU_TYPE(167u32);
+impl ::core::marker::Copy for SNMP_PDU_TYPE {}
+impl ::core::clone::Clone for SNMP_PDU_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SNMP_PDU_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SNMP_PDU_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SNMP_PDU_TYPE").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SNMP_PDU_TYPE {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SNMP_PDU_TYPE {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SNMP_PDU_TYPE {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SNMP_PDU_TYPE {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SNMP_PDU_TYPE {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub type SNMP_STATUS = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct SNMP_STATUS(pub u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMPAPI_ON: SNMP_STATUS = 1u32;
+pub const SNMPAPI_ON: SNMP_STATUS = SNMP_STATUS(1u32);
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
-pub const SNMPAPI_OFF: SNMP_STATUS = 0u32;
+pub const SNMPAPI_OFF: SNMP_STATUS = SNMP_STATUS(0u32);
+impl ::core::marker::Copy for SNMP_STATUS {}
+impl ::core::clone::Clone for SNMP_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SNMP_STATUS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for SNMP_STATUS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SNMP_STATUS").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for SNMP_STATUS {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for SNMP_STATUS {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for SNMP_STATUS {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for SNMP_STATUS {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for SNMP_STATUS {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]
 pub const SNMP_TRAP_AUTHFAIL: u32 = 4u32;
 #[doc = "*Required features: 'Win32_NetworkManagement_Snmp'*"]

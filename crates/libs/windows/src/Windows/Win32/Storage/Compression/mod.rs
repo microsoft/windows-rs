@@ -34,15 +34,59 @@ unsafe impl ::windows::core::Abi for COMPRESSOR_HANDLE {
     type Abi = Self;
 }
 #[doc = "*Required features: 'Win32_Storage_Compression'*"]
-pub type COMPRESS_ALGORITHM = u32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct COMPRESS_ALGORITHM(pub u32);
 #[doc = "*Required features: 'Win32_Storage_Compression'*"]
-pub const COMPRESS_ALGORITHM_MSZIP: COMPRESS_ALGORITHM = 2u32;
+pub const COMPRESS_ALGORITHM_MSZIP: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(2u32);
 #[doc = "*Required features: 'Win32_Storage_Compression'*"]
-pub const COMPRESS_ALGORITHM_XPRESS: COMPRESS_ALGORITHM = 3u32;
+pub const COMPRESS_ALGORITHM_XPRESS: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(3u32);
 #[doc = "*Required features: 'Win32_Storage_Compression'*"]
-pub const COMPRESS_ALGORITHM_XPRESS_HUFF: COMPRESS_ALGORITHM = 4u32;
+pub const COMPRESS_ALGORITHM_XPRESS_HUFF: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(4u32);
 #[doc = "*Required features: 'Win32_Storage_Compression'*"]
-pub const COMPRESS_ALGORITHM_LZMS: COMPRESS_ALGORITHM = 5u32;
+pub const COMPRESS_ALGORITHM_LZMS: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(5u32);
+impl ::core::marker::Copy for COMPRESS_ALGORITHM {}
+impl ::core::clone::Clone for COMPRESS_ALGORITHM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for COMPRESS_ALGORITHM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COMPRESS_ALGORITHM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COMPRESS_ALGORITHM").field(&self.0).finish()
+    }
+}
+impl ::core::ops::BitOr for COMPRESS_ALGORITHM {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl ::core::ops::BitAnd for COMPRESS_ALGORITHM {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl ::core::ops::BitOrAssign for COMPRESS_ALGORITHM {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl ::core::ops::BitAndAssign for COMPRESS_ALGORITHM {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl ::core::ops::Not for COMPRESS_ALGORITHM {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_Compression'*"]
 pub const COMPRESS_ALGORITHM_INVALID: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Storage_Compression'*"]
@@ -82,13 +126,29 @@ impl ::core::default::Default for COMPRESS_ALLOCATION_ROUTINES {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_Compression'*"]
-pub type COMPRESS_INFORMATION_CLASS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct COMPRESS_INFORMATION_CLASS(pub i32);
 #[doc = "*Required features: 'Win32_Storage_Compression'*"]
-pub const COMPRESS_INFORMATION_CLASS_INVALID: COMPRESS_INFORMATION_CLASS = 0i32;
+pub const COMPRESS_INFORMATION_CLASS_INVALID: COMPRESS_INFORMATION_CLASS = COMPRESS_INFORMATION_CLASS(0i32);
 #[doc = "*Required features: 'Win32_Storage_Compression'*"]
-pub const COMPRESS_INFORMATION_CLASS_BLOCK_SIZE: COMPRESS_INFORMATION_CLASS = 1i32;
+pub const COMPRESS_INFORMATION_CLASS_BLOCK_SIZE: COMPRESS_INFORMATION_CLASS = COMPRESS_INFORMATION_CLASS(1i32);
 #[doc = "*Required features: 'Win32_Storage_Compression'*"]
-pub const COMPRESS_INFORMATION_CLASS_LEVEL: COMPRESS_INFORMATION_CLASS = 2i32;
+pub const COMPRESS_INFORMATION_CLASS_LEVEL: COMPRESS_INFORMATION_CLASS = COMPRESS_INFORMATION_CLASS(2i32);
+impl ::core::marker::Copy for COMPRESS_INFORMATION_CLASS {}
+impl ::core::clone::Clone for COMPRESS_INFORMATION_CLASS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for COMPRESS_INFORMATION_CLASS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for COMPRESS_INFORMATION_CLASS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("COMPRESS_INFORMATION_CLASS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_Compression'*"]
 pub const COMPRESS_RAW: u32 = 536870912u32;
 #[doc = "*Required features: 'Win32_Storage_Compression', 'Win32_Foundation'*"]

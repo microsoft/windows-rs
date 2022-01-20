@@ -2162,31 +2162,63 @@ impl ::core::default::Default for WINML_BINDING_DESC_0 {
     }
 }
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
-pub type WINML_BINDING_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WINML_BINDING_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
-pub const WINML_BINDING_UNDEFINED: WINML_BINDING_TYPE = 0i32;
+pub const WINML_BINDING_UNDEFINED: WINML_BINDING_TYPE = WINML_BINDING_TYPE(0i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
-pub const WINML_BINDING_TENSOR: WINML_BINDING_TYPE = 1i32;
+pub const WINML_BINDING_TENSOR: WINML_BINDING_TYPE = WINML_BINDING_TYPE(1i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
-pub const WINML_BINDING_SEQUENCE: WINML_BINDING_TYPE = 2i32;
+pub const WINML_BINDING_SEQUENCE: WINML_BINDING_TYPE = WINML_BINDING_TYPE(2i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
-pub const WINML_BINDING_MAP: WINML_BINDING_TYPE = 3i32;
+pub const WINML_BINDING_MAP: WINML_BINDING_TYPE = WINML_BINDING_TYPE(3i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
-pub const WINML_BINDING_IMAGE: WINML_BINDING_TYPE = 4i32;
+pub const WINML_BINDING_IMAGE: WINML_BINDING_TYPE = WINML_BINDING_TYPE(4i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
-pub const WINML_BINDING_RESOURCE: WINML_BINDING_TYPE = 5i32;
+pub const WINML_BINDING_RESOURCE: WINML_BINDING_TYPE = WINML_BINDING_TYPE(5i32);
+impl ::core::marker::Copy for WINML_BINDING_TYPE {}
+impl ::core::clone::Clone for WINML_BINDING_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINML_BINDING_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WINML_BINDING_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WINML_BINDING_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
-pub type WINML_FEATURE_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WINML_FEATURE_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
-pub const WINML_FEATURE_UNDEFINED: WINML_FEATURE_TYPE = 0i32;
+pub const WINML_FEATURE_UNDEFINED: WINML_FEATURE_TYPE = WINML_FEATURE_TYPE(0i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
-pub const WINML_FEATURE_TENSOR: WINML_FEATURE_TYPE = 1i32;
+pub const WINML_FEATURE_TENSOR: WINML_FEATURE_TYPE = WINML_FEATURE_TYPE(1i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
-pub const WINML_FEATURE_SEQUENCE: WINML_FEATURE_TYPE = 2i32;
+pub const WINML_FEATURE_SEQUENCE: WINML_FEATURE_TYPE = WINML_FEATURE_TYPE(2i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
-pub const WINML_FEATURE_MAP: WINML_FEATURE_TYPE = 3i32;
+pub const WINML_FEATURE_MAP: WINML_FEATURE_TYPE = WINML_FEATURE_TYPE(3i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
-pub const WINML_FEATURE_IMAGE: WINML_FEATURE_TYPE = 4i32;
+pub const WINML_FEATURE_IMAGE: WINML_FEATURE_TYPE = WINML_FEATURE_TYPE(4i32);
+impl ::core::marker::Copy for WINML_FEATURE_TYPE {}
+impl ::core::clone::Clone for WINML_FEATURE_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINML_FEATURE_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WINML_FEATURE_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WINML_FEATURE_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
 pub struct WINML_IMAGE_BINDING_DESC {
@@ -2470,9 +2502,25 @@ impl ::core::default::Default for WINML_RESOURCE_BINDING_DESC {
     }
 }
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
-pub type WINML_RUNTIME_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WINML_RUNTIME_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
-pub const WINML_RUNTIME_CNTK: WINML_RUNTIME_TYPE = 0i32;
+pub const WINML_RUNTIME_CNTK: WINML_RUNTIME_TYPE = WINML_RUNTIME_TYPE(0i32);
+impl ::core::marker::Copy for WINML_RUNTIME_TYPE {}
+impl ::core::clone::Clone for WINML_RUNTIME_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINML_RUNTIME_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WINML_RUNTIME_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WINML_RUNTIME_TYPE").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2607,39 +2655,55 @@ impl ::core::default::Default for WINML_TENSOR_BINDING_DESC {
     }
 }
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
-pub type WINML_TENSOR_DATA_TYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct WINML_TENSOR_DATA_TYPE(pub i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
-pub const WINML_TENSOR_UNDEFINED: WINML_TENSOR_DATA_TYPE = 0i32;
+pub const WINML_TENSOR_UNDEFINED: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(0i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
-pub const WINML_TENSOR_FLOAT: WINML_TENSOR_DATA_TYPE = 1i32;
+pub const WINML_TENSOR_FLOAT: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(1i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
-pub const WINML_TENSOR_UINT8: WINML_TENSOR_DATA_TYPE = 2i32;
+pub const WINML_TENSOR_UINT8: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(2i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
-pub const WINML_TENSOR_INT8: WINML_TENSOR_DATA_TYPE = 3i32;
+pub const WINML_TENSOR_INT8: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(3i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
-pub const WINML_TENSOR_UINT16: WINML_TENSOR_DATA_TYPE = 4i32;
+pub const WINML_TENSOR_UINT16: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(4i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
-pub const WINML_TENSOR_INT16: WINML_TENSOR_DATA_TYPE = 5i32;
+pub const WINML_TENSOR_INT16: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(5i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
-pub const WINML_TENSOR_INT32: WINML_TENSOR_DATA_TYPE = 6i32;
+pub const WINML_TENSOR_INT32: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(6i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
-pub const WINML_TENSOR_INT64: WINML_TENSOR_DATA_TYPE = 7i32;
+pub const WINML_TENSOR_INT64: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(7i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
-pub const WINML_TENSOR_STRING: WINML_TENSOR_DATA_TYPE = 8i32;
+pub const WINML_TENSOR_STRING: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(8i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
-pub const WINML_TENSOR_BOOLEAN: WINML_TENSOR_DATA_TYPE = 9i32;
+pub const WINML_TENSOR_BOOLEAN: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(9i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
-pub const WINML_TENSOR_FLOAT16: WINML_TENSOR_DATA_TYPE = 10i32;
+pub const WINML_TENSOR_FLOAT16: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(10i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
-pub const WINML_TENSOR_DOUBLE: WINML_TENSOR_DATA_TYPE = 11i32;
+pub const WINML_TENSOR_DOUBLE: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(11i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
-pub const WINML_TENSOR_UINT32: WINML_TENSOR_DATA_TYPE = 12i32;
+pub const WINML_TENSOR_UINT32: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(12i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
-pub const WINML_TENSOR_UINT64: WINML_TENSOR_DATA_TYPE = 13i32;
+pub const WINML_TENSOR_UINT64: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(13i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
-pub const WINML_TENSOR_COMPLEX64: WINML_TENSOR_DATA_TYPE = 14i32;
+pub const WINML_TENSOR_COMPLEX64: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(14i32);
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
-pub const WINML_TENSOR_COMPLEX128: WINML_TENSOR_DATA_TYPE = 15i32;
+pub const WINML_TENSOR_COMPLEX128: WINML_TENSOR_DATA_TYPE = WINML_TENSOR_DATA_TYPE(15i32);
+impl ::core::marker::Copy for WINML_TENSOR_DATA_TYPE {}
+impl ::core::clone::Clone for WINML_TENSOR_DATA_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINML_TENSOR_DATA_TYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for WINML_TENSOR_DATA_TYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WINML_TENSOR_DATA_TYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
 pub const WINML_TENSOR_DIMENSION_COUNT_MAX: u32 = 4u32;
 #[repr(C)]

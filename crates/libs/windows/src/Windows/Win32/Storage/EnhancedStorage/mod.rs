@@ -30,11 +30,27 @@ impl ::core::default::Default for ACT_AUTHORIZATION_STATE {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_EnhancedStorage'*"]
-pub type ACT_AUTHORIZATION_STATE_VALUE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ACT_AUTHORIZATION_STATE_VALUE(pub i32);
 #[doc = "*Required features: 'Win32_Storage_EnhancedStorage'*"]
-pub const ACT_UNAUTHORIZED: ACT_AUTHORIZATION_STATE_VALUE = 0i32;
+pub const ACT_UNAUTHORIZED: ACT_AUTHORIZATION_STATE_VALUE = ACT_AUTHORIZATION_STATE_VALUE(0i32);
 #[doc = "*Required features: 'Win32_Storage_EnhancedStorage'*"]
-pub const ACT_AUTHORIZED: ACT_AUTHORIZATION_STATE_VALUE = 1i32;
+pub const ACT_AUTHORIZED: ACT_AUTHORIZATION_STATE_VALUE = ACT_AUTHORIZATION_STATE_VALUE(1i32);
+impl ::core::marker::Copy for ACT_AUTHORIZATION_STATE_VALUE {}
+impl ::core::clone::Clone for ACT_AUTHORIZATION_STATE_VALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ACT_AUTHORIZATION_STATE_VALUE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ACT_AUTHORIZATION_STATE_VALUE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ACT_AUTHORIZATION_STATE_VALUE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_Storage_EnhancedStorage'*"]
 pub const ACT_AUTHORIZE_ON_RESUME: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Storage_EnhancedStorage'*"]

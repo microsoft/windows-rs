@@ -1,18 +1,50 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub type APPLICATIONTYPE = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct APPLICATIONTYPE(pub i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const LOCAL_APPLICATIONTYPE: APPLICATIONTYPE = 0i32;
+pub const LOCAL_APPLICATIONTYPE: APPLICATIONTYPE = APPLICATIONTYPE(0i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const CLUSTERRESOURCE_APPLICATIONTYPE: APPLICATIONTYPE = 1i32;
+pub const CLUSTERRESOURCE_APPLICATIONTYPE: APPLICATIONTYPE = APPLICATIONTYPE(1i32);
+impl ::core::marker::Copy for APPLICATIONTYPE {}
+impl ::core::clone::Clone for APPLICATIONTYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for APPLICATIONTYPE {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for APPLICATIONTYPE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("APPLICATIONTYPE").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub type AUTHENTICATION_LEVEL = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct AUTHENTICATION_LEVEL(pub i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const NO_AUTHENTICATION_REQUIRED: AUTHENTICATION_LEVEL = 0i32;
+pub const NO_AUTHENTICATION_REQUIRED: AUTHENTICATION_LEVEL = AUTHENTICATION_LEVEL(0i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const INCOMING_AUTHENTICATION_REQUIRED: AUTHENTICATION_LEVEL = 1i32;
+pub const INCOMING_AUTHENTICATION_REQUIRED: AUTHENTICATION_LEVEL = AUTHENTICATION_LEVEL(1i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const MUTUAL_AUTHENTICATION_REQUIRED: AUTHENTICATION_LEVEL = 2i32;
+pub const MUTUAL_AUTHENTICATION_REQUIRED: AUTHENTICATION_LEVEL = AUTHENTICATION_LEVEL(2i32);
+impl ::core::marker::Copy for AUTHENTICATION_LEVEL {}
+impl ::core::clone::Clone for AUTHENTICATION_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for AUTHENTICATION_LEVEL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for AUTHENTICATION_LEVEL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AUTHENTICATION_LEVEL").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub struct BOID {
@@ -65,27 +97,43 @@ pub const DTC_INSTALL_OVERWRITE_CLIENT: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const DTC_INSTALL_OVERWRITE_SERVER: u32 = 2u32;
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub type DTC_STATUS_ = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct DTC_STATUS_(pub i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const DTC_STATUS_UNKNOWN: DTC_STATUS_ = 0i32;
+pub const DTC_STATUS_UNKNOWN: DTC_STATUS_ = DTC_STATUS_(0i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const DTC_STATUS_STARTING: DTC_STATUS_ = 1i32;
+pub const DTC_STATUS_STARTING: DTC_STATUS_ = DTC_STATUS_(1i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const DTC_STATUS_STARTED: DTC_STATUS_ = 2i32;
+pub const DTC_STATUS_STARTED: DTC_STATUS_ = DTC_STATUS_(2i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const DTC_STATUS_PAUSING: DTC_STATUS_ = 3i32;
+pub const DTC_STATUS_PAUSING: DTC_STATUS_ = DTC_STATUS_(3i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const DTC_STATUS_PAUSED: DTC_STATUS_ = 4i32;
+pub const DTC_STATUS_PAUSED: DTC_STATUS_ = DTC_STATUS_(4i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const DTC_STATUS_CONTINUING: DTC_STATUS_ = 5i32;
+pub const DTC_STATUS_CONTINUING: DTC_STATUS_ = DTC_STATUS_(5i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const DTC_STATUS_STOPPING: DTC_STATUS_ = 6i32;
+pub const DTC_STATUS_STOPPING: DTC_STATUS_ = DTC_STATUS_(6i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const DTC_STATUS_STOPPED: DTC_STATUS_ = 7i32;
+pub const DTC_STATUS_STOPPED: DTC_STATUS_ = DTC_STATUS_(7i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const DTC_STATUS_E_CANTCONTROL: DTC_STATUS_ = 8i32;
+pub const DTC_STATUS_E_CANTCONTROL: DTC_STATUS_ = DTC_STATUS_(8i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const DTC_STATUS_FAILED: DTC_STATUS_ = 9i32;
+pub const DTC_STATUS_FAILED: DTC_STATUS_ = DTC_STATUS_(9i32);
+impl ::core::marker::Copy for DTC_STATUS_ {}
+impl ::core::clone::Clone for DTC_STATUS_ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DTC_STATUS_ {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for DTC_STATUS_ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DTC_STATUS_").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -2873,49 +2921,81 @@ pub struct IResourceManagerSink_Vtbl {
     pub TMDown: unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 }
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub type ISOFLAG = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ISOFLAG(pub i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const ISOFLAG_RETAIN_COMMIT_DC: ISOFLAG = 1i32;
+pub const ISOFLAG_RETAIN_COMMIT_DC: ISOFLAG = ISOFLAG(1i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const ISOFLAG_RETAIN_COMMIT: ISOFLAG = 2i32;
+pub const ISOFLAG_RETAIN_COMMIT: ISOFLAG = ISOFLAG(2i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const ISOFLAG_RETAIN_COMMIT_NO: ISOFLAG = 3i32;
+pub const ISOFLAG_RETAIN_COMMIT_NO: ISOFLAG = ISOFLAG(3i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const ISOFLAG_RETAIN_ABORT_DC: ISOFLAG = 4i32;
+pub const ISOFLAG_RETAIN_ABORT_DC: ISOFLAG = ISOFLAG(4i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const ISOFLAG_RETAIN_ABORT: ISOFLAG = 8i32;
+pub const ISOFLAG_RETAIN_ABORT: ISOFLAG = ISOFLAG(8i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const ISOFLAG_RETAIN_ABORT_NO: ISOFLAG = 12i32;
+pub const ISOFLAG_RETAIN_ABORT_NO: ISOFLAG = ISOFLAG(12i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const ISOFLAG_RETAIN_DONTCARE: ISOFLAG = 5i32;
+pub const ISOFLAG_RETAIN_DONTCARE: ISOFLAG = ISOFLAG(5i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const ISOFLAG_RETAIN_BOTH: ISOFLAG = 10i32;
+pub const ISOFLAG_RETAIN_BOTH: ISOFLAG = ISOFLAG(10i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const ISOFLAG_RETAIN_NONE: ISOFLAG = 15i32;
+pub const ISOFLAG_RETAIN_NONE: ISOFLAG = ISOFLAG(15i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const ISOFLAG_OPTIMISTIC: ISOFLAG = 16i32;
+pub const ISOFLAG_OPTIMISTIC: ISOFLAG = ISOFLAG(16i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const ISOFLAG_READONLY: ISOFLAG = 32i32;
+pub const ISOFLAG_READONLY: ISOFLAG = ISOFLAG(32i32);
+impl ::core::marker::Copy for ISOFLAG {}
+impl ::core::clone::Clone for ISOFLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ISOFLAG {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ISOFLAG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISOFLAG").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub type ISOLATIONLEVEL = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct ISOLATIONLEVEL(pub i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const ISOLATIONLEVEL_UNSPECIFIED: ISOLATIONLEVEL = -1i32;
+pub const ISOLATIONLEVEL_UNSPECIFIED: ISOLATIONLEVEL = ISOLATIONLEVEL(-1i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const ISOLATIONLEVEL_CHAOS: ISOLATIONLEVEL = 16i32;
+pub const ISOLATIONLEVEL_CHAOS: ISOLATIONLEVEL = ISOLATIONLEVEL(16i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const ISOLATIONLEVEL_READUNCOMMITTED: ISOLATIONLEVEL = 256i32;
+pub const ISOLATIONLEVEL_READUNCOMMITTED: ISOLATIONLEVEL = ISOLATIONLEVEL(256i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const ISOLATIONLEVEL_BROWSE: ISOLATIONLEVEL = 256i32;
+pub const ISOLATIONLEVEL_BROWSE: ISOLATIONLEVEL = ISOLATIONLEVEL(256i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const ISOLATIONLEVEL_CURSORSTABILITY: ISOLATIONLEVEL = 4096i32;
+pub const ISOLATIONLEVEL_CURSORSTABILITY: ISOLATIONLEVEL = ISOLATIONLEVEL(4096i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const ISOLATIONLEVEL_READCOMMITTED: ISOLATIONLEVEL = 4096i32;
+pub const ISOLATIONLEVEL_READCOMMITTED: ISOLATIONLEVEL = ISOLATIONLEVEL(4096i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const ISOLATIONLEVEL_REPEATABLEREAD: ISOLATIONLEVEL = 65536i32;
+pub const ISOLATIONLEVEL_REPEATABLEREAD: ISOLATIONLEVEL = ISOLATIONLEVEL(65536i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const ISOLATIONLEVEL_SERIALIZABLE: ISOLATIONLEVEL = 1048576i32;
+pub const ISOLATIONLEVEL_SERIALIZABLE: ISOLATIONLEVEL = ISOLATIONLEVEL(1048576i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const ISOLATIONLEVEL_ISOLATED: ISOLATIONLEVEL = 1048576i32;
+pub const ISOLATIONLEVEL_ISOLATED: ISOLATIONLEVEL = ISOLATIONLEVEL(1048576i32);
+impl ::core::marker::Copy for ISOLATIONLEVEL {}
+impl ::core::clone::Clone for ISOLATIONLEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ISOLATIONLEVEL {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for ISOLATIONLEVEL {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISOLATIONLEVEL").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 #[repr(transparent)]
 pub struct ITipHelper(::windows::core::IUnknown);
@@ -5257,23 +5337,71 @@ pub const TM_OK: u32 = 0u32;
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const TM_RESUME: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub type TX_MISC_CONSTANTS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct TX_MISC_CONSTANTS(pub i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const MAX_TRAN_DESC: TX_MISC_CONSTANTS = 40i32;
+pub const MAX_TRAN_DESC: TX_MISC_CONSTANTS = TX_MISC_CONSTANTS(40i32);
+impl ::core::marker::Copy for TX_MISC_CONSTANTS {}
+impl ::core::clone::Clone for TX_MISC_CONSTANTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TX_MISC_CONSTANTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for TX_MISC_CONSTANTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TX_MISC_CONSTANTS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub type XACTCONST = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XACTCONST(pub i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACTCONST_TIMEOUTINFINITE: XACTCONST = 0i32;
+pub const XACTCONST_TIMEOUTINFINITE: XACTCONST = XACTCONST(0i32);
+impl ::core::marker::Copy for XACTCONST {}
+impl ::core::clone::Clone for XACTCONST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XACTCONST {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XACTCONST {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XACTCONST").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub type XACTHEURISTIC = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XACTHEURISTIC(pub i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACTHEURISTIC_ABORT: XACTHEURISTIC = 1i32;
+pub const XACTHEURISTIC_ABORT: XACTHEURISTIC = XACTHEURISTIC(1i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACTHEURISTIC_COMMIT: XACTHEURISTIC = 2i32;
+pub const XACTHEURISTIC_COMMIT: XACTHEURISTIC = XACTHEURISTIC(2i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACTHEURISTIC_DAMAGE: XACTHEURISTIC = 3i32;
+pub const XACTHEURISTIC_DAMAGE: XACTHEURISTIC = XACTHEURISTIC(3i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACTHEURISTIC_DANGER: XACTHEURISTIC = 4i32;
+pub const XACTHEURISTIC_DANGER: XACTHEURISTIC = XACTHEURISTIC(4i32);
+impl ::core::marker::Copy for XACTHEURISTIC {}
+impl ::core::clone::Clone for XACTHEURISTIC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XACTHEURISTIC {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XACTHEURISTIC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XACTHEURISTIC").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub struct XACTOPT {
@@ -5306,59 +5434,91 @@ impl ::core::default::Default for XACTOPT {
     }
 }
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub type XACTRM = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XACTRM(pub i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACTRM_OPTIMISTICLASTWINS: XACTRM = 1i32;
+pub const XACTRM_OPTIMISTICLASTWINS: XACTRM = XACTRM(1i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACTRM_NOREADONLYPREPARES: XACTRM = 2i32;
+pub const XACTRM_NOREADONLYPREPARES: XACTRM = XACTRM(2i32);
+impl ::core::marker::Copy for XACTRM {}
+impl ::core::clone::Clone for XACTRM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XACTRM {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XACTRM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XACTRM").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub type XACTSTAT = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XACTSTAT(pub i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACTSTAT_NONE: XACTSTAT = 0i32;
+pub const XACTSTAT_NONE: XACTSTAT = XACTSTAT(0i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACTSTAT_OPENNORMAL: XACTSTAT = 1i32;
+pub const XACTSTAT_OPENNORMAL: XACTSTAT = XACTSTAT(1i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACTSTAT_OPENREFUSED: XACTSTAT = 2i32;
+pub const XACTSTAT_OPENREFUSED: XACTSTAT = XACTSTAT(2i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACTSTAT_PREPARING: XACTSTAT = 4i32;
+pub const XACTSTAT_PREPARING: XACTSTAT = XACTSTAT(4i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACTSTAT_PREPARED: XACTSTAT = 8i32;
+pub const XACTSTAT_PREPARED: XACTSTAT = XACTSTAT(8i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACTSTAT_PREPARERETAINING: XACTSTAT = 16i32;
+pub const XACTSTAT_PREPARERETAINING: XACTSTAT = XACTSTAT(16i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACTSTAT_PREPARERETAINED: XACTSTAT = 32i32;
+pub const XACTSTAT_PREPARERETAINED: XACTSTAT = XACTSTAT(32i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACTSTAT_COMMITTING: XACTSTAT = 64i32;
+pub const XACTSTAT_COMMITTING: XACTSTAT = XACTSTAT(64i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACTSTAT_COMMITRETAINING: XACTSTAT = 128i32;
+pub const XACTSTAT_COMMITRETAINING: XACTSTAT = XACTSTAT(128i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACTSTAT_ABORTING: XACTSTAT = 256i32;
+pub const XACTSTAT_ABORTING: XACTSTAT = XACTSTAT(256i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACTSTAT_ABORTED: XACTSTAT = 512i32;
+pub const XACTSTAT_ABORTED: XACTSTAT = XACTSTAT(512i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACTSTAT_COMMITTED: XACTSTAT = 1024i32;
+pub const XACTSTAT_COMMITTED: XACTSTAT = XACTSTAT(1024i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACTSTAT_HEURISTIC_ABORT: XACTSTAT = 2048i32;
+pub const XACTSTAT_HEURISTIC_ABORT: XACTSTAT = XACTSTAT(2048i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACTSTAT_HEURISTIC_COMMIT: XACTSTAT = 4096i32;
+pub const XACTSTAT_HEURISTIC_COMMIT: XACTSTAT = XACTSTAT(4096i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACTSTAT_HEURISTIC_DAMAGE: XACTSTAT = 8192i32;
+pub const XACTSTAT_HEURISTIC_DAMAGE: XACTSTAT = XACTSTAT(8192i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACTSTAT_HEURISTIC_DANGER: XACTSTAT = 16384i32;
+pub const XACTSTAT_HEURISTIC_DANGER: XACTSTAT = XACTSTAT(16384i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACTSTAT_FORCED_ABORT: XACTSTAT = 32768i32;
+pub const XACTSTAT_FORCED_ABORT: XACTSTAT = XACTSTAT(32768i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACTSTAT_FORCED_COMMIT: XACTSTAT = 65536i32;
+pub const XACTSTAT_FORCED_COMMIT: XACTSTAT = XACTSTAT(65536i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACTSTAT_INDOUBT: XACTSTAT = 131072i32;
+pub const XACTSTAT_INDOUBT: XACTSTAT = XACTSTAT(131072i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACTSTAT_CLOSED: XACTSTAT = 262144i32;
+pub const XACTSTAT_CLOSED: XACTSTAT = XACTSTAT(262144i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACTSTAT_OPEN: XACTSTAT = 3i32;
+pub const XACTSTAT_OPEN: XACTSTAT = XACTSTAT(3i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACTSTAT_NOTPREPARED: XACTSTAT = 524227i32;
+pub const XACTSTAT_NOTPREPARED: XACTSTAT = XACTSTAT(524227i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACTSTAT_ALL: XACTSTAT = 524287i32;
+pub const XACTSTAT_ALL: XACTSTAT = XACTSTAT(524287i32);
+impl ::core::marker::Copy for XACTSTAT {}
+impl ::core::clone::Clone for XACTSTAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XACTSTAT {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XACTSTAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XACTSTAT").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -5405,19 +5565,35 @@ impl ::core::default::Default for XACTSTATS {
     }
 }
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub type XACTTC = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XACTTC(pub i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACTTC_NONE: XACTTC = 0i32;
+pub const XACTTC_NONE: XACTTC = XACTTC(0i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACTTC_SYNC_PHASEONE: XACTTC = 1i32;
+pub const XACTTC_SYNC_PHASEONE: XACTTC = XACTTC(1i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACTTC_SYNC_PHASETWO: XACTTC = 2i32;
+pub const XACTTC_SYNC_PHASETWO: XACTTC = XACTTC(2i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACTTC_SYNC: XACTTC = 2i32;
+pub const XACTTC_SYNC: XACTTC = XACTTC(2i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACTTC_ASYNC_PHASEONE: XACTTC = 4i32;
+pub const XACTTC_ASYNC_PHASEONE: XACTTC = XACTTC(4i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACTTC_ASYNC: XACTTC = 4i32;
+pub const XACTTC_ASYNC: XACTTC = XACTTC(4i32);
+impl ::core::marker::Copy for XACTTC {}
+impl ::core::clone::Clone for XACTTC {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XACTTC {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XACTTC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XACTTC").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub struct XACTTRANSINFO {
@@ -5455,53 +5631,69 @@ impl ::core::default::Default for XACTTRANSINFO {
     }
 }
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub type XACT_DTC_CONSTANTS = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct XACT_DTC_CONSTANTS(pub i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACT_E_CONNECTION_REQUEST_DENIED: XACT_DTC_CONSTANTS = -2147168000i32;
+pub const XACT_E_CONNECTION_REQUEST_DENIED: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(-2147168000i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACT_E_TOOMANY_ENLISTMENTS: XACT_DTC_CONSTANTS = -2147167999i32;
+pub const XACT_E_TOOMANY_ENLISTMENTS: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(-2147167999i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACT_E_DUPLICATE_GUID: XACT_DTC_CONSTANTS = -2147167998i32;
+pub const XACT_E_DUPLICATE_GUID: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(-2147167998i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACT_E_NOTSINGLEPHASE: XACT_DTC_CONSTANTS = -2147167997i32;
+pub const XACT_E_NOTSINGLEPHASE: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(-2147167997i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACT_E_RECOVERYALREADYDONE: XACT_DTC_CONSTANTS = -2147167996i32;
+pub const XACT_E_RECOVERYALREADYDONE: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(-2147167996i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACT_E_PROTOCOL: XACT_DTC_CONSTANTS = -2147167995i32;
+pub const XACT_E_PROTOCOL: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(-2147167995i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACT_E_RM_FAILURE: XACT_DTC_CONSTANTS = -2147167994i32;
+pub const XACT_E_RM_FAILURE: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(-2147167994i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACT_E_RECOVERY_FAILED: XACT_DTC_CONSTANTS = -2147167993i32;
+pub const XACT_E_RECOVERY_FAILED: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(-2147167993i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACT_E_LU_NOT_FOUND: XACT_DTC_CONSTANTS = -2147167992i32;
+pub const XACT_E_LU_NOT_FOUND: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(-2147167992i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACT_E_DUPLICATE_LU: XACT_DTC_CONSTANTS = -2147167991i32;
+pub const XACT_E_DUPLICATE_LU: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(-2147167991i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACT_E_LU_NOT_CONNECTED: XACT_DTC_CONSTANTS = -2147167990i32;
+pub const XACT_E_LU_NOT_CONNECTED: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(-2147167990i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACT_E_DUPLICATE_TRANSID: XACT_DTC_CONSTANTS = -2147167989i32;
+pub const XACT_E_DUPLICATE_TRANSID: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(-2147167989i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACT_E_LU_BUSY: XACT_DTC_CONSTANTS = -2147167988i32;
+pub const XACT_E_LU_BUSY: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(-2147167988i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACT_E_LU_NO_RECOVERY_PROCESS: XACT_DTC_CONSTANTS = -2147167987i32;
+pub const XACT_E_LU_NO_RECOVERY_PROCESS: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(-2147167987i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACT_E_LU_DOWN: XACT_DTC_CONSTANTS = -2147167986i32;
+pub const XACT_E_LU_DOWN: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(-2147167986i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACT_E_LU_RECOVERING: XACT_DTC_CONSTANTS = -2147167985i32;
+pub const XACT_E_LU_RECOVERING: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(-2147167985i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACT_E_LU_RECOVERY_MISMATCH: XACT_DTC_CONSTANTS = -2147167984i32;
+pub const XACT_E_LU_RECOVERY_MISMATCH: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(-2147167984i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACT_E_RM_UNAVAILABLE: XACT_DTC_CONSTANTS = -2147167983i32;
+pub const XACT_E_RM_UNAVAILABLE: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(-2147167983i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACT_E_LRMRECOVERYALREADYDONE: XACT_DTC_CONSTANTS = -2147167982i32;
+pub const XACT_E_LRMRECOVERYALREADYDONE: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(-2147167982i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACT_E_NOLASTRESOURCEINTERFACE: XACT_DTC_CONSTANTS = -2147167981i32;
+pub const XACT_E_NOLASTRESOURCEINTERFACE: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(-2147167981i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACT_S_NONOTIFY: XACT_DTC_CONSTANTS = 315648i32;
+pub const XACT_S_NONOTIFY: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(315648i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const XACT_OK_NONOTIFY: XACT_DTC_CONSTANTS = 315649i32;
+pub const XACT_OK_NONOTIFY: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(315649i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const dwUSER_MS_SQLSERVER: XACT_DTC_CONSTANTS = 65535i32;
+pub const dwUSER_MS_SQLSERVER: XACT_DTC_CONSTANTS = XACT_DTC_CONSTANTS(65535i32);
+impl ::core::marker::Copy for XACT_DTC_CONSTANTS {}
+impl ::core::clone::Clone for XACT_DTC_CONSTANTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for XACT_DTC_CONSTANTS {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for XACT_DTC_CONSTANTS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XACT_DTC_CONSTANTS").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XAER_ASYNC: i32 = -2i32;
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
@@ -5592,77 +5784,221 @@ pub const XA_SWITCH_F_DTC: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub const XIDDATASIZE: u32 = 128u32;
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub type _DtcLu_CompareState = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct _DtcLu_CompareState(pub i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const DTCLUCOMPARESTATE_COMMITTED: _DtcLu_CompareState = 1i32;
+pub const DTCLUCOMPARESTATE_COMMITTED: _DtcLu_CompareState = _DtcLu_CompareState(1i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const DTCLUCOMPARESTATE_HEURISTICCOMMITTED: _DtcLu_CompareState = 2i32;
+pub const DTCLUCOMPARESTATE_HEURISTICCOMMITTED: _DtcLu_CompareState = _DtcLu_CompareState(2i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const DTCLUCOMPARESTATE_HEURISTICMIXED: _DtcLu_CompareState = 3i32;
+pub const DTCLUCOMPARESTATE_HEURISTICMIXED: _DtcLu_CompareState = _DtcLu_CompareState(3i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const DTCLUCOMPARESTATE_HEURISTICRESET: _DtcLu_CompareState = 4i32;
+pub const DTCLUCOMPARESTATE_HEURISTICRESET: _DtcLu_CompareState = _DtcLu_CompareState(4i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const DTCLUCOMPARESTATE_INDOUBT: _DtcLu_CompareState = 5i32;
+pub const DTCLUCOMPARESTATE_INDOUBT: _DtcLu_CompareState = _DtcLu_CompareState(5i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const DTCLUCOMPARESTATE_RESET: _DtcLu_CompareState = 6i32;
+pub const DTCLUCOMPARESTATE_RESET: _DtcLu_CompareState = _DtcLu_CompareState(6i32);
+impl ::core::marker::Copy for _DtcLu_CompareState {}
+impl ::core::clone::Clone for _DtcLu_CompareState {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for _DtcLu_CompareState {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for _DtcLu_CompareState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_DtcLu_CompareState").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub type _DtcLu_CompareStates_Confirmation = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct _DtcLu_CompareStates_Confirmation(pub i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const DTCLUCOMPARESTATESCONFIRMATION_CONFIRM: _DtcLu_CompareStates_Confirmation = 1i32;
+pub const DTCLUCOMPARESTATESCONFIRMATION_CONFIRM: _DtcLu_CompareStates_Confirmation = _DtcLu_CompareStates_Confirmation(1i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const DTCLUCOMPARESTATESCONFIRMATION_PROTOCOL: _DtcLu_CompareStates_Confirmation = 2i32;
+pub const DTCLUCOMPARESTATESCONFIRMATION_PROTOCOL: _DtcLu_CompareStates_Confirmation = _DtcLu_CompareStates_Confirmation(2i32);
+impl ::core::marker::Copy for _DtcLu_CompareStates_Confirmation {}
+impl ::core::clone::Clone for _DtcLu_CompareStates_Confirmation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for _DtcLu_CompareStates_Confirmation {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for _DtcLu_CompareStates_Confirmation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_DtcLu_CompareStates_Confirmation").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub type _DtcLu_CompareStates_Error = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct _DtcLu_CompareStates_Error(pub i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const DTCLUCOMPARESTATESERROR_PROTOCOL: _DtcLu_CompareStates_Error = 1i32;
+pub const DTCLUCOMPARESTATESERROR_PROTOCOL: _DtcLu_CompareStates_Error = _DtcLu_CompareStates_Error(1i32);
+impl ::core::marker::Copy for _DtcLu_CompareStates_Error {}
+impl ::core::clone::Clone for _DtcLu_CompareStates_Error {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for _DtcLu_CompareStates_Error {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for _DtcLu_CompareStates_Error {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_DtcLu_CompareStates_Error").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub type _DtcLu_CompareStates_Response = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct _DtcLu_CompareStates_Response(pub i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const DTCLUCOMPARESTATESRESPONSE_OK: _DtcLu_CompareStates_Response = 1i32;
+pub const DTCLUCOMPARESTATESRESPONSE_OK: _DtcLu_CompareStates_Response = _DtcLu_CompareStates_Response(1i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const DTCLUCOMPARESTATESRESPONSE_PROTOCOL: _DtcLu_CompareStates_Response = 2i32;
+pub const DTCLUCOMPARESTATESRESPONSE_PROTOCOL: _DtcLu_CompareStates_Response = _DtcLu_CompareStates_Response(2i32);
+impl ::core::marker::Copy for _DtcLu_CompareStates_Response {}
+impl ::core::clone::Clone for _DtcLu_CompareStates_Response {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for _DtcLu_CompareStates_Response {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for _DtcLu_CompareStates_Response {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_DtcLu_CompareStates_Response").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub type _DtcLu_LocalRecovery_Work = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct _DtcLu_LocalRecovery_Work(pub i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const DTCINITIATEDRECOVERYWORK_CHECKLUSTATUS: _DtcLu_LocalRecovery_Work = 1i32;
+pub const DTCINITIATEDRECOVERYWORK_CHECKLUSTATUS: _DtcLu_LocalRecovery_Work = _DtcLu_LocalRecovery_Work(1i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const DTCINITIATEDRECOVERYWORK_TRANS: _DtcLu_LocalRecovery_Work = 2i32;
+pub const DTCINITIATEDRECOVERYWORK_TRANS: _DtcLu_LocalRecovery_Work = _DtcLu_LocalRecovery_Work(2i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const DTCINITIATEDRECOVERYWORK_TMDOWN: _DtcLu_LocalRecovery_Work = 3i32;
+pub const DTCINITIATEDRECOVERYWORK_TMDOWN: _DtcLu_LocalRecovery_Work = _DtcLu_LocalRecovery_Work(3i32);
+impl ::core::marker::Copy for _DtcLu_LocalRecovery_Work {}
+impl ::core::clone::Clone for _DtcLu_LocalRecovery_Work {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for _DtcLu_LocalRecovery_Work {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for _DtcLu_LocalRecovery_Work {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_DtcLu_LocalRecovery_Work").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub type _DtcLu_Xln = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct _DtcLu_Xln(pub i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const DTCLUXLN_COLD: _DtcLu_Xln = 1i32;
+pub const DTCLUXLN_COLD: _DtcLu_Xln = _DtcLu_Xln(1i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const DTCLUXLN_WARM: _DtcLu_Xln = 2i32;
+pub const DTCLUXLN_WARM: _DtcLu_Xln = _DtcLu_Xln(2i32);
+impl ::core::marker::Copy for _DtcLu_Xln {}
+impl ::core::clone::Clone for _DtcLu_Xln {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for _DtcLu_Xln {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for _DtcLu_Xln {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_DtcLu_Xln").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub type _DtcLu_Xln_Confirmation = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct _DtcLu_Xln_Confirmation(pub i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const DTCLUXLNCONFIRMATION_CONFIRM: _DtcLu_Xln_Confirmation = 1i32;
+pub const DTCLUXLNCONFIRMATION_CONFIRM: _DtcLu_Xln_Confirmation = _DtcLu_Xln_Confirmation(1i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const DTCLUXLNCONFIRMATION_LOGNAMEMISMATCH: _DtcLu_Xln_Confirmation = 2i32;
+pub const DTCLUXLNCONFIRMATION_LOGNAMEMISMATCH: _DtcLu_Xln_Confirmation = _DtcLu_Xln_Confirmation(2i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const DTCLUXLNCONFIRMATION_COLDWARMMISMATCH: _DtcLu_Xln_Confirmation = 3i32;
+pub const DTCLUXLNCONFIRMATION_COLDWARMMISMATCH: _DtcLu_Xln_Confirmation = _DtcLu_Xln_Confirmation(3i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const DTCLUXLNCONFIRMATION_OBSOLETE: _DtcLu_Xln_Confirmation = 4i32;
+pub const DTCLUXLNCONFIRMATION_OBSOLETE: _DtcLu_Xln_Confirmation = _DtcLu_Xln_Confirmation(4i32);
+impl ::core::marker::Copy for _DtcLu_Xln_Confirmation {}
+impl ::core::clone::Clone for _DtcLu_Xln_Confirmation {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for _DtcLu_Xln_Confirmation {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for _DtcLu_Xln_Confirmation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_DtcLu_Xln_Confirmation").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub type _DtcLu_Xln_Error = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct _DtcLu_Xln_Error(pub i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const DTCLUXLNERROR_PROTOCOL: _DtcLu_Xln_Error = 1i32;
+pub const DTCLUXLNERROR_PROTOCOL: _DtcLu_Xln_Error = _DtcLu_Xln_Error(1i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const DTCLUXLNERROR_LOGNAMEMISMATCH: _DtcLu_Xln_Error = 2i32;
+pub const DTCLUXLNERROR_LOGNAMEMISMATCH: _DtcLu_Xln_Error = _DtcLu_Xln_Error(2i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const DTCLUXLNERROR_COLDWARMMISMATCH: _DtcLu_Xln_Error = 3i32;
+pub const DTCLUXLNERROR_COLDWARMMISMATCH: _DtcLu_Xln_Error = _DtcLu_Xln_Error(3i32);
+impl ::core::marker::Copy for _DtcLu_Xln_Error {}
+impl ::core::clone::Clone for _DtcLu_Xln_Error {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for _DtcLu_Xln_Error {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for _DtcLu_Xln_Error {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_DtcLu_Xln_Error").field(&self.0).finish()
+    }
+}
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub type _DtcLu_Xln_Response = i32;
+#[repr(transparent)]
+#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
+pub struct _DtcLu_Xln_Response(pub i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const DTCLUXLNRESPONSE_OK_SENDOURXLNBACK: _DtcLu_Xln_Response = 1i32;
+pub const DTCLUXLNRESPONSE_OK_SENDOURXLNBACK: _DtcLu_Xln_Response = _DtcLu_Xln_Response(1i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const DTCLUXLNRESPONSE_OK_SENDCONFIRMATION: _DtcLu_Xln_Response = 2i32;
+pub const DTCLUXLNRESPONSE_OK_SENDCONFIRMATION: _DtcLu_Xln_Response = _DtcLu_Xln_Response(2i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const DTCLUXLNRESPONSE_LOGNAMEMISMATCH: _DtcLu_Xln_Response = 3i32;
+pub const DTCLUXLNRESPONSE_LOGNAMEMISMATCH: _DtcLu_Xln_Response = _DtcLu_Xln_Response(3i32);
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
-pub const DTCLUXLNRESPONSE_COLDWARMMISMATCH: _DtcLu_Xln_Response = 4i32;
+pub const DTCLUXLNRESPONSE_COLDWARMMISMATCH: _DtcLu_Xln_Response = _DtcLu_Xln_Response(4i32);
+impl ::core::marker::Copy for _DtcLu_Xln_Response {}
+impl ::core::clone::Clone for _DtcLu_Xln_Response {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for _DtcLu_Xln_Response {
+    type Abi = Self;
+}
+impl ::core::fmt::Debug for _DtcLu_Xln_Response {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_DtcLu_Xln_Response").field(&self.0).finish()
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_DistributedTransactionCoordinator'*"]
 pub struct _ProxyConfigParams {
