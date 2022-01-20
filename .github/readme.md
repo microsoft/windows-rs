@@ -9,7 +9,6 @@ The `windows` crate lets you call any Windows API past, present, and future usin
     * [windows](https://microsoft.github.io/windows-docs-rs/)
     * [windows-sys](https://docs.rs/windows-sys)
 * [Samples](https://github.com/microsoft/windows-samples-rs/)
-* [Changelog](https://github.com/microsoft/windows-rs/blob/master/.github/changelog.md)
 
 Start by adding the following to your Cargo.toml file:
 
