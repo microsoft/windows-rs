@@ -207,7 +207,7 @@ fn get_hardware_adapter(factory: &IDXGIFactory4) -> Result<IDXGIAdapter1> {
 
         let desc = unsafe { adapter.GetDesc1()? };
 
-        if (DXGI_ADAPTER_FLAG::from(desc.Flags) & DXGI_ADAPTER_FLAG_SOFTWARE)
+        if (DXGI_ADAPTER_FLAG(desc.Flags) & DXGI_ADAPTER_FLAG_SOFTWARE)
             != DXGI_ADAPTER_FLAG_NONE
         {
             // Don't select the Basic Render Driver adapter. If you want a
@@ -687,7 +687,7 @@ mod d3d12_hello_triangle {
                         DestBlendAlpha: D3D12_BLEND_ZERO,
                         BlendOpAlpha: D3D12_BLEND_OP_ADD,
                         LogicOp: D3D12_LOGIC_OP_NOOP,
-                        RenderTargetWriteMask: D3D12_COLOR_WRITE_ENABLE_ALL as u8,
+                        RenderTargetWriteMask: D3D12_COLOR_WRITE_ENABLE_ALL.0 as u8,
                     },
                     D3D12_RENDER_TARGET_BLEND_DESC::default(),
                     D3D12_RENDER_TARGET_BLEND_DESC::default(),

@@ -12,7 +12,7 @@ fn implement() -> Result<()> {
         let t = Thing { value: "hello".to_string(), sender };
 
         let s: IStringable = t.into();
-        assert!(s.ToString()? == "hello");
+        assert_eq!(s.ToString()?, "hello");
 
         let c: IClosable = s.cast()?;
         c.Close()?;
